@@ -1,4 +1,5 @@
 \documentclass[12pt,a4paper,figuresright]{book}
+%\documentclass[12pt,a4paper,figuresright]{book}
 
 % make sure sessions and talks are not split between pages
 \usepackage{needspace}
@@ -81,6 +82,8 @@
 
 \newcommand{\update}[1]{\begingroup\color{blue}#1\endgroup}
 \newcommand{\todo}[1]{\begingroup\color{red}#1\endgroup}
+
+\newcommand{\scnote}[1]{{\color{red}{\bf Sou-Cheng}: #1}}
 
 % ------------------------------------------------------------------------
 % New Definitions
@@ -5563,7 +5566,8 @@ Abstract goes here.
 % ----------------------------------------------------------------
 % ----------------------------------------------------------------
 % ----------------------------------------------------------------
-\input{ParticipantsNoEmail}
+\scnote{Commented out the following file to fix error}
+%\input{ParticipantsNoEmail}
 
 \end{document}
 
