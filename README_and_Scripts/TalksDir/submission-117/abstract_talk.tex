@@ -1,0 +1,79 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Efficient surrogate construction for response surfaces with steep gradients}% [1] talk title
+  {Pieterjan Robbe}% [2] speaker name
+  {Sandia National Laboratories}% [3] affiliations
+  {pmrobbe@sandia.gov}% [4] email
+  {Tiernan A. Casey, Khachik Sargsyan, Habib N. Najm}% [5] coauthors
+  {Efficient Bayesian Surrogate Modeling - Part 1}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+				
+
+Phase field models are mathematical models used to describe the evolution of microstructures and phase boundaries in materials. In the context of fission gas predictions in nuclear fuel, for example, phase field models play an important role in capturing the intergranular gas phases. When constructing surrogate models of the phase field for uncertainty quantification purposes, specific challenges arise because the steep transitions in the phase field propagate into the parameter space. We investigate a new adaptive sampling scheme for dealing with such problems. In our method, the acquisition function, which plays a crucial role in guiding the selection of new data points to be sampled, is a combination of the surrogate mean and gradient. Furthermore, the massive phase field outputs (often $> 10^6$ grid points across space and time) pose challenges for classic surrogate construction methods such as Gaussian Processes. We discuss parallel partial emulation as a potential solution.
+\end{talk}
+
+
+\end{document}

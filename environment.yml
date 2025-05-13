@@ -1,0 +1,17 @@
+# conda env create -f environment.yml 
+# conda activate mcm2025
+# conda deactivate;  conda remove --name mcm2025 --all
+name: mcm2025
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10.16
+  - ipykernel=6.29.5
+  - numpy=2.2.5
+  - httpx=0.28.1 
+  - pandas=2.2.3
+  - openpyxl=3.1.5 
+  - pip=25.0
+  - pip:
+      - matplotlib==3.7.1

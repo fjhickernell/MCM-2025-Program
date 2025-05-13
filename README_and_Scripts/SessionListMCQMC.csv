@@ -1,0 +1,36 @@
+﻿SS3,"Stochastic Computation and Complexity, Part I: SDEs, Stochastic optimization and neural networks",1,Thomas Müller-Gronbach, ,,Thomas Müller-Gronbach,"Monday, August 19, 2024 -- Morning",STC 0020,1
+SS13,Optimization under uncertainty,1,Philipp Guth,Vesa Kaarnioja,Claudia Schillings,Vesa Kaarnioja,"Monday, August 19, 2024 -- Morning",STC 0040,2
+SS9,Efficient Bayesian Surrogate Modeling - Part 1,1,Aleksei Sorokin,Pieterjan Robbe,,Aleksei Sorokin,"Monday, August 19, 2024 -- Morning",STC 0050,3
+CS4,Technical Session 1,0,,,,Michael Gnewuch,"Monday, August 19, 2024 -- Morning",STC 0060,4
+SS4,"Stochastic Computation and Complexity, Part II: Approximation of SDEs under non-standard assumptions",1,Stefan Heinrich, ,,Stefan Heinrich,"Monday, August 19, 2024 -- Afternoon",STC 0020,5
+CS1,Technical Session 2,0,,,,Alexander Keller,"Monday, August 19, 2024 -- Afternoon",STC 0040,6
+SS10,Efficient Bayesian Surrogate Modeling - Part 2,1,Pieterjan Robbe,Aleksei Sorokin,,Pieterjan Robbe,"Monday, August 19, 2024 -- Afternoon",STC 0050,7
+SS20,Variance reduction techniques for rare events,1,Nadhir Ben Rached,Raul Tempone,Shyam Mohan Subbiah Pillai,Shyam Mohan Subbiah Pillai,"Monday, August 19, 2024 -- Afternoon",STC 0060,8
+SS5,"Stochastic Computation and Complexity, Part III: High dimensional approximation and integration",1,Larisa Yaroslavtseva, ,,Klaus Ritter,"Tuesday, August 20, 2024 -- Morning",STC 0020,9
+SS18,Efficient methods for uncertainty quantification in differential equations Part I,1,Anastasia Istratuca,Aretha Teckentrup, ,Aretha Teckentrup,"Tuesday, August 20, 2024 -- Morning",STC 0040,10
+SS14,Recent advances in QMC methods for computational finance and Financial Risk management,1,Chiheb Ben Hammouda,Raul Tempone, ,Chiheb Ben Hammouda,"Tuesday, August 20, 2024 -- Morning",STC 0050,11
+CS2,Technical Session 3,0,,,,Ronald Cools,"Tuesday, August 20, 2024 -- Morning",STC 0060,12
+CS10,Technical Session 4,0,,,,Ben Feng,"Tuesday, August 20, 2024 -- Afternoon",STC 0020,13
+SS19,Efficient methods for uncertainty quantification in differential equations Part II,1,Anastasia Istratuca,Aretha Teckentrup, ,Anastasia Istratuca,"Tuesday, August 20, 2024 -- Afternoon",STC 0040,14
+SS2,Learning to Solve Related Integrals,1,Chris Oates, ,,Chris Oates,"Tuesday, August 20, 2024 -- Afternoon",STC 0050,15
+CS6,Technical Session 5,0,,,,Christiane Lemieux,"Tuesday, August 20, 2024 -- Afternoon",STC 0060,16
+SS6,Function recovery and discretization problems - Part 1,1,David Krieg,Kateryna Pozharska,,Kateryna Pozharska,"Wednesday, August 21, 2024 -- Morning",STC 0020,17
+CS7,Technical Session 6,0,,,,Takashi Goda,"Wednesday, August 21, 2024 -- Morning",STC 0040,18
+SS23,Testing and analysis of pseudorandom number generators,1,Emil Løvbak,Michael Mascagni,,Emil Løvbak,"Wednesday, August 21, 2024 -- Morning",STC 0050,19
+CS5,Technical Session 7,0,,,,Josef Dick,"Wednesday, August 21, 2024 -- Morning",STC 0060,20
+SS7,Function recovery and discretization problems - Part 2,1,David Krieg,Kateryna Pozharska,,David Krieg,"Wednesday, August 21, 2024 -- Afternoon",STC 0020,21
+SS8,Universality in QMC and related algorithms,1,Peter Kritzer, ,,Peter Kritzer,"Wednesday, August 21, 2024 -- Afternoon",STC 0040,22
+CS3,Technical Session 8,0,,,,Aretha Teckentrup,"Wednesday, August 21, 2024 -- Afternoon",STC 0050,23
+CS8,Technical Session 9,0,,,,Andrea Barth,"Wednesday, August 21, 2024 -- Afternoon",STC 0060,24
+SS21,Multilevel methods for SDEs and SPDEs,1,Mike Giles, ,,Mike Giles,"Thursday, August 22, 2024 -- Morning",STC 0020,25
+SS15,Recent Advances in Monte Carlo Methods for Forward and Inverse Problems for Stochastic Reaction Networks - Part 1,1,Sophia Wiechert,Chiheb Ben Hammouda,Raúl Tempone,Chiheb Ben Hammouda,"Thursday, August 22, 2024 -- Morning",STC 0040,26
+SS11,Kernel approximation and cubature - Part 1 of 2,1,Vesa Kaarnioja,Ilja Klebanov,,Vesa Kaarnioja,"Thursday, August 22, 2024 -- Morning",STC 0050,27
+CS12,Technical Session 10,0,,,,Christiane Lemieux,"Thursday, August 22, 2024 -- Morning",STC 0060,28
+SS22,Multilevel methods for function approximation,1,Mike Giles, ,,Mike Giles,"Thursday, August 22, 2024 -- Afternoon",STC 0020,29
+SS16,Recent Advances in Monte Carlo Methods for Forward and Inverse Problems for Stochastic Reaction Networks - Part 2,1,Sophia Wiechert,Chiheb Ben Hammouda,Raúl Tempone,Sophia Wiechert,"Thursday, August 22, 2024 -- Afternoon",STC 0040,30
+SS12,Kernel approximation and cubature - Part 2 of 2,1,Vesa Kaarnioja,Ilja Klebanov,,Ilja Klebanov,"Thursday, August 22, 2024 -- Afternoon",STC 0050,31
+CS9,Technical Session 11,0,,,,Nathan Kirk,"Thursday, August 22, 2024 -- Afternoon",STC 0060,32
+SS1,MCMC: Convergence and Robustness,1,Alex Shestopaloff,Jun Yang,,Alex Shestopaloff,"Friday, August 23, 2024 -- Morning",STC 0020,33
+SS17,Continuous-time dynamics in Monte Carlo and beyond,1,Neil Chada,Jonas Latz,Sam Power,Jonas Latz,"Friday, August 23, 2024 -- Morning",STC 0040,34
+SS24,Function spaces and algorithms for high-dimensional problems,1,Michael Gnewuch,Klaus Ritter,,Klaus Ritter,"Friday, August 23, 2024 -- Morning",STC 0050,35
+CS11,Technical Session 12,0,,,,Mike Giles,"Friday, August 23, 2024 -- Morning",STC 0060,36

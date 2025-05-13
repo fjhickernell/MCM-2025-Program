@@ -1,0 +1,89 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Monte Carlo convergence rates for moments in Banach spaces}% [1] talk title
+  {Kristin Kirchner}% [2] speaker name
+  {Delft University of Technology, The Netherlands \\ 
+  KTH Royal Institute of Technology, Sweden}% [3] affiliations
+  {k.kirchner@tudelft.nl}% [4] email
+  {Christoph Schwab}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+
+
+Monte Carlo sampling methods are used in various applications in statistics and uncertainty quantification to estimate means or higher-order moments of random variables. Whenever the random variable takes values in a Hilbert space and exhibits sufficient integrability in Bochner sense, the convergence rate $1/2$ in the number of samples is achieved for both the mean and higher-order moments (if interpreted as elements of Hilbert tensor product spaces). When considering means of Banach space valued random variables, this situation changes: The Monte Carlo convergence rate generally depends on geometric properties of the Banach space, quantified by its Rademacher type $p\in[1,2]$, and will not exceed $1 - 1/p$. Besides this issue of type-dependent convergence rates, the following difficulties occur when considering \emph{higher-order moments} of Banach space valued random variables: As opposed to the Hilbert space case, there is no canonical choice for the norm on tensor products of Banach spaces. Moreover, it is in general not possible to argue via the Rademacher type of the tensor product space, because either it is not known or the resulting convergence rate would not be sharp. 
+
+In my talk I will close this gap in the analysis of Banach space valued random variables and quantify convergence of Monte Carlo methods for higher-order moments in Banach spaces. Specifically, I will discuss how the Monte Carlo convergence rate $1 - 1/p$ can also be achieved for moments of order $k > 1$, if the injective tensor norm is used on the $k$-fold tensor product space. Furthermore, I will formulate a corresponding result for multilevel Monte Carlo estimation which allows to reduce the computational cost in applications.  
+There are numerous applications conceivable, and I will detail one of them: The approximation of cross-correlations for solutions to stochastic differential equations by means of (multilevel) Monte Carlo Euler--Maruyama methods.
+
+This talk is based on [1]. 
+
+\medskip
+
+[1] K.~Kirchner and Ch.~Schwab, 
+\emph{Monte Carlo convergence rates for $k$th moments in Banach spaces},  
+Journal of Functional Analysis, 286 (2024), 110218.
+\end{talk}
+
+
+\end{document}

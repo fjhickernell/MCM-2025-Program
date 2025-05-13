@@ -1,0 +1,79 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Sampling with Stein Discrepancies}% [1] talk title
+  {Chris. J. Oates}% [2] speaker name
+  {Newcastle University and the Alan Turing Institute, UK}% [3] affiliations
+  {chris.oates@ncl.ac.uk}% [4] email
+  {}% [5] coauthors
+  {}% [6] Please leave this field empty
+
+As a statistical paradigm, Bayesian inference is conceptually simple and elegant.  However, the computational challenge of sampling from the posterior distribution represents a major practical restriction on the class of models that can be analysed.  Stein's method has generated considerable recent excitement in computational statistics, being used to construct novel sampling methods that have, in certain situations, out-performed the state-of-the-art.  This talk will explain how Stein's method can be used to transform a sampling problem into an optimisation problem, before introducing several different optimisation algorithms that each give rise to a practical computational method for Bayesian inference.
+
+The main technical tool that we use is \emph{Stein discrepancy}, and some of the interesting open theoretical and methodological challenges associated with Stein discrepancy will be highlighted.
+\end{talk}
+
+
+
+\end{document}
+

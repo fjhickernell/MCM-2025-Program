@@ -1,0 +1,70 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Multilevel function approximation I: meta-theorems and PDE analysis}% [1] talk title
+  {Filippo De Angelis}% [2] speaker name
+  {University of Oxford}% [3] affiliations
+  {filippo.deangelis@maths.ox.ac.uk}% [4] email
+  {Mike Giles, Christoph Reisinger}% [5] coauthors
+  {Multilevel methods for function approximation}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+This and the next talk present new ideas on the approximation of functions $\xi \mapsto f(\xi)$, where each function evaluation corresponds to either a functional of the solution of a PDE, with parametric dependence on $\xi$, or the expected value of a functional of the solution of an SDE, again with a parametric dependence on $\xi$. In both cases, exact sampling of $f(\xi)$ is not possible, and greater accuracy comes at a higher computational cost.
+
+The key idea to improve the computational cost for a given accuracy is a multilevel representation of the function $f$. Coarse levels use inaccurate approximations of $f(\xi)$ at a large number of points, whereas fine levels use very accurate approximations at a very limited number of points.
+
+Building on prior research, the talk will present separate meta-theorems for the PDE and SDE case. Each meta-theorem determines the computational complexity if certain assumptions are satisfied. The presentation will then proceed to verify these assumptions for the PDE case, specifically when using finite difference approximations of $f(\xi)$. The analysis is supported by numerical results demonstrating the predicted savings.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Heinrich, S. (2001). {\it Multilevel Monte Carlo methods}. Large-Scale Scientific Computing, 58–67.
+    \item[{[2]}] Teckentrup, A., Jantsch, P., Webster, C.G., Gunzburger, M. (2015). {\it A multilevel stochastic collocation method for partial differential equations with random input data}. SIAM/ASA Journal on Uncertainty Quantification, 1046–1074.
+    \item[{[3]}] Tempone, R., Wolfers, S. (2018). {\it Smolyak’s algorithm: A powerful black box for the acceleration of scientific computations}. Sparse Grids and Applications - Miami 2016, 201–228.
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+

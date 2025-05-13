@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {On randomized Euler scheme for SDEs with drift in integral form and its connection with SGD}% [1] talk title
+  {Micha{\l } Sobieraj}% [2] speaker name
+  {AGH University of Krakow}% [3] affiliations
+  {sobieraj@agh.edu.pl}% [4] email
+  {Pawe{\l } Przyby{\l }owicz}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In this presentation, we investigate strong approximation of solutions of the following stochastic differential equations 
+\begin{equation}
+\label{ms:main_equation}
+	\left\{ \begin{array}{ll}
+	\displaystyle{
+	\mathrm{d} X(t) = a(X(t))\mathrm{d} t + b(X(t)) \mathrm{d} W(t), \ t\in [0,T]},\\
+	X(0)=\eta, 
+	\end{array} \right.
+\end{equation}
+where $d,m \in \mathbb{N}, \eta\in\mathbb{R}^d$, $W$ is a $m$-dimensional Wiener process, $T \in [0, +\infty),$
+and $a$ is in the following integral form
+\begin{equation*}
+    a(x)=\int\limits_{\mathcal{T}} H(t,x) \mu(\mathrm{d}t),
+\end{equation*}
+such that $(\mathcal{T}, \mathcal{A}, \mu)$ is probability space (see [1]). 
+
+Hereafter, in a certain class of coefficients $H:\mathcal{T}\times\mathbb{R}^d\to\mathbb{R}^d$, $b:[0,T]\times\mathbb{R}^d\to \mathbb{R}^{d \times m}$, we investigate the upper $L^{p}$-error bound of introduced randomized Euler scheme $X^{RE}_{n, M}$ for pointwise approximation of solutions $X(T)$ of \eqref{ms:main_equation}. Next, we discuss the connection between various variants of gradient descent algorithms (see [2]) and Euler schemes for the approximation of the solutions of differential equations. In particular, we focus on introduced randomized euler scheme $X_{n, M}^{RE}$ as a variant of perturbed stochastic gradient descent algorithm (see [3] where the case of fractional Wiener noise case was considered).
+
+At the end we present results of numerical experiments performed on
+GPUs, where we provided a suitable implementation in CUDA C and Python to check correlation between estimated $L^p$-error and informational cost. Finally, the practical example of optimization problem which is solved with randomized Euler scheme is presented as well.
+\medskip
+
+\begin{enumerate}
+	%\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+\item[{[1]}] S. N. Cohen, R. J. Elliott. (2015)
+{\it Stochastic Calculus and Applications, 2nd. ed.}, Springer.
+%	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+\item[{[2]}] S. Ruder, {\it An overview of gradient descent optimization
+algorithms}, \\ https://arxiv.org/abs/1609.04747
+
+\item[{[3]}] A. Lucchi, F. Proske, A. Orvieto, F. Bach, H. Kersting, {\it On the Theoretical Properties of Noise
+Correlation in Stochastic Optimization}, https://arxiv.org/abs/2209.09162
+
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+

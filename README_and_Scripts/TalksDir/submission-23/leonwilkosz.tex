@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Hierarchical and Quasi Monte Carlo
+Techniques for McKean-Vlasov Equations}% [1] talk title
+  {Leon Wilkosz}% [2] speaker name
+  {Computer, Electrical and Mathematical Sciences \& Engineering Division (CEMSE), King Abdullah
+University of Science and Technology (KAUST), Thuwal, Saudi Arabia}% [3] affiliations
+  {leon.wilkosz@kaust.edu.sa}% [4] email
+  {Nadhir Ben Rached, Raúl Tempone, Abdul-Lateef Haji-Ali}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+				
+
+In this work we improve the weak and strong convergence rates for particle system approximations of McKean-Vlasov equations using Quasi Monte Carlo. Given a coupled system of $P$ particles it was shown in the literature that the strong error converges at rate $\mathcal{O}(P^{-\frac{1}{2}})$ and the weak error converges at rate $\mathcal{O}(P^{-1})$. We show numerically that the novel approach presented here achieves a strong convergence rate of $\mathcal{O}(P^{-1})$ and a weak convergence rate of $\mathcal{O}(P^{-2})$. This is shown partially based on simulations under knowledge of the exact solution for an Ornstein-Uhlenbeck-type mean field SDE and partially on simulations using a reference solution for the well-known Kuramoto model. It has been shown in the literature that a plain Monte Carlo particle system estimator for a quantity of the form $\mathbb{E}[g(Z(T))]$, where $Z(T)$ is the solution of a McKean-Vlasov equation at time $T$ and $g$ is a smooth function, admits a cost of order $\mathcal{O}(\text{TOL}^{-4})$ to satisfy an error smaller than $\text{TOL}$. Our approach yields a cost reduction to $\mathcal{O}(\text{TOL}^{-3})$. Later we extend the method to a hierarchical setting. The further improvements using hierarchical techniques bring the complexity down to $\mathcal{O}(\text{TOL}^{-2})$. Additionally, we discuss theoretical convergence results in regards to the new particle system presented here.
+\end{talk}
+
+
+\end{document}

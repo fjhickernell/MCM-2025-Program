@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Projected ensemble data assimilation}% [1] talk title
+  {S. B. Dubinkina }% [2] speaker name
+  {Amsterdam Center for Dynamics and Computation, the Department of Mathematics, VU Amsterdam, The Netherlands}% [3] affiliations
+  {s.b.dubinkina@vu.nl}% [4] email
+  {J. de Wiljes}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Ensemble data assimilation is unable to reduce the error estimate for high-dimensional systems when used with small ensemble size. A typical remedy is dimesion reduction by localization. Though localization reduces the error substantially for both linear and nonlinear data-assimilation methods, the former ones considerably outperform the latter ones in a quasi-linear regime. We propose a further dimension reduction based on projection and show substantial error decrease of a nonlinear data-assimilation method in a challenging data-assimilation setup with small ensemble size and ample observations.  
+
+\medskip
+
+\end{talk}
+
+\end{document}
+

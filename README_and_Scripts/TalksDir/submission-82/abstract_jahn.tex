@@ -1,0 +1,105 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Sampling numbers of smoothness classes via $\ell^1$-minimization}% [1] talk title
+  {Thomas Jahn}% [2] speaker name
+  {Catholic University of Eichstätt--Ingolstadt}% [3] affiliations
+  {thomas.jahn@ku.de}% [4] email
+  {Tino Ullrich, Felix Voigtlaender}% [5] coauthors
+  {Function recovery and discretization problems}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+We study the recovery problem for functions $\Omega\to\mathbb{C}$ belonging to a given quasi-Banach smoothness space $\mathcal{F}$ given only $m$ function values.
+The worst-case $L^2$-approximation error in this setup, i.e.,
+$$
+  \varrho_m (\mathcal{F})_{L^2}
+  = \inf_{t_1,\ldots,t_m \in \Omega}\,
+       \inf_{R : \mathbb{C}^m \to L^2}\,
+         \sup_{\|f\|_{\mathcal{F}} \leq 1}\,
+           \|f - R(f(t_1),\ldots,f(t_m))\|_{L^2},
+$$
+is called the $m$th sampling number of $\mathcal{F}$.
+We derive new upper bounds for the sampling numbers through an explicit nonlinear recovery map $R$ which is based on $\ell^1$-minimization (basis pursuit denoising).
+In relevant cases such as mixed and isotropic weighted Wiener spaces or mixed-smoothness Sobolev spaces, sampling numbers in $L^2$ can be upper bounded by best $n$-term trigonometric widths in $L^\infty$, i.e.,
+$$
+  \sigma_n (f; \mathcal{B})_{L^\infty}
+  = \inf_{\substack{J \subseteq I, \#J \leq n,\\ (c_j)_{j \in J} \in \mathbb{C}^J}}\left\|f - \sum_{j \in J}c_jb_j\right\|_{L^\infty}
+$$
+with $\mathcal{B}=(b_j)_{j\in I}$ being the Fourier basis.
+
+With this method, a significant gain in the rate of convergence compared to recently developed linear recovery methods is achieved. 
+In this deterministic worst-case setting we see an additional speed-up of $n^{-1/2}$ compared to linear methods in case of weighted Wiener spaces.
+For their quasi-Banach counterparts even arbitrary polynomial speed-up is possible.
+Surprisingly, our approach allows to recover mixed-smoothness Sobolev functions from $S_p^rW$ on the $d$-torus with a logarithmically better rate of convergence than any linear method can achieve when $1<p<2$ and $d$ is large.\
+
+\medskip
+
+\begin{itemize}
+\item[{[1]}]{T. Jahn, T. Ullrich, F. Voigtlaender: Sampling numbers of smoothness classes via $\ell^1$-minimization, J. Complexity 79:101786, 2023.}
+\end{itemize}
+\end{talk}
+
+
+\end{document}
+

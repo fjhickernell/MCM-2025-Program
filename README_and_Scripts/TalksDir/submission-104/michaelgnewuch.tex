@@ -1,0 +1,89 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Function space embeddings for non-tensor product spaces and application to high-dimensional approximation}% [1] talk title
+  {Michael Gnewuch}% [2] speaker name
+  {University of Osnabr\"uck}% [3] affiliations
+  {michael.gnewuch@uos.de}% [4] email
+  {Peter Kritzer, Klaus Ritter}% [5] coauthors
+  {Function spaces and algorithms for high-dimensional problems}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+%Your abstract goes here. Please do not use your own commands or macros.
+%Embeddings of (scales of) function spaces are helpful tools to transfer the analysis of algorithms from 
+
+
+%In this talk we want to discuss a general approach 
+
+%In the analysis of high-dimensional problems 
+
+In tractability analysis one is interested in continuous approximation problems
+that are defined on a scale of function spaces $(H_d)_{d\in {\mathbb N}}$, where the parameter
+$d$ typically denotes the number of variables the functions in $H_d$ depend on.
+An important goal is to find algorithms that scale well with respect to the dimension parameter $d$ and help to break the curse of dimensionality. 
+Some specific features of the function spaces can be very helpful for the analysis of certain types of algorithms; e.g., for the analysis of unbiased randomized algorithms it may be extremely helpful if the norm on $H_d$ induces an ANOVA decomposition on $H_d$, which can be used to analyze the error ($=$ variance) of the algorithms. 
+In general, a suitable embedding of scales of function spaces may help to transfer results from scales of function spaces with favourable features to other scales of interest. There are several general embedding results known in the case where $H_d$ is the $d$-fold tensor product of a reproducing kernel Hilbert space (RKHS) 
+$H_1$; examples include weighted RKHSs where the weights are product weights and so-called spaces of increasing smoothness.
+%, cf., e.g., [1] and [2]. 
+
+In this talk we discuss a general embedding approach that still works in the case where $H_d$ is not necessarily of tensor product form. This is, e.g., the case if we consider weighted RKHSs, where the weights are product and order-dependent weights or finite-order weights. As an application we study $L^\infty$-approximation on a RKHS of functions that depend on infinitely many variables (which can be viewed as a limiting case of tractability analysis).
+
+
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+
+%\begin{enumerate}
+%	\item[{[1]}] M. Gnewuch, M. Hefter, A. Hinrichs, and K. Ritter. Embeddings of %weighted Hilbert spaces and applications to multivariate and infinite-dimensional %integration, J. Approx. Theory, 222 (2017), 8--39. 
+%	\item[{[2]}] M. Gnewuch, M. Hefter, A. Hinrichs, K. Ritter, and G. W. Wasilkowski. Embeddings for  infinite-dimensional integration and $L_2$-approximation with increasing smoothness, J. Complexity, 54 (2019), 101406, 1--32. 
+%\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\end{document}
+

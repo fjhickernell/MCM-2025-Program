@@ -1,0 +1,82 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Dynamical Exploration of Generalized Burger-Fisher Model: A Numerical Study Utilizing Unconditionally Stable Monte Carlo Simulation Coupled with Finite Volume Method}% [1] talk title
+  {Muhammad Saqib}% [2] speaker name
+  {Institute  of Mathematics, Khwaja Fareed University of Engineering and Information Technology, RYK, Pakistan }% [3] affiliations
+  {m.saqib@kfueit.edu.pk}% [4] email
+  {Abdul Khaliq}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+				
+
+\section*{Abstract}
+The investigation outlined in this study introduces a novel numerical framework for analyzing the dynamics of spatially extended Generalized nonlinear Burger-Fisher Models. Distinguished by its use of Proposed Implicit strategies and a pioneering unconditionally stable Monte Carlo simulation (MCS) technique, this work sheds light on reaction-diffusion phenomena, offering insights into predicting ecologically relevant behavior, including chaos. Central to our approach is the utilization of an operator splitting method, where in diffusion and nonlinear terms are treated separately. For the diffusion term, we employ MCS to solve the stochastic differential equation, while the nonlinear term is locally computed for each particle within a virtual grid. This combination of techniques not only enhances computational efficiency but also allows for a more accurate depiction of complex dynamics. To achieve our objectives, we propose a finite volume method integrated with Monte Carlo Simulation for solving the Reaction model. Our numerical method is rigorously validated against established tanhcoth techniques, demonstrating second-order spatial and transient precision. The robustness and efficacy of our approach are thoroughly assessed, with numerical results illustrating the effectiveness and reliability of the proposed finite volume method for solving nonlinear reaction-diffusion models.
+\medskip
+. 
+\end{talk}
+
+
+\end{document}
