@@ -1,0 +1,20 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage[margin=1in]{geometry}
+
+
+\begin{talk}
+{Sampling high-dimensional, multimodal distributions using adaptively-tuned, tempered Hamiltonian Monte Carlo} %[1]
+{Joonha Park} %[2]
+{Department of Mathematics, University of Kansas} %[3]
+{j.park@ku.edu} %[4]
+{} % [5]
+{} %[6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+  Hamiltonian Monte Carlo (HMC) is widely used for sampling high-dimensional target distributions whose probability density is known up to proportionality. Although HMC scales favorably with increasing dimensions, it is very inefficient when the target distribution is strongly multimodal. Sampling highly multimodal target distributions is often tackled using tempering strategies, but the resulting algorithms are often difficult to tune in practice, especially in high dimensions. We develop a method that combines the tempering strategy with Hamiltonian Monte Carlo in a way that enables efficient sampling of high-dimensional, strongly multimodal distributions. Our method consists in proposing a candidate for the next state of the Markov chain by solving the Hamiltonian equations of motion with time-varying mass. Compared to the simulated tempering method or the parallel tempering method, our method has a distinctive advantage in the case where target distribution changes at at each iteration, such as in the Gibbs sampler setting. We develop a careful tuning strategy for our method and propose an adaptively-tuned, tempered Hamiltonian Monte Carlo (ATHMC) algorithm.
+
+\end{talk}
+
+\end{document}

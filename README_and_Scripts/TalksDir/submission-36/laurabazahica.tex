@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Quasi-Monte Carlo for Electrical Impedance Tomography}% [1] talk title
+  {Laura Bazahica}% [2] speaker name
+  {LUT University}% [3] affiliations
+  {laura.bazahica@lut.fi}% [4] email
+  {Vesa Kaarnioja, Lassi Roininen}% [5] coauthors
+  {Kernel Approximation and Cubature}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+The theoretical development of quasi-Monte Carlo (QMC) methods for uncertainty quantification of partial differential equations (PDEs) is typically centered around simplified model problems such as elliptic PDEs subject to homogeneous zero Dirichlet boundary conditions. In this talk, a theoretical treatment of the application of randomly shifted rank-1 lattice rules to electrical impedance tomography (EIT) will be presented. EIT is an imaging modality, where the goal is to reconstruct the interior conductivity of an object based on electrode measurements of current and voltage taken at the boundary of the object. This is an inverse problem, which we tackle using the Bayesian statistical inversion paradigm. As the reconstruction, we consider QMC integration to approximate the so-called conditional mean (CM) estimate of the unknown conductivity given current and voltage measurements.
+
+\medskip
+
+\end{talk}
+
+\end{document}
+

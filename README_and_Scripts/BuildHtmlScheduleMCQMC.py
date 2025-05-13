@@ -9,7 +9,8 @@ This is a temporary script file.
 
 
 import numpy as np
-
+import pandas as pd
+import os
 import csv
 
 
@@ -28,7 +29,7 @@ import csv
 
 
 if __name__ == '__main__':
-    
+    cwd = os.getcwd() + "/README_and_Scripts/"
     
     #vector giving the nb of parallel sessions in each slot
     #a slot is a spot in the schedule where we have parallel sessions
@@ -48,7 +49,7 @@ if __name__ == '__main__':
     NbTalkListed = 0
     StartListTalk = False
     
-    with open('PlenTitle.csv', 'r') as f:
+    with open(f'{cwd}PlenTitle.csv', 'r') as f:
         reader = csv.reader(f)
         dataTitle = list(reader)
         
@@ -64,7 +65,7 @@ if __name__ == '__main__':
     
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
     #time ordered by "room number", e.g., columns in the schedule
-    with open("SessionListMCQMC.csv", 'r') as file:
+    with open(f"{cwd}SessionListMCQMC.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         NbSession = NbParallel[SlotNumber]
         
@@ -126,33 +127,40 @@ if __name__ == '__main__':
     #doesn't really matter in what order since this will be tagged from the schedule
     #####################IMPORTANT
     #Needs to be opened and saved on TalkListAsValue
-    with open("MCQMC2024Data.csv", 'r') as ftalk:
-       talkdata= csv.reader(ftalk, delimiter=',')
-       rownumber = 0
-       currsess=""
-       #needs to find the talks for this session
-       for row in talkdata:               
-           sess = row[3]
-           if sess!=currsess or currsess=="":
-               #must finish the list of talks in a session
-               if currsess!="":
-                   print('</ul>',file=fsched)
-                   print('</li>',file=fsched)
-                   print('</ul>',file=fsched)
-                   print('</li>',file=fsched)
-                   print('</ul>',file=fsched)
-               currsess = sess
-               #next few lines are what we put at the beginning of a session description
-               mystr='<h4><a name="'+currsess+'"></a>'
-               print(mystr, row[8],"</h4>",file=fsched)
-               print("<ul>",file=fsched)
-               print('<li style="list-style-type: none;">',file=fsched)
-               print('<ul>',file=fsched)
-               print('<li style="list-style-type: none;">',file=fsched)
-               print("<ul>",file=fsched)
-         
-           #and now we are just printing the info for each talk             
-           print("<li>",row[0],row[1]+":",row[2],"</li>",file=fsched)
+    #with open("MCQMC2024Data.csv", 'r') as ftalk:
+    # ——— read Excel instead of CSV ———
+    excel_file = f"{cwd}MCQMC2024Data.xlsx"        # your workbook
+    sheet_name = "TalkListAsValue"                 # the exact sheet/tab name
+    if not os.path.exists(excel_file):
+        raise FileNotFoundError(f"Couldn't find {excel_file}")
+    df = pd.read_excel(excel_file, sheet_name=sheet_name)
+    talkdata = df.values.tolist()
+       #talkdata= csv.reader(ftalk, delimiter=',')
+    rownumber = 0
+    currsess=""
+    #needs to find the talks for this session
+    for row in talkdata:               
+        sess = row[3]
+        if sess!=currsess or currsess=="":
+            #must finish the list of talks in a session
+            if currsess!="":
+                print('</ul>',file=fsched)
+                print('</li>',file=fsched)
+                print('</ul>',file=fsched)
+                print('</li>',file=fsched)
+                print('</ul>',file=fsched)
+            currsess = sess
+            #next few lines are what we put at the beginning of a session description
+            mystr='<h4><a name="'+currsess+'"></a>'
+            print(mystr, row[8],"</h4>",file=fsched)
+            print("<ul>",file=fsched)
+            print('<li style="list-style-type: none;">',file=fsched)
+            print('<ul>',file=fsched)
+            print('<li style="list-style-type: none;">',file=fsched)
+            print("<ul>",file=fsched)
+        
+        #and now we are just printing the info for each talk             
+        print("<li>",row[0],row[1]+":",row[2],"</li>",file=fsched)
     print("</ul>",file=fsched)
     print("</li>",file=fsched)
     print("</ul>",file=fsched)

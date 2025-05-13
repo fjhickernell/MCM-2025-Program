@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Shape optimization under constraints on the probability of a quadratic functional to exceed a given threshold}% [1] talk title
+  {Helmut Harbrecht}% [2] speaker name
+  {Department of Mathematics and Computer Science, University of Basel, Basel, Switzerland}% [3] affiliations
+  {helmut.harbrecht@unibas.ch}% [4] email
+  {Marc Dambrine, Giulio Gargantini, J\'er\^{o}me Maynadier}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+This talk is dedicated to shape optimization of elastic materials 
+under random loadings where the particular focus is on the 
+minimization of failure probabilities. Our approach relies on the 
+fact that the area of integration is an ellipsoid in the high-dimensional
+parameter space when the shape functional of interest is quadratic.
+We derive the respective expressions for the shape functional and the 
+related shape gradient. As showcase for the numerical implementation, 
+we assume that the random loading is a Gaussian random field. By 
+exploiting the specialties of this setting, we derive an efficient shape
+optimization algorithm. Numerical results in three spatial dimensions 
+validate the feasibility of our approach.
+\end{talk}
+
+\end{document}
+

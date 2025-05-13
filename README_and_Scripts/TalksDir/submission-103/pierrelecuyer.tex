@@ -1,0 +1,103 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+\begin{talk}
+  {A Redesigned C++ Library to Test the Lattice Structure of Linear Generators
+	 and Search for Good Ones}% [1] talk title
+  {Pierre L'Ecuyer}% [2] speaker name
+  {DIRO, Universit\'e de Montr\'eal, Canada}% [3] affiliations
+  {lecuyer@iro.umontreal.ca}% [4] email
+  {Christian F. Weiss}% [5] coauthors
+  {Testing and analysis of pseudo-random number generators}% [6] title of special session.
+
+% Your abstract goes here. 
+The spectral test, introduced in [1] and popularized by [2], 
+remains the gold standard to measure the uniformity of point sets 
+produced by linear random number generators by assessing the quality of their lattice structure.
+Multiple recursive generators, multiply-with-carry, matrix linear congruential generators, 
+and combined generators of these types, for example, can be constructed and analyzed 
+by this type of test [3, 4, 5].  
+A software tool named LatMRG was written about 30 years ago in the Modula-2 language 
+to perform the spectral test and search for generators with a good lattice structure [4],
+but this tool can no longer be used because Modula-2 is no longer supported. 
+We are aware of no other similar tool currently available.
+
+In this talk, we present a completely redesigned version of LatMRG, written in C++,
+and using NTL to handle computations with large numbers. 
+Some of the underlying algorithms have been improved compared with the Modula-2 version.
+We illustrate what the software can do and its performance via several examples.
+
+\medskip
+
+%\bibitem{rCOV67a}
+[1] R.~R. Coveyou and R.~D. MacPherson.
+Fourier analysis of uniform random number generators.
+{\em Journal of the ACM}, 14:100--119, 1967.
+
+%\bibitem{rKNU81a}
+[2] D.~E. Knuth.
+{\em The Art of Computer Programming, Volume 2: Seminumerical Algorithms}.
+Addison-Wesley, Reading, MA, second edition, 1981.
+
+%\bibitem{rLEC99b}
+[3] P.~L'Ecuyer.
+Good parameters and implementations for combined multiple recursive
+  random number generators.
+{\em Operations Research}, 47(1):159--164, 1999.
+
+%\bibitem{rLEC97c}
+[4] P.~L'Ecuyer and R.~Couture.
+An implementation of the lattice and spectral tests for multiple
+  recursive linear random number generators.
+{\em INFORMS Journal on Computing}, 9(2):206--217, 1997.
+
+%\bibitem{rLEC20m}
+[5] P.~L'Ecuyer, P.~Wambergue, and E.~Bourceret.
+Spectral analysis of the {MIXMAX} random number generators.
+{\em INFORMS Journal on Computing}, 32(1):135--144, 2020.
+%
+\end{talk}
+\end{document}
+

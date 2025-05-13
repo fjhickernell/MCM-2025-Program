@@ -1,0 +1,58 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Some theoretical aspects of Particle Filters and Ensemble Kalman Filters}% [1] talk title
+  {Pierre Del Moral}% [2] speaker name
+  {INRIA Bordeaux Research Centre}% [3] affiliations
+  {pierre.del-moral@inria.fr}% [4] email
+  {}% [5] coauthors
+  {Continuous time dynamics in Monte Carlo and beyond}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+
+In the last three decades, Particle Filters (PF) and Ensemble Kalman Filters (EnKF) have become one of the main numerical techniques in data assimilation, Bayesian statistical inference and nonlinear filtering. Both particle algorithms can be interpreted as mean field type particle interpretation of the filtering equation and the Kalman recursion.  In contrast with conventional particle filters, the EnKF is defined by a system of particles evolving as the signal in some state space with an interaction function that depends on the sample covariance matrices of the system. Despite widespread usage, little is known about the mathematical foundations of EnKF. Most of the literature on EnKF amounts to designing different classes of useable observer-type particle methods. To design any type of consistent and meaningful filter, it is crucial to understand their mathematical foundations and their learning/tracking capabilities. This talk discusses some theoretical aspects of these numerical techniques. We present some recent advances on the stability properties of these filters. We also initiate a comparison between these particle samplers and discuss some open research questions.
+\end{talk}
+
+\end{document}
+

@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Diverse Expected Improvement (DEI): Diverse Optimization of Expensive Black-box Simulators for Internal Combustion Engine Control}% [1] talk title
+  {John J. Miller}% [2] speaker name
+  {Duke University, Department of Statistical Science}% [3] affiliations
+  {john.joshua.miller@duke.edu}% [4] email
+  {Benny Sun, Simon Mak, Sai Ranjeet Narayanan, Suo Yang}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+The optimization of expensive black-box simulators arises in a myriad of modern scientific and engineering applications. Bayesian optimization provides an appealing solution, by leveraging a fitted surrogate model to sequentially guide simulator evaluations. In practical problems, however, the goal is often not to obtain a single good solution, but a "basket" of good solutions from which users can choose for downstream decision-making. This arises in our motivating application for real-time control of unmanned aerial vehicles (UAVs), where a diverse set of control strategies are desired for robust and timely control. Despite its importance, there has been little work on this front for Bayesian optimization. We thus propose a new Diverse Expected Improvement (DEI) method, which extends the well-known Expected Improvement method to encourage diversity between ``$\epsilon$-optimal'' solutions, i.e., solutions with objectives within a small $\epsilon$ from a global optimum. The DEI jointly targets two goals: the exploration of $\epsilon$-optimal regions on the solution space, and the exploitation of promising solutions that may improve upon the current best solution. One advantage of the DEI is that it admits a closed-form acquisition function under a Gaussian process surrogate model, which facilitates efficient sequential queries via automatic differentiation. We demonstrate the improvement of DEI over state-of-the-art methods for diverse optimization in a suite of numerical experiments. We then explore the DEI in two practical applications, the first on rover trajectory optimization and the second for real-time control of UAVs
+
+
+
+\end{talk}
+
+\end{document}
+

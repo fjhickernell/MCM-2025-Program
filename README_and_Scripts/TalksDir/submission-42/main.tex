@@ -1,0 +1,84 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+\begin{talk}
+  {Single-ensemble multilevel Monte Carlo for discrete interacting-particle methods}% [1] talk title
+  {Arne Bouillon}% [2] speaker name
+  {KU Leuven}% [3] affiliations
+  {arne.bouillon@kuleuven.be}% [4] email
+  {Toon Ingelaere, Giovanni Samaey}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+Interacting-particle methods have found applications in domains such as filtering, optimization and posterior sampling. These parallelizable and often gradient-free algorithms use an ensemble of particles that evolve in time, based on the combination of well-chosen dynamics and interaction between the particles. For computationally expensive dynamics -- for example, Bayesian inversion with an expensive forward model or optimization of an expensive objective function -- the cost of attaining a high accuracy quickly becomes prohibitive.
+
+In this talk, we discuss our recent work [1], in which we exploit a hierarchy of approximations to this forward model and apply multilevel Monte Carlo (MLMC) techniques. More specifically, we extend the approach suggested in [2, 3] for the ensemble Kalman filter: we use MLMC at each time step to estimate the interaction term within a single, globally-coupled ensemble. We formulate conditions on the method dynamics, interaction term, and forward model, under which we prove an asymptotic bound on the cost-to-error relation. This bound suggests that a multilevel simulation strategy is more efficient than a single-level one for a large family of interacting-particle methods. Numerical experiments corroborate our analysis of the improved asymptotic cost-to-error rate.
+
+\medskip
+
+[1] A. Bouillon, T. Ingelaere, G. Samaey, Single-ensemble multilevel Monte Carlo for discrete interacting-particle methods, in preparation.
+
+[2] H. Hoel, K. J. H. Law, and R. Tempone, Multilevel ensemble Kalman filtering, SIAM J. Numer. Anal., 54 (2016), pp.\ 1813--1839.
+
+[3] A. Chernov, H. Hoel, K. J. H. Law, F. Nobile, and R. Tempone, Multilevel ensemble Kalman filtering for spatio-temporal processes, Numer. Math., 147 (2021), pp.\ 71--125.
+\end{talk}
+
+
+\end{document}

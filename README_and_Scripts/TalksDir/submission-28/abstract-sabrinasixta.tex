@@ -1,0 +1,78 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+% [2] speaker name, [3] affiliations, [4] email,
+% [5] coauthors, [6] special session
+% [7] time slot
+% [8] talk id, [9] session id or photo
+{%\needspace{6\baselineskip}%
+	\vskip 0pt\nopagebreak%
+	%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+	%   \ifthenelse{\equal{#9}{photo}}{%
+		%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+	\vskip 0pt\nopagebreak%
+	%  \label{#8}%
+	\textbf{#1}\vspace{3mm}\\\nopagebreak%
+	\textit{#2}\\\nopagebreak%
+	#3\\\nopagebreak%
+	\url{#4}\vspace{3mm}\\\nopagebreak%
+	\ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+	\ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+}
+{\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+	
+	
+	\begin{talk}
+		{Bounding and estimating MCMC convergence rates using common random number simulations}% [1] talk title
+		{Sabrina Sixta}% [2] speaker name
+		{University of Toronto}% [3] affiliations
+		{sabrina.sixta@mail.utoronto.ca}% [4] email
+		{Jeffrey S. Rosenthal, Austin Brown}% [5] coauthors
+		{MCMC: Convergence and Robustness}% [6] special session. Leave this field empty for contributed talks. 
+		% Insert the title of the special session if you were invited to give a talk in a special session.
+		
+		
+		
+		The common random number (CRN) simulation technique consists of using the same sequence of random variables to simulate two copies of a Markov chain with different initial values. We will explore how and when to use CRN simulation to evaluate Markov chain Monte Carlo (MCMC) convergence rates. We will discuss how CRN simulation is closely related to theoretical convergence rate techniques such as one-shot coupling and coupling from the past. We will present conditions under which the CRN technique generates an unbiased estimate of the squared $L^2-$Wasserstein distance between two random variables. We will provide an upper bound on the Wasserstein distance of a Markov chain to its stationary distribution after $N$ steps in terms of averages over CRN simulations.
+	\end{talk}
+	
+	
+\end{document}

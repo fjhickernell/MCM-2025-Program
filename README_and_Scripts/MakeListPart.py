@@ -8,7 +8,8 @@ Created on Sat Jul  6 10:59:43 2024
 
 
 import numpy as np
-
+import pandas as pd
+import os
 import csv
 
 
@@ -16,7 +17,7 @@ import csv
 
 
 if __name__ == '__main__':
-    
+    cwd = os.getcwd() + "/README_and_Scripts/"
     
     #vector giving the nb of parallel sessions in each slot
     #a slot is a spot in the schedule where we have parallel sessions
@@ -35,7 +36,7 @@ if __name__ == '__main__':
     NbTalkListed = 0
     StartListTalk = False
     
-    fpart = open("Participants.tex",'w')
+    fpart = open(f"{cwd}Participants.tex",'w')
   #  print("\\begin{sideways}\n\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",file=fsched)
     
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
@@ -45,17 +46,24 @@ if __name__ == '__main__':
     print("\\setlength{\columnsep}{1cm}\n",file=fpart)
     print("\\begin{multicols}{2}\n",file=fpart)
     print("\\small\\raggedright\n",file=fpart)
-    with open("PARTICIPANTSJULY5.csv", 'r') as file:
+    with open(f"{cwd}PARTICIPANTSJULY5.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         for val in reader:
             partstrng = "\\participant{"+val[2]+"}"
             print(partstrng,file=fpart)
             print("{",val[4],"}",file=fpart)
             print("{",val[3],"}",file=fpart)
-            label1="{"+val[5]+"}"
-            label2="{"+val[6]+"}"
-            print(label1,file=fpart)
-            print(label2,file=fpart)
+            try:
+              label1="{"+str(val[5])+"}"
+              print(label1,file=fpart)
+            except:
+                pass
+            try:
+              label2="{"+str(val[6])+"}"
+              print(label2,file=fpart)
+            except:
+                pass      
+            
     print("\\end{multicols}\n",file=fpart) 
     fpart.close()        
             

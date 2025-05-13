@@ -1,0 +1,121 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Acceleration of true orbit pseudorandom number generators using Newton's method}% [1] talk title
+  {Asaki Saito}% [2] speaker name
+  {Future University Hakodate}% [3] affiliations
+  {saito@fun.ac.jp}% [4] email
+  {Akihiro Yamaguchi}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+We developed pseudorandom number generators, termed true orbit
+generators, utilizing true orbits of the Bernoulli map on irrational
+algebraic integers [1,2].
+These generators yield binary sequences that appear in the binary
+expansions of irrational algebraic integers, offering nonperiodic
+sequences, unlike existing generators.
+Supported by ergodic theory [3] and Borel's conjecture [4], these
+generators are expected to have high statistical quality, and
+extensive computer experiments have confirmed this [1,2].
+However, their computational cost is significantly high, with a
+worst-case time complexity of $O(N^2)$ for generating a sequence of
+length $N$.
+
+To address the issue of the high computational cost, we employ Newton's method, a technique for
+producing successively better approximations to the roots of a
+function, to accelerate the true orbit generators.
+This involves obtaining the exact binary expansion of a true root
+(i.e., an irrational algebraic integer) $\alpha$ from its
+approximation $x$, which includes an error.
+We establish a sufficient condition ensuring that the first $N$ bits
+of the binary expansions of $\alpha$ and $x$ match, thereby ensuring
+the generation of the same pseudorandom sequence as the true orbit
+generators.
+Furthermore, we demonstrate that the worst-case time complexity for
+generating a sequence of length $N$ using the method proposed in this
+study is equivalent to that of multiplying two $N$-bit integers,
+showing its efficiency compared to the original generators with
+$O(N^2)$ time complexity.
+
+\medskip
+
+[1] A. Saito and A. Yamaguchi,
+``Pseudorandom number generation using chaotic true orbits of the Bernoulli map,''
+Chaos {\bf 26}, 063122 (2016).
+
+[2] A. Saito and A. Yamaguchi,
+``Pseudorandom number generator based on the Bernoulli map on cubic algebraic integers,''
+Chaos {\bf 28}, 103122 (2018).
+
+[3] P. Billingsley,
+{\it Ergodic Theory and Information}
+(Wiley, New York, 1965).
+
+[4] \'{E}. Borel,
+``Sur les chiffres d\'{e}cimaux de $\sqrt{2}$ et divers probl\`{e}mes de
+probabilit\'{e}s en cha\^{i}ne,''
+C. R. Acad. Sci. Paris {\bf 230}, 591--593 (1950).
+\end{talk}
+
+\end{document}

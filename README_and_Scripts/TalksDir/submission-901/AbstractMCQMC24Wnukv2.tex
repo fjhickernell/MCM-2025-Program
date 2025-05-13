@@ -1,0 +1,283 @@
+\documentclass[12pt]{article}
+
+\usepackage[inner=32mm,outer=31mm,tmargin=30mm,bmargin=40mm]{geometry}
+\usepackage[ngerman,english]{babel}
+
+\geometry{a4paper}
+\usepackage{latexsym,amsfonts,amsmath,amssymb,epsfig,tabularx,amsthm,dsfont,mathrsfs}
+
+\usepackage{graphicx}
+%\usepackage{pst-math,pst-xkey}
+\usepackage{enumerate}
+
+\usepackage{booktabs}
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\usepackage{hyperref} %[backref=page]
+\hypersetup{colorlinks=true,
+        linkcolor=black,
+        citecolor=black,
+        urlcolor=blue}
+
+        
+\usepackage{pgfplots}
+%\usepgfplotslibrary{patchplots}
+
+\usepackage{framed}
+\usepackage{amscd}
+
+\usepackage{tikz-cd}
+\usepackage{tikz}
+
+%\let\oldendtikzcd\endtikzcd
+%\def\endtikzcd{\oldendtikzcd\ifnum0=`{\fi}}
+%ATTENTION!
+%The following two lines of the code are used to optimize
+%the compilation time of computation of figures (tikzpicture):
+%To use this feature you have to reconfigure your compiler
+%by edding this command:
+%pdflatex --shell-escape
+%If you do not want to use this feature, please comment
+%the following strings.
+
+%This feature works as follows:
+%At the very first time all figures are being compiled and 
+%external pdf of this pictures are being created.
+%Next time the plots with no changes are not being compiled
+%but inserted from an external file. If there was a change
+%then the code with a change will be recompiled.
+
+%START OF FEATURE
+%\usetikzlibrary{external}
+%\tikzexternalize
+%END OF FEATURE
+
+        
+\theoremstyle{plain}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem{consequence}{Consequence}
+
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{OP}{Open Problem}
+
+%% Symbols for stochastics
+\renewcommand{\P}{{\mathbb P}}
+\newcommand{\expect}{\operatorname{\mathbb{E}}}
+\DeclareMathOperator{\Var}{\mathbb{V}ar}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\distr}{distr}
+\DeclareMathOperator{\Uniform}{unif}
+\DeclareMathOperator{\Normal}{\mathcal{N}}
+\DeclareMathOperator{\Hypergeo}{Hypergeometric}
+\DeclareMathOperator{\Beta}{Beta}
+\newcommand{\iid}{\stackrel{\textup{iid}}{\sim}}
+%\DeclareMathOperator{\Unif}{Unif}
+
+%% Symbols for analysis
+\newcommand{\dint}{\,\mathup{d}}
+\newcommand{\diff}{\mathup{d}} % differential symbol for use in derivatives
+\newcommand{\hinweis}[1]{{\color{blue}#1}}
+
+%% Symbols for sets
+\newcommand{\Finput}{\mathcal{F}}
+\newcommand{\Yinput}{\mathcal{Y}}
+\newcommand{\Barrel}{\mathcal{B}}
+\newcommand{\Borel}{{\mathcal B}}
+\newcommand{\Sphere}{\mathbb{S}}
+\DeclareMathOperator{\supp}{supp}
+\newcommand{\points}{\mathcal{P}}
+\DeclareMathOperator{\linspan}{span}
+\DeclareMathOperator{\image}{img}
+%\DeclareMathOperator\Sym{Sym}
+\newcommand{\symdiff}{\mathbin{\triangle}}
+
+%% Operators yielding numbers or vectors
+\DeclareMathOperator{\Lip}{Lip}
+%\newcommand{\ind}[1]{\mathds{1}_{#1}}
+\newcommand{\ind}{\mathds{1}}
+%\newcommand\dist{{\rm dist}}
+%\newcommand{\C}[1]{\mathcal{C}_{d}^{#1}}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\rank}{rk}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\DeclareMathOperator*{\essinf}{ess\,inf}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\grad}{grad}
+%\DeclareMathOperator\Hessian{Hess}
+\DeclareMathOperator{\sgn}{sgn}
+%\DeclareMathOperator\abs{abs}
+\DeclareMathOperator{\modulo}{mod}
+\DeclareMathOperator{\median}{med}
+\DeclareMathOperator{\diag}{diag}
+
+
+
+
+%% macros for complexity analysis
+\DeclareMathOperator{\cost}{cost}
+%\newcommand\car{{\bf c_{\textup{ari}}}}
+%\newcommand\comp{{\mathop{\rm comp}}}     
+%\newcommand\cin{{\bf c_{\rm info}}}     
+%\newcommand\cbr{{\bf c_{\rm top}}}
+\DeclareMathOperator{\card}{card}
+\newcommand{\ran}{\textup{ran}}
+\newcommand{\deter}{\textup{det}}
+\newcommand{\wor}{\textup{wor}}
+\newcommand{\fix}{\textup{fix}}
+%\newcommand\ranprob{\textup{ran-prob}}
+\newcommand{\avg}{\textup{avg}}
+\newcommand{\prob}{\textup{prob}}
+\newcommand{\nonada}{\textup{nonada}}
+\newcommand{\ada}{\textup{ada}}
+\newcommand{\lin}{\textup{lin}}
+\newcommand{\nonlin}{\textup{nonlin}}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\App}{APP}
+\DeclareMathOperator{\Int}{INT}
+\newcommand{\Lall}{\Lambda^{\textup{all}}}
+\newcommand{\Lstd}{\Lambda^{\textup{std}}}
+
+%Several abbreviations
+\newcommand{\LHS}{\textup{LHS}}
+\newcommand{\RHS}{\textup{RHS}}
+
+
+% Simplified commands and basic letters
+\newcommand{\eps}{\varepsilon}
+\newcommand{\euler}{e} %{\textup{e}}
+\newcommand{\embed}{\hookrightarrow}
+%\renewcommand{\rho}{\varrho}
+
+%vector names
+\renewcommand{\vec}{\boldsymbol}
+
+%\newcommand{\bh}{{\boldsymbol{h}}}     
+%\newcommand{\btau}{{\boldsymbol{\tau}}}     
+%\newcommand{\bga}{{\boldsymbol{\gamma}}}     
+%\newcommand{\setu}{{\mathfrak{u}}}     
+%\newcommand{\setv}{{\mathfrak{v}}}
+
+%% Standard sets of numbers
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+
+%extra sets
+\newcommand{\D}{{\mathbb D}}
+
+\DeclareMathAlphabet{\mathup}{OT1}{\familydefault}{m}{n}
+
+\newcommand{\setting}{\leftarrow}
+
+% algorithm names specific to adaptive recovery
+\DeclareMathOperator{\shrink}{Shrink}
+\DeclareMathOperator{\spot}{Spot}
+\DeclareMathOperator{\search}{BucketSearch}
+
+%% Unordered Makros
+\newcommand{\wt}{\widetilde}
+\newcommand{\widebar}[1]{\mbox{\kern1.5pt\hbox{\vbox{\hrule height 0.6pt \kern0.35ex
+        \hbox{\kern-0.15em \ensuremath{#1 }\kern0.0em}}}}\kern-0.1pt}
+
+\def\ts{\textstyle}
+\newcommand{\fracts}[2]{{\textstyle\frac{#1}{#2}}}
+
+\newlength{\fixboxwidth}
+\setlength{\fixboxwidth}{\marginparwidth}
+\addtolength{\fixboxwidth}{-7pt}
+%\newcommand{\fix}[1]{\marginpar{\fbox{\parbox{\fixboxwidth}{\raggedright\tiny #1}}}}
+
+\usepackage{soul}
+
+\usepackage{latexsym,amsfonts,amsmath,amssymb,mathrsfs}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{euscript}
+\usepackage{verbatim}
+\usepackage{hyperref}
+
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\newcommand{\rjk}[1]{\textcolor{darkgreen}{#1}}
+\newcommand{\mw}[1]{\textcolor{red}{#1}}
+\newcommand{\en}[1]{\textcolor{blue}{#1}}
+\newenvironment{RJK}{\begingroup\color{darkgreen}}{\endgroup}
+\newenvironment{MW}{\begingroup\color{red}}{\endgroup}
+\newenvironment{EN}{\begingroup\color{blue}}{\endgroup}
+
+
+\begin{document}
+
+
+% \begin{MW}{
+% In my opinion we still need to clarify a few things in the proofs. 
+% \begin{enumerate}
+% \item The proof of Lemma \ref{lem:points-in-gauss}, mainly the points which I mentioned in the frameboxes (I would think during the weekend if there may be is a simpler proof, which would not force us to use all the different "$\vec{Y}$-type" random variables.)
+% \item The part of the proof following the red framebox on p. 19
+% \end{enumerate}
+% We still need to plug in our "data" into the proof of Theorem \ref{thm:l1->loo,non-ada} - I can do it (on Monday/Tuesday)
+
+% \end{MW}
+%%%%%%%%%%%%%edits by cl since did not use template - June 9
+
+
+\author{Robert J. Kunsch\thanks{RWTH Aachen University,
+Chair of Mathematics of Information Processing,
+Pontdriesch~10,
+52062 Aachen, Email: kunsch@mathc.rwth-aachen.de
+%; TU Chemnitz, Faculty of Mathematics, Reichenhainer Str. 41, 09126 Chemnitz
+}, 
+%Erich Novak\thanks{FSU Jena, 
+%Ernst-Abbe-Platz 2, 03641 Jena, Email: 
+%erich.novak@uni-jena.de}, 
+\thanks{Institut für Mathematik, 
+Osnabrück University, Albrechtstraße 28a, 49076 Osnabrück, 
+Email: marcin.wnuk@uni-osnabrueck.de}} %, corresponding author}}
+
+\begin{talk}
+{Approximation of vectors using adaptive randomized information}
+{Marcin Wnuk}
+{Osnabr\"uck University}
+{marcin.wnuk@uni-osnabrueck.de}
+{Robert J. Kunsch}
+{}
+
+
+Working in the framework of Information-Based Complexity we study approximation of the embedding $\ell_p^m \hookrightarrow \ell_q^m$, $1 \leq p < q \leq \infty$,
+based on randomized adaptive algorithms that use arbitrary linear 
+functionals as information on a problem instance.
+In the case $p \leq 2$ and $q = \infty$
+we show upper bounds for which the complexity $n$ 
+exhibits only a $(\log\log m)$-dependence. 
+In particular we improve upon known results for $p=1$ and $q=\infty$
+and by this give an example for a gap of order $n / (\log n)^2$
+for the error for adaptive vs.\ non-adaptive Monte Carlo methods
+which is the biggest possible gap for linear problems up to logarithmic factors.
+
+\end{talk}
+\end{document}
