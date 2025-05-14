@@ -17,7 +17,7 @@ import os
 
 
 if __name__ == '__main__':
-    cwd = os.getcwd() + "/README_and_Scripts/"
+    cwd = os.getcwd() + os.sep + "README_and_Scripts" + os.sep
 
     rows = []
     talknumber = 0
@@ -49,7 +49,7 @@ if __name__ == '__main__':
         myfilename="sess"+val[3]+".tex"
         # if it's the first reader, open in write mode
         if(val[5]=='1'):
-            f = open(myfilename,'w')
+            f = open(cwd + myfilename,'w')
             print("\\sessionPart{}% [1] part",file=f)
             sessString = "{"+"\\hfill"+"\\timeslot{"+val[11]+"}"
             #print("{","\\hfill","\\timeslot{",val[11],"}",file=f)
@@ -61,7 +61,7 @@ if __name__ == '__main__':
             print("{",val[12],"}}",file=f)    
 
         else:
-            f = open(myfilename,'a')
+            f = open(cwd + myfilename,'a')
         #write the title and name of speaker    
         print("\sessionTalk{",val[2],"}",file=f)
         spkstring="{"+val[0]+" "+val[1]+"}"
@@ -74,9 +74,9 @@ if __name__ == '__main__':
         f.close()
         
         if(talknumber>1):
-            fpart = open("SpeakerList.txt",'a')
+            fpart = open(f"{cwd}SpeakerList.txt",'a')
         else:
-            fpart = open("SpeakerList.txt",'w')
+            fpart = open(f"{cwd}SpeakerList.txt",'w')
         print(val[0]+ " " + val[1],talkid,file=fpart)   
         fpart.close()
                 
@@ -91,17 +91,16 @@ if __name__ == '__main__':
         ###assume column 10 has the folder number for the abstract
         oldfile = val[4]
         justlatex = oldfile[oldfile.rindex('/')+1:]
-        newfile = cwd+'TalksDir/submission-'+str(val[9])+'/'+justlatex
+        print(f"{justlatex = }")
+        newfile = cwd + f'TalksDir{os.sep}submission-'+str(val[9])+os.sep+justlatex
+        if not os.path.exists(newfile):
+            os.makedirs(newfile, exist_ok=True)
         #and then we would do -  
         with open(os.path.abspath(newfile),"r") as ft:
-        ###with open(val[4], "r") as ft:
-        ### THIS WORKS
-        ###with open(os.path.abspath('./TalksDir/submission-1/template_abstract_talk.tex'),"r") as ft:   
-        #with open("JunLuo.tex", "r") as ft:   
             data = ft.readlines() # Read the file line by line
 
         ft.close()
-        #boolean to indcate the spot where we need to add the session id and talk id
+        #boolean to indicate the spot where we need to add the session id and talk id
         #because we found the six fields (and replaced the 6th one)
         found = False
         #boolean to indicate we are within the talk environment
@@ -159,8 +158,8 @@ if __name__ == '__main__':
 #              ft.write(res) # Write the answer in the same file
         #appends if not the first talk, write if first talk
         if(talknumber>1):            
-            fa = open("listabstract.tex",'a')
+            fa = open(f"{cwd}listabstract.tex",'a')
         else:
-            fa = open("listabstract.tex",'w')
+            fa = open(f"{cwd}listabstract.tex",'w')
         print(res,file=fa)
         fa.close()

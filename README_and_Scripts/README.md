@@ -2,7 +2,7 @@
 
 ## 1 mcqmcbookSessionDesc.py
 -INPUT
-a) csv file with list of talks ordered by sessions and then by speaker: sheet "TalkListAsValue" in MCQMC2024Data
+a) Excel file with list of talks ordered by sessions and then by speaker: sheet "TalkListAsValue" in MCQMC2024Data
 b) latex abstract files in a directory "TalksDir" and then is a subdirectory "submission-xx"
 Where xx is a number that is read in from the csv file; the name of the latex file is also read in from the .csv file
 
