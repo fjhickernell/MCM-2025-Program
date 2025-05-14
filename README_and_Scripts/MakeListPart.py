@@ -41,7 +41,7 @@ if __name__ == '__main__':
     
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
     #time ordered by "room number", e.g., columns in the schedule
-    ##################IMOPORTANT
+    ##################IMPORTANT
     print("\\chapter{List of Participants (as of July 5)}\n",file=fpart)
     print("\\setlength{\columnsep}{1cm}\n",file=fpart)
     print("\\begin{multicols}{2}\n",file=fpart)

@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Multilevel Monte Carlo for kinetic particle models}% [1] talk title
+  {Emil Løvbak}% [2] speaker name
+  {Karlsruhe Institute of Technology}% [3] affiliations
+  {emil.loevbak@kit.edu}% [4] email
+  {Stefan Vandewalle and Giovanni Samaey}% [5] coauthors
+  {Multilevel methods for SDEs and SPDEs}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Kinetic equations model the behavior of particles subject to transport and collision effects in a position-velocity phase space. In practice, one is typically interested in quantities where the velocity dimensions have been integrated out, e.g., the particles' density, momentum and energy. Hence, Monte Carlo particle methods are a popular approach to simulate these equations, as they avoid the need for a grid in phase-space.
+
+When collision rates are high, modeling individual collisions becomes prohibitively expensive. However, one can avoid resolving these collisions by taking advantage of model properties. Under suitable assumptions, one can expect that the particles' velocity distribution will quickly relax to a known steady-state distribution in this high-collisional regime. Hence, one can approximate the kinetic dynamics with a simplified model without collisions. For example, in the diffusive limit, one can replace the transport-collision dynamics with diffusion. This diffusive process can be simulated with coarse time step sizes that would not have been able to capture the original kinetic dynamics.
+
+In this talk, we preset an asymptotic-preserving multilevel Monte Carlo approach [1--2] that simulates (correlated pairs of) particle trajectories using a hierarchy of time step sizes, where coarser simulations exhibit more diffusive behavior. We then consider the question of whether alternative deterministic approaches make sense, when simulating approximate models with a lower dimensional structure.
+
+\begin{enumerate}
+	\item[{[1]}] Løvbak, Emil, Samaey, Giovanni, Vandewalle, Stefan (2021). A multilevel Monte Carlo method for asymptotic-preserving particle schemes in the diffusive limit. \textit{Numerische Mathematik, 148(1)}, pp. 141--186.
+	\item[{[2]}] Løvbak, Emil, Samaey, Giovanni (2023). Accelerated simulation of Boltzmann-BGK equations near the diffusive limit with asymptotic-preserving multilevel Monte Carlo. \textit{SIAM Journal on Scientific Computing, 45(4)}, pp. A1862--A1889.
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+

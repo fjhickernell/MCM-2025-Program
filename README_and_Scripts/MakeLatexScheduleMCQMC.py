@@ -39,7 +39,7 @@ if __name__ == '__main__':
     NbTalkListed = 0
     StartListTalk = False
     
-    fsched = open("Schedule.tex",'w')
+    fsched = open(f"{cwd}Schedule.tex",'w')
     #  print("\\begin{sideways}\n\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",file=fsched)
     
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
@@ -50,7 +50,7 @@ if __name__ == '__main__':
         reader= csv.reader(file, delimiter=',')
         NbSession = NbParallel[SlotNumber]
         
-        #loop reads csv file line by line, where val represents current line
+        #loop reads line by line, where val represents current line
         #each line represents a session
         for val in reader:
             #if we are at the beginning of a slot we need to write something different
@@ -109,15 +109,13 @@ if __name__ == '__main__':
                 donebuildslot = False
                 NbTalkSlot = 0
                 #assumes the rows of the talks spreadsheet are listed in chronological order of the conference
-                #with open("MCQMC2024Data.csv", 'r') as ftalk:
-                # ——— read Excel instead of CSV ———
-                excel_file = f"{cwd}MCQMC2024Data.xlsx"        # your workbook
-                sheet_name = "TalkListAsValue"                 # the exact sheet/tab name
+                # ——— read Excel ———
+                excel_file = f"{cwd}MCQMC2024Data.xlsx"        
+                sheet_name = "TalkListAsValue"                 
                 if not os.path.exists(excel_file):
                     raise FileNotFoundError(f"Couldn't find {excel_file}")
                 df = pd.read_excel(excel_file, sheet_name=sheet_name)
                 talkdata = df.values.tolist()
-                #talkdata= csv.reader(ftalk, delimiter=',')
                 rownumber = 0
                 #indicates the subslot within a slot, e.g., 11-11:30am in morning slot
                 subslot = 0
