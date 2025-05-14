@@ -1,0 +1,71 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Large sample limit theorems for the Zig-Zag process}% [1] talk title
+  {Sanket Agrawal}% [2] speaker name
+  {University of Warwick}% [3] affiliations
+  {sanket.agrawal@warwick.ac.uk}% [4] email
+  {Gareth Roberts and Joris Bierkens}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+				
+
+    Sampling algorithms based on piecewise deterministic Markov processes (PDMPs) have incited much interest in the Monte Carlo community as an alternative to traditional Markov chain Monte Carlo methods. Their non-reversible nature, and the ability to admit sub-sampling strategies without introducing bias, offer much promise for efficient and scalable Monte Carlo simulation. The Zig-Zag sampler [1], based on the multi-dimensional Zig-Zag process has been shown to exhibit nice theoretical properties e.g. geometric ergodicity, large deviations, high dimensional scaling limits, to name a few. In settings of Bayesian inference (consisting of $n$ observations, say), it admits sub-sampling versions which offer significant benefits, reducing computational effort per independent sample from $O(n)$ to $O(1)$ in some situations. 
+
+    However, sub-sampling itself costs a positive excess switching rate of $O(n)$. This has two problems. First, the computational bounds needed for Poisson thinning may increase causing more proposed switches per unit time, thus increasing the algorithmic complexity of the sampler. Second, a positive excess rate induces diffusivity in the underlying Zig-Zag process. This causes the process to slow down and negatively affects its mixing properties. 
+
+    We address the second problem by investigating the affects of sub-sampling on process dynamics as the data size $n$ goes to infinity. We study the behaviour of Zig-Zag with sub-sampling (ZZ-SS) and sub-sampling using control variates (ZZ-CV). In the transient phase, by averaging out the fluctuations in the velocity process, we establish weak convergence of the position process to the solution of a deterministic ODE. In the stationary phase, after appropriate re-scaling, we prove the convergence of ZZ-SS and ZZ-CV to an Ornstein-Uhlenbeck process and to a PDMP respectively. Our results show that in the stationary phase, ZZ-CV mixes as fast as the canonical Zig-Zag and ZZ-SS mixes no slower than a factor $n^{1/2}$. In the transient phase, ZZ-SS and ZZ-CV have the same speed with ZZ-SS performing better for heavy tailed models. 
+
+\medskip
+    
+    \begin{enumerate}
+      \item[{[1]}] Bierkens, J., Fearnhead, P., and Roberts, G. O. (2019). The Zig-Zag process and super-efficient sampling for Bayesian analysis of big data. {\it The Annals of Statistics}, 47(3):1288–1320.
+    \end{enumerate}
+
+\end{talk}
+
+\end{document}
+

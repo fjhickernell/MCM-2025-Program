@@ -1,0 +1,83 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Combining Normalizing Flows and Quasi-Monte Carlo}% [1] talk title
+  {Charly Andral}% [2] speaker name
+  { CEREMADE, CNRS, Université Paris-Dauphine, Université PSL, 75016 PARIS, FRANCE}% [3] affiliations
+  {andral@ceremade.dauphine.fr}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+				
+
+    Recent advances in machine learning have led to the development of new methods for enhancing Monte Carlo methods such as Markov chain Monte Carlo (MCMC) and importance sampling (IS). One such method is normalizing flows, which use a neural network to approximate a distribution by evaluating it pointwise. Normalizing flows have been shown to improve the performance of MCMC and IS. On the other side, (randomized) quasi-Monte Carlo methods are used to perform numerical integration. They replace the random sampling of Monte Carlo by a sequence which cover the hypercube more uniformly, resulting in better convergence rates for the error that plain Monte Carlo. In this work, we combine these two methods by using quasi-Monte Carlo to sample the initial distribution that is transported by the flow. We demonstrate through numerical experiments that this combination can lead to an estimator with significantly lower variance than if the flow was sampled with a classic Monte Carlo.
+
+\medskip
+
+[1] Andral, C. (2024). Combining Normalizing Flows and Quasi-Monte Carlo. arXiv preprint arXiv:2401.05934.
+\end{talk}
+
+
+\end{document}

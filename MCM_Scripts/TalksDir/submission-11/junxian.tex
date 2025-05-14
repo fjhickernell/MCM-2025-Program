@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Random star discrepancy based on stratified sampling}% [1] talk title
+  {Jun Xian}% [2] speaker name
+  {Sun Yat-sen University}% [3] affiliations
+  {xianjun@mail.sysu.edu.cn}% [4] email
+  {Xiaoda Xu}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In this talk, we consider the estimation of the expected star discrepancy. First, the expected star discrepancy  upper bound is obtained for the jittered sampling. This improves the upper bound derived in B. Doerr(Math. Comp. \textbf{91}(2022) 1871-1892). Second, the strong partition principle of the star discrepancy version is obtained, which proves that the expected star discrepancy of stratified sampling is smaller than that of simple random sampling for any equal-measure partition. This partially solves open question 2 in M. Kiderlen and F. Pausinger(J. Complexity \textbf{70}(2022) 101616). In the end, we consider the estimation of the weighted star discrepancy. A better weighted probabilistic star discrepancy bound than the use of plain Monte Carlo point sets is provided in terms of convergence order, i.e., the convergence order of the weighted probabilistic bound is improved from $O(N^{-\frac{1}{2}})$ to $O(N^{-\frac{1}{2}-\frac{1}{2d}}\cdot \ln^{\frac{1}{2}}{N})$.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] B. Doerr, A sharp discrepancy bound for jittered sampling, \emph{Math. Comp.}, 91(2022), 1871-1892.
+	\item[{[2]}] M. Kiderlen and F. Pausinger, On a partition with a lower expected $L_2$-discrepancy than classical jittered sampling, \emph{J. Complexity} 70(2022), 101616.
+        \item[{[3]}] C. Aistleitner, Tractability results for the weighted star-discrepancy, \emph{J. Complexity.}, 30(2014), 381-391.
+      
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+

@@ -1,0 +1,105 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+% [2] speaker name, [3] affiliations, [4] email,
+% [5] coauthors, [6] special session
+% [7] time slot
+% [8] talk id, [9] session id or photo
+{%\needspace{6\baselineskip}%
+	\vskip 0pt\nopagebreak%
+	%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+	%   \ifthenelse{\equal{#9}{photo}}{%
+		%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+	\vskip 0pt\nopagebreak%
+	%  \label{#8}%
+	\textbf{#1}\vspace{3mm}\\\nopagebreak%
+	\textit{#2}\\\nopagebreak%
+	#3\\\nopagebreak%
+	\url{#4}\vspace{3mm}\\\nopagebreak%
+	\ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+	\ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+}
+{\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+	
+	
+	\begin{talk}
+		{Uniform distribution via lattices: from point sets to sequences}% [1] talk title
+		{Damir Ferizovi\'{c}}% [2] speaker name
+		{KU Leuven, Department of Mathematics}% [3] affiliations
+		{damir.ferizovic@kuleuven.be}% [4] email
+		{}% [5] coauthors
+		{}% [6] special session. Leave this field empty for contributed talks. 
+		% Insert the title of the special session if you were invited to give a talk in a special session.
+		
+		
+		In this talk I present a version of my main result in [1]. I will show how to construct computationally simple sequences $S=S^\Box_{b,d}$ in the $d$-dimensional hypercube with base $b$. For $d=1$ these will be (generalized) van der Corput sequences. Further, I will introduce the notion of $f$-\textit{subadditivity}  and use it to define a very general notion of discrepancy function $\mathcal{D}$ which serves as an umbrella term that covers the $L^p$-discrepancy, Wasserstein $p$-distance,  and many more methods to compare empirical measures to an underlying base measure. Thus by definition
+		\[
+		\mathcal{D}\Big(\sum_{j=1}^{n}E_j\Big)\ \leq\ f(n)\cdot \sum_{j=1}^{n} \mathcal{D}(E_j), \hspace{1cm}\forall n\in\mathbb{N},\ \forall E_1,\ldots,E_n\mbox{ empirical measures}.
+		\] 		
+		Define $\ell^d_j+v:=\big(b^{-j} \mathbb{Z}^d+v\big)\cap[0,1)^d$ for $v\in\mathbb{R}^d$ and let $P:[0,1)^d\rightarrow \mathbb{M}$ be any map to an arbitrary set $\mathbb{M}$ such that there is a sequence $\{h_j\}_{j=0}^{\infty}\subset \mathbb{R}$ that satisfies  for each $v\in\mathbb{R}^d\mbox{ and }j\in\mathbb{N}_0$
+		\[
+			\mathcal{D}\big(E_{P(\ell^d_j+v)}\big)\leq h_j, 
+		\]
+		where  $E_W$ denotes the empirical measure with atoms at points from the (multi)set $W\subset \mathbb{M}$, i.e. 
+		\[
+			E_W:=\sum_{x\in W} \delta_x.
+		\]
+		\textbf{Theorem} (DF 2023) Let $S_N$ denote the first $N$ elements of the sequence $S$ and let  $N=\sum_{j=0}^{n}\alpha_j b^{dj}$ for $\alpha_j\in\{0,1,\ldots,b^d-1\}$, then with the notation and assumptions as above
+		\[
+			\mathcal{D}\big(E_{P(S_N)}\big)\ \leq\ f\Big(\sum_{j=0}^n\alpha_j\Big)\cdot \sum_{j=0}^{n}\alpha_j \ h_j.
+		\]
+		We apply this theorem in $d=1$ to obtain bounds for the $L^p$--discrepancy of (generalized) van der Corput sequences  for all $p\in(0,\infty]$ where $P=\mathrm{id}$, $f(n)=n^{p-1}$ if $p\geq 1$ and $f\equiv 1$ for $0<p<1$, $h_j=(p+1)^{-1}$. 
+		
+		Further, for $d=2$, this construction in combination with a previous result of mine [2] yields  many sequences on the two-sphere such that all their initial segments have low  spherical cap discrepancy.
+		
+	
+		%\medskip
+		
+		\begin{enumerate}
+			\item  "Uniform distribution via lattices: from point sets to sequences" by D. Ferizovi\'{c},\\
+			 https://arxiv.org/abs/2308.13297
+			\item  "Spherical Cap Discrepancy of Perturbed Lattices Under the Lambert Projection" by D. Ferizovi\'{c}, Discrete Comput Geom (2023).\\ https://doi.org/10.1007/s00454-023-00547-4
+		\end{enumerate}
+		\end{talk}
+	
+	
+\end{document}
+

@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Sampling high-dimensional, multimodal distributions using adaptively-tuned, tempered Hamiltonian Monte Carlo}% [1] talk title
+  {Joonha Park}% [2] speaker name
+  {University of Kansas, Department of Mathematics}% [3] affiliations
+  {j.park@ku.edu}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+				
+
+Hamiltonian Monte Carlo (HMC) is widely used for sampling high-dimensional tar- get distributions whose probability density is known up to proportionality. Although HMC scales favorably with increasing dimensions, it is very inefficient when the target distribution is strongly multimodal. Sampling highly multimodal target distributions is often tackled using tempering strategies, but the resulting algorithms are often dif- ficult to tune in practice, especially in high dimensions. We develop a method that combines the tempering strategy with Hamiltonian Monte Carlo in a way that en- ables efficient sampling of high-dimensional, strongly multimodal distributions. Our method consists in proposing a candidate for the next state of the Markov chain by solving the Hamiltonian equations of motion with time-varying mass. Compared to the simulated tempering method or the parallel tempering method, our method has a distinctive advantage in the case where target distribution changes at at each it- eration, such as in the Gibbs sampler setting. We develop a careful tuning strategy for our method and propose an adaptively-tuned, tempered Hamiltonian Monte Carlo (ATHMC) algorithm [1].
+
+\medskip
+
+[1] Park, J. Sampling from multimodal distributions using tempered Hamiltonian transitions. arXiv preprint arXiv:2111.06871.
+\end{talk}
+
+
+\end{document}

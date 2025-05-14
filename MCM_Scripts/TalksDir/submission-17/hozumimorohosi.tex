@@ -1,0 +1,93 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Searching good permutations for low-discrepancy sequences by mixed integer programming}% [1] talk title
+  {Hozumi Morohosi}% [2] speaker name
+  {National Graduate Institute for Policy Studies}% [3] affiliations
+  {morohosi@grips.ac.jp}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+\medskip
+
+This talk reports an experience using optimization software to find good permutations giving small discrepancies for generalized van der Corput sequences.
+Based on Faure's $\Psi$ function [1], we formulate a mixed integer programming
+that minimizes the maximum of the function.
+Recent optimization software successfully solves problems in large-size permutations.
+Some computational experiment results will show how our model searches for good permutations,
+where some heuristics, such as the symmetry condition, cf. [2], work efficiently to reduce computational time.
+
+
+
+\noindent
+[1] Faure, H.: Discr\'epances de suites associ\'ees \`a un syst\`eme de num\'eration (en dimension un), {\em Bull. Soc. Math. France}, {\bf 109}(1981), 143--182.
+
+\noindent
+[2] Pausinger, F.: On the intriguing search for good permutations, {\em Uniform Distribution Theory}, {\bf 14}(2019), 53--86.
+\end{talk}
+
+
+
+
+\end{document}
+

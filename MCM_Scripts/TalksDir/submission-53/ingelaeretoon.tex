@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Multilevel interacting-particle methods for Bayesian inversion of infinite-dimensional parameters}% [1] talk title
+  {Toon Ingelaere}% [2] speaker name
+  {KU Leuven}% [3] affiliations
+  {toon.ingelaere@kuleuven.be}% [4] email
+  {Arne Bouillon, Giovanni Samaey}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+Interacting-particle methods, like the ensemble Kalman filter or consensus-based sampling, use an ensemble of particles embedded in parameter space, that evolve in time, based on a combination of well-chosen dynamics and interaction between the particles. These parallelizable algorithms have found applications in domains such as filtering, optimization and posterior sampling. 
+
+For computationally expensive dynamics, e.g., Bayesian inversion of an expensive forward model, the cost of attaining a high accuracy quickly becomes prohibitive. We recently formulated a general multilevel framework for these interacting-particle methods [1], where the resolution of the forward model is varied across levels, by extending the approach suggested in [2] for the ensemble Kalman filter: at each time step, the interaction term is estimated via multilevel Monte Carlo within a single, globally-coupled ensemble.
+
+We will discuss two extensions to the framework, enabling its application to interacting-particle methods for Bayesian inversion of infinite-dimensional parameters (functions). Firstly, we extend the framework to an infinite-horizon setting. In the context of Bayesian inversion, one is interested in the asymptotic behavior of the ensemble and hence, the simulation horizon itself depends on the tolerance. Secondly, we will vary the resolution of the forward model as well as the dimension of the parameter across levels, allowing inference of infinite-dimensional parameters.
+
+
+\medskip
+
+
+\begin{enumerate}
+    \item[{[1]}] Bouillon, A., Ingelaere, T., \& Samaey, G. Single-ensemble multilevel Monte Carlo for discrete interacting-particle methods, in preparation.
+    \item[{[2]}] Hoel, H., Law, K. J., \& Tempone, R. (2016). Multilevel ensemble Kalman filtering. SIAM Journal on Numerical Analysis, 54(3), 1813-1839.
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+

@@ -1,0 +1,57 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Using Adaptive Basis Search Method To Interpret Black-Box Models}% [1] talk title
+  {Ambrose Emmett-Iwaniw}% [2] speaker name
+  {University of Waterloo}% [3] affiliations
+  {arsemmet@uwaterloo.ca}% [4] email
+  {Christiane Lemieux}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Inference is an important part of machine learning and statistics. In the case of Black-Box models, Knowing which variables are important for prediction is an ongoing problem. The Quasi-Regression (QR) method is used to approximate a function of interest by a linear combination of orthonormal basis functions of $L^2[0,1]^{d}$. The coefficients are integrals that do not have an analytical solution. Thus, a need arises for Monte Carlo methods to approximate them. QR is an approximate inference method that uses functional ANOVA and global sensitivity indices to explain which variables and interactions are important for the fit. The QR method performs poorly due to its high variance leading to slow convergence. The QR method was extended by using shrinkage parameters that act like a control variate by helping lower the variance. This was shown to perform better than the original QR method. Here we extend QR by using the RQMC method. Our results show, theoretically and empirically, that QR with Randomized quasi-Monte Carlo (RQMC) is superior to using the original QR method. In practice, the QR method can be time-consuming if the number of basis functions is large. If the function of interest is sparse many of these basis functions are irrelevant and can be removed. We address this problem by creating new adaptive basis search methods based on the RQMC method that adaptively selects important basis functions. These methods are shown to be much faster than the previous QR methods. Also, with properly selected cut-off parameters, the adaptive search methods are shown theoretically and empirically to perform better than QR with RQMC. Also, it is empirically shown that with properly selected cut-off parameters the adaptive basis search methods perform better than QR with shrinkage.
+\end{talk}
+
+\end{document}
+

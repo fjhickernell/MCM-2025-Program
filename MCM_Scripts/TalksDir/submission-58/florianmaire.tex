@@ -1,0 +1,152 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {The occluded process}% [1] talk title
+  {Florian Maire}% [2] speaker name
+  {Department of Mathematics and Statistics, Universit\'e de Montr\'eal}% [3] affiliations
+  {florian.maire@umontreal.ca}% [4] email
+  {Max Hird}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks.
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+				
+
+We consider the ubiquitous problem in Bayesian Statistics/ML of sampling from a posterior distribution, called $\pi$. Over the recent years, a host of optimisation-based methods (Variational Bayes, expectation propagation, normalizing flows) producing a deterministic approximation of $\pi$, called $Q$, have been developed.  Consider a MCMC algorithm producing a Markov chain $\{X_t\,:\,t\geq 0\}$ with a $\pi$-reversible Markov kernel $K$. Our work aims at leveraging a deterministic approximation $Q$ of $\pi$  to enhance $\{X_t\}$.
+
+% and say that the computational power necessary to generate a transition from $K$ corresponds to one unit of computation.
+
+In this work, we consider a partition $\{\mathcal{X}_i\}_{i=1}^n$ of the state-space $\mathcal{X}$, and define the conditional distributions $\pi_i=\pi(\,\cdot\,\cap \mathcal{X}_i)/\pi(\mathcal{X}_i)$, for $i\in\{1,\ldots,n\}$. Moreover, let  $\rho:\mathcal{X}\to\{1,\ldots,n\}$ be such that for all $x\in\mathcal{X}$, $\rho(x)$ gives the element of the partition that $x$ belongs to. Let $\phi:\mathcal{X}\to[0,1]$. We define the $\phi$-occlusion of the Markov chain $\{X_t\}$ as the stochastic process $\{Z_t\,:\,t\geq 0\}$ defined by $Z_0=X_0$ and for all $t>0$,
+%$$
+%Z_t=X_t\mathbf{1}[U\leq \phi(X_t)]+W\mathbf{1}[U>\phi(X_t)]\,,\qquad W\,|\,X_t\sim \pi_{\rho(X_t)}\,,U\sim\text{unif}((0,1))\,.
+%$$
+
+\begin{equation}
+Z_t=\left\{
+\begin{array}{ccc}
+X_t&\text{w.p.}&1-\phi(X_t)\\
+W&\text{w.p.}&\phi(X_t)
+\end{array}\,,
+\right.\qquad 
+W\,|\,X_t\sim \pi_{\rho(X_t)}\,.
+\end{equation}
+In other words, at some random times $\{T_1,T_2,\ldots\}$, $X_{T_k}$ is simply occluded by an independent draw from $\pi_{i}$, where $i=\rho(X_{T_k})$. For example, if $\phi=1$ and $n=1$ then $\{Z_t\}\sim_{iid}\pi$. 
+
+The purpose of this talk is two-fold:
+\begin{enumerate}
+  \item What theoretical properties does $\{Z_t\}$ inherit from $\{X_t\}$? 
+  \begin{itemize}
+    \item Unsurprisingly, $\{Z_t\}$ converges weakly to $\pi$. We also prove that $\{Z_t\}$ admits a CLT for any functional in $L^2(\pi)$, provided that $\{X_t\}$ is geometrically ergodic. The main challenge here is that $\{Z_t\}$ is not itself a Markov chain.
+  \end{itemize}
+  \item We present an algorithm which simulates the $\phi$-occluded process $\{Z_t\}$ at no extra computational time relative to that of $\{X_t\}$.
+  \begin{itemize}
+  \item As observed in a companion paper [1], a simple modification of the rejection sampling mechanism allows to sample i.i.d. random variables from the restrictions $\pi_i$ using $Q$, at a complexity say $\rho_i\geq 1$. For any $x\in\mathcal{X}_i$, the occlusion probability is such that $\phi(x)=\mathcal{O}(1/\rho_i)$ and is thus imposed by $Q$.
+  \end{itemize}    
+\end{enumerate}
+
+One might think that any amount of occlusion, as small as it is, does reduce the autocorrelation of the chain and thus makes the CLT's asymptotic variance of $\{Z_t\}$ not larger than $\{X_t\}$. We present some pathological, yet informative, counter-examples to that statement. Furthermore, we explain that good choices of $Q$ lead to an occluded process which acts as a control variate mechanism and thus improves the efficiency of $\{X_t\}$. A simulation study shows that, for common statistical models, the occlusion reduces the asymptotic variance all the more than $Q$ approximates well $\pi$ in high posterior density regions.
+
+
+\begin{list}{[1]}
+  \item An independent Metropolis sampler without rejection, F. Maire and F. Perron, \textit{upcoming}.
+\end{list}
+
+
+\
+%We assume that with probability $\tau_i$, a factory of $m$ workers can produce at least one sample from $\pi_i$ within a unit a computation.
+%
+%
+%To help practitioners in situation where MCMC is computationally slow or/and statistically unreliable, a host of optimisation-based methods producing deterministic approximation, called $Q$, have been recently put forward.
+%
+%
+%
+%In this work, we consider a partition $\{\mathcal{X}_i\}_{i=1}^n$ of the state-space $\mathcal{X}$, and $\pi_i=\pi(\,\cdot\,\cap \theta_i)/\pi(\theta_i)$, for $i\in\{1,\ldots,n\}$. As observed in a companion paper [1], a simple modification of the rejection sampling mechanism allows to sample i.i.d. random variables from such restrictions $\pi_i$ using $Q$, at a complexity say $\rho_i$.
+%
+%
+%Over the recent years, a host of optimisation-based methods (Variational Bayes, expectation propagation, normalizing flows) producing a deterministic approximation of $\pi$, called $Q$, have been recently put forward and studied.
+%
+%
+%Here, we consider a partition $\{\theta_i\}_{i=1}^n$ of the state-space $\theta$, and $\pi_i=\pi(\cdot\cap \theta_i)/\pi(\theta_i)$, $i\in\{1,\ldots,n\}$. As observed in a companion paper [1], a simple modification of the rejection sampling mechanism allows to sample i.i.d. random variables from such restrictions $\pi_i$ using $Q$, at a complexity say $\rho_i$.
+%
+%The premise of our work is to consider:
+%\begin{itemize}
+%\item a baseline Markov chain $\{X_t\,:\,t\geq 0\}$ with $\pi$-reversible Markov kernel $K$, which can be simulated on a computer,
+%\item a factory of $m$ workers, each of which attempting to produce a draw of
+%$Z_t\,|\,X_{t-1}\sim \pi_{\phi(X_{t-1})}$ where $\phi(x)$ is such that $x\in A_{\phi(x)}$ using such a mechanism. Call $\mathcal{E}_t$ the event that a draw has been produced.
+%\end{itemize}
+%The occluded chain proceeds as follows. At times $t=1,2,\ldots$, while the transition $X_t\,|\,X_{t-1}$ from $K$ is being generated, 
+%
+%
+%To help practitioners in situation where MCMC is computationally slow or/and statistically unreliable, a host of optimisation-based methods producing deterministic approximation, called $Q$, have been recently put forward and studied. These include variational approximations, expectation propagation, INLA, etc.
+%
+%As observed in a companion paper [1], a simple modification of the rejection sampling mechanism allows to sample i.i.d. random variables from restrictions of $\pi$ to some subsets of the state-space, say $\{A_1,\ldots,A_n\}\subset \Theta$.
+%
+%
+%\medskip
+%
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots . Please refrain from
+%using the \texttt{bibliography} environment or \texttt{bibtex} files.
+\end{talk}
+
+
+\end{document}

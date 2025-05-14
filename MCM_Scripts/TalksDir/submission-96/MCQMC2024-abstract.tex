@@ -1,0 +1,86 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Using Kronecker point sets for function approximation in the Korobov space}% [1] talk title
+  {Laurence Wilkes}% [2] speaker name
+  {Department of Computer Science, KU Leuven, Belgium}% [3] affiliations
+  {laurence.wilkes@kuleuven.be}% [4] email
+  {Ronald Cools, Dirk Nuyens}% [5] coauthors
+  {Universality in QMC and related algorithms}% [6] Special session title
+
+
+In this talk, we will introduce the Kronecker point sets and demonstrate that they produce almost the optimal rate of worst case $L_2$ error convergence for function approximation in the Korobov space.
+For $n$ sample points, and a generator $\boldsymbol{\zeta} \in [0, 1]^d$, we define the \emph{Kronecker point set} as the set of points $\{ \{ k \boldsymbol{\zeta} \} \: : \: k = 1, \ldots, n \}$.
+Unlike rank-1 lattices, which achieve a worst case error convergence of order $\alpha/2$ in the Korobov space of smoothness $\alpha$, the Kronecker point sets are able to achieve the optimal order of~$\alpha$.
+This is made possible by a least squares algorithm similar to one presented in [1]. %Krieg and Ullrich (2021).
+
+ \medskip
+
+ \begin{enumerate}%[label={[\arabic*]}]
+     \item[{[1]}] Krieg, D., \& Ullrich, M. (2021). Function values are enough for \( L_2 \)-approximation. \textit{Foundations of Computational Mathematics, 21}, 1141-1151.
+ \end{enumerate}
+\quad
+\end{talk}
+
+
+\end{document}

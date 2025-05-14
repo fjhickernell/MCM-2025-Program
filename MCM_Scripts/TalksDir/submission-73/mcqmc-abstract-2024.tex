@@ -1,0 +1,62 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {High-Dimensional Approximation -- making life easy with kernels}% [1] talk title
+  {Ian H Sloan}% [2] speaker name
+  {UNSW Sydney}% [3] affiliations
+  {i.sloan@unsw.edu.au}% [4] email
+  {Vesa Kaarnioja ad Frances Y Kuo}% [5] coauthors
+  {Kernel Approximation and Cubature}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+High dimensional approximation problems commonly arise from parametric PDE problems in which the parametric input depends on very many independent univariate random variables.  Here we explain a method for such problems in which high dimensionality is not a barrier.
+ The method in its original form was proposed in a 2022 paper with Frances Kuo, Vesa Kaarnioja, Yoshihito Kazashi and Fabio Nobile.  It uses kernel interpolation with periodic kernels, with the kernels located at lattice points, as advocated long ago by Hickernell and colleagues.
+
+The lattice points and the kernels depend on parameters called “weights”.  In the 2022 paper the recommended weights were “SPOD” weights, leading to an $L_2$ error that is independent of dimension but with a cost growing as the square of the number of lattice points.   In the forthcoming 2022 MCQMC Proceedings we present “serendipitous” weights, for which the cost grows only linearly with both dimension and number of lattice points, allowing practical computations in as many as 1,000 dimensions.
+
+The rate of convergence proved in the above papers was of the order $n^{-\alpha/2}$, for interpolation using the  reproducing kernel of a space with mixed smoothness of order $\alpha$.  However,a new result with Vesa Kaarnioja doubles the proven convergence rate to $n^{-\alpha}$.
+
+\end{talk}
+
+\end{document}

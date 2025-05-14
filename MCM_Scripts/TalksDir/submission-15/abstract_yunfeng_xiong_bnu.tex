@@ -1,0 +1,80 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {Adaptive density estimation via discrepancy estimation, and its application in quantum many-body simulations}% [1] talk title
+  {Yunfeng Xiong}% [2] speaker name
+  {School of Mathematical Sciences, Beijing Normal University}% [3] affiliations
+  {yfxiong@bnu.edu.cn}% [4] email
+  {Sihong Shao}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+				
+Density estimation is one of the fundamental problems in statistics, the target of which is to learn the underlying density from the observed data in $\mathbb{R}^d$.  When $d$ is low, it is easy to approximate the density by either the histogram and the kernel density estimation. However, these approaches might not be scaled easily to large $d$ (e.g., $d = 10, 20, 100$) because of the well-known curse of dimensionality. In the first part of this talk, we would like to discuss a recently developed tree-based density estimation via controlling the discrepancy. This method uses the star-discrepancy, a number-theoretic measure of the uniformity (or irregularity) of a sequence, to guide the tree-based partition and adaptive clustering of particles. The efficiency of this method in high-dimensional case is presented, which may give us some insight on the power of combinatorial techniques in boosting the statistical learning.
+
+In the second part, we will discuss the potential application of the adaptive density estimation in computational quantum physics. We will start from the negative particle method for solving PDEs in quantum theory and point out that the density estimation is indispensable mainly for two reasons: First, the density estimation helps reconstruct the solution from the point clouds. Second, the density estimation can be used to cancel out the positive and negative particles and consequently alleviate the exponential growth of stochastic variances. Numerical simulations on the 6-D and 12-D quantum kinetic equations are presented to validate our findings.
+\end{talk}
+
+
+\end{document}

@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Fast convergence of the Expectation Maximization algorithm under a logarithmic Sobolev inequality}% [1] talk title
+  {Rocco Caprio}% [2] speaker name
+  {Department of Statistics, University of Warwick}% [3] affiliations
+  {rocco.caprio@warwick.ac.uk}% [4] email
+  {Adam M. Johansen}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+By utilizing recently developed tools for constructing gradient flows on Wasserstein spaces, we extend an analysis technique commonly employed to understand alternating minimization algorithms on Euclidean space to the Expectation Maximization (EM) algorithm via its representation as coordinate-wise minimization on the product of a Euclidean space and a space of probability distributions due to Neal and Hinton (1998). In so doing we obtain finite sample error bounds and exponential convergence of the EM algorithm under a natural generalisation of a log-Sobolev inequality. We further demonstrate that the analysis technique is sufficiently flexible to allow also the analysis of several variants of the EM algorithm.
+			
+%Markov chain Monte Carlo (MCMC) algorithms are based on the construction of a Markov Chain with %transition probabilities $P_\mu(x,\cdot)$, where $\mu$ indicates an invariant distribution of %interest. In this work, we look at these transition probabilities as functions of their %invariant distributions, and we develop a notion of \textit{derivative in the invariant %distribution} of a MCMC kernel. We build around this concept a set of tools that we refer to as %\textit{Markov Chain Monte Carlo Calculus}. This allows us to compare Markov chains with %different invariant distributions within a suitable class via what we refer to as mean value %inequalities. We explain how MCMC Calculus provides a natural framework to study algorithms %using an approximation of an invariant distribution, also illustrating how it suggests %practical guidelines for MCMC algorithms efficiency. We conclude this work by showing how the %tools developed can be applied to prove convergence of interacting and sequential MCMC %algorithms, which arise in the context of particle filtering. 
+%\medskip
+
+%\begin{enumerate}
+%	\item[{[1]}] Rocco Caprio, \& Adam M. Johansen, A calculus for Markov chain Monte Carlo: %studying approximations in algorithms. arXiv 2310.03853.
+%\end{enumerate}
+
+\end{talk}
+
+\end{document}
+

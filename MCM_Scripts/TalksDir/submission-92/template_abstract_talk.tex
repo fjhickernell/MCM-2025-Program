@@ -1,0 +1,74 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Conditional Quasi-Monte Carlo with Active Subspaces}% [1] talk title
+  {Sifan Liu}% [2] speaker name
+  {Department of Statistics, Stanford University}% [3] affiliations
+  {sfliu@stanford.edu}% [4] email
+  {Art B. Owen}% [5] coauthors
+  {Recent advances in QMC methods for computational finance and financial risk management}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+
+
+Conditional Monte Carlo is a powerful strategy for enhancing the efficiency and accuracy of quasi-Monte Carlo and randomized quasi-Monte Carlo methods. By pre-integrating over a variable in a closed form, it reduces the variance and can potentially improve the smoothness of the integrand. Selecting the appropriate variable for pre-integration requires careful consideration of both the variance reduction factor and the feasibility of the pre-integration step. For integrals with respect to a Gaussian distribution, there is the flexibility to pre-integrate over any linear combination of variables. We introduce a systematic method for choosing the pre-integration direction, leveraging the active subspace decomposition to identify the most important direction. In some scenarios, pre-integration is feasible only along directions that satisfy certain constraints. Therefore, we propose to compute the active subspace decomposition subject to these constraints so that pre-integration can be easily carried out. The effectiveness of the proposed method is demonstrated through its application to derivative pricing problems under the Black-Scholes model and various stochastic volatility models.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{talk}
+
+\end{document}
+

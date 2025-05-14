@@ -1,0 +1,57 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Enhanced Lattice-Based Kernel Cubature through Weight Optimization}% [1] talk title
+  {Ilja Klebanov}% [2] speaker name
+  {Speaker affiliation(s) go here}% [3] affiliations
+  {Free University of Berlin}% [4] email
+  {Vesa Kaarnioja}% [5] coauthors
+  {Kernel Approximation and Cubature}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Lattice rules, equal-weight quasi-Monte Carlo (QMC) methods, have become increasingly popular for their simplicity and efficiency in computational mathematics. The underlying mathematical theory is rooted in the framework of reproducing kernel Hilbert spaces (RKHS). By employing a technique called kernel mean embedding, we can embed both the cubature rule and the integration process itself into the corresponding RKHS, and then optimally adjust the weights through orthogonal projection. Remarkably, due to the reproducing property, orthogonal projection coincides with kernel interpolation at the lattice points, allowing the optimal weights to be derived by solving a system of linear equations. Implementing these optimized weights in QMC rules, we've observed a significant improvement in convergence speed, essentially doubling it. My talk will delve into our research efforts on theoretically supporting this observed improvement.
+\end{talk}
+
+\end{document}
+

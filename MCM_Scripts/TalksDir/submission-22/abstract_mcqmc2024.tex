@@ -1,0 +1,70 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {A Universal Lattice-based Algorithm for Multivariate Function Approximation in Uncertainty Quantification}% [1] talk title
+  {Weiwen Mo}% [2] speaker name
+  {Department of Computer Science, KU Leuven, Celestijnenlaan 200A, 3001 Leuven, Belgium}% [3] affiliations
+  {weiwen.mo@kuleuven.be}% [4] email
+  {Frances Y. Kuo, Dirk Nuyens}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We present an algorithm, using rank-1 lattice points,  to approximate multivariate periodic functions that does not require the smoothness. Rank-1 lattice points are characterised by a generating vector which in turn determines the quality of the approximation. We propose a component-by-component (CBC) construction to construct a generating vector for function approximation without prior information on smoothness parameters. This means the resulting generating vector can be used for any smoothness. The lattice-based algorithm independent of smoothness leads to almost the same convergence rate as previous lattice algorithms in papers \emph{Cools, Kuo, Nuyens \& Sloan \textup{(}2020\textup{)}} and \emph{Kuo, Mo \& Nuyens \textup{(}2024+\textup{)}}, except for some logarithmic factor. 
+The error bound is independent of dimension for appropriately chosen weight parameters.
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+\begin{enumerate}
+	\item[{[1]}] Cools, R., Kuo, F.Y., Nuyens, D., Sloan, I.H.: {\it Lattice algorithms for multivariate approximation in periodic spaces with general weights}. Contemp. Math. \textbf{754}, 93--113 (2020).
+	\item[{[2]}] Kuo, F.Y., Mo, W., Nuyens, D.: {\it Constructing embedded lattice-based algorithms for multivariate function approximation with a composite number of points.} \\ doi:10.48550/arXiv.2209.01002.
+\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\end{document}
+

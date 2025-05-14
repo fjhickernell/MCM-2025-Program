@@ -1,0 +1,87 @@
+
+\documentclass[12pt,a4paper,figuresright]{book}
+
+
+
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+
+
+
+
+
+
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\\\nopagebreak}%
+
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+
+\begin{talk}
+  {The Quasi Continuous-Level Monte Carlo Method and its Applications}% [1] talk title
+  {Andrea Barth}% [2] speaker name
+  {University of Stuttgart}% [3] affiliations
+  {andrea.barth@mathematik.uni-stuttgart.de}% [4] email
+  {Cedric Beschle}% [5] coauthors
+  {Optimization under uncertainty}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+				
+				
+
+The accurate and efficient estimation of moments of (functionals of) solutions to stochastic problems is of high interest in the field of uncertainty quantification. Adding nonlinearities to the underlying
+stochastic model may lead to large local effects in the solutions and inefficiencies in the moment estimation. Standard multilevel Monte Carlo methods (MLMC) are robust, but not able to efficiently account for these local effects, resulting in high computational cost. The standard continuous level Monte Carlo method (CLMC) can account for local solution features, but with its level distribution sampled by (pseudo) random numbers, it is troubled by a high variance. Thus, we consider the quasi continuous level Monte Carlo method (QCLMC), which combines adaptivity to local solution features via samplewise a-posteriori error estimates with quasi random numbers to sample its underlying continuous level distribution. Therefore, QCLMC has the potential of a high cost reduction and improved performance in comparison to MLMC and standard CLMC, which is demonstrated via applications to random elliptic equations with discontinuous coefficients and to a random inviscid Burgers’ equation.
+
+% \medskip
+% 
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots . Please refrain from 
+% using the \texttt{bibliography} environment or \texttt{bibtex} files. 
+
+\end{talk}
+
+
+\end{document}
+
