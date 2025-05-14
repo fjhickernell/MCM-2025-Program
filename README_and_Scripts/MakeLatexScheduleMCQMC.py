@@ -39,7 +39,7 @@ if __name__ == '__main__':
     NbTalkListed = 0
     StartListTalk = False
     
-    fsched = open("Schedule.tex",'w')
+    fsched = open(f"{cwd}Schedule.tex",'w')
     #  print("\\begin{sideways}\n\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",file=fsched)
     
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
