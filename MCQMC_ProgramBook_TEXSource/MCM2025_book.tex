@@ -1,0 +1,1590 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+%\documentclass[12pt,a4paper,figuresright]{book}
+
+% make sure sessions and talks are not split between pages
+\usepackage{needspace}
+\usepackage{hyperref}
+\usepackage{bm}
+
+\ExplSyntaxOn
+\cs_new:Npn \expandableinput #1
+{ \use:c { @@input } { \file_full_name:n {#1} } }
+\AddToHook{env/tabular/begin}
+{ \cs_set_eq:NN \input \expandableinput }
+\AddToHook{env/tabularx/begin}
+{ \cs_set_eq:NN \input \expandableinput }
+\ExplSyntaxOff
+
+% These commands show the draft water mark
+%\usepackage{draftwatermark}
+%\SetWatermarkAngle{60}
+%\SetWatermarkLightness{0.85}
+%\SetWatermarkFontSize{5cm}
+%\SetWatermarkScale{8.5}
+%\SetWatermarkText{DRAFT}
+
+\usepackage{tabularx,booktabs,enumitem}
+\usepackage{multirow,multicol}
+% The package allows rows and columns to be coloured, and even individual cells.
+\usepackage{colortbl,longtable}
+\usepackage{amsmath,amssymb,ifthen}
+\usepackage{graphicx,url,wrapfig,xcolor,rotating,epsfig}
+
+%===== Define geometry of the page
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\hyphenation{quasi-random}
+\hyphenation{models}
+\hyphenation{poly-nomial}
+\hyphenation{poly-nomials}
+
+\definecolor{MySpecial1}{rgb}{0.9,1,0.9} % lighter green
+\definecolor{MySpecial2}{rgb}{0.75,1,0.75} % green
+\definecolor{MySpecial3}{rgb}{0.6,1,0.6} % darker green
+\definecolor{MyPlenary}{rgb}{1,1,0.8} % yellow
+\definecolor{MyEvent}{rgb}{1,0.83,0.61} % orange
+\definecolor{MyBlank}{rgb}{0.97,0.97,0.97} % gray
+
+\definecolor{UWGrey1}{HTML}{DFDFDF} % light grey
+\definecolor{UWGrey2}{HTML}{A2A2A2} % bright grey
+\definecolor{UWGrey3}{HTML}{787878} % grey
+\definecolor{UWGrey4}{HTML}{000000} % dark grey
+
+\definecolor{UWYellow1}{HTML}{F2EDA8} % light yellow
+\definecolor{UWYellow2}{HTML}{FAE100} % bright yellow
+\definecolor{UWYellow3}{HTML}{FED34C} % yellow
+\definecolor{UWYellow4}{HTML}{EAAB00} % dark yellow
+
+\definecolor{UWPink0}{HTML}{FFBEEF} % lighter pink
+\definecolor{UWPink1}{HTML}{EFBBF0} % light pink
+\definecolor{UWPink2}{HTML}{EF60AD} % bight pink
+\definecolor{UWPink3}{HTML}{DF1AA0} % pink
+\definecolor{UWPink4}{HTML}{A2006E} % dark pink
+
+\newcommand{\EmptyColor}{UWGrey1}
+\newcommand{\EventColor}{UWGrey1}
+\newcommand{\PlenaryColor}{UWYellow3}
+\newcommand{\TutorialColor}{UWYellow2}
+\newcommand{\SessionTitleColor}{UWPink2}
+\newcommand{\SessionLightColor}{UWPink1}
+\newcommand{\SessionDarkColor}{UWPink0}
+
+\newcommand{\update}[1]{\begingroup\color{blue}#1\endgroup}
+\newcommand{\todo}[1]{\begingroup\color{red}#1\endgroup}
+
+\newcommand{\scnote}[1]{{\color{red}{\bf Sou-Cheng}: #1}}
+
+% ------------------------------------------------------------------------
+% New Definitions
+% ------------------------------------------------------------------------
+
+\newcommand{\mask}[1]{}		% this comment is not used, consider deleting it
+
+\makeatletter
+\newcommand{\clearemptydoublepage}{%
+ \newpage{\pagestyle{empty}{\cleardoublepage}}}
+
+% -- chapter ---------------------------------------------------------------
+% -- starts on a new odd page with no page number
+% -- no numbering
+% -- appears in the table of content
+% -- becomes the running header on even pages
+\renewcommand{\chapter}{%
+ \clearemptydoublepage\thispagestyle{empty}%
+ \secdef \Chapter \sChapter}%
+\newcommand{\Chapter}[2][default]{\sChapter {#2}}%
+\newcommand{\sChapter}[1]{%
+ \refstepcounter{chapter}%
+ \addcontentsline{toc}{chapter}{#1}%
+ \markboth{{\sffamily\small#1}}{{\sffamily\small#1}}%
+ \quad\vskip 8cm\hfill{\sffamily\Huge #1}\vskip 0.5cm\hrule%\vskip 1 cm% %\clearpage%
+ \pagebreak%
+ }
+
+% -- section ---------------------------------------------------------------
+% -- starts on a new page with no page number
+% -- no numbering
+% -- appears in the table of content
+% -- becomes the running header on odd pages
+\renewcommand{\section}{%
+ \clearpage%
+ \secdef \Section \sSection}%
+\newcommand{\Section}[2][default]{\sSection {#2}}%
+\newcommand{\sSection}[1]{%
+ \refstepcounter{section}%
+ \addcontentsline{toc}{section}{#1}%
+ \markright{{\sffamily\small #1}}%
+ {\sffamily\Large #1}\vskip 0.3cm\hrule\vskip 0.6cm%
+ }
+
+% -- table of contents -----------------------------------------------------
+% -- looks like a section
+\renewcommand\tableofcontents{%
+ \section{\contentsname}%
+ \@starttoc{toc}%
+ }
+
+% -- other sectioning commands ---------------------------------------------
+% -- no numbering
+% -- change the font style
+\setcounter{secnumdepth}{-2}
+\renewcommand\subsection{\@startsection {subsection}{1}{\z@}%
+ {-3.5ex \@plus -1ex \@minus -.2ex}%
+ {2.3ex \@plus.2ex}%
+ {\sffamily\large\underline}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{2}{\z@}%
+ {-3.25ex\@plus -1ex \@minus -.2ex}%
+ {1.5ex \@plus .2ex}%
+ {\sffamily\large}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+ {3.25ex \@plus1ex \@minus.2ex}%
+ {-1em}%
+ {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+ {3.25ex \@plus1ex \@minus .2ex}%
+ {-1em}%
+ {\normalfont\normalsize\bfseries}}
+
+% -- bibliography ---------------------------------------------------------
+% -- just comment out two lines so that it is not a chapter
+\renewenvironment{thebibliography}[1]
+ {%\chapter*{\bibname
+ % \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}}%
+ \list{\@biblabel{\@arabic\c@enumiv}}%
+ {\settowidth\labelwidth{\@biblabel{#1}}%
+ \leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \@openbib@code
+ \usecounter{enumiv}%
+ \let\p@enumiv\@empty
+ \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+ \sloppy\clubpenalty4000\widowpenalty4000%
+ \sfcode`\.\@m}
+ {\def\@noitemerr
+ {\@latex@warning{Empty `thebibliography' environment}}%
+ \endlist}
+
+\makeatother
+
+% -- adding a talk
+\newcounter{talk}
+\newenvironment{talk}[9]% [1] talk title
+ % [2] speaker name, [3] affiliations, [4] email,
+ % [5] coauthors, [6] special session
+ % [7] time slot
+ % [8] talk id, [9] session id or photo
+ {\needspace{6\baselineskip}%
+ \refstepcounter{talk}
+ \vskip 0pt\nopagebreak%
+ \colorbox{UWPink0}{\makebox[\textwidth][r]{#7}}\nopagebreak%
+ \ifthenelse{\equal{#9}{photo}}{%
+ \\\\\colorbox{UWPink0}{\makebox{\includegraphics[width=3cm]{./Photos/#8.jpg}}} 
+ %\ifthenelse{\equal{#10}{}{}}{#10}
+ \nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+ \label{#8}%
+ \textbf{#1}\vspace{3mm}\\\nopagebreak%
+ \textit{#2}\\\nopagebreak%
+ #3\\\nopagebreak%
+ \url{#4}\vspace{3mm}\\\nopagebreak%
+ \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+ \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad p.\pageref{#9}\vspace{3mm}\\\nopagebreak}%
+}
+ {\leavevmode\vspace{1cm}\\\nopagebreak}%
+
+ % -- adding a talk with photo credit
+\newcounter{talkcr}
+\newenvironment{talkcr}[9]% [1] talk title
+ % [2] speaker name, [3] affiliations, [4] email,
+ % [5] coauthors, [6] special session
+ % [7] time slot
+ % [8] talk id, [9] session id or photo
+ {\needspace{6\baselineskip}%
+ \refstepcounter{talkcr}
+ \vskip 0pt\nopagebreak%
+ \colorbox{UWPink0}{\makebox[\textwidth][r]{#7}}\nopagebreak%
+ \ifthenelse{\equal{#9}{photo}}{%
+ \\\\\colorbox{UWPink0}{\makebox{\includegraphics[width=3cm]{./Photos/#8.jpg}}} 
+ %\ifthenelse{\equal{#10}{}{}}{#10}
+ {\tiny Photo: @ Claudia B\"orner}
+ \nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+ \label{#8}%
+ \textbf{#1}\vspace{3mm}\\\nopagebreak%
+ \textit{#2}\\\nopagebreak%
+ #3\\\nopagebreak%
+ \url{#4}\vspace{3mm}\\\nopagebreak%
+ \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+ \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad p.\pageref{#9}\vspace{3mm}\\\nopagebreak}%
+}
+ {\leavevmode\vspace{1cm}\\\nopagebreak}%
+
+ % -- adding a panel session
+\newcounter{talkp}
+\newenvironment{talkp}[5]% [1] talk title
+ % [2] speaker name, [3] panelists  [4] time slot
+ % [5] talk id
+ {\needspace{6\baselineskip}%
+ \refstepcounter{talkp}
+ \vskip 0pt\nopagebreak%
+ \colorbox{UWPink0}{\makebox[\textwidth][r]{#4}}\nopagebreak%
+ %\ifthenelse{\equal{#9}{photo}}{%
+ %\\\\\colorbox{UWPink0}{\makebox{\includegraphics[width=3cm]{./Photos/#8.jpg}}}
+ %\ifthenelse{\equal{#10}{}{}}{#10}
+ %{\tiny Photo: @ Claudia B\"orner}
+ %\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+ \label{#5}%
+ \textbf{#1}\vspace{3mm}\\\nopagebreak%
+ \textit{Moderator: #2}\\\nopagebreak%
+ %#3\\\nopagebreak%
+ %\url{#4}\vspace{3mm}\\\nopagebreak%
+ \ifthenelse{\equal{#3}{}}{}{Panelists: #3\vspace{3mm}\\\nopagebreak}%
+ %
+}
+ {\leavevmode\vspace{1cm}\\\nopagebreak}%
+
+% -- adding a special session
+\usepackage{titlecaps}
+\Resetlcwords
+\Addlcwords{and as but for if nor or so yet} % short conjunctions
+\Addlcwords{a an the} % articles
+\Addlcwords{as at by for in of off on per to up via} % short prepositions
+\newcounter{specialsession}
+\newenvironment{session}[9] % [1] session title
+ % [2] organiser name, [3] affiliations, [4] email
+ % [5] organiser name, [6] affiliations, [7] email
+ % [8] session id
+ % [9] third organiser info, if any
+ {\needspace{6\baselineskip}
+ \refstepcounter{specialsession}
+ \vskip 0pt\nopagebreak%
+ \label{#8}%
+% \textbf{Special Session~\ifnum\value{specialsession}<10 0\fi\arabic{specialsession}. 
+\textbf{\titlecap{#1}}\vspace{3mm}\\\nopagebreak%
+ \ifthenelse{\equal{#5}{}}{Organizer:}{Organizers:}\vspace{2mm}\\\nopagebreak%
+ \textit{#2}\\\nopagebreak%
+ #3\\\nopagebreak%
+ \url{#4}\vspace{3mm}\\\nopagebreak%
+ \ifthenelse{\equal{#5}{}}{}{\textit{#5}\\\nopagebreak%
+ #6\\\nopagebreak%
+ \url{#7}\vspace{3mm}\\\nopagebreak}%
+ \ifthenelse{\equal{#9}{}}{}{#9}%
+ \quad\\\nopagebreak%
+ \textbf{Session Description}:\\\nopagebreak%
+}
+ {\vskip 0pt\nopagebreak}%
+
+% third organiser info, if any
+\newcommand{\thirdorganizer}[3]
+% [1] organiser name, [2] affiliations, [3] email
+{\textit{#1}\\\nopagebreak%
+ #2\\\nopagebreak%
+ \protect\url{#3}\vspace{3mm}\\\nopagebreak}%
+
+
+% -- adding a special session part
+\newcommand{\sessionPart}[2]{% [1] part title,
+ % [2] time slot
+ \vspace{12pt}
+ \ifthenelse{\equal{#1}{}}{}{\colorbox{UWYellow2}{\makebox[\textwidth][l]{#1}}\nopagebreak\\}%
+ \colorbox{UWYellow2}{\makebox[\textwidth][l]{#2}}\nopagebreak%
+ \vskip 0pt\nopagebreak%
+}%
+
+% -- adding a special session talk
+\newcommand{\sessionTalk}[3]{% [1] talk title, [2] speaker name, [3] label
+ \needspace{3\baselineskip}%
+ \vskip 0pt\nopagebreak%
+ \textit{#2}\\\nopagebreak%
+ {\titlecap{#1}} \qquad p.~\pageref{#3}\nopagebreak%
+ \vskip 0pt\nopagebreak%
+}%
+
+% -- adding a participant
+\newcommand{\participant}[5]{% [1] name, [2] address, [3] email, [4-8] page refs
+ \begin{minipage}{0.45\textwidth} \raggedright%
+ \vskip 0pt\nopagebreak%
+ \textbf{#1}\\\nopagebreak%
+ #2\\ \nopagebreak%
+ %\ifthenelse{\equal{#2}{}}{}{#2\\ \nopagebreak}%
+ \url{#3}\\\nopagebreak%
+ \ifthenelse{\equal{#4}{}}{}{p.~\pageref{#4}}%
+ \ifthenelse{\equal{#5}{}}{}{, p.~\pageref{#5}}%
+ %\ifthenelse{\equal{#6}{}}{}{, p.~\pageref{#6}}%
+% \ifthenelse{\equal{#7}{}}{}{, p.~\pageref{#7}}%
+% \ifthenelse{\equal{#8}{}}{}{, p.~\pageref{#8}}%
+ \end{minipage}%
+ \vskip 0.5cm%
+}%
+
+% -- adding a participant no email
+\newcommand{\participantne}[4]{% [1] name, [2] address, , [3-7] page refs
+ \begin{minipage}{0.45\textwidth} \raggedright%
+ \vskip 0pt\nopagebreak%
+ \textbf{#1}\\\nopagebreak%
+ #2\\ \nopagebreak%
+ %\ifthenelse{\equal{#2}{}}{}{#2\\ \nopagebreak}%
+ %\url{#3}\\\nopagebreak%
+ \ifthenelse{\equal{#3}{}}{}{p.~\pageref{#3}}%
+ \ifthenelse{\equal{#4}{}}{}{, p.~\pageref{#4}}%
+ %\ifthenelse{\equal{#6}{}}{}{, p.~\pageref{#6}}%
+% \ifthenelse{\equal{#7}{}}{}{, p.~\pageref{#7}}%
+% \ifthenelse{\equal{#8}{}}{}{, p.~\pageref{#8}}%
+ \end{minipage}%
+ \vskip 0.5cm%
+}%
+
+% -- adding a time slot
+\newcommand{\timeslot}[4]{% [1] day, [2] from, [3] to, [4] room
+ #1, #2 -- #3, #4}%
+
+% -- use this command if we do not want to show the schedule
+%\renewcommand{\timeslot}[4]{% [1] day, [2] from, [3] to, [4] room
+% Schedule to be announced later}%
+
+%---------------------------------------------------------
+% The following commands are for producing the timetables
+%---------------------------------------------------------
+%==== schedule table style
+% number of non-time columns, usually equals to number of parallel sessions
+\newcommand{\numcols}{4}
+\newcommand{\numgaps}{\the\dimexpr\numcols-1}
+\arrayrulecolor{white}		% default table border color
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{Z}{>{\hsize=\dimexpr\numcols\hsize+\tabcolsep * (2 * (\numcols - 1) ) + \arrayrulewidth* (\numcols - 1) \relax}Y}
+
+% -- adding a table heading
+\newcommand{\TableHeading}[1] % [1] day, date -- time segment (e.g. Afternoon II)
+ {& \multicolumn{\numcols}{Z}{\cellcolor{white}%
+ 	\large\textbf{#1}
+ }}
+
+% -- adding a table time, consider deleting it
+\newcommand{\tableTime}[2] % [1] from, [2] to
+ {#1 -- #2}%
+
+% -- adding a table event, usually a coffee break
+\newcommand{\TableEvent}[2]{
+	\rowcolor{\EventColor}				% color of the row
+	#1 &		 					% start time -- end time (e.g., 12:00 -- 18:00)
+	\multicolumn{\numcols}{Z}{#2}		% activity and note
+}
+
+% -- adding a table plenary entry
+\newcommand{\tablePlenary}[6]{
+% [1] time, [2] location, [3] chair,
+% [4] speaker, [5] talk title, [6] talk id.
+	\rowcolor{\PlenaryColor} #1 &
+	\multicolumn{\numcols}{Z}{
+	#2\par%
+	\textbf{Plenary Talk} \vspace{1mm}\par%
+	\textbf{\textit{#4}} \par%
+	\textbf{#5} \quad p.~\pageref{#6} \vspace{1mm}\par%
+	\qquad Chair: \textit{#3}}
+}%
+
+% -- adding a table tutorial entry
+\newcommand{\tableTutorial}[6]{
+	% [1] time, [2] location, [3] chair,
+	% [4] speaker, [5] talk title, [6] talk id.
+	\rowcolor{\TutorialColor} #1 &
+	\multicolumn{\numcols}{Z}{
+		#2\par%
+		\textbf{Tutorial} \vspace{1mm}\par%
+		\textbf{\textit{#4}} \par%
+		\textbf{#5} \quad p.~\pageref{#6} \vspace{1mm}\par%
+		\qquad Chair: \textit{#3}}
+}%
+
+% -- adding a table discussion entry
+\newcommand{\tableDiscussion}[5] % [1] location, [2] chair
+ % [3] speaker, [4] talk title, [5] talk id
+ {#1\par%
+ \textbf{Open Forum}: %\vspace{1mm}\par%
+ \textbf{#4} \quad p.~\pageref{#5} \vspace{1mm}\par%
+ \qquad Chair: \textit{#3}}% chair by speaker
+
+
+
+% -- adding a table special session entry
+\newcommand{\tableSpecial}[8]
+% [1] location, [2] organiser, [3] organiser
+% [4] session title, [5] part, [6] of, [7] session id, [8] chair
+ {#1\par%
+  \textbf{Special Session} \par%
+  \ifthenelse{\equal{#3}{}}{\textit{#2}}%
+                           {\textit{#2} and \textit{#3}}\par%
+  #4\ifthenelse{\equal{#6}{1}}{}{, Part #5 of #6}\quad p.~\pageref{#7} \par%
+  Chair: \textit{#8}}%
+
+% -- adding a table contributed session entry
+\newcommand{\tableContributed}[5] % [1] location, [2] chair
+                                  % [3] description, [4] part, [5] of
+ {#1\par%
+  \textbf{Technical Session} \vspace{2mm} \par%
+  Chair: \textit{#2}}%
+
+% -- adding a table talk entry
+\newcommand{\tableTalk}[3] % [1] speaker, [2] talk title, [3] talk id
+ {\textit{#1} \par%
+  #2\quad p.~\pageref{#3}}%
+
+ 
+
+% -- adding a table special session entry
+\newcommand{\tableSpecialCL}[4]
+% [1] location, 
+% [2] session title, [3] session id, [4] chair
+%if it's part 1 or part 2 just put it in the title
+ {#1\par%
+ \textbf{Special Session} \par%
+ #2\quad p.~\pageref{#3} \par%
+ Chair: \textit{#4}}% 
+
+% -- adding a table contributed session entry
+\newcommand{\tableContributedCL}[3] % [1] location, [3] chair
+ % [2] description, 
+ {#1\par%
+ #2\quad  \par%
+ Chair: \textit{#3}}%
+
+% -- adding a table contributed session entry
+\newcommand{\tableContributedCancelled}[2] % [1] location, [3] chair
+ % [2] description, 
+ {#1\par%
+ #2\quad  \par%
+ CANCELLED SESSION}%
+
+
+% ----------------------------------------------------------------------------------------------------------
+% -- This reduces the spacing in the enumerate environment
+\newcounter{myenum}
+\renewenvironment{enumerate}
+ {\begin{list}{\arabic{myenum}.}{%
+ \usecounter{myenum}%
+ \setlength{\labelsep}{0.7em}%
+ \setlength{\topsep}{0em}%
+ \setlength{\itemsep}{0em}%
+ \setlength{\leftmargin}{30pt}}}{\end{list}}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+\input{MCM2025_book_front}
+
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+%\chapter{Schedule}
+\input{../README_and_Scripts/Schedule.tex}
+
+\begin{center}
+
+
+\begin{sideways}\small
+\begin{tabularx}{\textheight}{l*{\numcols}{|Y}}
+ 	\TableHeading{August 18th, 2024}\\
+ 	\TableEvent{13:30 -- 16:00}{Registration -- STC 1st floor foyer, outside of STC 1012}
+ 	\\
+ 	\tableTutorial{14:15 -- 15:45} % [1] time
+ 	{STC 1012}	% [2] room
+ 	{Alexander Keller}		% [3] chair
+ 	{Fred J.~Hickernell}	% [4] speaker
+ 	{Quasi-Monte Carlo Methods: What, Why, and How?}		% [5] talk title
+ 	{TUT02}			% [6] talk id
+ 	\\
+ 	\TableEvent{15:45 -- 16:00}{Coffee break -- STC lower level atrium}
+ 	\\
+ \tableTutorial{16:00 -- 17:30} % [1] time
+ 	{STC 1012}	% [2] room
+ 	{Ben Feng}		% [3] chair
+ 	{Peter Frazier}	% [4] speaker
+ 	{Grey-box Bayesian Optimization}		% [5] talk title
+ 	{TUT01}			% [6] talk id
+	\\
+\end{tabularx}
+\end{sideways}
+
+
+\pagebreak
+
+%% 2024 schedule is in Schedule.tex
+
+\input{Schedule.tex}
+
+\end{center}
+
+%\clearpage
+
+%% old 2022 schedule for comparison
+
+
+
+\clearpage
+
+
+
+%-------------------------------------------------------------------------------
+% Sunday Tutorials
+%-------------------------------------------------------------------------------
+\chapter{Sunday Tutorials}
+
+
+\begin{talk}
+ {Quasi-Monte Carlo Methods:  What, Why, and How?}% [1] talk title
+ {Fred J.~Hickernell}% [2] speaker name
+ {Department of Applied Mathematics and Center for Interdisciplinary Scientific Computation, Illinois Institute of Technology}% [3] affiliations
+ {hickernell@iit.edu}% [4] email
+ {}% [5] coauthors
+ {}% [6] special session
+ {\timeslot{Sunday, Aug 18, 2024}{14:15}{15:45}{STC 1012}}% [7] time slot
+ {TUT02}% [8] talk id
+ {photo}% [9] session id or photo
+Many problems in  quantitative finance, uncertainty quantification, and other areas can be formulated as computing $\mu := \mathbb{E}(Y)$, where instances of $Y:=f(\boldsymbol{X})$ are generated by numerical simulation. The population mean, $\mu$, can be approximated by the sample mean, $\hat{\mu}_n := n^{-1} \sum_{i=1}^n f(\boldsymbol{X}_i)$.  Computing $\mu$ is equivalent to computing a $d$-dimensional integral.
+
+Quasi-Monte Carlo methods replace independent and identically distributed  sequences of random vectors, $\{\boldsymbol{X}_1, \boldsymbol{X}_2, \ldots \}$, by low discrepancy sequences.  This accelerates the convergence of $\hat{\mu}_n$ to $\mu$ as $n \to \infty$. 
+
+
+This tutorial describes  low discrepancy sequences  and their quality measures.  We demonstrate the performance gains possible with quasi-Monte Carlo methods.  Moreover, we describe how to formulate problems to realize the most increase in performance using quasi-Monte Carlo methods.  We also briefly describe the use of quasi-Monte Carlo methods for problems beyond computing the mean.
+
+\end{talk}
+
+\clearpage
+
+
+\begin{talk}
+ {Grey-box Bayesian Optimization}% [1] talk title
+ {Peter Frazier}% [2] speaker name
+ {Cornell University}% [3] affiliations
+ {pf98@cornell.edu}% [4] email
+ {}% [5] coauthors
+ {}% [6] special session
+ {\timeslot{Sunday, Aug 18, 2024}{16:00}{17:30}{STC 1012}}% [7] time slot
+ {TUT01}% [8] talk id
+ {photo}% [9] session id or photo
+Bayesian optimization (BayesOpt) is powerful tool for optimizing objective functions evaluated using Monte Carlo or Quasi Monte Carlo. It aims to produce an approximate global optimum with few objective function evaluations by combining a machine-learning-based surrogate for the objective function (often a Gaussian process) with a decision-theoretic acquisition function that efficiently directs sampling effort.  It is widely used for optimizing social media platforms, tuning hyperparameters in deep neural networks, designing new drugs and materials, and beyond. While BayesOpt has historically been deployed as a black-box optimizer, recent advances show orders-of-magnitude improvement through new grey-box methods that "peek inside the box".  For example, consider optimizing product interventions in simulation to improve a ridesharing market averaged over exogenous shocks. New grey-box BayesOpt methods use a machine learning surrogate for how market outcomes depend on both the exogenous shocks and the product intervention to evaluate for the most informative shocks first rather than sampling blindly. This tutorial introduces Gaussian process regression, standard (black-box) BayesOpt, and new grey-box methods, motivating with examples from machine learning, engineering and the physical sciences. We close by identifying research opportunities where the MCQMC community can have a particularly large impact.
+
+\end{talk}
+
+\clearpage
+
+%-------------------------------------------------------------------------------
+% Plenary Talks: to be done/ordered manually
+%-------------------------------------------------------------------------------
+\chapter{Plenary Talks}
+\newpage
+
+\begin{talk}
+	{Stochastic Approximation beyond the gradient case}% [1] talk title
+	{Gersende Fort}% [2] speaker name
+	{CNRS, Institut de Math\'ematiques de Toulouse, France}% [3] affiliations
+	{gersende.fort@math.univ-toulouse.fr}% [4] email
+	{}% [5] coauthors
+	{}% [6] special session
+	{\timeslot{Monday, August 19, 2024}{14:00}{15:00}{STC 1012}}% [7] time slot
+	{PL01}% [8] talk id
+	{photo}% [9] session id or photo
+	In statistical learning, many analyses and methods rely on optimization, including its stochastic versions introduced for example, to overcome an intractability of the objective function or to reduce the computational cost of the deterministic optimization step.
+
+In 1951, H. Robbins and S. Monro introduced a novel iterative algorithm, named "Stochastic Approximation", for the computation of the zeros of a function defined by an expectation with no closed-form expression. This algorithm produces a sequence of iterates, by replacing at each iteration the unknown expectation with a Monte Carlo approximation based on one sample. Then, this method was generalized: it is a stochastic algorithm designed to find the zeros of a vector field  when only stochastic oracles of this vector field are available.
+
+ 
+
+Stochastic Gradient Descent algorithms are the most popular examples of Stochastic Approximation : oracles come from a Monte Carlo approximation of a large sum. Possibly less popular are examples named "beyond the gradient case", for at least two reasons. First, they rely on oracles that are biased approximation of the vector field, as it  occurs when biased Monte Carlo sampling is used for the definition of the oracles. Second, the vector field is not necessarily a gradient vector field. Many examples in Statistics and more generally in statistical learning are "beyond the gradient case": among examples, let us cite compressed stochastic gradient descent, stochastic Majorize-Minimization methods such as the Expectation-Maximization algorithm, or the Temporal Difference algorithm in reinforcement learning.
+
+ 
+
+In this talk, we will show that these "beyond the gradient case" Stochastic Approximation algorithms  still converge, even when the oracles are biased, as soon as some parameters of the algorithm are tuned enough. We will discuss what 'tuned enough' means  when the convergence criterion relies on epsilon-approximate stationarity, and we will comment the efficiency of the algorithm through sample complexity.  Such analyses are based on non-asymptotic convergence bounds in expectation: we will present a unified method to obtain such bounds for a large class of Stochastic Approximation methods including both the gradient case and the beyond the gradient case.
+
+
+\end{talk}
+
+\clearpage
+
+\begin{talk}
+	{Randomized lattice rules for high-dimensional integration}% [1] talk title
+	{Takashi Goda}% [2] speaker name
+	{School of Engineering, The University of Tokyo}% [3] affiliations
+	{goda@frcer.t.u-tokyo.ac.jp}% [4] email
+	{}% [5] coauthors
+	{}% [6] special session
+	{\timeslot{Thursday, August 22, 2024}{09:00}{10:00}{STC 1012}}% [7] time slot
+	{PL02}% [8] talk id
+	{photo}% [9] session id or photo
+	Lattice rules have been extensively studied for high-dimensional numerical integration. One crucial question has been how to select good generating vectors. It has been shown both in theory and practice that good generating vectors can be selected by component-wise greedy optimization, known as the component-by-component construction. On the other hand, the standard error analyses for such constructive approaches rely on the averaging argument (i.e., the best one is better than the average), and so, the Markov inequality implies that there exist many equally good generating vectors. The aim of this talk is to present some new results for randomized lattice rules by exploiting the property that ``the most of the generating vectors are good.''
+
+The first result involves randomly selecting generating vectors multiple times, obtaining several integral estimates, and then using their median as the final estimate. This method is proven robust to the smoothness and weight parameters of the weighted Korobov spaces. Secondly, when employing the mean square error as a measure criterion, we provide two implementable randomization methods that exploit the property that ``the most of the generating vectors are good'' to improve the convergence rate compared to worst-case error.
+
+This talk builds up on the results from several papers and acknowledges the contributions of my collaborators (in alphabetical order): Josef Dick, Pierre L'Ecuyer, and Kosuke Suzuki.
+\end{talk}
+
+\clearpage
+
+\begin{talkcr}
+	{Some recent approaches to sampling recovery}% [1] talk title
+	{David Krieg}% [2] speaker name
+	{University of Passau, Germany}% [3] affiliations
+	{david.krieg@uni-passau.de}% [4] email
+	{}% [5] coauthors
+	{}% [6] special session
+	{\timeslot{Monday, August 19, 2024}{09:00}{10:00}{STC 1012}}% [7] time slot
+	{PL03}% [8] talk id
+	{photo}% [9] session id or photo
+	Recovering a function based on a finite sample of its function values is a very natural problem.
+The question for good sampling nodes and for good recovery algorithms 
+already fueled mathematical research 
+more than a hundred years ago
+when, for instance, the Chebyshev nodes turned out to be almost optimal
+for the task of uniform approximation of univariate functions by polynomials. 
+The question is no less important now, as intelligent people and intelligent machines alike try to find (typically very high-dimensional) functions that describe the behavior of their data and which are suited to give reliable predictions. 
+Consequently, the theory is immense and there is a great variety of results, especially when it comes to particular instances of function approximation problems.
+
+In this talk, I want to present some recent results and approaches to the problem that are of a general nature and which are supposed to give some insight on the power of sampling algorithms in general. 
+Namely, we discuss how close sampling algorithms can get you
+to (a)~the best approximation within a finite-dimensional space of your choice,
+(b)~the best sparse approximation with respect to a dictionary,
+or (c)~the best linear approximation procedure (like a truncated singular value decomposition).
+
+In other words, 
+we want to compare the sampling numbers 
+\[
+ g_n(F,L_p) \,:=\, \inf_{\substack{x_1,\hdots,x_n\in D \\ \phi\colon \mathbb{C}^n \to L_p(D)}}
+ \,\sup_{f\in F}\, \big\Vert f - \phi\big( f(x_1),\dots,f(x_n)\big)\big\Vert_{L_p(D)}
+\]
+of a class $F$ of functions on a measure space $D$ 
+with singular numbers, with approximation numbers, with Kolmogorov widths, and with best $m$-term widths. 
+It turns out that, in many scenarios, sampling algorithms 
+can get us surprisingly close to the three desired approximation benchmarks 
+if we choose the sampling points $x_i$ and the recovery map $\phi$ optimally.
+\end{talkcr}
+
+\clearpage
+
+\begin{talk}
+ {Lattice rules, kernel methods, DNNs, and how to connect them}% [1] talk title
+ {Frances Kuo}% [2] speaker name
+ {University of New South Wales (Sydney), Australia}% [3] affiliations
+ {f.kuo@unsw.edu.au}% [4] email
+ {}% [5] coauthors
+ {}% [6] special session
+ {\timeslot{Wednesday, August 21, 2024}{14:00}{15:00}{STC 1012}}% [7] time slot
+ {PL04}% [8] talk id
+ {photo}% [9] session id or photo
+
+Lattice rules are my favorite family of quasi-Monte Carlo methods. They are proven to be effective for high dimensional integration and multivariate function approximation in a number of settings. They are extremely easy to implement thanks to their very simple formulation --- all we require is a ``good'' integer vector of length matching the dimensionality of the problem. We know how to construct such good vectors tailored to applications in different areas, e.g., in PDEs with random coefficients, both for computing expected values (integrals) of quantities of interest as well as in obtaining surrogates of the PDE solution using lattice-based kernel interpolants. In recent years there has been a burst of research activities on the application and theory of Deep Neural Networks (DNNs). We explore how lattice rules can be used in the framework of DNNs.
+
+This is based on joint work with Alexander Keller (NVIDIA), Dirk Nuyens (KU Leuven) and Ian H. Sloan (UNSW Sydney). 
+\end{talk}
+
+\clearpage
+
+\begin{talk}
+ {Bootstrap with One (or Few) Resamples: Statistical Optimality and an Integrative View on Data and Monte Carlo Uncertainties}% [1] talk title
+ {Henry Lam}% [2] speaker name
+ {Columbia University, USA}% [3] affiliations
+ {khl2114@columbia.edu}% [4] email
+ {}% [5] coauthors
+ {}% [6] special session
+ {\timeslot{Thursday, August 22, 2024}{14:00}{15:00}{STC 1012}}% [7] time slot
+ {PL05}% [8] talk id
+ {photo}% [9] session id or photo
+ 
+While the bootstrap is demonstrably powerful in quantifying statistical uncertainty, its implementation could face substantial computation from repeated resampling. We present a bootstrap implementation that can drive down the number of resamples to minimally possible, namely as low as one, while maintaining valid coverage guarantees. Our approach is empowered by an integrative view on the statistical noise in the data and the Monte Carlo noise in the resampling together, in contrast to separately handling them in conventional bootstraps. We leverage our idea to efficiently quantify uncertainty in several tasks, including neural network training, simulation modeling and stochastic gradient descent. We also explain the statistical optimality of our implementation and compare it against other competing low-computation inference methods.
+\end{talk}
+
+\clearpage
+
+\begin{talk}
+	{Richardson Extrapolation meets Multi-Fidelity Modelling}% [1] talk title
+	{Chris Oates}% [2] speaker name
+	{Newcastle University, UK}% [3] affiliations
+	{chris.oates@ncl.ac.uk}% [4] email
+	{Toni Karvonen, Aretha Teckentrup, Marina Strocchi, Steven Niederer}% [5] coauthors
+	{}% [6] special session
+	{\timeslot{Wednesday, August 21, 2024}{09:00}{10:00}{STC 1012}}% [7] time slot
+	{PL06}% [8] talk id
+	{photo}% [9] session id or photo
+	For over a century, extrapolation methods have provided a powerful tool to improve the convergence order of a numerical method. However, these tools are not well-suited to modern computer codes, where multiple continua are discretised and convergence orders are not easily analysed. To address this challenge we present a probabilistic perspective on Richardson extrapolation, a point of view that unifies classical extrapolation methods with modern multi-fidelity modelling, and handles uncertain convergence orders by allowing these to be statistically estimated. The approach is developed using Gaussian processes, leading to Gauss-Richardson Extrapolation (GRE). Conditions are established under which extrapolation using the conditional mean achieves a polynomial (or even an exponential) speed-up compared to the original numerical method. Further, the probabilistic formulation unlocks the possibility of experimental design, casting the selection of fidelities as a continuous optimisation problem which can then be (approximately) solved. A case-study involving a computational cardiac model demonstrates that practical gains in accuracy can be achieved using the GRE method.
+\end{talk}
+
+\clearpage
+
+\begin{talk}
+	{Simulation algorithms for branching recursions}% [1] talk title
+	{Mariana Olvera-Cravioto}% [2] speaker name
+	{UNC-Chapel Hill, USA}% [3] affiliations
+	{molvera@email.unc.edu}% [4] email
+	{}% [5] coauthors
+	{}% [6] special session
+	{\timeslot{Tuesday, August 20, 2024}{14:00}{15:00}{STC 1012}}% [7] time slot
+	{PL07}% [8] talk id
+	{photo}% [9] session id or photo
+	Many interesting problems today, ranging from the analysis of centrality measures on large complex networks, some algorithms for community detection, to problems in statistical physics and the analysis of opinions on social networks, involve large graphs whose analysis leads to branching recursions. The analysis of branching recursions can often be done using distributional fixed-point equations, which in some cases can easily provide formulas for means and variances of the processes being studied. In general, computing the distribution of such processes, or even their moments in non-linear recursions, must be done numerically. However, large graphs in the original problems give rise to branching recursions with very large mean number of offspring, i.e., fast geometric growth, making any naïve simulation idea impractical. This talk discusses two different types of efficient simulation algorithms: one for computing the distribution of solutions to branching stochastic fixed-point equations, known as population dynamics, and one for computing rare event probabilities for the branching random walk.
+\end{talk}
+
+\clearpage
+
+\begin{talk}
+	{Recent progress in error estimation for quasi-Monte Carlo}% [1] talk title
+	{Art Owen}% [2] speaker name
+	{Stanford University, USA}% [3] affiliations
+	{owen@stanford.edu}% [4] email
+	{Michael Gnewuch, Peter Kritzer, Pierre L'Ecuyer, Marvin Nakayama,  Zexin Pan, Bruno Tuffin}% [5] coauthors
+	{}% [6] special session
+	{\timeslot{Tuesday, August 20, 2024}{09:00}{10:00}{STC 1012}}% [7] time slot
+	{PL08}% [8] talk id
+	{photo}% [9] session id or photo
+	For many high dimensional integration problems, Quasi-Monte Carlo methods
+attain the best accuracy.  In settings where high accuracy is required it is
+also valuable to show that it has been attained. Those two criteria are somewhat
+at odds with each other.  This talk looks at recent ways to quantify the
+accuracy attained by QMC.  It includes progress in forming confidence
+intervals based on replication of randomized QMC.  The surprise there is that
+a plain Student's t based confidence interval method proved to be much more
+reliable than some bootstrap methods that were expected to be best [1].  A second
+area of recent progress provides computable and provable upper and lower
+bounds on the integral.  These methods require special QMC points that
+have a non-negative local discrepancy property along with an integrand
+that has a complete monotonicity property [2]. Briefly: some of the best
+QMC accuracy results arise for a median of means strategy [3,4].  That raises
+a severe challenge of quantifying the uncertainty in a mean when one
+has computed a median.				
+
+\medskip
+
+[1] L’Ecuyer P, Nakayama MK, Owen AB, Tuffin B. Confidence intervals for randomized quasi-Monte Carlo estimators. In 2023 Winter Simulation Conference (pp. 445--456).
+
+[2] Gnewuch M, Kritzer P, Owen AB, Pan Z. Computable error bounds for quasi-Monte Carlo using points with non-negative local discrepancy. arXiv preprint arXiv:2309.04209. 
+
+[3] Pan Z, Owen A. Super-polynomial accuracy of one dimensional randomized nets using the median of means. Mathematics of Computation. 2023. 92(340):805--837.
+
+[4] Pan Z, Owen A. Super-polynomial accuracy of multidimensional randomized nets using the median-of-means. Mathematics of Computation. 2024.
+
+\end{talk}
+
+\begin{talkp}
+    {30 years of MCQMC -- Panel Discussion}
+    {Aretha Teckentrup}
+    {Josef Dick, Fred J.~Hickernell, Alexander Keller, Frances~Y.~Kuo, Art B.~Owen}
+    {\timeslot{Friday, August 23, 2024}{09:00}{10:00}{STC 1012}}% [7] time slot}
+    {PL30}
+    The first MCQMC Conference was initiated by Harald Niederreiter and was held in Las Vegas in 1994. This 16th installment of the MCQMC Conference therefore marks the 30th anniversary of the conference. With this panel discussion, we wish to reflect as a community on how the field evolved in 30 years, what has been the impact of the MCQMC conference on our respective research careers, and what are the new big ideas or interesting open problems. Questions will be asked to the panelists by the moderator to initiate the conversation, followed by a Q\&A and general sharing of comments and reflections. 
+    
+\end{talkp}
+
+%-------------------------------------------------------------------------------
+% Special Sessions
+%-------------------------------------------------------------------------------
+\chapter{Special Sessions}\newpage
+
+\begin{session}
+ {Stochastic Computation and Complexity, Part I: SDEs, Stochastic optimization and neural networks}% [1] session title
+ {Thomas M\"uller-Gronbach}% [2] organizer name
+ {University of Passau}% [3] affiliations
+ {Thomas.Mueller-Gronbach@uni-passau.de}% [4] email
+ {}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS3}
+ %%{SP03}% [8] session id
+ {}% [9] third organizer, if any
+The session is devoted to algorithms and complexity for
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+ \item quadrature and strong approximation of SDEs and SPDEs, in particular under nonstandard assumptions,
+
+ \item high and infinite dimensional integration and approximation, and
+
+ \item stochastic optimization and neural networks,
+\end{itemize}
+including connections to functional analysis and stochastic analysis.
+\end{session}
+
+\input{sessSS3.tex}
+
+
+\clearpage
+
+\begin{session}
+    {Optimization under uncertainty}% [1] session title
+    {Philipp A. Guth}% [2] organizer name
+    {RICAM, Austrian Academy of Sciences}% [3] affiliations
+    {philipp.guth@ricam.oeaw.ac.at}% [4] email
+    {Vesa Kaarnioja}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+    {University of Potsdam}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+    {vesa.kaarnioja@iki.fi}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+    {SS13}% [8] session id
+    {\thirdorganizer{Claudia Schillings}{Free University of Berlin}{c.schillings@fu-berlin.de}}% [9] third organizer, if any
+  Large-scale optimization problems based on partial differential equation models typically involve a number of uncertainties: for example, the material parameters, domain shape or sensor locations used to collect the measurements may not be perfectly known. The quantification of these uncertainties leads to challenging high-dimensional integration problems, which can be tackled efficiently using, e.g., multilevel Monte Carlo or quasi-Monte Carlo methods. The intersection of optimization and uncertainty quantification is an actively developing field of research, and this session aims to cover some recent advances in the computational and theoretical treatment of these topics.
+ \end{session}
+
+\input{sessSS13}
+
+
+\clearpage
+
+\begin{session}
+ {Efficient Bayesian Surrogate Modeling, Part I}% [1] session title
+ {Aleksei Sorokin}% [2] organizer name
+ {Illinois Institute of Technology}% [3] affiliations
+ {asorokin@hawk.iit.edu}% [4] email
+ {Pieterjan Robbe}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {Sandia National Laboratories}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {pmrobbe@sandia.gov}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS9}% [8] session id
+ {}% [9] third organizer, if any
+ Common tasks in stochastic modeling include model calibration and sensitivity analysis. These tasks typically require many model evaluations, which can be prohibitively expensive in case model evaluations are costly. This has motivated the development of surrogate models, which are fit offline on a limited budget and then enable rapid online evaluations for predictive purposes. An important decision is where to evaluate the model in order to maximize information captured by the surrogate. While Monte Carlo points are a conventional choice, their independent nature often leads to sampling in locations of little value to the surrogate. In contrast, dependent structures, such as quasi-random (low discrepancy) points or Bayesian optimal experimental designs, have proven to produce more reliable surrogate models. This session will discuss some of the recent developments in these sampling techniques, and will bring together researchers from both communities to explore collaborations.
+\end{session}
+
+\input{sessSS9}
+
+%\input{sessSS10}
+
+
+\clearpage
+
+
+\begin{session}
+ {Stochastic Computation and Complexity, Part II: Approximation of SDEs under non-standard assumptions}% [1] session title
+ {Stefan Heinrich}% [2] organizer name
+ {RPTU Kaiserslautern-Landau}% [3] affiliations
+ {heinrich@informatik.uni-kl.de}% [4] email
+ {}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS4}
+ %%{SP04}% [8] session id
+ {}% [9] third organizer, if any
+The session is devoted to algorithms and complexity for
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+ \item quadrature and strong approximation of SDEs and SPDEs, in particular under nonstandard assumptions,
+
+ \item high and infinite dimensional integration and approximation, and
+
+ \item stochastic optimization and neural networks,
+\end{itemize}
+including connections to functional analysis and stochastic analysis.
+\end{session}
+
+\input{sessSS4.tex}
+
+
+
+\clearpage
+
+\begin{session}
+ {Efficient Bayesian Surrogate Modeling, Part II}% [1] session title
+ {Aleksei Sorokin}% [2] organizer name
+ {Illinois Institute of Technology}% [3] affiliations
+ {asorokin@hawk.iit.edu}% [4] email
+ {Pieterjan Robbe}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {Sandia National Laboratories}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {pmrobbe@sandia.gov}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS10}% [8] session id
+ {}% [9] third organizer, if any
+ Common tasks in stochastic modeling include model calibration and sensitivity analysis. These tasks typically require many model evaluations, which can be prohibitively expensive in case model evaluations are costly. This has motivated the development of surrogate models, which are fit offline on a limited budget and then enable rapid online evaluations for predictive purposes. An important decision is where to evaluate the model in order to maximize information captured by the surrogate. While Monte Carlo points are a conventional choice, their independent nature often leads to sampling in locations of little value to the surrogate. In contrast, dependent structures, such as quasi-random (low discrepancy) points or Bayesian optimal experimental designs, have proven to produce more reliable surrogate models. This session will discuss some of the recent developments in these sampling techniques, and will bring together researchers from both communities to explore collaborations.
+\end{session}
+
+%\input{sessSS9}
+
+\input{sessSS10}
+
+\clearpage
+\begin{session}
+ {Variance reduction techniques for rare events}% [1] session title
+ {Nadhir Ben Rached}% [2] organizer name
+ {University of Leeds}% [3] affiliations
+ {n.benrached@leeds.ac.uk}% [4] email
+ {Ra\'{u}l Tempone}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {RWTH Aachen University and KAUST}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {tempone@uq.rwth-aachen.de}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS20}% [8] session id
+ {\thirdorganizer{Shyam Mohan Subbiah Pillai}{RWTH Aachen University}{subbiah@uq.rwth-aachen.de}}% [9] third organizer, if any
+Rare events are events with small probabilities, but their occurrences are critical in many real-life applications. The problem of estimating rare event probabilities is encountered in various engineering applications (finance, wireless communications, system reliability, Biology, etc.). Naive Monte Carlo simulations are, in this case, substantially expensive. This session focuses on methods belonging to the class of variance reduction techniques. These alternative methods deliver, when appropriately used, accurate estimates with a substantial amount of variance reduction compared to the naive Monte Carlo estimator.
+\end{session}
+
+\input{sessSS20}
+
+
+\clearpage
+
+\begin{session}
+ {Stochastic Computation and Complexity, Part III: Approximation of SDEs under non-standard assumptions}% [1] session title
+ {Thomas M\"uller-Gronbach}% [2] organizer name
+ {University of Passau}% [3] affiliations
+ {Thomas.Mueller-Gronbach@uni-passau.de}% [4] email
+ {}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS5}
+ %{SP05}% [8] session id
+ {}% [9] third organizer, if any
+The session is devoted to algorithms and complexity for
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+ \item quadrature and strong approximation of SDEs and SPDEs, in particular under nonstandard assumptions,
+
+ \item high and infinite dimensional integration and approximation, and
+
+ \item stochastic optimization and neural networks,
+\end{itemize}
+including connections to functional analysis and stochastic analysis.
+\end{session}
+
+\input{sessSS5.tex}
+
+
+\clearpage
+
+\begin{session}
+ {Efficient methods for uncertainty quantification in differential equations, Part I}% [1] session title
+ {Anastasia Istratuca}% [2] organizer name
+ {University of Edinburgh, Heriot-Watt University}% [3] affiliations
+ {a.istratuca@sms.ed.ac.uk}% [4] email
+ {Aretha Teckentrup}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {University of Edinburgh}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {a.teckentrup@ed.ac.uk}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS18}% [8] session id
+ {}% [9] third organizer, if any
+ One of the most common approaches to modelling physical phenomena consists of ordinary and partial differential equations, which allow for computer simulations through the use of modern numerical solvers. These models encompass parameters that often have to be measured or inferred from data. To account for error measurements and scarce availability of the data, we express our uncertainty about the parameters by associating, for example, a probability distribution to them. This mini-symposium focuses on recent advances in algorithms for quantifying the uncertainty in such models.
+\end{session}
+
+\input{sessSS18}
+
+%\input{sessSS19}
+
+
+
+\clearpage
+
+
+
+\begin{session}
+ {Recent Advances in QMC Methods for Computational Finance and Financial Risk Management}% [1] session title
+ {Chiheb Ben Hammouda}% [2] organizer name
+ {Utrecht University}% [3] affiliations
+ {c.benhammouda@uu.nl}% [4] email
+ {Ra\'{u}l Tempone}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {RWTH Aachen University, King Abdullah University of Science and Technology}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {rtempone@gmail.com}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS14}% [8] session id
+ {}% [9] third organizer, if any
+ The session is about recent numerical and theoretical advances in quasi-Monte Carlo (QMC) methods to address different challenges in computational finance and Risk management. Challenges range from pricing high-dimensional financial derivatives, computing sensitivities, and efficiently estimating nested expectations arising in financial risk estimation.
+\end{session}
+
+\input{sessSS14}
+
+
+
+\clearpage
+
+\begin{session}
+ {Efficient methods for uncertainty quantification in differential equations, Part II}% [1] session title
+ {Anastasia Istratuca}% [2] organizer name
+ {University of Edinburgh, Heriot-Watt University}% [3] affiliations
+ {a.istratuca@sms.ed.ac.uk}% [4] email
+ {Aretha Teckentrup}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {University of Edinburgh}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {a.teckentrup@ed.ac.uk}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS19}% [8] session id
+ {}% [9] third organizer, if any
+ One of the most common approaches to modelling physical phenomena consists of ordinary and partial differential equations, which allow for computer simulations through the use of modern numerical solvers. These models encompass parameters that often have to be measured or inferred from data. To account for error measurements and scarce availability of the data, we express our uncertainty about the parameters by associating, for example, a probability distribution to them. This mini-symposium focuses on recent advances in algorithms for quantifying the uncertainty in such models.
+\end{session}
+
+%\input{sessSS18}
+
+\input{sessSS19}
+
+\clearpage
+
+\begin{session}
+ {Learning to Solve Related Integrals}% [1] session title
+ {Chris. J. Oates}% [2] organizer name
+ {Newcastle University, UK}% [3] affiliations
+ {chris.oates@ncl.ac.uk}% [4] email
+ {}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS2}
+ %%NK on May 7 {SP02}% [8] session id
+ {}% [9] third organizer, if any
+ The standard perspective on numerical analysis deals with solving individual numerical tasks, but in practice the experience gained from using numerical methods to solve related problems provides valuable insight into their performance, which can shape how and when numerical methods are used.
+ Developments at the intersection of probability, statistics, and numerical analysis seek to leverage experience to improve performance on subsequent numerical tasks as they are encountered.
+ This session will shine a light on emerging methodology for the solution of related integration problems, arising in areas of research that include sensitivity analysis, computational finance, the solution of partial differential equations, decision-making under uncertainty, and diffusion-based generative modelling.
+ Fran\c{c}ois-Xavier Briol from University College London will present a probabilistic approach to estimating related conditional expectations, which operates by sharing statistical information regarding the integrand.
+ Jon Cockayne from the University of Southampton will present a novel statistical approach to solving related linear systems of equations, such as occur when integrating a partial differential equation that is parameter-dependent.
+ Zheyang Shen from Newcastle University will present a novel perspective on diffusion-based generative modelling, which casts the problem of generating realistic image data as the estimation of related kernel mean embeddings in a reproducing kernel Hilbert space framework.
+\end{session}
+
+\input{sessSS2.tex}
+
+
+%%% NK commenting out this and all subsequent similar sections on May 7
+
+\clearpage
+
+
+\begin{session}
+ {Function recovery and discretization problems, Part I}% [1] session title
+ {David Krieg}% [2] organizer name
+ {Institute of Analysis, Johannes Kepler University Linz, Austria}% [3] affiliations
+ {david.krieg@jku.at}% [4] email
+ {Kateryna Pozharska}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {Institute of Mathematics of NAS of Ukraine, Kyiv, Ukraine; \\ Faculty of Mathematics, Chemnitz University of Technology,
+Germany}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {pozharska.k@gmail.com}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS6}% [8] session id
+ {}% [9] third organizer, if any
+In this session, we would like to bring together experts who contributed to the theory of function recovery and related problems.
+Recently, there has been much progress in understanding the power of different types of information (function values vs.\ linear measurements, optimal vs.\ random)
+as well as different classes of algorithms (linear vs.\ nonlinear, random vs.\ deterministic, adaptive vs.\ nonadaptive), but also with regard to the error analysis for specific recovery schemes.
+The session is concerned with these new developments, which also include the impact of a large dimension, discretization in function spaces and modern methods in data science.
+\end{session}
+
+\input{sessSS6.tex}
+
+%\input{sessSS7.tex}
+
+
+\clearpage
+
+
+\begin{session}
+ {Testing and analysis of pseudorandom number generators}% [1] session title
+ {Emil Løvbak}% [2] organizer name
+ {Karlsruhe Institute of Technology}% [3] affiliations
+ {emil.loevbak@kit.edu}% [4] email
+ {Michael Mascagni}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {Florida State University}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {mascagni@fsu.edu}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS23}% [8] session id
+ {}% [9] third organizer, if any
+ Pseudorandom number generators are a core part of scientific computing, lying at the foundation of Monte Carlo methods. Over the history of the field, the quality of such generators has consistently been improved to produce streams of numbers that are hard to distinguish from truly random numbers. There are two approaches to quantify the randomness of a given generator. On the one hand, one can use mathematical techniques to determine the theoretical properties of the generator such as period length, uniformity, and sequence correlation. On the other hand, one can apply statistical benchmarks to empirically test the streams produced by a generator. This minisymposium aims to bring together researchers working on the design and testing of practical random number generators to exchange ideas on how to make use of these two complementary approaches in their evaluation.
+\end{session}
+
+\input{sessSS23}
+
+
+\clearpage
+
+\begin{session}
+ {Function recovery and discretization problems, Part II}% [1] session title
+ {David Krieg}% [2] organizer name
+ {Institute of Analysis, Johannes Kepler University Linz, Austria}% [3] affiliations
+ {david.krieg@jku.at}% [4] email
+ {Kateryna Pozharska}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {Institute of Mathematics of NAS of Ukraine, Kyiv, Ukraine; \\ Faculty of Mathematics, Chemnitz University of Technology,
+Germany}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {pozharska.k@gmail.com}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS7}% [8] session id
+ {}% [9] third organizer, if any
+In this session, we would like to bring together experts who contributed to the theory of function recovery and related problems.
+Recently, there has been much progress in understanding the power of different types of information (function values vs.\ linear measurements, optimal vs.\ random)
+as well as different classes of algorithms (linear vs.\ nonlinear, random vs.\ deterministic, adaptive vs.\ nonadaptive), but also with regard to the error analysis for specific recovery schemes.
+The session is concerned with these new developments, which also include the impact of a large dimension, discretization in function spaces and modern methods in data science.
+\end{session}
+
+\input{sessSS7.tex}
+
+
+
+
+
+
+
+\begin{session}
+ {Universality in QMC and related algorithms}% [1] session title
+ {Peter Kritzer}% [2] organizer name
+ {RICAM, Austrian Academy of Sciences}% [3] affiliations
+ {peter.kritzer@oeaw.ac.at}% [4] email
+ {}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS8}% [8] session id
+ {}% [9] third organizer, if any
+ In the literature on QMC and related methods, it is often the case that one can tailor an algorithm to a specific problem, usually depending on a certain (fixed) choice
+ of problem parameters such as smoothness parameters or coordinate weights. This may
+ have the advantage that one obtains an excellent algorithm for this particular problem,
+ but the obvious downside is that it is not clear whether the same algorithm could be applied in other settings, e.g., when some of the parameters change. There have been recent attempts to make QMC and related algorithms more universal, and a number of interesting open questions remain. This special session brings together four speakers who have recently contributed to this aspect of multivariate algorithms.
+\end{session}
+
+\input{sessSS8}
+
+
+\clearpage
+
+
+\begin{session}
+ {Multilevel methods for SDEs and SPDEs, Part I}% [1] session title
+ {Mike Giles}% [2] organizer name
+ {University of Oxford}% [3] affiliations
+ {mike.giles@maths.ox.ac.uk}% [4] email
+ {}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS21}% [8] session id
+ {}% [9] third organizer, if any
+ Speakers in this session will present and analyse multilevel algorithms for an interesting variety of applications, including chaotic SDEs, stochastic PDEs and kinetic particle models.
+\end{session}
+
+\input{sessSS21}
+
+%\input{sessSS22}
+
+
+\clearpage
+
+\begin{session}
+ {Recent Advances in Monte Carlo Methods for Forward and Inverse Problems for Stochastic Reaction Networks, Part I}% [1] session title
+ {Chiheb Ben Hammouda}% [2] organizer name
+ {Utrecht University}% [3] affiliations
+ {c.benhammouda@uu.nl}% [4] email
+ {Sophia Wiechert}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {RWTH Aachen University}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {wiechert@uq.rwth-aachen.de}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS15}
+ %{SP13}% [8] session id
+ {\thirdorganizer{Ra\'{u}l Tempone}{RWTH Aachen University}{tempone@uq.rwth-aachen.de}}% [9] third organizer, if any
+The session is about recent advances related to Monte Carlo methods and variance/dimension reduction techniques for forward/inverse problems and sensitivity analysis for pure jump processes and stochastic reaction networks, with a particular focus on stochastic biological and chemical systems.
+\end{session}
+
+\input{sessSS15}
+
+%\input{sessSS16}
+
+
+\clearpage
+
+\begin{session}
+ {Kernel approximation and cubature, Part I}% [1] session title
+ {Vesa Kaarnioja}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {University of Potsdam}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {vesa.kaarnioja@iki.fi}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {Ilja Klebanov}% [2] organizer name
+ {Free University of Berlin}% [3] affiliations
+ {klebanov@zedat.fu-berlin.de}% [4] email
+ {SS11}
+ %{SP10}% [8] session id
+ {}% [9] third organizer, if any
+ Reproducing kernel Hilbert spaces (RKHSs) are very amenable to the development of efficient approximation and cubature methods. To this end, there has been a surge of interest in recent years regarding some of the advantages that kernel-based methods can offer in applications involving collocation over Monte Carlo or quasi-Monte Carlo point sets---some examples include, e.g., Gaussian process regression (kriging), Bayesian neural networks or uncertainty quantification for partial differential equations. This minisymposium showcases some recent theoretical and computational developments in the study of kernel-based approximation and cubature methods.
+\end{session}
+
+\input{sessSS11}
+
+%\input{sessSS12}
+
+
+\clearpage
+\begin{session}
+ {Multilevel methods for SDEs and SPDEs, Part II}% [1] session title
+ {Mike Giles}% [2] organizer name
+ {University of Oxford}% [3] affiliations
+ {mike.giles@maths.ox.ac.uk}% [4] email
+ {}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS22}% [8] session id
+ {}% [9] third organizer, if any
+ Speakers in this session will present and analyse multilevel algorithms for an interesting variety of applications, including chaotic SDEs, stochastic PDEs and kinetic particle models.
+\end{session}
+
+%\input{sessSS21}
+
+\input{sessSS22}
+\clearpage
+
+\begin{session}
+ {Recent Advances in Monte Carlo Methods for Forward and Inverse Problems for Stochastic Reaction Networks, Part II}% [1] session title
+ {Chiheb Ben Hammouda}% [2] organizer name
+ {Utrecht University}% [3] affiliations
+ {c.benhammouda@uu.nl}% [4] email
+ {Sophia Wiechert}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {RWTH Aachen University}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {wiechert@uq.rwth-aachen.de}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS16}
+ %{SP13}% [8] session id
+ {\thirdorganizer{Ra\'{u}l Tempone}{RWTH Aachen University}{tempone@uq.rwth-aachen.de}}% [9] third organizer, if any
+The session is about recent advances related to Monte Carlo methods and variance/dimension reduction techniques for forward/inverse problems and sensitivity analysis for pure jump processes and stochastic reaction networks, with a particular focus on stochastic biological and chemical systems.
+\end{session}
+
+%\input{sessSS15}
+
+\input{sessSS16}
+\clearpage
+
+\begin{session}
+ {Kernel approximation and cubature, Part II}% [1] session title
+ {Vesa Kaarnioja}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {University of Potsdam}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {vesa.kaarnioja@iki.fi}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {Ilja Klebanov}% [2] organizer name
+ {Free University of Berlin}% [3] affiliations
+ {klebanov@zedat.fu-berlin.de}% [4] email
+ {SS12}
+ %{SP10}% [8] session id
+ {}% [9] third organizer, if any
+ Reproducing kernel Hilbert spaces (RKHSs) are very amenable to the development of efficient approximation and cubature methods. To this end, there has been a surge of interest in recent years regarding some of the advantages that kernel-based methods can offer in applications involving collocation over Monte Carlo or quasi-Monte Carlo point sets---some examples include, e.g., Gaussian process regression (kriging), Bayesian neural networks or uncertainty quantification for partial differential equations. This minisymposium showcases some recent theoretical and computational developments in the study of kernel-based approximation and cubature methods.
+\end{session}
+
+%\input{sessSS11}
+
+\input{sessSS12}
+
+\cleardoublepage
+\begin{session}
+ {MCMC: Convergence and Robustness}% [1] session title
+ {Alex Shestopaloff}% [2] organizer name
+ {Queen Mary University of London}% [3] affiliations
+ {a.shestopaloff@qmul.ac.uk}% [4] email
+ {Jun Yang}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {University of Copenhagen}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {jy@math.ku.dk}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ %%%%% from CL, May 4: this session is now labeled SS1
+ %%%%% see MasterLists and MCQMC2024Data
+ %%%%% we need to change all the labels for the sessions
+ {SS1}% [8] session id
+ %%%%% CL is commenting out old label on May 4
+ %%%%%{SP01}% [8] session id
+ {}% [9] third organizer, if any
+ As Markov Chain Monte Carlo (MCMC) methods become more complex, a deeper understanding of their convergence and performance guarantees in realistic scenarios becomes an important aspect of using these methods in computational Bayesian statistics. This session aims to further this understanding by focusing on the convergence and robustness of complex MCMC samplers, covering recent work on topics such as convergence of hybrid Gibbs sampling [1], novel methods for evaluation of convergence rates using random number simulations [2] the study of convergence with Dirichlet forms [3] as well as techniques for making MCMC samplers more robust and a study of their corresponding convergence properties, such as [4].
+
+\begin{enumerate}
+	\item[{[1]}] Qian Qin, Nianqiao Ju, Guanyang Wang (2023). Spectral gap bounds for reversible hybrid Gibbs chains. arXiv:2312.12782.
+	\item[{[2]}] Sabrina Sixta and Jeffrey S. Rosenthal (2023). Bounding and estimating MCMC convergence rates using common random number simulations. arXiv:2309.15735.
+	\item[{[3]}] Ning Ning (2022). Convergence of Dirichlet Forms for MCMC Optimal Scaling with General Target Distributions on Large Graphs. arXiv:2210:17042.
+	\item[{[4]}] Michael C.H. Choi (2020). Improved Metropolis-Hastings algorithms via landscape modifcation with applications to simulated annealing and the Curie-Weiss model. arXiv: 2011:09680.
+\end{enumerate}
+\end{session}
+
+%%%%%% from CL on May 4
+%%%%%% now we just need to input the corresponding
+%%%%%% latex file with sessions description
+%%%%%% convention is sess[sessionID].tex so here sessSS1.tex
+
+\input{sessSS1.tex}
+
+\clearpage
+\begin{session}
+ {Continuous-time dynamics in Monte Carlo and beyond}% [1] session title
+ {Neil Chada}% [2] organizer name
+ {Heriot-Watt University}% [3] affiliations
+ {n.chada@hw.ac.uk}% [4] email
+ {Jonas Latz}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {University of Manchester } %[6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {jonas.latz@manchester.ac.uk }% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS17}
+ %{SP14}% [8] session id
+ {}
+ Langevin Monte Carlo methods — such as MALA and ULA [3] — construct a Monte Carlo Markov chain by appropriately discretising certain stochastic differential equations.
+ This has the fortunate effect that certain properties of the resulting MCMC algorithms can be derived by studying these SDEs rather than the arising discrete-time Markov chains.
+ The idea of analysing an underlying continuous-time system to understand a discrete-time algorithm is much broader and shall be one focus of this minisymposium – with `algorithm’,
+ we foremost want to focus on methods in computational statistics, but also look forward to optimisation methods, such as [2], data assimilation, diffusion models, and partial differential equation
+ methods in data science. The second focus are Monte Carlo methods that are both posed and used in continuous time, such as piecewise-deterministic Markov processes (cf. [1]).
+ \medskip
+
+ \begin{enumerate}
+ \item[{[1]}] Bierkens, Joris, Paul Fearnhead \& Gareth Roberts (2019). {\it The Zig-Zag process and super-efficient sampling for Bayesian analysis of big data}. Ann.\ Statist.\ 47(3): 1288-1320.
+ \item[{[2]}] Li, Qianxiao , Cheng Tai \& Weinan E (2019). {\it Stochastic Modified Equations and Dynamics of Stochastic Gradient Algorithms I: Mathematical Foundations}. J.\ Mach.\ Learn.\ Res.\ 20(40):1-47.
+ \item[{[3]}] Roberts, Gareth \& Richard Tweedie (2002). {\it Exponential convergence of Langevin distributions and their discrete approximations}. Bernoulli 2(4): 341-363.
+ \end{enumerate}
+\end{session}
+
+\input{sessSS17}
+
+
+\clearpage
+
+
+%%FGW
+
+\begin{session}
+    {Function spaces and algorithms for high-dimensional problems}% [1] session title
+    {Michael Gnewuch}% [2] organizer name
+    {University of Osnabr\"uck, Germany}% [3] affiliation(s)
+    {michael.gnewuch@uni-osnabrueck.de}% [4] email
+    {Klaus Ritter }% [5] Second organizer's name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+    {RPTU Kaiserslautern, Germany}% [6] Second organizer's affiliation(s). Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+    {ritter@mathematik.uni-kl.de}% [7] Second organizer's email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+    {SS24}
+    %{SP19}%
+    {}% [9] third organizer, if any
+  High- and infinite-dimensional problems pose serious challenges in numerical practice. An approach to surpass these obstacles is to identify common structural features of the underlying problems. These features are usually encoded in the specific function spaces that are considered in the analysis.
+  In this special session we want to bring together researchers from analysis, approximation theory, and information-based complexity to discuss different types of function spaces and algorithmic approaches for high- and infinite-dimensional integration and approximation problems.
+\end{session}
+
+\input{sessSS24}
+
+
+\clearpage
+
+%% NK: organizers cancelled one of four sessions, commenting out part 4 (May 7)
+\iffalse
+\begin{session}
+ {Stochastic Computation and Complexity, Part IV: High dimensional approximation and integration}% [1] session title
+ {Larisa Yaroslavtseva}% [2] organizer name
+ {University of Graz}% [3] affiliations
+ {larisa.yaroslavtseva@uni-graz.at}% [4] email
+ {}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+ {SS6}
+ %{SP06}% [8] session id
+ {}% [9] third organizer, if any
+The session is devoted to algorithms and complexity for
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+ \item quadrature and strong approximation of SDEs and SPDEs, in particular under nonstandard assumptions,
+
+ \item high and infinite dimensional integration and approximation, and
+
+ \item stochastic optimization and neural networks,
+\end{itemize}
+including connections to functional analysis and stochastic analysis.
+\end{session}
+
+
+
+ \fi
+\clearpage
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+\chapter{Abstracts}
+
+%\section{Special Session Talks}
+
+\input{listabstract.tex}
+
+\iffalse
+\begin{talk}
+ {Talk title \#1}% [1] talk title
+ {Awesome Speaker \#1}% [2] speaker name
+ {Nice University \#1}% [3] affiliations
+ {good.email@gooduni.ca}% [4] email
+ {co-author 2, co-author 3}% [5] coauthors
+ {This is a TWO-PART session}% [6] special session title
+ {\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+ {2011}% [8] talk id
+ {2010}% [9] session id
+Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#2}% [1] talk title
+	{Awesome Speaker \#2}% [2] speaker name
+	{Nice University \#2}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{}% [5] coauthors
+	{This is a TWO-PART session}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2012}% [8] talk id
+	{2010}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#3}% [1] talk title
+	{Awesome Speaker \#3}% [2] speaker name
+	{Nice University \#3}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{This is a TWO-PART session}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2013}% [8] talk id
+	{2010}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#4}% [1] talk title
+	{Awesome Speaker \#4}% [2] speaker name
+	{Nice University \#4}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{This is a TWO-PART session}% [6] special session
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2014}% [8] talk id
+	{2010}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+
+\begin{talk}
+	{Talk title \#5}% [1] talk title
+	{Awesome Speaker \#5}% [2] speaker name
+	{Nice University \#5}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{This is a TWO-PART session}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2021}% [8] talk id
+	{2020}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#6}% [1] talk title
+	{Awesome Speaker \#6}% [2] speaker name
+	{Nice University \#6}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{}% [5] coauthors
+	{This is a SINGLE-PART session}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2022}% [8] talk id
+	{2020}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#7}% [1] talk title
+	{Awesome Speaker \#7}% [2] speaker name
+	{Nice University \#7}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{This is a TWO-PART session}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2023}% [8] talk id
+	{2020}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#8}% [1] talk title
+	{Awesome Speaker \#8}% [2] speaker name
+	{Nice University \#8}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{This is a TWO-PART session}% [6] special session
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2024}% [8] talk id
+	{2020}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#9}% [1] talk title
+	{Awesome Speaker \#9}% [2] speaker name
+	{Nice University \#9}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{This is a TWO-PART session}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2025}% [8] talk id
+	{2020}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#10}% [1] talk title
+	{Awesome Speaker \#10}% [2] speaker name
+	{Nice University \#10}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{}% [5] coauthors
+	{This is a TWO-PART session}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2026}% [8] talk id
+	{2020}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#11}% [1] talk title
+	{Awesome Speaker \#11}% [2] speaker name
+	{Nice University \#11}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{This is a TWO-PART session}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{2027}% [8] talk id
+	{2020}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#12}% [1] talk title
+	{Awesome Speaker \#12}% [2] speaker name
+	{Nice University \#12}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{3001}% [8] talk id
+	{}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\section{Contributed Talks}
+
+\begin{talk}
+	{Talk title \#13}% [1] talk title
+	{Awesome Speaker \#13}% [2] speaker name
+	{Nice University \#13}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{3002}% [8] talk id
+	{}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#14}% [1] talk title
+	{Awesome Speaker \#14}% [2] speaker name
+	{Nice University \#14}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{3003}% [8] talk id
+	{}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\begin{talk}
+	{Talk title \#15}% [1] talk title
+	{Awesome Speaker \#15}% [2] speaker name
+	{Nice University \#15}% [3] affiliations
+	{good.email@gooduni.ca}% [4] email
+	{co-author 2, co-author 3}% [5] coauthors
+	{}% [6] special session title
+	{\timeslot{Monday, July 18, 2022}{15:30}{16:00}{Lecture Hall 4}}% [7] time slot
+	{3004}% [8] talk id
+	{}% [9] session id
+	Abstract goes here.
+\end{talk}
+
+\fi
+ 
+ 
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+
+
+\input{MCQMC2024_book_practical_info}
+
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+\scnote{Commented out the following file to fix error}
+%\input{ParticipantsNoEmail}
+\input{Participants}
+
+\end{document}
+
