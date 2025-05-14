@@ -12,7 +12,7 @@ B) the list of abstract with all appropriate labels, named list abstract.tex, al
 
 ## 2 MakeLatexScheduleMCQMC.py
 -INPUT 
-a) csv file with list of talks ordered chronologically, i.e., by time and then by session: sheet "ChronTalkList" in MCQMC2024Data
+a) Excel file with list of talks ordered chronologically, i.e., by time and then by session: sheet "ChronTalkList" in MCQMC2024Data
 b) SessionListMCQMC.csv
 csv files and the sessions ordered chronologically, and then by room number (or equivalently, by columns in the schedule table)
 
