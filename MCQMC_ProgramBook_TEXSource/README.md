@@ -1,1 +1,0 @@
-The main file is MCM2025_book_final.tex, created from MCQMC2024_book_final.tex.

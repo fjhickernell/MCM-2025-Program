@@ -1,6 +1,6 @@
 # Python Programs
 
-## 1 mcqmcbookSessionDesc.py
+## 1 MCMBookSessionDesc.py
 -INPUT
 a) Excel file with list of talks ordered by sessions and then by speaker: sheet "TalkListAsValue" in MCQMC2024Data
 b) latex abstract files in a directory "TalksDir" and then is a subdirectory "submission-xx"
@@ -10,7 +10,7 @@ Where xx is a number that is read in from the csv file; the name of the latex fi
 A) a latex file per session called sessXX.tex where XX is CS1 or SS3, say, for contributed session 1 (labeled CS1) or special session 3 (labeled SS3); the sessSSx.tex files are used by the program book
 B) the list of abstract with all appropriate labels, named list abstract.tex, also used in the program book
 
-## 2 MakeLatexScheduleMCQMC.py
+## 2 MakeLatexScheduleMCM.py
 -INPUT 
 a) Excel file with list of talks ordered chronologically, i.e., by time and then by session: sheet "ChronTalkList" in MCQMC2024Data
 b) SessionListMCQMC.csv
@@ -19,7 +19,7 @@ csv files and the sessions ordered chronologically, and then by room number (or 
 -OUTPUT 
 latex file Schedule.tex which contains the coloured schedule for the program book
 
-## 3 BuildHtmlScheduleMCQMC.py
+## 3 BuildHtmlScheduleMCM.py
 -INPUT
 A) PlenTitle.csv: csv file with list of plenary titles
 B) SessionListMCQMC.csv: same as above

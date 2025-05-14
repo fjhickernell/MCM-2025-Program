@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Jul  6 10:59:43 2024
-
-@author: clemieux
-"""
-
 
 import numpy as np
 import pandas as pd
@@ -13,11 +7,8 @@ import os
 import csv
 
 
-
-
-
 if __name__ == '__main__':
-    cwd = os.getcwd() + "/README_and_Scripts/"
+    cwd = os.getcwd() + os.sep
     
     #vector giving the nb of parallel sessions in each slot
     #a slot is a spot in the schedule where we have parallel sessions
@@ -66,5 +57,3 @@ if __name__ == '__main__':
             
     print("\\end{multicols}\n",file=fpart) 
     fpart.close()        
-            
-        
