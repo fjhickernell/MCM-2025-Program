@@ -22,23 +22,20 @@ if __name__ == '__main__':
     rows = []
     talknumber = 0
     
-    #for this program we assume MCQMC2024Data.csv is open on TalkList sheet
-    #which is sorted by session order (column H) and then by speaker in session (column F)
+    #for this program we assume TalkListAsValue sheet
+    #is sorted by session order (column H) and then by speaker in session (column F)
     #############IMPORTANT
-    #open MCQMC2024Data.csv on TalkListAsValue sheet
-    #with open("MCQMC2024Data.csv", 'r') as file:
-        #reader= csv.reader(file, delimiter=',')
-    # ——— read Excel instead of CSV ———
-    excel_file = f"{cwd}MCQMC2024Data.xlsx"        # your workbook
-    sheet_name = "TalkListAsValue"                 # the exact sheet/tab name
+    #open TalkListAsValue sheet
+    # ——— read Excel file ———
+    excel_file = f"{cwd}MCQMC2024Data.xlsx"        
+    sheet_name = "TalkListAsValue"               
     if not os.path.exists(excel_file):
         raise FileNotFoundError(f"Couldn't find {excel_file}")
     df = pd.read_excel(excel_file, sheet_name=sheet_name)
     rows = df.values.tolist()
     foundbegintalk = 0
-    #loop reads csv file line by line, where val represents current line
+    #loop reads line by line, where val represents current line
     #each line represents a talk
-    #for val in reader:
     for val in rows:
         #this first part will create one latex file per session with the info
         #needed to describe the session

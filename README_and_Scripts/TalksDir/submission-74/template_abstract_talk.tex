@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Haar decompositions and Besov-type spaces}% [1] talk title
+  {Winfried Sickel}% [2] speaker name
+  {Friedrich-Schiller-University Jena }% [3] affiliations
+  {winfried.sickel@uni-jena.de}% [4] email
+  {Dachun Yang, Wen Yuan}% [5] coauthors
+  {Function recovery and discretization problems}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Nowadays Besov spaces $B^s_{p,q} (\mathbb{R})$ are considered as a quite reasonable possibility to describe the regularity of a function. They are used in almost all parts of Approximation Theory and beyond. 
+Since a few years there exists a generalization of Besov spaces, so-called Besov-type spaces $B^{s,\tau}_{p,q} (\mathbb{R})$. 
+For small smoothness $s$ and $\tau \in (0,1/p)$ they can be described as the collection of all tempered distributions 
+$f$ such that
+\[
+\| f|B^{s,\tau}_{p,q} (\mathbb{R})\| := \sup_{I} |I|^{-\tau} \, \| f\, |B^{s}_{p,q} (I)\|\, , 
+\]
+where the supremum is taken with respect to all finite intervals $I \subset \mathbb{R}$.
+In my talk I will mainly  discuss the discretization of these spaces by Haar wavelets.
+ 
+
+\end{talk}
+
+\end{document}
+

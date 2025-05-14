@@ -126,16 +126,13 @@ if __name__ == '__main__':
     #assumes the rows of the talks spreadsheet are listed by session
     #doesn't really matter in what order since this will be tagged from the schedule
     #####################IMPORTANT
-    #Needs to be opened and saved on TalkListAsValue
-    #with open("MCQMC2024Data.csv", 'r') as ftalk:
-    # ——— read Excel instead of CSV ———
-    excel_file = f"{cwd}MCQMC2024Data.xlsx"        # your workbook
-    sheet_name = "TalkListAsValue"                 # the exact sheet/tab name
+    # ——— read Excel sheet ———
+    excel_file = f"{cwd}MCQMC2024Data.xlsx"        
+    sheet_name = "TalkListAsValue"                 
     if not os.path.exists(excel_file):
         raise FileNotFoundError(f"Couldn't find {excel_file}")
     df = pd.read_excel(excel_file, sheet_name=sheet_name)
     talkdata = df.values.tolist()
-       #talkdata= csv.reader(ftalk, delimiter=',')
     rownumber = 0
     currsess=""
     #needs to find the talks for this session

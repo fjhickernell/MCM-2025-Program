@@ -48,8 +48,7 @@
   {zheyang.shen@newcastle.ac.uk}% [4] email
   {Chris J. Oates}% [5] coauthors
   {Learning to Solve Related Integrals}% [6] special session. Leave this field empty for contributed talks. 
-				% Insert the title of the special session if you were invited to give a talk in a special session.
-
+				% Insert the title of the special session if you were invited to give a talk in a special session.
 Markov diffusion processes are a crucial instrument in Bayesian sampling and generative modeling, thanks to their strength in interpolating between distributions. The law of a Markov diffusion process is fully described by its Markov semigroup -- a \emph{temporally indexed} family of operators that characterize conditional expectations. Inspecting diffusion processes via the lens of their Markov semigroups yields novel insights. 
 
 Diffusion models first reduce an intractable data distribution $p_{\text{data}}$ to a noise distribution $\pi$ via the simulation of a diffusion process, and seek to invert it for sample generation by assessing the scores of the interpolating distributions. We observe that the densities of intermediate noise-corrupted distributions can be regarded as \emph{kernel mean embeddings of $p_{\text{data}}$}, namely, $\int k_t(x, \cdot)\mathrm{d}p_{\text{data}}(\cdot)$, in a \emph{temporally indexed} family of kernels $\{k_t\}$ associated with its Markov semigroup. Moreover, the learning of the mean embedding function at a certain noise level simultaneously approximates those of higher noise levels. Empirically, we manage to generate samples from $p_{\text{data}}$ by estimating one singular mean embedding with a flexible kernel-based parametrization, thus disentangling the temporal and spatial effects of black-box score matching paradigms. 

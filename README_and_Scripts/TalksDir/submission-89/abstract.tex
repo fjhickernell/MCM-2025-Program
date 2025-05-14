@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Bayesian shape inversion in acoustic and electromagnetic scattering}% [1] talk title
+  {Laura Scarabosio}% [2] speaker name
+  {Institute for Mathematics, Astrophysics and Particle Physics, Radboud University}% [3] affiliations
+  {l.scarabosio@math.ru.nl}% [4] email
+  {Safiere Kuijpers}% [5] coauthors
+  {Efficient methods for uncertainty quantification in differential equations: Part II}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We consider the problem of recovering the shape of a scatterer from measurements of its scattered field upon acoustic or electromagnetic excitation. To quantify the uncertainty in the reconstructed shape, we cast the inverse problem in a Bayesian setting. The physics is described by the Helmholtz equation (for acoustic scattering) or time-harmonic Maxwell equations (for electromagnetic scattering).
+
+\smallskip
+We study the well-posedness of the Bayesian inverse problem in a frequency-explicit way. We discuss numerical methods to sample efficiently from the posterior, by combining sequential Monte Carlo sampling [1] with a finite element discretization on a reference configuration to avoid remeshing [2]. Numerical results for the Helmholtz equation illustrate the effectiveness of our approach as well as the effect of the frequency on the sampled posterior.
+
+\begin{enumerate}
+	\item[{[1]}] Beskos, Alexandros, Jasra, Ajay, Muzaffer, Ege A., \& Stuart, Andrew M. (2015). Sequential Monte Carlo methods for Bayesian elliptic inverse problems. Statistics and Computing, 25, 727-737.
+	
+	\item[{[2]}] Xiu, Dongbin, \& Tartakovsky, Daniel M. (2006). Numerical methods for differential equations in random domains. SIAM Journal on Scientific Computing, 28(3), 1167-1185.
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+
