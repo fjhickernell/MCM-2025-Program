@@ -36,20 +36,12 @@ if __name__ == '__main__':
     with open(f"{indir}PARTICIPANTSJULY5.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         for val in reader:
-            partstrng = "\\participant{"+val[2]+"}"
+            org = "Unknown org" if len(val[4])==0 else val[4]
+            partstrng = "\\participantne{"+val[0]+" "+val[1]+"}\n{"+org+"}"
             print(partstrng,file=fpart)
-            print("{",val[4],"}",file=fpart)
-            print("{",val[3],"}",file=fpart)
-            try:
-              label1="{"+str(val[5])+"}"
-              print(label1,file=fpart)
-            except:
-                pass
-            try:
-              label2="{"+str(val[6])+"}"
-              print(label2,file=fpart)
-            except:
-                pass      
+            print("{"+val[2]+"}\n{}",file=fpart)
+
+
             
     print("\\end{multicols}\n",file=fpart) 
     fpart.close()
