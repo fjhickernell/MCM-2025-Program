@@ -15,7 +15,7 @@ B) the list of abstract with all appropriate labels, named list abstract.tex, al
 -INPUT 
 a) Excel file with list of talks ordered chronologically, i.e., by time and then by session: sheet "ChronTalkList" 
 in MCM2025Data.xlsx
-b) SessionListMCQMC.csv
+b) SessionListMCM.csv
 csv files and the sessions ordered chronologically, and then by room number (or equivalently, by columns in the schedule table)
 
 -OUTPUT 
@@ -24,7 +24,7 @@ Latex file Schedule.tex which contains the coloured schedule for the program boo
 ## 3 BuildHtmlScheduleMCM.py
 -INPUT
 A) PlenTitle.csv: csv file with list of plenary titles
-B) SessionListMCQMC.csv: same as above
+B) SessionListMCM.csv: same as above
 c) csv file with list of talks ordered by sessions and then by speaker: sheet "TalkListAsValue" in MCM2025Data
 
 -OUTPUT
