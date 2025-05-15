@@ -10,7 +10,7 @@ if __name__ == '__main__':
     #a slot is a spot in the schedule where we have parallel sessions
     #we have 9 slots in the schedule, so this vector would have 9 components
     NbParallel = [4,4,4,4,4,4,4,4,4]
-    #order of the plenary ralks: need to have for each a file Plxx.tex 
+    #order of the plenary talks: need to have for each a file Plxx.tex
     PrintPlenary = True #set to true when ready with files
     PlSched = ["Kr","Fo","Ow","Ol","Oa","Ku","Go","La","30"]
     rows = []
