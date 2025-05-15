@@ -6,7 +6,6 @@ import pandas as pd
 import os
 import csv
 
-
 ##IMPORTANT NOTE
 ##NEED TO MANUALLY REMOVE SPACE BY OPENING HTML IN PYTHON 
 

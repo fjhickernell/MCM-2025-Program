@@ -1,20 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Spyder Editor
 
-This is a temporary script file.
-"""
-
-
-
-import numpy as np
 import pandas as pd
-import csv
-import os.path
 import os
-
-
 
 if __name__ == '__main__':
     cwd = os.getcwd() + os.sep
