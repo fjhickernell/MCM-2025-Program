@@ -5,9 +5,9 @@ import pandas as pd
 import os
 import csv
 
-
 if __name__ == '__main__':
-    cwd = os.getcwd() + os.sep
+    cwd = os.getcwd() + os.sep + "README_and_Scripts" + os.sep
+    outdir = f"{cwd}out{os.sep}"
 
     #vector giving the nb of parallel sessions in each slot
     #a slot is a spot in the schedule where we have parallel sessions
@@ -28,9 +28,8 @@ if __name__ == '__main__':
     NbTalkListed = 0
     StartListTalk = False
     
-    fsched = open(f"{cwd}Schedule.tex",'w')
+    fsched = open(f"{outdir}Schedule.tex",'w')
     #  print("\\begin{sideways}\n\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",file=fsched)
-    
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
     #time ordered by "room number", e.g., columns in the schedule
     ##################IMOPORTANT
@@ -185,4 +184,5 @@ if __name__ == '__main__':
     print("\\end{tabularx}\n",file=fsched)
     print("\\end{sideways}\n",file=fsched)            
    
-    fsched.close()   
+    fsched.close()
+    print(f"Output: {outdir}Schedule.tex")

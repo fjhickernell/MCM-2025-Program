@@ -5,7 +5,8 @@ import pandas as pd
 import os
 
 if __name__ == '__main__':
-    cwd = os.getcwd() + os.sep
+    cwd = os.getcwd() + os.sep + "README_and_Scripts" + os.sep
+    outdir = f"{cwd}out{os.sep}"
 
     rows = []
     talknumber = 0
@@ -37,7 +38,7 @@ if __name__ == '__main__':
         myfilename="sess"+val[3]+".tex"
         # if it's the first reader, open in write mode
         if(val[5]=='1'):
-            f = open(cwd + myfilename,'w')
+            f = open(outdir + myfilename,'w')
             print("\\sessionPart{}% [1] part",file=f)
             sessString = "{"+"\\hfill"+"\\timeslot{"+val[11]+"}"
             #print("{","\\hfill","\\timeslot{",val[11],"}",file=f)
@@ -49,7 +50,7 @@ if __name__ == '__main__':
             print("{",val[12],"}}",file=f)    
 
         else:
-            f = open(cwd + myfilename,'a')
+            f = open(outdir + myfilename,'a')
         #write the title and name of speaker    
         print("\sessionTalk{",val[2],"}",file=f)
         spkstring="{"+val[0]+" "+val[1]+"}"
@@ -79,10 +80,11 @@ if __name__ == '__main__':
         ###assume column 10 has the folder number for the abstract
         oldfile = val[4]
         justlatex = oldfile[oldfile.rindex('/')+1:]
-        print(f"{justlatex = }")
-        newfile = cwd + f'TalksDir{os.sep}submission-'+str(val[9])+os.sep+justlatex
-        if not os.path.exists(newfile):
-            os.makedirs(newfile, exist_ok=True)
+        #print(f"{justlatex = }")
+        newdir = cwd + f'TalksDir{os.sep}submission-'+str(val[9])+os.sep
+        newfile = newdir+justlatex
+        if not os.path.exists(newdir):
+            os.makedirs(newdir, exist_ok=True)
         #and then we would do -  
         with open(os.path.abspath(newfile),"r") as ft:
             data = ft.readlines() # Read the file line by line
@@ -145,9 +147,11 @@ if __name__ == '__main__':
 #              with open(val[4], "w") as ft:
 #              ft.write(res) # Write the answer in the same file
         #appends if not the first talk, write if first talk
+
         if(talknumber>1):            
-            fa = open(f"{cwd}listabstract.tex",'a')
+            fa = open(f"{outdir}listabstract.tex",'a')
         else:
-            fa = open(f"{cwd}listabstract.tex",'w')
+            fa = open(f"{outdir}listabstract.tex",'w')
         print(res,file=fa)
         fa.close()
+        print(f"Output: {outdir}listabstract.tex")

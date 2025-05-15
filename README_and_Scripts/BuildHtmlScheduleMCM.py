@@ -21,7 +21,8 @@ import csv
 
 
 if __name__ == '__main__':
-    cwd = os.getcwd() + os.sep
+    cwd = os.getcwd() + os.sep + "README_and_Scripts" + os.sep
+    outdir = f"{cwd}out{os.sep}"
     
     #vector giving the nb of parallel sessions in each slot
     #a slot is a spot in the schedule where we have parallel sessions
@@ -49,7 +50,7 @@ if __name__ == '__main__':
         
     Title_array = np.array(dataTitle, dtype=str)    
     
-    fsched = open("TableSchedule.html",'w')
+    fsched = open(f"{outdir}TableSchedule.html",'w')
     #print("\\begin{sideways}\n\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",file=fsched)
     print("<h2> Sunday August 18</h2>",file=fsched)
     print("<p>14:15-15:45: Tutorial: Fred Hickernell:",Title_array[0,1],"</p>",file=fsched)
@@ -155,4 +156,5 @@ if __name__ == '__main__':
     print("</ul>",file=fsched)
                    
                     
-    fsched.close()           
+    fsched.close()
+    print(f"Output: {outdir}TableSchedule.html")
