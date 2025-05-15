@@ -165,7 +165,7 @@ if __name__ == '__main__':
                             if gap>0:
                                 for j in range(0,gap):
                                     print("&",file=fsched)
-                                    print(rownumber,gap,colnb,int(row[7]))
+                                    #print(rownumber,gap,colnb,int(row[7]))
                                 colnb=colnb+gap  
                             colnb=colnb+1    
                             print("&\\tableTalk{",row[0]," ", row[1],"}",file=fsched) #speaker                    

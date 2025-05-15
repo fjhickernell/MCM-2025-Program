@@ -152,4 +152,5 @@ if __name__ == '__main__':
             fa = open(f"{outdir}listabstract.tex",'w')
         print(res,file=fa)
         fa.close()
-        print(f"Output: {outdir}listabstract.tex")
+
+    print(f"Output: {outdir}listabstract.tex")
