@@ -9,7 +9,6 @@ cleanpdf:
 	rm -f MCM_ProgramBook_TEX/*.blg
 	rm -f MCM_ProgramBook_TEX/*.log
 	rm -f MCM_ProgramBook_TEX/*.pdf
-	rm -f MCM_ProgramBook_TEX/input/*
 
 cleanpy:
 	@echo "Cleaning up Python outputs..."
@@ -32,9 +31,8 @@ tex: cleanpy
 
 pgm: cleanpdf
 	@echo "Compiling LaTeX files in MCM_ProgramBook_TEX directory..."
-	@cp README_and_Scripts/out/* MCM_ProgramBook_TEX/input/
 	@cd MCM_ProgramBook_TEX && \
-		pdflatex MCM2025_book.tex && \
-		pdflatex MCM2025_book.tex && \
+		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 || tail -n 100 MCM2025_book.log && \
+		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 && \
 		open MCM2025_Book.pdf && \
 		cd ..
