@@ -2,12 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import pandas as pd
-import os
 import csv
+from config import *
 
 if __name__ == '__main__':
-    cwd = os.getcwd() + os.sep + "README_and_Scripts" + os.sep
-    outdir = f"{cwd}out{os.sep}"
 
     #vector giving the nb of parallel sessions in each slot
     #a slot is a spot in the schedule where we have parallel sessions
@@ -34,7 +32,7 @@ if __name__ == '__main__':
     #time ordered by "room number", e.g., columns in the schedule
     ##################IMOPORTANT
     #open MCQMC2024Data on the sheet ChronTalkList.csv
-    with open(f"{cwd}SessionListMCM.csv", 'r') as file:
+    with open(f"{indir}SessionListMCM.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         NbSession = NbParallel[SlotNumber]
         
@@ -98,7 +96,7 @@ if __name__ == '__main__':
                 NbTalkSlot = 0
                 #assumes the rows of the talks spreadsheet are listed in chronological order of the conference
                 # ——— read Excel ———
-                excel_file = f"{cwd}MCM2025Data.xlsx"
+                excel_file = f"{indir}MCM2025Data.xlsx"
                 sheet_name = "TalkListAsValue"                 
                 if not os.path.exists(excel_file):
                     raise FileNotFoundError(f"Couldn't find {excel_file}")

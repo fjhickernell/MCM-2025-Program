@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os
 import csv
-
+from config import *
 
 if __name__ == '__main__':
-    cwd = os.getcwd() + os.sep + "README_and_Scripts" + os.sep
-    outdir = f"{cwd}out{os.sep}"
-    
+
     #vector giving the nb of parallel sessions in each slot
     #a slot is a spot in the schedule where we have parallel sessions
     #we have 9 slots in the schedule, so this vector would have 9 components
@@ -36,7 +33,7 @@ if __name__ == '__main__':
     print("\\setlength{\columnsep}{1cm}\n",file=fpart)
     print("\\begin{multicols}{2}\n",file=fpart)
     print("\\small\\raggedright\n",file=fpart)
-    with open(f"{cwd}PARTICIPANTSJULY5.csv", 'r') as file:
+    with open(f"{indir}PARTICIPANTSJULY5.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         for val in reader:
             partstrng = "\\participant{"+val[2]+"}"

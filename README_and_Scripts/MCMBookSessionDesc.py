@@ -2,11 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import pandas as pd
-import os
+from config import *
 
 if __name__ == '__main__':
-    cwd = os.getcwd() + os.sep + "README_and_Scripts" + os.sep
-    outdir = f"{cwd}out{os.sep}"
 
     rows = []
     talknumber = 0
@@ -16,7 +14,7 @@ if __name__ == '__main__':
     #############IMPORTANT
     #open TalkListAsValue sheet
     # ——— read Excel file ———
-    excel_file = f"{cwd}MCM2025Data.xlsx"
+    excel_file = f"{indir}MCM2025Data.xlsx"
     sheet_name = "TalkListAsValue"               
     if not os.path.exists(excel_file):
         raise FileNotFoundError(f"Couldn't find {excel_file}")
@@ -63,9 +61,9 @@ if __name__ == '__main__':
         f.close()
         
         if(talknumber>1):
-            fpart = open(f"{cwd}SpeakerList.txt",'a')
+            fpart = open(f"{outdir}SpeakerList.txt",'a')
         else:
-            fpart = open(f"{cwd}SpeakerList.txt",'w')
+            fpart = open(f"{outdir}SpeakerList.txt",'w')
         print(val[0]+ " " + val[1],talkid,file=fpart)   
         fpart.close()
                 

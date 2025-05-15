@@ -3,8 +3,8 @@
 
 import numpy as np
 import pandas as pd
-import os
 import csv
+from config import *
 
 ##IMPORTANT NOTE
 ##NEED TO MANUALLY REMOVE SPACE BY OPENING HTML IN PYTHON 
@@ -19,10 +19,7 @@ import csv
 #<li><a href="#12.2a">Forward and inverse UQ with hierarchical models (1)</a></li>
 #</ul>
 
-
 if __name__ == '__main__':
-    cwd = os.getcwd() + os.sep + "README_and_Scripts" + os.sep
-    outdir = f"{cwd}out{os.sep}"
     
     #vector giving the nb of parallel sessions in each slot
     #a slot is a spot in the schedule where we have parallel sessions
@@ -42,7 +39,7 @@ if __name__ == '__main__':
     NbTalkListed = 0
     StartListTalk = False
     
-    with open(f'{cwd}PlenTitle.csv', 'r') as f:
+    with open(f'{indir}PlenTitle.csv', 'r') as f:
         reader = csv.reader(f)
         dataTitle = list(reader)
         
@@ -58,7 +55,7 @@ if __name__ == '__main__':
     
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
     #time ordered by "room number", e.g., columns in the schedule
-    with open(f"{cwd}SessionListMCM.csv", 'r') as file:
+    with open(f"{indir}SessionListMCM.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         NbSession = NbParallel[SlotNumber]
 
@@ -120,7 +117,7 @@ if __name__ == '__main__':
     #doesn't really matter in what order since this will be tagged from the schedule
     #####################IMPORTANT
     # ——— read Excel sheet ———
-    excel_file = f"{cwd}MCM2025Data.xlsx"
+    excel_file = f"{indir}MCM2025Data.xlsx"
     sheet_name = "TalkListAsValue"                 
     if not os.path.exists(excel_file):
         raise FileNotFoundError(f"Couldn't find {excel_file}")
