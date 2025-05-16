@@ -55,7 +55,7 @@ if __name__ == '__main__':
     
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
     #time ordered by "room number", e.g., columns in the schedule
-    with open(f"{indir}SessionListMCM.csv", 'r') as file:
+    with open(f"{indir}SessionList.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         NbSession = NbParallel[SlotNumber]
 

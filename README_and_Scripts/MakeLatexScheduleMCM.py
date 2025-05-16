@@ -89,7 +89,8 @@ if __name__ == '__main__':
                 SlotNumber+=1
                 StartListTalk = True                
             else:
-                NewSlot = False    
+                NewSlot = False   
+                 
             if StartListTalk: # ready to start putting the talks below the session desc    
                 startbuildslot = False
                 donebuildslot = False
