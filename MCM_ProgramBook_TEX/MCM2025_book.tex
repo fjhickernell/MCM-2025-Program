@@ -4,7 +4,7 @@
 \usepackage{needspace}
 \usepackage{hyperref}
 \usepackage{bm}
-
+\usepackage{verbatim}
 \usepackage{mcm_macros}
 
 % ------------------------------------------------------------------------
@@ -12,13 +12,21 @@
 % ------------------------------------------------------------------------
 \begin{document}
 
-\input{mcm2025_book_front}
+%\input{mcm2025_book_front}
 
 % ----------------------------------------------------------------
 % ----------------------------------------------------------------
 % ----------------------------------------------------------------
 
 %% 2025 schedule is in Schedule.tex, produced by MakeLatexScheduleMCQMC.py
+\chapter{Schedule}
+\begin{center}
+\begingroup
+\footnotesize
+\input{../preprocess/out/Schedule}
+\endgroup
+\end{center}
+
 \input{../README_and_Scripts/out/Schedule}
 
 %% old MCQMC 2024 schedule for comparison
