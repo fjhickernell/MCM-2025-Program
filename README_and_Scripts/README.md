@@ -19,8 +19,9 @@
 *   Inputs:
        *   `MCM2025Data.xlsx`: An **Excel file**, specifically using the **"ChronTalkList" sheet**. This sheet 
            contains a list of talks ordered chronologically by time and then by session.
-       *   `SessionListMCM.csv`: A **CSV file** that lists sessions ordered chronologically and then by 
-           room number or columns in the schedule table.
+       *   `SessionList.csv`: A **CSV file** that lists sessions ordered chronologically and then by 
+           room number or columns in the schedule table. It contains 10 columns. The header of the csv is likely to be:
+           `SessionID,SessionTitle,IsSpecialSession,Organizer1,Organizer2,Organizer3,Chair,SessionTime,Room,OrderInSchedule`
 *   Outputs:
        *    `Schedule.tex`: A **Latex file** that contains the coloured schedule for the program book.
 

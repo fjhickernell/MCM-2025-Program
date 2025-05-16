@@ -30,9 +30,9 @@ if __name__ == '__main__':
     #  print("\\begin{sideways}\n\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",file=fsched)
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
     #time ordered by "room number", e.g., columns in the schedule
-    ##################IMOPORTANT
-    #open MCQMC2024Data on the sheet ChronTalkList.csv
-    with open(f"{indir}SessionListMCM.csv", 'r') as file:
+    ##################IMPORTANT
+    #open MCM2025Data on the sheet ChronTalkList.csv
+    with open(f"{indir}SessionList.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         NbSession = NbParallel[SlotNumber]
         
