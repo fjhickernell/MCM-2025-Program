@@ -40,8 +40,6 @@ if __name__ == '__main__':
             partstrng = "\\participantne{"+val[0]+" "+val[1]+"}\n{"+org+"}"
             print(partstrng,file=fpart)
             print("{"+val[2]+"}\n{}",file=fpart)
-
-
             
     print("\\end{multicols}\n",file=fpart) 
     fpart.close()
