@@ -1,6 +1,6 @@
 # filepath: ./makefile
 
-.PHONY: cleanpdf cleanpy tex pgm
+.PHONY: cleanpdf cleanpy clean_pp tex pgm pp
 
 cleanpdf:
 	@echo "Cleaning up pdflatex outputs..."
@@ -21,6 +21,13 @@ cleanpy:
 	rm -f README_and_Scripts/Participants.tex
 	rm -f README_and_Scripts/out/*
 
+clean_pp:
+	@echo "Cleaning up preprocess directories..."
+	rm -f preproces/out/Schedule.tex
+
+pp: clean_pp
+	@echo "Compiling Python files in preprocess directory..."
+	python preprocess/schedule_1sheet.py
 
 tex: cleanpy
 	@echo "Compiling Python files in README_and_Scripts directory..."
