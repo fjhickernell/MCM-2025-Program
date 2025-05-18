@@ -54,10 +54,10 @@ def clean_column_names(df):
 
 def df_to_latex(df, filename, is_sideway=False):
     """Write a two-column DataFrame as a LaTeX tabularx table."""
-    df = move_plenary_to_second_column(df)
     df = df[~df.apply(lambda x: x.str.contains('//', na=False)).any(axis=1)]   # remove rows with '//'
     df = clean_column_names(df)
     df = df.map(escape_cell).map(shorten_cell)
+    df = move_plenary_to_second_column(df)
 
     with open(filename, 'a') as f:
         if is_sideway:

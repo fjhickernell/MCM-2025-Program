@@ -6,6 +6,9 @@ def clean_df(df):
     """Remove all columns and rows with only NaN values."""
     df = df.dropna(axis=1, how='all')
     df = df.dropna(axis=0, how='all')
+    # for each str column, remove leading and trailing whitespace
+    for col in df.select_dtypes(include=['object']).columns:
+        df[col] = df[col].str.strip()
     return df.copy(deep=True)
 
 def read_gsheet(sheet_id, sheet_name, indir, out_csv, download_if_missing=True):
