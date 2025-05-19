@@ -30,7 +30,7 @@ Lihan,Wang,Convergence rates of kinetic Langevin dynamics with weakly confining 
 Nathan,Kirk,Minimizing the Stein Discrepancy,Computational Methods for Low-discrepancy Sampling and Applications,computational methods for low-discrepancy sampling and applications
 Peter,Whalley,Randomized Splitting Methods and Stochastic Gradient Algorithms,"Analysis of Langevin and Related Sampling Algorithms, Part I","analysis of langevin and related sampling algorithms, part i"
 RAUL,TEMPONE,Multilevel randomized quasi-Monte Carlo estimator for nested expectations,"Nested expectations: models and estimators, Part II","nested expectations: models and estimators, part ii"
-Zexin,Pan,QMC confidence intervals using quantiles of randomized nets,,
+Zexin,Pan,QMC confidence intervals using quantiles of randomized nets,QMC and Applications Part II,qmc and applications part ii
 Peter,Whalley,Randomized Splitting Methods and Stochastic Gradient Algorithms,"Analysis of Langevin and Related Sampling Algorithms, Part I","analysis of langevin and related sampling algorithms, part i"
 André-Alexander,Zepernick,Domain UQ for stationary and time-dependent PDEs using QMC,Domain Uncertainty Quantification,domain uncertainty quantification
 Ayoub,Belhadji,Weighted quantization using MMD: From mean field to mean shift via gradient flows,"Next-generation optimal experimental design: theory, scalability, and real
@@ -39,7 +39,7 @@ world impact: part i"
 Matteo,Raviola,Stochastic gradient with least-squares control variates,"Nested expectations: models and estimators, Part II","nested expectations: models and estimators, part ii"
 Sophia,Münker,Dimensionality Reduction for Efficient Rare Event Estimation,Forward and Inverse Problems for Stochastic Reaction Networks,forward and inverse problems for stochastic reaction networks
 Gregory,Seljak,An Empirical Evaluation of Robust Estimators for RQMC,Computational Methods for Low-discrepancy Sampling and Applications,computational methods for low-discrepancy sampling and applications
-Chih-Li,Sung,Stacking designs: designing multi-fidelity computer experiments with target predictive accuracy,,
+Chih-Li,Sung,Stacking designs: designing multi-fidelity computer experiments with target predictive accuracy,Statistical Design of Experiments,statistical design of experiments
 Irina-Beatrice,Haas,A nested Multilevel Monte Carlo framework for efficient simulations on FPGAs,Hardware or Software for (Quasi-)Monte Carlo Algorithm,hardware or software for (quasi-)monte carlo algorithm
 Mou,Cai,$L_2$-approximation: using randomized lattice algorithms and QMC hyperinterpolation,,
 Shyam Mohan,Subbiah Pillai,Estimating rare event probabilities associated with McKean--Vlasov SDEs,Advances in Rare Events Simulation,advances in rare events simulation
@@ -49,7 +49,7 @@ Chung Ming,Loi,Scalable and User-friendly QMC Sampling with UMBridge,Hardware an
 Yifan,Chen,Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias,"Analysis of Langevin and Related Sampling Algorithms, Part II","analysis of langevin and related sampling algorithms, part ii"
 Molei,Tao,Langevin-Based Sampling under Nonconvex Constraints,Analysis of Langevin and Related Sampling Algorithms,analysis of langevin and related sampling algorithms
 Zhijian,He,High-dimensional density estimation on  unbounded domain,QMC and Applications Parts I and II,qmc and applications parts i and ii
-Mou,Cai,L2-approximation: using randomized lattice algorithms and QMC hyperinterpolation,,
+Mou,Cai,L2-approximation: using randomized lattice algorithms and QMC hyperinterpolation,QMC and Applications Part I,qmc and applications part i
 Bernd,Käßemodel,Quantum Integration in Tensor Product  Besov Spaces,Stochastic Computation and Complexity,stochastic computation and complexity
 Larisa,Yaroslavtseva,"Optimal strong approximation of SDEs with H\""older continuous drift coefficient","Stochastic Computation and Complexity, Part IV","stochastic computation and complexity, part iv"
 Stefan,Oberdörster,Accelerated Mixing of the No-U-turn Sampler,"Analysis of Langevin and Related Sampling Algorithms, Part II","analysis of langevin and related sampling algorithms, part ii"
