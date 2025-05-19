@@ -5,7 +5,7 @@
 The following are input Google Sheets for MCM 2025. We need to convert them into the input format as required by 
 `MCM2025Data.xlsx`:
 
-*   MCM 2025 Draft Schedule: [https://tinyurl.com/4pj6dez7](https://docs.google.com/spreadsheets/d/1GR7LoeFuSbpomrHPnWqR9soJVkIkh56AAbAGx5zQGr4/edit?gid=0#gid=0)
+*   MCM 2025 Schedule: [https://tinyurl.com/4pj6dez7](https://docs.google.com/spreadsheets/d/1GR7LoeFuSbpomrHPnWqR9soJVkIkh56AAbAGx5zQGr4/edit?gid=0#gid=0)
 *   Plenary Talk Abstracts: [https://tinyurl.com/2ttw4t4c](https://docs.google.com/spreadsheets/d/1xNO88DO2COTkJ1vOzCXQiTrxKa7_pxW3a2yU06JoDEY/edit?usp=sharing)
 *   Special Session Submissions:  [https://tinyurl.com/569kcufm](https://docs.google.com/spreadsheets/d/1i6OUgAZSI_evTy0E8X5NUB0IzGwLIjwtu_cSnGwl960/edit?usp=sharing) _First tab, "Form Responses 1"_
 	- `Session Title`, column AE
@@ -27,7 +27,8 @@ Permissions for the above files have been changed to _Anyone with the link can v
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
 	- Some rows do not look correct, as they have no first or last names of presenters --- <mark>TODO<mark>
 	- The last row contains only "SCHEDULED (by Nathan Kirk)" --- this row is removed programmatically by SC
-	- Add Jing Don's session to Google Sheet manually --- <mark>SC<mark>
+	- Add Jing Don's session to Google Sheet manually --- done by SC
+	- Jing Dong's session is missing abstract URL and email address --- <mark>TODO<mark> 
 	- Add two of Sou-Cheng Choi's Part II sessions  --- <mark>SC<mark>
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
 	- Some values are empty in the last column, `Special Session Title` --- Zexin's title filled in manually by Fred. <mark>SC to work on others.<mark>
