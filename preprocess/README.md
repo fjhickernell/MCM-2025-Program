@@ -23,7 +23,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 * [Schedule](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/schedule.csv):
 	- The second-to-last row contains "//"
 * [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
-	- So far, there are only five plenary talk abstracts
+	- So far, there are only five plenary talk abstracts, ***Fred needs to remind them***
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
 	- The last few rows do not look correct, as they have no first or last names of presenters and contain "SCHEDULED (by Nathan Kirk)"
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
