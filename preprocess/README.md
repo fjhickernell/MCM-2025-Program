@@ -20,22 +20,27 @@ The following are input Google Sheets for MCM 2025. We need to convert them into
 ### File permissions 
 Permissions for the above files have been changed to _Anyone with the link can view_ for reading purposes.
 
-### Input data issues
+### Input data issues with Google Sheets 
 * [Schedule](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/schedule.csv):
-	- The second-to-last row contains "//"
+	- The second-to-last row contains "//". SC has programmatically removed such rows.
 * [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
-	- So far, there are only five plenary talk abstracts, ***Fred needs to remind them***
+	- So far, there are only five plenary talk abstracts, <mark>***Fred needs to remind them***<mark>
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
-	- The last few rows do not look correct, as they have no first or last names of presenters and contain "SCHEDULED (by Nathan Kirk)"
+	- Some rows do not look correct, as they have no first or last names of presenters --- <mark>TODO<mark>
+	- The last row contains only "SCHEDULED (by Nathan Kirk)" --- <mark>this row can be removed programmatically by SC <mark>
+	- Add Jing Don's session to Google Sheet manually --- <mark>SC<mark>
+	- Add two of Sou-Cheng Choi's Part II sessions  --- <mark>SC<mark>
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
-	- Some values are empty in the last column, `Special Session Title`
+	- Some values are empty in the last column, `Special Session Title` --- Zexin's title filled in manually by Fred. <mark>SC to work on others.<mark>
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
-	- Some talks are not assigned to a Technical Session in column `SESSION`
+	- 4 talks are not assigned to a Technical Session in column `SESSION` or contains funny values like `ADD TO SHANE H. SESSION` and 
+`//` --- <Mark>Fred will handle these</mark>
+	- <mark>SC to Filter out programmatically rows with `ACCEPTANCE` == `Yes`<mark>
   
 ### Missing output data
   
-* Need to find or create session IDs
-* Chair names are missing
-* Where are the room numbers? 
+* Created session IDs programmatically
+* Chair names are missing --- <mark>TODO<mark>
+* Where are the room numbers?  --- <mark>TODO<mark>
 
 
