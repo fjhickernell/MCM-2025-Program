@@ -3,7 +3,7 @@ P1,Plenary Talk by Matt Pharr,0,,,,,"Monday, July 28 09:00–10:00",,1
 S1,"Stochastic Computation and Complexity, Part I",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Monday, July 28 10:30–12:30 Track A",,2
 S2,Domain Uncertainty Quantification,1,André-Alexander Zepernick,Philipp Guth,Vesa Kaarnioja,,"Monday, July 28 10:30–12:30 Track B",,3
 S3,"Nested expectations: models and estimators, Part I",1,Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,,"Monday, July 28 10:30–12:30 Track C",,4
-S4,Hardware or Software for (Quasi-)Monte Carlo Algorithms,1,Sou-Cheng Choi,Pieterjan Robbe,Mike Giles,,"Monday, July 28 10:30–12:30 Track D",,5
+S4,Hardware or Software for (Quasi-)Monte Carlo Algorithms,0,,,,,"Monday, July 28 10:30–12:30 Track D",,5
 T1,Technical Session 1 - Markov Chain Monte Carlo,0,,,,,"Monday, July 28 10:30-12:30 Track E",,6
 P2,Plenary Talk by Christiane Lemieux,0,,,,,"Monday, July 28 14:00–15:00",,7
 S5,"Stochastic Computation and Complexity, Part II",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Monday, July 28 15:30–17:30 Track F",,8
@@ -15,7 +15,7 @@ P3,Plenary Talk by Peter Glynn,0,,,,,"Tuesday, July 29 09:00–10:00",,13
 S8,"Stochastic Computation and Complexity, Part III",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Tuesday, July 29 10:30–12:30 Track A",,14
 S9,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part I",1,Florence Forbes,Xun Huan,Youssef Marzouk,,"Tuesday, July 29 10:30–12:30 Track B",,15
 S10,Heavy-tailed Sampling,1,Alex Shestopaloff,Jun Yang,,,"Tuesday, July 29 10:30–12:30 Track C",,16
-S11,Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods,1,Sou-Cheng Choi,Yuhan Ding,,,"Tuesday, July 29 10:30–12:30 Track D",,17
+S11,Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods,0,,,,,"Tuesday, July 29 10:30–12:30 Track D",,17
 T2,Technical Session 2 - Bayesian Methods,0,,,,,"Tuesday, July 29 10:30-12:30 Track E",,18
 P4,Plenary Talk by Roshan Joseph,0,,,,,"Tuesday, July 29 14:00–15:00",,19
 S12,"Stochastic Computation and Complexity, Part IV",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Tuesday, July 29 15:30–17:30 Track F",,20

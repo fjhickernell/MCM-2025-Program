@@ -2,12 +2,12 @@
 
 ## Goal
 
-The following are input Google Sheets for MCM 2025. We need to convert them into the input format as required by 
+The following are input Google Sheets for MCM 2025. We need to convert them into the input format required by 
 `MCM2025Data.xlsx`:
 
 *   MCM 2025 Schedule: [https://tinyurl.com/4pj6dez7](https://docs.google.com/spreadsheets/d/1GR7LoeFuSbpomrHPnWqR9soJVkIkh56AAbAGx5zQGr4/edit?gid=0#gid=0)
 *   Plenary Talk Abstracts: [https://tinyurl.com/2ttw4t4c](https://docs.google.com/spreadsheets/d/1xNO88DO2COTkJ1vOzCXQiTrxKa7_pxW3a2yU06JoDEY/edit?usp=sharing)
-*   Special Session Submissions:  [https://tinyurl.com/569kcufm](https://docs.google.com/spreadsheets/d/1i6OUgAZSI_evTy0E8X5NUB0IzGwLIjwtu_cSnGwl960/edit?usp=sharing) _First tab, "Form Responses 1"_
+*   Special Session Submissions: [https://tinyurl.com/569kcufm](https://docs.google.com/spreadsheets/d/1i6OUgAZSI_evTy0E8X5NUB0IzGwLIjwtu_cSnGwl960/edit?usp=sharing) _First tab, "Form Responses 1"_
 	- `Session Title`, column AE
 *   Special Session Abstracts: [https://tinyurl.com/n3b6xu48](https://docs.google.com/spreadsheets/d/10o80tZl1f5XGXT4WpqYe7v4nzzFyBEvgUYxDAkT5LlI/edit?usp=sharing)
 	- `Special Session Title`, column Z
@@ -16,31 +16,31 @@ The following are input Google Sheets for MCM 2025. We need to convert them into
 
 ## Issues
 
-### File permissions 
+### File Permissions 
 Permissions for the above files have been changed to _Anyone with the link can view_ for reading purposes.
 
-### Input data issues with Google Sheets 
+### Input Data Issues with Google Sheets 
 * [Schedule](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/schedule.csv):
 	- The second-to-last row contains "//". SC has programmatically removed such rows.
+	- Choi has two sessions, each with two parts. Currently, there is only one part, and the part number "1" is missing. Two Part II sessions need to be added. — <mark>TODO</mark>
+	- Ding Dong's session needs to be added. — <mark>TODO</mark>
 * [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
-	- So far, there are only five plenary talk abstracts, <mark>***Fred needs to remind them***<mark>
+	- So far, there are only five plenary talk abstracts. <mark>***Fred needs to remind them***</mark>
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
-	- Some rows do not look correct, as they have no first or last names of presenters --- <mark>TODO<mark>
-	- The last row contains only "SCHEDULED (by Nathan Kirk)" --- this row is removed programmatically by SC
-	- Add Jing Don's session to Google Sheet manually --- done by SC
-	- Jing Dong's session is missing abstract URL and email address --- <mark>TODO<mark> 
-	- Add two of Sou-Cheng Choi's Part II sessions  --- <mark>SC<mark>
+	- Some rows do not look correct, as they have no first or last names of presenters — <mark>TODO</mark>
+	- The last row contains only "SCHEDULED (by Nathan Kirk)" — this row is removed programmatically by SC.
+	- Add Jing Dong's session to the Google Sheet manually — done by SC.
+	- Jing Dong's session is missing the abstract URL and email address — <mark>TODO</mark>
+	- Added two of Sou-Cheng Choi's Part II sessions
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
-	- Some values are empty in the last column, `Special Session Title` --- Zexin's title filled in manually by Fred. <mark>SC to work on others.<mark>
+	- Some values are empty in the last column, `Special Session Title`. Zexin's title was filled in manually by Fred. <mark>SC to work on others.</mark>
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
-	- 4 talks are not assigned to a Technical Session in column `SESSION` or contains funny values like `ADD TO SHANE H. SESSION` and 
-`//` --- <Mark>Fred will handle these</mark>
-	- SC filtered out programmatically rows with `Acceptance` == `Yes`
+	- Four talks are not assigned to a Technical Session in column `SESSION` or contain unusual values like `ADD TO SHANE H. SESSION` and 
+`//` — <mark>Fred will handle these</mark>
+	- SC programmatically filtered out rows with `Acceptance` == `Yes`
   
-### Missing output data
+### Missing Output Data
   
-* Created session IDs programmatically
-* Chair names are missing --- <mark>TODO<mark>
-* Where are the room numbers?  --- <mark>TODO<mark>
-
-
+* Session IDs are created programmatically.
+* Chair names are missing — <mark>TODO</mark>
+* Room numbers are missing — <mark>TODO</mark>
