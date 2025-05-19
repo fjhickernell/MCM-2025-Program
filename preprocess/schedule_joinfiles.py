@@ -4,11 +4,6 @@ from config import *
 from util import *
 import re
 
-pd.set_option('display.max_rows', 100)
-pd.set_option('display.max_columns', 100)
-
-
-
 def read_google_sheets(sheets):
     """Read all sheets into a dictionary of DataFrames, selecting only needed columns."""
     dfs = {}
@@ -20,6 +15,7 @@ def read_google_sheets(sheets):
             out_csv=f"{key}.csv"
         )
         dfs[key] = df[meta["columns"]]
+
     return dfs
 
 def process_presenters(dfs):
@@ -47,7 +43,7 @@ def process_presenters(dfs):
 
     return dfs
 
-def add_join_keys(dfs):
+def add_sessions_join_keys(dfs):
     """Add join_key columns to each DataFrame in dfs."""
     dfs["special_session_submissions"]["join_key"] = (
         dfs["special_session_submissions"]["Session Title"].str.strip().str.lower()
@@ -60,7 +56,8 @@ def add_join_keys(dfs):
     )
 
     df = dfs["plenary_abstracts"]
-    df["join_key"] = (df["First or given name(s) of presenter"].str.strip() + " " + df["Last or family name of presenter"].str.strip()).str.lower()
+    df["join_key"] = (df["First or given name(s) of presenter"].str.strip() + " " + 
+                      df["Last or family name of presenter"].str.strip()).str.lower()
     dfs["plenary_abstracts"] = df.copy(deep=True)
     return dfs
 
@@ -89,7 +86,7 @@ def add_schedule_join_keys(schedules):
         schedules[key] = df
     return schedules
 
-def merge_schedules_with_df(df, df2):
+def merge_schedules_sessions(df, df2):
     """Merge all schedule DataFrames with df2 using join_key, and add email columns."""
     merge_cols = ["Presenter", "Organizer1", "Organizer2", "Organizer3", "IsSpecialSession", "SessionID"]
     cols_to_merge = [c for c in merge_cols if c in df2.columns]
@@ -116,12 +113,13 @@ def assign_session_ids(df):
             f"P{i+1}" for i in range(plenary_mask.sum())
         ]
 
-        # Assign SessionID for missing values
+        # Assign SessionID for missing values, which should be special sessions
         df["SessionID"] = df["SessionID"].replace("", pd.NA)
         missing_mask = df["SessionID"].isna()
         df.loc[missing_mask, "SessionID"] = [
             f"S{i+1}" for i in range(missing_mask.sum())
         ]
+
         return df
 
 def ensure_columns(df, SessionListCols):
@@ -129,11 +127,11 @@ def ensure_columns(df, SessionListCols):
     for c in SessionListCols:
         if c not in df.columns:
             df[c] = ""
-     # replace any cell value that is NA in IsSpecialSession column with 0
-    df["IsSpecialSession"] = df["IsSpecialSession"].fillna(0)
-    df["IsSpecialSession"] = df["IsSpecialSession"].astype(int)
+    # replace any cell value that is NA in IsSpecialSession column with 0
+    df["IsSpecialSession"] = df["IsSpecialSession"].fillna(0).astype(int)
     df["OrderInSchedule"] = range(1, len(df) + 1)
     df = df[SessionListCols]
+    
     return df
 
 if __name__ == '__main__':
@@ -142,11 +140,11 @@ if __name__ == '__main__':
         "SessionTime", "Room", "OrderInSchedule"
     ]
 
-    # Step 1: Read and process input data
+    # Step 1: Read and process session data from google sheets 
     sheets = get_sheets_dict()
     dfs = read_google_sheets(sheets)
     dfs = process_presenters(dfs)
-    dfs = add_join_keys(dfs)
+    dfs = add_sessions_join_keys(dfs)
     save_dfs(dfs, interimdir, "joined")
 
     # Step 2: Read and process schedule data
@@ -162,12 +160,12 @@ if __name__ == '__main__':
     # Step 4: Merge schedule with session data
     merged_df = schedule_df
     for key in ["special_session_submissions", "plenary_abstracts"]:
-        merged_df = merge_schedules_with_df(merged_df, dfs[key])
+        merged_df = merge_schedules_sessions(merged_df, dfs[key])
 
     # Step 5: Assign SessionID based on SessionTitle patterns
     merged_df = assign_session_ids(merged_df)
 
-    # Step 6: Ensure all required columns and order
+    # Step 6: Order all required columns  
     merged_df = ensure_columns(merged_df, SessionListCols)
 
     # Step 7: Output final CSV

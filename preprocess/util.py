@@ -2,6 +2,10 @@ import os
 import pandas as pd
 import urllib.parse
 
+pd.set_option('display.max_rows', 100)
+pd.set_option('display.max_columns', 100)
+
+
 def clean_df(df):
     """Remove all columns and rows with only NaN values."""
     df = df.dropna(axis=1, how='all')
