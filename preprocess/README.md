@@ -26,7 +26,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 	- So far, there are only five plenary talk abstracts, <mark>***Fred needs to remind them***<mark>
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
 	- Some rows do not look correct, as they have no first or last names of presenters --- <mark>TODO<mark>
-	- The last row contains only "SCHEDULED (by Nathan Kirk)" --- <mark>this row can be removed programmatically by SC <mark>
+	- The last row contains only "SCHEDULED (by Nathan Kirk)" --- this row is removed programmatically by SC
 	- Add Jing Don's session to Google Sheet manually --- <mark>SC<mark>
 	- Add two of Sou-Cheng Choi's Part II sessions  --- <mark>SC<mark>
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
