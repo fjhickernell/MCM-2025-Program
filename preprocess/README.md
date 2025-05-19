@@ -21,19 +21,21 @@ The following are input Google sheets for MCM 2025. We need to morph them into E
 Permission of the above files have been changed to _Anyone with the link can view_ for reading purposes.
 
 ### Input data issues
-
-*   Plenary Talk Abstracts:
+* [Schedule](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/schedule.csv)
+	- Second las row contain "//"
+*  [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
 	- So far there are only 5 plenary talk abstracts
-* Special Session Submissions:
-	- last 2 rows do not look right as they have no first and last names of presenters
-*  Special Session Abstracts:
-   	- Some values are empty in the column `Special Session Title`
-* Contributed Talk Submissions
-    - Some talks are not assigned to a Technical Session 
+* [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
+	- last few rows do not look right as they have no first and last names of presenters and contains "SCHEDULED (by Nathan Kirk)"
+*  [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
+   	- Some values are empty in the last column, `Special Session Title`
+* [Contributed Talk Submissions]([)](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv)
+    - Some talks are not assigned to a Technical Session in column `SESSION`
   
-### Missing data
+### Missing output data
   
-* Need to find session IDs  or create them
+* Need to find session IDs or create them
+* Chair names are missing
 * Where are the room numbers? 
 
 
