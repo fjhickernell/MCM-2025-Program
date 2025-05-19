@@ -26,8 +26,8 @@ Christopher,Draper,Moving PCG beyond LCGs,Technical session 16,PCG,Yes,0,T16,tec
 Philippe,Gagnon,Theoretical guarantees for lifted samplers,Technical Session 1,Non-reversible MCMC,Yes,0,T1,technical session 1
 Du,Ouyang,Accuracy of Discretely Sampled Stochastic Policies in Continuous-Time Reinforcement Learning,Technical session 13,"RL, Large Deviations",Yes,0,T13,technical session 13
 Yang,Liu,Convergence Rates of Randomized Quasi-Monte Carlo Methods under Various Regularity Conditions,Technical session 5,RQMC,Yes,0,T5,technical session 5
-Abdujabar,Rasulov,Monte Carlo method for the Spatially Homogenous Boltzmann equation,,Boltzmann equation,Yes,0,,
-Matyokub,Bakoev,The Stochastic Differential Equations of the Heston Model for Option Pricing,,Heston Model,Yes,0,,
+Abdujabar,Rasulov,Monte Carlo method for the Spatially Homogenous Boltzmann equation,Technical Session 12,Boltzmann equation,Yes,0,T12,technical session 12
+Matyokub,Bakoev,The Stochastic Differential Equations of the Heston Model for Option Pricing,Technical Session 8,Heston Model,Yes,0,T8,technical session 8
 Riccardo,Saporiti,Comparing Probabilistic Load Forecasters: Stochastic Differential Equations and Deep Learning,Technical Session 11,"SDE, Deep Learning",Yes,0,T11,technical session 11
 Serena,Fattori,Benchmarking the Geant4-DNA ’UHDR’ Example for Monte Carlo Simulation of pH Effects on Radiolytic Species Yields Using a Mesoscopic Approach,Technical session 3,Simulation,Yes,0,T3,technical session 3
 Philippe,Blondeel,Combining quasi-Monte Carlo with Stochastic Optimal Control for Trajectory Optimization of Autonomous Vehicles in Mine Counter Measure Simulations,Technical session 15,"Control, QMC, AV, Military",Yes,0,T15,technical session 15
@@ -60,8 +60,6 @@ Hao,Quan,Efficient Pricing for Variable Annuity via Simulation,Technical session
 Miguel,Alvarez,A New Approach for Unbiased Estimation of Parameters of Partially Observed Diffusions,Technical session 12,"Unbiased Estimation, Diffusion",Yes,0,T12,technical session 12
 Aadit,Jain,Investigating the Optimum RQMC Batch Size for Betting and Empirical Bernstein Confidence Intervals,Technical session 5,RQMC,Yes,0,T5,technical session 5
 Nicole,Aretz,Multifidelity and Surrogate Modeling Approaches for Uncertainty Quantification in Ice Sheet Simulations,Technical Session 15,UQ for Ice Sheet Simulations,Yes,0,T15,technical session 15
-Federica,Milinanni,A large deviation principle for Metropolis-Hastings sampling,Part of Heavy Tailed,"Large Deviations, MCMC",,0,,part of heavy tailed
-Felix,Bartel,"Exact discretization, tight frames and recovery via D-optimal designs",PART OF M. GNEWUCH'S SESSION,Designs,,0,,part of m. gnewuch's session
 Håkon,Hoel,High-order adaptive methods for exit times of diffusion processes and reflected diffusions,Technical session 12,Adaptive,Yes,0,T12,technical session 12
 Yiming,Xu,Hybrid least squares for learning functions from highly noisy data,Technical Session 16,Statistical learning,Yes,0,T16,technical session 16
 Noufel,Frikha,On the convergence of the Euler-Maruyama scheme for McKean-Vlasov SDEs,,,Yes,0,,

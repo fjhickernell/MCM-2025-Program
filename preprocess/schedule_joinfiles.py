@@ -18,7 +18,7 @@ def read_google_sheets(sheets):
 
     return dfs
 
-def process_presenters(dfs):
+def process_sessions(dfs):
     """Process presenter and organizer columns for all relevant sheets."""
     # Plenary abstracts
     df = dfs["plenary_abstracts"]
@@ -31,12 +31,15 @@ def process_presenters(dfs):
     for idx, i in enumerate(["first", "second", "third"], 1):
         df[f"Organizer{idx}"] = df[f"First or given name(s) of {i} organizer"] + " " + df[f"Last or family name(s) of {i} organizer"]
         df = df.drop(columns=[f"First or given name(s) of {i} organizer", f"Last or family name(s) of {i} organizer"])
+    # remove row with a cell value "SCHEDULED (by Nathan Kirk)"
+    df = df[~df["Session Title"].str.contains("SCHEDULED (by Nathan Kirk)", na=False)]
     df["IsSpecialSession"] = 1
     df["SessionID"] = "S" + (df.index + 1).astype(str)
     dfs["special_session_submissions"] = df.copy(deep=True)
 
     # Contributed talk submissions
     df = dfs["contributed_talk_submissions"]
+    df = df[df["Acceptance"] == "Yes"] # Filter out rows with Acceptance == Yes
     df["IsSpecialSession"] = 0
     df["SessionID"] = df["SESSION"].str.extract(r'Technical Session (\d+)', flags=re.IGNORECASE)[0].apply(lambda x: f"T{x}" if pd.notna(x) else "")
     dfs["contributed_talk_submissions"] = df.copy(deep=True)
@@ -143,7 +146,7 @@ if __name__ == '__main__':
     # Step 1: Read and process session data from google sheets 
     sheets = get_sheets_dict()
     dfs = read_google_sheets(sheets)
-    dfs = process_presenters(dfs)
+    dfs = process_sessions(dfs)
     dfs = add_sessions_join_keys(dfs)
     save_dfs(dfs, interimdir, "joined")
 

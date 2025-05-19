@@ -35,7 +35,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
 	- 4 talks are not assigned to a Technical Session in column `SESSION` or contains funny values like `ADD TO SHANE H. SESSION` and 
 `//` --- <Mark>Fred will handle these</mark>
-	- <mark>SC to Filter out programmatically rows with `ACCEPTANCE` == `Yes`<mark>
+	- <mark>SC to filter out programmatically rows with `Acceptance` == `Yes`<mark>
   
 ### Missing output data
   
