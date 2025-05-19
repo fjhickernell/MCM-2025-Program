@@ -1,6 +1,6 @@
-Talk Title,join_key,Presenter,IsSpecialSession
-An optimal transport approach to quantifying model uncertainty of SDEs,Michaela Szölgyenyi,Michaela Szölgyenyi,0
-Golden ratio nets and sequences,Christiane Lemieux,Christiane Lemieux,0
-Combining Simulation and Linear Algebra: COSIMLA,Peter Glynn,Peter Glynn,0
-Sensitivity and Screening: From Monte Carlo to Experimental Design,Roshan Joseph,Roshan Joseph,0
-Saddlepoint Monte Carlo and its application to exact ecological inference,Nicolas Chopin,Nicolas Chopin,0
+First or given name(s) of presenter,Last or family name of presenter,Talk Title,IsSpecialSession,SessionID,join_key
+Michaela,Szölgyenyi,An optimal transport approach to quantifying model uncertainty of SDEs,0,P1,michaela szölgyenyi
+Christiane,Lemieux,Golden ratio nets and sequences,0,P2,christiane lemieux
+Peter,Glynn,Combining Simulation and Linear Algebra: COSIMLA,0,P3,peter glynn
+Roshan,Joseph,Sensitivity and Screening: From Monte Carlo to Experimental Design,0,P4,roshan joseph
+Nicolas,Chopin,Saddlepoint Monte Carlo and its application to exact ecological inference,0,P5,nicolas chopin

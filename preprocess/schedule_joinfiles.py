@@ -2,13 +2,14 @@ import pandas as pd
 import os
 from config import *
 from util import *
+import re
 
-# print many rows and columns in dataframes
 pd.set_option('display.max_rows', 100)
 pd.set_option('display.max_columns', 100)
 
 
-def read_google_sheets(sheets, indir):
+
+def read_google_sheets(sheets):
     """Read all sheets into a dictionary of DataFrames, selecting only needed columns."""
     dfs = {}
     for key, meta in sheets.items():
@@ -19,185 +20,157 @@ def read_google_sheets(sheets, indir):
             out_csv=f"{key}.csv"
         )
         dfs[key] = df[meta["columns"]]
-
     return dfs
 
-def process_plenary_presenter(dfs):
-    """Combine first and last name into Presenter and drop originals."""
+def process_presenters(dfs):
+    """Process presenter and organizer columns for all relevant sheets."""
+    # Plenary abstracts
     df = dfs["plenary_abstracts"]
-    df["Presenter"] = df["First or given name(s) of presenter"] + " " + df["Last or family name of presenter"]
-    df = df.drop(columns=["First or given name(s) of presenter", "Last or family name of presenter"])
-    # flag for special session
-    df["IsSpecialSession"] = int(0)
-    # Update df in dictionary
-    dfs["plenary_abstracts"] = df
-    return dfs
+    df["IsSpecialSession"] = 0
+    df["SessionID"] = "P" + (df.index + 1).astype(str)
+    dfs["plenary_abstracts"] = df.copy(deep=True)
 
-def process_special_organizers(dfs):
-    """Combine first and last name into Organizer1, ..., Organizer3 and drop originals."""
+    # Special session submissions
     df = dfs["special_session_submissions"]
     for idx, i in enumerate(["first", "second", "third"], 1):
         df[f"Organizer{idx}"] = df[f"First or given name(s) of {i} organizer"] + " " + df[f"Last or family name(s) of {i} organizer"]
         df = df.drop(columns=[f"First or given name(s) of {i} organizer", f"Last or family name(s) of {i} organizer"])
-    # Combine Presenter 1 first and last name into Presenter1 and drop originals
-    df["Presenter"] = df["Presenter 1 first or given name(s)"] + " " + df["Presenter 1 last or family name(s)"]
-    df = df.drop(columns=["Presenter 1 first or given name(s)", "Presenter 1 last or family name(s)"])
-    # flag for special session
-    df["IsSpecialSession"] = int(1)
-    # Update df in dictionary
-    dfs["special_session_submissions"] = df
-    
-    return dfs
+    df["IsSpecialSession"] = 1
+    df["SessionID"] = "S" + (df.index + 1).astype(str)
+    dfs["special_session_submissions"] = df.copy(deep=True)
 
-def process_contributed_talk_presenter(dfs):
-    """Combine first and last name into Presenter and drop originals for contributed talk submissions."""
+    # Contributed talk submissions
     df = dfs["contributed_talk_submissions"]
-    df["Presenter"] = df["First or given name(s) of presenter"] + " " + df["Last or family name of presenter"]
-    df = df.drop(columns=["First or given name(s) of presenter", "Last or family name of presenter"])
-    # flag for special session
-    df["IsSpecialSession"] = int(0)
-    # Update df in dictionary
-    dfs["contributed_talk_submissions"] = df
+    df["IsSpecialSession"] = 0
+    df["SessionID"] = df["SESSION"].str.extract(r'Technical Session (\d+)', flags=re.IGNORECASE)[0].apply(lambda x: f"T{x}" if pd.notna(x) else "")
+    dfs["contributed_talk_submissions"] = df.copy(deep=True)
+
     return dfs
 
+def add_join_keys(dfs):
+    """Add join_key columns to each DataFrame in dfs."""
+    dfs["special_session_submissions"]["join_key"] = (
+        dfs["special_session_submissions"]["Session Title"].str.strip().str.lower()
+    )
+    dfs["special_session_abstracts"]["join_key"] = (
+        dfs["special_session_abstracts"]["Special Session Title"].str.strip().str.lower()
+    )
+    dfs["contributed_talk_submissions"]["join_key"] = (
+        dfs["contributed_talk_submissions"]["SESSION"].str.strip().str.lower()
+    )
 
-def read_schedule_days(interimdir, num_days=5):
+    df = dfs["plenary_abstracts"]
+    df["join_key"] = (df["First or given name(s) of presenter"].str.strip() + " " + df["Last or family name of presenter"].str.strip()).str.lower()
+    dfs["plenary_abstracts"] = df.copy(deep=True)
+    return dfs
+
+def read_schedule_days(num_days=5):
     """Read schedule_day1.csv ... schedule_dayN.csv into a dictionary."""
     schedules = {}
     for i in range(1, num_days + 1):
         day_df = pd.read_csv(os.path.join(interimdir, f"schedule_day{i}.csv"))
         day_df = clean_df(day_df)
         date = day_df.columns[0]
-        day_df.columns =["SessionTime", "SessionTitle"]
+        day_df.columns = ["SessionTime", "SessionTitle"]
         day_df["SessionTime"] = date + " " + day_df["SessionTime"]
-        day_df = day_df[["SessionTime",  "SessionTitle"]]
-
+        day_df = day_df[["SessionTime", "SessionTitle"]]
         schedules[f"day{i}"] = day_df
-        
     return schedules
-
-def add_join_keys(dfs):
-    """Add join_key columns to each DataFrame in dfs."""
-    # Plenary abstracts: join_key = first name + last name 
-    df = dfs["plenary_abstracts"]
-    df["join_key"] = (df["First or given name(s) of presenter"] + " " + df["Last or family name of presenter"]).str.strip()
-
-    # Special session submissions: join_key = Session Title
-    df = dfs["special_session_submissions"]
-    df["join_key"] = df["Session Title"].str.strip()
-
-    # Special session abstracts: join_key = Special Session Title
-    df = dfs["special_session_abstracts"]
-    df["join_key"] = df["Special Session Title"].str.strip()
-
-    # Contributed talk submissions: join_key = SESSION
-    df = dfs["contributed_talk_submissions"]
-    df["join_key"] = df["SESSION"].str.strip()
-
-    return dfs
 
 def add_schedule_join_keys(schedules):
     """Add join_key column to each schedule DataFrame."""
-    for df in schedules.values():
-        # Plenary Talk
+    for key, df in schedules.items():
         df["join_key"] = df.iloc[:, 1].str.extract(r'Plenary Talk by (.+)')[0]
-
-        # Track rows (not technical session)
         mask = df.iloc[:, 0].str.contains("Track", na=False) & ~df.iloc[:, 1].str.contains("Technical Session", na=False)
         df.loc[mask, "join_key"] = df.loc[mask].iloc[:, 1]
-
-        # Technical Session rows
-        mask2 = df.iloc[:, 1].str.contains(r'Technical Session \d+ .+', na=False)
+        mask2 = df.iloc[:, 1].str.contains(r'Technical Session \d+ .+', case=False, na=False)
         df.loc[mask2, "join_key"] = df.loc[mask2].iloc[:, 1].str.extract(r'(Technical Session \d+)')[0]
-    
+        df["join_key"] = df["join_key"].str.strip().str.lower()
+        schedules[key] = df
     return schedules
 
-def merge_schedules_with_dfs(df, dfs):
-    """Merge all schedule DataFrames with dfs using join_key, and add email columns."""
-    for key, df2 in dfs.items():
-        # Handle Presenter columns
-        speaker = "Presenter"
-        if speaker not in df.columns:
-            speaker_cols = df2.columns.str.contains(speaker, case=False)
-            cols = list(df2.columns[speaker_cols])
-            df = df.merge(df2[[*cols, "join_key"]], on="join_key", how="left")
-        else:
-            # fill NaN values in the existing  column from the corresponding column in df2
-            df[speaker] = df[speaker].fillna(df2["Presenter"])
-
-        # Handle Organizer1, Organizer2, Organizer3 columns
-        for i in range(1, 4):
-            organizer = f"Organizer{i}"
-            if organizer not in df.columns:
-                organize_col = df2.columns.str.contains(organizer, case=False)
-                cols = list(df2.columns[organize_col])
-                if organizer in df2.columns:
-                    df = df.merge(df2[[organizer, "join_key"]], on="join_key", how="left")
-            else:
-                # fill NaN values in the existing  column from the corresponding column in df2
-                if organizer in df2.columns:
-                    df[organizer] = df[organizer].fillna(df2[organizer])
-
-        # Handle IsSpecialSession column
-        if "IsSpecialSession" not in df.columns:
-            df = df.merge(df2[["IsSpecialSession", "join_key"]], on="join_key", how="left")
-        else:
-            # fill NaN values in the existing  column from the corresponding column in df2
-            df["IsSpecialSession"] = df["IsSpecialSession"].fillna(df2["IsSpecialSession"])
+def merge_schedules_with_df(df, df2):
+    """Merge all schedule DataFrames with df2 using join_key, and add email columns."""
+    merge_cols = ["Presenter", "Organizer1", "Organizer2", "Organizer3", "IsSpecialSession", "SessionID"]
+    cols_to_merge = [c for c in merge_cols if c in df2.columns]
+    suffix = "_df2"
+    df_merged = df.merge(df2[["join_key"] + cols_to_merge], how="left", on="join_key", suffixes=("", suffix))
+    for c in cols_to_merge:
+        c2 = c + suffix
+        if c2 in df_merged.columns:
+            df_merged[c] = df_merged[c2].combine_first(df_merged[c]) if c in df_merged.columns else df_merged[c2]
+            df_merged = df_merged.drop(columns=[c2])
+    df = df_merged
 
     return df
 
+def assign_session_ids(df):
+        # Assign Technical Session IDs
+        df["SessionID"] = df["SessionTitle"].str.extract(
+            r'Technical Session (\d+)', flags=re.IGNORECASE
+        )[0].apply(lambda x: f"T{x}" if pd.notna(x) else "")
 
+        # Assign SessionID for Plenary sessions
+        plenary_mask = df["SessionTitle"].str.contains("Plenary", na=False)
+        df.loc[plenary_mask, "SessionID"] = [
+            f"P{i+1}" for i in range(plenary_mask.sum())
+        ]
+
+        # Assign SessionID for missing values
+        df["SessionID"] = df["SessionID"].replace("", pd.NA)
+        missing_mask = df["SessionID"].isna()
+        df.loc[missing_mask, "SessionID"] = [
+            f"S{i+1}" for i in range(missing_mask.sum())
+        ]
+        return df
+
+def ensure_columns(df, SessionListCols):
+    """Ensure all required columns exist and are in the correct order."""
+    for c in SessionListCols:
+        if c not in df.columns:
+            df[c] = ""
+     # replace any cell value that is NA in IsSpecialSession column with 0
+    df["IsSpecialSession"] = df["IsSpecialSession"].fillna(0)
+    df["IsSpecialSession"] = df["IsSpecialSession"].astype(int)
+    df["OrderInSchedule"] = range(1, len(df) + 1)
+    df = df[SessionListCols]
+    return df
 
 if __name__ == '__main__':
-    #  `SessionID,SessionTitle,IsSpecialSession,Organizer1,Organizer2,Organizer3,Chair,SessionTime,Room,OrderInSchedule`
+    SessionListCols = [
+        "SessionID", "SessionTitle", "IsSpecialSession", "Organizer1", "Organizer2", "Organizer3", "Chair",
+        "SessionTime", "Room", "OrderInSchedule"
+    ]
 
-     # Read and process Google Sheets
+    # Step 1: Read and process input data
     sheets = get_sheets_dict()
-    dfs = read_google_sheets(sheets, indir)
+    dfs = read_google_sheets(sheets)
+    dfs = process_presenters(dfs)
     dfs = add_join_keys(dfs)
-    dfs = process_plenary_presenter(dfs)
-    dfs = process_special_organizers(dfs)
-    dfs = process_contributed_talk_presenter(dfs)
     save_dfs(dfs, interimdir, "joined")
 
-    # Read and process daily schedules
-    schedules = read_schedule_days(interimdir, num_days=5)
+    # Step 2: Read and process schedule data
+    schedules = read_schedule_days(num_days=5)
     schedules = add_schedule_join_keys(schedules)
     save_dfs(schedules, interimdir, "joined")
 
-    # Concatenate all schedules into one DataFrame
+    # Step 3: Concatenate and clean schedule DataFrames
     schedule_df = pd.concat(schedules.values(), ignore_index=True)
-    # remove rows in schedule_df such that join_key is NaN
     schedule_df = schedule_df[schedule_df["join_key"].notna()]
+    schedule_df.to_csv(os.path.join(interimdir, "schedule.csv"), index=False)
 
-    # Merge schedule with other dataframes
-    # select only sub-dictionary whose keys are in ["plenary_abstracts"]
-    dfs2 = {key: dfs[key] for key in ["special_session_submissions", "contributed_talk_submissions", "plenary_abstracts"  #, "special_session_abstracts"
-                                     ]}
-    merged_df = merge_schedules_with_dfs(schedule_df, dfs2)
+    # Step 4: Merge schedule with session data
+    merged_df = schedule_df
+    for key in ["special_session_submissions", "plenary_abstracts"]:
+        merged_df = merge_schedules_with_df(merged_df, dfs[key])
 
-    # Add first column called SessionID with values S1, S2,...if a row is a special session, i.e., isSpecialSession = True
-    #merged_df["SessionID"] = merged_df["IsSpecialSession"].apply(lambda x: "S" + str(x))
+    # Step 5: Assign SessionID based on SessionTitle patterns
+    merged_df = assign_session_ids(merged_df)
 
-    # Add a few columns not yet have values TODO
-    merged_df["SessionID"] = ""
-    merged_df["Chair"] = ""
-    merged_df["Room"] = ""
-    # cast column isSpecialSession to int
-    merged_df["IsSpecialSession"] = merged_df["IsSpecialSession"].astype(int)
-      
-    # Add last column called OrderInSchedule with values 1, 2, ... in the order of the rows
-    merged_df["OrderInSchedule"] = range(1, len(merged_df) + 1)
+    # Step 6: Ensure all required columns and order
+    merged_df = ensure_columns(merged_df, SessionListCols)
 
-    # Reorder columns to SessionID,SessionTitle,IsSpecialSession,Organizer1,Organizer2,Organizer3,Chair,SessionTime,Room,OrderInSchedule`
-    merged_df = merged_df[["SessionID", "SessionTitle", "IsSpecialSession",  "Organizer1", "Organizer2", "Organizer3", "Chair",
-                             "SessionTime", "Room", "OrderInSchedule"]]
-
-    # Save final merged schedule
+    # Step 7: Output final CSV
     csv_file = os.path.join(outdir, "SessionList.csv")
     merged_df.to_csv(csv_file, index=False)
-    print("Output: ",  f"{csv_file}")
-  
-    
- 
+    print("Output:", csv_file)

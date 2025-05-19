@@ -28,6 +28,8 @@ Permission of the above files have been changed to _Anyone with the link can vie
 	- last 2 rows do not look right as they have no first and last names of presenters
 *  Special Session Abstracts:
    	- Some values are empty in the column `Special Session Title`
+* Contributed Talk Submissions
+    - Some talks are not assigned to a Technical Session 
   
 ### Missing data
   
