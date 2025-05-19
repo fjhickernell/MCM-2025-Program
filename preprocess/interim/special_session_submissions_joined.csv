@@ -1,28 +1,27 @@
-Presenter 1 first or given name(s),Presenter 1 last or family name(s),Session Title,Organizer1,Organizer2,Organizer3,IsSpecialSession,SessionID,join_key
-Murat,Erdogdu,Heavy-tailed Sampling,Alex Shestopaloff,Jun Yang,,1,S1,heavy-tailed sampling
-André-Alexander,Zepernick,Domain Uncertainty Quantification,André-Alexander Zepernick,Philipp Guth,Vesa Kaarnioja,1,S2,domain uncertainty quantification
-Bob,Carpenter,Advances in Adaptive Hamiltonian Monte Carlo,Art Owen,,,1,S3,advances in adaptive hamiltonian monte carlo
-François,Clément,Computational Methods for Low-discrepancy Sampling and Applications,Nathan Kirk,François Clément,,1,S4,computational methods for low-discrepancy sampling and applications
-Tapio,Helin,Recent advances in optimization under uncertainty,Philipp A. Guth,Vesa Kaarnioja,- -,1,S5,recent advances in optimization under uncertainty
-Abdul-Lateef,Haji-Ali,"Nested expectations: models and estimators, Part I",Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,1,S6,"nested expectations: models and estimators, part i"
-Raúl,Tempone,"Nested expectations: models and estimators, Part II",Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,1,S7,"nested expectations: models and estimators, part ii"
-Felix,Bartel,QMC and Applications Part I,Michael Gnewuch,Takashi Goda,Peter Kritzer,1,S8,qmc and applications part i
-Dirk,Nuyens,QMC and Applications Part II,Michael Gnewuch,Takashi Goda,Peter Kritzer,1,S9,qmc and applications part ii
-Simon,Mak,Statistical Design of Experiments,Lulu Kang,Chunfang Lin,,1,S10,statistical design of experiments
-Xun,Huan,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part I",Florence Forbes,Xun Huan,Youssef Marzouk,1,S11,"next-generation optimal experimental design: theory, scalability, and real world impact: part i"
-Alen,Alexanderian,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part II",Florence Forbes,Xun Huan,Youssef Marzouk,1,S12,"next-generation optimal experimental design: theory, scalability, and real world impact: part ii"
-Arash,Fahim,"Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",Michael Mascagni,,,1,S13,"monte carlo applications in high-performance computing, computer graphics, and computational science"
-Victor,Elvira,Advances in Rare Events Simulation,Nadhir Ben Rached,Shyam Mohan Subbiah Pillai,Raúl Tempone,1,S14,advances in rare events simulation
-Jonathan,Weare,Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods,Sou-Cheng Choi,Yuhan Ding,,1,S15,frontiers in (quasi-)monte carlo and markov chain monte carlo methods
-Pieterjan,Robbe,Hardware or Software for (Quasi-)Monte Carlo Algorithms,Sou-Cheng Choi,Pieterjan Robbe,Mike Giles,1,S16,hardware or software for (quasi-)monte carlo algorithms
-Zhou,Fang,Forward and Inverse Problems for Stochastic Reaction Networks,Sophia Münker,Chiheb Ben Hammouda,Raul Tempone,1,S17,forward and inverse problems for stochastic reaction networks
-Andreas,Neuenkirch,"Stochastic Computation and Complexity, Part I",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,S18,"stochastic computation and complexity, part i"
-Michael,Gnewuch,"Stochastic Computation and Complexity, Part II",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,S19,"stochastic computation and complexity, part ii"
-Jean-Francois,Chassagneux,"Stochastic Computation and Complexity, Part III",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,S20,"stochastic computation and complexity, part iii"
-Larisa,Yaroslavtseva,"Stochastic Computation and Complexity, Part IV",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,S21,"stochastic computation and complexity, part iv"
-Stefan,Heinrich,"Stochastic Computation and Complexity, Part V",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,S22,"stochastic computation and complexity, part v"
-Nawaf,Bou-Rabee,"Analysis of Langevin and Related Sampling Algorithms, Part I",Yifan Chen,Xiaoou Cheng,Jonathan Weare,1,S23,"analysis of langevin and related sampling algorithms, part i"
-Molei,Tao,"Analysis of Langevin and Related Sampling Algorithms, Part II",Yifan Chen,Xiaoou Cheng,Jonathan Weare,1,S24,"analysis of langevin and related sampling algorithms, part ii"
-Raghu,Bollapragada,Stochastic Optimization,Shane Henderson,,,1,S25,stochastic optimization
-Haotian,Jiang,Recent Progress on Algorithmic Discrepancy Theory and Applications,Haotian Jiang,,,1,S26,recent progress on algorithmic discrepancy theory and applications
-,,SCHEDULED (by Nathan Kirk),,,,1,S27,scheduled (by nathan kirk)
+Presenter 1 first or given name(s),Presenter 1 last or family name(s),Session Title,Organizer1,Organizer2,Organizer3,IsSpecialSession,join_key
+Murat,Erdogdu,Heavy-tailed Sampling,Alex Shestopaloff,Jun Yang,,1,heavy-tailed sampling
+André-Alexander,Zepernick,Domain Uncertainty Quantification,André-Alexander Zepernick,Philipp Guth,Vesa Kaarnioja,1,domain uncertainty quantification
+Bob,Carpenter,Advances in Adaptive Hamiltonian Monte Carlo,Art Owen,,,1,advances in adaptive hamiltonian monte carlo
+François,Clément,Computational Methods for Low-discrepancy Sampling and Applications,Nathan Kirk,François Clément,,1,computational methods for low-discrepancy sampling and applications
+Tapio,Helin,Recent advances in optimization under uncertainty,Philipp A. Guth,Vesa Kaarnioja,- -,1,recent advances in optimization under uncertainty
+Abdul-Lateef,Haji-Ali,"Nested expectations: models and estimators, Part I",Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,1,"nested expectations: models and estimators, part i"
+Raúl,Tempone,"Nested expectations: models and estimators, Part II",Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,1,"nested expectations: models and estimators, part ii"
+Felix,Bartel,QMC and Applications Part I,Michael Gnewuch,Takashi Goda,Peter Kritzer,1,qmc and applications part i
+Dirk,Nuyens,QMC and Applications Part II,Michael Gnewuch,Takashi Goda,Peter Kritzer,1,qmc and applications part ii
+Simon,Mak,Statistical Design of Experiments,Lulu Kang,Chunfang Lin,,1,statistical design of experiments
+Xun,Huan,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part I",Florence Forbes,Xun Huan,Youssef Marzouk,1,"next-generation optimal experimental design: theory, scalability, and real world impact: part i"
+Alen,Alexanderian,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part II",Florence Forbes,Xun Huan,Youssef Marzouk,1,"next-generation optimal experimental design: theory, scalability, and real world impact: part ii"
+Arash,Fahim,"Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",Michael Mascagni,,,1,"monte carlo applications in high-performance computing, computer graphics, and computational science"
+Victor,Elvira,Advances in Rare Events Simulation,Nadhir Ben Rached,Shyam Mohan Subbiah Pillai,Raúl Tempone,1,advances in rare events simulation
+Jonathan,Weare,Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods,Sou-Cheng Choi,Yuhan Ding,,1,frontiers in (quasi-)monte carlo and markov chain monte carlo methods
+Pieterjan,Robbe,Hardware or Software for (Quasi-)Monte Carlo Algorithms,Sou-Cheng Choi,Pieterjan Robbe,Mike Giles,1,hardware or software for (quasi-)monte carlo algorithms
+Zhou,Fang,Forward and Inverse Problems for Stochastic Reaction Networks,Sophia Münker,Chiheb Ben Hammouda,Raul Tempone,1,forward and inverse problems for stochastic reaction networks
+Andreas,Neuenkirch,"Stochastic Computation and Complexity, Part I",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,"stochastic computation and complexity, part i"
+Michael,Gnewuch,"Stochastic Computation and Complexity, Part II",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,"stochastic computation and complexity, part ii"
+Jean-Francois,Chassagneux,"Stochastic Computation and Complexity, Part III",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,"stochastic computation and complexity, part iii"
+Larisa,Yaroslavtseva,"Stochastic Computation and Complexity, Part IV",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,"stochastic computation and complexity, part iv"
+Stefan,Heinrich,"Stochastic Computation and Complexity, Part V",Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,1,"stochastic computation and complexity, part v"
+Nawaf,Bou-Rabee,"Analysis of Langevin and Related Sampling Algorithms, Part I",Yifan Chen,Xiaoou Cheng,Jonathan Weare,1,"analysis of langevin and related sampling algorithms, part i"
+Molei,Tao,"Analysis of Langevin and Related Sampling Algorithms, Part II",Yifan Chen,Xiaoou Cheng,Jonathan Weare,1,"analysis of langevin and related sampling algorithms, part ii"
+Raghu,Bollapragada,Stochastic Optimization,Shane Henderson,,,1,stochastic optimization
+Haotian,Jiang,Recent Progress on Algorithmic Discrepancy Theory and Applications,Haotian Jiang,,,1,recent progress on algorithmic discrepancy theory and applications

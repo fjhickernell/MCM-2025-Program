@@ -1,66 +1,66 @@
-First or given name(s) of presenter,Last or family name of presenter,Talk Title,SESSION,Topic,Acceptance,IsSpecialSession,SessionID,join_key
-Christian,Weiss,"Halton Sequences, Scrambling and the Inverse Star-Discrepancy",Technical session 4,QMC,Yes,0,T4,technical session 4
-Kevin,Bitterlich,Delayed Acceptance Slice Sampling: A Two-Level method for Improved Efficiency in High-Dimensional Settings,Technical Session 14,"Slice sampling, MCMC",Yes,0,T14,technical session 14
-Akash,Sharma,Sampling with constraints,Technical Session 6,Sampling,Yes,0,T6,technical session 6
-Kazeem,Adeleke,Empirical Statistical Comparative Analysis of SNP Heritability Estimators and Gradient Boosting Machines (GBM) Using Genetic Data from the UK Biobank,Technical Session 16,application (bio),Yes,0,T16,technical session 16
-Joonha,Park,"Sampling from high-dimensional, multimodal distributions using automatically tuned, tempered Hamiltonian Monte Carlo",Technical Session 6,HMC,Yes,0,T6,technical session 6
-Fabio,Zoccolan,Dynamical Low-Rank Approximation for SDEs: an interacting particle-system ROM,Technical Session 11,"Dynamical Low-Rank Approximation, SDE",Yes,0,T11,technical session 11
-Zhihao,Wang,Stereographic Multi-Try Metropolis Algorithms for Heavy-tailed Sampling,Technical session 1,"Heavy Tails, Metropolis, MCMC",Yes,0,T1,technical session 1
-Attila,Lovas,Stochastic gradient Langevin dynamics with non-stationary data,Technical Session 10,"SGLD, langevin, markov chain",Yes,0,T10,technical session 10
-Yashveer,Kumar,Monte Carlo simulation approach to solve distributed order fractional mathematical model,Technical session 3,simulation,Yes,0,T3,technical session 3
-Xiaoda,Xu,Star discrepancy and uniform approximation under weighted simple and stratified random sampling,Technical session 4,"Star discrepancy, stratified random sampling",Yes,0,T4,technical session 4
-Adrien,Richou,A probabilistic Numerical method for semi-linear elliptic Partial Differential Equations,Technical Session 12,BSDE,Yes,0,T12,technical session 12
-Sifan,Liu,Transport Quasi-Monte Carlo,Technical session 4,QMC,Yes,0,T4,technical session 4
-Peter,Kritzer,Approximation using median lattice algorithms,Technical session 5,QMC,Yes,0,T5,technical session 5
-Lorenzo,Nagar,Optimizing Generalized Hamiltonian Monte Carlo for Bayesian Inference applications,Technical session 2,GHMC,Yes,0,T2,technical session 2
-Ruben,Seyer,Creating rejection-free samplers by rebalancing skew-balanced jump processes,Technical Session 1,Non-reversible MCMC,Yes,0,T1,technical session 1
-Iosif,Lytras,Sampling with Langevin Dynamics from non-smooth and non-logconcave potentials.,Technical Session 10,Langevin Dynamics,Yes,0,T10,technical session 10
-Anke,Wiese,A Chen-Fliess series for stochastic differential equations driven by L{\'e}vy processes,Technical Session 11,Levy driven SDE,Yes,0,T11,technical session 11
-Reuben,Cohn-Gordon,Gradient-based MCMC in high dimensions,Technical Session 14,Gradient-based MCMC,Yes,0,T14,technical session 14
-Hamza,Ruzayqat,Bayesian Anomaly Detection in Variable-Order and Variable-Diffusivity Fractional Mediums,Technical session 2,,Yes,0,T2,technical session 2
-Carles,Domingo-Enrich,Cheap permutation testing,Technical Session 16,stats,Yes,0,T16,technical session 16
-Philip,Schaer,Parallel Affine Transformation Tuning: Drastically Improving the Effectiveness of Slice Sampling,Technical session 14,Slice Sampling,Yes,0,T14,technical session 14
-Arghya,Datta,Theoretical Guarantees of Mean Field Variational Inference for Bayesian Principal Component Analysis,Technical session 2,BPCA,Yes,0,T2,technical session 2
-Frédéric,Blondeel,Learning cooling strategies in simulated annealing through binary interactions,Technical session 13,,Yes,0,T13,technical session 13
-Christopher,Draper,Moving PCG beyond LCGs,Technical session 16,PCG,Yes,0,T16,technical session 16
-Philippe,Gagnon,Theoretical guarantees for lifted samplers,Technical Session 1,Non-reversible MCMC,Yes,0,T1,technical session 1
-Du,Ouyang,Accuracy of Discretely Sampled Stochastic Policies in Continuous-Time Reinforcement Learning,Technical session 13,"RL, Large Deviations",Yes,0,T13,technical session 13
-Yang,Liu,Convergence Rates of Randomized Quasi-Monte Carlo Methods under Various Regularity Conditions,Technical session 5,RQMC,Yes,0,T5,technical session 5
-Abdujabar,Rasulov,Monte Carlo method for the Spatially Homogenous Boltzmann equation,Technical Session 12,Boltzmann equation,Yes,0,T12,technical session 12
-Matyokub,Bakoev,The Stochastic Differential Equations of the Heston Model for Option Pricing,Technical Session 8,Heston Model,Yes,0,T8,technical session 8
-Riccardo,Saporiti,Comparing Probabilistic Load Forecasters: Stochastic Differential Equations and Deep Learning,Technical Session 11,"SDE, Deep Learning",Yes,0,T11,technical session 11
-Serena,Fattori,Benchmarking the Geant4-DNA ’UHDR’ Example for Monte Carlo Simulation of pH Effects on Radiolytic Species Yields Using a Mesoscopic Approach,Technical session 3,Simulation,Yes,0,T3,technical session 3
-Philippe,Blondeel,Combining quasi-Monte Carlo with Stochastic Optimal Control for Trajectory Optimization of Autonomous Vehicles in Mine Counter Measure Simulations,Technical session 15,"Control, QMC, AV, Military",Yes,0,T15,technical session 15
-Sara,Pérez-Vieites,Langevin-based strategies for nested particle filters,Technical Session 10,nested particle filter,Yes,0,T10,technical session 10
-André Gustavo,Carlon,MICE: a multi-iteration estimator for stochastic optimization,ADD TO SHANE H. SESSION,"Multi-Iteration stochastiC Estimator, Stochastic Optimization",Yes,0,,add to shane h. session
-Nicola,Branchini,Revisiting self-normalized importance sampling: new methods and diagnostics,Technical Session 9,Importance Sampling,Yes,0,T9,technical session 9
-Daniel,Yukimura,Quantitative results on sampling from quasi-stationary distributions,Technical Session 9,SMC,Yes,0,T9,technical session 9
-Gregory,Seljak,Cost-free improvements to the median estimator for Random-parameter QMC,//,QMC,Yes,0,,//
-Leon,Wilkosz,Forward Propagation of Low Discrepancy Through McKean--Vlasov Dynamics: From QMC to MLQMC,Technical Session 11,MLQMC,Yes,0,T11,technical session 11
-Nikolaos,Makras,Taming the Interacting Particle Langevin Algorithm – The Superlinear Case,Technical Session 10,interacting particle Langevin,Yes,0,T10,technical session 10
-Vincent,Zhang,Characterizing Efficacy of Geometric Brownian Motion Expectation-based Simulations on Low-Volatility American Common Stocks,Technical session 8,finance,Yes,0,T8,technical session 8
-Jakob,Dilen,Use of rank-1 lattices in the Fourier neural operator,Technical session 5,QMC/ML,Yes,0,T5,technical session 5
-Wei,Cai,"Martingale deep neural networks for quasi-linear PDEs and stochastic optimal controls in 10,000 dimensions",Technical session 13,"DNN, PDE, control",Yes,0,T13,technical session 13
-Jimmy,Lederman,Bayesian Analysis of Latent Underdispersion Using Discrete Order Statistics,Technical Session 2,,Yes,0,T2,technical session 2
-Kun-Lin,Kuo,Revisiting the Gibbs Sampler: A Conditional Modeling Perspective,technical session 7,"Gibbs Sampling, Convergence Analysis",Yes,0,T7,technical session 7
-Sascha,Holl,Concatenation of Markov processes for Monte Carlo Integration,technical session 7,MCMC,Yes,0,T7,technical session 7
-Yiqing,Zhou,Minimizing Functions with Sparse Samples: A Fast Interpolation Approach,Technical Session 13,,Yes,0,T13,technical session 13
-Josephine,Westermann,Polynomial approximation for efficient transport-based sampling,technical session 7,,Yes,0,T7,technical session 7
-Arne,Bouillon,Localized consensus-based sampling for non-Gaussian distributions,Technical Session 6,,Yes,0,T6,technical session 6
-Rino,Persiani,A Monte Carlo Approach to Designing a Novel Sample Holder for Enhanced UV-Vis Spectroscopy,Technical Session 15,simulation,Yes,0,T15,technical session 15
-Prasanth,Shyamsundar,ARCANE Reweighting: A technique to tackle the sign problem in the simulation of collider events in high energy physics,Technical Session 15,simulation,Yes,0,T15,technical session 15
-Soumyadip,Ghosh,Fast Approximate Matrix Inversion via MCMC for Linear System Solvers,technical session 7,mcmc,Yes,0,T7,technical session 7
-Toon,Ingelaere,Multilevel simulation of ensemble Kalman methods: interactions across levels,Technical session 3,"ensemble Kalman, MLMC",Yes,0,T3,technical session 3
-Ambrose,Emmett-Iwaniw,Using Normalizing Flows for Efficient Quasi-Random Sampling for Copulas,Technical session 4,QMC,Yes,0,T4,technical session 4
-Annabelle,Carrell,Low-Rank Thinning,Technical Session 14,mcmc thinning,Yes,0,T14,technical session 14
-Alex,Shkolnik,Importance Sampling for Hawkes Processes,Technical Session 6,Importance Sampling,Yes,0,T6,technical session 6
-Amit,Subrahmanya,Serial ensemble filtering with marginal coupling,Technical session 9,filtering,Yes,0,T9,technical session 9
-Muhammad,Noor ul Amin,Adaptive Max-EWMA Control Chart with SVR: Monte Carlo Simulation for Run Length Analysis,Technical session 3,Simulation,Yes,0,T3,technical session 3
-Hao,Quan,Efficient Pricing for Variable Annuity via Simulation,Technical session 8,finance,Yes,0,T8,technical session 8
-Miguel,Alvarez,A New Approach for Unbiased Estimation of Parameters of Partially Observed Diffusions,Technical session 12,"Unbiased Estimation, Diffusion",Yes,0,T12,technical session 12
-Aadit,Jain,Investigating the Optimum RQMC Batch Size for Betting and Empirical Bernstein Confidence Intervals,Technical session 5,RQMC,Yes,0,T5,technical session 5
-Nicole,Aretz,Multifidelity and Surrogate Modeling Approaches for Uncertainty Quantification in Ice Sheet Simulations,Technical Session 15,UQ for Ice Sheet Simulations,Yes,0,T15,technical session 15
-Håkon,Hoel,High-order adaptive methods for exit times of diffusion processes and reflected diffusions,Technical session 12,Adaptive,Yes,0,T12,technical session 12
-Yiming,Xu,Hybrid least squares for learning functions from highly noisy data,Technical Session 16,Statistical learning,Yes,0,T16,technical session 16
-Noufel,Frikha,On the convergence of the Euler-Maruyama scheme for McKean-Vlasov SDEs,,,Yes,0,,
-Chi-Ok,Hwang,First-passage-based Last-passage Algorithm  for Charge Density on a Conducting Surface          for Charge Density on a Conducting Surface,,,Yes,0,,
+First or given name(s) of presenter,Last or family name of presenter,Talk Title,SESSION,Topic,Acceptance,IsSpecialSession,join_key
+Christian,Weiss,"Halton Sequences, Scrambling and the Inverse Star-Discrepancy",Technical session 4,QMC,Yes,0,technical session 4
+Kevin,Bitterlich,Delayed Acceptance Slice Sampling: A Two-Level method for Improved Efficiency in High-Dimensional Settings,Technical Session 14,"Slice sampling, MCMC",Yes,0,technical session 14
+Akash,Sharma,Sampling with constraints,Technical Session 6,Sampling,Yes,0,technical session 6
+Kazeem,Adeleke,Empirical Statistical Comparative Analysis of SNP Heritability Estimators and Gradient Boosting Machines (GBM) Using Genetic Data from the UK Biobank,Technical Session 16,application (bio),Yes,0,technical session 16
+Joonha,Park,"Sampling from high-dimensional, multimodal distributions using automatically tuned, tempered Hamiltonian Monte Carlo",Technical Session 6,HMC,Yes,0,technical session 6
+Fabio,Zoccolan,Dynamical Low-Rank Approximation for SDEs: an interacting particle-system ROM,Technical Session 11,"Dynamical Low-Rank Approximation, SDE",Yes,0,technical session 11
+Zhihao,Wang,Stereographic Multi-Try Metropolis Algorithms for Heavy-tailed Sampling,Technical session 1,"Heavy Tails, Metropolis, MCMC",Yes,0,technical session 1
+Attila,Lovas,Stochastic gradient Langevin dynamics with non-stationary data,Technical Session 10,"SGLD, langevin, markov chain",Yes,0,technical session 10
+Yashveer,Kumar,Monte Carlo simulation approach to solve distributed order fractional mathematical model,Technical session 3,simulation,Yes,0,technical session 3
+Xiaoda,Xu,Star discrepancy and uniform approximation under weighted simple and stratified random sampling,Technical session 4,"Star discrepancy, stratified random sampling",Yes,0,technical session 4
+Adrien,Richou,A probabilistic Numerical method for semi-linear elliptic Partial Differential Equations,Technical Session 12,BSDE,Yes,0,technical session 12
+Sifan,Liu,Transport Quasi-Monte Carlo,Technical session 4,QMC,Yes,0,technical session 4
+Peter,Kritzer,Approximation using median lattice algorithms,Technical session 5,QMC,Yes,0,technical session 5
+Lorenzo,Nagar,Optimizing Generalized Hamiltonian Monte Carlo for Bayesian Inference applications,Technical session 2,GHMC,Yes,0,technical session 2
+Ruben,Seyer,Creating rejection-free samplers by rebalancing skew-balanced jump processes,Technical Session 1,Non-reversible MCMC,Yes,0,technical session 1
+Iosif,Lytras,Sampling with Langevin Dynamics from non-smooth and non-logconcave potentials.,Technical Session 10,Langevin Dynamics,Yes,0,technical session 10
+Anke,Wiese,A Chen-Fliess series for stochastic differential equations driven by L{\'e}vy processes,Technical Session 11,Levy driven SDE,Yes,0,technical session 11
+Reuben,Cohn-Gordon,Gradient-based MCMC in high dimensions,Technical Session 14,Gradient-based MCMC,Yes,0,technical session 14
+Hamza,Ruzayqat,Bayesian Anomaly Detection in Variable-Order and Variable-Diffusivity Fractional Mediums,Technical session 2,,Yes,0,technical session 2
+Carles,Domingo-Enrich,Cheap permutation testing,Technical Session 16,stats,Yes,0,technical session 16
+Philip,Schaer,Parallel Affine Transformation Tuning: Drastically Improving the Effectiveness of Slice Sampling,Technical session 14,Slice Sampling,Yes,0,technical session 14
+Arghya,Datta,Theoretical Guarantees of Mean Field Variational Inference for Bayesian Principal Component Analysis,Technical session 2,BPCA,Yes,0,technical session 2
+Frédéric,Blondeel,Learning cooling strategies in simulated annealing through binary interactions,Technical session 13,,Yes,0,technical session 13
+Christopher,Draper,Moving PCG beyond LCGs,Technical session 16,PCG,Yes,0,technical session 16
+Philippe,Gagnon,Theoretical guarantees for lifted samplers,Technical Session 1,Non-reversible MCMC,Yes,0,technical session 1
+Du,Ouyang,Accuracy of Discretely Sampled Stochastic Policies in Continuous-Time Reinforcement Learning,Technical session 13,"RL, Large Deviations",Yes,0,technical session 13
+Yang,Liu,Convergence Rates of Randomized Quasi-Monte Carlo Methods under Various Regularity Conditions,Technical session 5,RQMC,Yes,0,technical session 5
+Abdujabar,Rasulov,Monte Carlo method for the Spatially Homogenous Boltzmann equation,Technical Session 12,Boltzmann equation,Yes,0,technical session 12
+Matyokub,Bakoev,The Stochastic Differential Equations of the Heston Model for Option Pricing,Technical Session 8,Heston Model,Yes,0,technical session 8
+Riccardo,Saporiti,Comparing Probabilistic Load Forecasters: Stochastic Differential Equations and Deep Learning,Technical Session 11,"SDE, Deep Learning",Yes,0,technical session 11
+Serena,Fattori,Benchmarking the Geant4-DNA ’UHDR’ Example for Monte Carlo Simulation of pH Effects on Radiolytic Species Yields Using a Mesoscopic Approach,Technical session 3,Simulation,Yes,0,technical session 3
+Philippe,Blondeel,Combining quasi-Monte Carlo with Stochastic Optimal Control for Trajectory Optimization of Autonomous Vehicles in Mine Counter Measure Simulations,Technical session 15,"Control, QMC, AV, Military",Yes,0,technical session 15
+Sara,Pérez-Vieites,Langevin-based strategies for nested particle filters,Technical Session 10,nested particle filter,Yes,0,technical session 10
+André Gustavo,Carlon,MICE: a multi-iteration estimator for stochastic optimization,ADD TO SHANE H. SESSION,"Multi-Iteration stochastiC Estimator, Stochastic Optimization",Yes,0,add to shane h. session
+Nicola,Branchini,Revisiting self-normalized importance sampling: new methods and diagnostics,Technical Session 9,Importance Sampling,Yes,0,technical session 9
+Daniel,Yukimura,Quantitative results on sampling from quasi-stationary distributions,Technical Session 9,SMC,Yes,0,technical session 9
+Gregory,Seljak,Cost-free improvements to the median estimator for Random-parameter QMC,//,QMC,Yes,0,//
+Leon,Wilkosz,Forward Propagation of Low Discrepancy Through McKean--Vlasov Dynamics: From QMC to MLQMC,Technical Session 11,MLQMC,Yes,0,technical session 11
+Nikolaos,Makras,Taming the Interacting Particle Langevin Algorithm – The Superlinear Case,Technical Session 10,interacting particle Langevin,Yes,0,technical session 10
+Vincent,Zhang,Characterizing Efficacy of Geometric Brownian Motion Expectation-based Simulations on Low-Volatility American Common Stocks,Technical session 8,finance,Yes,0,technical session 8
+Jakob,Dilen,Use of rank-1 lattices in the Fourier neural operator,Technical session 5,QMC/ML,Yes,0,technical session 5
+Wei,Cai,"Martingale deep neural networks for quasi-linear PDEs and stochastic optimal controls in 10,000 dimensions",Technical session 13,"DNN, PDE, control",Yes,0,technical session 13
+Jimmy,Lederman,Bayesian Analysis of Latent Underdispersion Using Discrete Order Statistics,Technical Session 2,,Yes,0,technical session 2
+Kun-Lin,Kuo,Revisiting the Gibbs Sampler: A Conditional Modeling Perspective,technical session 7,"Gibbs Sampling, Convergence Analysis",Yes,0,technical session 7
+Sascha,Holl,Concatenation of Markov processes for Monte Carlo Integration,technical session 7,MCMC,Yes,0,technical session 7
+Yiqing,Zhou,Minimizing Functions with Sparse Samples: A Fast Interpolation Approach,Technical Session 13,,Yes,0,technical session 13
+Josephine,Westermann,Polynomial approximation for efficient transport-based sampling,technical session 7,,Yes,0,technical session 7
+Arne,Bouillon,Localized consensus-based sampling for non-Gaussian distributions,Technical Session 6,,Yes,0,technical session 6
+Rino,Persiani,A Monte Carlo Approach to Designing a Novel Sample Holder for Enhanced UV-Vis Spectroscopy,Technical Session 15,simulation,Yes,0,technical session 15
+Prasanth,Shyamsundar,ARCANE Reweighting: A technique to tackle the sign problem in the simulation of collider events in high energy physics,Technical Session 15,simulation,Yes,0,technical session 15
+Soumyadip,Ghosh,Fast Approximate Matrix Inversion via MCMC for Linear System Solvers,technical session 7,mcmc,Yes,0,technical session 7
+Toon,Ingelaere,Multilevel simulation of ensemble Kalman methods: interactions across levels,Technical session 3,"ensemble Kalman, MLMC",Yes,0,technical session 3
+Ambrose,Emmett-Iwaniw,Using Normalizing Flows for Efficient Quasi-Random Sampling for Copulas,Technical session 4,QMC,Yes,0,technical session 4
+Annabelle,Carrell,Low-Rank Thinning,Technical Session 14,mcmc thinning,Yes,0,technical session 14
+Alex,Shkolnik,Importance Sampling for Hawkes Processes,Technical Session 6,Importance Sampling,Yes,0,technical session 6
+Amit,Subrahmanya,Serial ensemble filtering with marginal coupling,Technical session 9,filtering,Yes,0,technical session 9
+Muhammad,Noor ul Amin,Adaptive Max-EWMA Control Chart with SVR: Monte Carlo Simulation for Run Length Analysis,Technical session 3,Simulation,Yes,0,technical session 3
+Hao,Quan,Efficient Pricing for Variable Annuity via Simulation,Technical session 8,finance,Yes,0,technical session 8
+Miguel,Alvarez,A New Approach for Unbiased Estimation of Parameters of Partially Observed Diffusions,Technical session 12,"Unbiased Estimation, Diffusion",Yes,0,technical session 12
+Aadit,Jain,Investigating the Optimum RQMC Batch Size for Betting and Empirical Bernstein Confidence Intervals,Technical session 5,RQMC,Yes,0,technical session 5
+Nicole,Aretz,Multifidelity and Surrogate Modeling Approaches for Uncertainty Quantification in Ice Sheet Simulations,Technical Session 15,UQ for Ice Sheet Simulations,Yes,0,technical session 15
+Håkon,Hoel,High-order adaptive methods for exit times of diffusion processes and reflected diffusions,Technical session 12,Adaptive,Yes,0,technical session 12
+Yiming,Xu,Hybrid least squares for learning functions from highly noisy data,Technical Session 16,Statistical learning,Yes,0,technical session 16
+Noufel,Frikha,On the convergence of the Euler-Maruyama scheme for McKean-Vlasov SDEs,,,Yes,0,
+Chi-Ok,Hwang,First-passage-based Last-passage Algorithm  for Charge Density on a Conducting Surface          for Charge Density on a Conducting Surface,,,Yes,0,

@@ -23,7 +23,7 @@ def process_sessions(dfs):
     # Plenary abstracts
     df = dfs["plenary_abstracts"]
     df["IsSpecialSession"] = 0
-    df["SessionID"] = "P" + (df.index + 1).astype(str)
+    #df["SessionID"] = "P" + (df.index + 1).astype(str)
     dfs["plenary_abstracts"] = df.copy(deep=True)
 
     # Special session submissions
@@ -32,16 +32,16 @@ def process_sessions(dfs):
         df[f"Organizer{idx}"] = df[f"First or given name(s) of {i} organizer"] + " " + df[f"Last or family name(s) of {i} organizer"]
         df = df.drop(columns=[f"First or given name(s) of {i} organizer", f"Last or family name(s) of {i} organizer"])
     # remove row with a cell value "SCHEDULED (by Nathan Kirk)"
-    df = df[~df["Session Title"].str.contains("SCHEDULED (by Nathan Kirk)", na=False)]
+    df = df[~df["Session Title"].str.contains("by Nathan Kirk", case=False, na=False)]
     df["IsSpecialSession"] = 1
-    df["SessionID"] = "S" + (df.index + 1).astype(str)
+    #df["SessionID"] = "S" + (df.index + 1).astype(str)
     dfs["special_session_submissions"] = df.copy(deep=True)
 
     # Contributed talk submissions
     df = dfs["contributed_talk_submissions"]
     df = df[df["Acceptance"] == "Yes"] # Filter out rows with Acceptance == Yes
     df["IsSpecialSession"] = 0
-    df["SessionID"] = df["SESSION"].str.extract(r'Technical Session (\d+)', flags=re.IGNORECASE)[0].apply(lambda x: f"T{x}" if pd.notna(x) else "")
+    #df["SessionID"] = df["SESSION"].str.extract(r'Technical Session (\d+)', flags=re.IGNORECASE)[0].apply(lambda x: f"T{x}" if pd.notna(x) else "")
     dfs["contributed_talk_submissions"] = df.copy(deep=True)
 
     return dfs
