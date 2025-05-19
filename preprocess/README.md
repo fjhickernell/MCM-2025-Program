@@ -29,7 +29,7 @@ Permission of the above files have been changed to _Anyone with the link can vie
 	- last few rows do not look right as they have no first and last names of presenters and contains "SCHEDULED (by Nathan Kirk)"
 *  [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
    	- Some values are empty in the last column, `Special Session Title`
-* [Contributed Talk Submissions]([)](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv)
+* [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv)
     - Some talks are not assigned to a Technical Session in column `SESSION`
   
 ### Missing output data
