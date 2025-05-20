@@ -51,8 +51,10 @@ Permissions for the above files have been changed to _Anyone with the link can v
 
 - SessionList.csv
   * Session IDs are created programmatically
-  * Chair names are missing — <mark>TODO by Chang-Han or program committee</mark>
-  * Room numbers are missing — <mark>TODO by Chang-Han or program committee</mark>
+  * Chair names are missing — <mark>TODO fill in column `Chair` in Schedule by Chang-Han or program committee</mark>
+  * Room numbers are missing — <mark>TODO fill in column `Room` in Schedule by Chang-Han or program committee</mark>
 - Participants.csv
-  * Missing organizing committee members and scientific committee members — <mark>TODO SC to figure out</mark>
+  * Missing organizing committee members and scientific committee members — <mark>TODO </mark>
   * Not sure how to get `PageNumber` — <mark>TODO SC to figure out</mark>
+  * Student Helpers — <mark>TODO </mark>
+  * Registered participants who are not presenters/organizers — <mark>TODO </mark>
