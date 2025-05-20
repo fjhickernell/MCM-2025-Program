@@ -28,7 +28,6 @@ Permissions for the above files have been changed to _Anyone with the link can v
 * [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
 	- So far, there are only five plenary talk abstracts. <mark>***Fred needs to remind them***</mark>
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
-	- Some rows do not look correct, as they have no first or last names of presenters — <mark>TODO</mark>
 	- The last row contains only "SCHEDULED (by Nathan Kirk)" — this row is removed programmatically by SC.
 	- Added Jing Dong's session to the Google Sheet manually.
 	- Jing Dong's session is missing the abstract .tex source, waiting for Chang-Hang — <mark>TODO</mark>
