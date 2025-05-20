@@ -31,7 +31,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 	- Some rows do not look correct, as they have no first or last names of presenters — <mark>TODO</mark>
 	- The last row contains only "SCHEDULED (by Nathan Kirk)" — this row is removed programmatically by SC.
 	- Added Jing Dong's session to the Google Sheet manually.
-	- Jing Dong's session is missing the abstract URL and email address — <mark>TODO</mark>
+	- Jing Dong's session is missing the abstract .tex source, waiting for Chang-Hang — <mark>TODO</mark>
 	- Added two of Sou-Cheng Choi's Part II sessions
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
 	- Some values are empty in the last column, `Special Session Title`. Zexin's SS title was filled in manually by Fred. SC added the values for Chih-Li,Sung and Mao,Cai. <mark>— TODO Mao has a duplicate talk. Remove it?<mark>
