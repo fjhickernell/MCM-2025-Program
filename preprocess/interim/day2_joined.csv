@@ -5,7 +5,7 @@ SessionTime,SessionTitle,join_key
 "Tuesday, July 29 10:30–12:30 Track A","Stochastic Computation and Complexity, Part III","stochastic computation and complexity, part iii"
 "Tuesday, July 29 10:30–12:30 Track B","Next-generation optimal experimental design: theory, scalability, and real world impact: Part I","next-generation optimal experimental design: theory, scalability, and real world impact: part i"
 "Tuesday, July 29 10:30–12:30 Track C",Heavy-tailed Sampling,heavy-tailed sampling
-"Tuesday, July 29 10:30–12:30 Track D",Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods,frontiers in (quasi-)monte carlo and markov chain monte carlo methods
+"Tuesday, July 29 10:30–12:30 Track D","Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I","frontiers in (quasi-)monte carlo and markov chain monte carlo methods, part i"
 "Tuesday, July 29 10:30-12:30 Track E",Technical Session 2 - Bayesian Methods,technical session 2
 "Tuesday, July 29 12:30–14:00",Lunch Break,
 "Tuesday, July 29 14:00–15:00",Plenary Talk by Roshan Joseph,roshan joseph
@@ -13,4 +13,5 @@ SessionTime,SessionTitle,join_key
 "Tuesday, July 29 15:30–17:30 Track F","Stochastic Computation and Complexity, Part IV","stochastic computation and complexity, part iv"
 "Tuesday, July 29 15:30–17:30 Track G","Next-generation optimal experimental design: theory, scalability, and real world impact: Part II","next-generation optimal experimental design: theory, scalability, and real world impact: part ii"
 "Tuesday, July 29 15:30–17:30 Track H",Advances in Rare Events Simulation,advances in rare events simulation
-"Tuesday, July 29 15:30–17:30 Track I","Technical Session 5 - Quasi-Monte Carlo, Part 2",technical session 5
+"Tuesday, July 29 15:30–17:30 Track I","Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II","frontiers in (quasi-)monte carlo and markov chain monte carlo methods, part ii"
+"Tuesday, July 29 15:30-17:30 Track J","Technical Session 5 - Quasi-Monte Carlo, Part 2",technical session 5

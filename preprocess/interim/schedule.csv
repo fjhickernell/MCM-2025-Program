@@ -3,7 +3,7 @@ SessionTime,SessionTitle,join_key
 "Monday, July 28 10:30–12:30 Track A","Stochastic Computation and Complexity, Part I","stochastic computation and complexity, part i"
 "Monday, July 28 10:30–12:30 Track B",Domain Uncertainty Quantification,domain uncertainty quantification
 "Monday, July 28 10:30–12:30 Track C","Nested expectations: models and estimators, Part I","nested expectations: models and estimators, part i"
-"Monday, July 28 10:30–12:30 Track D",Hardware or Software for (Quasi-)Monte Carlo Algorithms,hardware or software for (quasi-)monte carlo algorithms
+"Monday, July 28 10:30–12:30 Track D","Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I","hardware or software for (quasi-)monte carlo algorithms, part i"
 "Monday, July 28 10:30-12:30 Track E",Technical Session 1 - Markov Chain Monte Carlo,technical session 1
 "Monday, July 28 14:00–15:00",Plenary Talk by Christiane Lemieux,christiane lemieux
 "Monday, July 28 15:30–17:30 Track F","Stochastic Computation and Complexity, Part II","stochastic computation and complexity, part ii"
@@ -15,13 +15,14 @@ SessionTime,SessionTitle,join_key
 "Tuesday, July 29 10:30–12:30 Track A","Stochastic Computation and Complexity, Part III","stochastic computation and complexity, part iii"
 "Tuesday, July 29 10:30–12:30 Track B","Next-generation optimal experimental design: theory, scalability, and real world impact: Part I","next-generation optimal experimental design: theory, scalability, and real world impact: part i"
 "Tuesday, July 29 10:30–12:30 Track C",Heavy-tailed Sampling,heavy-tailed sampling
-"Tuesday, July 29 10:30–12:30 Track D",Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods,frontiers in (quasi-)monte carlo and markov chain monte carlo methods
+"Tuesday, July 29 10:30–12:30 Track D","Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I","frontiers in (quasi-)monte carlo and markov chain monte carlo methods, part i"
 "Tuesday, July 29 10:30-12:30 Track E",Technical Session 2 - Bayesian Methods,technical session 2
 "Tuesday, July 29 14:00–15:00",Plenary Talk by Roshan Joseph,roshan joseph
 "Tuesday, July 29 15:30–17:30 Track F","Stochastic Computation and Complexity, Part IV","stochastic computation and complexity, part iv"
 "Tuesday, July 29 15:30–17:30 Track G","Next-generation optimal experimental design: theory, scalability, and real world impact: Part II","next-generation optimal experimental design: theory, scalability, and real world impact: part ii"
 "Tuesday, July 29 15:30–17:30 Track H",Advances in Rare Events Simulation,advances in rare events simulation
-"Tuesday, July 29 15:30–17:30 Track I","Technical Session 5 - Quasi-Monte Carlo, Part 2",technical session 5
+"Tuesday, July 29 15:30–17:30 Track I","Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II","frontiers in (quasi-)monte carlo and markov chain monte carlo methods, part ii"
+"Tuesday, July 29 15:30-17:30 Track J","Technical Session 5 - Quasi-Monte Carlo, Part 2",technical session 5
 "Wednesday, July 30 09:00–10:00",Plenary Talk by Michaela Szölgyenyi,michaela szölgyenyi
 "Wednesday, July 30 10:30–12:30 Track A","Stochastic Computation and Complexity, Part V","stochastic computation and complexity, part v"
 "Wednesday, July 30 10:30–12:30 Track B",Statistical Design of Experiments,statistical design of experiments
@@ -42,10 +43,12 @@ SessionTime,SessionTitle,join_key
 "Thursday, July 31 14:00–15:00",Plenary Talk by Nicolas Chopin,nicolas chopin
 "Thursday, July 31 15:30–17:30 Track F",QMC and Applications Part II,qmc and applications part ii
 "Thursday, July 31 15:30–17:30 Track G","Analysis of Langevin and Related Sampling Algorithms, Part II","analysis of langevin and related sampling algorithms, part ii"
-"Thursday, July 31 15:30–17:30 Track H",Technical Session 7 - Sampling,technical session 7
-"Thursday, July 31 15:30–17:30 Track I",Technical Session 11 - SDEs,technical session 11
+"Thursday, July 31 15:30–17:30 Track H",Advances in Stochastic Gradient Descent,advances in stochastic gradient descent
+"Thursday, July 31 15:30–17:30 Track I",Technical Session 7 - Sampling,technical session 7
+"Thursday, July 31 15:30-17:30 Track J",Technical Session 11 - SDEs,technical session 11
 "Friday, August 1 9:00–10:30 Track A",Forward and Inverse Problems for Stochastic Reaction Networks,forward and inverse problems for stochastic reaction networks
-"Friday, August 1 9:00–10:30 Track B",Technical Session 3 - Simulation,technical session 3
-"Friday, August 1 9:00–10:30 Track C",Technical Session 9 - Sampling,technical session 9
-"Friday, August 1 9:00–10:30 Track D",Technical Session 14 - Markov Chain Monte Carlo,technical session 14
+"Friday, August 1 9:00–10:30 Track B","Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II","hardware or software for (quasi-)monte carlo algorithms, part ii"
+"Friday, August 1 9:00–10:30 Track C",Technical Session 3 - Simulation,technical session 3
+"Friday, August 1 9:00–10:30 Track D",Technical Session 9 - Sampling,technical session 9
+"Friday, August 1 9:00–10:30 Track E",Technical Session 14 - Markov Chain Monte Carlo,technical session 14
 "Friday, August 1 11:00-12:00",Plenary Talk by Veronika Rockova,veronika rockova

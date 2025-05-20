@@ -3,7 +3,7 @@ P1,Plenary Talk by Matt Pharr,0,,,,,"Monday, July 28 09:00–10:00",,1
 S1,"Stochastic Computation and Complexity, Part I",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Monday, July 28 10:30–12:30 Track A",,2
 S2,Domain Uncertainty Quantification,1,André-Alexander Zepernick,Philipp Guth,Vesa Kaarnioja,,"Monday, July 28 10:30–12:30 Track B",,3
 S3,"Nested expectations: models and estimators, Part I",1,Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,,"Monday, July 28 10:30–12:30 Track C",,4
-S4,Hardware or Software for (Quasi-)Monte Carlo Algorithms,0,,,,,"Monday, July 28 10:30–12:30 Track D",,5
+S4,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I",1,Sou-Cheng Choi,Pieterjan Robbe,Mike Giles,,"Monday, July 28 10:30–12:30 Track D",,5
 T1,Technical Session 1 - Markov Chain Monte Carlo,0,,,,,"Monday, July 28 10:30-12:30 Track E",,6
 P2,Plenary Talk by Christiane Lemieux,0,,,,,"Monday, July 28 14:00–15:00",,7
 S5,"Stochastic Computation and Complexity, Part II",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Monday, July 28 15:30–17:30 Track F",,8
@@ -15,37 +15,40 @@ P3,Plenary Talk by Peter Glynn,0,,,,,"Tuesday, July 29 09:00–10:00",,13
 S8,"Stochastic Computation and Complexity, Part III",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Tuesday, July 29 10:30–12:30 Track A",,14
 S9,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part I",1,Florence Forbes,Xun Huan,Youssef Marzouk,,"Tuesday, July 29 10:30–12:30 Track B",,15
 S10,Heavy-tailed Sampling,1,Alex Shestopaloff,Jun Yang,,,"Tuesday, July 29 10:30–12:30 Track C",,16
-S11,Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods,0,,,,,"Tuesday, July 29 10:30–12:30 Track D",,17
+S11,"Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I",1,Sou-Cheng Choi,Yuhan Ding,,,"Tuesday, July 29 10:30–12:30 Track D",,17
 T2,Technical Session 2 - Bayesian Methods,0,,,,,"Tuesday, July 29 10:30-12:30 Track E",,18
 P4,Plenary Talk by Roshan Joseph,0,,,,,"Tuesday, July 29 14:00–15:00",,19
 S12,"Stochastic Computation and Complexity, Part IV",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Tuesday, July 29 15:30–17:30 Track F",,20
 S13,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part II",1,Florence Forbes,Xun Huan,Youssef Marzouk,,"Tuesday, July 29 15:30–17:30 Track G",,21
 S14,Advances in Rare Events Simulation,1,Nadhir Ben Rached,Shyam Mohan Subbiah Pillai,Raúl Tempone,,"Tuesday, July 29 15:30–17:30 Track H",,22
-T5,"Technical Session 5 - Quasi-Monte Carlo, Part 2",0,,,,,"Tuesday, July 29 15:30–17:30 Track I",,23
-P5,Plenary Talk by Michaela Szölgyenyi,0,,,,,"Wednesday, July 30 09:00–10:00",,24
-S15,"Stochastic Computation and Complexity, Part V",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Wednesday, July 30 10:30–12:30 Track A",,25
-S16,Statistical Design of Experiments,1,Lulu Kang,Chunfang Lin,,,"Wednesday, July 30 10:30–12:30 Track B",,26
-S17,Advances in Adaptive Hamiltonian Monte Carlo,1,Art Owen,,,,"Wednesday, July 30 10:30–12:30 Track C",,27
-T15,Technical Session 15 - Simulation,0,,,,,"Wednesday, July 30 10:30–12:30 Track D",,28
-T6,Technical Session 6 - Sampling,0,,,,,"Wednesday, July 30 10:30-12:30 Track E",,29
-S18,Stochastic Optimization,1,Shane Henderson,,,,"Wednesday, July 30 14:00–16:00 Track F",,30
-S19,Recent Progress on Algorithmic Discrepancy Theory and Applications,1,Haotian Jiang,,,,"Wednesday, July 30 14:00–16:00 Track G",,31
-S20,"Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",1,Michael Mascagni,,,,"Wednesday, July 30 14:00–16:00 Track H",,32
-T16,Technical Session 16 - Statistics,0,,,,,"Wednesday, July 30 14:00–16:00 Track I",,33
-T10,Technical Session 10 - Langevin,0,,,,,"Wednesday, July 30 14:00–16:00 Track J",,34
-P6,Plenary Talk by Uros Seljak,0,,,,,"Thursday, July 31 09:00–10:00",,35
-S21,QMC and Applications Part I,1,Michael Gnewuch,Takashi Goda,Peter Kritzer,,"Thursday, July 31 10:30–12:30 Track A",,36
-S22,"Analysis of Langevin and Related Sampling Algorithms, Part I",1,Yifan Chen,Xiaoou Cheng,Jonathan Weare,,"Thursday, July 31 10:30–12:30 Track B",,37
-T8,Technical Session 8 - Finance,0,,,,,"Thursday, July 31 10:30–12:30 Track C",,38
-S23,"Nested expectations: models and estimators, Part II",1,Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,,"Thursday, July 31 10:30–12:30 Track D",,39
-T13,Technical Session 13 - ML \& Optimization,0,,,,,"Thursday, July 31 10:30-12:30 Track E",,40
-P7,Plenary Talk by Nicolas Chopin,0,,,,,"Thursday, July 31 14:00–15:00",,41
-S24,QMC and Applications Part II,1,Michael Gnewuch,Takashi Goda,Peter Kritzer,,"Thursday, July 31 15:30–17:30 Track F",,42
-S25,"Analysis of Langevin and Related Sampling Algorithms, Part II",1,Yifan Chen,Xiaoou Cheng,Jonathan Weare,,"Thursday, July 31 15:30–17:30 Track G",,43
-T7,Technical Session 7 - Sampling,0,,,,,"Thursday, July 31 15:30–17:30 Track H",,44
-T11,Technical Session 11 - SDEs,0,,,,,"Thursday, July 31 15:30–17:30 Track I",,45
-S26,Forward and Inverse Problems for Stochastic Reaction Networks,1,Sophia Münker,Chiheb Ben Hammouda,Raul Tempone,,"Friday, August 1 9:00–10:30 Track A",,46
-T3,Technical Session 3 - Simulation,0,,,,,"Friday, August 1 9:00–10:30 Track B",,47
-T9,Technical Session 9 - Sampling,0,,,,,"Friday, August 1 9:00–10:30 Track C",,48
-T14,Technical Session 14 - Markov Chain Monte Carlo,0,,,,,"Friday, August 1 9:00–10:30 Track D",,49
-P8,Plenary Talk by Veronika Rockova,0,,,,,"Friday, August 1 11:00-12:00",,50
+S15,"Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II",1,Sou-Cheng Choi,Yuhan Ding,,,"Tuesday, July 29 15:30–17:30 Track I",,23
+T5,"Technical Session 5 - Quasi-Monte Carlo, Part 2",0,,,,,"Tuesday, July 29 15:30-17:30 Track J",,24
+P5,Plenary Talk by Michaela Szölgyenyi,0,,,,,"Wednesday, July 30 09:00–10:00",,25
+S16,"Stochastic Computation and Complexity, Part V",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Wednesday, July 30 10:30–12:30 Track A",,26
+S17,Statistical Design of Experiments,1,Lulu Kang,Chunfang Lin,,,"Wednesday, July 30 10:30–12:30 Track B",,27
+S18,Advances in Adaptive Hamiltonian Monte Carlo,1,Art Owen,,,,"Wednesday, July 30 10:30–12:30 Track C",,28
+T15,Technical Session 15 - Simulation,0,,,,,"Wednesday, July 30 10:30–12:30 Track D",,29
+T6,Technical Session 6 - Sampling,0,,,,,"Wednesday, July 30 10:30-12:30 Track E",,30
+S19,Stochastic Optimization,1,Shane Henderson,,,,"Wednesday, July 30 14:00–16:00 Track F",,31
+S20,Recent Progress on Algorithmic Discrepancy Theory and Applications,1,Haotian Jiang,,,,"Wednesday, July 30 14:00–16:00 Track G",,32
+S21,"Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",1,Michael Mascagni,,,,"Wednesday, July 30 14:00–16:00 Track H",,33
+T16,Technical Session 16 - Statistics,0,,,,,"Wednesday, July 30 14:00–16:00 Track I",,34
+T10,Technical Session 10 - Langevin,0,,,,,"Wednesday, July 30 14:00–16:00 Track J",,35
+P6,Plenary Talk by Uros Seljak,0,,,,,"Thursday, July 31 09:00–10:00",,36
+S22,QMC and Applications Part I,1,Michael Gnewuch,Takashi Goda,Peter Kritzer,,"Thursday, July 31 10:30–12:30 Track A",,37
+S23,"Analysis of Langevin and Related Sampling Algorithms, Part I",1,Yifan Chen,Xiaoou Cheng,Jonathan Weare,,"Thursday, July 31 10:30–12:30 Track B",,38
+T8,Technical Session 8 - Finance,0,,,,,"Thursday, July 31 10:30–12:30 Track C",,39
+S24,"Nested expectations: models and estimators, Part II",1,Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,,"Thursday, July 31 10:30–12:30 Track D",,40
+T13,Technical Session 13 - ML \& Optimization,0,,,,,"Thursday, July 31 10:30-12:30 Track E",,41
+P7,Plenary Talk by Nicolas Chopin,0,,,,,"Thursday, July 31 14:00–15:00",,42
+S25,QMC and Applications Part II,1,Michael Gnewuch,Takashi Goda,Peter Kritzer,,"Thursday, July 31 15:30–17:30 Track F",,43
+S26,"Analysis of Langevin and Related Sampling Algorithms, Part II",1,Yifan Chen,Xiaoou Cheng,Jonathan Weare,,"Thursday, July 31 15:30–17:30 Track G",,44
+S27,Advances in Stochastic Gradient Descent,0,,,,,"Thursday, July 31 15:30–17:30 Track H",,45
+T7,Technical Session 7 - Sampling,0,,,,,"Thursday, July 31 15:30–17:30 Track I",,46
+T11,Technical Session 11 - SDEs,0,,,,,"Thursday, July 31 15:30-17:30 Track J",,47
+S28,Forward and Inverse Problems for Stochastic Reaction Networks,1,Sophia Münker,Chiheb Ben Hammouda,Raul Tempone,,"Friday, August 1 9:00–10:30 Track A",,48
+S29,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",1,Sou-Cheng Choi,Pieterjan Robbe,Mike Giles,,"Friday, August 1 9:00–10:30 Track B",,49
+T3,Technical Session 3 - Simulation,0,,,,,"Friday, August 1 9:00–10:30 Track C",,50
+T9,Technical Session 9 - Sampling,0,,,,,"Friday, August 1 9:00–10:30 Track D",,51
+T14,Technical Session 14 - Markov Chain Monte Carlo,0,,,,,"Friday, August 1 9:00–10:30 Track E",,52
+P8,Plenary Talk by Veronika Rockova,0,,,,,"Friday, August 1 11:00-12:00",,53
