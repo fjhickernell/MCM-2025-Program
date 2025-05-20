@@ -36,9 +36,7 @@
 
 4.   **`MakeListPart.py`**
 *   Inputs:
-       *   `PARTICIPANTSJULY5.csv`: A **CSV file** which contains the list of participants. It contains five columns: 
-           `FirstName`, `LastName`, `SessionID`, `UNKNOWN`, and `Affiliation`. 
-
+       *   `PARTICIPANTSJULY5.csv`: A **CSV file** which contains the list of participants. It contains five columns, which are likely to be: `FirstName`, `LastName`, `SessionID`, `Page Number`, and `Organization`.
 *   Outputs:
     *   `Participants.tex`: A **Latex file**, containing the list of participants with references to the page 
         number for their talk.
