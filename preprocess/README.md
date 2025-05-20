@@ -49,7 +49,11 @@ Permissions for the above files have been changed to _Anyone with the link can v
 	- SC programmatically filtered out rows with `Acceptance` == `Yes`.
   
 ### Missing Output Data
-  
-* Session IDs are created programmatically.
-* Chair names are missing — <mark>TODO</mark>
-* Room numbers are missing — <mark>TODO</mark>
+
+- SessionList.csv
+  * Session IDs are created programmatically
+  * Chair names are missing — <mark>TODO</mark>
+  * Room numbers are missing — <mark>TODO</mark>
+- Participants.csv
+  * Missing organizing committee members and scientific committee members — <mark>TODO</mark>
+  * Not sure how to get `PageNumber`
