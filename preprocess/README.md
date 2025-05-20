@@ -23,8 +23,8 @@ Permissions for the above files have been changed to _Anyone with the link can v
 ### Input Data Issues with Google Sheets 
 * [Schedule](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/schedule.csv):
 	- The second-to-last row contains "//". SC has programmatically removed such rows.
-	- Choi has two sessions, each with two parts. Currently, there is only one part, and the part number "Part I" is missing. Two Part II sessions need to be added. — <mark>TODO</mark>
-	- Ding Dong's session needs to be added. — <mark>TODO</mark>
+	- Choi has two sessions, each with two parts. Currently, there is only one part, and the part number "Part I" is missing. Two Part II sessions are added. 
+	- Jing Dong's session is added. 
 * [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
 	- So far, there are only five plenary talk abstracts. <mark>***Fred needs to remind them***</mark>
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
