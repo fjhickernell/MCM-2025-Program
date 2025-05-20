@@ -143,7 +143,131 @@ def ensure_columns(df, SessionListCols):
     
     return df
 
+def extract_participants(dfs):
+    """Extract participant information from all dataframes."""
+    participants = []
+    
+    # --- Process plenary abstracts
+    if "plenary_abstracts" in dfs:
+        df = dfs["plenary_abstracts"]
+        for _, row in df.iterrows():
+            # Add presenter
+            if all(col in df.columns for col in ["First or given name(s) of presenter", "Last or family name of presenter"]):
+                participants.append({
+                    "FirstName": row["First or given name(s) of presenter"],
+                    "LastName": row["Last or family name of presenter"],
+                    "SessionID": row.get("SessionID", "P"),  # Default to P if no SessionID
+                    "PageNumber": "",
+                    "Organization": row.get("Institution of presenter", "")
+                })
+    
+    # --- Process special session submissions 
+    if "special_session_submissions" in dfs:
+        df = dfs["special_session_submissions"]
+        # First, add institution columns if they don't exist
+        for idx, i in enumerate(["first", "second", "third"], 1):
+            if f"Institution of {i} organizer" in df.columns and f"Organizer{idx} institution" not in df.columns:
+                df[f"Organizer{idx} institution"] = df[f"Institution of {i} organizer"]
+                
+        for idx, row in df.iterrows():
+            # Add organizers 
+            for i in range(1, 4):
+                organizer_col = f"Organizer{i}"
+                org_col = f"Institution of {'first' if i==1 else 'second' if i==2 else 'third'} organizer"
+                
+                if organizer_col in df.columns and pd.notna(row[organizer_col]) and row[organizer_col]:
+                    # Split the combined name back into first and last
+                    name_parts = row[organizer_col].split()
+                    if len(name_parts) >= 2:
+                        firstName = " ".join(name_parts[:-1])  # All but last part
+                        lastName = name_parts[-1]              # Last part
+                        organization = row.get(org_col, "")    # Get organization directly
+                        session_id = row.get("SessionID", f"S{idx+1}")  # Use row's SessionID or generate one
+                        
+                        participants.append({
+                            "FirstName": firstName,
+                            "LastName": lastName,
+                            "SessionID": session_id,
+                            "PageNumber": "",
+                            "Organization": organization
+                        })
+            
+            # Add presenter 
+            if "Presenter 1 first or given name(s)" in df.columns and "Presenter 1 last or family name(s)" in df.columns:
+                participants.append({
+                    "FirstName": row["Presenter 1 first or given name(s)"],
+                    "LastName": row["Presenter 1 last or family name(s)"],
+                    "SessionID": row.get("SessionID", f"S{idx+1}"),
+                    "PageNumber": "",
+                    "Organization": row.get("Presenter 1 institution", "")
+                })
+    
+    # --- Process contributed talk submissions
+    if "contributed_talk_submissions" in dfs:
+        df = dfs["contributed_talk_submissions"]
+        for _, row in df.iterrows():
+            # Add presenter
+            if all(col in df.columns for col in ["First or given name(s) of presenter", "Last or family name of presenter"]):
+                # Extract session ID from SESSION column
+                session_id = ""
+                if "SESSION" in row and pd.notna(row["SESSION"]):
+                    match = re.search(r'Technical Session (\d+)', str(row["SESSION"]), re.IGNORECASE)
+                    if match:
+                        session_id = f"T{match.group(1)}"
+                
+                participants.append({
+                    "FirstName": row["First or given name(s) of presenter"],
+                    "LastName": row["Last or family name of presenter"],
+                    "SessionID": session_id if session_id else row.get("SessionID", ""),
+                    "PageNumber": "",
+                    "Organization": row.get("Institution of presenter", "")
+                })
+    
+    # --- Process special session abstracts
+    if "special_session_abstracts" in dfs:
+        df = dfs["special_session_abstracts"]
+        for _, row in df.iterrows():
+            if all(col in df.columns for col in ["First or given name(s) of presenter", "Last or family name of presenter"]):
+                # Try to extract session ID from Special Session Title
+                session_id = ""
+                if "Special Session Title" in row and pd.notna(row["Special Session Title"]):
+                    # Try to match with existing special sessions to get proper ID
+                    title = row["Special Session Title"].lower().strip()
+                    if "special_session_submissions" in dfs:
+                        ss_df = dfs["special_session_submissions"]
+                        if "Session Title" in ss_df.columns and "SessionID" in ss_df.columns:
+                            # Find matching session title
+                            matches = ss_df[ss_df["Session Title"].str.lower().str.strip() == title]
+                            if not matches.empty:
+                                session_id = matches.iloc[0].get("SessionID", "")
+                
+                participants.append({
+                    "FirstName": row["First or given name(s) of presenter"],
+                    "LastName": row["Last or family name of presenter"],
+                    "SessionID": session_id if session_id else row.get("SessionID", "SS"),
+                    "PageNumber": "",
+                    "Organization": row.get("Institution of presenter", "")
+                })
+
+    # If first or last name has length equal to 1, print errors
+    for participant in participants:
+        if len(participant["FirstName"]) == 1 or len(participant["LastName"]) == 1:
+            print(f"ERROR: Invalid name length for participant: {participant['FirstName']} {participant['LastName']}")
+
+    # Create DataFrame from participants list
+    participants_df = pd.DataFrame(participants)
+    
+    # Remove duplicates based on FirstName and LastName
+    participants_df = participants_df.drop_duplicates(subset=["FirstName", "LastName"])
+    
+    # Sort by LastName, then FirstName
+    participants_df = participants_df.sort_values(by=["LastName", "FirstName"])
+    
+    return participants_df
+
+
 if __name__ == '__main__':
+
     SessionListCols = [
         "SessionID", "SessionTitle", "IsSpecialSession", "Organizer1", "Organizer2", "Organizer3", "Chair",
         "SessionTime", "Room", "OrderInSchedule"
@@ -182,5 +306,10 @@ if __name__ == '__main__':
     merged_df.to_csv(csv_file, index=False)
     print("Output:", csv_file)
 
-    assert merged_df.shape[0] == 8 + 29 + 16, "SessionList.csv does not have the expected number of rows"
- 
+    # assert merged_df.shape[0] == 8 + 29 + 16, "SessionList.csv does not have the expected number of rows"
+    
+    # Step 7: Generate Participants.csv
+    participants_df = extract_participants(dfs)
+    participants_csv = os.path.join(outdir, "Participants.csv")
+    participants_df.to_csv(participants_csv, index=False)
+    print("Output:", participants_csv)

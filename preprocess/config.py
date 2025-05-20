@@ -23,7 +23,7 @@ def get_sheets_dict():
             "sheet_name": "Form Responses 1",
             "columns": [
                 "First or given name(s) of presenter", "Last or family name of presenter",
-                #"Institution of presenter", "Email of presenter", 
+                "Institution of presenter", #"Email of presenter", 
                 "Talk Title"
                 #"FirstNameLastNameAbstract.tex file with Talk Title and Abstract"
             ]
@@ -33,13 +33,13 @@ def get_sheets_dict():
             "sheet_name": "Form Responses 1",
             "columns": [
                 "First or given name(s) of first organizer", "Last or family name(s) of first organizer",
-                #"Institution of first organizer", "Email of first organizer",
+                "Institution of first organizer", #"Email of first organizer",
                 "First or given name(s) of second organizer", "Last or family name(s) of second organizer",
-                #"Institution of second organizer",
+                "Institution of second organizer",
                 "First or given name(s) of third organizer", "Last or family name(s) of third organizer",
-                #"Institution of third organizer",
+                "Institution of third organizer",
                 "Presenter 1 first or given name(s)", "Presenter 1 last or family name(s)",
-                #"Presenter 1 institution", "Presenter 1 email", 
+                "Presenter 1 institution", "Presenter 1 email", 
                 "Session Title",
                 #"FirstNameLastNameSession.tex file with Session Title and Description"
             ]
@@ -49,7 +49,7 @@ def get_sheets_dict():
             "sheet_name": "Form Responses 1",
             "columns": [
                 "First or given name(s) of presenter", "Last or family name of presenter",
-                #"Institution of presenter", "Email of presenter", 
+                "Institution of presenter", #"Email of presenter", 
                 "Talk Title",
                 #"FirstNameLastNameAbstract.tex file with Talk Title and Abstract", 
                 "Special Session Title"
@@ -60,7 +60,7 @@ def get_sheets_dict():
             "sheet_name": "Form Responses 1",
             "columns": [
                 "First or given name(s) of presenter", "Last or family name of presenter",
-                #"Institution of presenter", "Email of presenter", 
+                "Institution of presenter", #"Email of presenter", 
                 "Talk Title", "SESSION", "Topic",
                 #"FirstNameLastNameAbstract.tex file with Talk Title and Abstract", 
                 "Acceptance"
