@@ -44,7 +44,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 		* Computational Methods for Low-discrepancy Sampling and Applications has 2 participants
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
 	- Four talks are not assigned to a Technical Session in column `SESSION` or contain unusual values like `ADD TO SHANE H. SESSION` and 
-`//` — <mark>Fred will ask Mikhail to handle these in column `Paid`</mark>
+`//` — <mark>Fred will ask Mikhail to handle these and also fill in column `Paid`</mark>
 	- SC programmatically filtered out rows with `Acceptance` == `Yes`.
   
 ### Missing Output Data
