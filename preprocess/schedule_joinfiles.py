@@ -20,29 +20,35 @@ def read_google_sheets(sheets):
 
 def process_sessions(dfs):
     """Process presenter and organizer columns for all relevant sheets."""
-    # Plenary abstracts
-    df = dfs["plenary_abstracts"]
+    # --- Plenary abstracts
+    df = dfs["plenary_abstracts"].copy()
     df["IsSpecialSession"] = 0
-    #df["SessionID"] = "P" + (df.index + 1).astype(str)
-    dfs["plenary_abstracts"] = df.copy(deep=True)
-
-    # Special session submissions
-    df = dfs["special_session_submissions"]
+    dfs["plenary_abstracts"] = df
+    
+    # --- Special session submissions
+    df = dfs["special_session_submissions"].copy()
     for idx, i in enumerate(["first", "second", "third"], 1):
         df[f"Organizer{idx}"] = df[f"First or given name(s) of {i} organizer"] + " " + df[f"Last or family name(s) of {i} organizer"]
         df = df.drop(columns=[f"First or given name(s) of {i} organizer", f"Last or family name(s) of {i} organizer"])
-    # remove row with a cell value "SCHEDULED (by Nathan Kirk)"
     df = df[~df["Session Title"].str.contains("by Nathan Kirk", case=False, na=False)]
     df["IsSpecialSession"] = 1
-    #df["SessionID"] = "S" + (df.index + 1).astype(str)
-    dfs["special_session_submissions"] = df.copy(deep=True)
+    dfs["special_session_submissions"] = df
 
-    # Contributed talk submissions
-    df = dfs["contributed_talk_submissions"]
-    df = df[df["Acceptance"] == "Yes"] # Filter out rows with Acceptance == Yes
+    assert df["Session Title"].notna().all(), "Special Session Title contains Null values"
+    
+    # --- Contributed talk submissions
+    df = dfs["contributed_talk_submissions"].copy()
+    df = df[df["Acceptance"] == "Yes"]
     df["IsSpecialSession"] = 0
-    #df["SessionID"] = df["SESSION"].str.extract(r'Technical Session (\d+)', flags=re.IGNORECASE)[0].apply(lambda x: f"T{x}" if pd.notna(x) else "")
-    dfs["contributed_talk_submissions"] = df.copy(deep=True)
+    presenter_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
+    # print duplicated records
+    dupes = df[df.duplicated(subset=presenter_cols, keep=False)]
+    if not dupes.empty:  
+        print("ERROR: Duplicated records in contributed talk submissions:")
+        print(dupes[presenter_cols])
+    # deduplicate df by first and last names of presenter
+    df = df.drop_duplicates(subset=presenter_cols, keep="last") 
+    dfs["contributed_talk_submissions"] = df
 
     return dfs
 
@@ -175,3 +181,6 @@ if __name__ == '__main__':
     csv_file = os.path.join(outdir, "SessionList.csv")
     merged_df.to_csv(csv_file, index=False)
     print("Output:", csv_file)
+
+    # assert number of rows in SessionList is 8 plenary + 26 special + 16 technical
+    assert len(merged_df) == 8 + 26 + 16
