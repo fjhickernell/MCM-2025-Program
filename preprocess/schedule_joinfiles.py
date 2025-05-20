@@ -182,5 +182,5 @@ if __name__ == '__main__':
     merged_df.to_csv(csv_file, index=False)
     print("Output:", csv_file)
 
-    # assert number of rows in SessionList is 8 plenary + 26 special + 16 technical
-    assert len(merged_df) == 8 + 26 + 16
+    assert merged_df.shape[0] == 8 + 29 + 16, "SessionList.csv does not have the expected number of rows"
+ 
