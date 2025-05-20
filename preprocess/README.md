@@ -33,8 +33,8 @@ Permissions for the above files have been changed to _Anyone with the link can v
 	- Jing Dong's session is missing the abstract .tex source, waiting for Chang-Hang — <mark>TODO</mark>
 	- Added two of Sou-Cheng Choi's Part II sessions
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
-	- Some values are empty in the last column, `Special Session Title`. Zexin's SS title was filled in manually by Fred. SC added the values for Chih-Li,Sung and Mao,Cai. <mark>— TODO Mao has a duplicate talk. Remove it?<mark>
-	-  Some special sessions has only one or two speakers — <mark>TODO</mark>
+	- Some values are empty in the last column, `Special Session Title`. Zexin's SS title was filled in manually by Fred. SC added the values for Chih-Li,Sung and Mao,Cai. Mao has a duplicate talk.  It is deduplicated programmatically. 
+	-  Some special sessions has only one or two speakers — <mark>TODO SC to debug</mark>
       	* Advances in Adaptive Hamiltonian Monte Carlo has 2 participants
 		* Stochastic Optimization has 2 participants
 		* Recent Progress on Algorithmic Discrepancy Theory and Applications has 1 participants
