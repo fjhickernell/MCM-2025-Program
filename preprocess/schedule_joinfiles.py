@@ -249,16 +249,34 @@ def extract_participants(dfs):
                     "Organization": row.get("Institution of presenter", "")
                 })
 
-    # If first or last name has length equal to 1, print errors
-    for participant in participants:
-        if len(participant["FirstName"]) == 1 or len(participant["LastName"]) == 1:
-            print(f"ERROR: Invalid name length for participant: {participant['FirstName']} {participant['LastName']}")
-
     # Create DataFrame from participants list
     participants_df = pd.DataFrame(participants)
     
     # Remove duplicates based on FirstName and LastName
-    participants_df = participants_df.drop_duplicates(subset=["FirstName", "LastName"])
+    participants_df = participants_df.drop_duplicates(subset=["FirstName", "LastName", "SessionID"], keep="last")
+
+    # Cleaning up content
+    # Make sure first letter of FirstName and LastName is capital letter. 
+    # Also, the first letter after Hyphen in the Names should be capital letter. 
+    # Other letters in names should be in small case.
+    # Clean up FirstName and LastName columns in participants_df
+    def clean_name(name):
+        if pd.isna(name):
+            return ""
+        # Lowercase all, then capitalize first letter of each part, including after hyphens
+        name = name.strip().lower()
+        # Capitalize first letter and after hyphens
+        name = re.sub(r'\b\w', lambda m: m.group(0).upper(), name)
+        name = re.sub(r'(?<=-)\w', lambda m: m.group(0).upper(), name)
+        return name
+
+    participants_df["FirstName"] = participants_df["FirstName"].apply(clean_name)
+    participants_df["LastName"] = participants_df["LastName"].apply(clean_name
+
+    # If first or last name has length equal to 1, print errors
+    for participant in participants:
+        if len(participant["FirstName"]) == 1 or len(participant["LastName"]) == 1:
+            print(f"ERROR: Invalid name length for participant: {participant['FirstName']} {participant['LastName']}")
     
     # Sort by LastName, then FirstName
     participants_df = participants_df.sort_values(by=["LastName", "FirstName"])
@@ -310,6 +328,7 @@ if __name__ == '__main__':
     
     # Step 7: Generate Participants.csv
     participants_df = extract_participants(dfs)
+
     participants_csv = os.path.join(outdir, "Participants.csv")
     participants_df.to_csv(participants_csv, index=False)
     print("Output:", participants_csv)
