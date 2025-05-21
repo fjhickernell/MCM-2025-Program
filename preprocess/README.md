@@ -77,7 +77,7 @@ flowchart TD
     %% Outputs
     O1([out/Participants.csv])
     O2([out/SessionList.csv])
-    O4([out/other_outputs.csv])
+    O4([out/Schedule.tex])
 
     %% Flow
     Start --> A3
