@@ -54,3 +54,43 @@ Permissions for the above files have been changed to _Anyone with the link can v
   * Not sure how to get `PageNumber` — <mark>TODO SC to figure out</mark>
   * Student Helpers — <mark>TODO </mark>
   * Registered participants who are not presenters/organizers — <mark>TODO </mark>
+
+# Workflow
+
+```mermaid
+flowchart TD
+    Start([Start])
+    End([End])
+
+    %% Set node colors
+    style Start fill:#fff,stroke:#333,stroke-width:2px
+    style End fill:#fff,stroke:#333,stroke-width:2px
+
+    %% Input files
+    A3([Google Sheets])
+
+    %% Python scripts in preprocess (without util.py, config.py, and schedule_joinfiles.py)
+    B4[participants.py]
+    B5[session_list.py]
+    B6[schedule_1sheet.py]
+
+    %% Outputs
+    O1([out/Participants.csv])
+    O2([out/SessionList.csv])
+    O4([out/other_outputs.csv])
+
+    %% Flow
+    Start --> A3
+    A3 --> B5
+    A3 --> B4
+    A3 --> B6
+
+    B4 --> O1
+    B5 --> O2
+    B6 --> O4
+
+    O1 --> End
+    O2 --> End
+    O4 --> End
+
+```
