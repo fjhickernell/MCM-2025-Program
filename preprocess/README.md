@@ -27,7 +27,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 	- Jing Dong's session is added. 
 	- Missing time for RECEPTION and BANQUET — <mark>TODO</mark>
 * [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
-	- So far, there are only five plenary talk abstracts. <mark>***Fred needs to remind them***</mark>
+	- So far, there are only five plenary talk abstracts. <mark>***Fred has reminded remind them***</mark>
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
 	- The last row contains only "SCHEDULED (by Nathan Kirk)" — this row is removed programmatically by SC.
 	- Added Jing Dong's session to the Google Sheet manually.
@@ -40,7 +40,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
       	* Recent Progress on Algorithmic Discrepancy Theory and Applications
       	* Recent Advances in Stochastic Gradient Descent 
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
-	- Some talks are not assigned to a Technical Session in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  `//` — <mark>Fred will ask Mikhail to handle these and also fill in column `Paid`</mark>
+	- Some talks are not assigned to a Technical Session in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  `//` — <mark>Fred has asked Mikhail to handle these and also fill in column `Paid`</mark>
 	- SC programmatically filtered out rows with `Acceptance` == `Yes`.
   
 ### Missing Output Data
