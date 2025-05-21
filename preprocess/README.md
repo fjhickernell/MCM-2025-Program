@@ -31,7 +31,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
 	- The last row contains only "SCHEDULED (by Nathan Kirk)" — this row is removed programmatically by SC.
 	- Added Jing Dong's session to the Google Sheet manually.
-	- Jing Dong's session is missing the abstract .tex source, waiting for Chang-Hang — <mark>DONE</mark>
+	- Jing Dong's session is missing the abstract .tex source, waiting for Chang-Hang — DONE
 	- Added two of Sou-Cheng Choi's Part II sessions
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
 	- Some values are empty in the last column, `Special Session Title`. Zexin's SS title was filled in manually by Fred. SC added the values for Chih-Li,Sung and Mao,Cai. Mao has a duplicate talk.  It is deduplicated programmatically. 
@@ -52,8 +52,8 @@ Permissions for the above files have been changed to _Anyone with the link can v
 - Participants.csv
   * Missing organizing committee members and scientific committee members — <mark>TODO </mark>
   * Not sure how to get `PageNumber` — <mark>TODO SC to figure out</mark>
-  * Student Helpers — <mark>TODO </mark>
-  * Registered participants who are not presenters/organizers — <mark>TODO </mark>
+  * Student helpers — <mark>TODO </mark>
+  * Paid registered participants who are not presenters/organizers — <mark>Fred will extract from Mail Chimp</mark>
 
 # Workflow
 
@@ -68,19 +68,29 @@ flowchart TD
 
     %% Input files
     A3([Google Sheets])
+    style A3 fill:#e6f7ff,stroke:#3399cc,stroke-width:2px
 
     %% Python scripts in preprocess (without util.py, config.py, and schedule_joinfiles.py)
-    B4[participants.py]
-    B5[session_list.py]
+    B3[download_sheets.py]
     B6[schedule_1sheet.py]
+    B5[session_list.py]
+    B4[participants.py]
+    style B3 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
+    style B4 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
+    style B5 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
+    style B6 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
 
     %% Outputs
     O1([out/Participants.csv])
     O2([out/SessionList.csv])
     O4([out/Schedule.tex])
+    style O1 fill:#f6ffed,stroke:#52c41a,stroke-width:2px
+    style O2 fill:#f6ffed,stroke:#52c41a,stroke-width:2px
+    style O4 fill:#f6ffed,stroke:#52c41a,stroke-width:2px
 
     %% Flow
-    Start --> A3
+    Start --> B3
+    B3 --> A3
     A3 --> B5
     A3 --> B4
     A3 --> B6
