@@ -1,0 +1,85 @@
+First or given name(s) of presenter,Last or family name of presenter,Institution of presenter,Talk Title,Special Session Title
+Shane,Henderson,Cornell University,A New Convergence Analysis of Two Stochastic Frank-Wolfe Algorithms,Stochastic Optimization
+Bruno,Tuffin,Inria,Asymptotic robustness of smooth functions of  rare-event estimators,Advances in Rare Events Simulation
+Raghu,Bollapragada,The University of Texas at Austin,Monte Carlo Based Adaptive Sampling Approaches for Stochastic Optimization,Stochastic Optimization
+Kosuke,Suzuki,Yamagata University,Quasi-uniform quasi-Monte Carlo lattice point sets,QMC and Applications Part II
+Matteo,Raviola,École polytechnique fédérale de Lausanne,Stochastic gradient with least-squares control variates,"Nested expectations: models and estimators, Part II"
+Mike,Giles,University of Oxford,CUDA implementation of MLMC on NVIDIA GPUs,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
+Simon,Mak,Duke University,Respecting the boundaries: Space-filling designs for surrogate modeling with boundary information,Statistical Design of Experiments
+Vesa,Kaarnioja,Free University of Berlin,QMC for Bayesian optimal experimental design with application to inverse problems governed by PDEs,"Nested expectations: models and estimators, Part I"
+Niklas,Baumgarten,Heidelberg University,A High-performance Multi-level Monte Carlo Software for Full Field Estimates and Applications in Optimal Control,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
+Chaofan,Huang,Work done during C. Huang's Ph.D. studies at Georgia Institute of Technology,Factor Importance Ranking and Selection using Total Indices,Statistical Design of Experiments
+Pieterjan,Robbe,Sandia National Laboratories,Multilevel quasi-Monte Carlo without replications,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
+jacopo,iollo,INRIA,Diffusion-Based Bayesian Experimental Design: Advancing BED for Practical Applications,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
+Chengcheng,Ling,University of Augsburg,Quantitative approximation of stochastic kinetic equations: from discrete to continuum,"Stochastic Computation and Complexity, Part I"
+Aleksei,Sorokin,"Illinois Institute of Technology, Department of Applied Mathematics. Sandia National Laboratories.","Quasi-Monte Carlo Generators, Randomization Routines, and Fast Kernel Methods","Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
+Andreas,Neuenkirch,University of Mannheim,A strong order 1.5 boundary preserving discretization scheme for scalar SDEs defined in a domain,"Stochastic Computation and Complexity, Part I"
+Maksim,Chupin,KAUST: King Abdullah University of Science and Technology (KAUST),Filtered Markovian Projection: Dimensionality Reduction in Filtering for Stochastic Reaction Networks,Forward and Inverse Problems for Stochastic Reaction Networks
+Tapio,Helin,LUT University,Stability of Expected Utility in Bayesian Optimal Experimental Design,Recent advances in optimization under uncertainty
+Felix,Bartel,University of New South Wales,"Exact discretization, tight frames and recovery via D-optimal designs",QMC and Applications Part I
+Zhou,Fang,"Academy of Mathematics and Systems Science, Chinese Academy of Sciences",Fixed-budget simulation method for growing cell populations,Forward and Inverse Problems for Stochastic Reaction Networks
+Makram,Chahine,Massachusetts Institute of Technology,Improving Efficiency of Sampling-based Motion Planning via Message-Passing Monte Carlo,Computational Methods for Low-discrepancy Sampling and Applications
+Krishnakumar,Balasubramanian,"University of California, Davis",Finite-Particle Convergence Rates for Stein Variational Gradient Descent,"Analysis of Langevin and Related Sampling Algorithms, Part II"
+Muruhan,Rathinam,University of Maryland Baltimore County,State and parameter inference in stochastic reaction networks,Forward and Inverse Problems for Stochastic Reaction Networks
+Sebastian,Krumscheid,Karlsruhe Institute of Technology,Double-loop randomized quasi-Monte Carlo estimator for nested integration,"Nested expectations: models and estimators, Part I"
+Arved,Bartuska,King Abdullah University of Science and Technology/RWTH Aachen University,Efficient expected information gain estimators based on the randomized quasi-Monte Carlo method,Recent advances in optimization under uncertainty
+Lihan,Wang,Carnegie Mellon University,Convergence rates of kinetic Langevin dynamics with weakly confining potentials,"Analysis of Langevin and Related Sampling Algorithms, Part I"
+Nathan,Kirk,Illinois Institute of Technology,Minimizing the Stein Discrepancy,Computational Methods for Low-discrepancy Sampling and Applications
+Peter,Whalley,ETH Zurich,Randomized Splitting Methods and Stochastic Gradient Algorithms,"Analysis of Langevin and Related Sampling Algorithms, Part I"
+RAUL,TEMPONE,KAUST & RWTH AACHEN,Multilevel randomized quasi-Monte Carlo estimator for nested expectations,"Nested expectations: models and estimators, Part II"
+Zexin,Pan,Johann Radon Institute for Computational and Applied Mathematics,QMC confidence intervals using quantiles of randomized nets,QMC and Applications Part II
+Peter,Whalley,ETH Zurich,Randomized Splitting Methods and Stochastic Gradient Algorithms,"Analysis of Langevin and Related Sampling Algorithms, Part I"
+André-Alexander,Zepernick,Free University of Berlin,Domain UQ for stationary and time-dependent PDEs using QMC,Domain Uncertainty Quantification
+Ayoub,Belhadji,Massachusetts Institute of Technology,Weighted quantization using MMD: From mean field to mean shift via gradient flows,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part I"
+Matteo,Raviola,EPFL,Stochastic gradient with least-squares control variates,"Nested expectations: models and estimators, Part II"
+Sophia,Münker,RWTH Aachen University,Dimensionality Reduction for Efficient Rare Event Estimation,Forward and Inverse Problems for Stochastic Reaction Networks
+Gregory,Seljak,Universite de Montreal,An Empirical Evaluation of Robust Estimators for RQMC,Computational Methods for Low-discrepancy Sampling and Applications
+Chih-Li,Sung,Michigan State University,Stacking designs: designing multi-fidelity computer experiments with target predictive accuracy,Statistical Design of Experiments
+Irina-Beatrice,Haas,"Mathematical Institute, University of Oxford",A nested Multilevel Monte Carlo framework for efficient simulations on FPGAs,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
+Mou,Cai,"Graduate School of Engineering, The University of Tokyo",$L_2$-approximation: using randomized lattice algorithms and QMC hyperinterpolation,
+Shyam Mohan,Subbiah Pillai,RWTH Aachen University,Estimating rare event probabilities associated with McKean--Vlasov SDEs,Advances in Rare Events Simulation
+Stefan,Heinrich,"RPTU Kaiserslautern-Landau,  Germany",On the quantum complexity of parametric integration in Sobolev spaces,"Stochastic computation and complexity, Part V"
+Kateryna,Pozharska,Institute of Mathematics of NAS of Ukraine / TU Chemnitz,Optimal designs for function discretization and construction of tight frames,"Stochastic Computation and Complexity, Part II"
+Chung Ming,Loi,Durham University,Scalable and User-friendly QMC Sampling with UMBridge,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
+Yifan,Chen,"UCLA, Courant Institute",Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias,"Analysis of Langevin and Related Sampling Algorithms, Part II"
+Molei,Tao,Georgia Tech,Langevin-Based Sampling under Nonconvex Constraints,"Analysis of Langevin and Related Sampling Algorithms, Part II"
+Zhijian,He,South China University of Technology,High-dimensional density estimation on  unbounded domain,QMC and Applications Part I
+Mou,Cai,The University of Tokyo,L2-approximation: using randomized lattice algorithms and QMC hyperinterpolation,QMC and Applications Part I
+Bernd,Käßemodel,"Faculty of Mathematics, Technische Universität Chemnitz",Quantum Integration in Tensor Product  Besov Spaces,"Stochastic Computation and Complexity, Part V"
+Larisa,Yaroslavtseva,University of Graz,"Optimal strong approximation of SDEs with H\""older continuous drift coefficient","Stochastic Computation and Complexity, Part IV"
+Stefan,Oberdörster,University of Bonn,Accelerated Mixing of the No-U-turn Sampler,"Analysis of Langevin and Related Sampling Algorithms, Part II"
+Alen,Alexanderian,North Carolina State University,Goal Oriented Sensor Placement for Infinite-Dimensional Bayesian Inverse Problems,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
+Karina,Koval,Heidelberg University,Subspace accelerated measure transport methods for fast and scalable sequential experimental design,Recent advances in optimization under uncertainty
+Carlos,Jerez-Hanckes,INRIA Chile,Domain Uncertainty Quantification for Electromagnetic Wave Scattering via First- Order Sparse Boundary Element Approximation,Domain uncertainty quantification
+Johannes,Milz,Georgia Institute of Technology,Randomized quasi-Monte Carlo methods for risk-averse stochastic optimization,Recent advances in optimization under uncertainty
+François,Clément,"Department of Mathematics, Univeristy of Washington",Searching Permutations for Constructing Low-Discrepancy Point Sets and Inverstigating the Kritzinger Sequence,Computational Methods for Low-discrepancy Sampling and Applications
+Christopher,Rauhögger,University of Passau,An adaptive Milstein-type method for strong approximation of systems of SDEs with a discontinuous drift coefficient,"Stochastic Computation and Complexity, Part I"
+Jürgen,Dölz,University of Bonn,Quantifying uncertainty in spectral clusterings: expectations for perturbed and incomplete data,Domain Uncertainty Quantification
+Alexander,Steinicke,University of Leoben,Malliavin Differentiation of Lipschitz SDEs and BSDEs and an Application to Quadratic Forward-Backward SDEs,"Stochastic Computation and Complexity, Part IV"
+Philipp,Guth,"RICAM, Austrian Academy of Sciences",A one-shot method for Bayesian optimal experimental design,"Nested expectations: models and estimators, Part II"
+Harri,Hakula,Aalto University,Model Problems for PDEs on Uncertain Domains,Domain Uncertainty Quantification
+Michael,Gnewuch,University of Osnabrueck,Optimality of deterministic and randomized QMC-cubatures on several scales of function spaces,"Stochastic Computation and Complexity, Part II"
+Leszek,Plaskota,University of Warsaw,Complexity of approximating piecewise smooth functions in the presence of deterministic or random noise,"Stochastic Computation and Complexity, Part II"
+Vinh,Hoang,"Chair of Mathematics for Uncertainty Quantification, Department of Mathematics, RWTH- Aachen University",Posterior-Free A-Optimal Bayesian Design of Experiments via Conditional Expectation,"Nested expectations: models and estimators, Part I"
+Adrien,Corenflos,University of Warwick,A recursive Monte Carlo approach to optimal Bayesian experimental design,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part I"
+Xiaoou,Cheng,New York University,Delocalization of Bias in Unadjusted Hamiltonian Monte Carlo,"Analysis of Langevin and Related Sampling Algorithms, Part I"
+Xiaoou,Cheng,New York University,Delocalization of Bias in Unadjusted Hamiltonian Monte Carlo,"Analysis of Langevin and Related Sampling Algorithms, Part I"
+Bob,Carpenter,Flatiron Institute,GIST: Gibbs self-tuning for locally adapting Hamiltonian Monte Carlo,Advances in Adaptive Hamiltonian Monte Carlo
+Tommie,Catanach,Sandia National Laboratories,Robust Bayesian Optimal Experimental Design under Model Misspecification,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
+Victor,Elvira,University of Edinburgh,Multiple Importance Sampling for Rare Event Simulation in Communication Systems,Advances in Rare Events Simulation
+Silei,Song,Florida State University,WoS-NN: Collaborating Walk-on-Spheres with Machine Learning to Solve Ellip- tic PDEs,"Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science"
+Siddharth,Mitra,Yale University,Convergence of Φ-Divergence and Φ-Mutual Information Along Langevin Markov Chains,"Analysis of Langevin and Related Sampling Algorithms, Part II"
+Nawaf,Bou-Rabee,Rutgers University,Acceleration of the No-U-Turn Sampler,Advances in Adaptive Hamiltonian Monte Carlo
+Trevor,Campbell,University of British Columbia,AutoStep: Locally adaptive involutive MCMC,Advances in Adaptive Hamiltonian Monte Carlo
+Xun,Huan,University of Michigan,Optimal Pilot Sampling for Multi-fidelity Monte Carlo Methods,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
+Verena,Schwarz,University of Klagenfurt,Stong order 1 adaptive approximation of jump-diffusion SDEs with discontinuous drift,"Stochastic Computation and Complexity, Part I"
+Frances Y.,Kuo,"UNSW Sydney, Australia",Application of QMC to Oncology,QMC and Applications Part I
+Dirk,Nuyens,"KU Leuven, Belgium",Approximation of multivariate periodic functions,QMC and Applications Part II
+Chirag,Modi,New York University,ATLAS: Adapting Trajectory Lengths and Step-Size for Hamiltonian Monte Carlo,Advances in Adaptive Hamiltonian Monte Carlo
+Johannes,Krotz,University of Notre Dame,Hybrid Monte Carlo methods for kinetic transport,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
+Gunther,Leobacher,University of Graz,Tractability of $L_2$-approximation and integration in weighted Hermite spaces of finite smoothness,"Stochastic Computation and Complexity, Part IV"
+Haotian,Jiang,University of Chicago,Algorithmic Discrepancy Theory: An Overview,Recent Progress on Algorithmic Discrepancy Theory and Applications
+Peng,Zhang,Rutgers University,Improving the Design of Randomized Experiments via Discrepancy Theory,Recent Progress on Algorithmic Discrepancy Theory and Applications
+Aleksandar,Nikolov,University of Toronto,Online Factorization for Online Discrepancy Minimization,Recent Progress on Algorithmic Discrepancy Theory and Applications
+Sotirios,Sabanis,University of Edinburgh & National Technical University of Athens & Archimedes/Athena,Wasserstein Convergence of Score-based Generative Models under Semiconvexity and Discontinuous Gradients,"Stochastic Computation and Complexity, Part III"
+Sebastiano,Grazzi,Bocconi University,Parallel computations for Metropolis Markov chains Based on Picard maps,Heavy-tailed Sampling

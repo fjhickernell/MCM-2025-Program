@@ -25,6 +25,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 	- The second-to-last row contains "//". SC has programmatically removed such rows.
 	- Choi has two sessions, each with two parts. Currently, there is only one part, and the part number "Part I" is missing. Two Part II sessions are added. 
 	- Jing Dong's session is added. 
+	- Missing time for RECEPTION and BANQUET — <mark>TODO</mark>
 * [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
 	- So far, there are only five plenary talk abstracts. <mark>***Fred needs to remind them***</mark>
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
@@ -43,8 +44,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 		* Nested expectations: models and estimators, Part I has 2 participants
 		* Computational Methods for Low-discrepancy Sampling and Applications has 2 participants
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
-	- Four talks are not assigned to a Technical Session in column `SESSION` or contain unusual values like `ADD TO SHANE H. SESSION` and 
-`//` — <mark>Fred will ask Mikhail to handle these and also fill in column `Paid`</mark>
+	- Some talks are not assigned to a Technical Session in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  //` — <mark>Fred will ask Mikhail to handle these and also fill in column `Paid`</mark>
 	- SC programmatically filtered out rows with `Acceptance` == `Yes`.
   
 ### Missing Output Data

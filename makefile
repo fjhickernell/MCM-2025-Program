@@ -22,22 +22,26 @@ cleanpy:
 	rm -f README_and_Scripts/out/*
 
 clean_pp:
-	@echo "Cleaning up preprocess directories..."
-	rm -f preproces/out/Schedule.tex
+	@echo "\n*** Cleaning up preprocess directories..."
+	rm -f preprocess/interim/*
+	rm -f preproces/out/*
 
 pp: clean_pp
-	@echo "Compiling Python files in preprocess directory..."
-	python preprocess/schedule_1sheet.py
+	@echo "\n*** Compiling Python files in preprocess directory..."
+	@echo "\n--- Running preprocess/download_sheets.py" && python preprocess/download_sheets.py && \
+	echo "\n--- Running preprocess/schedule_1sheet.py" && python preprocess/schedule_1sheet.py && \
+	echo "\n--- Running preprocess/session_list.py" && python preprocess/session_list.py && \
+	echo "\n--- Running preprocess/participants.py" && python preprocess/participants.py
 
 tex: cleanpy
-	@echo "Compiling Python files in README_and_Scripts directory..."
-	python README_and_Scripts/MCMBookSessionDesc.py
-	python README_and_Scripts/MakeLatexScheduleMCM.py
-	python README_and_Scripts/BuildHtmlScheduleMCM.py
-	python README_and_Scripts/MakeListPart.py
+	@echo "*** Compiling Python files in README_and_Scripts directory..."
+	@echo "\n--- Running MCMBookSessionDesc.py" && python README_and_Scripts/MCMBookSessionDesc.py
+	@echo "\n--- Running MakeLatexScheduleMCM.py" && python README_and_Scripts/MakeLatexScheduleMCM.py
+	@echo "\n--- Running BuildHtmlScheduleMCM.py" && python README_and_Scripts/BuildHtmlScheduleMCM.py
+	@echo "\n--- Running MakeListPart.py" && python README_and_Scripts/MakeListPart.py
 
 pgm: cleanpdf
-	@echo "Compiling LaTeX files in MCM_ProgramBook_TEX directory..."
+	@echo "*** Compiling LaTeX files in MCM_ProgramBook_TEX directory..."
 	@cd MCM_ProgramBook_TEX && \
 		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 || tail -n 100 MCM2025_book.log && \
 		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 && \
