@@ -1,6 +1,7 @@
-First or given name(s) of presenter,Last or family name of presenter,Institution of presenter,Talk Title
-Michaela,Szölgyenyi,University of Klagenfurt,An optimal transport approach to quantifying model uncertainty of SDEs
-Christiane,Lemieux,University of Waterloo,Golden ratio nets and sequences
-Peter,Glynn,Stanford University,Combining Simulation and Linear Algebra: COSIMLA
-Roshan,Joseph,Georgia Institute of Technology,Sensitivity and Screening: From Monte Carlo to Experimental Design
-Nicolas,Chopin,"ENSAE, Institut Polytechnique de Paris",Saddlepoint Monte Carlo and its application to exact ecological inference
+First or given name(s) of presenter,Last or family name of presenter,Institution of presenter,Talk Title,FirstNameLastNameAbstract.tex file with Talk Title and Abstract
+Michaela,Szölgyenyi,University of Klagenfurt,An optimal transport approach to quantifying model uncertainty of SDEs,https://drive.google.com/open?id=1iE5DZVXL_twpH_FHy0JQKO1QfSxCDqVw
+Christiane,Lemieux,University of Waterloo,Golden ratio nets and sequences,https://drive.google.com/open?id=1DDMecSMcb88eNoqTHI81AR6sAc3W_yHA
+Peter,Glynn,Stanford University,Combining Simulation and Linear Algebra: COSIMLA,https://drive.google.com/open?id=1v2VXqmmnrEosPaWqyDMY69rdRgZATIZ4
+Roshan,Joseph,Georgia Institute of Technology,Sensitivity and Screening: From Monte Carlo to Experimental Design,https://drive.google.com/open?id=17kGsc7RyeenNWIjCVn71_EBGRbdEGu89
+Nicolas,Chopin,"ENSAE, Institut Polytechnique de Paris",Saddlepoint Monte Carlo and its application to exact ecological inference,https://drive.google.com/open?id=1TfEfDS9RZXlW1R10ublVoyGaqW-IIwEB
+Uros,Seljak,UC Berkeley,Gradient-Based MCMC Sampling: Methods and Optimization Strategies,https://drive.google.com/open?id=17sWEeiq5c7nbdSMXlGF-x-5zmS4wMMkl

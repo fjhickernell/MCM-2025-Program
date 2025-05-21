@@ -23,8 +23,8 @@ gsheets = {
         "columns": [
             "First or given name(s) of presenter", "Last or family name of presenter",
             "Institution of presenter", #"Email of presenter", 
-            "Talk Title"
-            #"FirstNameLastNameAbstract.tex file with Talk Title and Abstract"
+            "Talk Title",
+            "FirstNameLastNameAbstract.tex file with Talk Title and Abstract"
         ]
     },
     "special_session_submissions": {
@@ -46,7 +46,7 @@ gsheets = {
             "Presenter 4 first or given name(s)", "Presenter 4 last or family name(s)",
             "Presenter 4 institution", "Presenter 4 email",
             "Session Title",
-            #"FirstNameLastNameSession.tex file with Session Title and Description"
+            "FirstNameLastNameSession.tex file with Session Title and Description"
         ]
     },
     "special_session_abstracts": {
@@ -56,7 +56,7 @@ gsheets = {
             "First or given name(s) of presenter", "Last or family name of presenter",
             "Institution of presenter", #"Email of presenter", 
             "Talk Title",
-            #"FirstNameLastNameAbstract.tex file with Talk Title and Abstract", 
+            "FirstNameLastNameAbstract.tex file with Talk Title and Abstract", 
             "Special Session Title"
         ]
     },
@@ -67,7 +67,7 @@ gsheets = {
             "First or given name(s) of presenter", "Last or family name of presenter",
             "Institution of presenter", #"Email of presenter", 
             "Talk Title", "SESSION", "Topic",
-            #"FirstNameLastNameAbstract.tex file with Talk Title and Abstract", 
+            "FirstNameLastNameAbstract.tex file with Talk Title and Abstract", 
             "Acceptance"
         ]
     }
