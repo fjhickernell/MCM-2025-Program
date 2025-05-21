@@ -35,7 +35,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 	- Added two of Sou-Cheng Choi's Part II sessions
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
 	- Some values are empty in the last column, `Special Session Title`. Zexin's SS title was filled in manually by Fred. SC added the values for Chih-Li,Sung and Mao,Cai. Mao has a duplicate talk.  It is deduplicated programmatically. 
-	-  Some special sessions has only one or two speakers:  — <mark>TODO </mark>
+	-  Some special sessions has only two speakers who have sent abstracts:  — <mark>Fred and Mikhail will send them reminders </mark>
       	* Stochastic Optimization 
       	* Recent Progress on Algorithmic Discrepancy Theory and Applications
       	* Recent Advances in Stochastic Gradient Descent 
