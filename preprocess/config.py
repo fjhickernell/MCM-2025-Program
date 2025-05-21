@@ -39,6 +39,12 @@ gsheets = {
             "Institution of third organizer",
             "Presenter 1 first or given name(s)", "Presenter 1 last or family name(s)",
             "Presenter 1 institution", "Presenter 1 email", 
+            "Presenter 2 first or given name(s)", "Presenter 2 last or family name(s)",
+            "Presenter 2 institution", "Presenter 2 email",
+            "Presenter 3 first or given name(s)", "Presenter 3 last or family name(s)",
+            "Presenter 3 institution", "Presenter 3 email",
+            "Presenter 4 first or given name(s)", "Presenter 4 last or family name(s)",
+            "Presenter 4 institution", "Presenter 4 email",
             "Session Title",
             #"FirstNameLastNameSession.tex file with Session Title and Description"
         ]

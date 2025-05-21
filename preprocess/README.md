@@ -35,14 +35,10 @@ Permissions for the above files have been changed to _Anyone with the link can v
 	- Added two of Sou-Cheng Choi's Part II sessions
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
 	- Some values are empty in the last column, `Special Session Title`. Zexin's SS title was filled in manually by Fred. SC added the values for Chih-Li,Sung and Mao,Cai. Mao has a duplicate talk.  It is deduplicated programmatically. 
-	-  Some special sessions has only one or two speakers — <mark>TODO SC to debug</mark>
-      	* Advances in Adaptive Hamiltonian Monte Carlo has 2 participants
-		* Stochastic Optimization has 2 participants
-		* Recent Progress on Algorithmic Discrepancy Theory and Applications has 1 participants
-		* Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science has 2 participants
-		* Nested expectations: models and estimators, Part II has 2 participants
-		* Nested expectations: models and estimators, Part I has 2 participants
-		* Computational Methods for Low-discrepancy Sampling and Applications has 2 participants
+	-  Some special sessions has only one or two speakers:  — <mark>TODO </mark>
+      	* Stochastic Optimization 
+      	* Recent Progress on Algorithmic Discrepancy Theory and Applications
+      	* Recent Advances in Stochastic Gradient Descent 
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
 	- Some talks are not assigned to a Technical Session in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  //` — <mark>Fred will ask Mikhail to handle these and also fill in column `Paid`</mark>
 	- SC programmatically filtered out rows with `Acceptance` == `Yes`.

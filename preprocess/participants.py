@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import pandas as pd
 import os
 import csv
@@ -29,7 +28,7 @@ def format_organization(org):
         return ""
     
     # First normalize to lowercase
-    org = org.strip().lower()
+    org = org.strip().rstrip(',').lower()
     
     # List of words that should remain lowercase
     lowercase_words = ['of', 'and', 'the', 'for', 'in', 'at', 'by', 'with', 'to', 'de', 'del', 'di', 'la', 'el']
@@ -113,8 +112,6 @@ def validate_participant_names(df):
         for first, last in problem_names:
             print(f"ERROR: Invalid name length for participant: {first} {last}")
 
-
-
 def extract_participants(dfs):
     """Extract participant information from all dataframes."""
     participants = []
@@ -152,65 +149,96 @@ def extract_participants(dfs):
     return df
 
 def extract_plenary_participants(df):
-    """Extract participants from plenary abstracts."""
-    participants = []
+    """Extract participants from plenary abstracts using vectorized operations."""
+    if df.empty:
+        return []
+    
     name_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
     
-    for _, row in df.iterrows():
-        if all(col in df.columns for col in name_cols):
-            participants.append({
-                "FirstName": row[name_cols[0]],
-                "LastName": row[name_cols[1]],
-                "SessionID": row.get("SessionID", "P"),
-                "PageNumber": "",
-                "Organization": row.get("Institution of presenter", "")
-            })
-            
-    return participants
+    # Check if required columns exist
+    if not all(col in df.columns for col in name_cols):
+        return []
+    
+    # Create a new DataFrame with the needed structure
+    result_df = pd.DataFrame({
+        "FirstName": df[name_cols[0]],
+        "LastName": df[name_cols[1]],
+        "SessionID": df.get("SessionID", pd.Series("P", index=df.index)),
+        "PageNumber": "",
+        "Organization": df.get("Institution of presenter", pd.Series("", index=df.index))
+    })
+    
+    # Convert to list of dictionaries
+    return result_df.to_dict('records')
 
 def extract_special_session_participants(df, dfs):
-    """Extract participants from special session submissions."""
-    participants = []
-    
-    # First, ensure institution columns exist
+    """Extract participants from special session submissions using vectorized operations."""
+    # Ensure institution columns exist
     for idx, i in enumerate(["first", "second", "third"], 1):
         org_col = f"Institution of {i} organizer"
         if org_col in df.columns and f"Organizer{idx} institution" not in df.columns:
             df[f"Organizer{idx} institution"] = df[org_col]
-    
-    # Process each row
-    for idx, row in df.iterrows():
-        session_id = row.get("SessionID", f"S{idx+1}")
-        
-        # Add organizers
-        for i in range(1, 4):
-            organizer_col = f"Organizer{i}"
-            org_col = f"Institution of {'first' if i==1 else 'second' if i==2 else 'third'} organizer"
-            
-            if organizer_col in df.columns and pd.notna(row[organizer_col]):
-                name_parts = row[organizer_col].split()
-                if len(name_parts) >= 2:
-                    participants.append({
-                        "FirstName": " ".join(name_parts[:-1]),
-                        "LastName": name_parts[-1],
-                        "SessionID": session_id,
-                        "PageNumber": "",
-                        "Organization": row.get(org_col, "")
-                    })
-        
-        # Add presenter if columns exist
-        presenter_cols = ["Presenter 1 first or given name(s)", "Presenter 1 last or family name(s)"]
+
+    # --- Organizers ---
+    organizer_cols = [f"Organizer{i}" for i in range(1, 4)]
+    org_inst_cols = [f"Organizer{i} institution" for i in range(1, 4)]
+    session_ids = df.get("SessionID", pd.Series([f"S{j+1}" for j in range(len(df))], index=df.index))
+
+    # Melt organizers and their institutions into long format
+    org_df = pd.melt(
+        df,
+        id_vars=["SessionID"] if "SessionID" in df.columns else [],
+        value_vars=organizer_cols,
+        var_name="OrganizerNum",
+        value_name="FullName"
+    )
+    org_inst_df = pd.melt(
+        df,
+        id_vars=["SessionID"] if "SessionID" in df.columns else [],
+        value_vars=org_inst_cols,
+        var_name="OrganizerNum",
+        value_name="Organization"
+    )
+    # Align organization with organizer by row order
+    org_df["Organization"] = org_inst_df["Organization"]
+
+    # Drop rows with missing names
+    org_df = org_df.dropna(subset=["FullName"])
+    # Split names
+    name_split = org_df["FullName"].str.rsplit(" ", n=1, expand=True)
+    org_df["FirstName"] = name_split[0]
+    org_df["LastName"] = name_split[1] if name_split.shape[1] > 1 else ""
+    org_df["PageNumber"] = ""
+
+    # Select columns
+    org_participants = org_df.to_dict("records")
+
+    # --- Presenters ---
+    presenter_participants = []
+
+    for i in range(1, 5):
+        presenter_cols = [f"Presenter {i} first or given name(s)", f"Presenter {i} last or family name(s)"]
+        org_col = f"Presenter {i} institution"
         if all(col in df.columns for col in presenter_cols):
-            if pd.notna(row[presenter_cols[0]]) and pd.notna(row[presenter_cols[1]]):
-                participants.append({
-                    "FirstName": row[presenter_cols[0]],
-                    "LastName": row[presenter_cols[1]],
-                    "SessionID": session_id,
+            valid_mask = df[presenter_cols[0]].notna() & df[presenter_cols[1]].notna()
+            subset = df.loc[valid_mask]
+            if not subset.empty:
+                participants = pd.DataFrame({
+                    "FirstName": subset[presenter_cols[0]],
+                    "LastName": subset[presenter_cols[1]],
+                    "SessionID": subset.get("SessionID", pd.Series([f"S{j+1}" for j in range(len(subset))], index=subset.index)),
                     "PageNumber": "",
-                    "Organization": row.get("Presenter 1 institution", "")
-                })
-                
-    return participants
+                    "Organization": subset.get(org_col, pd.Series("", index=subset.index))
+                }).to_dict("records")
+                presenter_participants.extend(participants)
+    
+    # make presenter_df
+    presenter_df = pd.DataFrame(presenter_participants)
+
+    # append presenter_df to org_df
+    participants = pd.concat([pd.DataFrame(org_participants), presenter_df], ignore_index=True)
+
+    return participants.to_dict('records')
 
 def extract_contributed_talk_participants(df):
     """Extract participants from contributed talk submissions."""
@@ -233,24 +261,33 @@ def extract_contributed_talk_participants(df):
     return participants
 
 def extract_special_abstracts_participants(df, dfs):
-    """Extract participants from special session abstracts."""
-    participants = []
+    """Extract participants from special session abstracts using vectorized operations."""
     name_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
-    
-    for _, row in df.iterrows():
-        if all(col in df.columns for col in name_cols):
-            # Find matching session ID
-            session_id = find_matching_special_session_id(row, dfs)
-            
-            participants.append({
-                "FirstName": row[name_cols[0]],
-                "LastName": row[name_cols[1]],
-                "SessionID": session_id or row.get("SessionID", "SS"),
-                "PageNumber": "",
-                "Organization": row.get("Institution of presenter", "")
-            })
-                
-    return participants
+    if not all(col in df.columns for col in name_cols):
+        return []
+
+    # Prepare DataFrame for output
+    result_df = pd.DataFrame({
+        "FirstName": df[name_cols[0]],
+        "LastName": df[name_cols[1]],
+        "SessionID": "",  # Will fill below
+        "PageNumber": "",
+        "Organization": df.get("Institution of presenter", pd.Series("", index=df.index))
+    })
+
+    # Vectorized session ID matching
+    if "Special Session Title" in df.columns and "special_session_submissions" in dfs:
+        ss_titles = df["Special Session Title"].str.lower().str.strip()
+        ss_df = dfs["special_session_submissions"]
+        ss_map = dict(zip(
+            ss_df["Session Title"].str.lower().str.strip(),
+            ss_df["SessionID"] if "SessionID" in ss_df.columns else ["" for _ in range(len(ss_df))]
+        ))
+        result_df["SessionID"] = ss_titles.map(ss_map).fillna(df.get("SessionID", "SS"))
+    else:
+        result_df["SessionID"] = df.get("SessionID", "SS")
+
+    return result_df.to_dict("records")
 
 def extract_technical_session_id(row):
     """Extract technical session ID from row data."""
@@ -275,24 +312,27 @@ def find_matching_special_session_id(row, dfs):
 
 def validate_session_participants(df):
     """Validate that each session has the expected number of participants.
-    
-    For plenary sessions (P*): Exactly 1 participant expected
-    For all other sessions (S*, T*): Between 3-7 participants expected
     """
     grouped = df.groupby("SessionID")
     validation_issues = []
-    
+
     for name, group in grouped:
         if str(name).startswith("P"):
             # Plenary sessions should have exactly 1 participant
             if len(group) != 1:
                 validation_issues.append(f"ERROR: Plenary SessionID {name} has {len(group)} participants (expected 1)")
         else:
-            # All other sessions should have 3-4 participants 
-            if len(group) < 3 or len(group) > 7:
-                session_title = group["SessionTitle"].iloc[0] if "SessionTitle" in group.columns else ""
+            # All other sessions should have 4 - 7 participants 
+            if str(name).startswith("T"):
+                min_participants = 3  # Technical sessions: 3-4 participants
+                max_participants = 4
+            else:
+                min_participants = 4  # 3 speakers and 1 organizer
+                max_participants = 7  # 4 speakers and 3 organizers
+            if len(group) < min_participants or len(group) > max_participants:
+                session_title = group["Session Title"].iloc[0] if "Session Title" in group.columns else ""
                 validation_issues.append(
-                    f"ERROR: {name} {session_title} has {len(group)} participants (expected 3-7)"
+                    f"ERROR: {name} {session_title} has {len(group)} participants (expected {min_participants}-{max_participants})"
                 )
     
     # Print all validation issues
@@ -302,6 +342,7 @@ def validate_session_participants(df):
     return len(validation_issues) == 0  # Return True if no issues found
 
 if __name__ == "__main__":
+    participants_col = ["FirstName", "LastName", "SessionID", "PageNumber", "Organization"]
     # Generate Participants.csv
     dfs = {}
     for key in ["special_session_submissions", "plenary_abstracts", "contributed_talk_submissions", "special_session_abstracts"]:

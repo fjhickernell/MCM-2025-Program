@@ -2,8 +2,10 @@ First or given name(s) of presenter,Last or family name of presenter,Institution
 Shane,Henderson,Cornell University,A New Convergence Analysis of Two Stochastic Frank-Wolfe Algorithms,Stochastic Optimization
 Bruno,Tuffin,Inria,Asymptotic robustness of smooth functions of  rare-event estimators,Advances in Rare Events Simulation
 Raghu,Bollapragada,The University of Texas at Austin,Monte Carlo Based Adaptive Sampling Approaches for Stochastic Optimization,Stochastic Optimization
+Takashi,Goda,The University of Tokyo,Quasi-uniform quasi-Monte Carlo digital nets,"Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
 Kosuke,Suzuki,Yamagata University,Quasi-uniform quasi-Monte Carlo lattice point sets,QMC and Applications Part II
 Matteo,Raviola,École polytechnique fédérale de Lausanne,Stochastic gradient with least-squares control variates,"Nested expectations: models and estimators, Part II"
+Hwanwoo,Kim,Duke University,Enhancing Gaussian Process Surrogates for Optimization and Posterior Approximation via Random Exploration,"Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I"
 Mike,Giles,University of Oxford,CUDA implementation of MLMC on NVIDIA GPUs,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
 Simon,Mak,Duke University,Respecting the boundaries: Space-filling designs for surrogate modeling with boundary information,Statistical Design of Experiments
 Vesa,Kaarnioja,Free University of Berlin,QMC for Bayesian optimal experimental design with application to inverse problems governed by PDEs,"Nested expectations: models and estimators, Part I"
@@ -12,6 +14,7 @@ Chaofan,Huang,Work done during C. Huang's Ph.D. studies at Georgia Institute of 
 Pieterjan,Robbe,Sandia National Laboratories,Multilevel quasi-Monte Carlo without replications,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
 jacopo,iollo,INRIA,Diffusion-Based Bayesian Experimental Design: Advancing BED for Practical Applications,"Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
 Chengcheng,Ling,University of Augsburg,Quantitative approximation of stochastic kinetic equations: from discrete to continuum,"Stochastic Computation and Complexity, Part I"
+Ziang,Niu,University of Pennsylvania,Boosting the inference for generative models by (Quasi-)Monte Carlo resampling,"Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
 Aleksei,Sorokin,"Illinois Institute of Technology, Department of Applied Mathematics. Sandia National Laboratories.","Quasi-Monte Carlo Generators, Randomization Routines, and Fast Kernel Methods","Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
 Andreas,Neuenkirch,University of Mannheim,A strong order 1.5 boundary preserving discretization scheme for scalar SDEs defined in a domain,"Stochastic Computation and Complexity, Part I"
 Maksim,Chupin,KAUST: King Abdullah University of Science and Technology (KAUST),Filtered Markovian Projection: Dimensionality Reduction in Filtering for Stochastic Reaction Networks,Forward and Inverse Problems for Stochastic Reaction Networks
@@ -76,6 +79,7 @@ Verena,Schwarz,University of Klagenfurt,Stong order 1 adaptive approximation of 
 Frances Y.,Kuo,"UNSW Sydney, Australia",Application of QMC to Oncology,QMC and Applications Part I
 Dirk,Nuyens,"KU Leuven, Belgium",Approximation of multivariate periodic functions,QMC and Applications Part II
 Chirag,Modi,New York University,ATLAS: Adapting Trajectory Lengths and Step-Size for Hamiltonian Monte Carlo,Advances in Adaptive Hamiltonian Monte Carlo
+Chenyang,Zhong,"Department of Statistics, Columbia University",A hit and run approach for sampling and analyzing ranking models,"Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
 Johannes,Krotz,University of Notre Dame,Hybrid Monte Carlo methods for kinetic transport,"Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
 Gunther,Leobacher,University of Graz,Tractability of $L_2$-approximation and integration in weighted Hermite spaces of finite smoothness,"Stochastic Computation and Complexity, Part IV"
 Haotian,Jiang,University of Chicago,Algorithmic Discrepancy Theory: An Overview,Recent Progress on Algorithmic Discrepancy Theory and Applications

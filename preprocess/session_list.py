@@ -218,7 +218,7 @@ if __name__ == "__main__":
 
     # --- read in session data
     dfs = {}
-    for key in ["special_session_submissions", "special_session_abstracts", "plenary_abstracts", "contributed_talk_submissions"]:
+    for key in ["special_session_abstracts", "special_session_submissions",  "plenary_abstracts", "contributed_talk_submissions"]:
         dfs[key] = pd.read_csv(os.path.join(interimdir, f"{key}_gsheet.csv"))
     dfs = process_sessions(dfs)
     dfs = add_sessions_join_keys(dfs)
