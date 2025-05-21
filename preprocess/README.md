@@ -40,7 +40,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
       	* Recent Progress on Algorithmic Discrepancy Theory and Applications
       	* Recent Advances in Stochastic Gradient Descent 
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
-	- Some talks are not assigned to a Technical Session in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  //` — <mark>Fred will ask Mikhail to handle these and also fill in column `Paid`</mark>
+	- Some talks are not assigned to a Technical Session in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  `//` — <mark>Fred will ask Mikhail to handle these and also fill in column `Paid`</mark>
 	- SC programmatically filtered out rows with `Acceptance` == `Yes`.
   
 ### Missing Output Data
