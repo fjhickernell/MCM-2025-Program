@@ -49,3 +49,8 @@ pgm: cleanpdf
 		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 && \
 		open MCM2025_Book.pdf && \
 		cd ..
+	@cd MCM_ProgramBook_TEX && \
+		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_schedule1sheet.tex > /dev/null 2>&1 || tail -n 100 MCM2025_schedule1sheet.log && \
+		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_schedule1sheet.tex > /dev/null 2>&1 && \
+		open MCM2025_schedule1sheet.pdf && \
+		cd ..

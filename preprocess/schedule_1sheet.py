@@ -72,7 +72,7 @@ def df_to_latex(df, filename, is_sideway=False):
             f.write("\\begin{table}\n")
         # Make second column wider, first, third and fourth columns narrower
         #col_spec = '>{\\hsize=0.75\\hsize}X|>{\\hsize=2\\hsize}X|>{\\hsize=0.22\\hsize}X'
-        col_spec = '>{\\hsize=0.5\\hsize}X|>{\\hsize=1.5\\hsize}X'
+        col_spec = '>{\\hsize=0.47\\hsize}X|>{\\hsize=1.53\\hsize}X'
         f.write(f"\\begin{{tabularx}}{{\\textwidth}}{{{col_spec}}}\n")
         f.write("\\hline\n")
         # Write header (merge two columns, large bold font)
@@ -110,7 +110,7 @@ if __name__ == '__main__':
     schedule_tex = f"{outdir}Schedule.tex"
     with open(schedule_tex, "w") as f:
         f.write("")  # Clear the file
-        f.write("\\chapter{Schedule}\n")
+        #f.write("\\chapter{Schedule}\n")
 
     num_cols = df.shape[1]
     j=1
