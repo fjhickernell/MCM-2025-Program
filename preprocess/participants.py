@@ -93,65 +93,10 @@ def apply_name_corrections(df):
 
 def apply_organization_corrections(df):
     """Apply standardization to organization names."""
- 
-    org_dict = {
-        "Academy of Mathematics and Systems Science, Chinese Academy of Sciences": "Chinese Academy of Sciences",
-        "Work done during C. Huang's Ph.D. studies at Georgia Institute of Technology": "Georgia Institute of Technology",
-        "INESC-ID, Rua Alves Redol 9, Lisbon, Portugal 1000-029": "INESC-ID",
-        "Department of Mathematical Sciences, Tsinghua University": "Tsinghua University",
-        "Illinois Institute of Technology, Department of Applied Mathematics. Sandia National Laboratories.": "Illinois Institute of Technology and Sandia National Laboratories.",
-        "Department of Statistics, Columbia University": "Columbia University",
-        "Department of Mathematics, Univeristy of Washington": "University of Washington",
-        "KAUST: King Abdullah University of Science and Technology (KAUST)": "King Abdullah University of Science and Technology",
-        "Istituto Nazionale di Fisica Nucleare (INFN), Laboratori Nazionali del Sud (LNS), Catania, Italy": "Laboratori Nazionali del Sud",
-        "Chair of Mathematics for Uncertainty Quantification, Department of Mathematics, RWTH- Aachen University": "RWTH Aachen University",
-        "Rwth--Aachen": "RWTH Aachen",
-        "Rwth": "RWTH",
-        "rwth": "RWTH",
-        "Mit": "MIT",
-        "Oden Institute for Computational Engineering and Sciences, University of Texas at Austin": "University of Texas at Austin",
-        "Ricam, Austrian Academy of Sciences": "Austrian Academy of Sciences",
-        "Archimedes/athena Research Centre": "Athena Research Centre",
-        "Bcam - Basque Center for Applied Mathematics": "Basque Center for Applied Mathematics",
-        "Comsats University Islamabad-Lahore": "COMSATS University Islamabad, Lahore",
-        "Ensae Paris": "ENSAE Paris",
-        "Institute of Mathematics, Epfl": "EPFL",
-        "Epfl": "EPFL",
-        "Eth Zurich": "ETH Zurich",
-        "Fu Berlin": "Free University of Berlin",
-        "Ibm Research": "IBM Research",
-        "Ku Leuven": "KU Leuven",
-        "Illinois Tech": "Illinois Institute of Technology",
-        "King Abdullah University of Science and Technology (kaust)": "King Abdullah University of Science and Technology",
-        "Kaust": "King Abdullah University of Science and Technology",
-        "University of Warwick, Uk": "University of Warwick",
-        "Uc Berkeley": "University of California, Berkeley",
-        "The University of Tokyo": "University of Tokyo",
-        "Tu Bergakademie Freiberg": "TU Bergakademie Freiberg",
-        ", Shanghai, China": "",
-        ", Sweden": "",
-        ", Brazil": "",
-        "Kth ": "KTH ",
-        ", Uk": "",
-        "Infn": "INFN",
-        "infn": "INFN",
-        "Lut University":"LUT University",
-        "Courant Institute of Mathematical Sciences, ":"",
-        ", Laboratori Nazionali del Sud (lns), Catania, Italy":"",
-        ", Kaohsiung, Taiwan":"",
-        "Institute of Statistics, ":"",
-        "Rptu ": "RPTU ",
-        ", Institut de Mathématiques de Bordeaux":"",
-        "University of Maryland Baltimore County":"University of Maryland, Baltimore",
-        "MIT":"Massachusetts Institute of Technology",
-        "Mgimo Tashkent Branch":"MGIMO, Tashkent",
-        " - Section of Catania": " Catania",
-        "Inesc-Id, Rua Alves Redol 9, Lisbon, Portugal 1000-029":"INESC-ID"
-    }
-        
-    for old_org, new_org in org_dict.items():
+    for old_org, new_org in org_dict.items():  # change substrings
         df["Organization"] = df["Organization"].str.replace(old_org, new_org)
     
+    # Change whole string
     df.loc[df["Organization"] == "RWTH Aachen", "Organization"] = "RWTH Aachen University"
 
 def validate_participant_names(df):

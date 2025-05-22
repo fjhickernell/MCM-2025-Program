@@ -43,7 +43,7 @@ def download_abstracts_from_csv(key, always_download=False):
                 print(f"Downloaded {item_id}.tex to {local_filename}")
             
             if pd.isna(item_id):
-                print(f" {url = } ")
+                print(f"ERROR: {key} {suffix} is missing,  {url = } ")
         except Exception as e:
             print(f"ERROR: {item_id = }, {direct_url = }, {url = } - {e}")
 
