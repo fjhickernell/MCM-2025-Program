@@ -8,9 +8,9 @@ SessionTime,SessionTitle,join_key
 "Mon, July 28 14:00–15:00",Plenary Talk by Christiane Lemieux,christiane lemieux
 "Mon, July 28 15:30–17:30 Track F","Stochastic Computation and Complexity, Part II","stochastic computation and complexity, part ii"
 "Mon, July 28 15:30–17:30 Track G",Recent advances in optimization under uncertainty,recent advances in optimization under uncertainty
-"Mon, July 28 15:30–17:30 Track H",Technical Session 12 - PDEs,technical session 12
-"Mon, July 28 15:30–17:30 Track I",Computational Methods for Low-discrepancy Sampling and Applications,computational methods for low discrepancy sampling and applications
-"Mon, July 28 15:30-17:30 Track J","Technical Session 4 - Quasi-Monte Carlo, Part 1",technical session 4
+"Mon, July 28 15:30–17:30 Track H",Computational Methods for Low-discrepancy Sampling and Applications,computational methods for low discrepancy sampling and applications
+"Mon, July 28 15:30–17:30 Track I","Technical Session 4 - Quasi-Monte Carlo, Part 1",technical session 4
+"Mon, July 28 15:30-17:30 Track J",Technical Session 12 - PDEs,technical session 12
 "Tue, July 29 09:00–10:00",Plenary Talk by Peter Glynn,peter glynn
 "Tue, July 29 10:30–12:30 Track A","Stochastic Computation and Complexity, Part III","stochastic computation and complexity, part iii"
 "Tue, July 29 10:30–12:30 Track B","Next-generation optimal experimental design: theory, scalability, and real world impact: Part I","next generation optimal experimental design: theory, scalability, and real world impact: part i"
@@ -37,8 +37,8 @@ SessionTime,SessionTitle,join_key
 "Thu, July 31 09:00–10:00",Plenary Talk by Uros Seljak,uros seljak
 "Thu, July 31 10:30–12:30 Track A",QMC and Applications Part I,qmc and applications part i
 "Thu, July 31 10:30–12:30 Track B","Analysis of Langevin and Related Sampling Algorithms, Part I","analysis of langevin and related sampling algorithms, part i"
-"Thu, July 31 10:30–12:30 Track C",Technical Session 8 - Finance,technical session 8
-"Thu, July 31 10:30–12:30 Track D","Nested expectations: models and estimators, Part II","nested expectations: models and estimators, part ii"
+"Thu, July 31 10:30–12:30 Track C","Nested expectations: models and estimators, Part II","nested expectations: models and estimators, part ii"
+"Thu, July 31 10:30–12:30 Track D",Technical Session 8 - Finance,technical session 8
 "Thu, July 31 10:30-12:30 Track E",Technical Session 13 - ML \& Optimization,technical session 13
 "Thu, July 31 14:00–15:00",Plenary Talk by Nicolas Chopin,nicolas chopin
 "Thu, July 31 15:30–17:30 Track F",QMC and Applications Part II,qmc and applications part ii

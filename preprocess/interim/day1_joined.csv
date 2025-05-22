@@ -1,5 +1,5 @@
 SessionTime,SessionTitle,join_key
-"Mon, July 28 08:00–09:00",Registration Desk Open,
+"Mon, July 28 08:00–17:30",Registration Desk Open,
 "Mon, July 28 8:45–9:00",Conference Opening,
 "Mon, July 28 09:00–10:00",Plenary Talk by Matt Pharr,matt pharr
 "Mon, July 28 10:00–10:30",Coffee Break,
@@ -13,7 +13,7 @@ SessionTime,SessionTitle,join_key
 "Mon, July 28 15:00–15:30",Coffee Break,
 "Mon, July 28 15:30–17:30 Track F","Stochastic Computation and Complexity, Part II","stochastic computation and complexity, part ii"
 "Mon, July 28 15:30–17:30 Track G",Recent advances in optimization under uncertainty,recent advances in optimization under uncertainty
-"Mon, July 28 15:30–17:30 Track H",Technical Session 12 - PDEs,technical session 12
-"Mon, July 28 15:30–17:30 Track I",Computational Methods for Low-discrepancy Sampling and Applications,computational methods for low discrepancy sampling and applications
-"Mon, July 28 15:30-17:30 Track J","Technical Session 4 - Quasi-Monte Carlo, Part 1",technical session 4
+"Mon, July 28 15:30–17:30 Track H",Computational Methods for Low-discrepancy Sampling and Applications,computational methods for low discrepancy sampling and applications
+"Mon, July 28 15:30–17:30 Track I","Technical Session 4 - Quasi-Monte Carlo, Part 1",technical session 4
+"Mon, July 28 15:30-17:30 Track J",Technical Session 12 - PDEs,technical session 12
 ,RECEPTION,

@@ -363,6 +363,14 @@ if __name__ == "__main__":
     org_series = pd.Series(df["Organization"].unique(), name="Organization").sort_values()
     org_series.to_csv(f"{outdir}orgs.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
 
+
+    # Writing the dictionary to a CSV file
+    with open(f'{interimdir}short_org_dict.csv', mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['Full Organization', 'Short Name'])  # Writing header
+        for key, value in short_org_dict.items():
+            writer.writerow([key, value])
+
     # Output Participants.csv
     output_file = os.path.join(outdir, "Participants.csv")
     df.to_csv(output_file, index=False, quoting=csv.QUOTE_NONNUMERIC)
