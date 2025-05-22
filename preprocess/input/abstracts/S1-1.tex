@@ -1,0 +1,263 @@
+\pdfmapfile{=<name>.map}
+\documentclass[12pt,oneside,reqno,fleqn]{amsart}
+% \usepackage{}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{cases}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+% \usepackage{natbib}
+\usepackage{stmaryrd}
+\usepackage{color}
+\usepackage{soul}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsfonts}
+ \usepackage{refcheck}
+%\usepackage{showkeys}
+\usepackage{amsmath,amssymb,amsthm}
+% \usepackage{thmtools}
+% \usepackage{newtxmath,newtxtext}
+\usepackage{libertine}
+\usepackage[T1]{fontenc}
+\usepackage[libertine,varbb]{newtxmath}
+\usepackage[colorlinks,linkcolor=blue,citecolor=red,urlcolor=red]{hyperref}
+\usepackage[shortlabels] {enumitem}
+\usepackage[nameinlink,capitalize]{cleveref}
+% \usepackage[amsthm,hyperref,noconfig]{ntheorem}
+\usepackage[spacing=true,kerning=true,tracking=true,letterspace=50]{microtype}
+%\usepackage{orcidlink}
+% \usepackage[spacing=true,kerning=true,tracking=alltext,letterspace=2]{microtype}
+% \usepackage{microtype}
+% \usepackage{todonotes}
+%\usepackage[options]{natbib}
+\pagestyle{plain}
+\textwidth=160 mm
+% \textheight=200 mm
+\oddsidemargin=0mm
+\topmargin=0mm
+\hypersetup{pdftitle={Numerical solution for singular SDE}, pdfauthor={CL}}
+%%%%%%%%%%
+\numberwithin{equation}{section}
+% \def\theequation{\arabic{section}.\arabic{equation}}
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\ee}{\end{eqnarray}}
+\newcommand{\ce}{\begin{eqnarray*}}
+\newcommand{\de}{\end{eqnarray*}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{condition}[theorem]{Condition}
+% \newtheorem*{condition*}{Condition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{innercustomthm}{Condition}
+\newenvironment{customcon}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+% \colorlet{darkblue}{blue!90!black}
+% \colorlet{darkred}{red!90!black}
+% \def\KL#1{\comment[darkblue]{KL: #1}}
+% \crefname{Lemma}{Lemma}{Lemmas}
+% \newcommand{\crefrangeconjunction}{--}
+\crefname{eqn}{Equation}{Equations}
+\crefname{assumption}{Assumption}{Assumptions}
+\crefname{innercustomthm}{Condition}{Conditions}
+\crefrangelabelformat{innercustomthm}{#3#1#4-#5#2#6}
+\def\HS{{\mathrm{\tiny HS}}}
+\def\v{{\mathbf{v}}}
+\def\e{{\mathrm{e}}}
+\def\eps{\varepsilon}
+\def\t{\tau}
+\def\vr{\varrho}
+\def\th{\theta}
+\def\a{\alpha}
+\def\om{\omega}
+\def\Om{\Omega}
+\def\b{\beta}
+\def\p{\partial}
+\def\d{\delta}
+\def\g{\gamma}
+\def\l{\lambda}
+\def\la{\langle}
+\def\ra{\rangle}
+% \def\[{{\Big[}}
+% \def\]{{\Big]}}
+\def\<{{\langle}}
+\def\>{{\rangle}}
+\def\({{\Big(}}
+\def\){{\Big)}}
+\def\bz{{\mathbf{z}}}
+\def\by{{\mathbf{y}}}
+\def\bx{{\mathbf{x}}}
+\def\tr{{\rm tr}}
+\def\W{{\mathcal W}}
+\def\Ric{{\rm Ricci}}
+\def\Cap{\mbox{\rm Cap}}
+\def\sgn{\mbox{\rm sgn}}
+\def\mathcalV{{\mathcal V}}
+\def\Law{{\mathord{{\rm Law}}}}
+% \def\dif{{\mathord{{\rm d}}}}
+\def\dif{d}
+\def\dis{{\mathord{{\rm \bf d}}}}
+\def\Hess{{\mathord{{\rm Hess}}}}
+\def\min{{\mathord{{\rm min}}}}
+\def\Vol{\mathord{{\rm Vol}}}
+\def\bbbn{{\rm I\!N}}
+\def\no{\nonumber}
+\def\={&\!\!=\!\!&}
+\def\bt{\begin{theorem}}
+\def\et{\end{theorem}}
+\def\bl{\begin{lemma}}
+\def\el{\end{lemma}}
+\def\br{\begin{remark}}
+\def\er{\end{remark}}
+%\def\bx{\begin{Examples}}
+%\def\ex{\end{Examples}}
+\def\bd{\begin{definition}}
+\def\ed{\end{definition}}
+\def\bp{\begin{proposition}}
+\def\ep{\end{proposition}}
+\def\bc{\begin{corollary}}
+\def\ec{\end{corollary}}
+\def\bx{\begin{example}}
+\def\ex{\end{example}}
+\def\cA{{\mathcal A}}
+\def\cB{{\mathcal B}}
+\def\cC{{\mathcal C}}
+\def\cD{{\mathcal D}}
+\def\cE{{\mathcal E}}
+\def\cF{{\mathcal F}}
+\def\cff{\cF}
+\def\cG{{\mathcal G}}
+\def\cgg{\cG}
+\def\cH{{\mathcal H}}
+\def\chh{\cH}
+\def\cI{{\mathcal I}}
+\def\cJ{{\mathcal J}}
+\def\cK{{\mathcal K}}
+\def\cL{{\mathcal L}}
+\def\cM{{\mathcal M}}
+\newcommand\cmm{\cM}
+\def\cN{{\mathcal N}}
+\def\cO{{\mathcal O}}
+\def\coo{{\mathcal O}}
+\def\cP{{\mathcal P}}
+\def\cpp{\cP}
+\def\cQ{{\mathcal Q}}
+\def\cR{{\mathcal R}}
+\def\cS{{\mathcal S}}
+\def\cT{{\mathcal T}}
+\def\cU{{\mathcal U}}
+\def\cV{{\mathcal V}}
+\def\cW{{\mathcal W}}
+\def\cX{{\mathcal X}}
+\def\cY{{\mathcal Y}}
+\def\cZ{{\mathcal Z}}
+\def\mA{{\mathbb A}}
+\def\mB{{\mathbb B}}
+\def\mC{{\mathbb C}}
+\def\mD{{\mathbb D}}
+\def\mE{{\mathbb E}}
+\def\E{\mE}
+\def\mF{{\mathbb F}}
+\def\mG{{\mathbb G}}
+\def\mH{{\mathbb H}}
+\def\mI{{\mathbb I}}
+\def\mJ{{\mathbb J}}
+\def\mK{{\mathbb K}}
+\def\mL{{\mathbb L}}
+\def\mM{{\mathbb M}}
+\def\mN{{\mathbb N}}
+\def\mO{{\mathbb O}}
+\def\mP{{\mathbb P}}
+\def\mQ{{\mathbb Q}}
+\def\mR{{\mathbb R}}
+\def\mS{{\mathbb S}}
+\def\mT{{\mathbb T}}
+\def\mU{{\mathbb U}}
+\def\mV{{\mathbb V}}
+\def\mW{{\mathbb W}}
+\def\mX{{\mathbb X}}
+\def\mY{{\mathbb Y}}
+\def\mZ{{\mathbb Z}}
+\def\bP{{\mathbf P}}
+\def\bE{{\mathbf E}}
+\def\sA{{\mathscr A}}
+\def\sB{{\mathscr B}}
+\def\sC{{\mathscr C}}
+\def\sD{{\mathscr D}}
+\def\sE{{\mathscr E}}
+\def\sF{{\mathscr F}}
+\def\sG{{\mathscr G}}
+\def\sH{{\mathscr H}}
+\def\sI{{\mathscr I}}
+\def\sJ{{\mathscr J}}
+\def\sK{{\mathscr K}}
+\def\sL{{\mathscr L}}
+\def\sM{{\mathscr M}}
+\def\sN{{\mathscr N}}
+\def\sO{{\mathscr O}}
+\def\sP{{\mathscr P}}
+\def\sQ{{\mathscr Q}}
+\def\sR{{\mathscr R}}
+\def\sS{{\mathscr S}}
+\def\sT{{\mathscr T}}
+\def\sU{{\mathscr U}}
+\def\sV{{\mathscr V}}
+\def\sW{{\mathscr W}}
+\def\sX{{\mathscr X}}
+\def\sY{{\mathscr Y}}
+\def\sZ{{\mathscr Z}}
+\def\fJ{{\mathfrak J}}
+\def\fA{{\mathfrak A}}
+\def\ba{{\begin{align}}
+\def\ea{\end{align}}}
+\def\geq{\geqslant}
+\def\leq{\leqslant}
+\def\les{\lesssim}
+\def\c{\mathord{{\bf c}}}
+\def\div{\mathord{{\rm div}}}
+\def\id{\mathord{{\rm id}}}
+\def\t{\mathord{{\rm tr}}}
+\def\iint{\int^t_0\!\!\!\int}
+\def\sb{{\mathfrak b}}
+\def\bH{{\mathbf H}}
+\def\bW{{\mathbf W}}
+\def\bP{{\mathbf P}}
+\def\bA{{\mathbf A}}
+\def\bT{{\mathbf T}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\Rd}{{\R^d}}
+\newcommand{\tand}{\quad\text{and}\quad}
+\newcommand{\LL}{{\mathbb{L}}}
+\newcommand{\BB}{{\mathbb{B}}}
+\newcommand{\1}{{\mathbf 1}}
+\newcommand{\caa}{{\mathcal A}}
+\newcommand{\wei}[1]{\langle#1\rangle}
+\newcommand{\norm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\renewcommand{\le}{\leq}
+\renewcommand{\ge}{\geq}
+\allowdisplaybreaks
+\begin{document}
+	\title{Quantitative approximation of stochastic kinetic equations: from discrete to continuum}
+	\date{\today}
+	\author{Chengcheng Ling (University of Augsburg)}
+
+	\begin{abstract}
+
+We study the strong convergence of a generic tamed Euler-Maruyama (EM) scheme for the kinetic type stochastic differential equation (SDE) (also known as second order SDE) driven by $\alpha$-stable type noise with $\alpha\in(1,2]$. We show that when the drift exhibits a relatively low regularity: anisotropic $\beta$-H\"older continuity with $\beta >1 - \frac{\alpha}{2}$, the corresponding tamed EM converges with a convergence rate $(\frac{1}{2} + \frac{\beta}{\alpha(1+\alpha)} \wedge \frac{1}{2})$, which aligns with the results of  first-order SDEs.
+
+
+This talk is based on the work arXiv:2409.05706 (joint with Zimo Hao and Khoa L\^e)  and the work arXiv:2412.05142.
+	\end{abstract}
+
+\maketitle	
+%\title{Exist
+\end{document} 

@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+\begin{talk}
+  {Parallel Affine Transformation Tuning: Drastically Improving the Effectiveness of Slice Sampling}% [1] talk title
+  {Philip Schär}% [2] speaker name
+  {Friedrich Schiller University Jena, Germany}% [3] affiliations
+  {philip.schaer@uni-jena.de}% [4] email
+  {Michael Habeck, Daniel Rudolf}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+
+The performance of MCMC samplers tends to depend on various properties of the target distribution, such as its covariance structure, the location of its probability mass, and its tail behavior. We propose \textit{parallel affine transformation tuning} (PATT) [1], a methodological framework that relies on bijective affine transformations, a latent space construction, the adaptive MCMC principle, and interacting parallel chains, and acts as an intermediate layer between the target distribution and an MCMC method applied to it. By transforming a challenging target into a simpler one, PATT can harness the full potential of the underlying MCMC method.
+
+According to our numerical experiments, PATT is particularly effective in its combinations with \textit{elliptical slice sampling} (ESS) [2] and \textit{Gibbsian polar slice sampling} (GPSS) [3]. For targets that are sufficiently well-behaved (e.g.~posteriors in Bayesian logistic regression), these combinations produce samples of (empirically) dimension-independent quality at remarkably low computational cost, with PATT-ESS performing best for light-tailed targets and PATT-GPSS being the superior choice for heavy-tailed ones.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Schär, P., Habeck, M., Rudolf, D. (2024). Parallel affine transformation tuning of Markov chain Monte Carlo. \textit{Proceedings of the 41st International Conference on Machine Learning (ICML)}, PMLR 235, pp.~43571-43607.
+	\item[{[2]}] Murray, I., Adams, R.P., MacKay, D. (2010). Elliptical slice sampling. \textit{Proceedings of the 13th International Conference on Artificial Intelligence and Statistics}, PMLR 9, pp.~541--548.
+	\item[{[3]}] Schär, P., Habeck, M., Rudolf, D. (2023). Gibbsian polar slice sampling. \textit{Proceedings of the 40th International Conference on Machine Learning (ICML)}, PMLR 202, pp.~30204-30223.
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+

@@ -1,27 +1,56 @@
 import pandas as pd
 import os
-from config import indir, interimdir, gsheets
+from config import gsheets, interimdir, indir
 import util as ut
 
 
-def read_google_sheets(sheets):
-    """Read all sheets into a dictionary of DataFrames, selecting only needed columns."""
-    dfs = {}
-    for key, meta in sheets.items():
-        df = ut.read_gsheet(
-            sheet_id=meta["sheet_id"],
-            sheet_name=meta["sheet_name"],
-            indir=indir,
-            out_csv=f"{key}.csv"
-        )
-        if meta["columns"] is not None:
-            df = df[meta["columns"]]
-        dfs[key] = df.copy(deep=True)
-        print(f"Downloaded and filtered sheet: {indir}{key}.csv")
-    return dfs
+def download_abstracts_from_csv(key, always_download=False):
+    """Download abstracts for a given key from its TalkID or SessionID CSV."""
+    suffix = "sessionid" if key == "special_session_submissions" else "talkid"
+    csv_path = os.path.join(interimdir, f"{key}_{suffix}.csv")
+    
+    # Check if the CSV file exists
+    if not os.path.exists(csv_path):
+        print(f"CSV file {csv_path} does not exist. Skipping {key}.")
+        return
+    
+    df = pd.read_csv(csv_path)
+    url_col = "FirstNameLastNameAbstract.tex file with Talk Title and Abstract" if key != "special_session_submissions" else "FirstNameLastNameSession.tex file with Session Title and Description"
+
+    # Determine which ID column to use
+    id_col = "SessionID" if key == "special_session_submissions" else "TalkID"
+    
+    # Check for required columns
+    if url_col not in df.columns or id_col not in df.columns:
+        print(f"Required columns '{url_col}' or '{id_col}' not found in {csv_path}. Skipping {key}.")
+        return
+    
+    abstracts_dict = dict(zip(df[id_col], df[url_col]))
+    abstracts_dir = os.path.join(indir, "abstracts")
+    
+    # Ensure the directory exists
+    os.makedirs(abstracts_dir, exist_ok=True)
+    
+    for item_id, url in abstracts_dict.items():
+        direct_url = ut.gdrive_direct_download(url) 
+        
+        try:
+            local_filename = os.path.join(abstracts_dir, f"{item_id}.tex")
+            
+            # Check if the file already exists and item_id not NaN   
+            if not pd.isna(item_id) and (not os.path.exists(local_filename) or always_download):
+                ut.download_file(direct_url, abstracts_dir, item_id)
+                print(f"Downloaded {item_id}.tex to {local_filename}")
+            
+            if pd.isna(item_id):
+                print(f" {url = } ")
+        except Exception as e:
+            print(f"ERROR: {item_id = }, {direct_url = }, {url = } - {e}")
 
 
 if __name__ == "__main__":
-    talks_tex_dict = pd.read_csv()
-    dfs = read_google_sheets(gsheets)
-    ut.save_dfs(dfs, interimdir, "gsheet")
+    # Process all gsheets keys except 'schedule'
+    for key, meta in gsheets.items():
+        if key == "schedule":
+            continue
+        download_abstracts_from_csv(key)

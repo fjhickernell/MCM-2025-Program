@@ -1,0 +1,31 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% Document information
+\title{Diffusion-Based Bayesian Experimental Design: Advancing BED for Practical Applications
+}
+\author{Jacopo Iollo}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Bayesian  Experimental Design (BED) is a powerful tool to reduce the cost of running a sequence of experiments.
+    When based on the Expected Information Gain (EIG), design optimization corresponds to the maximization of some intractable expected  contrast between prior and posterior distributions.
+    Scaling this maximization to high dimensional and complex settings has been an issue due to BED inherent computational complexity.
+    In this work, we introduce a pooled posterior distribution with cost-effective sampling properties and provide a tractable access to the EIG contrast maximization via a new EIG gradient expression. Diffusion-based samplers are used to compute the dynamics of the pooled posterior and ideas from bi-level optimization are leveraged to derive an efficient joint sampling-optimization loop.
+    The resulting efficiency gain allows to extend BOED to the well-tested generative capabilities of diffusion models.
+    By incorporating generative models into the BOED framework, we expand its scope and its use in scenarios that were previously impractical. Numerical experiments and comparison with state-of-the-art methods show the potential of the approach.
+    As a practical application, we showcase how our method accelerates Magnetic Resonance Imaging (MRI) acquisition times while preserving image quality.
+    This presentation will also detail how Diffuse, a new modulable Python package for diffusion models facilitates composability and research in diffusion models through its simple and intuitive API, allowing researchers to easily integrate and experiment with various model components.
+
+\end{abstract}
+\end{document}

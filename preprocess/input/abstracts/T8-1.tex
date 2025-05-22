@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {The Stochastic Differential Equations of the Heston Model for Option Pricing}% [1] talk title
+  {Abdujabar Rasulov}% [2] speaker name
+  {Professor of the University of World Economy and Diplomacy}% [3] affiliations
+  {asrasulov@gmail.com}% [4] email
+  {Matyokub Bakoev}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.			
+The Heston model is a widely used stochastic volatility model for option pricing, addressing the limitations of the Black-Scholes model by incorporating a stochastic variance process. This talk will cover the stochastic differential equations (SDEs) governing the Heston model, demonstrating their application in option pricing. 
+
+The Heston model introduces a stochastic process for volatility, improving the accuracy of derivative pricing. 
+The dynamics of the asset price $S_t$ and its variance $v_t$ under the Heston model are given by[1]:
+\begin{align}
+    dS_t &= \mu S_t dt + \sqrt{v_t} S_t dW_t^S, \\
+    dv_t &= \kappa(\theta - v_t) dt + \sigma \sqrt{v_t} dW_t^v,
+\end{align}
+where:
+\begin{itemize}
+    \item $\mu$ is the drift of the asset price.
+    \item $\kappa$ is the rate of mean reversion of variance $v_t$ towards long-term mean $\theta$.
+    \item $\sigma$ represents the volatility of volatility.
+    \item $dW_t^S$ and $dW_t^v$ are Wiener processes with correlation $\rho$.
+\end{itemize}
+
+We will explore Monte Carlo methods as a numerical approach to simulate price paths and compute option prices for European and American derivatives [2],[3]. Furthermore, an interactive Shiny web application will be presented, showcasing real-time simulations and visualizations of option pricing under the Heston framework.
+
+An interactive web-based application is implemented using Shiny in R, enabling users to:
+\begin{itemize}
+    \item Adjust input parameters ($S_0, K, r, T, \mu, \theta, \kappa, \sigma, \rho$).
+    \item Perform Monte Carlo simulations to compute option prices.
+    \item Visualize option price distributions and convergence results.
+\end{itemize}
+
+The Shiny application offers an interactive tool for financial analysis. Future work may explore enhancements such as incorporating jump-diffusion models and GPU-accelerated simulations.
+\medskip
+
+\begin{enumerate}
+	\item Hull, J. C. (2020). \textit{Options, Futures, and Other Derivatives}. Pearson.
+	\item Glasserman, P. (2004). \textit{Monte Carlo Methods in Financial Engineering}. Springer.
+	\item M.T.Bakoev (2020) Numerical simulation of solusions of diffusion equations in problems of finance and management(In russian) . Uwed Press.Tashkent 2020. p.224.
+	
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+

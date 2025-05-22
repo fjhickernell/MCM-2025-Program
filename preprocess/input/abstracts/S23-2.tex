@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Randomized Splitting Methods and Stochastic Gradient Algorithms}% [1] talk title
+  {Peter A. Whalley}% [2] speaker name
+  {ETH Z\"{u}rich, Switzerland}% [3] affiliations
+  {pwhalley@ethz.ch}% [4] email
+  {Neil K. Chada, Benedict Leimkuhler, Daniel Paulin, Luke Shaw}% [5] coauthors
+  {Analysis of Langevin and Related Sampling Algorithms, Part I}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We examine the use of different randomisation policies for stochastic gradient algorithms. Conventionally, algorithms are combined with a specific stochastic gradient strategy, called Robbins-Monro. In this work, we study without replacement subsampling strategies and show convincingly that it leads to improved performance via: a) a proof of improved complexity guarantees for strongly convex, gradient Lipschitz objectives;
+b) an analytical demonstration of reduced bias on quadratic model problems; and c) empirical
+demonstration of reduced bias in numerical experiments. This is especially important since without replacement subsampling strategies are typically more efficient due to memory access and cache reasons. 
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Daniel Paulin$^{*}$, Peter A. Whalley$^{*}$, Neil K. Chada, \& Ben Leimkuhler (2025). {\it Sampling from Bayesian Neural Network Posteriors with Symmetric Minibatch Splitting Langevin Dynamics}. The 28th International Conference on Artificial Intelligence and Statistics.
+
+        \item[{[2]}] Luke Shaw, Peter A. Whalley (2025). {\it Random Reshuffling for Stochastic Gradient Langevin Dynamics}. ArXiv:2501.16055.
+\end{enumerate}
+
+\end{talk}
+
+\end{document}

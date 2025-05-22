@@ -1,0 +1,71 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newenvironment{session}[7] % [1] session title
+                            % [2] organiser name, [3] affiliations, [4] email
+                            % [5] organiser name, [6] affiliations, [7] email
+                            % [8] session id
+ {%\needspace{6\baselineskip}
+  \vskip 0pt\nopagebreak%
+  %\label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{ }}{Organizer:}{Organizers:}\vspace{2mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{ }}{}{\textit{#5}\\\nopagebreak%
+                              #6\\\nopagebreak%
+                              \url{#7}\vspace{3mm}\\\nopagebreak}%
+  \quad\\\nopagebreak%
+  %Session Description:\vspace{3mm}\\\nopagebreak%
+ }
+ {\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+\begin{session}
+  {Nested expectations: models and estimators, Part I}% [1] session title
+  {Arved Bartuska}% [2] organizer name
+  {King Abdullah University of Science and Technology/RWTH Aachen University}% [3] affiliations
+  {arved.bartuska@kaust.edu.sa}% [4] email
+  {Abdul-Lateef Haji-Ali }% [5] second organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+  {Heriot-Watt University}% [6] second organizer affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+  {a.hajiali@hw.ac.uk}% [7] second organizer email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+
+Nested expectations 
+arise in many applications, such as in engineering, mathematical finance, and medical decision-making. In addition to their nested structure, numerical estimations of such expectations are often complicated by singularities or discontinuities. Moreover, approximations when evaluating inner expectations using, for example, finite element or time-stepping schemes render traditional estimation methods such as double-loop Monte Carlo prohibitively expensive. This session will explore models and applications with this structure and methods for efficient estimation.
+
+List of speakers:
+
+Abdul-Lateef Haji-Ali (Heriot-Watt University)
+
+Sebastian Krumscheid (Karlsruhe Institute of Technology)
+
+Truong Vinh Hoang (RWTH Aachen University)
+
+Vesa Kaarnioja (FU Berlin)
+
+\end{session}
+
+\end{document}
+

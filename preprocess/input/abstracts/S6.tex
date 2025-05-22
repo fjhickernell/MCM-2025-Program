@@ -1,0 +1,70 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newenvironment{session}[7] % [1] session title
+                            % [2] organiser name, [3] affiliations, [4] email
+                            % [5] organiser name, [6] affiliations, [7] email
+                            % [8] session id
+ {%\needspace{6\baselineskip}
+  \vskip 0pt\nopagebreak%
+  %\label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{ }}{Organizer:}{Organizers:}\vspace{2mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{ }}{}{\textit{#5}\\\nopagebreak%
+                              #6\\\nopagebreak%
+                              \url{#7}\vspace{3mm}\\\nopagebreak}%
+  \quad\\\nopagebreak%
+  %Session Description:\vspace{3mm}\\\nopagebreak%
+ }
+ {\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+\begin{session}
+  {Recent advances in optimization under uncertainty}% [1] session title
+  {Philipp A. Guth}% [2] organizer name
+  {RICAM, Austrian Academy of Sciences}% [3] affiliations
+  {philipp.guth@ricam.oeaw.ac.at}% [4] email
+  {Vesa Kaarnioja}% [5] second organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+  {Free University of Berlin}% [6] second organizer affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+  {vesa.kaarnioja@fu-berlin.de}% [7] second organizer email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+
+The quantification of uncertainties associated with large-scale optimization problems based on partial differential equation models typically involves a number of uncertainties. Some uncertain parameters may include, e.g., the material parameters, domain shape or sensor locations used to collect measurement data. The associated challenging high-dimensional integration problems can be solved efficiently using, e.g., multilevel Monte Carlo or quasi-Monte Carlo methods. This session aims to cover some recent developments in the computational and theoretical treatment of this actively developing field of research.
+
+List of speakers:
+
+1. Tapio Helin (LUT University)
+
+2. Karina Koval (University of Heidelberg)
+
+3. Johannes Milz (Georgia Institute of Technology)
+
+4. Arved Bartuska (RWTH Aachen)
+
+\end{session}
+
+\end{document}
+

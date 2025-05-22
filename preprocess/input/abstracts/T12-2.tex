@@ -1,0 +1,74 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Monte Carlo method for the Spatially Homogenous Boltzmann equation}
+  {Abdujabar Rasulov}% [2] speaker name
+  {University of world economy and diplomacy}% [3] affiliations
+  {E mail: asrasulov@gmail.com}% [4] email
+ {}% [5] coauthors
+{}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+As is known, the nonlinear Boltzmann equation describes the behavior of rareﬁed gas much better than the linear Kac’s [1] model. That is why we can expect that application of the nonlinear spatially homogenous Boltzmann equation to the Harlow’s “particles-in-cell” model [2] allows us to do a computation, which gives a more exact approximation of the solution. 
+Among the statistical methods [3], which use Monte Carlo directly for modeling the ﬂow of rareﬁed gas, the most efﬁcient one is the statistical method of direct modeling the nonstationary ﬂow. 
+In the known “particle-in-cell” method, the simulations divide into two steps. Monte Carlo method is used both for the numerical simulation of collisions of the particles in cells (the ﬁrst step), as well as for the collision-free moving of particles (the second step). 
+In this work we propose another computational scheme, which directly uses the non- linear spatially homogenous Boltzmann equation for the numerical realization of the ﬁrst step in the “particles-in-cell” model of Belotserkovski-Yanitskii [3]. Proposed a new approach of constructing unbiased estimators will give relatively small variance.
+ For this aim we construct a branching Markov process [4] and on its trajectory we propose various” conjugated” computational schemes for calculating an unbiased estimator of the given functional. It should be noted nowadays in this area became popular adjoint direct simulation Monte Carlo method to a general collision kernel [5].  
+The results of our computations show that they are similar with known Belotserkovski-Yanitskii solutions of the Boltzmann equation. We note that in the interval, where the Boltzmann equations” work” (intermediate interval), the “particle-in-cell” statistical model approximates the spatially heterogeneous Boltzmann equation better. 
+
+\medskip
+
+Refenences
+\begin{enumerate}
+	\item[{[1]}] Kac, Mark (1959). {\it Probability and Related Topics in Physical Science}.American Mathematical Society (AMS).
+	\item[{[2]}] Harlow,Harvey F.  (1964).   The Particle-in-Cell Computing Method for Fluid Dynamics. Methods in Computational Physics \textbf{3}, 319--343
+\item[{[3]}] Belotserkovskii, Oleg M.,\& Yanitskii, Vitaliy .E.,   (1975).  The Statistical Method of Particles in Cells in Rarefied Gas Dynamics”, USSR Computational Mathematics and Mathematical Physics,  \textbf{15}(5), 101-114
+\item[{[4]}] Ermakov, Sergey M.,Nekrutkin, Vladimir V.,\& Sipin, Aleksandr S.  (1989). {\it Random Processes for Classical Equations of Mathematical Physics, Kluwer Academic Publishers.}
+\item[{[5]} ] Yang, Yunan, Silantyev, Denis, \&   Caflisch, Russel (2023).   The Particle-in-Cell Computing Method for Fluid Dynamics. Methods in Computational Physics \textbf{448}, 112247
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+

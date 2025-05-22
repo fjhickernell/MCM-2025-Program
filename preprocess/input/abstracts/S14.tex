@@ -1,0 +1,93 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newcommand{\organizer}[3]{%
+	{\textit{#1}}\\\nopagebreak%
+	#2\\\nopagebreak%
+	\url{#3}\vspace{3mm}\\\nopagebreak%
+	}
+
+\newenvironment{session}[5] % [1] session title
+							% [2] number of organizers
+                            % [3] organizer 1 info
+                            % [4] organizer 2 info
+                            % [5] organizer 3 info
+                            % [6] session id for later
+ {%\needspace{6\baselineskip}
+  \vskip 0pt\nopagebreak%
+  %\label{#5}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
+  \vspace{2mm}\\\nopagebreak%
+  #3
+  \ifthenelse{\equal{#2}{2}}{#4}{}%
+  \ifthenelse{\equal{#2}{3}}{#4#5}{}%
+  \quad\\\nopagebreak%
+  %Session Description:\vspace{3mm}\\\nopagebreak%
+ }
+ {\nopagebreak}%
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+%Input the relevant information below
+\begin{session}
+  {Advances in Rare Events Simulation}% [1] session title
+  {3} %[2]  number of organizers
+  {\organizer{Nadhir Ben Rached}% organizer one name
+    {University of Leeds, United Kingdom}% orgnizer one affiliations
+    {N.BenRached@leeds.ac.uk}}% organizer one email
+  {\organizer{Shyam Mohan Subbiah Pillai}% organizer two name, if needed
+	{RWTH Aachen University, Germany}% orgnizer two affiliations, if needed
+	{subbiah@uq.rwth-aachen.de}}% organizer two email
+  {\organizer{Ra\'ul Tempone}% organizer one name
+	{King Abdullah University of Science and Technology, Saudi Arabia}% orgnizer one affiliations
+	{raul.tempone@kaust.edu.sa}}% organizer one email
+
+Rare events are events with small probabilities, but their occurrences are critical in many real-life applications. The problem of estimating rare event probabilities is encountered in various engineering applications (finance, wireless communications, system reliability, biology, etc.). Naive Monte Carlo simulations are, in this case, substantially expensive. This session focuses on advances in methods belonging to the class of variance reduction techniques.  These alternative methods deliver, when appropriately used, accurate estimates with a substantial amount of variance reduction compared to the naive Monte Carlo estimator. 
+
+Proposed speakers:
+
+\begin{enumerate}
+	\item Victor Elvira, Professor in Statistics and Data Science, University of Edinburgh, United Kingdom
+	\item Bruno Tuffin, Director of Research, INRIA Rennes-Bretagne Atlantique, France
+	\item Eya Ben Amar, King Abdullah University of Science and Technology, Saudi Arabia
+	\item Shyam Mohan Subbiah Pillai, RWTH Aachen University, Germany
+\end{enumerate}
+
+\medskip
+%
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+%
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+
+\end{session}
+
+\end{document}
+

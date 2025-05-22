@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+% [2] speaker name, [3] affiliations, [4] email,
+% [5] coauthors, [6] special session
+% [7] time slot
+% [8] talk id, [9] session id or photo
+{%\needspace{6\baselineskip}%
+    \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+    \vskip 0pt\nopagebreak%
+%  \label{#8}%
+    \textbf{#1}\vspace{3mm}\\\nopagebreak%
+    \textit{#2}\\\nopagebreak%
+    #3\\\nopagebreak%
+    \url{#4}\vspace{3mm}\\\nopagebreak%
+    \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+    \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+    }
+    {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+    \begin{talk}
+    {A High-performance Multi-level Monte Carlo Software for Full Field Estimates and Applications in Optimal Control}% [1] talk title
+    {Niklas Baumgarten}% [2] speaker name
+    {Heidelberg University}% [3] affiliations
+    {niklas.baumgarten@uni-heidelberg.de}% [4] email
+    {Robert Scheichl, Robert Kutri, David Schneiderhan, Sebastian Krumscheid, Christian Wieners, Daniele Corallo}% [5] coauthors
+    {}% [6] special session. Leave this field empty for contributed talks.
+        % Insert the title of the special session if you were invited to give a talk in a special session.
+
+        We introduce a high-performance software framework for multi-level Monte Carlo (MLMC)
+        and multi-level stochastic gradient descent (MLSGD) methods,
+        designed for efficient uncertainty quantification and optimal control in high-dimensional PDE applications.
+        The software operates under strict memory and CPU-time constraints,
+        requiring no prior knowledge of problem regularity or memory demands.
+
+        Built on the budgeted MLMC method with a sparse multi-index update algorithm,
+        it enables full spatial-domain estimates at the same computational cost as single-point
+        evaluations while maintaining memory usage comparable to the deterministic problem.
+        Additionally, the framework integrates an MLSGD method for optimal control,
+        achieving faster convergence at reduced computational costs compared to standard
+        stochastic gradient descent methods.
+
+        We validate the software on applications such as stochastic PDE-based sampling, subsurface flow,
+        mass transport, acoustic wave equations, and high-dimensional control problems.
+
+
+    \end{talk}
+
+\end{document}
+

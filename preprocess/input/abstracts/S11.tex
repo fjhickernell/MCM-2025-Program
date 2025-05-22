@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl,verbatim}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newcommand{\organizer}[3]{%
+	{\textit{#1}}\\\nopagebreak%
+	#2\\\nopagebreak%
+	\url{#3}\vspace{3mm}\\\nopagebreak%
+	}
+
+\newenvironment{session}[5] % [1] session title
+							% [2] number of organizers
+                            % [3] organizer 1 info
+                            % [4] organizer 2 info
+                            % [5] organizer 3 info
+                            % [6] session id for later
+ {%\needspace{6\baselineskip}
+  \vskip 0pt\nopagebreak%
+  %\label{#5}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
+  \vspace{2mm}\\\nopagebreak%
+  #3
+  \ifthenelse{\equal{#2}{2}}{#4}{}%
+  \ifthenelse{\equal{#2}{3}}{#4#5}{}%
+  \quad\\\nopagebreak%
+  %Session Description:\vspace{3mm}\\\nopagebreak%
+ }
+ {\nopagebreak}%
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+%Input the relevant information below
+\begin{session}
+  {Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods}% [1] session title
+  {2} %[2]  number of organizers
+  {\organizer{Sou-Cheng T.  Choi}% organizer one name
+    {Illinois Institute of Technology}% orgnizer one affiliations
+    {schoi32@iit.edu}}% organizer one email
+  {\organizer{Yuhan Ding}% organizer two name, if needed
+	{Illinois Institute of Technology}% orgnizer two affiliations, if needed
+	{yding2@iit.edu}}% organizer two email
+  {\organizer{}% organizer one name
+	{}% orgnizer one affiliations
+	{}}% organizer one email
+
+
+(Quasi-)Monte Carlo ((Q)MC) and Markov Chain Monte Carlo (MCMC) algorithms are fundamental tools in computational mathematics, with a wide range of applications spanning finance, physics, engineering, and more. These methods have proven invaluable in solving high-dimensional problems where traditional numerical techniques often fail, and continue to expand their reach into emerging fields such as artificial intelligence, climate modeling, precision medicine, and data science.
+
+Recent advances in the theoretical foundations of these methods, including convergence rates, complexity analysis, sampling techniques, error analysis, variance reduction, optimal stopping conditions, and ergodic properties, have significantly improved their accuracy, efficiency, and reliability. In addition, interdisciplinary applications are driving new developments, such as machine learning, Bayesian inference, stochastic optimization, and uncertainty quantification.
+
+This special session aims to bring together leading experts from academia and industry to share breakthroughs, foster interdisciplinary collaboration, and identify future research directions in the broad field of Monte Carlo methods. Participants will benefit from insights into cutting-edge research and practical applications of (Q)MC and MCMC methods, as well as opportunities to network with peers and thought leaders.
+
+
+Committed Speakers and Topics:
+\begin{itemize}
+
+\item Speaker 1: Jonathan Weare, New York University, Convergence of Langevin in high dimensions, \texttt{weare@nyu.edu}
+    
+\item Speaker 2: Nikhil Bansal, University of Michigan, Ann Arbor, Theoretical Randomized quasi-Monte-Carlo and discrepancy, \texttt{bansal@gmail.com}
+    
+\item Speaker 3: Michael Mascagni, Florida State University, Solving partial differential equations using the walk-on-spheres method, \texttt{mascagni@fsu.edu}
+    
+\item Speaker 4: Hwanwoo Kim, Duke University, Utilizing the Gaussian process to facilitate MCMC for Bayesian inference with intractable likelihood or to perform black-box numerical integration to get the normalizing constant, \texttt{ghksdn1227@gmail.com}
+\end{itemize}
+
+
+
+\begin{comment}
+If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+\begin{enumerate}
+	
+\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+	
+\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+\end{enumerate}
+
+Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{comment}
+\end{session}
+
+\end{document}
+

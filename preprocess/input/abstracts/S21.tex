@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newcommand{\organizer}[3]{%
+	{\textit{#1}}\\\nopagebreak%
+	#2\\\nopagebreak%
+	\url{#3}\vspace{3mm}\\\nopagebreak%
+	}
+
+\newenvironment{session}[5] % [1] session title
+							% [2] number of organizers
+                            % [3] organizer 1 info
+                            % [4] organizer 2 info
+                            % [5] organizer 3 info
+                            % [6] session id for later
+ {%\needspace{6\baselineskip}
+  \vskip 0pt\nopagebreak%
+  %\label{#5}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
+  \vspace{2mm}\\\nopagebreak%
+  #3
+  \ifthenelse{\equal{#2}{2}}{#4}{}%
+  \ifthenelse{\equal{#2}{3}}{#4#5}{}%
+  \quad\\\nopagebreak%
+  %Session Description:\vspace{3mm}\\\nopagebreak%
+ }
+ {\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+%Input the relevant information below
+\begin{session}
+  {Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science}% [1] session title
+  {1} %[2]  number of organizers
+  {\organizer{Michael Mascagni}% organizer one name
+    {Florida State University and the National Institute of Standards and Technology}% orgnizer one affiliations
+    {mascagni@fsu.edu}}% organizer one email
+  {\organizer{Name two}% organizer two name, if needed
+	{Affiliation(s) two}% orgnizer two affiliations, if needed
+	{organizer-two-email-goes@here}}% organizer two email
+  {\organizer{Name three}% organizer one name
+	{Affiliation(s) three}% orgnizer one affiliations
+	{organizer-three-email-goes@here}}% organizer one email
+
+Monte Carlo methods are useful for solving problems in a variety of areas.  We have four talks organized that span several areas.  First, we consider the how Monte Carlo methods can provide fault tolerance to large computations via work on simulating soft and hard faults in Monte Carlo computation on a state-of-the-art computer.  Next, we consider using Monte Carlo to create a fast and efficient computer graphics renderer. Next we consider two talks on applications of Monte Carlo to the solution of partial differential equations.  One of these talks deals specifically with equations that arise in financial computing.
+
+The list of proposed speakers is (in alphabetical order):
+\begin{enumerate}
+\item Arash Fahim, Department of Mathematics, Florida State University
+\item Sharanya Jayaraman, Department of Computer Science, Florida State University
+\item Rohan Sawahney, High-Fidelity Physics Research Group, Nvidia Corporation
+\item Silei Song, Department of Computer Science, Florida State University
+\end{enumerate}
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+%\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+  
+\end{session}
+
+\end{document}

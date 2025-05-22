@@ -1,8 +1,10 @@
 import pandas as pd
 import os
+import re
+import numpy as np
+
 from config import *
 from util import *
-import re
 
 def process_sessions(dfs):
     """Process presenter and organizer columns for all relevant sheets."""
@@ -126,6 +128,36 @@ def add_sessions_join_keys(dfs):
             print("\n")
                   
     return dfs
+
+
+def add_sessions_talkid(dfs):
+    """
+    Adds a 'TalkID' column to each DataFrame in dfs based on the session type.
+    - For plenary talks (SessionID starting with 'P'), TalkID == SessionID.
+    - Otherwise, TalkID == SessionID + '_' + a 1-based counter within that SessionID.
+    """
+    for key, df in dfs.items():
+        df = df.copy()
+
+        # 1) Flag plenary vs non-plenary
+        plenary     = df['SessionID'].str.startswith('P', na=False)
+        non_plenary = ~plenary
+
+        # 2) Only number those non-plenary rows with a real SessionID
+        mask = non_plenary & df['SessionID'].notna()
+        seq  = df.loc[mask].groupby('SessionID').cumcount() + 1  # always ints, no NaN
+
+        # 3) Build the “_n” suffix
+        suffix = pd.Series('', index=df.index, dtype='object')
+        suffix.loc[mask] = '-' + seq.astype(str)
+
+        # 4) Combine
+        df['TalkID'] = df['SessionID'].fillna('') + suffix
+
+        dfs[key] = df
+
+    return dfs
+
  
 def read_schedule_days(num_days=5):
     """Read schedule_day1.csv ... schedule_dayN.csv into a dictionary."""
@@ -222,7 +254,6 @@ if __name__ == "__main__":
         dfs[key] = pd.read_csv(os.path.join(interimdir, f"{key}_gsheet.csv"))
     dfs = process_sessions(dfs)
     dfs = add_sessions_join_keys(dfs)
-    save_dfs(dfs, interimdir, "joined")
 
     # --- Merge schedule with session data
     merged_df = schedule_df
@@ -238,6 +269,12 @@ if __name__ == "__main__":
 
     # Save updated session dataframes with SessionID
     save_dfs(dfs, interimdir, "sessionid")
+
+    # Add TalkIDs
+    talks_keys = ["special_session_abstracts",  "plenary_abstracts", "contributed_talk_submissions"]
+    talks_dict = {k: dfs[k] for k in talks_keys if k in dfs.keys()}   
+    talks_dict = add_sessions_talkid(talks_dict)
+    save_dfs(talks_dict, interimdir, "talkid")
 
     # Step 7: Order all required columns in SessionList
     SessionListCols = [

@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Star discrepancy and uniform approximation under weighted simple and stratified random sampling}% [1] talk title
+  {Xiaoda Xu}% [2] speaker name
+  {Suqian University}% [3] affiliations
+  {23195@squ.edu.cn}% [4] email
+  {Jun Xian}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We mainly consider two problems in this talk. First, We consider random discrepancy under weighted importance sampling of a class of stratified input. We give the expected $L_p-$discrepancy($2\leq p<\infty$) upper bound in weighted form under a class of stratified sampling. This result contributes to the error estimate of the upper bound of the integral approximation under weighted importance sampling, and and our sampling pattern is a stratified input. Second, we discuss the probabilistic star discrepancy for a random double infinite matrix and propose an improvement to the coefficient of an existing result, we mainly use the optimal refined $\delta-$bracketing number so far.
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}] J. Dick, D. Rudolf and H. Zhu. (2019). A weighted discrepancy bound of quasi-Monte Carlo importance sampling. Statist. Probab. Lett., 100-106.
+	\item[{[2]}] M. Gnewuch. (2024). Improved bounds for the bracketing number of orthants or revisiting an algorithm of Thiémard to compute bounds for the star discrepancy. J. Complexity.
+\end{enumerate}
+
+
+\end{talk}
+
+\end{document}

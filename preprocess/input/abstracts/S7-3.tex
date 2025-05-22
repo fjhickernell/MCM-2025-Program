@@ -1,0 +1,114 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {An Empirical Evaluation of Robust Estimators for RQMC}%
+% {Cost-Free improvements to the median estimator for Random-parameter QMC}% [1] talk title
+  {Gregory Seljak}% [2] speaker name
+  {Universit\'e de Montr\'eal}% [3] affiliations
+  {gregory.de.salaberry.seljak@umontreal.ca}% [4] email
+  {Pierre L'Ecuyer, Christiane Lemieux}% [5] coauthors
+  {Computational Methods for Low-discrepancy Sampling and Applications}% [6] special session. 
+
+\medskip
+
+Randomized quasi-Monte Carlo (RQMC) traditionally takes a low-discrepancy (QMC) point set,
+makes $r$ independent randomizations of it to obtain $r$ replicates of an unbiased RQMC estimator, 
+then computes the average and variance of these $r$ estimates to obtain a final estimate 
+and perhaps a confidence interval [4]. 
+Some methods construct the points by optimizing refined figures-of-merit adapted to the considered integrand
+and apply minimal randomization such as a random (digital) shift.  Other methods randomize
+the parameters of the QMC point sets more extensively (e.g., the generating vectors or matrices).
+The second kind of method is easier to apply because it requires much less knowledge of the integrand,
+but bad parameter values may be drawn once in a while, leading to (rare) RQMC replicates having 
+a large conditional variance that produce bad outliers.
+To reduce the impact of such outliers, one approach studied recently is to use the median 
+of the $r$ replicates instead of the mean as a final estimator [2, 3, 5, 6].
+Other types of robust estimators could also be used in place of the median [1].
+In this talk, we report extensive experiments that compare the mean square errors 
+and convergence of various estimators (the mean, the median, and other robust estimators) 
+defined in terms of $r$ RQMC replicates.
+We also discuss the computation of confidence intervals for the mean when using such estimators.
+
+{\list{[\arabic{enumi}]}{\settowidth\labelwidth{[5]}\leftmargin\labelwidth
+  \advance\leftmargin\labelsep\usecounter{enumi}}
+%
+\item
+E.~Gobet, M.~Lerasle, and D.~M{\'e}tivier.
+Accelerated convergence of error quantiles using robust randomized
+  quasi {Monte Carlo} methods.
+\url{https://hal.science/hal-03631879}, 2024.
+
+\item
+T.~Goda and P.~L'Ecuyer.
+Construction-free median quasi-{Monte Carlo} rules for function
+  spaces with unspecified smoothness and general weights.
+{\em {SIAM} Journal on Scientific Computing}, 44(4):A2765--A2788, 2022.
+
+\item
+T.~Goda, K.~Suzuki, and M.~Matsumoto.
+A universal median quasi-{Monte Carlo} integration.
+{\em {SIAM} Journal on Numerical Analysis}, 62(1):533--566, 2024.
+
+\item
+P.~L'Ecuyer, M.~Nakayama, A.~B. Owen, and B.~Tuffin.
+Confidence intervals for randomized quasi-{Monte Carlo} estimators.
+In {\em Proceedings of the 2023 Winter Simulation Conference}, pages
+  445--456. IEEE Press, 2023.
+
+\item
+Z.~Pan and A.~B. Owen.
+Super-polynomial accuracy of one dimensional randomized nets using
+  the median of means.
+{\em Mathematics of Computation}, 92(340):805--837, 2023.
+
+\item
+Z.~Pan and A.~B. Owen.
+Super-polynomial accuracy of multidimensional randomized nets using
+  the median of means.
+{\em Mathematics of Computation}, 93(349):2265--2289, 2024.
+
+}
+\end{talk}
+
+\end{document}
