@@ -33,6 +33,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
 	- Added Jing Dong's session to the Google Sheet manually.
 	- Jing Dong's session is missing the abstract .tex source, waiting for Chang-Hang — DONE
 	- Added two of Sou-Cheng Choi's Part II sessions
+	- **NOTE**: S9, S13, S27, S19, S20 has only 3 speakers in each session.
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
 	- Some values are empty in the last column, `Special Session Title`. Zexin's SS title was filled in manually by Fred. SC added the values for Chih-Li,Sung and Mao,Cai. Mao has a duplicate talk.  It is deduplicated programmatically. 
 	-  Some special sessions has only two speakers who have sent abstracts:  — <mark>Fred and Mikhail will send them reminders </mark>
@@ -40,7 +41,7 @@ Permissions for the above files have been changed to _Anyone with the link can v
       	* Recent Progress on Algorithmic Discrepancy Theory and Applications
       	* Recent Advances in Stochastic Gradient Descent 
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
-	- Some talks are not assigned to a Technical Session in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  `//` — <mark>Fred has asked Mikhail to handle these and also fill in column `Paid`</mark>
+	- Some talks are not assigned to a Technical Session in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  `//` — <mark>Fred has asked Mikhail to handle these and also fill in column `Paid`</mark>. **NOTE**: T1, T8, and T9 has only 3 speakers in each session.
 	- SC programmatically filtered out rows with `Acceptance` == `Yes`.
   
 ### Missing Output Data

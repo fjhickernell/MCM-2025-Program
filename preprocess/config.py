@@ -10,6 +10,11 @@ no_special_sessions = 29
 no_technical_sessions = 16
 no_sessions = no_plenary_sessions + no_special_sessions + no_technical_sessions
 
+min_talks = no_plenary_sessions+ no_special_sessions*3 + no_technical_sessions*3
+max_talks = no_plenary_sessions+ no_special_sessions*4 + no_technical_sessions*4
+max_organizers = no_special_sessions
+max_organizers = no_special_sessions * 3
+
 # dictionary describing all Google Sheets and their columns to be selected
 gsheets = {
     "schedule": {

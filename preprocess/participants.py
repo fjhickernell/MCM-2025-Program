@@ -5,6 +5,14 @@ from config import *
 from util import * 
 import re
 
+def print_wrong_group_counts(df, groupby="SessionID", title="Special Organizers", min_count=4, max_count=4):
+    # Count organizers by SessionID
+    counts = df.groupby(groupby).size().reset_index(name=title).sort_values(by=title, ascending=True).reset_index(drop=True)
+    
+    # Filter and print rows where the count is not equal to 4
+    filtered_counts = counts[(counts[title] > max_count) | (counts[title] < min_count)]
+    if filtered_counts.shape[0]>0:
+        print(filtered_counts)
 
 def clean_name(name):
     # Make sure first letter of FirstName and LastName is capital letter. 
@@ -235,8 +243,15 @@ def extract_special_session_participants(df, dfs):
     # make presenter_df
     presenter_df = pd.DataFrame(presenter_participants)
 
-    # append presenter_df to org_df
-    participants = pd.concat([pd.DataFrame(org_participants), presenter_df], ignore_index=True)
+    # Count presenters by SessionID
+    print_wrong_group_counts(presenter_df, groupby="SessionID", title='Special Presenters')
+
+    # append presenter_df to organizers_df
+    organizers_df = pd.DataFrame(org_participants)
+    participants = pd.concat([organizers_df, presenter_df], ignore_index=True)
+
+    # Count organizers by SessionID
+    print_wrong_group_counts(organizers_df, groupby="SessionID", title='Special Organizers', min_count=1, max_count=3)
 
     return participants.to_dict('records')
 
@@ -257,6 +272,12 @@ def extract_contributed_talk_participants(df):
                 "PageNumber": "",
                 "Organization": row.get("Institution of presenter", "")
             })
+
+    # make participants_df
+    participants_df = pd.DataFrame(participants)
+
+    # Count presenters and organizers by SessionID
+    print_wrong_group_counts(participants_df, groupby="SessionID", title='Contributed Presenters')
                 
     return participants
 
@@ -355,4 +376,3 @@ if __name__ == "__main__":
     output_file = os.path.join(outdir, "Participants.csv")
     participants_df.to_csv(output_file, index=False, quoting=csv.QUOTE_NONNUMERIC)
     print("Output:", output_file)
-

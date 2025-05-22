@@ -79,12 +79,16 @@ def process_contributed_talks(df):
     """Process contributed talk submissions data."""
     df = df.copy()
     
+    presenter_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
+    print("\nWARN: Contributed talks that are not accepted:")
+    not_accepted = df.loc[df["Acceptance"].str.lower() != "yes", [*presenter_cols, "Acceptance"]]
+    if not_accepted.shape[0]>0: print(not_accepted)
+    
     # Filter by acceptance status
     df = df[df["Acceptance"] == "Yes"]
     df["IsSpecialSession"] = 0
-    
+
     # Handle duplicates
-    presenter_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
     dupes = df[df.duplicated(subset=presenter_cols, keep=False)]
     
     if not dupes.empty:  
