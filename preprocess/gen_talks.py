@@ -138,7 +138,7 @@ def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Ta
     header = f"\\chapter{{{chapter}}}\n\\newpage\n\n"
     body = "\n".join(blocks)
     # remove a trailing “\clearpage” (plus any blank lines after it)
-    body = re.sub(r"\\clearpage\s*\\?$", "", body, flags=re.MULTILINE)
+    #body = re.sub(r"\\clearpage\s*\\?$", "", body, flags=re.MULTILINE)
 
     # Now open-and-write *everything* inside the with-block
     with open(output_path, 'w', encoding='utf-8') as out:
