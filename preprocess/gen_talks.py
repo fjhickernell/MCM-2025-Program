@@ -46,7 +46,7 @@ def format_full_id(id_val: str, prefix: str) -> str:
     """
     return f"{prefix}{id_val}" if prefix and not id_val.startswith(prefix) else id_val
 
-def process_talk(id_val: str, prefix: str, tex_dir: str) -> str | None:
+def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str) -> str | None:
     """
     Extracts and normalizes a talk environment from a .tex file.
     Ensures exactly 9 argument slots, fills missing with "",
@@ -99,6 +99,7 @@ def process_talk(id_val: str, prefix: str, tex_dir: str) -> str | None:
         args[idx] = val.strip()
 
     # Override specific slots
+    args[7] = session_time
     args[8] = full_id       # talk id
     args[9] = 'photo'       # always use "photo" for field 9
 
@@ -134,11 +135,16 @@ def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Ta
     """
     Writes header and talk blocks to the output .tex file.
     """
+    header = f"\\chapter{{{chapter}}}\n\\newpage\n\n"
+    body = "\n".join(blocks)
+    # remove a trailing “\clearpage” (plus any blank lines after it)
+    body = re.sub(r"\\clearpage\s*\\?$", "", body, flags=re.MULTILINE)
+
+    # Now open-and-write *everything* inside the with-block
     with open(output_path, 'w', encoding='utf-8') as out:
-        out.write(f"\\chapter{{{chapter}}}\n\\newpage\n\n")
-        for block in blocks:
-            out.write(block)
-            out.write("\n\n")
+        out.write(header)
+        out.write(body)
+
     print(f"Output: {output_path}")
 
 
@@ -148,27 +154,42 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
                        strict: bool = False,
                        prefix: str = ""):
     """
-    Main entry: loads IDs, sorts them, processes each talk, and writes output.
+    Main entry: load IDs, sort them, process each talk, and write output.
     """
+    # Read full table so we can build an ID → SessionTime lookup
+    df = pd.read_csv(csv_path, dtype=str)
+    id_col = "TalkID" if "TalkID" in df.columns else "SessionID"
+    time_map = dict(
+        zip(
+            df[id_col].astype(str).str.strip(),
+            df.get("SessionTime", pd.Series()).fillna("").astype(str)
+        )
+    )
+
+    # Load and sort IDs 
     ids = load_ids(csv_path)
     sorted_ids = sort_ids(ids)
 
     blocks = []
     missing = []
+
     for id_val in sorted_ids:
-        block = process_talk(id_val, prefix, tex_dir)
+        session_time = time_map.get(id_val, "")
+        block = process_talk(id_val, prefix, tex_dir, session_time)
         if block is None:
             missing.append(format_full_id(id_val, prefix))
         else:
             blocks.append(block)
 
-    if missing:
-        msg = f"No talk or session environment found in .tex files:  {', '.join(missing)}"
-        if strict:
-            raise FileNotFoundError(msg)
-        print(f"ERROR: {msg}")
+    # If strict mode, error out on any missing talks
+    if strict and missing:
+        raise RuntimeError(f"Missing talks for IDs: {', '.join(missing)}")
 
     write_output(blocks, output_path)
+
+    # Warn if any were missing
+    if missing:
+        print(f"WARN: Missing talks for IDs: {missing}")
 
 
 if __name__ == '__main__':
