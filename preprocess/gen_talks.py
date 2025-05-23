@@ -46,7 +46,7 @@ def format_full_id(id_val: str, prefix: str) -> str:
     """
     return f"{prefix}{id_val}" if prefix and not id_val.startswith(prefix) else id_val
 
-def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str) -> str | None:
+def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, session_id:str) -> str | None:
     """
     Extracts and normalizes a talk environment from a .tex file.
     Ensures exactly 9 argument slots, fills missing with "",
@@ -102,7 +102,7 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str) -> st
     # Override specific slots
     args[7] = session_time
     args[8] = full_id       # talk id
-    args[9] = 'photo'       # always use "photo" for field 9
+    args[9] = 'photo' if prefix=="P" else session_id  
 
     # Build normalized talk block with descriptions
     descriptions = {
@@ -116,6 +116,7 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str) -> st
         8: 'talk id',
         9: 'session id or photo',
     }
+
     lines = ['\\begin{talk}']
     for i in range(1, 10):
         lines.append(f"  {{{args[i]}}}% [{i}] {descriptions[i]}")
@@ -167,7 +168,13 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
     time_map = dict(
         zip(
             df[id_col].astype(str).str.strip(),
-            df.get("SessionTime", pd.Series()).fillna("").astype(str)
+            df.get("SessionTime", pd.Series()).fillna("").astype(str),
+        )
+    )
+    id_map = dict(
+        zip(
+            df[id_col].astype(str).str.strip(),
+            df.get("SessionID", pd.Series()).fillna("").astype(str),
         )
     )
 
@@ -180,7 +187,8 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
 
     for id_val in sorted_ids:
         session_time = time_map.get(id_val, "")
-        block = process_talk(id_val, prefix, tex_dir, session_time)
+        session_id = id_map.get(id_val, "")
+        block = process_talk(id_val, prefix, tex_dir, session_time, session_id)
         if block is None:
             missing.append(format_full_id(id_val, prefix))
         else:
@@ -190,7 +198,8 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
     if strict and missing:
         raise RuntimeError(f"Missing talks for IDs: {', '.join(missing)}")
 
-    write_output(blocks, output_path)
+    chapter =  "Plenary Talks" if prefix=="P" else "Contributed Talks" if prefix=="T" else "Special Session Talks"
+    write_output(blocks, output_path, chapter)
 
     # Warn if any were missing
     if missing:
@@ -205,7 +214,7 @@ if __name__ == '__main__':
         'contributed_talk_submissions': 'T'
     }
 
-    for key in ["plenary_abstracts"]: # "special_session_submissions", "contributed_talk_submissions", "special_session_abstracts",
+    for key in ["contributed_talk_submissions", ]: # "plenary_abstracts", "special_session_submissions", "contributed_talk_submissions", "special_session_abstracts",
         if key in prefix_map:
             csv_path = os.path.join(interimdir, f"{key}_talkid.csv")
             tex_dir = os.path.join(indir, 'abstracts')
