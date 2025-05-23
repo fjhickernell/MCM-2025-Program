@@ -11,8 +11,83 @@ def extract_talk_environment(tex_content: str) -> str:
     pattern = re.compile(r"\\begin\{talk\}.*?\\end\{talk\}", re.DOTALL)
     match = pattern.search(tex_content)
     if not match:
-        raise ValueError("ERROR: No talk environment found in content.")
+        raise ValueError("No talk environment found")
     return match.group(0)
+
+
+def load_ids(csv_path: str) -> list[str]:
+    """
+    Reads CSV and returns a cleaned list of IDs from TalkID or SessionID column.
+    """
+    df = pd.read_csv(csv_path, dtype=str)
+    for col in ('TalkID', 'SessionID'):
+        if col in df.columns:
+            series = df[col].dropna().astype(str).str.strip()
+            return [val for val in series if val and val.lower() != 'nan']
+    raise KeyError("CSV must contain 'TalkID' or 'SessionID'.")
+
+
+def sort_ids(ids: list[str]) -> list[str]:
+    """
+    Performs a natural sort on IDs, handling numeric and hyphen components.
+    """
+    try:
+        return sorted(
+            ids,
+            key=lambda s: [int(tok) if tok.isdigit() else tok for tok in re.split(r'(\d+)', s)]
+        )
+    except Exception:
+        return ids
+
+
+def format_full_id(id_val: str, prefix: str) -> str:
+    """
+    Prepends prefix to id_val if not already present.
+    """
+    return f"{prefix}{id_val}" if prefix and not id_val.startswith(prefix) else id_val
+
+
+def process_talk(id_val: str, prefix: str, tex_dir: str) -> str | None:
+    """
+    Extracts and updates a single talk environment for a given ID.
+    Returns the processed talk block or None if missing/error.
+    """
+    full_id = format_full_id(id_val, prefix)
+    tex_path = os.path.join(tex_dir, f"{full_id}.tex")
+    if not os.path.isfile(tex_path):
+        print(f"WARN: File not found: {tex_path}")
+        return None
+
+    # Read file with fallback encoding
+    try:
+        content = open(tex_path, 'r', encoding='utf-8').read()
+    except UnicodeDecodeError:
+        content = open(tex_path, 'r', encoding='latin-1').read()
+
+    try:
+        block = extract_talk_environment(content)
+    except ValueError as e:
+        #print(f"WARN: {e} in {tex_path}")
+        return None
+
+    # Replace placeholders
+    for placeholder in ('[6]', '[8]'):
+        pattern = r"\{\}\s*%\s*" + re.escape(placeholder)
+        replacement = f"{{{full_id}}}% {placeholder}"
+        block = re.sub(pattern, replacement, block)
+    return block
+
+
+def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Talks') -> None:
+    """
+    Writes header and talk blocks to the output .tex file.
+    """
+    with open(output_path, 'w', encoding='utf-8') as out:
+        out.write(f"\\chapter{{{chapter}}}\n\\newpage\n\n")
+        for block in blocks:
+            out.write(block)
+            out.write("\n\n")
+    print(f"Output: {output_path}")
 
 
 def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
@@ -21,76 +96,27 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
                        strict: bool = False,
                        prefix: str = ""):
     """
-    Reads a CSV with either 'TalkID' or 'SessionID', extracts each \begin{talk}...
-    \end{talk} from corresponding .tex files, and writes them sorted into one .tex.
-
-    Placeholders {}% [8] and {}% [6] are replaced by the full ID (prefix+ID).
-
-    Parameters:
-    - csv_path: CSV listing ID values.
-    - tex_dir: Directory containing the .tex files named by prefix+ID.
-    - output_path: Path for the generated .tex file.
-    - strict: If True, abort on missing files; otherwise log and continue.
-    - prefix: Letter prefix for filenames (e.g., 'P', 'S', 'T').
+    Main entry: loads IDs, sorts them, processes each talk, and writes output.
     """
-    df = pd.read_csv(csv_path, dtype=str)
-    # pick ID column
-    if 'TalkID' in df.columns:
-        id_col = 'TalkID'
-    elif 'SessionID' in df.columns:
-        id_col = 'SessionID'
-    else:
-        raise KeyError("CSV must contain 'TalkID' or 'SessionID'.")
+    ids = load_ids(csv_path)
+    sorted_ids = sort_ids(ids)
 
-    # raw IDs (without prefix)
-    raw_series = df[id_col].dropna().astype(str).str.strip()
-    raw_ids = [rid for rid in raw_series if rid and rid.lower() != 'nan']
-    # natural sort (handles hyphens)
-    try:
-        sorted_ids = sorted(
-            raw_ids,
-            key=lambda s: [int(tok) if tok.isdigit() else tok for tok in re.split(r'(\d+)', s)]
-        )
-    except Exception:
-        sorted_ids = raw_ids[:]
-    #print(f"{sorted_ids = }")
+    blocks = []
+    missing = []
+    for id_val in sorted_ids:
+        block = process_talk(id_val, prefix, tex_dir)
+        if block is None:
+            missing.append(format_full_id(id_val, prefix))
+        else:
+            blocks.append(block)
 
-    with open(output_path, 'w', encoding='utf-8') as out_file:
-        out_file.write("\\chapter{Plenary Talks}\n")
-        out_file.write("\\newpage\n\n")
-        missing = []
+    if missing:
+        msg = f"No talk or session environment found in .tex files:  {', '.join(missing)}"
+        if strict:
+            raise FileNotFoundError(msg)
+        print(f"ERROR: {msg}")
 
-        for id_val in sorted_ids:
-            if prefix and not id_val.startswith(prefix):
-                full_id = f"{prefix}{id_val}"
-            else:
-                full_id = id_val
-            tex_file = os.path.join(tex_dir, f"{full_id}.tex")
-            if not os.path.isfile(tex_file):
-                msg = f"File not found: {tex_file}"
-                if strict:
-                    raise FileNotFoundError(msg)
-                print(f"WARN: {msg}; skipping.")
-                missing.append(full_id)
-                continue
-
-            content = open(tex_file, 'r', encoding='latin-1').read()
-            try:
-                talk_env = extract_talk_environment(content)
-            except ValueError as e:
-                print(f"Error in {tex_file}: {e}")
-                continue
-
-            # replace placeholders with full_id
-            talk_env = re.sub(r"\{\}\s*%\s*\[8\]", f"{{{full_id}}}% [8]", talk_env)
-            talk_env = re.sub(r"\{\}\s*%\s*\[6\]", f"{{{full_id}}}% [6]", talk_env)
-
-            out_file.write(talk_env)
-            out_file.write("\n\n")
-
-        if missing:
-            print(f"Warning: Missing talks for IDs: {', '.join(missing)}.")
-        print(f"Output: {output_path}")
+    write_output(blocks, output_path)
 
 
 if __name__ == '__main__':
@@ -101,7 +127,7 @@ if __name__ == '__main__':
         'contributed_talk_submissions': 'T'
     }
 
-    for key in ["contributed_talk_submissions", "special_session_abstracts", "plenary_abstracts"]:
+    for key in ["contributed_talk_submissions", "special_session_abstracts", "plenary_abstracts"]: # "special_session_submissions", 
         if key in prefix_map:
             csv_path = os.path.join(interimdir, f"{key}_talkid.csv")
             tex_dir = os.path.join(indir, 'abstracts')
@@ -115,4 +141,4 @@ if __name__ == '__main__':
             )
     
     
-        #  ["special_session_submissions"]:
+   
