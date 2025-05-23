@@ -32,8 +32,8 @@ pp: clean_pp
 	echo "\n--- Running preprocess/schedule_1sheet.py" && python preprocess/schedule_1sheet.py && \
 	echo "\n--- Running preprocess/session_list.py" && python preprocess/session_list.py && \
 	echo "\n--- Running preprocess/participants.py" && python preprocess/participants.py && \
-	echo "\n--- Running preprocess/download_abstracts.py" && python preprocess/download_abstracts.py
-	
+	echo "\n--- Running preprocess/download_abstracts.py" && python preprocess/download_abstracts.py && \
+	echo "\n--- Running preprocess/gen_talks.py" && python preprocess/gen_talks.py
 
 tex: cleanpy
 	@echo "*** Compiling Python files in README_and_Scripts directory..."

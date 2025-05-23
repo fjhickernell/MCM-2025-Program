@@ -1,0 +1,1758 @@
+\chapter{Plenary Talks}
+\newpage
+
+\begin{talk}
+  {A strong order $1.5$ boundary preserving discretization scheme for scalar SDEs defined in a domain}% [1] talk title
+  {Andreas Neuenkirch}% [2] speaker name
+  {University of Mannheim}% [3] affiliations
+  {neuenkirch@uni-mannheim.de}% [4] email
+  {Ruishu Liu, Xiaojie Wang}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We study the strong approximation of scalar SDEs, which take values in a domain and have non-Lipschitz coefficients.
+By combining a Lamperti-type transformation with a semi-implicit discretization approach and a taming 
+strategy,  we construct a domain-preserving scheme that strongly converges under weak assumptions. 
+Moreover,
+we show that this scheme has strong convergence order $1.5$ under additional assumptions on the coefficients of the SDE. In our scheme, the domain preservation is a consequence of the semi-implicit discretization approach, while the taming strategy allows controlling terms of the scheme that admit singularities but are required to obtain the desired order.
+
+Our general convergence results  are  applied to various SDEs from applications, with sub-linearly or super-linearly growing and non-globally Lipschitz coefficients.
+
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}]  Ruishu Liu, Andreas Neuenkirch and Xiaojie Wang (2024+). A strong order $1.5$
+	boundary preserving discretization scheme for scalar SDEs defined in a domain. {\it Mathematics of Computation.} doi:10.1090/mcom/4014 (to appear, online first)
+\end{enumerate}
+.
+\end{talk}
+
+\begin{talk}
+  {An adaptive Milstein-type method for strong approximation of systems of SDEs
+  	with a discontinuous drift coefficient}% [1] talk title
+  {Christopher Rauh\"ogger}% [2] speaker name
+  {University of Passau}% [3] affiliations
+  {christopher.rauhoegger@uni-passau.de}% [4] email
+  {}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We consider $d$-dimensional systems of SDEs with a discontinuous drift coefficient. More precisely,
+we assume that there exists a $C^{5}$-hypersurface
+$\Theta\subseteq \mathbb{R}^{d}$ such that the drift coefficient is intrinsic Lipschitz continuous on $\mathbb{R}^{d}\setminus \Theta$ and has intrinsic Lipschitz continuous derivative on $\mathbb{R}^{d}\setminus \Theta$.
+Furthermore, the diffusion coefficient is $C^{1}$ on $\mathbb{R}^{d}$ and commutative with a bounded derivative that is intrinsic Lipschitz continuous on $\mathbb{R}^{d}\setminus \Theta$.
+
+It was proven in [1] for $d = 1$ and more recently in [2] for general $d \in \mathbb{N}$ that in this setting a transformed Milstein scheme achieves an $L_{p}$-error rate of order at least $3/4-$ in terms of the number of evaluations of the
+driving Brownian motion.
+Furthermore it was proven in [3] that for $d = 1$ in the same setting an adaptive Milstein-type scheme achieves an $L_{p}$-error rate of order at least $1$ in terms of the average number of evaluations of the driving Brownian motion. 
+
+In this talk we present a generalisation of the result from [3] to higher dimensions. More precisely, we introduce an adaptive transformed Milstein scheme which can be used for the approximation of solutions of $d$-dimensional systems of SDEs at the final time point in this setting and
+prove that this scheme achieves an $L_{p}$-error rate of order at least $1$ in terms of the average number of evaluations of the
+driving Brownian motion.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] M\"{u}ller-Gronbach, Thomas \& Yaroslavtseva, Larisa. (2022). {\it A strong order 3/4 method for {SDE}s with discontinuous drift
+		coefficient}. IMA Journal of Numerical Analysis. 42. 229-259
+	\item[{[2]}] Rauh\"ogger, Christopher. (2025+). {\it Milstein-type methods for strong approximation of systems of SDEs with a discontinuous drift coefficient}. In preparation
+	\item[{[3]}] Yaroslavtseva, Larisa. (2022). {\it An adaptive strong order 1 method for {SDE}s with
+		discontinuous drift coefficient}. Journal of Mathematical Analysis and Applications. 513. 2. Paper Number 126180, 29
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Stong order 1 adaptive approximation of jump-diffusion SDEs with discontinuous drift}% [1] talk title
+  {Verena Schwarz}% [2] speaker name
+  {University of Klagenfurt}% [3] affiliations
+  {verena.schwarz@aau.at}% [4] email
+  {}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+In this talk we present an adaptive approximation scheme for jump-diffusion SDEs with discontinuous drift and (possibly) degenerate diffusion. The scheme is a transformation-based doubly-adaptive quasi-Milstein scheme, which 
+is doubly-adaptive in the sense that it is jump-adapted, i.e.~all jump times of the Poisson noise are grid points, and it includes an adaptive stepsize strategy to account for the discontinuities of the drift. It is proven to have strong convergence rate $1$ in $L^p$ for $p\in[1,\infty)$ with respect to the average computational cost for these SDEs. 
+To obtain our result, we prove that under slightly stronger assumptions which are still weaker than those in existing literature, a related doubly-adaptive quasi-Milstein scheme has convergence order $1$. 
+\end{talk}
+
+\begin{talk}
+  {Domain UQ for stationary and time-dependent PDEs using
+QMC}% [1] talk title
+  {AndrÃ©-Alexander Zepernick}% [2] speaker name
+  {Free University of Berlin}% [3] affiliations
+  {a.zepernick@fu-berlin.de}% [4] email
+  {Ana Djurdjevac, Vesa Kaarnioja, Claudia Schillings}% [5] coauthors
+  {Domain Uncertainty Quantification}% [6] special session
+
+The problem of modelling processes with partial differential equations posed on random domains arises in various applications like biology or engineering. We study uncertainty quantification for partial differential equations subject to domain uncertainty. For the random domain parameterization, we adopt an approach, which was also examined by Chernov and L\^{e} [1,2] as well as Harbrecht, Schmidlin, and Schwab [3], where one assumes the input random field to be Gevrey regular. This approach has the advantage of being substantially more general than models which assume a particular parametric representation of the input random field such as a Karhunen--Lo\`eve series expansion. As model problems we consider both the Poisson equation as well as the heat equation and design randomly shifted lattice quasi-Monte Carlo (QMC) cubature rules for the computation of response statistics subject to domain uncertainty. The QMC rules obtained in [4] exhibit dimension-independent, faster-than-Monte Carlo cubature convergence rates. Our theoretical results are illustrated by numerical examples.
+\begin{enumerate}
+    \item[{[1]}] Chernov, Alexey, \& L\^{e}, TÃ¹ng (2024). Analytic and Gevrey class regularity for parametric elliptic eigenvalue problems and applications. \emph{SIAM Journal on Numerical Analysis}, \textbf{62}(4), 1874--1900.
+    \item[{[2]}] Chernov, A., \& L\^{e}, TÃ¹ng (2024). Analytic and Gevrey class regularity for parametric semilinear reaction-diffusion problems and applications in uncertainty quantification. \emph{Computers \& Mathematics with Applications}, \textbf{164}, 116--130.
+    \item[{[3]}] Harbrecht, Helmut, Schmidlin, Marc, \& Schwab, Christoph (2024). The Gevrey class implicit mapping theorem with application to UQ of semilinear elliptic PDEs. \emph{Mathematical Models and Methods in Applied Sciences.}, \textbf{34}(5), 881--917.
+    \item[{[4]}] Djurdjevac, Ana, Kaarnioja, Vesa, Schillings, Claudia \& Zepernick, AndrÃ©-Alexander (2025). Uncertainty quantification for stationary and time-dependent PDEs subject to Gevrey regular random domain deformations. Preprint, \emph{arXiv:2502.12345 [math.NA]}.
+\end{enumerate}
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Domain Uncertainty Quantification for Electromagnetic Wave Scattering via First-Order Sparse Boundary Element Approximation}% [1] talk title
+  {Carlos Jerez-Hanckes}% [2] speaker name
+  {INRIA Chile}% [3] affiliations
+  {carlos.jerez@inria.cl}% [4] email
+  {Paul Escapil-Inchausp\'e}% [5] coauthors
+  {Domain uncertainty quantification}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Quantifying the effects on electromagnetic waves scattered by objects of uncertain shape is key for robust design, particularly in high-precision applications. Assuming small random perturbations departing from a nominal domain, the first-order sparse boundary (FOSB) element method has been proven to directly compute statistical moments with poly-logarithmic complexity [1,2] for a prescribed accuracy, without resorting to computationally intense Monte Carlo (MC) simulations. However, implementing FOSB is not straightforward as the lack of compelling computational results for EM scattering attests [3]. In this work, we present a first full 3D implementation of FOSB for shape-related uncertainty quantification (UQ) in EM scattering [4]. In doing so, we address several implementation issues such as ill-conditioning and large computational and memory requirements and present a comprehensive, state-of-the-art, easy-to-use, open-source computational framework to directly apply this technique when dealing with complex objects. Exhaustive numerical experiments confirm our claims and demonstrate the technique's applicability and provide pathways for further improvement.
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+\begin{enumerate}
+	\item[{[1]}] Jerez-Hanckes, Schwab (2017). {\it Electromagnetic Wave Scattering by Random Surfaces: Uncertainty Quantification via Sparse Tensor Boundary Elements}, IMA Journal of Numerical Analysis {\bf 37}(3), 1175--1210.
+	\item[{[2]}] Hiptmair, Jerez-Hanckes, Schwab (2013). {\it Sparse Tensor Edge Elements}, BIT Numerical Mathematics {\bf 53}, 925--943.
+	\item[{[3]}] Escapil-Inchausp\'e, Jerez-Hanckes (2020). {\it Helmholtz Scattering by Random Domains: First-Order Sparse Boundary Elements Approximation}, SIAM Journal of Scientific Computing {\bf 42}(5), A2561--A2592.
+	\item[{[4]}] Escapil-Inchausp\'e, Jerez-Hanckes (2024). {\it Shape Uncertainty Quantification for Electromagnetic Wave Scattering via First-Order Sparse Boundary Element Approximation}, IEEE Transactions in Antennas \& Propagation {\bf 72}(8):6627--6637.
+\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Model Problems for PDEs on Uncertain Domains}% [1] talk title
+  {Harri Hakula}% [2] speaker name
+  {Aalto University}% [3] affiliations
+  {Harri.Hakula@aalto.fi}% [4] email
+  {}% [5] coauthors
+  {Domain Uncertainty Quantification}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+%Your abstract goes here. Please do not use your own commands or macros.
+Partial differential equation related uncertainty quantification has become one of the
+topical research areas in applied mathematics and, in particular, engineering.
+Stochastic finite element methods are applied both in source and eigenvalue problems.
+Remarkably, computational function theory provides a rich set of invariants 
+and identities that
+can be applied in designing model problems where the domain is random or uncertain. 
+In this talk the focus is on conformal capacity in a simple, 
+yet general case where the sides of a quadrilateral are assumed be random 
+and parameterised with a suitable Karhunen-LoÃ¨ve expansion [1].
+Lattice quasi-Monte Carlo (QMC) cubature rules are used for computing the expected value of the solution to the resulting Poisson problem subject to domain uncertainty. 
+
+High-order finite element methods ($hp$-FEM) are used in the deterministic problems.
+The special features related to modelling random domains in $hp$-context are discussed.
+Convergence properties of the lattice QMC quadratures are presented. The talk
+concentrates on numerical experiments demonstrating the theoretical error estimates.
+The new results on the associated Steklov eigenvalue problem are also covered.
+
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Hakula, H., Harbrecht, H., Kaarnioja, V., Kuo, F. Y., \& Sloan, I. H. (2024). Uncertainty quantification for random domains using periodic random variables. Numerische Mathematik, 156(2), 273â317. https://doi.org/10.1007/s00211-023-01392-6
+\end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {QMC for Bayesian optimal experimental design with application to inverse problems governed by PDEs}% [1] talk title
+  {Vesa Kaarnioja}% [2] speaker name
+  {Free University of Berlin}% [3] affiliations
+  {vesa.kaarnioja@fu-berlin.de}% [4] email
+  {Claudia Schillings}% [5] coauthors
+  {Nested expectations: models and estimators, Part I}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+The goal in Bayesian optimal experimental design (OED) is to maximize the expected information gain for the reconstruction of unknown quantities in an experiment by optimizing the placement of measurements. The objective function in the resulting optimization problem involves a multivariate double integral over the high-dimensional parameter and data domains. For the efficient approximation of these integrals, we consider a sparse tensor product combination of quasi-Monte Carlo (QMC) cubature rules over the parameter and data domains. For the parameterization of the unknown quantitites, we consider a model recently studied by Chernov and L\^{e} [1,2] as well as Harbrecht, Schmidlin, and Schwab [3] in which the input random field is assumed to belong to a Gevrey class. The Gevrey class contains functions that are infinitely many times continuously differentiable with a growth condition on the higher-order partial derivatives, but which are not analytic in general. Using the techniques developed in [4], we investigate efficient Bayesian OED for inverse problems governed by partial differential equations (PDEs).
+\begin{enumerate}
+	\item[{[1]}] Chernov, Alexey, \& L\^{e}, T\`{u}ng (2024). Analytic and Gevrey class regularity for parametric elliptic eigenvalue problems and applications. \emph{SIAM Journal on Numerical Analysis}, \textbf{62}(4), 1874--1900.
+	\item[{[2]}] Chernov, Alexey, \& L\^{e}, T\`{u}ng (2024). Analytic and Gevrey class regularity for parametric semilinear reaction-diffusion problems and applications in uncertainty quantification. \emph{Computers \& Mathematics with Applications}, \textbf{164}, 116--130.
+	\item[{[3]}] Harbrecht, Helmut, Schmidlin, Marc, \& Schwab, Christoph (2024). The Gevrey class implicit mapping theorem with applications to UQ of semilinear elliptic PDEs. \emph{Mathematical Models and Methods in Applied Sciences}, \textbf{34}(5), 881--917.
+	\item[{[4]}] Kaarnioja, Vesa, \& Schillings, Claudia (2024). Quasi-Monte Carlo for Bayesian design of experiment problems governed by parametric PDEs. Preprint, \emph{arXiv:2405.03529 [math.NA]}.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Double-loop randomized quasi-Monte Carlo estimator for nested integration}% [1] talk title
+  {Sebastian Krumscheid}% [2] speaker name
+  {Karlsruhe Institute of Technology}% [3] affiliations
+  {sebastian.krumscheid@kit.edu}% [4] email
+  {Arved Bartuska, Andr\'{e} Gustavo Carlon, Luis Espath, Ra\'{u}l Tempone}% [5] coauthors
+  {S3-2}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We present a double-loop randomized quasi-Monte Carlo estimator for nested integrals. This estimator applies the randomized quasi-Monte Carlo (rQMC) method to both integrals in the nested setting. Error bounds are derived for outer integrands displaying singularities at the boundaries of the integration domain, based on Owen's work [1]. Standard error bounds via the Koksma--Hlawaka inequality are rendered ineffective as singularities lead to infinite Hardy--Krause variation. Moreover, finite element discretizations of the inner integrand are discussed, increasing the overall cost of nested integral estimators. 
+
+The effectiveness of the proposed estimator is demonstrated in the Bayesian design setting for the estimation of the expected information gain of an experiment. A truncation scheme of the observation noise present in the experiment model allows for the application of the derived error bounds. Applications from pharmacokinetics and thermomechanics demonstrate the efficiency of the proposed method in high dimensions.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Owen, Art B. (2006). {\it Halton sequences avoid the origin}. SIAM Review, 48:487â503.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {CUDA implementation of MLMC on NVIDIA GPUs}% [1] talk title
+  {Mike Giles}% [2] speaker name
+  {University of Oxford}% [3] affiliations
+  {mike.giles@maths.ox.ac.uk}% [4] email
+  {}% [5] coauthors
+  {Hardware or Software for (Quasi-)Monte Carlo Algorithms}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+This talk will discuss the implementation of Multilevel Monte Carlo
+on NVIDIA GPUs.  It will focus on some of the tricks needed for best
+performance, such as on-the-fly generation of random numbers within
+CUDA kernels, and latency-hiding through GPU computations in antipication
+of requests from the CPU host process which manages the MLMC optimisation.
+It will also discuss the opportunities and challenges in exploiting
+mixed-precision computing, using nested MLMC to perform most calculations
+at half precision (fp16) and just a few at single precision (fp32).
+
+\medskip
+
+\begin{enumerate}
+\item[{[1]}] Giles, M.B. \& Sheridan-Methven, O. (2022)
+  Analysis of nested multilevel Monte Carlo using approximate
+  Normal random variables. {\it SIAM/ASA
+Journal on Uncertainty Quantification}, \textbf{10}(1), 200--226.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Multilevel quasi-Monte Carlo without replications}% [1] talk title
+  {Pieterjan Robbe}% [2] speaker name
+  {Sandia National Laboratories}% [3] affiliations
+  {pmrobbe@sandia.gov}% [4] email
+  {Aleksei Sorokin, Gianluca Geraci, Fred J. Hickernell, Mike Eldred}% [5] coauthors
+  {Hardware or Software for (Quasi-)Monte Carlo Algorithms}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In this talk, we explore a novel approach to multilevel quasi-Monte Carlo (MLQMC) sampling that eliminates the need for stochastic replications. Our approach for estimating the level-wise variances is based on the Bayesian cubature framework introduced in [1]. Empirical results from a series of numerical experiments illustrate the effectiveness of our method in various applications. We discuss the integration of our new method in Dakota, Sandia's flagship UQ software package.
+
+\medskip
+
+\begin{enumerate}
+  \item[{[1]}] Jagadeeswaran, R., \& Hickernell, F.\,J. (2019). Fast automatic Bayesian cubature using lattice sampling. Statistics and Computing, \textbf{29}(6), 1215--1229.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {A nested Multilevel Monte Carlo framework for efficient simulations on FPGAs}% [1] talk title
+  {Irina-Beatrice Haas}% [2] speaker name
+  {Mathematical Institute, University of Oxford}% [3] affiliations
+  {irina-beatrice.haas@maths.ox.ac.uk}% [4] email
+  {Michael B. Giles}% [5] coauthors
+  {Hardware or Software for (Quasi-)Monte Carlo Algorithm}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+Multilevel Monte Carlo (MLMC) is a computational method that reduces the cost of Monte Carlo simulations by combining SDE approximations with multiple resolutions. A further avenue for significantly reducing cost and improving power efficiency of MLMC, notably for financial option pricing, is the use of low precision calculations on configurable hardware devices such as Field-Programmable Gate Arrays (FPGAs). With this goal in mind, in this talk we propose a new MLMC framework that exploits approximate random variables and fixed-point operations with optimised precision to compute most SDE paths with a lower cost.
+
+For the generation of random Normal increments, we discuss several methods based on the approximation of the inverse normal CDF (see e.g. [3]), and we argue that these methods could be implemented on FPGAs using small Look-Up-Tables to generate random numbers more efficiently than on CPUs or GPUs. 
+
+To set the bit-width of variables in the path generation we propose a rounding error model and optimise the precision of all variables on each Monte Carlo level. This optimisation stage is independent of the desired overall accuracy, and can therefore be performed off-line. 
+
+With these two key improvements, our proposed framework [2] offers higher computational
+savings than the existing mixed-precision MLMC framework [1].
+
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+
+\begin{enumerate}
+
+    \item[{[1]}] Brugger, C., de Schryver, C., Wehn, N., Omland, S., Hefter, M., Ritter, K., Kostiuk, A., \& Korn, R. (2014). Mixed precision multilevel Monte Carlo on hybrid computing systems. In Proceedings of the IEEE Conference on Computational Intelligence for Financial Engineering \& Economics (CIFEr) (pp. 215â222). IEEE. \url{https://doi.org/10.1109/CIFEr.2014.6924076}
+    
+    \item[{[2]}] Haas, I. B., \& Giles, M. B. (2025). A nested MLMC framework for efficient simulations on FPGAs. Accepted to appear in Monte Carlo Methods and Applications. arXiv preprint arXiv:2502.07123. \url{https://arxiv.org/abs/2502.07123}
+
+     \item[{[3]}] Giles, M.B., \& Sheridan-Methven, O. (2023). Approximating Inverse Cumulative Distribution Functions to Produce Approximate Random Variables. ACM Transactions on Mathematical Software, 49(3), no 26. \url{https://doi.org/10.1145/3604935}
+\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Scalable and User-friendly QMC Sampling with UMBridge}% [1] talk title
+  {Chung Ming Loi}% [2] speaker name
+  {Durham University}% [3] affiliations
+  {chung.m.loi@durham.ac.uk}% [4] email
+  {Anne Reinarz}% [5] coauthors  Will and James?
+  {Hardware and Software for Quasi-Monte Carlo Methods}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Uncertainty quantification (UQ) plays a crucial role in geoscience: Bayesian inference determines model parameters, such as the permeability and porosity of the sub-surface, that are typically impossible to determine accurately from observations. In practice, it is crucial to study the uncertainty in the inferred parameters to correctly quantify risk and make decisions. Despite its scientific value, performing UQ for an application is often a lengthy process due to a need for interdisciplinary expertise in both UQ and advanced simulation codes. In this talk, we will look at improving the workflow and computational efficiency of quasi-Monte Carlo (i.e., sampling/ensemble based) approaches to UQ applications. We introduce UM-Bridge [2], a universal software interface that facilitates integration of complex simulation models with an entire range of leading UQ packages. By separating concerns between simulation and UQ, UM-Bridge allows rapid development of cutting-edge applications. The newly implemented load balancing framework in UM-Bridge further enables scaling workloads to High Performance Computing clusters.
+
+\begin{enumerate}
+    \item[{[1]}] Graham, I. G., Kuo, F. Y., Nuyens, D., Scheichl, R., and Sloan, I. H. (2011). Quasi-Monte Carlo methods for elliptic PDEs with random coefficients and applications. Journal of Computational Physics, 230(10), 3668-3694.
+    \item[{[2]}]  L. Seelinger, V. Cheng-Seelinger, A. Davis, M. Parno, and A. Reinarz, âUM-Bridge: Uncertainty quantification and modeling bridge,â Journal of Open Source Software, vol. 8, no. 83, p. 4748, 2023. [Online]. Available: https://doi.org/10.21105/joss.04748
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Optimal designs for function discretization and construction of tight frames}% [1] talk title
+  {Kateryna Pozharska}% [2] speaker name
+  {Institute of Mathematics of NAS of Ukraine, Kyiv, Ukraine
+	\\
+	Faculty of Mathematics, Chemnitz University of Technology, Germany	}% [3] affiliations
+  {pozharska.k@gmail.com}% [4] email
+  {Felix Bartel,  Lutz K\"ammerer,  Martin Sch\"afer, Tino Ullrich}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+
+
+\medskip
+
+In the talk we will present a direct and constructive approach approach for the construction of tight frames and exact Marcinkiewicz-Zygmund inequalities in the Lebesque space [1]. 
+It is based on a similar procedure of maximization of the determinant of a certain Gramian matrix with respect to points and weights, already used in [2] for discretization problem for the uniform norm, and results in a discrete measure  with at most $n^2+1$ atoms, which accurately subsamples the $L_2$-norm of complex-valued functions contained in a  given $n$-dimensional subspace.
+
+This approach can as well be used for the reconstruction of functions from general RKHS in $L_p$ where one only has access to the most important eigenfunctions. The general results apply to the $d$-sphere or multivariate trigonometric polynomials on $\mathbb{T}^d$ spectrally supported on arbitrary finite index sets~$I \subset \mathbb{Z}^d$.  Numerical experiments indicate the sharpness of this result.
+
+
+\begin{enumerate}
+	\item[{[1]}]  Bartel, Felix,  \& KÃ¤mmerer, Lutz,  \& Pozharska,  Kateryna, \& SchÃ¤fer, Martin,  \& \newline Ullrich, Tino (2024). {\it Exact discretization, tight frames and recovery via $D$-optimal designs}. arXiv:2412.02489.
+    
+	\item[{[2]}] Krieg, David, \&  Pozharska, Kateryna, \& Ullrich, Mario \&  Ullrich, Tino (2024). \newline  {\it Sampling projections in the uniform norm}. arXiv:2401.02220.
+
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Optimality of deterministic and randomized QMC-cubatures on several scales of function spaces}% [1] talk title
+  {Michael Gnewuch}% [2] speaker name
+  {University of Osnabrueck}% [3] affiliations
+  {mgnewuch@uos.de}% [4] email
+  {Josef Dick, Lev Markhasin, Winfried Sickel, Yannick Meiners}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+			
+We study the integration problem over the s-dimensional unit cube on four scales of Banach spaces of integrands. First we consider Haar wavelet spaces $H_{p, q, \alpha}$, $1\le p, q \le \infty$, $\alpha > 1/p$, consisting of functions whose Haar wavelet coefficients exhibit a certain decay behavior measured by the parameters $p,q$, and, most importantly, $\alpha$.  We study the worst case error of a deterministic cubature rule over the norm unit ball 
+%(i.e., the operator norm of the difference of the integration functional and the cubature rule)
+and provide upper bounds for quasi-Monte Carlo (QMC) cubature rules based on arbitrary $(t,m,s)$-nets as well as matching lower error bounds for arbitrary cubature rules. These results show that using arbitrary $(t,m,s)$-nets as integration nodes yields the best possible rate of convergence. In the Hilbert space setting $p=2 = q$ it was earlier shown by Heinrich, Hickernell and Yue [2]  that scrambled (t,m,s)-nets yield optimal convergence rates in the randomized setting, where the randomized worst case error is considered. 
+
+We establish several suitable function space embeddings that allow to transfer the deterministic and randomized upper error bounds on Haar wavelet spaces
+to certain spaces of fractional smoothness $1/p < \alpha  \le 1$ and to Sobolev and Besov spaces of dominating mixed smoothness $1/p < a \le 1$.
+Known lower bounds for Sobolev and Besov spaces of dominating mixed smoothness show that (deterministic or suitably randomized) $(t,m,s)$-nets yield optimal convergence rates also on the corresponding scales of spaces.			
+
+The talk is based on the preprint [1] and the master thesis of my student Yannick Meiners.
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] M. Gnewuch, J. Dick, L. Markhasin, W. Sickel, QMC integration based on arbitrary $(t,m,s)$-nets yields optimal convergence rates on several scales of function spaces, preprint 2024, arXiv:2409.12879. 
+        \item[{[2]}] S. Heinrich, F. J. Hickernell and R. X. Yue, Optimal quadrature for Haar wavelet spaces, Math. Comput., 73 (2004), 259â277.
+	\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Stability of Expected Utility in Bayesian Optimal Experimental Design}% [1] talk title
+  {Tapio Helin}% [2] speaker name
+  {LUT University}% [3] affiliations
+  {tapio.helin@lut.fi}% [4] email
+  {}%{Names of coauthors go here, no affiliations of coauthors please, all affiliations will be included in an appendix of 
+  %the program book}% [5] coauthors
+  {Recent advances in optimization under uncertainty}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We explore the stability properties of utility functions in Bayesian optimal experimental design, introducing novel utilities inspired by the analysis . We establish a general framework to study the behavior of expected utility under perturbations in infinite-dimensional setting and prove its convergence properties. Our results provide theoretical guarantees for the robustness of Bayesian design criteria and offer insights into their practical applicability in complex experimental settings.
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+%
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Efficient expected information gain estimators based on the randomized quasi-Monte Carlo method}% [1] talk title
+  {Arved Bartuska}% [2] speaker name
+  {King Abdullah University of Science and Technology/RWTH Aachen University}% [3] affiliations
+  {arved.bartuska@kaust.edu.sa}% [4] email
+  {Andr\'{e} Gustavo Carlon, Luis Espath, Sebastian Krumscheid, Ra\'{u}l Tempone}% [5] coauthors
+  {S6-2}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Efficient estimation of the expected information gain (EIG) of an experiment allows for design optimization in a Bayesian setting. This task faces computational challenges, particularly when the experiment model requires numerical discretization schemes. We demonstrate various methods to make such estimations feasible, combining quasi-Monte Carlo (QMC), randomized QMC (rQMC), and multilevel methods.
+
+Analytical error bounds are made possible by Owen's [1] and He et al.'s [2] work on singular integrands combined with a truncation scheme of the observation noise present in experiment models. Applications from Bayesian experimental design demonstrate the improved convergence behavior of the proposed methods compared to traditional Monte Carlo-based estimators.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Owen, Art B. (2006). {\it Halton sequences avoid the origin}. SIAM Review, 48:487â503.
+	\item[{[2]}] He, Zhijian, \& Zheng, Zhan, \& Wang, Xiaoqun. (2023).{\it On the error rate of importance sampling with randomized quasi-Monte Carlo}. SIAM Journal
+on Numerical Analysis,  61(2):10.1137/22M1510121.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Randomized quasi-Monte Carlo methods for risk-averse stochastic optimization}% [1] talk title
+  {Johannes Milz}% [2] speaker name
+  {H. Milton Stewart School of Industrial and Systems Engineering, Georgia Institute of Technology}% [3] affiliations
+  {johannes.milz@isye.gatech.edu}% [4] email
+  {Olena Melnikov}% [5] coauthors
+  {Recent advances in optimization under uncertainty}% [6] special session. Leave this field empty for contributed talks.
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+We establish epigraphical and uniform laws of large numbers for sample-based approximations of law invariant risk functionals. These sample-based approximation schemes include Monte Carlo (MC) and certain randomized quasi-Monte Carlo integration (RQMC) methods, such as scrambled net integration. Our results can be applied to the approximation of risk-averse stochastic programs and risk-averse stochastic variational inequalities. Our numerical simulations empirically demonstrate that RQMC approaches based on scrambled Sobol' sequences can yield smaller bias and root mean square error than MC methods for risk-averse optimization.
+
+
+
+
+\end{talk}
+
+\begin{talk}
+  {Improving Efficiency of Sampling-based Motion Planning via Message-Passing Monte Carlo}% [1] talk title
+  {Makram Chahine}% [2] speaker name
+  {CSAIL, Massachusetts Institute of Technology}% [3] affiliations
+  {chahine@mit.edu}% [4] email
+  {T. Konstantin Rusch, Zach J. Patterson, and Daniela Rus}% [5] coauthors
+  {S7-1}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Sampling-based motion planning methods, while effective in high-dimensional spaces, often suffer from inefficiencies due to irregular sampling distributions, leading to suboptimal exploration of the configuration space. In this talk, we present an approach that enhances the efficiency of these methods by utilizing low-discrepancy distributions generated through Message-Passing Monte Carlo (MPMC). MPMC leverages Graph Neural Networks (GNNs) to generate point sets that uniformly cover the space, with uniformity assessed using the the $\cL_p$-discrepancy measure, which quantifies the irregularity of sample distributions. By improving the uniformity of the point sets, our approach significantly reduces computational overhead and the number of samples required for solving motion planning problems. Experimental results demonstrate that our method outperforms traditional sampling techniques in terms of planning efficiency.
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] LâEcuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Minimizing the Stein Discrepancy}% [1] talk title
+  {Nathan Kirk}% [2] speaker name
+  {Illinois Institute of Technology}% [3] affiliations
+  {nkirk@iit.edu}% [4] email
+  {}% [5] coauthors
+  {Computational Methods for Low-discrepancy Sampling and Applications}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Approximating a probability distribution using a discrete set of points is a fundamental task in modern scientific computation, with applications in uncertainty quantification. Points whose empirical distribution is close to the true distribution are called low-discrepancy. We discuss recent advances in this area, including the use of Stein discrepancies and various optimization techniques. In particular, we introduce Stein-Message-Passing Monte Carlo (Stein-MPMC) [1], an extension of the original Message-Passing Monte Carlo model and the first machine-learning algorithm for generating low-discrepancy (space-filling) point sets. Additionally, we present a generalized Subset Selection algorithm [2], a much simpler yet highly effective optimization method.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] N. Kirk, T. K. Rusch, J. Zech, D. Rus, \textit{Low Stein Discrepancy via Message-Passing Monte Carlo}, Preprint (2025)
+	\item[{[2]}] D. Chen, F. ClÃ©ment, C. Doerr, N. Kirk, L. Paquette, \textit{Optimizing Kernel Discrepancies via Subset Selection}, Preprint (2025)
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {An Empirical Evaluation of Robust Estimators for RQMC}%
+% {Cost-Free improvements to the median estimator for Random-parameter QMC}% [1] talk title
+  {Gregory Seljak}% [2] speaker name
+  {Universit\'e de Montr\'eal}% [3] affiliations
+  {gregory.de.salaberry.seljak@umontreal.ca}% [4] email
+  {Pierre L'Ecuyer, Christiane Lemieux}% [5] coauthors
+  {Computational Methods for Low-discrepancy Sampling and Applications}% [6] special session. 
+
+\medskip
+
+Randomized quasi-Monte Carlo (RQMC) traditionally takes a low-discrepancy (QMC) point set,
+makes $r$ independent randomizations of it to obtain $r$ replicates of an unbiased RQMC estimator, 
+then computes the average and variance of these $r$ estimates to obtain a final estimate 
+and perhaps a confidence interval [4]. 
+Some methods construct the points by optimizing refined figures-of-merit adapted to the considered integrand
+and apply minimal randomization such as a random (digital) shift.  Other methods randomize
+the parameters of the QMC point sets more extensively (e.g., the generating vectors or matrices).
+The second kind of method is easier to apply because it requires much less knowledge of the integrand,
+but bad parameter values may be drawn once in a while, leading to (rare) RQMC replicates having 
+a large conditional variance that produce bad outliers.
+To reduce the impact of such outliers, one approach studied recently is to use the median 
+of the $r$ replicates instead of the mean as a final estimator [2, 3, 5, 6].
+Other types of robust estimators could also be used in place of the median [1].
+In this talk, we report extensive experiments that compare the mean square errors 
+and convergence of various estimators (the mean, the median, and other robust estimators) 
+defined in terms of $r$ RQMC replicates.
+We also discuss the computation of confidence intervals for the mean when using such estimators.
+
+{\list{[\arabic{enumi}]}{\settowidth\labelwidth{[5]}\leftmargin\labelwidth
+  \advance\leftmargin\labelsep\usecounter{enumi}}
+%
+\item
+E.~Gobet, M.~Lerasle, and D.~M{\'e}tivier.
+Accelerated convergence of error quantiles using robust randomized
+  quasi {Monte Carlo} methods.
+\url{https://hal.science/hal-03631879}, 2024.
+
+\item
+T.~Goda and P.~L'Ecuyer.
+Construction-free median quasi-{Monte Carlo} rules for function
+  spaces with unspecified smoothness and general weights.
+{\em {SIAM} Journal on Scientific Computing}, 44(4):A2765--A2788, 2022.
+
+\item
+T.~Goda, K.~Suzuki, and M.~Matsumoto.
+A universal median quasi-{Monte Carlo} integration.
+{\em {SIAM} Journal on Numerical Analysis}, 62(1):533--566, 2024.
+
+\item
+P.~L'Ecuyer, M.~Nakayama, A.~B. Owen, and B.~Tuffin.
+Confidence intervals for randomized quasi-{Monte Carlo} estimators.
+In {\em Proceedings of the 2023 Winter Simulation Conference}, pages
+  445--456. IEEE Press, 2023.
+
+\item
+Z.~Pan and A.~B. Owen.
+Super-polynomial accuracy of one dimensional randomized nets using
+  the median of means.
+{\em Mathematics of Computation}, 92(340):805--837, 2023.
+
+\item
+Z.~Pan and A.~B. Owen.
+Super-polynomial accuracy of multidimensional randomized nets using
+  the median of means.
+{\em Mathematics of Computation}, 93(349):2265--2289, 2024.
+
+}
+\end{talk}
+
+\begin{talk}
+  {Searching Permutations for Constructing Low-Discrepancy Point Sets and Inverstigating the Kritzinger Sequence}% [1] talk title
+  {Fran\c{c}ois Cl\'{e}ment}% [2] speaker name
+  {Department of Mathematics, University of Washington}% [3] affiliations
+  {fclement@uw.edu}% [4] email
+  {Carola Doerr, Kathrin Klamroth, LuÃ­s Paquete}% [5] coauthors
+  {S7-4}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+This talk focuses on two different approaches for the construction of low-discrepancy sets that are quite different from traditional approaches, yet yield excellent empirical results in two dimensions. The first of these, which will be the main focus of my talk, is based on selecting the relative position of the different points we wish to place, before using non-linear programming methods to obtain a point set with extremely low star discrepancy. In [1], we showed that this method consistently outperformed all other existing techniques. It is however subject to computational limits: finding good permutation choices, with or without optimization, is the next key step in improving our understanding of low-discrepancy structures.
+
+In the second part of the talk, I will quickly highlight some extended numerical experiments on the sequence introduced by Kritzinger in [2], showing that despite the lack of theoretical results proving that it is a low-discrepancy sequence, it performs at least as well as known sequences in one dimension, despite being constructed greedily. 
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] F. ClÃ©ment, C. Doerr, K. Klamroth, L.Paquete (2024). {\it Transforming the Challenge of Constructing Low-Discrepancy Point Sets into a Permutation Selection Problem}., to appear, arxiv: https://arxiv.org/abs/2407.11533.
+	\item[{[2]}] R. Kritzinger (2022).  {\it Uniformly Distributed Sequence generated by a greedy minimization of the $L_2$ discrepancy}., Moscow Journal of Combinatorics and Number Theory, \textbf{11}(2), 215--236.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Wasserstein Convergence of Score-based Generative Models under Semiconvexity and Discontinuous Gradients }% [1] talk title
+  {Sotirios Sabanis}% [2] speaker name
+  {University of Edinburgh \& National Technical University of Athens \& Archimedes/Athena Research Centre}% [3] affiliations
+  {s.sabanis@ed.ac.uk}% [4] email
+  {Stefano Bruno}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks.
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+\noindent Score-based Generative Models (SGMs) approximate a data distribution by perturbing it with Gaussian noise and subsequently denoising it via a learned reverse diffusion process. These models excel at modeling complex data distributions and generating diverse samples, achieving state-of-the-art performance across domains such as computer vision, audio generation, reinforcement learning, and computational biology. Despite their empirical success, existing Wasserstein-2 convergence analysis typically assume strong regularity conditionsâsuch as smoothness or strict log-concavity of the data distributionâthat are rarely satisfied in practice.
+		
+	\noindent	In this work, we establish the first non-asymptotic Wasserstein-2 convergence guarantees for SGMs targeting semiconvex distributions with potentially discontinuous gradients. Our upper bounds are explicit and sharp in key parameters, achieving optimal dependence of $O(\sqrt{d})$ on the data dimension $d$ and convergence rate of order one. The framework accommodates a wide class of practically relevant distributions, including symmetric modified half-normal distributions, Gaussian mixtures, double-well potentials, and elastic net potentials. By leveraging semiconvexity without requiring smoothness assumptions on the potential such as differentiability, our results substantially broaden the theoretical foundations of SGMs, bridging the gap between empirical success and rigorous guarantees in non-smooth, complex data regimes.
+
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}] Bruno, Stefano \& Sabanis, Sotirios (2025). {\it Wasserstein Convergence of Score-based Generative Models under Semiconvexity and Discontinuous Gradients}. ArXiv.
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Weighted quantization using MMD:
+From mean field to mean shift via gradient flows}% [1] talk title
+  {Ayoub Belhadji}% [2] speaker name
+  {Massachusetts Institute of Technology}% [3] affiliations
+  {abelhadj@mit.edu}% [4] email
+  {Daniel Sharp, Youssef Marzouk}% [5] coauthors
+  {Next-generation optimal experimental design: theory, scalability, and real world impact: Part I}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Approximating a probability distribution using a set of particles is a fundamental problem in machine learning and statistics, with applications including  quantization and optimal design. Formally, we seek a finite weighted mixture of Dirac measures that best approximates the target distribution. While much existing work relies on the Wasserstein distance to quantify approximation errors, maximum mean discrepancy (MMD) has received comparatively less attention, especially when allowing for variable particle weights. We study the quantization problem from the perspective of minimizing MMD via gradient flow in the Wasserstein--Fisher--Rao (WFR) geometry. This gradient flow yields an ODE system from which we further derive a fixed-point algorithm called \emph{mean shift interacting particles} (MSIP). We show that MSIP extends the non-interacting mean shift algorithm, widely used for identifying modes in kernel density estimates. Moreover, we show that MSIP can be interpreted as preconditioned gradient descent, and that it acts as a relaxation of Lloyd's algorithm for clustering. 
+Our numerical experiments demonstrate that MSIP and the WFR ODEs outperform other algorithms for quantization of multi-modal and high-dimensional targets.
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] LâEcuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {A recursive Monte Carlo approach to optimal Bayesian experimental design}% [1] talk title
+  {Adrien Corenflos}% [2] speaker name
+  {Department of Statistics, University of Warwick}% [3] affiliations
+  {adrien.corenflos@warwick.ac.uk}% [4] email
+  {Hany Abdulsamad, Sahel Iqbal, Sara P\'erez-Vieites, Simo SÃ¤rkkÃ¤}% [5] coauthors
+  {Next-generation optimal experimental design: theory, scalability, and real world impact: Part I}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+    Bayesian experimental design is concerned with designing experiments that maximize information on a latent parameter of interest. 
+    This can be formally understood as minimizing the \emph{expected} entropy over the parameter, given the input, the expectation being taken over the data.
+    Solving this problem is intractable \emph{as is}, and several surrogate loss functions have been proposed to learn policies that, when deployed in nature, help inference by sampling more informative data.
+    A drawback of most of these, however, is that they introduce a substantial amount of bias, or otherwise exhibit a high variance.
+    In this talk, we will introduce another surrogate formulation of optimal Bayesian design as a risk-sensitive policy optimization, compatible with non-exchangeable models.
+    Under this formulation, minimizing the entropy of the posterior can be understood as sampling from a posterior distribution over the (random) designs.
+    We will then discuss two nested sequential Monte Carlo algorithms [1,2] to infer these optimal designs, and discuss how to embed them within a particle Markov chain Monte Carlo framework to perform gradient-based policy learning. 
+    We will discuss the respective advantages and drawbacks of both algorithms as well as those of alternative methods.
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}]Iqbal, S., Corenflos, A., SÃ¤rkka, S., \&  Abdulsamad, H.(2024). {\it Nesting Particle Filters for Experimental Design in Dynamical Systems}. In Forty-first International Conference on Machine Learning (ICML).
+	\item[{[2]}] Iqbal, S., Abdulsamad, H., PÃ©rez-Vieites, S., SÃ¤rkka, S., \& Corenflos, A. (2024). {\it Recursive nested filtering for efficient amortized Bayesian experimental design}. In NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Parallel computations for Metropolis Markov chains Based on Picard maps}% [1] talk title
+  {Sebastiano Grazzi}% [2] speaker name
+  {Department of Decision Sciences and BIDSA, Bocconi University, Via Roentgen, 1, 20136, Milan, Italy}% [3] affiliations
+  {sebastiano.grazzi@unibocconi.it}% [4] email
+  {Giacomo Zanella}% [5] coauthors
+  {Heavy-tailed Sampling}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+ We develop parallel algorithms for simulating zeroth-order Metropolis Markov chains based on the Picard map. 
+%We develop schemes to parallelize gradient-free Markov chain Monte Carlo algorithms based on the Picard map. 
+For Random Walk Metropolis Markov chains targeting log-concave distributions $\pi$ on $\mathbb{R}^d$, our algorithm  
+generates samples %from a measure 
+close to $\pi$ %in Chi-squared distance 
+in $\mathcal{O}(\sqrt{d})$ iterations with $\mathcal{O}(\sqrt{d})$ parallel processors, 
+therefore speeding-up the convergence of the corresponding sequential implementation by a factor $\sqrt{d}$. Furthermore, a modification of our algorithm generates samples from an approximate measure $\tilde \pi_\epsilon$ in $\mathcal{O}(1)$ iterations and $\mathcal{O}(d)$ parallel processors. In this talk I will present the methodology, the analysis and numerical simulations. Our algorithms are straightforward to implement and may constitute a useful tool for practitioners seeking to sample from a prescribed distribution $\pi$ using only point-wise evaluations proportional to $\pi$.
+\end{talk}
+
+\begin{talk}
+  {Enhancing Gaussian Process Surrogates for Optimization and Posterior Approximation via Random Exploration}% [1] talk title
+  {Hwanwoo Kim}% [2] speaker name
+  {Duke University}% [3] affiliations
+  {hwanwoo.kim@duke.edu}% [4] email
+  {Daniel Sanz-Alonso}% [5] coauthors
+  {Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In this talk, we propose novel noise-free Bayesian optimization strategies that rely on a random exploration step to enhance the accuracy of Gaussian process surrogate models. The new algorithms retain the ease of implementation of the classical GP-UCB algorithm, but the additional random exploration step accelerates their convergence, nearly achieving the optimal convergence rate. Furthermore, to facilitate Bayesian inference with an intractable likelihood, we propose to utilize the optimization iterates as design points to build a Gaussian process surrogate model for the unnormalized log-posterior density. We show that the Hellinger distance between the true and the approximate posterior distributions decays at a near-optimal rate. We demonstrate the effectiveness of our algorithms in benchmark non-convex test functions for optimization, and in a black-box engineering design problem. We also showcase the effectiveness of our posterior approximation approach in Bayesian inference for parameters of dynamical systems.
+
+
+\end{talk}
+
+\begin{talk}
+  {Optimal strong approximation of SDEs with H\"older continuous drift coefficient}% [1] talk title
+  {Larisa Yaroslavtseva}% [2] speaker name
+  {University of Graz}% [3] affiliations
+  {larisa.yaroslavtseva@uni-graz.at}% [4] email
+  {Simon Ellinger and Thomas MÃ¼ller-Gronbach}% [5] coauthors
+  {S12-1}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We study strong approximation of the solution of a scalar stochastic differential equation (SDE)
+\begin{equation}\label{sde0}
+	\begin{aligned}
+		dX_t & = \mu(X_t) \, dt +  dW_t, \quad t\in [0,1],\\
+		X_0 & = x_0
+	\end{aligned}
+\end{equation}
+at the final time point $1$
+in the case that  the drift coefficient  $\mu$ is $\alpha$-H\"older continuous with $\alpha\in(0, 1]$.
+Recently, it was  shown in [1] that for such SDEs the equidistant Euler approximation achieves an $L^p$-error rate of at least $(1+\alpha)/2$, up to an arbitrary small $\varepsilon$,
+in terms of the number of evaluations of the driving Brownian motion $W$.
+In this talk  we  
+present a matching  lower error bound.   More precisely, we show that
+the $L^p$-error rate $(1+\alpha)/2$ can
+not be improved in general by  no numerical 
+method based on finitely many evaluations of $W$ at fixed time points. For the proof of this result we choose  $\mu$ to be the Weierstrass function and we employ  the coupling of noise technique  recently introduced in [2].
+
+
+
+
+\begin{enumerate}
+	\item[{[1]}] Butkovsky, O., Dareiotis, K., \& Gerencs\'er, M. (2021). Approximation of SDEs: a stochastic sewing appproach. Probab. Theory Related Fields, \textbf{181}(4), 975--1034
+	\item[{[2]}] MÃ¼ller-Gronbach, T.  \& Yaroslavtseva, L. (2023). Sharp lower error bounds for strong approximation of
+	SDEs with discontinuous drift coefficient by coupling of noise. Ann. Appl. Probab. \textbf{33}, 902â-935.
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Tractability of $L_2$-approximation and integration in weighted Hermite spaces of finite smoothness}% [1] talk title
+  {Gunther Leobacher}% [2] speaker name
+  {University of Graz}% [3] affiliations
+  {gunther.leobacher@uni-graz.at}% [4] email
+  {Adrian Ebert, Friedrich Pillichshammer}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+We consider integration and $L_2$-approximation for functions over $\mathbb R^s$ from weighted Hermite spaces as introduced in [1]. We study tractability of the integration and $L_2$-approximation problem for the different Hermite spaces, which describes the growth rate of the information complexity when the error threshold $\varepsilon$ tends to 0 and the problem dimension $s$ grows to infinity. Our main results are characterizations of tractability in terms of the involved weights, which  model the importance of the successive coordinate directions for functions from the weighted Hermite spaces.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Ch.~Irrgeher and G.~Leobacher. High-dimensional integration on the $\mathbb R^d$, weighted Hermite spaces, and orthogonal transforms. \textit{J. Complexity} 31: 174--205, 2015. 
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Goal Oriented Sensor Placement for Infinite-Dimensional Bayesian Inverse Problems}% [1] talk title
+  {Alen Alexanderian}% [2] speaker name
+  {North Carolina State University}% [3] affiliations
+  {alexanderian@ncsu.edu}% [4] email
+  {}
+  {Next-generation optimal experimental design: theory, scalability, and real world impact}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+%your abstract goes here. Please do not use your own commands or macros.
+We consider optimal experimental design (OED) for infinite-dimensional Bayesian
+inverse problems governed by partial differential equations with
+infinite-dimensional inversion parameters.  Specifically, we focus on the case
+where we seek sensor placements that minimize the uncertainty in a prediction or
+goal functional.  To address this, we propose a goal-oriented OED (gOED)
+approach that uses a quadratic approximation of the parameter-to-prediction
+mapping to obtain a measure of posterior uncertainty in the prediction quantity
+of interest (QoI).  We focus on linear inverse problems in which the prediction
+is a nonlinear functional of the inversion parameters. We seek to find sensor
+placements that result in minimized posterior variance of the prediction QoI. In
+this context, and under the assumption of Gaussian prior and noise models, we
+derive a closed-form expression for the gOED criterion. We also discuss
+efficient and accurate computational approaches for computing the gOED objective
+and its optimization.  We illustrate the proposed approach in model inverse
+problems governed by an advection-diffusion equation.
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Robust Bayesian Optimal Experimental Design under Model Misspecification}% [1] talk title
+  {Tommie A. Catanach}% [2] speaker name
+  {Sandia National Laboratories}% [3] affiliations
+  {tacatan@sandia.gov}% [4] email
+  {}% [5] coauthors
+  {Next-generation optimal experimental design: theory, scalability, and real world impact: Part II}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Bayesian Optimal Experimental Design (BOED) has become a powerful tool for improving uncertainty quantification by strategically guiding data collection. However, the reliability of BOED depends critically on the validity of its underlying assumptions and the possibility of model discrepancy. In practice, the chosen data acquisition strategy may inadvertently reinforce prior assumptionsâoverlooking data that could challenge themâor rely on low-fidelity models whose error is not well characterized, leading to biased inferences. These biases can be particularly severe because BOED often targets extreme parameter regions as the most âinformative,â potentially magnifying the impact of model error.
+
+In this talk, we present a new information criterion, Expected Generalized Information Gain (EGIG)[1], that explicitly accounts for model discrepancy in BOED. EGIG augments standard Expected Information Gain by balancing the trade-off between experiment performance (i.e., how much information is gained) and robustness (i.e., how susceptible the design is to model misspecification). Concretely, EGIG measures how poorly inference under an incorrect model might perform, compared to a more appropriate model for the experiment. We will discuss the theoretical underpinnings of EGIG, as well as nested Monte Carlo algorithms for incorporating it into BOED for nonlinear inference problems. These methods handle both quantifiable discrepancies (e.g., low-fidelity vs. high-fidelity models) and unknown discrepancies represented by a distribution of potential errors, thereby enhancing the robustness and reliability of BOED in real-world settings.
+
+SNL is managed and operated by NTESS under DOE NNSA contract DE-NA0003525. 
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Catanach, T. A., \& Das, N. (2023). {\it Metrics for bayesian optimal experiment design under model misspecification}. In 2023 62nd IEEE Conference on Decision and Control (CDC) (pp. 7707-7714). IEEE.
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
+  {Optimal Pilot Sampling for Multi-fidelity Monte Carlo Methods}% [1] talk title
+  {Xun Huan}% [2] speaker name
+  {University of Michigan, Department of Mechanical Engineering}% [3] affiliations
+  {xhuan@umich.edu}% [4] email
+  {Thomas Coons, Aniket Jivani}% [5] coauthors
+  {S13-4}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+Bayesian optimal experimental design (OED) aims to maximize an expected utility, often chosen to be the expected information gain (EIG), over a given design space. Estimating EIG typically relies on Monte Carlo methods, which requires repeated evaluations of a computational model simulating the experimental process. 
+However, when the model is expensive to evaluate, standard Monte Carlo becomes impractical.
+%When performing forward uncertainty quantification (UQ) of a computationally intensive mathematical model, traditional sampling methods such as Monte Carlo can be prohibitively expensive. 
+
+Multi-fidelity variants of Monte Carlo, such as Approximate Control Variate (ACV) estimators, can significantly expedite such estimations by leveraging an ensemble of low-fidelity models that approximate the high-fidelity model with varying degrees of accuracy and cost. 
+To apply these techniques in an error-optimal manner, the covariance matrix across model outputs must be estimated from independent pilot model evaluations. This step incurs a significant but often overlooked computational cost. 
+Furthermore, the optimal allocation of computational resources between 
+%the model evaluations needed for 
+covariance estimation and 
+%the model evaluations needed for 
+ACV estimation remains an open problem.  Existing approaches fail to accommodate optimal estimators and may not be accurate with small pilot sample sizes.
+
+In this work, we introduce a novel framework for dynamically allocating resources between these two tasks.
+%prescribing the budget allocation between covariance estimation and ACV evaluation that 
+Our method employs Bayesian inference
+to quantify uncertainty in the covariance matrix and derives an adaptive expected loss metric
+%that is adaptively estimated and minimized as pilot samples are drawn, informing the user when 
+to determine when to terminate pilot sampling. 
+We demonstrate and analyze our framework through a benchmark nonlinear OED problem. 
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files. APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] LâEcuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+%\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Asymptotic robustness of  smooth functions of  rare-event estimators}% [1] talk title
+  {Bruno Tuffin}% [2] speaker name
+  {Inria}% [3] affiliations
+  {bruno.tuffin@inria.fr}% [4] email
+  {Marvin K. Nakayama}% [5] coauthors
+  {Advances in Rare Events Simulation}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In many rare-event simulation problems, an estimand is expressed  as a smooth function of several quantities,  each
+estimated by simulation  but not necessarily all of their estimators are critically influenced by
+the rarity of the event of interest.  
+An example arises in the estimation of the mean time to failure of a regenerative system, usually expressed as the ratio of two quantities to be estimated, the denominator being the only one  entailing a rare event in a highly reliable context.
+
+In general, there has been to our knowledge no work investigating  the efficiency  of estimating $\alpha = g({\boldsymbol{\theta}})$
+for some known  smooth function $g : \mathbb{R}^d \to \mathbb{R}$ and where ${\boldsymbol{\theta}} = (\theta_1, \theta_2, \ldots, \theta_d) \in \mathbb{R}^d$ is a vector of unknown parameters, for some $d \geq 1$, each  estimated by simulation.
+
+We will provide during the talk conditions under which having efficient estimators of each individual mean leads to an efficient estimator of the function of the means. Our conditions are described for several asymptotic robustness properties: logarithmic efficiency, bounded relative error and vanishing relative error.
+We illustrate this setting through several examples, and numerical results complement the theory.
+
+
+			
+
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}]  Nakayama, Marvin K. and Bruno Tuffin.  Efficiency of Estimating Functions of Means in Rare-Event Contexts. In the {\it Proceedings of the 2023 Winter Simulation Conference}, San Antonio, TX, USA, December 2023.
+	% Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+	%\item[{[2]}] LâEcuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Estimating rare event probabilities associated with McKean--Vlasov SDEs}% [1] talk title
+  {Shyam Mohan Subbiah Pillai}% [2] speaker name
+  {RWTH Aachen University, Germany}% [3] affiliations
+  {subbiah@uq.rwth-aachen.de}% [4] email
+  {Nadhir Ben Rached, Abdul-Lateef Haji-Ali, RaÃ¹l Tempone}% [5] coauthors
+  {Advances in Rare Events Simulation}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+McKeanâVlasov stochastic differential equations (MV-SDEs) arise as the mean-field limits of stochastic interacting particle systems, with applications in pedestrian dynamics, collective animal behavior, and financial market modelling. This work develops an efficient method for estimating rare event probabilities associated with MV-SDEs by combining multilevel Monte Carlo (MC) with importance sampling (IS). To apply a measure change for IS, we first reformulate the MV-SDE as a standard SDE by conditioning on its law, leading to the decoupled MV-SDE. We then formulate the problem of finding the optimal IS measure change as a stochastic optimal control problem that minimizes the variance of the MC estimator. The resulting partial differential equation is solved numerically to obtain the optimal IS measure change. Building on this IS scheme and the decoupling approach, we introduce a double loop Monte Carlo (DLMC) estimator. To further improve computational efficiency, we extend DLMC to a multilevel setting, reducing its computational complexity. To enhance variance convergence in the level differences for the discontinuous indicator function, we propose two key techniques: (1) numerical smoothing via one-dimensional integration over a carefully chosen variable and (2) an antithetic sampler to increase correlation between fine and coarse SDE paths. By integrating IS with efficient multilevel sampling, we develop the multilevel double loop Monte Carlo (MLDLMC) estimator. We demonstrate its effectiveness on the Kuramoto model from statistical physics, showing a reduction in computational complexity from $\mathcal{O}(\mathrm{TOL}_\mathrm{r}^{-4})$ using DLMC to $\mathcal{O}(\mathrm{TOL}_\mathrm{r}^{-3})$ using MLDLMC with IS, for estimating rare event probabilities up to a prescribed relative error tolerance $\mathrm{TOL}_\mathrm{r}$. This talk is primarily based on [1,2].
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+\begin{enumerate}
+	\item[{[1]}] Ben Rached, N., Haji-Ali, A. L., Subbiah Pillai, S. M., \& Tempone, R. (2024). Double-loop importance sampling for McKeanâVlasov stochastic differential equation. Statistics and Computing, 34(6), 197.
+	\item[{[2]}] Ben Rached, N., Haji-Ali, A. L., Subbiah Pillai, S. M., \& Tempone, R. (2025). Multilevel importance sampling for rare events associated with the McKeanâVlasov equation. Statistics and Computing, 35(1), 1.
+\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Multiple Importance Sampling for Rare Event Simulation in Communication Systems}% [1] talk title
+  {V\'ictor Elvira}% [2] speaker name
+  {University of Edinburgh}% [3] affiliations
+  {victor.elvira@ed.ac.uk}% [4] email
+  {Igancio Santamar\'ia}% [5] coauthors
+  {S14-3}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Estimating the symbol error rate (SER) in multiple-input multiple-output (MIMO) detectors involves computing an integral in a high-dimensional space, typically outside the Voronoi region of the transmitted symbol. Since a closed-form solution does not exist, the standard approach relies on crude Monte Carlo (MC) simulations, which become highly inefficient in rare-event regimes.  In this talk, we propose a multiple importance sampling (MIS) method that provides unbiased SER estimates with significantly reduced variance compared to naive MC. The method constructs an adaptive mixture proposal distribution, where the number of components, their parameters, and weights are selected automatically. This flexibility ensures robustness across a range of scenarios, making the method efficient, easy to implement, and theoretically sound. Our simulations demonstrate that SERs as low as $10^{-8}$ can be accurately estimated with just $10^4$ samples, achieving multiple orders of magnitude improvement over standard MC.
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Quasi-uniform quasi-Monte Carlo digital nets}% [1] talk title
+  {Takashi Goda}% [2] speaker name
+  {Graduate School of Engineering, The University of Tokyo}% [3] affiliations
+  {goda@frcer.t.u-tokyo.ac.jp}% [4] email
+  {Josef Dick, Kosuke Suzuki}% [5] coauthors
+  {Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We investigate the quasi-uniformity properties of digital nets, a class of quasi-Monte Carlo point sets. Quasi-uniformity is a space-filling property that plays a crucial role in applications such as designs of computer experiments and radial basis function approximation. However, it remains open whether common low-discrepancy digital nets satisfy quasi-uniformity.
+
+In this talk, we introduce the concept of \emph{well-separated} point sets as a tool for constructing quasi-uniform low-discrepancy digital nets. We establish an algebraic criterion to determine whether a given digital net is well-separated and use this criterion to construct an explicit example of a two-dimensional digital net that is both low-discrepancy and quasi-uniform. Furthermore, we present counterexamples of low-discrepancy digital nets that fail to achieve quasi-uniformity, highlighting the limitations of existing constructions.
+
+\begin{enumerate}
+	\item[{[1]}] T. Goda, The Sobolâ sequence is not quasi-uniform in dimension 2. \emph{Proc. Amer. Math. Soc.}, 152(8):3209â3213, 2024.
+	\item[{[2]}] J. Dick, T. Goda, \& K. Suzuki, On the quasi-uniformity properties of quasi-Monte Carlo digital nets and sequences. \emph{arXiv preprint arXiv:2501.18226}, 2025.
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
+  {Boosting the inference for generative models by (Quasi-)Monte Carlo resampling}% [1] talk title
+  {Ziang Niu}% [2] speaker name
+  {University of Pennsylvania}% [3] affiliations
+  {ziangniu@wharton.upenn.edu}% [4] email
+  {Bhaswar B. Bhattacharya, FranÃ§ois-Xavier Briol, Anirban Chatterjee, Johanna Meier.}% [5] coauthors
+  {Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In the era of generative models, statistical inference based on classical likelihood for such models has faced a challenge. This is due to highly nontrivial model structures and thus computing the likelihood functions is almost impossible. Often time, information on these generative models can only be obtained by sampling from the models but the necessity of sampling can further pose a tradeoff between computational burden and statistical accuracy. In this talk, we propose a framework for statistical inference for generative models leveraging the techniques from (Quasi-)Monte Carlo. Despite the unavoidable balance of statistical accuracy and computation, both computational and statistical performances can be boosted by employing (Quasi-)Monte Carlo techniques. The presentation will be based on two papers.
+
+\begin{enumerate}
+	\item[{[1]}] A. Chatterjee, Z. Niu \& B. Bhattacharya (2024). {\it A kernel-based conditional two-sample test using nearest neighbors (with applications to calibration, regression curves, and simulation-based inference)}. Preprint.
+	\item[{[2]}] Z. Niu, J. Meier \& F-X. Briol (2023). \it{Discrepancy-based inference for
+  intractable generative models using
+  Quasi-Monte Carlo.} Electronic Journal of Statistics.
+\end{enumerate}
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {A hit and run approach for sampling and analyzing ranking models}% [1] talk title
+  {Chenyang Zhong}% [2] speaker name
+  {Department of Statistics, Columbia University}% [3] affiliations
+  {cz2755@columbia.edu}% [4] email
+  {}% [5] coauthors
+  {Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+%Your abstract goes here. Please do not use your own commands or macros.
+The analysis of ranking data has gained much recent interest across various applications, including recommender systems, market research, and electoral studies. This talk focuses on the Mallows permutation model, a probabilistic model for ranking data introduced by C. L. Mallows. The Mallows model specifies a family of non-uniform probability distributions on permutations and is characterized by a distance metric on permutations. We focus on two popular choices: the $L^1$ (Spearmanâs footrule) and $L^2$ (Spearmanâs rank correlation) distances. Despite their widespread use in statistics and machine learning, Mallows models with these metrics present significant computational challenges due to the intractability of their normalizing constants.
+
+Hit and run algorithms form a broad class of MCMC algorithms, including Swendsen-Wang and data augmentation. In this talk, I will first explain how to sample from Mallows models using hit and run algorithms. For both models, we establish $O(\log n)$ mixing time upper bounds, which provide the first theoretical guarantees for efficient sampling and enable computationally feasible Monte Carlo maximum likelihood estimation. Then, I will also discuss how the hit and run algorithms can be utilized to prove theorems about probabilistic properties of the Mallows models.
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {On the quantum complexity of parametric integration in Sobolev spaces}% [1] talk title
+  {Stefan Heinrich}% [2] speaker name
+  {RPTU Kaiserslautern-Landau, 
+Germany}% [3] affiliations
+  {heinrich@informatik.uni-kl.de}% [4] email
+  {}% [5] coauthors
+  {Stochastic computation and complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We consider the following problem of parametric integration in Sobolev spaces. We seek to approximate
+$$
+S:W_p^r(D)\to L_q(D_1), \quad (Sf)(s)=\int_{D_2}f(s,t)dt \quad (s\in D_1),
+$$ 
+where 
+%
+\begin{eqnarray*}
+&&D=[0,1]^d=D_1\times D_2,\quad D_1=[0,1]^{d_1}, \quad D_2=[0,1]^{d_2}, 
+\\
+&&1\le p,q\le \infty, \quad d,d_1,d_2,r\in {\bf N},\quad d=d_1+d_2,\quad \frac{r}{d_1}>\left(\frac{1}{p}-\frac{1}{q}\right)_+\, .
+\end{eqnarray*}
+%
+We study the complexity of this problem in the quantum setting of Information-Based Complexity [1]. Under the assumption that $W_p^r(D)$ is embedded into $C(D)$ (embedding condition) the case $p=q$ was solved by Wiegand [2]. Here we treat the case $p=q$ without embedding condition and the general case $p\ne q$ with or without the embedding condition. We also compare the rates with those in the (classical) randomized setting [3].
+
+
+\medskip
+
+\begin{enumerate}
+
+\item[{[1]}] Heinrich, Stefan (2002).\  Quantum summation with an application to integration. 
+Journal of Complexity 18, 1--50.
+\item[{[2]}] Wiegand, Carsten (2006).\ {\it Optimal Monte Carlo and Quantum Algorithms for Parametric Integration}. Shaker Verlag.
+\item[{[3]}] Heinrich, Stefan (2024).\  Randomized complexity of parametric integration and
+the role of adaption  II. Sobolev spaces. Journal of Complexity 82, 101823.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Quantum Integration in Tensor Product  Besov Spaces}% [1] talk title
+  {Bernd KÃ¤Ãemodel}% [2] speaker name
+  {Faculty of Mathematics, Technische UniversitÃ¤t Chemnitz}% [3] affiliations
+  {bernd.kaessemodel@mathematik.tu-chemnitz.de}% [4] email
+  {Tino Ullrich}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+We begin with a brief introduction to the basic concepts of quantum computing and quantum information-based complexity for multivariate integration and approximation problems in various smoothness classes. We then discuss characterizations of functions in tensor product Besov spaces (mixed smoothness) using the tensorized Faber-Cieselski basis with coefficients based on mixed iterated differences. Relying on such a decomposition we develop a quantum algorithm to establish bounds for the worst case quantum integration error for this function class. 
+
+\medskip
+%
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+%
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Respecting the boundaries: Space-filling designs for surrogate modeling with boundary information}% [1] talk title
+  {Simon Mak}% [2] speaker name
+  {Duke University}% [3] affiliations
+  {sm769@duke.edu}% [4] email
+  {Yen-Chun Liu}% [5] coauthors
+  {S17-1}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Gaussian process (GP) surrogate models are widely used for emulating expensive computer simulators, and have led to important advances in science and engineering. One challenge with fitting such surrogates is the costly generation of training data, which can require thousands of CPU hours per run. Recent promising work has investigated the integration of known boundary information for surrogate modeling, which can greatly reduce its required training sample size and thus computational cost. There is, however, little work exploring the important question of how such experiments should be designed given boundary information. We propose here a new class of space-filling designs, called boundary maximin designs, for effective GP surrogates with boundary information. Our designs rely on a new space-filling criterion derived from the asymptotic D-optimal designs of the boundary GPs of Vernon et al. (2019) and Ding et al. (2019), which can incorporate a broad class of known boundaries, including axis-parallel and/or perpendicular boundaries. To account for effect sparsity given many input parameters, we further propose a new boundary maximum projection design that jointly factors in boundary information and ensures good projective properties. Numerical experiments and an application in particle physics demonstrate improved surrogate performance with the proposed boundary maximin designs over the state-of-the-art.
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Factor Importance Ranking and Selection using Total Indices}% [1] talk title
+  {Chaofan Huang}% [2] speaker name
+  {Work done during C. Huang's Ph.D. studies at Georgia Institute of Technology}% [3] affiliations
+  {10billhuang01@gmail.com}% [4] email
+  {V. Roshan Joseph}% [5] coauthors
+  {S17-2}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Factor importance measures the impact of each feature on output prediction accuracy. In this paper, we focus on the \emph{intrinsic importance} proposed by Williamson et al. (2023), which defines the importance of a factor as the reduction in predictive potential when that factor is removed. To bypass the modeling step required by the existing estimator, we present the equivalence between predictiveness potential and total Sobol' indices from global sensitivity analysis, and introduce a novel model-free consistent estimator that can be directly computed from noisy data. Integrating with forward selection and backward elimination gives rise to \texttt{FIRST}, Factor Importance Ranking and Selection using Total (Sobol') indices. Extensive simulations are provided to demonstrate the effectiveness of \texttt{FIRST} on regression and binary classification problems, and a clear advantage over the state-of-the-art methods.
+\end{talk}
+
+\begin{talk}
+  {Stacking designs: designing multifidelity computer experiments with target predictive accuracy}% [1] talk title
+  {Chih-Li Sung}% [2] speaker name
+  {Michigan State University}% [3] affiliations
+  {sungchih@msu.edu}% [4] email
+  {Yi Ji, Simon Mak, Wenjia Wang, Tao Tang}% [5] coauthors
+  {S17-3}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In an era where scientific experiments can be very costly, multi-fidelity emulators provide a useful tool for cost-efficient predictive scientific computing. For scientific applications, the experimenter is often limited by a tight computational budget, and thus wishes to (i) maximize predictive power of the multi-fidelity emulator via a careful design of experiments, and (ii) ensure this model achieves a desired error tolerance with some notion of confidence. Existing design methods, however, do not jointly tackle objectives (i) and (ii). We propose a novel stacking design approach that addresses both goals. A  multi-level reproducing kernel Hilbert space (RKHS) interpolator is first introduced to build the emulator, under which our stacking design provides a sequential approach for designing multi-fidelity runs such that a desired prediction error of $\epsilon > 0$ is met under regularity assumptions. We then prove a novel cost complexity theorem that, under this multi-level interpolator, establishes a bound on the computation cost (for training data simulation) needed to achieve a prediction bound of $\epsilon$. This result provides novel insights on conditions under which the proposed multi-fidelity approach improves upon a conventional RKHS interpolator which relies on a single fidelity level. Finally, we demonstrate the effectiveness of stacking designs in a suite of simulation experiments and an application to finite element analysis.
+
+\end{talk}
+
+\begin{talk}
+  {GIST: Gibbs self-tuning for locally adapting Hamiltonian Monte Carlo}% [1] talk title
+  {Bob Carpenter}% [2] speaker name
+  {Flatiron Institute}% [3] affiliations
+  {bcarpenter@flatironinstitute.org}% [4] email
+  {}% [5] coauthors
+  {S18-1}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+I will introduce the Gibbs self-tuning (GIST) framework for automatically tuning Metropolis algorithms and apply it to locally adapting the number of steps, step size, and mass matrix in Hamiltonian Monte Carlo (HMC).  After resampling momentum, each iteration of GIST Gibbs samples tuning parameters based on the current position and momentum.  Like with HMC, the Metropolis step for the Hamiltonian proposal is adjusted for the Gibbs sampling.
+
+I will demonstrate how randomized Hamiltonian Monte Carlo (HMC), multinomial HMC, the No-U-Turn Sampler (NUTS), and the Apogee-to-Apogee Sampler can be cast as GIST samplers that adapt the number of steps.  I will then introduce an approach to tuning step size that can be naturally combined with NUTS and demonstrate its effectiveness empirically on both multivariate normal and multiscale distributions with varying curvature.  
+
+I will sketch an approach to local mass matrix adaptation, demonstrate how it works for log concave distributions, then outline the problems remaining for efficiency and generalizability to other distributions.
+
+\end{talk}
+
+\begin{talk}
+  {Acceleration of the No-U-Turn Sampler}% [1] talk title
+  {Nawaf Bou-Rabee}% [2] speaker name
+  {Rutgers University}% [3] affiliations
+  {nawaf.bourabee@rutgers.edu}% [4] email
+  {}% [5] coauthors
+  {S18-2}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+\medskip
+
+The No-U-Turn Sampler (NUTS) is a state-of-the-art Markov chain Monte Carlo method widely used in Bayesian computation [7,8], yet its theoretical properties remain poorly understood. In this talk, I will present the first rigorous mixing time bounds for NUTS on a class of high-dimensional Gaussian targets with both high- and low-variance directions. Our analysis uncovers a striking phase transition: when initialized from the region of concentration, NUTS exhibits ballistic mixing in regimes dominated by high-variance directions, and diffusive mixing otherwise [1]. These results provide the first theoretical evidence that the U-turn mechanism can recover the acceleration of critically damped randomized Hamiltonian Monte Carlo [4,5,6].  Our analysis combines a sharp concentration result for the U-turn condition [1,2] with a recent coupling framework for localized mixing [3]. 
+
+\begin{enumerate}
+	\item[{[1]}] Bou-Rabee, Nawaf, \& Oberd\"{o}rster, Stefan (2025). {\it Acceleration of the No-U-turn Sampler}. Forthcoming.
+	\item[{[2]}] Bou-Rabee, Nawaf, \& Oberd\"{o}rster, Stefan (2024). {\it Mixing of the No-U-Turn Sampler and the Geometry of Gaussian Concentration}. arXiv:2410.06978 [math.PR]
+	\item[{[3]}] Bou-Rabee, Nawaf, \& Oberd\"{o}rster, Stefan (2024). {\it Mixing of Metropolis-Adjusted Markov Chains via Couplings: The High Acceptance Regime}. Electronic Journal of Probability. Vol.~29,  No.~89, pages 1-27.  
+	\item[{[4]}]  Lu, Jianfeng \& Wang, Lihan (2022). {\it On explicit L$^2$-convergence rate estimate for piecewise deterministic Markov processes in MCMC algorithms.} Annals of Applied Probability, Vol.~32, No.~2, pages 1333-1361.
+	\item[{[5]}] Eberle, Andreas \& L\"{o}rler, Francis (2024). {\it Non-reversible lifts of reversible diffusion processes and relaxation times.} Probability Theory and Related Fields.
+	\item[{[6]}] Durmus, Alain;  Gruffaz, Samuel;  Kailas, Miika;  Saksman, Eero, \&  Vihola, Matti (2023). {\it On the convergence of
+dynamic implementations of Hamiltonian Monte Carlo and no U-turn samplers.} arXiv:2307.03460  [stat.CO] 
+\item[{[7]}]  Hoffman, Matthew  \& Gelman, Andrew  (2014). {\it The no-U-turn sampler: Adaptively setting path lengths in
+Hamiltonian Monte Carlo.} Journal of Machine Learning Research. Vol.~15, No.~1, pages~1593-1623.
+\item[{[8]}]   Carpenter, Bob; Gelman, Andrew;  Hoffman, Matthew; Lee, Daniel;  Goodrich, Ben; Betancourt, Michael; Brubaker, Marcus;
+Guo, Jiqiang; Li, Peter, and  Riddell, Allen  (2016). {\em Stan: A Probabilistic Programming Language.} Journal of
+Statistical Software, Vol.~76, No.~1, pages 1-32.
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
+  {AutoStep: Locally adaptive involutive MCMC}% [1] talk title
+  {Trevor Campbell}% [2] speaker name
+  {University of British Columbia}% [3] affiliations
+  {trevor@stat.ubc.ca}% [4] email
+  {Tiange Liu, Nikola Surjanovic, Miguel Biron-Lattes, Alexandre Bouchard-C\^ot\'e}% [5] coauthors
+  {Advances in Adaptive Hamiltonian Monte Carlo}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+\medskip
+
+Many common Markov chain Monte Carlo (MCMC) kernels can be formulated using a deterministic involutive proposal with a step size parameter.  Selecting an appropriate step size is often a challenging task in practice; and for complex multiscale targets, there may not be one choice of step size that works well globally.  In this talk I'll address this problem with a novel class of involutive MCMC methods---AutoStep MCMC---that selects an appropriate step size at each iteration adapted to the local geometry of the target distribution.  I'll present theoretical results guaranteeing that under mild conditions AutoStep MCMC is $\pi$-invariant, irreducible, and aperiodic, and provides bounds on expected energy jump distance and cost per iteration. The talk will conclude with empirical results examining the robustness and efficacy of the proposed step size selection procedure.
+
+\end{talk}
+
+\begin{talk}
+  {A New Convergence Analysis of Two Stochastic Frank-Wolfe Algorithms}% [1] talk title
+  {Shane G. Henderson}% [2] speaker name
+  {Cornell University}% [3] affiliations
+  {sgh9@cornell.edu}% [4] email
+  {Natthawut Boonsiriphatthanajaroen}% [5] coauthors
+  {Stochastic Optimization}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We study the convergence properties of the original and away-step
+Frank-Wolfe algorithms for linearly constrained stochastic
+optimization assuming the availability of unbiased objective function
+gradient estimates. The objective function is not restricted to a
+finite summation form, like in previous analyses tailored to
+machine-learning applications. To enable the use of concentration
+inequalities we assume either a uniform bound on the variance of
+gradient estimates or uniformly sub-Gaussian tails on gradient
+estimates. With one of these regularity assumptions along with
+sufficient sampling, we can ensure sufficiently accurate gradient
+estimates. We then use a Lyapunov argument to obtain the desired
+complexity bounds, relying on existing geometrical results for
+polytopes. 
+\end{talk}
+
+\begin{talk}
+  {Monte Carlo Based Adaptive Sampling Approaches for Stochastic Optimization}% [1] talk title
+  {Raghu Bollapragada}% [2] speaker name
+  {The University of Texas at Austin}% [3] affiliations
+  {raghu.bollapragada@utexas.edu}% [4] email
+  {Shagun Gupta}% [5] coauthors
+  {Stochastic Optimization}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Stochastic optimization problems arise in a wide range of applications, from acoustic/geophysical inversion to deep learning. The scale, computational cost, and difficulty of these models make classical optimization techniques impractical. To address these challenges, in this talk, we propose new stochastic optimization methods using Monte Carlo-based adaptive sampling approaches. These approaches adaptively control the accuracy in the stochastic approximations at each iteration of the optimization algorithm by controlling the sample sizes used in these approximations to achieve efficiency and scalability. Furthermore, these approaches are well-suited for distributed computing implementations. We show that these approaches achieve optimal theoretical global convergence and complexity results for strongly convex, general convex, and non-convex problems and illustrate our algorithm's performance on machine learning models.
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Algorithmic Discrepancy Theory: An Overview}% [1] talk title
+  {Haotian Jiang}% [2] speaker name
+  {University of Chicago}% [3] affiliations
+  {jhtdavid@uchicago.edu}% [4] email
+  {}
+  {Recent Progress on Algorithmic Discrepancy Theory and Applications}
+  %{Names of coauthors go here, no affiliations of coauthors please, all affiliations will be included in an appendix of the program book}% [5] coauthors{S20-1}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Combinatorial discrepancy theory studies the following question: given a universe of elements $U=\{1,\ldots, n\}$ and a collection $\mathcal{S} = \{S_1, \ldots, S_m\}$ of subsets of $U$, how well can we partition $U$ into two pieces, so that all sets in $\mathcal{S}$ are split as evenly as possible.
+%Discrepancy theory studies the irregularities of distributions. Typical questions studied in discrepancy theory include: ``What is the most uniform way of distributing $n$ points in the unit square, and how big must the irregularity be?", ``What is the best way to divide a set of $n$ objects into two groups that are as 'similar' as possible?" 
+The study of this question has found extensive applications to many areas of mathematics, computer science, statistics, finance, etc. 
+
+The past decade has seen tremendous progress in designing efficient algorithms for this problem. These developments have led to many surprising applications in areas such as differential privacy, graph sparsification, approximation algorithms and rounding, kernel density estimation, randomized controlled trials, and quasi-Monte Carlo methods.
+
+In this talk, I will briefly survey some recent algorithmic developments in this area. 
+
+%\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] LâEcuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Improving the Design of Randomized Experiments via Discrepancy Theory}% [1] talk title
+  {Peng Zhang}% [2] speaker name
+  {Rutgers University}% [3] affiliations
+  {pz149@rutgers.edu}% [4] email
+  {}
+  % {Names of coauthors go here, no affiliations of coauthors please, all affiliations will be included in an appendix of the program book}% [5] coauthors
+  {Recent Progress on Algorithmic Discrepancy Theory and Applications}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Randomized controlled trials (RCTs) or A/B tests are the ``gold standard" for estimating the causal effects of new treatments. In a trial, we want to randomly assign experimental units into two groups so that certain unit-specific pre-treatment variables, called covariates, are balanced across different groups. Balancing covariates improves causal effect estimates if covariates correlate with treatment outcomes. Simultaneously, we want our assignment of the units to be robust or sufficiently random such that our estimate is not bad if covariates do not correlate with treatment outcomes. We will show a close connection between the design of RCTs and discrepancy theory and how recent advances in algorithmic discrepancy theory could improve the design of RCTs.
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] LâEcuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Online Factorization for Online Discrepancy Minimization}% [1] talk title
+  {Aleksandar Nikolov}% [2] speaker name
+  {University of Toronto}% [3] affiliations
+  {anikolov@cs.toronto.edu}% [4] email
+  {Haohua Tang}% [5] coauthors
+  {S20-3}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+A recent line of work, initiated by a paper of Bansal and Spencer [2], has made remarkable progress in developing online algorithms for combinatorial discrepancy minimization. In the online discrepancy minimization model, the algorithm receives a sequence of elements of some set system, or, more generally, a sequence of vectors, to color. The new element/vector must be colored immediately upon being received. We now have online algorithms that nearly match some important (offline) discrepancy bounds when the sequence of elements/vectors is stochastic or oblivious: examples include Spencer's theorem [2], and Banaszczyk's theorem [1,3]. In this work, we explore if the factorization method for discrepancy minimization [4] can also be adapted to the offline setting. We introduce a model of online factorization of matrices, and, as a case study, show how to factor online the incidence matrix of a collection of $n$ halfspaces in $d$ dimensions. As a result, we obtain an online algorithm to color an oblivious sequence of $T$ points in $d$ dimensions, so that the discrepancy with respect to a pre-specified collection of $n$ halfspaces is on the order of $n^{\frac12 - \frac{1}{2d}}$ up to logarithmic terms. 
+
+\medskip
+
+\begin{enumerate}
+    \item[{[1]}] Ryan Alweiss, Yang P. Liu, Mehtaab Sawhney:
+Discrepancy minimization via a self-balancing walk. STOC 2021: 14-20
+
+	\item[{[2]}] Nikhil Bansal, Joel H. Spencer:
+On-line balancing of random inputs. Random Struct. Algorithms 57(4): 879-891 (2020)
+
+    \item[{[3]}] Janardhan Kulkarni, Victor Reis, Thomas Rothvoss:
+Optimal Online Discrepancy Minimization. STOC 2024: 1832-1840
+
+    \item[{[4]}] Jiri Matousek, Aleksandar Nikolov, Kunal Talwar, Factorization Norms and Hereditary Discrepancy, IMRN (3), 751-780, 2020. 
+
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
+  {WoS-NN: Collaborating Walk-on-Spheres with Machine Learning to Solve Elliptic PDEs}% [1] talk title
+  {Silei Song}% [2] speaker name
+  {Department of Computer Science, Florida State University}% [3] affiliations
+  {ss19cu@fsu.edu}% [4] email
+  {Michael Mascagni, Arash Fahim}% [5] coauthors
+  {Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Solving elliptic partial differential equations (PDEs) is a fundamental step in various scientific and engineering studies. As a classic stochastic solver, the Walk on Spheres (WoS) method is a well-established and efficient algorithm that provides accurate local estimates for PDEs. However, limited by the curse of dimensionality, WoS may not offer sufficiently precise global estimations, which becomes more serious in high-dimensional scenarios. Recent developments in machine learning offer promising strategies to address this limitation. By integrating machine learning techniques with WoS and space discretization approaches, we developed a novel stochastic solver, WoS-NN. This new method solves elliptic problems with Dirichlet boundary conditions, facilitating precise and rapid global solutions and gradient approximations. A typical experimental result demonstrated that the proposed WoS-NN method provides accurate field estimations, reducing $76.32\%$ errors while using only $8\%$ of path samples compared to the conventional WoS method, which saves abundant computational time and resource consumption. WoS-NN can also be utilized as a fast and effective gradient estimator based on established implementations of the original WoS method. This new method reduced the impacts of the curse of dimensionality and can be widely applied to areas like geometry processing, bio-molecular modeling, financial mathematics, etc.
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Exact discretization, tight frames and recovery via $D$-optimal designs}% [1] talk title
+  {Felix Bartel}% [2] speaker name
+  {University of New South Wales}% [3] affiliations
+  {f.bartel@unsw.edu.au}% [4] email
+  {Lutz KÃ¤mmerer, Kateryna Pozharska, Martin SchÃ¤fer, and Tino Ullrich}% [5] coauthors
+  {QMC and Applications Part I or II}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+    $D$-optimal designs originate in statistics literature as an approach for optimal experimental designs. In numerical analysis points and weights resulting from maximal determinants turned out to be useful for quadrature and interpolation. Also recently, two of the present authors and coauthors investigated a connection to the discretization problem for the uniform norm. Here we use this approach of maximizing the determinant of a certain Gramian matrix with respect to points and weights for the construction of tight frames and exact Marcinkiewicz-Zygmund inequalities in $L_2$. We present a direct and constructive approach resulting in a discrete measure with at most $N\le n^2+1$ atoms, which discretely and accurately subsamples the $L_2$-norm of complex-valued functions contained in a given n-dimensional subspace. This approach can as well be used for the reconstruction of functions from general RKHS in $L_2$ where one only has access to the most important eigenfunctions. We verifiably and deterministically construct points and weights for a weighted least squares recovery procedure and pay in the rate of convergence compared to earlier optimal, however probabilistic approaches. The general results apply to the d-sphere or multivariate trigonometric polynomials on Td spectrally supported on arbitrary finite index sets $I\subset\mathbb Z^d$. They can be discretized using at most $|I|^2-|I|+1$ points and weights. Numerical experiments indicate the sharpness of this result. As a negative result we prove that, in general, it is not possible to control the number of points in a reconstructing lattice rule only in the cardinality $|I|$ without additional condition on the structure of $I$. We support our findings with numerical experiments.
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {High-dimensional density estimation on  unbounded domain}% [1] talk title
+  {Zhijian He}% [2] speaker name
+  {South China University of Technology}% [3] affiliations
+  {hezhijian@scut.edu.cn}% [4] email
+  {Ziyang Ye, Haoyuan Tan, Xiaoqun Wang}% [5] coauthors
+  {QMC and Applications Parts I and II}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+This talk will present a kernel-based method to approximate probability density functions of unbounded random variables taking values in high-dimensional spaces. Building upon the framework of Kazashi and Nobile [1], our estimator is a linear combination of kernel functions whose coefficients are determined a linear equation. We first transform the unbounded sample domain into a hyper cube and then use rank-1 lattice points as the interpolation nodes.
+We establish a rigorous error analysis for the mean integrated squared error (MISE) under an exponential decay conditon.  Under a suitable smoothness assumption, our method attains an MISE rate  approaching $O(N^{-1})$ for $N$ independent identically distributed observations. Numerical experiments validate our theoretical findings and demonstrate the superior performance of the proposed estimator compared to state-of-the-art alternatives.
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}] Kazashi, Yoshihito, \& Nobile, Fabio. (2023). Density estimation in {RKHS} with application to Korobov spaces in high dimensions, SIAM Journal on Numerical Analysis, \textbf{61}(2), 1080-1102.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {$L_2$-approximation: using randomized lattice algorithms and QMC hyperinterpolation}% [1] talk title
+  {Mou Cai}% [2] speaker name
+  {Graduate School of Engineering, The University of Tokyo}% [3] affiliations
+  {caimoumou@g.ecc.u-tokyo.ac.jp}% [4] email
+  {Congpei An, Takashi Goda, Yoshihito Kazashi}% [5] coauthors
+  {S22-3}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+Abstract
+
+			
+We propose a randomized lattice algorithm for approximating multivariate periodic functions over the $d$-dimensional unit cube from the weighted Korobov space with mixed smoothness $\alpha > 1/2$ and product weights $\gamma_1,\gamma_2,\ldots\in [0,1]$. This randomization involves drawing the number of points for function evaluations randomly, and selecting a good generating vector for rank-1 lattice points using the randomized component-by-component algorithm. We prove that our randomized algorithm achieves a worst-case root mean squared $L_2$-approximation error of order $M^{-\alpha/2 - 1/8 + \varepsilon}$ for an arbitrarily small $\varepsilon > 0$, where $M$ denotes the maximum number of function evaluations, and that the error bound is independent of the dimension $d$ if the weights satisfy $\sum_{j=1}^\infty \gamma_j^{1/\alpha} < \infty$. Our upper bound converges faster than a lower bound on the worst-case $L_2$-approximation error for deterministic rank-1 lattice-based approximation proved by Byrenheid, K\"{a}mmerer, Ullrich, and Volkmer (2017). We also show a lower error bound of order $M^{-\alpha/2-1/2}$ for our randomized algorithm. Finally, we present a generalization of hyperinterpolation over the unit cube named Quasi-Monte Carlo (QMC) hyperinterpolation. This new approximation scheme can be integrated with the Lasso technique to enhance sparsity and denoising capabilities.
+
+\medskip
+
+
+\end{talk}
+
+\begin{talk}
+  {Application of QMC to Oncology}% [1] talk title
+  {Frances Y. Kuo}% [2] speaker name
+  {UNSW Sydney, Australia}% [3] affiliations
+  {f.kuo@unsw.edu.au}% [4] email
+  {Alexander D. Gilbert, Dirk Nuyens, Graham Pash, Ian H. Sloan, Karen E. Willkox}% [5] coauthors
+  {QMC and Applications Part I}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Tumor models largely focus on two key characteristics: infiltration of the tumor into the surrounding healthy tissue modelled by diffusion, and proliferation of the existing tumor modelled by logistic growth in tumor cellularity. Together with terms to model chemotherapy and radiotherapy treatments, these give rise to a nonlinear parabolic reaction-diffusion PDE with random diffusion and proliferation coefficients. We show that QMC methods can be successful in computing quantities of interest arising from this tough application in oncology.
+
+%\medskip
+%
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+%
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Convergence rates of kinetic Langevin dynamics with weakly confining potentials}% [1] talk title
+  {Lihan Wang}% [2] speaker name
+  {Carnegie Mellon University}% [3] affiliations
+  {lihanw@andrew.cmu.edu}% [4] email
+  {Giovanni Brigati, Gabriel Stoltz, Andi Q. Wang}% [5] coauthors
+  {S23-1}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We discuss the long-time convergence behavior of kinetic Langevin dynamics, and show how the growth of the potentials in space and velocity impact the convergence rates of the dynamics, via weighted and weak Poincar\'e inequalities. The analysis is inspired by the Armstrong-Mourrat variational framework for hypocoercivity, which combines a weighted PoincarÃ©-Lions inequality in time-augmented state space and an $L^2$ energy estimate.
+
+
+\end{talk}
+
+\begin{talk}
+  {Randomized Splitting Methods and Stochastic Gradient Algorithms}% [1] talk title
+  {Peter A. Whalley}% [2] speaker name
+  {ETH Z\"{u}rich, Switzerland}% [3] affiliations
+  {pwhalley@ethz.ch}% [4] email
+  {Neil K. Chada, Benedict Leimkuhler, Daniel Paulin, Luke Shaw}% [5] coauthors
+  {Analysis of Langevin and Related Sampling Algorithms, Part I}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We examine the use of different randomisation policies for stochastic gradient algorithms. Conventionally, algorithms are combined with a specific stochastic gradient strategy, called Robbins-Monro. In this work, we study without replacement subsampling strategies and show convincingly that it leads to improved performance via: a) a proof of improved complexity guarantees for strongly convex, gradient Lipschitz objectives;
+b) an analytical demonstration of reduced bias on quadratic model problems; and c) empirical
+demonstration of reduced bias in numerical experiments. This is especially important since without replacement subsampling strategies are typically more efficient due to memory access and cache reasons. 
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Daniel Paulin$^{*}$, Peter A. Whalley$^{*}$, Neil K. Chada, \& Ben Leimkuhler (2025). {\it Sampling from Bayesian Neural Network Posteriors with Symmetric Minibatch Splitting Langevin Dynamics}. The 28th International Conference on Artificial Intelligence and Statistics.
+
+        \item[{[2]}] Luke Shaw, Peter A. Whalley (2025). {\it Random Reshuffling for Stochastic Gradient Langevin Dynamics}. ArXiv:2501.16055.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Delocalization of Bias in Unadjusted Hamiltonian Monte Carlo}% [1] talk title
+  {Xiaoou Cheng}% [2] speaker name
+  {New York University}% [3] affiliations
+  {chengxo@nyu.edu}% [4] email
+  {Yifan Chen, Jonathan Niles-Weed, Jonathan Weare}% [5] coauthors
+  {Analysis of Langevin and Related Sampling Algorithms, Part I}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Hamiltonian Monte Carlo is a commonly used algorithm to sample high dimensional probability distributions. However, for strongly log-concave distributions, existing analyses of the unadjusted algorithm show that the number of iterations follows a power law in terms of the dimension $d$, to ensure convergence within a desired error in the $W_2$ metric. Also, because of the large bias, Hamiltonian Monte Carlo is often Metropolized to remove the bias effectively. [1] suggests that for unadjusted Langevin algorithm, similar power law dimension scaling of convergence and bias in the $W_2$ metric can be misleading. There, for strongly log-concave distributions with certain sparse interactions, the \emph{marginal} distribution of a small number of $K$ variables can be well-approximated in the $W_2$ metric, with a small number of iterations proportional to $K$ up to \emph{logarithmic} terms in $d$. A novel $W_{2,\ell^\infty}$ metric is used in analysis. We show that this \emph{delocalization of bias} effect also exists in unadjusted Hamiltonian Monte Carlo with the leapfrog integrator, which suggests that Metropolization may not be necessary in this situation. A key observation is that the propagator of the leapfrog integrator is closely related to Chebyshev polynomials.
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+\begin{enumerate}
+	\item[{[1]}] Chen, Y., Cheng, X., Niles-Weed, J., \& Weare, J. (2024). Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias. \textit{arXiv preprint arxiv: 2408.13115}.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Multilevel randomized quasi-Monte Carlo estimator for nested expectations}% [1] talk title
+  {Ra\'{u}l Tempone}% [2] speaker name
+  {King Abdullah University of Science and Technology/RWTH Aachen University}% [3] affiliations
+  {raul.tempone@kaust.edu.sa}% [4] email
+  {Arved Bartuska, Andr\'{e} Gustavo Carlon, Luis Espath, Sebastian Krumscheid}% [5] coauthors
+  {S24-1}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Estimation methods for nested integrals face several challenges, including nonlinearities separating the integrals, boundary singularities, and the need for numerical discretization of the integrand. In this talk, we present an advanced multilevel randomized double-loop quasi-Monte Carlo estimator that addresses these challenges by combining hierarchical approximations with deterministic and randomized quasi-Monte Carlo (rQMC) methods. This estimator is tailored towards scenarios where the inner integrand requires discretization via the finite element method and the outer integrand exhibits singularities at the boundaries of the integration domain. 
+
+Applications from Bayesian experimental design, in particular, the expected information gain (EIG) of an experiment, necessitate a truncation scheme for observation noise to rigorously bound the estimation error. This truncation affects the computational cost only by a logarithmic factor. Numerical experiments demonstrate the predicted optimal cost of almost $\mathcal{O}(TOL^{-1-\gamma/\eta_{\text{w}}})$ where $\gamma$ and $\eta_{\text{w}}$ signify the cost and weak rate of finite element discretizations, respectively.
+
+\end{talk}
+
+\begin{talk}
+  {Stochastic gradient with least-squares control variates}% [1] talk title
+  {Matteo Raviola}% [2] speaker name
+  {Ãcole polytechnique fÃ©dÃ©rale de Lausanne}% [3] affiliations
+  {matteo.raviola@epfl.ch}% [4] email
+  {Fabio Nobile, Nathan Schaeffer}% [5] coauthors
+  {S24-2}% [6] special session. Leave this field empty for contributed talks. 
+  % Insert the title of the special session if you were invited to give a talk in a special session.
+  
+  The stochastic gradient (SG) method is a widely used approach for solving stochastic optimization problems, but its convergence is typically slow.
+  Existing variance reduction techniques, such as SAGA [1], improve convergence by leveraging stored gradient information; however, they are restricted to settings where the objective functional is a finite sum, and their performance degrades when the number of terms in the sum is large.
+  In this work, we propose a novel approach which also works when the objective is given by an expectation over random variables with a continuous probability distribution.
+  Our method constructs a control variate by fitting a linear model to past gradient evaluations using weighted discrete least-squares, effectively reducing variance while preserving computational efficiency.
+  We establish theoretical sublinear convergence guarantees and demonstrate the method's effectiveness through numerical experiments on random PDE-constrained optimization.
+  
+  \medskip
+  
+  \begin{enumerate}
+    \item[{[1]}] Defazio, A., Bach, F., \& Lacoste-Julien, S. (2014). {\it SAGA: A fast incremental gradient method with support for non-strongly convex composite objectives.} Advances in neural information processing systems, 27.
+  \end{enumerate}
+  
+\end{talk}
+
+\begin{talk}
+  {Quasi-uniform quasi-Monte Carlo lattice point sets}% [1] talk title
+  {Kosuke Suzuki}% [2] speaker name
+  {Yamagata University}% [3] affiliations
+  {kosuke-suzuki@sci.kj.yamagata-u.ac.jp}% [4] email
+  {Josef Dick, Takashi Goda, Gerhard Larcher, Friedrich Pillichshammer}% [5] coauthors
+  {QMC and Applications}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+The discrepancy of a point set quantifies how well the points are distributed, with low-discrepancy point sets demonstrating exceptional uniform distribution properties. Such sets are integral to quasi-Monte Carlo methods, which approximate integrals over the unit cube for integrands of bounded variation. In contrast, quasi-uniform point sets are characterized by optimal separation and covering radii, making them well-suited for applications such as radial basis function approximation. This paper explores the quasi-uniformity properties of quasi-Monte Carlo point sets constructed from lattices. Specifically, we analyze rank-1 lattice point sets, Fibonacci lattice point sets, Frolov point sets, and $(n \boldsymbol{\alpha})$-sequences, providing insights into their potential for use in applications that require both low-discrepancy and quasi-uniform distribution. As an example, we show that the $(n \boldsymbol{\alpha})$-sequence with $\alpha_j = 2^{j/(d+1)}$ for $j \in \{1, 2, \ldots, d\}$ is quasi-uniform and has low-discrepancy.
+
+
+\end{talk}
+
+\begin{talk}
+  {QMC confidence intervals using quantiles of randomized nets}% [1] talk title
+  {Zexin Pan}% [2] speaker name
+  {Johann Radon Institute for Computational and Applied Mathematics}% [3] affiliations
+  {zexin.pan@oeaw.ac.at}% [4] email
+  {}% [5] coauthors
+  {S25-2}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+
+The median of linearly scrambled digital net estimates has been shown to converge to the target integral value at nearly the optimal rate across various function spaces [1]. In this talk, we explore how quantiles of these estimates can be used to construct confidence intervals for the target integral. In particular, we demonstrate that as the sample size increases, the error distribution becomes increasingly symmetric, and we quantify the rate of this symmetrization for a class of smooth integrands.
+            
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}] Pan, Zexin. (2025). Automatic optimal-rate convergence of randomized nets using median-of-means. {\it  Mathematics of Computation}, to appear.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Approximation of multivariate periodic functions}% [1] talk title
+  {Dirk Nuyens}% [2] speaker name
+  {KU Leuven, Belgium}% [3] affiliations
+  {dirk.nuyens@kuleuven.be}% [4] email
+  {Laurence Wilkes}% [5] coauthors
+  {QMC and Applications}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+  We study approximation of multivariate periodic functions using $n$
+  function values. We use generated sets as the sample points, first
+  introduced in~[1]. We prove existence and convergence of the almost
+  optimal $L_2$ error and obtain similar bounds as for the least squares
+  algorithm from~[2] which uses unstructured points.
+
+\medskip
+
+\begin{enumerate}
+  \item[{[1]}]
+    K{\"a}mmerer.
+    Reconstructing multivariate trigonometric polynomials by sampling along generated sets.
+    In Monte Carlo and Quasi-Monte Carlo Methods 2012 (Dick, Kuo, Peters, Sloan), pages 439--454, 2013.
+  \item[{[2]}]
+    Krieg, Ullrich.
+    Function values are enough for $L_2$ approximation.
+    \emph{Foundations of Computational Mathematics}, 21(4):1141--1151, 2021.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Finite-Particle Convergence Rates for Stein Variational Gradient Descent}% [1] talk title
+  {Krishnakumar Balasubramanian}% [2] speaker name
+  {University of California, Davis}% [3] affiliations
+  {kbala@ucdavis.edu}% [4] email
+  {}% [5] coauthors
+  {S26-1}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+ We provide finite-particle convergence rates for the Stein Variational Gradient Descent (SVGD) algorithm in the Kernelized Stein Discrepancy ($\KSD$) and Wasserstein-2 metrics. Our key insight is that the time derivative of the relative entropy between the joint density of $N$ particle locations and the $N$-fold product target measure, starting from a regular initial distribution, splits into a dominant `negative part' proportional to $N$ times the expected $\KSD^2$ and a smaller `positive part'. This observation leads to $\KSD$ rates of order $1/\sqrt{N}$, in both continuous and discrete time, providing a near optimal (in the sense of matching the corresponding i.i.d. rates) double exponential improvement over the recent result by~[1]. Under mild assumptions on the kernel and potential, these bounds also grow polynomially in the dimension $d$. By adding a bilinear component to the kernel, the above approach is used to further obtain Wasserstein-2 convergence in continuous time. For the case of `bilinear + Mat\'ern' kernels, we derive Wasserstein-2 rates that exhibit a curse-of-dimensionality similar to the i.i.d. setting. We also obtain marginal convergence and long-time propagation of chaos results for the time-averaged particle laws. 
+
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}] Shi, J., \& Mackey, L. (2023). A finite-particle convergence rate for stein variational gradient descent. Advances in Neural Information Processing Systems, 36, 26831-26844.
+	%\item[{[2]}] LâEcuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias}% [1] talk title
+  {Yifan Chen}% [2] speaker name
+  {UCLA, Courant Institute}% [3] affiliations
+  {yifanc96@gmail.com}% [4] email
+  {Xiaoou Cheng, Jonathan Niles-Weed, Jonathan Weare}% [5] coauthors
+  {S26-2}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+The unadjusted Langevin algorithm is commonly used to sample probability distributions in extremely high-dimensional settings. However, existing analyses of the algorithm for strongly log-concave distributions suggest that, as the dimension $d$ of the problem increases, the number of iterations required to ensure convergence within a desired error in the $W_2$ metric scales in proportion to $d$ or $\sqrt{d}$. In this work, we argue that, the behavior for a \emph{small number} of variables can be significantly better: a number of iterations proportional to $K$, up to logarithmic terms in $d$,
+often suffices for the algorithm to converge to within a desired $W_2$ error for all $K$-marginals.
+We refer to this effect as 
+\textit{delocalization of bias}. 
+We show that the delocalization effect does not hold universally and prove its validity for Gaussian distributions and strongly log-concave distributions with certain sparse/local interactions. Our analysis relies on a novel $W_{2,\ell^\infty}$ metric to measure convergence. A key technical challenge we address is the lack of a one-step contraction property in this metric. Finally, we use asymptotic arguments to explore potential generalizations of the delocalization effect beyond the Gaussian and sparse/local interactions setting.
+
+\end{talk}
+
+\begin{talk}
+%  {Modified Overdamped Langevin Dynamics for Nonconvex Sampling with Equality and Inequality Constraints: Exponential Convergence and Hard Landing Algorithms}% [1] talk title
+{Langevin-Based Sampling under Nonconvex Constraints}
+  {Molei Tao}% [2] speaker name
+  {Georgia Tech}% [3] affiliations
+  {mtao@gatech.edu}% [4] email
+  {Kijung Jeon, Michael Muehlebach}% [5] coauthors
+  {Analysis of Langevin and Related Sampling Algorithms}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+Given an unnormalized density $\rho$ and a constraint set $\Sigma$ in $\mathbb{R}^n$, we aim at sampling from a constrained distribution $Z^{-1} \rho(x) I_{\Sigma}(x) dx$. While the case when $\Sigma$ is convex has been extensively studied, \emph{no} convexity is needed in this talk, in which case quantitative results are scarce. % The case when the density is described by first-order oracles and the constraint set is described by a collection of equalities and inequalities will be considered. 
+Our method admits multiple interpretations, but this talk will focus on a Langevin perspective, where overdamped Langevin dynamics is first modified, and then discretized so that a sampling algorithm can be constructed. The quantitative convergence of the continuous dynamics will be detailed, but if time permits, the performance of the time-discretization (i.e. the actual sampler) will also be discussed.
+
+%\textbf{[Revised version]}
+%Consider an unnormalized density $\rho$ and a constraint set $\Sigma \subset \mathbb{R}^d$ defined by finitely many equality and inequality constraints. We aim to sample from the target density $\rho_\Sigma(x) \propto \rho(x)I_{\Sigma}(x) dx$. While the case when $\Sigma$ is convex has been extensively studied, traditional approaches for nonconvex $\Sigma$ have heuristically relied on projection operators or on designing algorithms that steer trajectories along directions orthogonal to $\Sigma$ (e.g., landing algorithms or orthogonal direction samplers). However, these methods are typically limited to equality constraints, and even in that setting, rigorous analyses of convergence rates remain scarce. In contrast, we propose a new framework that can design an overdamped Langevin dynamics which accommodates both equality and inequality constraints without relying slack variable method. The modified dynamics also deterministically corrects trajectories along the normal direction of the constraint surface, thus obviating the need for explicit projections. Additionally, we introduce a heuristic hard landing algorithm to address challenges arising from discretization. Under suitable regularity conditions on $\rho$ and $\Sigma$, we prove that the continuous dynamics converge exponentially fast to $\rho_\Sigma$.
+
+
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] LâEcuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Accelerated Mixing of the No-U-turn Sampler}% [1] talk title
+  {Stefan Oberd\"orster}% [2] speaker name
+  {University of Bonn}% [3] affiliations
+  {oberdoerster@uni-bonn.de}% [4] email
+  {Nawaf Bou-Rabee}% [5] coauthors
+  {Analysis of Langevin and Related Sampling Algorithms, Part II}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In recent years, we witnessed considerable progress on the quantitative mixing of Randomized Hamiltonian Monte Carlo via variational hypocoercivity and lifts. Under assumptions revolving around the concentration of measure phenomenon, it was shown that critically tuned Randomized Hamiltonian Monte Carlo achieves accelerated convergence to equilibrium, also known as the diffusive-to-ballistic speed-up. This acceleration is of great interest to the field of Markov chain Monte Carlo methods. To bridge the gap between theory and application, a natural question is: {\it Does the No-U-turn sampler, a widely used locally-adapted implementation of Randomized Hamiltonian Monte Carlo, achieve acceleration?} We will explore recent results towards this question based on a combination of concentration of measure and a novel framework for localized mixing via couplings.
+
+\end{talk}
+
+\begin{talk}
+  {Convergence of $\Phi$-Divergence and $\Phi$-Mutual Information Along Langevin Markov Chains}% [1] talk title
+  {Siddharth Mitra}% [2] speaker name
+  {Yale University}% [3] affiliations
+  {siddharth.mitra@yale.edu}% [4] email
+  {Jiaming Liang, Andre Wibisono}% [5] coauthors
+  {S26-5}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+The mixing time of a Markov chain determines when the marginal law of the Markov chain is close to the stationary distribution and can be studied in many statistical divergences such as KL divergence and chi-squared divergence, all the way to families of divergences such as $\Phi$-divergences. However, the mixing time does not determine the dependency between samples along the Markov chain, which can be measured in terms of their mutual information, chi-squared mutual information, or more generally their $\Phi$-mutual information. In this talk we study the mixing time of Langevin Markov chains in $\Phi$-divergence and also study the $\Phi$-mutual information between the iterates. The Markov chains we focus on are the Langevin Dynamics in continuous-time, and the Unadjusted Langevin Algorithm and Proximal Sampler in discrete-time and we show that for these Markov chains, the $\Phi$-divergence and the $\Phi$-mutual information decreases exponentially fast. Our proof technique is based on showing the Strong Data Processing Inequalities (SDPIs) hold along the Markov chains. To prove fast mixing of the Markov chains, we show the SDPIs hold for the stationary distribution. In contrast, to prove the contraction of $\Phi$-mutual information, we need to show the SDPIs hold along the entire trajectories of the Markov chains; we prove this when the iterates along the Markov chains satisfy the corresponding $\Phi$-Sobolev inequality.
+
+
+\medskip
+
+
+\end{talk}
+
+\begin{talk}
+  {Fixed-budget simulation method for growing cell populations}% [1] talk title
+  {Zhou Fang}% [2] speaker name
+  {Academy of Mathematics and Systems Science, Chinese Academy of Sciences}% [3] affiliations
+  {zhfang@amss.ac.cn}% [4] email
+  {Shaoqing Chen, Zheng Hu, Da Zhou}% [5] coauthors
+  {Forward and Inverse Problems for Stochastic Reaction Networks}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Investigating the dynamics of growing cell populations is crucial for unraveling key biological mechanisms in living organisms, with many important applications in therapeutics and biochemical engineering. Classical agent-based simulation algorithms are often inefficient for these systems because
+they track each individual cell, making them impractical for fast (or even exponentially) growing
+cell populations. To address this challenge, we introduce a novel stochastic simulation approach
+based on a Feynman-Kac-like representation of the population dynamics. This method, named the
+Feynman-Kac-inspired Gillespieâs Stochastic Simulation Algorithm (FKG-SSA), always employs a
+fixed number of independently simulated cells for Monte Carlo computation of the system, resulting in a constant computational complexity regardless of the population size. Furthermore, we
+theoretically show the statistical consistency of the proposed method, indicating its accuracy and
+reliability. Finally, a couple of biologically relevant numerical examples are presented to illustrate the
+approach. Overall, the proposed FKG-SSA effectively addresses the challenge of simulating growing
+cell populations, providing a solid foundation for better analysis of these systems.
+
+
+\end{talk}
+
+\begin{talk}
+  {State and parameter inference in stochastic reaction networks}% [1] talk title
+  {Muruhan Rathinam}% [2] speaker name
+  {University of Maryland Baltimore County}% [3] affiliations
+  {muruhan@umbc.edu}% [4] email
+  {Mingkai Yu}% [5] coauthors
+  {S28-3}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+Continuous time Markov chain models are widely used to model intracellular chemical reactions networks that arise in systems and synthetic biology. In this talk, we address the problem of inference of state and parameters of such systems from partial observations. We present details of recent particle filtering methods that are applicable to two different scenarios: one in which the observations are made continuously in time and the other in which the observations are made in discrete snapshots of time.            We provide the theoretical justification as well as numerical results to illustrate these methods.       
+			
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+\begin{enumerate}
+	\item[{[1]}] Rathinam, Muruhan \& Yu, Mingkai (2021). {\it State and parameter estimation from exact partial state observation in stochastic reaction networks}. The Journal of Chemical Physics. 
+ 154(3).
+	\item[{[2]}] Rathinam, Muruhan \& Yu, Mingkai (2023). Stochastic Filtering of Reaction Networks Partially Observed in Time Snapshots. Journal of Computational Physics. 
+Volume 515, 15 October 2024, 113265. 
+
+\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Dimensionality Reduction for Efficient Rare Event EstimationÂ 
+}% [1] talk title
+  {Sophia MÃ¼nker}% [2] speaker name
+  {RWTH Aachen University}% [3] affiliations
+  {muenker@uq.rwth-aachen.de}% [4] email
+  {Chiheb Ben Hammouda, Nadhir Ben Rached, RaÃºl Tempone}% [5] coauthors
+  {Forward and Inverse Problems for Stochastic Reaction Networks}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+A Stochastic Reaction Network (SRN) is a continuous-time, discrete-space Markov chain that models the random interaction of $d$ species through reactions, commonly applied in bio-chemical systems. We are interested in efficiently estimating rare event probabilities, where we consider path-dependent observables. Therefore, we present an importance sampling (IS) method based on the discrete Tau-Leap (TL) scheme to enhance the performance of Monte Carlo (MC) estimators. The primary challenge in IS is selecting an appropriate change of probability measure to significantly reduce variance, which often requires deep insights into the underlying problem. To address this, we propose a generic approach to obtain an efficient path-dependent measure change, based on an original connection between finding optimal IS parameters and solving a variance minimization problem using a stochastic optimal control (SOC) formulation [1]. The optimal IS parameters can be derived by solving a Hamilton-Jacobi-Bellman equation.
+
+To address the curse of dimensionality, we propose the Markovian Projection (MP) technique to reduce the SRN to a lower-dimensional SRN (called MP-SRN) while preserving the marginal distribution of the original high-dimensional system.Â When solving the resulting SOC problem numerically to derive the variance reducing IS parameters, we derive the parameter for a reduced-dimensional model. These IS parameters can be applied to the full-dimensional SRN in the forward run. Analysis and numerical experiments demonstrate that our IS strategies substantially reduce the variance of the MC estimator, leading to lower computational complexity in the rare event regime compared to standard MC methods.Â 
+
+At the end of the talk, we give a small outlook on a multilevel-IS scheme to further improve the efficiency of the estimator.
+
+
+\begin{enumerate}
+   \item[{[1]}] Ben Hammouda, C., Ben Rached, N., Tempone, R., \& Wiechert, S. (2024). Automated importance sampling via optimal control for stochastic reaction networks: A Markovian projection-based approach. Journal of Computational and Applied Mathematics, 446, 115853.
+\end{enumerate}
+
+\medskip
+\end{talk}
+
+\begin{talk}
+    {A High-performance Multi-level Monte Carlo Software for Full Field Estimates and Applications in Optimal Control}% [1] talk title
+    {Niklas Baumgarten}% [2] speaker name
+    {Heidelberg University}% [3] affiliations
+    {niklas.baumgarten@uni-heidelberg.de}% [4] email
+    {Robert Scheichl, Robert Kutri, David Schneiderhan, Sebastian Krumscheid, Christian Wieners, Daniele Corallo}% [5] coauthors
+    {S29-1}% [6] special session. Leave this field empty for contributed talks.
+        % Insert the title of the special session if you were invited to give a talk in a special session.
+
+        We introduce a high-performance software framework for multi-level Monte Carlo (MLMC)
+        and multi-level stochastic gradient descent (MLSGD) methods,
+        designed for efficient uncertainty quantification and optimal control in high-dimensional PDE applications.
+        The software operates under strict memory and CPU-time constraints,
+        requiring no prior knowledge of problem regularity or memory demands.
+
+        Built on the budgeted MLMC method with a sparse multi-index update algorithm,
+        it enables full spatial-domain estimates at the same computational cost as single-point
+        evaluations while maintaining memory usage comparable to the deterministic problem.
+        Additionally, the framework integrates an MLSGD method for optimal control,
+        achieving faster convergence at reduced computational costs compared to standard
+        stochastic gradient descent methods.
+
+        We validate the software on applications such as stochastic PDE-based sampling, subsurface flow,
+        mass transport, acoustic wave equations, and high-dimensional control problems.
+
+
+    \end{talk}
+
+\begin{talk}
+  {Quasi-Monte Carlo Generators, Randomization Routines, and Fast Kernel Methods}% [1] talk title
+  {Aleksei G Sorokin}% [2] speaker name
+  {Illinois Institute of Technology, Department of Applied Mathematics. \\ Sandia National Laboratories.}% [3] affiliations
+  {asorokin@hawk.iit.edu}% [4] email
+  {}%Fred J Hickernell, Sou-Cheng T Choi, Aadit Jain, Pieterjan Robbe}% [5] coauthors
+  {S29-2}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+        This talk will highlight recent improvements to the QMCPy Python package: a unified library for Quasi-Monte Carlo methods and computations related to low discrepancy sequences. We will describe routines for low discrepancy point set generation, randomization, and application to fast kernel methods. Specifically, we will discuss generators for lattices, digital nets, and Halton point sets with randomizations including random permutations / shifts, linear matrix scrambling, and nested uniform scrambling. Routines for working with higher-order digital nets and scramblings will also be detailed. For kernel methods, we provide implementations of special shift-invariant and digitally-shift invariant kernels along with fast Gram matrix operations facilitated by the bit-reversed Fast Fourier Transform (FFT), the bit-reversed inverse FFT (IFFT), and the Fast Walsh Hadamard Transform (FWHT). We will also describe methods to quickly update the matrix-vector product or linear system solution after doubling the number of points in a lattice or digital net in natural order. Generalizations to fast Gaussian process regression with derivative information will be discussed if time permits. 
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Sorokin, A. (2025). A Unified Implementation of Quasi-Monte Carlo Generators, Randomization Routines, and Fast Kernel Methods. arXiv preprint arXiv:2502.14256.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Hybrid Monte Carlo methods for kinetic transport}% [1] talk title
+  {Johannes Krotz}% [2] speaker name
+  {University of Notre Dame}% [3] affiliations
+  {jkrotz@nd.edu}% [4] email
+  {}% [5] coauthors
+  {Hardware or Software for (Quasi-)Monte Carlo Algorithm}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+We present a hybrid method for time-dependent particle transport problems that combines Monte Carlo (MC) estimation with deterministic solutions based on discrete ordinates. For spatial discretizations, the MC algorithm computes a piecewise constant solution and the discrete ordinates use bilinear discontinuous finite elements. From the hybridization of the problem, the resulting problem solved by Monte Carlo is scattering free, resulting in a simple, efficient solution procedure. Between time steps, we use a projection approach to ârelabelâ collided particles as uncollided particles. From a series of standard 2-D Cartesian test problems we observe that our hybrid method has improved accuracy and reduction in computational complexity of approximately an order of magnitude relative to standard discrete ordinates solutions.
+
+\end{talk}
+
