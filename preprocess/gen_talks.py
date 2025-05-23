@@ -46,11 +46,12 @@ def format_full_id(id_val: str, prefix: str) -> str:
     """
     return f"{prefix}{id_val}" if prefix and not id_val.startswith(prefix) else id_val
 
-
 def process_talk(id_val: str, prefix: str, tex_dir: str) -> str | None:
     """
-    Extracts and updates a single talk environment for a given ID.
-    Returns the processed talk block or None if missing/error.
+    Extracts and normalizes a talk environment from a .tex file.
+    Ensures exactly 9 argument slots, fills missing with "",
+    overrides talk-id ([8]) with full_id, sets field 9 to "photo",
+    preserves the abstract body, and optionally adds \clearpage for plenary.
     """
     full_id = format_full_id(id_val, prefix)
     tex_path = os.path.join(tex_dir, f"{full_id}.tex")
@@ -64,28 +65,69 @@ def process_talk(id_val: str, prefix: str, tex_dir: str) -> str | None:
     except UnicodeDecodeError:
         content = open(tex_path, 'r', encoding='latin-1').read()
 
+    # Extract the talk block
     try:
-        block = extract_talk_environment(content) 
-    except ValueError as e:
-        #print(f"WARN: {e} in {tex_path}")
+        block = extract_talk_environment(content)
+    except ValueError:
         return None
 
-    # Replace placeholders
-    for placeholder in ('[6]', '[8]'):
-        pattern = r"\{\}\s*%\s*" + re.escape(placeholder)
-        replacement = f"{{{full_id}}}% {placeholder}"
-        block = re.sub(pattern, replacement, block)
-    
-    if prefix=="P":
-        # Test if the pattern exists
-        if r'\end{talk}' in block:
-            #print("Found \\end{talk} as substring")
-            block = re.sub(r'(\\end\s*\{\s*talk\s*\})', lambda m: f"{m.group(1)}\n\n\\clearpage", block)
-            #print(f"Replaced \\end{{talk}} in block: \n{repr(block)}")
-        else:
-            print("\\end{talk} not found as substring: \n{repr(block)}")
+    # Split into lines for body extraction
+    raw_lines = block.splitlines()
+    # Locate begin/end
+    try:
+        begin_idx = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\begin\{talk\}", l))
+        end_idx   = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\end\{talk\}", l))
+    except StopIteration:
+        return None
+    # Identify field lines (slots 1–9)
+    field_idxs = [i for i, l in enumerate(raw_lines)
+                  if re.match(r"^\s*\{.*\}\s*%\s*\[\d+\]", l)]
+    last_field_idx = max(field_idxs) if field_idxs else begin_idx
+    # Abstract body is between last field and \end{talk}
+    body_lines = raw_lines[last_field_idx+1:end_idx]
 
-    return block
+    # --- Parse existing fields by position ---
+    raw_args = [re.match(r"^\s*\{([^}]*)\}", l).group(1)
+                for i, l in enumerate(raw_lines)
+                if re.match(r"^\s*\{([^}]*)\}", l)]
+    # Initialize slots 1–9 to empty
+    args = {i: '' for i in range(1, 10)}
+    # Fill from parsed values, in order
+    for idx, val in enumerate(raw_args, start=1):
+        if idx > 9:
+            break
+        args[idx] = val.strip()
+
+    # Override specific slots
+    args[8] = full_id       # talk id
+    args[9] = 'photo'       # always use "photo" for field 9
+
+    # Build normalized talk block with descriptions
+    descriptions = {
+        1: 'talk title',
+        2: 'speaker name',
+        3: 'affiliations',
+        4: 'email',
+        5: 'coauthors',
+        6: 'special session',
+        7: 'time slot',
+        8: 'talk id',
+        9: 'session id or photo',
+    }
+    lines = ['\\begin{talk}']
+    for i in range(1, 10):
+        lines.append(f"  {{{args[i]}}}% [{i}] {descriptions[i]}")
+    # Append existing abstract body, preserving indent
+    for bl in body_lines:
+        lines.append(bl)
+    lines.append('\\end{talk}')
+
+    # For plenary talks (prefix 'P'), add a page break after
+    if prefix == 'P':
+        lines.append('')
+        lines.append('\\clearpage')
+
+    return '\n'.join(lines)
 
 
 def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Talks') -> None:
@@ -137,7 +179,7 @@ if __name__ == '__main__':
         'contributed_talk_submissions': 'T'
     }
 
-    for key in ["contributed_talk_submissions", "special_session_abstracts", "plenary_abstracts"]: # "special_session_submissions", 
+    for key in ["plenary_abstracts"]: # "special_session_submissions", "contributed_talk_submissions", "special_session_abstracts",
         if key in prefix_map:
             csv_path = os.path.join(interimdir, f"{key}_talkid.csv")
             tex_dir = os.path.join(indir, 'abstracts')
