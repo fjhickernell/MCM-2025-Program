@@ -230,6 +230,31 @@ The ability to simulate the impact of pH on water radiolysis represents a signif
 \end{talk}
 
 \begin{talk}
+  {Adaptive Max-EWMA Control Chart with SVR: Monte Carlo Simulation for Run Length Analysis}% [1] talk title
+  {Muhammad Noor ul Amin}% [2] speaker name
+  {COMSATS University Islamabad-Lahore}% [3] affiliations
+  {}% [4] email
+  {}% [5] coauthors
+  {T3-4}% [6] special session. Leave this field empty for contributed talks.
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In industrial quality control, monitoring process variations is crucial for ensuring product
+reliability, particularly when dealing with non-normal data distributions. This study proposes an
+adaptive Max-EWMA control chart integrated with Support Vector Regression (SVR) for the
+simultaneous monitoring of process mean and variance. The approach utilizes a dynamic
+smoothing constant predicted by SVR to enhance sensitivity to real-time process shifts. To
+address non-normality, Weibull-distributed data is transformed into a standard normal form
+before analysis. The performance of the proposed method is extensively evaluated through
+Monte Carlo simulations to assess the run length profile under different process shift scenarios.
+Results demonstrate the effectiveness of the approach in detecting small to moderate shifts, with
+the linear kernel exhibiting superior balance between sensitivity and stability, making it an
+optimal choice for industrial applications. The findings highlight the robustness of the proposed
+control chart and its adaptability in real-time process monitoring.
+\medskip
+
+\end{talk}
+
+\begin{talk}
   {Halton Sequences, Scrambling and the Inverse Star-Discrepancy}% [1] talk title
   {Christian Wei\ss{}}% [2] speaker name
   {Ruhr West University of Applied Sciences}% [3] affiliations
@@ -528,6 +553,23 @@ Biometrika 58(1), 83–90.
 \end{talk}
 
 \begin{talk}
+  {Revisiting the Gibbs Sampler: A Conditional Modeling Perspective}% [1] talk title
+  {Kun-Lin Kuo}% [2] speaker name
+  {Institute of Statistics, National University of Kaohsiung, Kaohsiung, Taiwan}% [3] affiliations
+  {klkuo@nuk.edu.tw}% [4] email
+  {Yuchung J. Wang}% [5] coauthors
+  {T7-1}% [6] special session. Leave this field empty for contributed talks.
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+The Gibbs sampler (GS) is a fundamental algorithm for approximating analytically intractable distributions.
+Two major generalizations of GS are the partially collapsed Gibbs sampler (PCGS) and the pseudo-Gibbs sampler (PGS). For PCGS, the associated Markov chain is heterogeneous with varying state spaces, making traditional convergence analysis challenging. To address this, we introduce the iterative conditional replacement (ICR) algorithm and prove its convergence. Furthermore, ICR provides a systematic approach for approximating multiple stationary distributions arising in PGS.
+Our approach emphasizes the advantage of treating each conditional density with its own operator, rather than aggregating all conditionals into a single operator.
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
   {Concatenation of Markov processes for Monte Carlo Integration}% [1] talk title
   {Sascha Holl}% [2] speaker name
   {Max Planck Institute for Informatics}% [3] affiliations
@@ -548,6 +590,24 @@ We showcase the potential of the framework in a practical rendering experiment. 
 \begin{enumerate}
 	\item[{[1]}] Sharpe, Michael (1998). {\it General Theory of Markov Processes}. Pure and Applied Mathematics. Academic Press.
 	\item[{[2]}] Wang, Andi Q. and Pollock, Murray and Roberts, Gareth O. and Steinsaltz, David. Regeneration-enriched Markov processes with application to Monte Carlo. The Annals of Applied Probability. Institute of Mathematical Statistics.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Polynomial approximation for efficient transport-based sampling}% [1] talk title
+  {Josephine Westermann}% [2] speaker name
+  {Heidelberg University}% [3] affiliations
+  {josephine.westermann@uni-heidelberg.de}% [4] email
+  {}% [5] coauthors
+  {}
+
+Sampling from non-trivial probability distributions is a fundamental challenge in uncertainty quantification and inverse problems, particularly when dealing with high-dimensional domains, costly-to-evaluate or unnormalized density functions, and non-trivial support structures. Measure transport via polynomial density surrogates [1] provides a systematic and constructive solution to this problem by reformulating it as a convex optimization task with deterministic error bounds. This approach is particularly efficient for smooth problems but can become computationally demanding when dealing with highly concentrated posterior distributions, as constructing the density surrogate requires many evaluations in regions where the density is nearly zero—leading to an inefficient allocation of computational resources. In this talk, we explore how the computational cost in such cases can be further reduced by first approximating the potential function with a polynomial. This additional approximation step shifts the focus of expensive evaluations toward capturing the underlying system more effectively. The surrogate-based posterior can then be evaluated cheaply and approximated with high accuracy, enabling efficient transport-based sampling. We discuss the implications of this strategy and examine its potential to enhance performance in demanding inference problems.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Westermann, J., \& Zech, J. (2025). \textit{Measure transport via polynomial density surrogates}. \textit{Foundations of Data Science}. \url{https://doi.org/10.3934/fods.2025001}
 \end{enumerate}
 
 \end{talk}
@@ -716,6 +776,27 @@ Finally, we propose new Monte Carlo diagnostics specifically for SNIS. They exte
 
 \medskip
 
+
+\end{talk}
+
+\begin{talk}
+  {Serial ensemble filtering with marginal coupling}% [1] talk title
+  {Amit N Subrahmanya}% [2] speaker name
+  {Virginia Tech}% [3] affiliations
+  {amitns@vt.edu}% [4] email
+  {Julie Bessac, Andrey A Popov, Adrian Sandu}% [5] coauthors
+  {T9-3}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+ Serial filtering refers to a univariate, state by state Bayesian inference problem. 
+ %
+ Extant methods for serial filtering result in suboptimal posterior samples for severely non-Gaussian, multimodal inference settings. 
+ %
+ We fix this problem by rigorously coupling the state marginal densities with information about their joint density.
+ %
+ This formulation allows for accurately sampling the Bayesian posterior across a variety of challenging text problems.
+ 
+\medskip
 
 \end{talk}
 
@@ -1212,6 +1293,36 @@ In this work, we present a novel approach that leverages Monte Carlo simulation 
 
 \medskip
 
+\end{talk}
+
+\begin{talk}
+  {ARCANE Reweighting: A technique to tackle the sign problem in the simulation of collider events in high energy physics}% [1] talk title
+  {Prasanth Shyamsundar}% [2] speaker name
+  {Fermi National Accelerator Laboratory}% [3] affiliations
+  {prasanth@fnal.gov}% [4] email
+  % {Names of coauthors go here, no affiliations of coauthors please, all affiliations will be included in an appendix of 
+  % the program book}% [5] coauthors
+  {}%[5] coauthors
+  {T15-3}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+% Your abstract goes here. Please do not use your own commands or macros.
+
+Negatively weighted events, which appear in the Monte Carlo (MC) simulation of particle collisions, significantly increase the computational resource requirements of current and future collider experiments in high energy physics. This work introduces an MC technique called ARCANE reweighting for reducing or eliminating negatively weighted events. The technique works by redistributing (via an additive reweighting) the contributions of different pathways within the simulator that lead to the same final event. The technique is exact and does not introduce any biases in the distributions of physical observables. ARCANE reweighting can be thought of as a variant of the parametrized control variates technique, with the added nuance that redistribution is performed using a deferred additive reweighting. The technique is demonstrated for the simulation of a specific collision process, namely $e^+ e^- \longrightarrow q \bar{q} + 1\,jet$. The technique can be extended to several other collision processes of interest as well. This talk is based on the Refs~[1] and [2].
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+\begin{enumerate}
+	% \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+	% \item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+    \item[{[1]}] Shyamsundar, Prasanth (2025). {\it ARCANE Reweighting: A Monte Carlo Technique to Tackle the Negative Weights Problem in Collider Event Generation}. arXiv:2502.08052 [hep-ph].
+    \item[{[2]}] Shyamsundar, Prasanth (2025). {\it A Demonstration of ARCANE Reweighting: Reducing the Sign Problem in the MC@NLO Generation of $e^+ e^- \longrightarrow q\bar{q} + 1\,jet$ Events}. arXiv:2502.08052 [hep-ph].
+\end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
 
 \begin{talk}
