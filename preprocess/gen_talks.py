@@ -65,7 +65,7 @@ def process_talk(id_val: str, prefix: str, tex_dir: str) -> str | None:
         content = open(tex_path, 'r', encoding='latin-1').read()
 
     try:
-        block = extract_talk_environment(content)
+        block = extract_talk_environment(content) 
     except ValueError as e:
         #print(f"WARN: {e} in {tex_path}")
         return None
@@ -75,6 +75,16 @@ def process_talk(id_val: str, prefix: str, tex_dir: str) -> str | None:
         pattern = r"\{\}\s*%\s*" + re.escape(placeholder)
         replacement = f"{{{full_id}}}% {placeholder}"
         block = re.sub(pattern, replacement, block)
+    
+    if prefix=="P":
+        # Test if the pattern exists
+        if r'\end{talk}' in block:
+            #print("Found \\end{talk} as substring")
+            block = re.sub(r'(\\end\s*\{\s*talk\s*\})', lambda m: f"{m.group(1)}\n\n\\clearpage", block)
+            #print(f"Replaced \\end{{talk}} in block: \n{repr(block)}")
+        else:
+            print("\\end{talk} not found as substring: \n{repr(block)}")
+
     return block
 
 
