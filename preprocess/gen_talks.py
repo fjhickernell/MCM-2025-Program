@@ -79,6 +79,7 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str) -> st
         end_idx   = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\end\{talk\}", l))
     except StopIteration:
         return None
+    
     # Identify field lines (slots 1–9)
     field_idxs = [i for i, l in enumerate(raw_lines)
                   if re.match(r"^\s*\{.*\}\s*%\s*\[\d+\]", l)]
@@ -137,8 +138,12 @@ def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Ta
     """
     header = f"\\chapter{{{chapter}}}\n\\newpage\n\n"
     body = "\n".join(blocks)
-    # remove a trailing “\clearpage” (plus any blank lines after it)
-    #body = re.sub(r"\\clearpage\s*\\?$", "", body, flags=re.MULTILINE)
+    # remove only the last '\clearpage' (plus any trailing backslash/newline)
+    body = re.sub(
+        r"(?s)(.*)\\clearpage\s*\\?$",   # group 1 = everything up to the *last* \clearpage
+        r"\1",                            # replace with just that prefix
+        body
+    )
 
     # Now open-and-write *everything* inside the with-block
     with open(output_path, 'w', encoding='utf-8') as out:
