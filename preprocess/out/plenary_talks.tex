@@ -1,0 +1,170 @@
+\chapter{Plenary Talks}
+\newpage
+
+\begin{talk}
+  {An optimal transport approach to quantifying model uncertainty of SDEs}% [1] talk title
+  {Michaela Sz\"olgyenyi}% [2] speaker name
+  {University of Klagenfurt}% [3] affiliations
+  {michaela.szoelgyenyi@aau.at}% [4] email
+  {Benjamin A.~Robinson}% [5] coauthors
+  {P5}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+A fundamental question in stochastic modelling is that of quantifying the effects of model uncertainty. In this context it is of interest to compute a distance between different stochastic models. A  reasonable choice of distance is a modification of the Wasserstein distance on the space of probability measures called adapted Wasserstein distance, as it appears in bicausal optimal transport.
+
+	We solve constrained optimal transport problems in which the marginal laws are given by the laws of solutions of stochastic differential equations (SDEs). We consider SDEs with irregular coefficients, making only minimal regularity assumptions. Numerical methods are employed as a theoretical tool to bound the adapted Wasserstein distance. This opens the door for computing the adapted Wasserstein distance in a simple way. We show that this method can be applied to quantifying model uncertainty in stochastic optimisation problems. 	
+	
+	Our approach successfully brings together optimal transport and numerical analysis of SDEs. 
+\end{talk}
+
+\begin{talk}
+  {Golden ratio nets and sequences}% [1] talk title
+  {Christiane Lemieux}% [2] speaker name
+  {University of Waterloo}% [3] affiliations
+  {clemieux@uwaterloo.ca}% [4] email
+  {Nathan Kirk and Jaspar Wiart}% [5] coauthors
+  {P2}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+In this talk, we discuss nets and sequences constructed in an irrational base, focusing on the case of a base given by the golden ratio $\varphi$. We provide a complete framework to study equidistribution properties of nets in base $\varphi$, which among other things requires the introduction of a new concept of prime elementary intervals which differ from the standard definition used for integer bases. We define the one-dimensional van der Corput sequence in base $\varphi$ and two-dimensional Hammersley point sets in base $\varphi$ and we prove some properties for $(0,1)-$sequences and $(0,m,2)-$nets in base $\varphi$, respectively. This part of the talk is based on [1].
+
+
+Building on this new framework, we propose 
+an {\em interlaced Halton sequence} that makes use of integer \textit{and} irrational-based van der Corput sequences and show empirically improved performance compared to the traditional Halton sequence [2]. In addition, we propose a scrambling algorithm for irrational-based digital sequences, which leverages dependence properties of scrambled digital nets [3].
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+\begin{enumerate}
+	\item[{[1]}] N. Kirk, C. Lemieux and J. Wiart. Golden ratio nets and sequences. To appear in {\em Functiones and Approximatio}, 2025.
+	\item[{[2]}] N. Kirk, C. Lemieux. An improved Halton sequence for implementation in quasi-Monte Carlo methods. {\em Proceedings of the 2024 Winter Simulation Conference}, 431--442, IEEE Press, Piscataway, NJ, 2024. 
+    \item[{[3]}] C. Lemieux and J. Wiart. On the distribution of scrambled $(0, m, s)$-nets over unanchored
+boxes. In: {\em Monte Carlo and Quasi-Monte Carlo Methods 2020}, A. Keller (ed), 
+Springer, 187-230, 2022.
+\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Combining Simulation and Linear Algebra: COSIMLA}% [1] talk title
+  {Peter W. Glynn}% [2] speaker name
+  {Stanford University}% [3] affiliations
+  {glynn@stanford.edu}% [4] email
+  {Zeyu Zheng}% [5] coauthors
+  {P3}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In numerical computation for Markov chains and jump processes, matrix-based linear algebraic methods leverage fully the special structure of such models, allowing one to efficiently compute highly accurate solutions quickly. When the number of states is large or infinite, Monte Carlo simulation is an appealing alternative, typically allowing low accuracy solutions to be computed efficiently. In this talk, we describe COSIMLA, COmbined SIMulations and Linear Algebra. This new class of algorithms combines the best of the two numerical approaches, using matrix methods to compute expectations and probabilities in the truncated core of the state space, while one uses Monte Carlo to simulate path excursions outside the truncation. As a result, one can now compute high accuracy solutions for models with a very large state space. We show how the method applies to computing equilibrium quantities and various transient characteristics of Markov chains. These algorithms can typically be viewed as an application of conditional Monte Carlo. We also discuss how stratification can be conveniently applied in this setting to provide further variance reductions.  
+
+\end{talk}
+
+\begin{talk}
+  {Sensitivity and Screening: From Monte Carlo to Experimental Design}% [1] talk title
+  {Roshan Joseph}% [2] speaker name
+  {Georgia Institute of Technology, Atlanta}% [3] affiliations
+  {roshan@gatech.edu}% [4] email
+  %{Names of coauthors go here, no affiliations of coauthors please, all affiliations will be included in an appendix of  the program book}% [5] coauthors
+  {P4}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Identifying the most important factors affecting the output of a system from a set of potentially important factors is an important problem in scientific investigations. If a computational model is available to predict the output, we can use global sensitivity analysis to quantify the importance of each factor. There are many Monte Carlo-based methods available to estimate global sensitivity indices. However, their computation can become costly if the model is computationally expensive. In such cases, carefully designed experiments can be used for screening the factors. In this talk, I will explain some of these techniques and the latest developments, including their applications in active learning. I will also briefly explain how to estimate the sensitivity indices from noisy data when we do not know or have access to the model that generated the data.
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Xiao, Q., Joseph, V. R., and Ray, D. M. (2023). {\it Maximum One-Factor-At-A-Time  Designs for Screening in Computer Experiments}. Technometrics, 65, 220-230.
+    \item[{[2]}] Song, D. and Joseph, V. R. (2025). {\it Efficient Active Learning Strategies for Computer Experiments}. https://arxiv.org/abs/2501.13841.
+	\item[{[3]}] Huang, C. and Joseph, V. R. (2025). {\it Factor Importance Ranking and Selection using Total Indices}. Technometrics, https://doi.org/10.1080/00401706.2025.2483531.
+\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Saddlepoint Monte Carlo and its Application to Exact Ecological Inference}% [1] talk title
+  {Nicolas Chopin}% [2] speaker name
+  {ENSAE, Institut Polytechnique de Paris}% [3] affiliations
+  {nicolas.chopin@ensae.fr}% [4] email
+  {Théo Voldoire, Guillaume Rateau, Robin J. Ryder}% [5] coauthors
+  {P7}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+In ecological inference, one wishes to model individual items, but perform
+inference based only on aggregate data.  For instance, in two-round elections,
+we are interested the behaviour of individual voters, but only have access to
+aggregate vote numbers at each precinct.  We develop an exact method for a
+large class of Ecological Inference Bayesian models, which scales  to the large
+data setting.  Our approach solves a more general problem:  assuming $X$ is a
+random vector and $A$ a non-invertible matrix, one sometimes need to perform
+inference while only having access to samples of $Y=AX$. The corresponding
+likelihood is typically intractable. One may still be able to perform exact
+Bayesian inference using a pseudo-marginal sampler, but this requires an
+unbiased estimator of the intractable likelihood.
+
+We propose saddlepoint Monte Carlo, a method for obtaining an unbiased estimate
+of the density of $Y$ with very low variance, for any model belonging to an
+exponential family. Our method relies on importance sampling and 
+characteristic functions, with insights brought by the standard saddlepoint
+approximation scheme with exponential tilting.  We show that saddlepoint Monte
+Carlo makes it possible to perform exact inference on particularly challenging
+problems and datasets.  We present a study of the carryover of votes between
+the two rounds of various French elections, using the finest available data
+(number of votes for each candidate in about 60,000 polling stations over most
+of the French territory). 
+
+We show that existing, popular approximate methods for ecological inference can
+lead to substantial bias; saddlepoint Monte Carlo is immune from this bias, and 
+can handle ecological inference in the large data framework. We also
+present original results for the 2024 legislative elections on political
+centre-to-left and left-to-centre conversion rates when the far-right is
+present in the second round. Finally, we discuss other exciting applications
+for saddlepoint Monte Carlo in privacy and inverse problems, such as dealing
+with inference with empirical quantiles for continuous data.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] 
+      Voldoire T., Chopin N., Rateau G. and Ryder R.J. (2024).
+      Monte Carlo and its Application to Exact Ecological Inference, 
+      \textit{arxiv 2410.18243},
+      \url{https://arxiv.org/abs/2410.18243}, 
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Gradient-Based MCMC Sampling: Methods and Optimization Strategies}% [1] talk title
+  {Uro\v s Seljak}% [2] speaker name
+  {UC Berkeley and Lawrence Berkeley National Laboratory}% [3] affiliations
+  {useljak@berkeley.edu}% [4] email
+  {Reuben Cohn-Gordon, Jakob Robnik}% [5] coauthors
+  {P6}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Gradient-based Markov Chain Monte Carlo (MCMC) methods significantly outperform gradient-free alternatives in sampling efficiency, particularly in high-dimensional spaces where they have become the standard approach. These methods leverage gradient information to guide the sampling process more intelligently than random-walk approaches.
+Two fundamental approaches that dominate this field are 1)
+Hamiltonian Monte Carlo (HMC), which  employs principles from classical mechanics, treating the sampling problem as simulating Hamiltonian dynamics on an extended phase space. This approach naturally incorporates momentum variables that help the sampler traverse the parameter space more efficiently than simple random walks. 2)
+Langevin Monte Carlo (LMC), which utilizes stochastic differential equations that incorporate both gradient information and controlled noise injection. 
+Recent theoretical developments have produced microcanonical versions of both Hamiltonian and Langevin samplers (MCHMC and MCLMC). These variants demonstrate measurably superior sampling efficiency compared to their canonical predecessors.
+
+In addition to the choice of 
+the method, 
+practitioners face numerous algorithmic choices that can significantly impact performance:
+1) Metropolis Adjustment: The decision whether to include Metropolis-Hastings correction steps involves trading exact preservation of the target distribution against computational speed.
+2) Preconditioning: Incorporating problem-specific geometric information through preconditioning matrices can dramatically improve convergence rates, particularly for ill-conditioned target distributions.
+3) Hyperparameter Tuning: Critical parameters include step sizes, trajectory lengths for HMC, and damping coefficients for Langevin methods. Recently, well tuned black-box methods have been developed that approach optimal performance. 
+4) Parallelization Strategy: parallel sampling on a GPU or CPU cluster enables dramatically reduced wall clock time to reach the required target accuracy. 
+5) Numerical Integration: Higher-order integrators can improve accuracy at the cost of additional gradient evaluations per step.
+
+This goal of this talk is to provide
+guidance to 
+the optimal choice among these methods, which depends on specific application requirements including computational budget, accuracy demands, and problem dimensionality. Understanding the theoretical trade-offs enables practitioners to select and configure samplers that best match their particular constraints and objectives.
+
+
+\end{talk}
+
