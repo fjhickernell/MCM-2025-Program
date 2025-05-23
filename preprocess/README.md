@@ -77,21 +77,25 @@ flowchart TD
     B5[session_list.py]
     B4[participants.py]
 	B7[download_abstracts.py]
+    B8[gen_talks.py]
     style B3 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
     style B4 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
     style B5 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
     style B6 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
 	style B7 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
+    style B8 fill:#fffbe6,stroke:#e6a23c,stroke-width:2px
 
     %% Outputs
     O1([out/Participants.csv])
     O2([out/SessionList.csv])
     O4([out/Schedule.tex])
 	O5([input/abstracts/*.tex])
+    O6([out/*_talks.tex])
     style O1 fill:#f6ffed,stroke:#52c41a,stroke-width:2px
     style O2 fill:#f6ffed,stroke:#52c41a,stroke-width:2px
     style O4 fill:#f6ffed,stroke:#52c41a,stroke-width:2px
 	style O5 fill:#f6ffed,stroke:#52c41a,stroke-width:2px
+    style O6 fill:#f6ffed,stroke:#52c41a,stroke-width:2px
 
     %% Flow
     Start --> B3
@@ -99,16 +103,19 @@ flowchart TD
     A3 --> B5
     A3 --> B4
     A3 --> B6
-	A3 -->  B7
+	A3 --> B7
+    A3 --> B8
 
     B4 --> O1
     B5 --> O2
     B6 --> O4
 	B7 --> O5
+    B8 --> O6
 
     O1 --> End
     O2 --> End
     O4 --> End
 	O5 --> End
+    O6 --> End
 
 ```

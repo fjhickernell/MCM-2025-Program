@@ -80,28 +80,45 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     except StopIteration:
         return None
     
-    # Identify field lines (slots 1–9)
-    field_idxs = [i for i, l in enumerate(raw_lines)
-                  if re.match(r"^\s*\{.*\}\s*%\s*\[\d+\]", l)]
-    last_field_idx = max(field_idxs) if field_idxs else begin_idx
-    # Abstract body is between last field and \end{talk}
-    body_lines = raw_lines[last_field_idx+1:end_idx]
+    # --- Identify field lines (slots 1–N, N=9 for plenary talks and contributed talks)
+    N = 9
+    # compile a single regex that both identifies a field-line
+    # and captures everything between the {…} (including any inner braces)
+    field_re = re.compile(r"""
+        ^\s*          # optional leading space
+        \{(.+?)\}     # capture ALL text inside the outer {…}, non-greedy
+        \s*%\s*       # then some space and a literal %
+        \[\d+\]       # then [slot-number]
+        """, re.VERBOSE)
 
-    # --- Parse existing fields by position ---
-    raw_args = [re.match(r"^\s*\{([^}]*)\}", l).group(1)
-                for i, l in enumerate(raw_lines)
-                if re.match(r"^\s*\{([^}]*)\}", l)]
-    # Initialize slots 1–9 to empty
-    args = {i: '' for i in range(1, 10)}
+    # find field indices
+    field_idxs = [i for i, l in enumerate(raw_lines) if field_re.match(l)]
+    last_field_idx = max(field_idxs) if field_idxs else begin_idx
+
+    # extract body
+    body_lines = raw_lines[last_field_idx+1 : end_idx]
+    
+    # replace bad latex expressions with good ones
+    bad_s = "{}% [6] special session. Leave this field empty for contributed talks. "
+    bad_s2 ="% Insert the title of the special session if you were invited to give a talk in a special session."
+    body_lines = [line.replace(bad_s, "").replace(bad_s2, "").replace('"', "''").replace(" &", " \&") for line in body_lines]
+
+    # parse out the slots
+    raw_args = [ field_re.match(l).group(1)
+                for l in raw_lines
+                if field_re.match(l) ]
+
+    # Initialize slots 1–N to empty
+    args = {i: '' for i in range(1, N+1)}
     # Fill from parsed values, in order
     for idx, val in enumerate(raw_args, start=1):
-        if idx > 9:
+        if idx > N:
             break
         args[idx] = val.strip()
 
     # Override specific slots
     args[7] = session_time
-    args[8] = full_id       # talk id
+    args[8] = full_id  # talk id
     args[9] = 'photo' if prefix=="P" else session_id  
 
     # Build normalized talk block with descriptions
@@ -118,16 +135,17 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     }
 
     lines = ['\\begin{talk}']
-    for i in range(1, 10):
+    for i in range(1, N+1):
         lines.append(f"  {{{args[i]}}}% [{i}] {descriptions[i]}")
+
     # Append existing abstract body, preserving indent
     for bl in body_lines:
         lines.append(bl)
     lines.append('\\end{talk}')
+    lines.append('')
 
     # For plenary talks (prefix 'P'), add a page break after
     if prefix == 'P':
-        lines.append('')
         lines.append('\\clearpage')
 
     return '\n'.join(lines)
@@ -214,7 +232,7 @@ if __name__ == '__main__':
         'contributed_talk_submissions': 'T'
     }
 
-    for key in ["contributed_talk_submissions", ]: # "plenary_abstracts", "special_session_submissions", "contributed_talk_submissions", "special_session_abstracts",
+    for key in ["contributed_talk_submissions", "plenary_abstracts"]: # , "special_session_submissions", "contributed_talk_submissions", "special_session_abstracts",
         if key in prefix_map:
             csv_path = os.path.join(interimdir, f"{key}_talkid.csv")
             tex_dir = os.path.join(indir, 'abstracts')
