@@ -2,6 +2,14 @@
 \newpage
 
 \begin{talk}
+
+We study the strong convergence of a generic tamed Euler-Maruyama (EM) scheme for the kinetic type stochastic differential equation (SDE) (also known as second order SDE) driven by $\alpha$-stable type noise with $\alpha\in(1,2]$. We show that when the drift exhibits a relatively low regularity: anisotropic $\beta$-H\"older continuity with $\beta >1 - \frac{\alpha}{2}$, the corresponding tamed EM converges with a convergence rate $(\frac{1}{2} + \frac{\beta}{\alpha(1+\alpha)} \wedge \frac{1}{2})$, which aligns with the results of  first-order SDEs.
+
+
+This talk is based on the work arXiv:2409.05706 (joint with Zimo Hao and Khoa L\^e)  and the work arXiv:2412.05142.
+	\end{talk}
+
+\begin{talk}
   {A strong order $1.5$ boundary preserving discretization scheme for scalar SDEs defined in a domain}% [1] talk title
   {Andreas Neuenkirch}% [2] speaker name
   {University of Mannheim}% [3] affiliations
@@ -125,6 +133,18 @@ Quantifying the effects on electromagnetic waves scattered by objects of uncerta
 \end{talk}
 
 \begin{talk}
+  {Quantifying uncertainty in spectral clusterings: expectations for perturbed and incomplete data}% [1] talk title
+  {J\"urgen D\"olz}% [2] speaker name
+  {University of Bonn}% [3] affiliations
+  {doelz@ins.uni-bonn.de}% [4] email
+  {Jolanda Weygandt}% [5] coauthors
+  {Domain Uncertainty Quantification}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Spectral clustering is a popular unsupervised learning technique which partitions a set of unlabelled data into disjoint clusters. However, the data under consideration are often experimental data, implying that the data is subject to measurement errors and measurements may even be lost or invalid. These uncertainties in the input data induce corresponding uncertainties in the resulting clusters. In this talk we model the uncertainties as random, implying that the clusters need to be considered random as well. We further discuss a mathematical framework based on random set theory for the computational approximation of statistically expected clusterings.
+\end{talk}
+
+\begin{talk}
   {Model Problems for PDEs on Uncertain Domains}% [1] talk title
   {Harri Hakula}% [2] speaker name
   {Aalto University}% [3] affiliations
@@ -198,6 +218,34 @@ The effectiveness of the proposed estimator is demonstrated in the Bayesian desi
 \begin{enumerate}
 	\item[{[1]}] Owen, Art B. (2006). {\it Halton sequences avoid the origin}. SIAM Review, 48:487–503.
 \end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Posterior-Free A-Optimal Bayesian Design of Experiments via Conditional Expectation}% [1] talk title
+  {Vinh Hoang}% [2] speaker name
+  {Chair of Mathematics for Uncertainty Quantification, Department of Mathematics, 
+  RWTH-Aachen University}% [3] affiliations
+  {hoang@uq.rwth-aachen.de}% [4] email
+  {Luis Espath, Sebastian Krumscheid, Ra\'ul Tempone}% [5] coauthors
+  {S3-3}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+\medskip
+
+We propose a novel approach for solving the A-optimal Bayesian design of experiments that does not require sampling or approximating the posterior distribution. In this setting, the objective function is the expected conditional variance (ECV).
+Our method estimates the ECV by leveraging conditional expectation, which we approximate using its orthogonal projection property. We derive an asymptotic error bound for this estimator and validate it through numerical experiments.
+The method is particularly efficient when the design parameter space is continuous. In such scenarios, the conditional expectation can be approximated non-locally using tools such as neural networks. To reduce the number of evaluations of the measurement model, we incorporate transfer learning and data augmentation.
+Numerical results show that our method significantly reduces model evaluations compared to standard importance sampling-based techniques.
+Code available at: \href{https://github.com/vinh-tr-hoang/DOEviaPACE}{https://github.com/vinh-tr-hoang/DOEviaPACE}.
+
+\begin{enumerate}
+    \item [{[1]}] Hoang, V., Espath, L., Krumscheid, S., & Tempone, R. (2025).  
+    Scalable method for Bayesian experimental design without integrating over posterior distribution. {\it SIAM ASA Journal on Uncertainty Quantification, 13}(1), 114-139. \\
+    \href{https://doi.org/10.1137/23M1603364}{https://doi.org/10.1137/23M1603364}
+\end{enumerate}
+
 
 \end{talk}
 
@@ -366,6 +414,21 @@ The talk is based on the preprint [1] and the master thesis of my student Yannic
 \end{talk}
 
 \begin{talk}
+  {Complexity of approximating piecewise smooth functions in the presence of deterministic or random noise}% [1] talk title
+  {Leszek Plaskota}% [2] speaker name
+  {University of Warsaw}% [3] affiliations
+  {L.Plaskota@mimuw.edu.pl}% [4] email
+  {}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Consider the smoothness class of $1$-periodic functions $f:\mathbb R\to\mathbb R$ for which 
+$$|f^{(r)}(x)-f^{(r)}(y)|\le |x-y|^\rho,\quad x,y\in\mathbb R,$$ 
+where $r\in\{0,1,2,\ldots\}$ and $0<\rho\le 1.$ It is well known that the optimal worst case error of $L^p$-approximation ($1\le p\le\infty$) of such functions that can be achieved from $n$ exact evaluations of $f$ is proportional to $e_n=n^{-(r+\rho)}.$ Less obvious is what happens when the functions are piecewise smooth only with unknown break points. Even less obvious is the situation when the function values are additionally corrupted by some noise, i.e., when evaluating the value of $f$ at $x$ we obtain $y=f(x)+\xi$ where $|\xi|\le\delta$ (determnistic noise) or $\xi$ is a zero-mean random variable of variance $\sigma^2$ (random noise). In this talk we construct an algorithm which despite the presence of noise and break points achieves the worst case $L^p$-error still proportional to $e_n$ provided the noise level $\delta$ or $\sigma$ is of the same order $e_n$ (exept the case of $p=\infty$ and random noise where we have an additional logarithmic factor in the error). The algorithm uses divided differences and special adaptive extrapolation technique to locate the break points and approximate in their neighborhoods. 
+
+\end{talk}
+
+\begin{talk}
   {Stability of Expected Utility in Bayesian Optimal Experimental Design}% [1] talk title
   {Tapio Helin}% [2] speaker name
   {LUT University}% [3] affiliations
@@ -411,6 +474,19 @@ Analytical error bounds are made possible by Owen's [1] and He et al.'s [2] work
 on Numerical Analysis,  61(2):10.1137/22M1510121.
 \end{enumerate}
 
+\end{talk}
+
+\begin{talk}
+  {Subspace accelerated measure transport methods for fast and scalable sequential
+experimental design}% [1] talk title
+  {Karina Koval}% [2] speaker name
+  {Heidelberg University}% [3] affiliations
+  {karina.koval@iwr.uni-heidelberg.de}% [4] email
+  {Tiangang Cui, Roland Herzog, Robert Scheichl}% [5] coauthors
+  {Recent advances in optimization under uncertainty}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In this talk, we present a novel approach for sequential optimal experimental design (sOED) for Bayesian inverse problems governed by expensive forward models with large-dimensional unknown parameters. Our goal is to design experiments that maximize the expected information gain (EIG) from prior to posterior, a task that is computationally challenging. This task becomes more complex in sOED, where we must approximate the incremental expected information gain (iEIG) multiple times in distinct stages, often dealing with intractable prior and posterior distributions. To address this, we propose a derivative-based upper bound for iEIG that guides experimental design and enables parameter dimension reduction through likelihood-informed subspaces. By combining this approach with transport map surrogates for the sequence of posteriors, we develop a unified framework for parameter dimension-reduced sOED. We demonstrate the effectiveness of our approach with numerical examples inspired by groundwater flow and photoacoustic imaging.
 \end{talk}
 
 \begin{talk}
@@ -713,6 +789,25 @@ method based on finitely many evaluations of $W$ at fixed time points. For the p
 \end{talk}
 
 \begin{talk}
+  {Malliavin differentiation of Lipschitz SDEs and BSDEs and an Application to Quadratic Forward-Backward SDEs}% [1] talk title
+  {Alexander Steinicke}% [2] speaker name
+  {University of Leoben}% [3] affiliations
+  {alexander.steinicke@unileoben.ac.at}% [4] email
+  {Hannah Geiss, C\'eline Labart, Adrien Richou}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Geiss and Zhou [1] showed that SDEs and BSDEs with Lipschitz generators admit Malliavin differentiability in the Brownian setting. We extend and apply this result in the L\'evy case and present a differentiation formula for coefficients that are Lipschitz in the solution variable with respect to the Skorohod metric. The obtained formula then allows us to show the existence and uniqueness of solutions to a class of quadratic and superquadratic forward-backward SDE systems.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Geiss, S.~and Zhou, X.~(2024). {\it Coupling of Stochastic Differential Equations on the Wiener Space}. https://arxiv.org/pdf/2412.10836.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
   {Tractability of $L_2$-approximation and integration in weighted Hermite spaces of finite smoothness}% [1] talk title
   {Gunther Leobacher}% [2] speaker name
   {University of Graz}% [3] affiliations
@@ -730,6 +825,18 @@ We consider integration and $L_2$-approximation for functions over $\mathbb R^s$
 	\item[{[1]}] Ch.~Irrgeher and G.~Leobacher. High-dimensional integration on the $\mathbb R^d$, weighted Hermite spaces, and orthogonal transforms. \textit{J. Complexity} 31: 174--205, 2015. 
 \end{enumerate}
 
+
+\end{talk}
+
+\begin{talk}
+    Bayesian  Experimental Design (BED) is a powerful tool to reduce the cost of running a sequence of experiments.
+    When based on the Expected Information Gain (EIG), design optimization corresponds to the maximization of some intractable expected  contrast between prior and posterior distributions.
+    Scaling this maximization to high dimensional and complex settings has been an issue due to BED inherent computational complexity.
+    In this work, we introduce a pooled posterior distribution with cost-effective sampling properties and provide a tractable access to the EIG contrast maximization via a new EIG gradient expression. Diffusion-based samplers are used to compute the dynamics of the pooled posterior and ideas from bi-level optimization are leveraged to derive an efficient joint sampling-optimization loop.
+    The resulting efficiency gain allows to extend BOED to the well-tested generative capabilities of diffusion models.
+    By incorporating generative models into the BOED framework, we expand its scope and its use in scenarios that were previously impractical. Numerical experiments and comparison with state-of-the-art methods show the potential of the approach.
+    As a practical application, we showcase how our method accelerates Magnetic Resonance Imaging (MRI) acquisition times while preserving image quality.
+    This presentation will also detail how Diffuse, a new modulable Python package for diffusion models facilitates composability and research in diffusion models through its simple and intuitive API, allowing researchers to easily integrate and experiment with various model components.
 
 \end{talk}
 
@@ -1147,6 +1254,38 @@ Many common Markov chain Monte Carlo (MCMC) kernels can be formulated using a de
 \end{talk}
 
 \begin{talk}
+  {ATLAS: Adapting Trajectory Lengths and Step-Size for Hamiltonian Monte Carlo}% [1] talk title
+  {Chirag Modi}% [2] speaker name
+  {New York University}% [3] affiliations
+  {modichirag@nyu.edu}% [4] email
+  {}% [5] coauthors
+  {S18-4}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+Hamiltonian Monte-Carlo (HMC) and its auto-tuned variant, the No U-Turn Sampler (NUTS)
+
+can struggle to accurately sample distributions with complex geometries, e.g., varying cur-
+vature, due to their constant step size for leapfrog integration and fixed mass matrix. In this
+
+talk, I will present a strategy to locally adapt the step size parameter of HMC at every iter-
+ation by evaluating a low-rank approximation of the local Hessian and estimating its largest
+
+eigenvalue. I will then combine it with a strategy to similarly adapt the trajectory length
+by monitoring the no U-turn condition, resulting in an adaptive sampler, ATLAS: adapting
+trajectory length and step-size. I will further use a delayed rejection framework for making
+multiple proposals that improves the computational efficiency of ATLAS, and develop an
+
+approach for automatically tuning its hyperparameters during warmup. Finally, I will com-
+pare ATLAS with NUTS on a suite of synthetic and real world examples, and show that
+
+i) unlike NUTS, ATLAS is able to accurately sample difficult distributions with complex
+geometries, ii) it is computationally competitive to NUTS for simpler distributions, and iii)
+it is more robust to the tuning of hyperparamters.
+\medskip
+
+\end{talk}
+
+\begin{talk}
   {A New Convergence Analysis of Two Stochastic Frank-Wolfe Algorithms}% [1] talk title
   {Shane G. Henderson}% [2] speaker name
   {Cornell University}% [3] affiliations
@@ -1459,6 +1598,32 @@ Applications from Bayesian experimental design, in particular, the expected info
 \end{talk}
 
 \begin{talk}
+  {A one-shot method for Bayesian optimal experimental design}% [1] talk title
+  {Philipp A. Guth}% [2] speaker name
+  {RICAM, Austrian Academy of Sciences}% [3] affiliations
+  {philipp.guth@ricam.oeaw.ac.at}% [4] email
+  {Robert Gruhlke, Claudia Schillings}% [5] coauthors
+  {Nested expectations: models and estimators, Part II}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+		
+Bayesian optimal experimental design (BOED) problems often involve nested integrals, making their direct computation challenging. To address this, a one-shot optimization approach is proposed, which decouples the design parameters from the forward model during the optimization process. In addition, the solution of the forward model can be replaced by a surrogate that is trained during the one-shot optimization. This allows for the generation of computationally inexpensive samples. Efficient sampling strategies are particularly important in BOED, as they reduce the high computational cost of nested integration, ultimately making the optimization more tractable.
+
+
+
+%\medskip
+%
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+%
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
   {Quasi-uniform quasi-Monte Carlo lattice point sets}% [1] talk title
   {Kosuke Suzuki}% [2] speaker name
   {Yamagata University}% [3] affiliations
@@ -1619,6 +1784,32 @@ The mixing time of a Markov chain determines when the marginal law of the Markov
 
 
 \medskip
+
+
+\end{talk}
+
+\begin{talk}
+  {Filtered Markovian Projection: Dimensionality Reduction in Filtering for Stochastic Reaction Networks}% [1] talk title
+  {Maksim Chupin}% [2] speaker name
+  {King Abdullah University of Science and Technology (KAUST)}% [3] affiliations
+  {maksim.chupin@kaust.edu.sa}% [4] email
+  {Chiheb Ben Hammouda, Sophia M\"{u}nker, Ra\'{u}l Tempone}% [5] coauthors
+  {Forward and Inverse Problems for Stochastic Reaction Networks}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Stochastic reaction networks (SRNs) model stochastic effects for various applications, including intracellular chemical or biological processes and epidemiology. A key challenge in practical problems modeled by SRNs is that only a few state variables can be dynamically observed. Given the measurement trajectories, one can estimate the conditional probability distribution of unobserved (hidden) state variables by solving a system filtering equation. The current numerical methods, such as the Filtered Finite State Projection [1], are hindered by the curse of dimensionality, significantly affecting their computational performance. To overcome this, we propose to use a dimensionality reduction technique based on the Markovian projection (MP), initially introduced for forward problems [2]. In this work, we explore how to adapt the existing MP approach to the filtering problem and introduce a novel version of the MP, the Filtered MP, that guarantees the consistency of the resulting estimator [3]. The novel method employs a reduced-variance particle filter for estimating the jump intensities of the projected model and solves the filtering equations in a low-dimensional space, improving computational efficiency over existing methods.
+
+
+
+
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] D’Ambrosio, E., Fang, Z., Gupta, A., Kumar, S., \& Khammash, M. (2022). Filtered finite state projection method for the analysis and estimation of stochastic biochemical reaction networks. bioRxiv, 2022-10.
+	\item[{[2]}] Hammouda, C. B., Rached, N. B., Tempone, R., \& Wiechert, S. (2024). Automated importance sampling via optimal control for stochastic reaction networks: A Markovian projection–based approach. Journal of Computational and Applied Mathematics, 446, 115853.
+    \item [{[3]}] Hammouda, C. B., Chupin, M., Münker, S., \& Tempone, R. (2025). Filtered Markovian Projection: Dimensionality Reduction in Filtering for Stochastic Reaction Networks. arXiv preprint arXiv:2502.07918.
+\end{enumerate}
 
 
 \end{talk}
