@@ -252,7 +252,7 @@ if __name__ == "__main__":
     schedule_df = schedule_df[schedule_df["join_key"].notna()]
     schedule_df.to_csv(os.path.join(interimdir, "schedule_joined.csv"), index=False)
 
-    # --- read in session data
+    # --- Read in session data
     dfs = {}
     for key in ["special_session_abstracts", "special_session_submissions",  "plenary_abstracts", "contributed_talk_submissions"]:
         dfs[key] = pd.read_csv(os.path.join(interimdir, f"{key}_gsheet.csv"))
@@ -269,16 +269,15 @@ if __name__ == "__main__":
 
     # Merge SessionID back into session dataframes
     for key in dfs:
-        dfs[key] = dfs[key].merge(merged_df[["join_key", "SessionID", "SessionTitle"]], how="left", on="join_key")
+        dfs[key] = dfs[key].merge(merged_df[["join_key", "SessionTime", "SessionID", "SessionTitle"]], how="left", on="join_key")
 
-    # Save updated session dataframes with SessionID
-    save_dfs(dfs, interimdir, "sessionid")
+    save_dfs(dfs, interimdir, "sessionid")  # Save updated session dataframes with SessionID
 
     # Add TalkIDs
     talks_keys = ["special_session_abstracts",  "plenary_abstracts", "contributed_talk_submissions"]
     talks_dict = {k: dfs[k] for k in talks_keys if k in dfs.keys()}   
     talks_dict = add_sessions_talkid(talks_dict)
-    save_dfs(talks_dict, interimdir, "talkid")
+    save_dfs(talks_dict, interimdir, "talkid")  # Save updated session dataframes with TalkID
 
     # Step 7: Order all required columns in SessionList
     SessionListCols = [
