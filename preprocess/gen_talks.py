@@ -155,7 +155,10 @@ def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Ta
     """
     Writes header and talk blocks to the output .tex file.
     """
-    header = f"\\chapter{{{chapter}}}\n\\newpage\n\n"
+    if chapter == "Plenary Talks":
+        header = f"\\chapter{{{chapter}}}\n\\newpage\n\n"
+    else:
+        header = f"\\section{{{chapter}}}\n\\newpage\n\n"
     body = "\n".join(blocks)
     # remove only the last '\clearpage' (plus any trailing backslash/newline)
     body = re.sub(
