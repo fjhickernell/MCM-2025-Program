@@ -16,3 +16,4 @@ dependencies:
   - pip:
       - matplotlib==3.7.1
       - requests==2.32.3
+      - parsl==2025.5.19   
