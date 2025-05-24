@@ -3,6 +3,18 @@ import re
 import pandas as pd
 from config import *
 
+def extract_session_environment(tex_content: str) -> str:
+    """
+    Extracts the \begin{talk}...\end{talk} environment from a .tex file content.
+    Raises ValueError if no talk environment is found in content.
+    """
+    pattern = re.compile(r"\\begin\{session\}.*?\\end\{session\}", re.DOTALL)
+    match = pattern.search(tex_content)
+    if not match:
+        raise ValueError("No session environment found")
+    return match.group(0)
+
+
 def extract_talk_environment(tex_content: str) -> str:
     """
     Extracts the \begin{talk}...\end{talk} environment from a .tex file content.
@@ -65,9 +77,12 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     except UnicodeDecodeError:
         content = open(tex_path, 'r', encoding='latin-1').read()
 
-    # Extract the talk block
+    # Extract the talk or session block
     try:
-        block = extract_talk_environment(content)
+        if prefix == "":
+            block = extract_session_environment(content)
+        else:
+            block = extract_talk_environment(content)
     except ValueError:
         print(f"WARN: talk cannot be extracted: {tex_path}")
         return None
@@ -76,8 +91,12 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     raw_lines = block.splitlines()
     # Locate begin/end
     try:  # \being{talk} and \end{talk} should not be preceded with any spaces
-        begin_idx = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\begin\{talk\}", l))
-        end_idx   = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\end\{talk\}", l))
+        if prefix=="":
+            begin_idx = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\begin\{session\}", l))
+            end_idx   = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\end\{session\}", l))
+        else:
+            begin_idx = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\begin\{talk\}", l))
+            end_idx   = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\end\{talk\}", l))
     except StopIteration:
         return None
     
@@ -159,7 +178,7 @@ def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Ta
     if chapter == "Plenary Talks":
         header = f"\\chapter{{{chapter}}}\n\\newpage\n\n"
     else:
-        header = f"\\section{{{chapter}}}\n\\newpage\n\n"
+        header = f"\\section{{{chapter}}}\n"
     body = "\n".join(blocks)
     # remove only the last '\clearpage' (plus any trailing backslash/newline)
     body = re.sub(
@@ -221,10 +240,11 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
         raise RuntimeError(f"Missing talks for IDs: {', '.join(missing)}")
 
     chapter = (
-        "Plenary Talks" if prefix == "P"
-        else "Contributed Talks" if prefix == "T"
-        else "Special Session Talks" if prefix == "S"
-        else "Talks"
+           "Plenary Talks"        if prefix == "P" 
+      else "Contributed Talks"    if prefix == "T"
+      else "Special Sessions"     if prefix == ""
+      else "Special Session Talks"if prefix == "S"
+      else "Talks"
     )
     write_output(blocks, output_path, chapter)
 
@@ -237,14 +257,22 @@ if __name__ == '__main__':
     # map sheet keys to filename prefixes
     prefix_map = {
         'plenary_abstracts': 'P',
-        'special_session_submissions': 'SS',
+        'special_session_submissions': '',
         'special_session_abstracts': 'S',
         'contributed_talk_submissions': 'T'
     }
 
-    for key in ["special_session_abstracts", "contributed_talk_submissions", "plenary_abstracts"]: # , "special_session_submissions", "contributed_talk_submissions", "special_session_abstracts",
+    for key in [
+        "special_session_submissions", 
+        #"special_session_abstracts", 
+        #"contributed_talk_submissions", 
+        "plenary_abstracts"
+    ]: 
         if key in prefix_map:
-            csv_path = os.path.join(interimdir, f"{key}_talkid.csv")
+            if key == "special_session_submissions":
+                csv_path = os.path.join(interimdir, f"{key}_sessionid.csv")
+            else:
+                csv_path = os.path.join(interimdir, f"{key}_talkid.csv")
             tex_dir = os.path.join(indir, 'abstracts')
             out_path = os.path.join(outdir, f"{key}_talks.tex")
             generate_tex_talks(
