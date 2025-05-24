@@ -69,12 +69,13 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     try:
         block = extract_talk_environment(content)
     except ValueError:
+        print(f"WARN: talk cannot be extracted: {tex_path}")
         return None
 
     # Split into lines for body extraction
     raw_lines = block.splitlines()
     # Locate begin/end
-    try:
+    try:  # \being{talk} and \end{talk} should not be preceded with any spaces
         begin_idx = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\begin\{talk\}", l))
         end_idx   = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\end\{talk\}", l))
     except StopIteration:
