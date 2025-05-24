@@ -25,6 +25,13 @@ clean_pp:
 	@echo "\n*** Cleaning up preprocess directories..."
 	rm -f preprocess/interim/*
 	rm -f preproces/out/*
+	rm -f preprocess/input/abstracts/*.gz 
+	rm -f preprocess/input/abstracts/*.pdf
+	rm -f preprocess/input/abstracts/*.log
+	rm -f preprocess/input/abstracts/*.aux
+	rm -f preprocess/input/abstracts/*.fls
+	rm -f preprocess/input/abstracts/*.fdb*
+	
 
 pp: clean_pp
 	@echo "\n*** Compiling Python files in preprocess directory..."

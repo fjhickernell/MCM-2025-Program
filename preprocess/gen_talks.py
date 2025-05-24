@@ -101,7 +101,7 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     # replace bad latex expressions with good ones
     bad_s = "{}% [6] special session. Leave this field empty for contributed talks. "
     bad_s2 ="% Insert the title of the special session if you were invited to give a talk in a special session."
-    body_lines = [line.replace(bad_s, "").replace(bad_s2, "").replace('"', "''").replace(" &", " \&").replace("the the", "the").replace("$\cL_p$","$\mathcal{L}_p$").replace("\KSD", "\mathsf{KSD}") for line in body_lines]
+    body_lines = [line.replace(bad_s, "").replace(bad_s2, "").replace('"', "''").replace(" &", " \&").replace("the the ", "the ").replace("$\cL_p$","$\mathcal{L}_p$").replace("\KSD", "\mathsf{KSD}") for line in body_lines]
 
     # parse out the slots
     raw_args = [ field_re.match(l).group(1)
@@ -238,7 +238,7 @@ if __name__ == '__main__':
         'contributed_talk_submissions': 'T'
     }
 
-    for key in ["special_session_abstracts"]:#"contributed_talk_submissions", "plenary_abstracts"]: # , "special_session_submissions", "contributed_talk_submissions", "special_session_abstracts",
+    for key in ["special_session_abstracts", "contributed_talk_submissions", "plenary_abstracts"]: # , "special_session_submissions", "contributed_talk_submissions", "special_session_abstracts",
         if key in prefix_map:
             csv_path = os.path.join(interimdir, f"{key}_talkid.csv")
             tex_dir = os.path.join(indir, 'abstracts')
