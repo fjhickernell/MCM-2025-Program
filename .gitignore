@@ -16,3 +16,4 @@ __pycache__
 MCM_ProgramBook_TEX/input/*
 runinfo/*
 *.*#
+preprocess/_temp
