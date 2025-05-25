@@ -29,11 +29,12 @@ if __name__ == '__main__':
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
     #time ordered by "room number", e.g., columns in the schedule
     ##################IMPORTANT
-    print("\\chapter{List of Participants (as of July 5)}\n",file=fpart)
+    print("\\chapter{List of Participants}\n",file=fpart)
     print("\\setlength{\columnsep}{1cm}\n",file=fpart)
     print("\\begin{multicols}{2}\n",file=fpart)
     print("\\small\\raggedright\n",file=fpart)
-    with open(f"{indir}PARTICIPANTSJULY5.csv", 'r') as file:
+    #with open(f"{indir}PARTICIPANTSJULY5.csv", 'r') as file:
+    with open(f"{indir}Participants.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         for val in reader:
             org = "Unknown org" if len(val[4])==0 else val[4]

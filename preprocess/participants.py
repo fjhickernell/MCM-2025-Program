@@ -78,6 +78,9 @@ def cleanup_participant_data(df):
     
     # Validate data quality
     validate_participant_names(df)
+
+    # if a value in Organization contains `&', then replace it with `and'
+    df["Organization"] = df["Organization"].str.replace("&", "and", regex=False)
     
     # Sort by LastName, FirstName
     return df.sort_values(by=["LastName", "FirstName"])
@@ -362,7 +365,6 @@ if __name__ == "__main__":
     # Print unique list of organizations
     org_series = pd.Series(df["Organization"].unique(), name="Organization").sort_values()
     org_series.to_csv(f"{outdir}orgs.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
-
 
     # Writing the dictionary to a CSV file
     with open(f'{interimdir}short_org_dict.csv', mode='w', newline='') as file:
