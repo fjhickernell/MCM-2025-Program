@@ -165,7 +165,9 @@ def process_session(
         output_lines.append("{}{}{}")
     output_lines.append(f" {{{session_id}}}% [8] session id")
     if M > 2:
-        output_lines.append(f" {{{safe_organizers[2][0].strip()}}}% [9] organizer three name, if any")
+        output_lines.append(
+            f" {{\\thirdorganizer{{{safe_organizers[2][0].strip()}}}{{{safe_organizers[2][1].strip()}}}{{{safe_organizers[2][2].strip()}}}}}% [9] third organizer, if any"
+        )
     else:
         output_lines.append("{}")
 
