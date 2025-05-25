@@ -326,19 +326,24 @@ def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Ta
     """
     Writes header and talk blocks to the output .tex file.
     """
-    if chapter in ["Plenary Talks", "Special Sessions"]:
-        header = f"\\chapter{{{chapter}}}\n\\newpage\n\n"
+    # Modify header based on document type
+    if chapter == "Plenary Talks":
+        header = f"\\chapter{{{chapter}}}\\newpage\n\n"
+    elif chapter == "Special Sessions":
+        header = f"\\chapter{{{chapter}}}\n\n"
+    elif chapter == "Special Session Talks":
+        header = f"\\chapter{{Abstracts}}\\newpage\\section{{{chapter}}}\n\n"
     else:
-        header = f"\\section{{{chapter}}}\n\\newpage\n\n"
+        header = f"\\section{{{chapter}}}\n\n"
+        
     body = "\n".join(blocks)
     # remove only the last '\clearpage' (plus any trailing backslash/newline)
     body = re.sub(
-        r"(?s)(.*)\\clearpage\s*\\?$",   # group 1 = everything up to the *last* \clearpage
-        r"\1",                            # replace with just that prefix
+        r"(?s)(.*)\\clearpage\s*\\?$",
+        r"\1",
         body
     )
 
-    # Now open-and-write *everything* inside the with-block
     with open(output_path, 'w', encoding='utf-8') as out:
         out.write(header)
         out.write(body)
@@ -515,7 +520,7 @@ if __name__ == '__main__':
             )
 
     """
-    For each row in preprocess/interim/special_session_abstracts_sessionid.csv,
+    For each row in preprocess/interim/special_session_abstracts_talkid.csv,
     generate an output file `sess<SessionID>.tex` with LaTeX content, e.g.,
     """
     # Read the CSV file
