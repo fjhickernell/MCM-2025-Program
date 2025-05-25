@@ -1,15 +1,15 @@
 \documentclass[12pt,a4paper,figuresright]{book}
 
 \usepackage{amsmath,amssymb}
-\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl,verbatim}
 
 \setlength{\textheight}{25.2cm}
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
 \setlength{\voffset}{-1.6cm}
 \setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
-\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\evensidemargin}{-0.3cm}
 \setlength{\oddsidemargin}{0.3cm}
-\setlength{\parindent}{0cm} 
+\setlength{\parindent}{0cm}
 \setlength{\parskip}{0.3cm}
 
 \renewcommand{\topfraction}{1}
@@ -42,6 +42,7 @@
  }
  {\nopagebreak}%
 
+
 \pagestyle{empty}
 
 % ------------------------------------------------------------------------
@@ -51,12 +52,7 @@
 	
 %Input the relevant information below
 \begin{session}
-  {Analysis of Langevin and Related Sampling Algorithms, Part I}%
-  % Theory of Gradient-Based Samplers
-  % Analysis of Langevin and related sampling algorithms
-  % Analysis of Gradient-Based Samplers %(to emphasize that we include numerical analysis of proposed algorithms?)
-  % Theory and Algorithms of Gradient-Based Samplers
-  %[1] session title
+  {Analysis of Langevin and Related Sampling Algorithms, Part II}% [1] session title
   {3} %[2]  number of organizers
   {\organizer{Yifan Chen}% organizer one name
     {Courant Institute of Mathematical Sciences, New York University}% orgnizer one affiliations
@@ -64,9 +60,9 @@
   {\organizer{Xiaoou Cheng}% organizer two name, if needed
 	{Courant Institute of Mathematical Sciences, New York University}% orgnizer two affiliations, if needed
 	{chengxo@nyu.edu}}% organizer two email
-    {\organizer{Jonathan Weare}
-    {Courant Institute of Mathematical Sciences, New York University}
-    {weare@nyu.edu}}
+  {\organizer{Jonathan Weare}% organizer three name
+  {Courant Institute of Mathematical Sciences, New York University}% organizer three affiliations
+  {weare@nyu.edu}}% organizer three email
  
 
 % Your special session abstract goes here, including the list of speakers and their affiliations. Please do not use your own commands or macros.
@@ -75,18 +71,11 @@
 
 Many Markov Chain Monte Carlo (MCMC) samplers are based on stochastic dynamics. Langevin dynamics serves as a fundamental basis for a vast family of extensions, such as unadjusted Langevin algorithms, kinetic/underdamped Langevin algorithms, Hamiltonian Monte Carlo, and the No-U-Turn Sampler (NUTS). The gradient flow structure of Langevin dynamics also motivates the development of a large class of novel algorithms such as stein variational gradient descent, birth-death process approaches, and those based on Fisher-Rao gradient flows. These methods have become ubiquitous across various fields, including molecular dynamics, Bayesian statistics, and machine learning. Recent years have seen significant theoretical advances in analyzing such methods, particularly in high-dimensional settings and non-convex cases. This special session aims to bring together researchers from different communities (probability, statistics, scientific computing, theoretical computer science, machine learning, etc.)\ working on analysis of sampling dynamics of Langevin and beyond to present recent progress, discuss challenges, and share ideas. 
 
-[\textbf{To conference organizers}: One of our speakers in our two-part sessions has other commitment until July 30. Thus, we prefer both of our sessions to be scheduled during July 31 -- Aug 1. July 30 is also acceptable if the later dates are impossible. We really appreciate your help to make our sessions possible.]
+\end{session}
+
+%[\textbf{To conference organizers}: One of our speakers in our two-part sessions has other commitment until July 30. Thus, we prefer both of our sessions to be scheduled during July 31 -- Aug 1. July 30 is also acceptable if the later dates are impossible. We really appreciate your help to make our sessions possible.]
 
 
-%%%%%% REMEMBER %%%%%%
-\medskip
-\textbf{List of speakers}: 
-\begin{enumerate}
-    \item Nawaf Bou-Rabee, Rutgers University 
-    \item Lihan Wang, Carnegie Mellon University
-    \item Peter A.~Whalley, ETH Zurich
-    \item Xiaoou Cheng, New York University
-\end{enumerate}
 
 % If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
 % Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
@@ -98,7 +87,7 @@ Many Markov Chain Monte Carlo (MCMC) samplers are based on stochastic dynamics. 
 
 % Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
   
-\end{session}
+
 
 \end{document}
 

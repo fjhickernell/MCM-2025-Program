@@ -2,6 +2,8 @@ import os
 import re
 import pandas as pd
 from config import *
+import csv
+import datetime
 
 def extract_talk_environment(tex_content: str) -> str:
     """
@@ -97,27 +99,23 @@ def process_session(
         r"""
         \\organizer     # literal “\organizer”
         \s*\{\s*        # open brace for name
-        ([^}]*)      #   capture everything up to the next }
+        ([^}]*)         # capture everything up to the next }
         \}\s*           # close name‐brace
         [^{}]*          # skip any text (comments, newlines, etc.) up to
         \{\s*           # open brace for affiliation
-        ([^}]*)      #   capture affiliation
+        ([^}]*)         # capture affiliation
         \}\s*           # close affiliation‐brace
         [^{}]*          # skip up to
         \{\s*           # open brace for email
-        ([^}]*)      #   capture email
+        ([^}]*)         # capture email
         \}              # close email‐brace
         """,
         re.VERBOSE | re.DOTALL
     )
     organizers = organizer_pattern.findall(session_body)
 
-    # Pad to at least 3 organizers
-    #while len(organizers) < min(M, 3):
-    #    organizers.append(("", "", ""))
-
     # Remove organizer blocks and strip comments
-    print(f"({session_body}")
+    #print(f"({session_body}")
     session_body_clean = organizer_pattern.sub("", session_body)
 
     # remove lines  "{}% organizer one email" from session_body_clean
@@ -135,10 +133,20 @@ def process_session(
         # Skip any stray end tag
         if stripped.startswith(r'\end{session}'):
             continue
+
+        # Define patterns to remove specific organizer lines
+        remove_patterns = [
+            r"^\s*\{\}\s*\%\s*(organizer|orgnizer)\s*.*$",
+        ]
+        
+        # Skip line if it matches any of the removal patterns
+        if any(re.match(pattern, stripped) for pattern in remove_patterns):
+            continue
+
         # Ensure lines are properly cleaned
         body_lines.append(stripped.replace("\t", " ").replace("\r", "").strip())
 
-    print(f"{session_title = }, {M = }, {organizers = }, \n{session_body_clean = }")
+    #print(f"{session_title = }, {M = }, {organizers = }, \n{session_body_clean = }")
 
     # Compose the new session block
     output_lines = []
@@ -158,18 +166,21 @@ def process_session(
     output_lines.append(f" {{{session_id}}}% [8] session id")
     if M > 2:
         output_lines.append(f" {{{safe_organizers[2][0].strip()}}}% [9] organizer three name, if any")
+    else:
+        output_lines.append("{}")
 
     # Append any remaining content (e.g., abstracts or notes)
     if body_lines:
         output_lines.append("")  # blank line before body
         for bl in body_lines:
             output_lines.append(f" {bl}")
+            
     output_lines.append('\end{session}')
     output_lines.append('')
-
-
-    print("\n".join(output_lines))
- 
+    output_lines.append(f"\\input{{sess{session_id}.tex}}") 
+    output_lines.append('')
+    output_lines.append("\\clearpage")
+    output_lines.append('')
 
     return "\n".join(output_lines)
 
@@ -394,6 +405,89 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
     if missing:
         print(f"WARN: Missing talks for IDs: {missing}")
 
+def parse_session_time(session_time: str) -> tuple[str, str, str, str]:
+    """
+    Parse session time string into components.
+    Returns: (formatted_time, session_period, start_time, end_time)
+    """
+    m = re.match(
+        r"([A-Za-z]+),\s*([A-Za-z]+\s+\d{1,2})(?:\s+(\d{1,2}:\d{2})?(?:[-–—]\s*(\d{1,2}:\d{2}))?)?\s*(.*)", 
+        session_time
+    )
+    if not m:
+        return session_time, "", "", ""
+
+    day_of_week = m.group(1)
+    date_str = m.group(2)
+    start_time = m.group(3) or ""
+    end_time = m.group(4) or ""
+    
+    try:
+        if start_time:
+            st = datetime.datetime.strptime(start_time, "%H:%M")
+            session_period = "Morning" if st.hour < 12 else "Afternoon"
+        else:
+            session_period = ""
+    except Exception:
+        session_period = ""
+        
+    session_time_fmt = f"{day_of_week}, {date_str}, 2024 -- {session_period}"
+    return session_time_fmt, session_period, start_time, end_time
+
+def format_session_header(session_time_fmt: str, start_time: str, end_time: str, room: str) -> list[str]:
+    """Generate the LaTeX header lines for a session."""
+    return [
+        r"\sessionPart{}% [1] part",
+        r"{" + r"\hfill\timeslot{" + session_time_fmt + "}",
+        "{" + start_time + "}{" + end_time + "} % Start and End time",
+        "{" + room + "}} % Room "
+    ]
+
+def format_session_talk(title: str, presenter: str, talk_id: str) -> list[str]:
+    """Generate the LaTeX lines for a single talk."""
+    return [
+        r"\sessionTalk{" + title + "}",
+        "{" + presenter + "}",
+        "{" + talk_id + "}"
+    ]
+
+def process_session_talks(df: pd.DataFrame) -> None:
+    """Process all sessions and generate their LaTeX files."""
+    for session_id, session_group in df.groupby("SessionID"):
+        if not session_id:
+            continue
+
+        # Get session info from first row
+        first_row = session_group.iloc[0]
+        session_time = first_row.get("SessionTime", "")
+        room = first_row.get("Room", "")
+
+        # Parse session time
+        session_time_fmt, _, start_time, end_time = parse_session_time(session_time)
+        
+        # Generate header
+        lines = format_session_header(session_time_fmt, start_time, end_time, room)
+        
+        # Process talks
+        talks_processed = 0
+        for _, row in session_group.iterrows():
+            if talks_processed >= 4:  # Max 4 talks per session
+                break
+                
+            title = row.get("Talk Title", "").strip()
+            presenter = row.get("Presenter", "").strip()
+            talk_id = row.get("TalkID", "").strip()
+            
+            if title and presenter and talk_id:
+                lines.extend(format_session_talk(title, presenter, talk_id))
+                talks_processed += 1
+
+        # Write output file
+        out_path = os.path.join(outdir, f"sess{session_id}.tex")
+        with open(out_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+        print(f"Wrote {out_path}")
+
 
 if __name__ == '__main__':
     # map sheet keys to filename prefixes
@@ -404,7 +498,7 @@ if __name__ == '__main__':
         'contributed_talk_submissions': 'T'
     }
 
-    for key in ["special_session_submissions", "plenary_abstracts"]:#"special_session_abstracts", "contributed_talk_submissions", "plenary_abstracts"]:  
+    for key in ["special_session_submissions", "plenary_abstracts", "special_session_abstracts", "contributed_talk_submissions"]:  
         if key in prefix_map:
             if key == "special_session_submissions":
                 csv_path = os.path.join(interimdir, f"{key}_sessionid.csv")
@@ -419,6 +513,19 @@ if __name__ == '__main__':
                 strict=False,
                 prefix=prefix_map[key]
             )
+
+    """
+    For each row in preprocess/interim/special_session_abstracts_sessionid.csv,
+    generate an output file `sess<SessionID>.tex` with LaTeX content, e.g.,
+    """
+    # Read the CSV file
+    df = pd.read_csv(
+        os.path.join(interimdir, "special_session_abstracts_talkid.csv"), 
+        dtype=str
+    ).fillna("")
     
+    process_session_talks(df)
+
+
     
    
