@@ -3,18 +3,6 @@ import re
 import pandas as pd
 from config import *
 
-def extract_session_environment(tex_content: str) -> str:
-    """
-    Extracts the \begin{talk}...\end{talk} environment from a .tex file content.
-    Raises ValueError if no talk environment is found in content.
-    """
-    pattern = re.compile(r"\\begin\{session\}.*?\\end\{session\}", re.DOTALL)
-    match = pattern.search(tex_content)
-    if not match:
-        raise ValueError("No session environment found")
-    return match.group(0)
-
-
 def extract_talk_environment(tex_content: str) -> str:
     """
     Extracts the \begin{talk}...\end{talk} environment from a .tex file content.
@@ -25,6 +13,165 @@ def extract_talk_environment(tex_content: str) -> str:
     if not match:
         raise ValueError("No talk environment found")
     return match.group(0)
+
+
+def extract_session_environment(tex_content: str) -> str:
+    """
+    Extracts the first \begin{session} ... \end{session} block
+    (including those lines) from a .tex file content.
+    """
+    pattern = re.compile(
+        r"^\s*\\begin\{session\}.*?^\s*\\end\{session\}",
+        re.DOTALL | re.MULTILINE
+    )
+    match = pattern.search(tex_content)
+    if not match:
+        return None
+    return match.group(0)
+
+def process_session(
+    id_val: str,
+    prefix: str,
+    tex_dir: str,
+    session_time: str,
+    session_id: str
+) -> str | None:
+    """
+    Reads <prefix><id_val>.tex in tex_dir, extracts its session environment,
+    parses organizer info from \organizer{...}{...}{...} blocks,
+    and rebuilds a \begin{session} block with all fields filled properly.
+    """
+    full_id = f"{prefix}{id_val}"
+    tex_path = os.path.join(tex_dir, f"{full_id}.tex")
+    if not os.path.isfile(tex_path):
+        print(f"WARN: File not found: {tex_path}")
+        return None
+
+    # Read with fallback encoding
+    try:
+        content = open(tex_path, 'r', encoding='utf-8').read()
+    except UnicodeDecodeError:
+        content = open(tex_path, 'r', encoding='latin-1').read()
+
+    # Extract the session environment
+    block = extract_session_environment(content)
+    if block is None:
+        print(f"WARN: No session environment found in {tex_path}")
+        return None
+
+    # Split into lines and drop \begin and \end tags
+    lines = block.splitlines()
+    if lines and lines[0].strip().startswith(r'\begin{session}'):
+        lines.pop(0)
+    if lines and lines[-1].strip().startswith(r'\end{session}'):
+        lines.pop()
+
+    # Find session title
+    session_title = ""
+    title_idx = None
+    for idx, line in enumerate(lines):
+        m = re.match(r"\s*\{(.+?)\}.*\[1\]", line)
+        if m:
+            session_title = m.group(1).strip()
+            title_idx = idx
+            break
+    if title_idx is None:
+        print(f"WARN: Session title not found in {full_id}")
+        return None
+
+    # Move past title line
+    i = title_idx + 1
+    # Skip number-of-organizers line if present and extract the number to M
+    M = 3  # Default number of organizers
+    if i < len(lines):
+        match = re.match(r"\s*\{(\d+)\}", lines[i])
+        if match:
+            M = int(match.group(1))
+            i += 1
+
+    # Join the rest for organizer matching
+    session_body = "\n".join(lines[i:])
+
+    # Find all organizer blocks
+    organizer_pattern = re.compile(
+        r"""
+        \\organizer     # literal “\organizer”
+        \s*\{\s*        # open brace for name
+        ([^}]*)      #   capture everything up to the next }
+        \}\s*           # close name‐brace
+        [^{}]*          # skip any text (comments, newlines, etc.) up to
+        \{\s*           # open brace for affiliation
+        ([^}]*)      #   capture affiliation
+        \}\s*           # close affiliation‐brace
+        [^{}]*          # skip up to
+        \{\s*           # open brace for email
+        ([^}]*)      #   capture email
+        \}              # close email‐brace
+        """,
+        re.VERBOSE | re.DOTALL
+    )
+    organizers = organizer_pattern.findall(session_body)
+
+    # Pad to at least 3 organizers
+    #while len(organizers) < min(M, 3):
+    #    organizers.append(("", "", ""))
+
+    # Remove organizer blocks and strip comments
+    print(f"({session_body}")
+    session_body_clean = organizer_pattern.sub("", session_body)
+
+    # remove lines  "{}% organizer one email" from session_body_clean
+    session_body_clean = re.sub(r"\s*\{\}\s*%\s*organizer one email", "", session_body_clean)
+    # remove lines  "{}% organizer two email" from session_body_clean
+    session_body_clean = re.sub(r"\s*\{\}\s*%\s*organizer two email", "", session_body_clean)
+    # remove lines  "{}% organizer three email" from session_body_clean
+    session_body_clean = re.sub(r"\s*\{\}\s*%\s*organizer three email", "", session_body_clean)
+
+    body_lines = []
+    for line in session_body_clean.splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("%"):
+            continue
+        # Skip any stray end tag
+        if stripped.startswith(r'\end{session}'):
+            continue
+        # Ensure lines are properly cleaned
+        body_lines.append(stripped.replace("\t", " ").replace("\r", "").strip())
+
+    print(f"{session_title = }, {M = }, {organizers = }, \n{session_body_clean = }")
+
+    # Compose the new session block
+    output_lines = []
+    output_lines.append(r"\begin{session}")
+    output_lines.append(f" {{{session_title}}}% [1] session title")
+    # Provide default empty organizers if not enough found
+    safe_organizers = organizers + [("", "", "")] * (3 - len(organizers))
+    output_lines.append(f" {{{safe_organizers[0][0].strip()}}}% [2] organizer one name")
+    output_lines.append(f" {{{safe_organizers[0][1].strip()}}}% [3] organizer one affiliations")
+    output_lines.append(f" {{{safe_organizers[0][2].strip()}}}% [4] organizer one email")
+    if M > 1:
+        output_lines.append(f" {{{safe_organizers[1][0].strip()}}}% [5] organizer two name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.")
+        output_lines.append(f" {{{safe_organizers[1][1].strip()}}}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.")
+        output_lines.append(f" {{{safe_organizers[1][2].strip()}}}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.")
+    else:
+        output_lines.append("{}{}{}")
+    output_lines.append(f" {{{session_id}}}% [8] session id")
+    if M > 2:
+        output_lines.append(f" {{{safe_organizers[2][0].strip()}}}% [9] organizer three name, if any")
+
+    # Append any remaining content (e.g., abstracts or notes)
+    if body_lines:
+        output_lines.append("")  # blank line before body
+        for bl in body_lines:
+            output_lines.append(f" {bl}")
+    output_lines.append('\end{session}')
+    output_lines.append('')
+
+
+    print("\n".join(output_lines))
+ 
+
+    return "\n".join(output_lines)
 
 
 def load_ids(csv_path: str) -> list[str]:
@@ -77,12 +224,9 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     except UnicodeDecodeError:
         content = open(tex_path, 'r', encoding='latin-1').read()
 
-    # Extract the talk or session block
+    # Extract the talk block
     try:
-        if prefix == "":
-            block = extract_session_environment(content)
-        else:
-            block = extract_talk_environment(content)
+        block = extract_talk_environment(content)
     except ValueError:
         print(f"WARN: talk cannot be extracted: {tex_path}")
         return None
@@ -91,12 +235,8 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     raw_lines = block.splitlines()
     # Locate begin/end
     try:  # \being{talk} and \end{talk} should not be preceded with any spaces
-        if prefix=="":
-            begin_idx = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\begin\{session\}", l))
-            end_idx   = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\end\{session\}", l))
-        else:
-            begin_idx = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\begin\{talk\}", l))
-            end_idx   = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\end\{talk\}", l))
+        begin_idx = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\begin\{talk\}", l))
+        end_idx   = next(i for i, l in enumerate(raw_lines) if re.match(r"^\\end\{talk\}", l))
     except StopIteration:
         return None
     
@@ -175,10 +315,10 @@ def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Ta
     """
     Writes header and talk blocks to the output .tex file.
     """
-    if chapter == "Plenary Talks":
+    if chapter in ["Plenary Talks", "Special Sessions"]:
         header = f"\\chapter{{{chapter}}}\n\\newpage\n\n"
     else:
-        header = f"\\section{{{chapter}}}\n"
+        header = f"\\section{{{chapter}}}\n\\newpage\n\n"
     body = "\n".join(blocks)
     # remove only the last '\clearpage' (plus any trailing backslash/newline)
     body = re.sub(
@@ -229,7 +369,10 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
     for id_val in sorted_ids:
         session_time = time_map.get(id_val, "")
         session_id = id_map.get(id_val, "")
-        block = process_talk(id_val, prefix, tex_dir, session_time, session_id)
+        if prefix == "":
+            block = process_session(id_val, prefix, tex_dir, session_time, session_id)
+        else:
+            block = process_talk(id_val, prefix, tex_dir, session_time, session_id)
         if block is None:
             missing.append(format_full_id(id_val, prefix))
         else:
@@ -240,11 +383,10 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
         raise RuntimeError(f"Missing talks for IDs: {', '.join(missing)}")
 
     chapter = (
-           "Plenary Talks"        if prefix == "P" 
-      else "Contributed Talks"    if prefix == "T"
-      else "Special Sessions"     if prefix == ""
-      else "Special Session Talks"if prefix == "S"
-      else "Talks"
+        "Plenary Talks" if prefix == "P"
+        else "Contributed Talks" if prefix == "T"
+        else "Special Session Talks" if prefix == "S"
+        else "Special Sessions"
     )
     write_output(blocks, output_path, chapter)
 
@@ -262,12 +404,7 @@ if __name__ == '__main__':
         'contributed_talk_submissions': 'T'
     }
 
-    for key in [
-        "special_session_submissions", 
-        #"special_session_abstracts", 
-        #"contributed_talk_submissions", 
-        "plenary_abstracts"
-    ]: 
+    for key in ["special_session_submissions", "plenary_abstracts"]:#"special_session_abstracts", "contributed_talk_submissions", "plenary_abstracts"]:  
         if key in prefix_map:
             if key == "special_session_submissions":
                 csv_path = os.path.join(interimdir, f"{key}_sessionid.csv")
