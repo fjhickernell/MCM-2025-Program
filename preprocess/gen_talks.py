@@ -525,7 +525,3 @@ if __name__ == '__main__':
     ).fillna("")
     
     process_session_talks(df)
-
-
-    
-   
