@@ -2053,6 +2053,37 @@ The mixing time of a Markov chain determines when the marginal law of the Markov
 \end{talk}
 
 \begin{talk}
+  {Stochastic Gradient Descent with Adaptive Data}% [1] talk title
+  {Jing Dong}% [2] speaker name
+  {Columbia University}% [3] affiliations
+  {jing.dong@gsb.columbia.edu}% [4] email
+  {Ethan Che, Xin Tong}% [5] coauthors
+  {Recent Advances in Stochastic Gradient Descent}% [6] special session
+  {Thu, July 31 15:30–17:30 Track H}% [7] time slot
+  {S27-1}% [8] talk id
+  {S27}% [9] session id or photo
+				
+                
+Stochastic gradient descent (SGD) is a powerful optimization technique that is particularly useful in online learning scenarios. Its convergence analysis is relatively well understood under the assumption that the data samples are independent and identically distributed (iid). However, applying SGD to policy optimization
+problems in operations research involves a distinct challenge: the policy changes the environment and thereby affects the data used to update the policy. The adaptively generated data stream involves samples that are non-stationary, no longer independent from each other, and affected by previous decisions. The influence of previous decisions on the data generated introduces bias in the gradient estimate, which presents a potential source of instability for online learning not present in the iid case. In this paper, we introduce simple criteria for the adaptively generated data stream to guarantee the convergence of SGD. We show that the convergence
+speed of SGD with adaptive data is largely similar to the classical iid setting, as long as the mixing time of the policy-induced dynamics is factored in. Our Lyapunov-function analysis allows one to translate existing stability analysis of stochastic systems studied in operations research into convergence rates for SGD, and
+we demonstrate this for queueing and inventory management problems. We also showcase how our result can be applied to study the sample complexity of an actor-critic policy gradient algorithm.			
+
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
   {Filtered Markovian Projection: Dimensionality Reduction in Filtering for Stochastic Reaction Networks}% [1] talk title
   {Maksim Chupin}% [2] speaker name
   {King Abdullah University of Science and Technology (KAUST)}% [3] affiliations

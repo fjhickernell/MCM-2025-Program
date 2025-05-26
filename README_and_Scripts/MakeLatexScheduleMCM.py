@@ -9,13 +9,14 @@ if __name__ == '__main__':
 
     #vector giving the nb of parallel sessions in each slot
     #a slot is a spot in the schedule where we have parallel sessions
-    #we have 9 slots in the schedule, so this vector would have 9 components
+    #we have 8 slots in the schedule, so this vector would have 8 components
     ##INPUT NEEDED HERE
-    NbParallel = [4,4,4,4,4,4,4,4,4]
+    NbParallel = [4,4,4,4,4,4,4,4]
     #order of the plenary talks: need to have for each a file Plxx.tex
     PrintPlenary = True #set to true when ready with files
     ##INPUT NEEDED HERE
-    PlSched = ["Kr","Fo","Ow","Ol","Oa","Ku","Go","La","30"]
+    #PlSched = ["Kr","Fo","Ow","Ol","Oa","Ku","Go","La","30"]
+    PlSched = [str(i) for i in range(1, 9)]
     rows = []
     SessionNumber = 0
     SlotNumber = 0
@@ -55,7 +56,11 @@ if __name__ == '__main__':
                 
                     #if PrintPlenary:
                     #    print(
-                myplen="\\input{PL"+PlSched[SlotNumber]+".tex}"   
+                try:
+                    myplen="\\input{P"+PlSched[SlotNumber]+".tex}"   
+                except Exception as e:
+                    print(f"Error at SlotNumber={SlotNumber}: {e}")
+                    continue
                 if(SlotNumber%2==0):
                     print("\\hspace*{-1.2cm}",file=fsched)
                 print("\\begin{sideways}\\small\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",file=fsched)
