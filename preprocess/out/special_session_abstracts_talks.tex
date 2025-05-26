@@ -2053,21 +2053,18 @@ The mixing time of a Markov chain determines when the marginal law of the Markov
 \end{talk}
 
 \begin{talk}
-  {Stochastic Gradient Descent with Adaptive Data}% [1] talk title
-  {Jing Dong}% [2] speaker name
-  {Columbia University}% [3] affiliations
-  {jing.dong@gsb.columbia.edu}% [4] email
-  {Ethan Che, Xin Tong}% [5] coauthors
+  {Inference for Stochastic Gradient Descent with Infinite Variance}% [1] talk title
+  {Jose Blanchet}% [2] speaker name
+  {Stanford University}% [3] affiliations
+  {jose.blanchet@stanford.edu}% [4] email
+  {Peter Glynn, Aleks Mijatovic, Wenhao Yang}% [5] coauthors
   {Recent Advances in Stochastic Gradient Descent}% [6] special session
   {Thu, July 31 15:30–17:30 Track H}% [7] time slot
   {S27-1}% [8] talk id
   {S27}% [9] session id or photo
 				
                 
-Stochastic gradient descent (SGD) is a powerful optimization technique that is particularly useful in online learning scenarios. Its convergence analysis is relatively well understood under the assumption that the data samples are independent and identically distributed (iid). However, applying SGD to policy optimization
-problems in operations research involves a distinct challenge: the policy changes the environment and thereby affects the data used to update the policy. The adaptively generated data stream involves samples that are non-stationary, no longer independent from each other, and affected by previous decisions. The influence of previous decisions on the data generated introduces bias in the gradient estimate, which presents a potential source of instability for online learning not present in the iid case. In this paper, we introduce simple criteria for the adaptively generated data stream to guarantee the convergence of SGD. We show that the convergence
-speed of SGD with adaptive data is largely similar to the classical iid setting, as long as the mixing time of the policy-induced dynamics is factored in. Our Lyapunov-function analysis allows one to translate existing stability analysis of stochastic systems studied in operations research into convergence rates for SGD, and
-we demonstrate this for queueing and inventory management problems. We also showcase how our result can be applied to study the sample complexity of an actor-critic policy gradient algorithm.			
+Stochastic gradient descent (SGD) with infinite variance gradients arises, perhaps surprisingly, quite often in applications. Even in settings involving “finite variance” in theory, infinite variance models appear to provide a better statistical fit over spatial and temporal scales of interest in applied settings. Motivated by this, we investigate a general methodology that enables the development of valid confidence regions for SGD with infinite variance. Along the way, we also obtain key results and properties for SGD with infinite variance, for example, asymptotic limits, optimal convergence rates, etc., which are counterparts of celebrated results known only in the finite variance case.
 
 
 \medskip
