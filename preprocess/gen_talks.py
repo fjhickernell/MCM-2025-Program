@@ -352,7 +352,6 @@ def write_output(blocks: list[str], output_path: str, chapter: str = 'Plenary Ta
 
     print(f"Output: {output_path}")
 
-
 def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
                        tex_dir: str = ".",
                        output_path: str = "plenary_talks.tex",
@@ -412,89 +411,6 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
     if missing:
         print(f"WARN: Missing talks for IDs: {missing}")
 
-def parse_session_time(session_time: str) -> tuple[str, str, str, str]:
-    """
-    Parse session time string into components.
-    Returns: (formatted_time, session_period, start_time, end_time)
-    """
-    m = re.match(
-        r"([A-Za-z]+),\s*([A-Za-z]+\s+\d{1,2})(?:\s+(\d{1,2}:\d{2})?(?:[-–—]\s*(\d{1,2}:\d{2}))?)?\s*(.*)", 
-        session_time
-    )
-    if not m:
-        return session_time, "", "", ""
-
-    day_of_week = m.group(1)
-    date_str = m.group(2)
-    start_time = m.group(3) or ""
-    end_time = m.group(4) or ""
-    
-    try:
-        if start_time:
-            st = datetime.datetime.strptime(start_time, "%H:%M")
-            session_period = "Morning" if st.hour < 12 else "Afternoon"
-        else:
-            session_period = ""
-    except Exception:
-        session_period = ""
-        
-    session_time_fmt = f"{day_of_week}, {date_str}, 2024 -- {session_period}"
-    return session_time_fmt, session_period, start_time, end_time
-
-def format_session_header(session_time_fmt: str, start_time: str, end_time: str, room: str) -> list[str]:
-    """Generate the LaTeX header lines for a session."""
-    return [
-        r"\sessionPart{}% [1] part",
-        r"{" + r"\hfill\timeslot{" + session_time_fmt + "}",
-        "{" + start_time + "}{" + end_time + "} % Start and End time",
-        "{" + room + "}} % Room "
-    ]
-
-def format_session_talk(title: str, presenter: str, talk_id: str) -> list[str]:
-    """Generate the LaTeX lines for a single talk."""
-    return [
-        r"\sessionTalk{" + title + "}",
-        "{" + presenter + "}",
-        "{" + talk_id + "}"
-    ]
-
-def process_session_talks(df: pd.DataFrame) -> None:
-    """Process all sessions and generate their LaTeX files."""
-    for session_id, session_group in df.groupby("SessionID"):
-        if not session_id:
-            continue
-
-        # Get session info from first row
-        first_row = session_group.iloc[0]
-        session_time = first_row.get("SessionTime", "")
-        room = first_row.get("Room", "")
-
-        # Parse session time
-        session_time_fmt, _, start_time, end_time = parse_session_time(session_time)
-        
-        # Generate header
-        lines = format_session_header(session_time_fmt, start_time, end_time, room)
-        
-        # Process talks
-        talks_processed = 0
-        for _, row in session_group.iterrows():
-            if talks_processed >= 4:  # Max 4 talks per session
-                break
-                
-            title = row.get("Talk Title", "").strip()
-            presenter = row.get("Presenter", "").strip()
-            talk_id = row.get("TalkID", "").strip()
-            
-            if title and presenter and talk_id:
-                lines.extend(format_session_talk(title, presenter, talk_id))
-                talks_processed += 1
-
-        # Write output file
-        out_path = os.path.join(outdir, f"sess{session_id}.tex")
-        with open(out_path, "w", encoding="utf-8") as f:
-            f.write("\n".join(lines) + "\n")
-        print(f"Wrote {out_path}")
-
 
 if __name__ == '__main__':
     # map sheet keys to filename prefixes
@@ -521,14 +437,4 @@ if __name__ == '__main__':
                 prefix=prefix_map[key]
             )
 
-    """
-    For each row in preprocess/interim/special_session_abstracts_talkid.csv,
-    generate an output file `sess<SessionID>.tex` with LaTeX content, e.g.,
-    """
-    # Read the CSV file
-    df = pd.read_csv(
-        os.path.join(interimdir, "special_session_abstracts_talkid.csv"), 
-        dtype=str
-    ).fillna("")
     
-    process_session_talks(df)

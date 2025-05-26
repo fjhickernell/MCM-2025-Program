@@ -107,7 +107,7 @@ if __name__ == '__main__':
                      out_csv="session_wide.csv")
     df = clean_df(df)
 
-    schedule_tex = f"{outdir}Schedule.tex"
+    schedule_tex = f"{outdir}Schedule_1sheet.tex"
     with open(schedule_tex, "w") as f:
         f.write("")  # Clear the file
         #f.write("\\chapter{Schedule}\n")
