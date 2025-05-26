@@ -76,6 +76,10 @@ def process_session_talks(df: pd.DataFrame) -> None:
                 
             title = row.get("Talk Title", "").strip()
             presenter = row.get("Presenter", "").strip()
+            if presenter == "":
+                first_name = row.get("First or given name(s) of presenter", "").strip()
+                last_name = row.get("Last or family name of presenter", "").strip()
+                presenter = f"{first_name} {last_name}".strip()
             talk_id = row.get("TalkID", "").strip()
             
             if title and presenter and talk_id:
@@ -164,24 +168,7 @@ def process_plenary_talks(csv_path: str) -> None:
         print(f"Wrote {out_path}")
 
 if __name__ == '__main__':
-
-    """
-    For each row in special_session_abstracts_talkid.csv,
-    generate an output file `sess<SessionID>.tex` with LaTeX content, e.g.,
-    """
-    # Read the CSV file
-    df = pd.read_csv(
-        os.path.join(interimdir, "special_session_abstracts_talkid.csv"), 
-        dtype=str
-    ).fillna("")
-    
-    process_session_talks(df)
-
-    """
-    For each row in contributed_talk_submissions_talkid.csv,
-    generate an output file `sess<SessionID>.tex` with LaTeX content, e.g.,
-    """
-    # Read the CSV file
+    # Generate `sess<SessionID>.tex` LaTeX files for contributed talks
     df = pd.read_csv(
         os.path.join(interimdir, "contributed_talk_submissions_talkid.csv"), 
         dtype=str
@@ -189,11 +176,14 @@ if __name__ == '__main__':
     
     process_session_talks(df)
 
-    """
-    For each row in preprocess/interim/plenary_abstracts_talkid.csv
-    generate an output file `<TalkID>.tex` with LaTeX content
-    """
+    # Generate `sess<SessionID>.tex` LaTeX files for special session talks
+    df = pd.read_csv(
+        os.path.join(interimdir, "special_session_abstracts_talkid.csv"), 
+        dtype=str
+    ).fillna("")
     
-    # Process plenary talks
+    process_session_talks(df)
+
+    # Generate `sess<SessionID>.tex` LaTeX files for plenary talks
     plenary_csv = os.path.join(interimdir, "plenary_abstracts_talkid.csv")
     process_plenary_talks(plenary_csv)
