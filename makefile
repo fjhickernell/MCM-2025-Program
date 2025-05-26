@@ -52,7 +52,8 @@ tex: cleanpy
 
 pgm: cleanpdf
 	@echo "*** Compiling LaTeX files in MCM_ProgramBook_TEX directory..."
-	@cd MCM_ProgramBook_TEX && \
+	@cp preprocess/out/sess*.tex MCM_ProgramBook_TEX && \
+		cd MCM_ProgramBook_TEX && \
 		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 || tail -n 100 MCM2025_book.log && \
 		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 && \
 		open MCM2025_Book.pdf && \
