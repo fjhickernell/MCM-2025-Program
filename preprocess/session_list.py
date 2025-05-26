@@ -195,9 +195,10 @@ def merge_schedules_sessions(df, df2):
 def add_schedule_join_keys(schedules):
     """Add join_key column to each schedule DataFrame."""
     for key, df in schedules.items():
-        df["join_key"] = df.iloc[:, 1].str.extract(r'Plenary Talk by (.+)')[0]
-        mask = df.iloc[:, 0].str.contains("Track", na=False) & ~df.iloc[:, 1].str.contains("Technical Session", na=False)
-        df.loc[mask, "join_key"] = df.loc[mask].iloc[:, 1]
+        df["join_key"] = df.iloc[:, 1].str.extract(r'Plenary Talk by\s+([^,]+)')[0]
+        mask = df.iloc[:, 1].str.contains("Track", na=False) & ~df.iloc[:, 1].str.contains("Technical Session", na=False)
+        # Extract join_key by removing "Track X: " prefix (where X is any single uppercase letter)
+        df.loc[mask, "join_key"] = df.loc[mask].iloc[:, 1].str.replace(r'^Track [A-Z]:\s*', '', regex=True)
         mask2 = df.iloc[:, 1].str.contains(r'Technical Session \d+ .+', case=False, na=False)
         df.loc[mask2, "join_key"] = df.loc[mask2].iloc[:, 1].str.extract(r'(Technical Session \d+)')[0]
         df["join_key"] = df["join_key"].str.strip().str.lower()
@@ -293,7 +294,7 @@ if __name__ == "__main__":
 
     # assert rows is no_special_sessions + no_technical_sessions + no_plenary_sessions
     assert merged_df.shape[0] == no_sessions, \
-        f"ERROR: Number of rows in SessionList.csv is not equal to {no_sessions} "
+        f"ERROR: Number of rows in SessionList.csv = {merged_df.shape[0]} and it is not equal to {no_sessions} "
 
 
 

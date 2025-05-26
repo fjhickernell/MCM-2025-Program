@@ -35,7 +35,6 @@ def shorten_cell(x):
     s = re.sub(r'\s+', ' ', s)
     return s
 
-
 def move_plenary_to_second_column(df):
     """If 'Plenary Talk' is in the first column, move it to the beginning of the second column."""
     plen = "Plenary Talk"
@@ -45,6 +44,20 @@ def move_plenary_to_second_column(df):
             row.iloc[0] = str(row.iloc[0]).replace(plen, "").strip()
             # Prepend to second column
             row.iloc[1] = plen + " by " + str(row.iloc[1])
+
+    return df
+
+def move_track_to_second_column(df):
+    """If 'Track X' (X = A, B, C, ...) is in the first column, move it to the beginning of the second column."""
+    track_pattern = re.compile(r"(Track [A-Z])", re.IGNORECASE)
+    for idx, row in df.iterrows():
+        match = track_pattern.search(str(row.iloc[0]))
+        if match:
+            track = match.group(1)
+            # Remove 'Track X' from first column
+            row.iloc[0] = str(row.iloc[0]).replace(track, "").strip()
+            # Prepend to second column
+            row.iloc[1] = f"{track}: {row.iloc[1]}"
     return df
 
 def clean_column_names(df):
@@ -56,6 +69,10 @@ def clean_column_names(df):
     df.columns = df.columns.str.replace(r"Wednesday", "Wed", regex=False)
     df.columns = df.columns.str.replace(r"Thursday", "Thu", regex=False)
     df.columns = df.columns.str.replace(r"Friday", "Fri", regex=False)
+    # Shorten months
+    df.columns = df.columns.str.replace(r"July", "Jul", regex=False)
+    df.columns = df.columns.str.replace(r"August", "Aug", regex=False)
+    
     return df
 
 def df_to_latex(df, filename, is_sideway=False):
@@ -64,19 +81,21 @@ def df_to_latex(df, filename, is_sideway=False):
     df = clean_column_names(df)
     df = df.map(escape_cell).map(shorten_cell)
     df = move_plenary_to_second_column(df)  
+    df = move_track_to_second_column(df)
 
     with open(filename, 'a') as f:
         if is_sideway: 
             f.write("\\begin{sideways}\n")
         else:
             f.write("\\begin{table}\n")
-        # Make second column wider, first, third and fourth columns narrower
-        #col_spec = '>{\\hsize=0.75\\hsize}X|>{\\hsize=2\\hsize}X|>{\\hsize=0.22\\hsize}X'
-        col_spec = '>{\\hsize=0.47\\hsize}X|>{\\hsize=1.53\\hsize}X'
+            # Add vertical space if first column header is "Wed, Jul 30"
+            if df.columns[0] == "Wed, Jul 30":
+                f.write("\\vspace{-8ex}\n")
+        # Make second column wider
+        col_spec = '>{\\hsize=0.32\\hsize}X|>{\\hsize=1.7\\hsize}X'
         f.write(f"\\begin{{tabularx}}{{\\textwidth}}{{{col_spec}}}\n")
         f.write("\\hline\n")
         # Write header (merge two columns, large bold font)
-        #f.write(f'\\multicolumn{{4}}{{l}}{{\\large\\textbf{{{df.columns[0]}}}}} \\\\\n')
         f.write(' & '.join([f'\\textbf{{{col}}}' for col in df.columns]) + ' \\\\\n')
         f.write("\\hline\n")
         # Write rows
@@ -86,6 +105,8 @@ def df_to_latex(df, filename, is_sideway=False):
                 continue
             color = get_row_color(row.values)
             row_str = ' & '.join([f'{color}{cell}' for cell in row.values])
+            # Replace "Part " with "Part~" in LaTeX
+            row_str = row_str.replace("Part ", "Part~")
             f.write(row_str + " \\\\\n")
         f.write("\\hline\n")
         f.write("\\end{tabularx}\n")
@@ -107,6 +128,14 @@ if __name__ == '__main__':
                      out_csv="session_wide.csv")
     df = clean_df(df)
 
+    # Read preprocess/interim/plenary_abstracts_talkid.csv
+    plenary_df = pd.read_csv(f"{interimdir}plenary_abstracts_gsheet.csv", dtype=str).fillna("")
+    plenary_df = clean_df(plenary_df)
+    plenary_df["join_key"] = (
+        plenary_df["First or given name(s) of presenter"].str.strip().str.lower() + " " +
+        plenary_df["Last or family name of presenter"].str.strip().str.lower()
+    ).str.strip()
+    
     schedule_tex = f"{outdir}Schedule_1sheet.tex"
     with open(schedule_tex, "w") as f:
         f.write("")  # Clear the file
@@ -123,11 +152,28 @@ if __name__ == '__main__':
         subdf = clean_df(subdf)
         subdf = subdf.fillna("")
         subdf.to_csv(f"{interimdir}schedule_day{j}_room_chair.csv", index=False, quoting=1)
+        
+        # Join with plenary_df
+        subdf["join_key"] = subdf["Session"].str.lower().str.strip()
+        subdf = subdf.merge(plenary_df[["Institution of presenter", "Talk Title", "join_key"]], how='left', on="join_key")
+        
+        # if "Institution of presenter", "Talk Title" both has non-NaN values, then join them to the value in "Session",
+        # Session <- Session, Institution, Talk Title
+        subdf["Session"] = (
+            subdf["Session"].fillna("").str.strip() +
+            (", " + subdf["Institution of presenter"].fillna("").str.strip()).where(subdf["Institution of presenter"].notna() & (subdf["Institution of presenter"].str.strip() != ""), "") +
+            (", " + subdf["Talk Title"].fillna("").str.strip()).where(subdf["Talk Title"].notna() & (subdf["Talk Title"].str.strip() != ""), "")
+        )
 
-        # create a new df with first 2 columns of subdf for 1-sheet schedle
-        subdf2 = subdf.iloc[:, :2]
+        # Shorten values like "University" as U in subdf["Session"]
+        subdf["Session"] = subdf["Session"].str.replace(r"\bUniversity\b", "U", regex=True)
+        subdf["Session"] = subdf["Session"].str.replace(r"\bENSAE, \b", "", regex=True)
+        
+        # create a new df with first 2 columns of subdf for 1-sheet schedule
+        subdf2 = subdf.iloc[:, :2].copy(deep=True)
         subdf2 = df_to_latex(subdf2, schedule_tex)
         subdf2.to_csv(f"{interimdir}schedule_day{j}.csv", index=False, quoting=1)
+        
         j+=1
   
     print(f"Output: {schedule_tex}")

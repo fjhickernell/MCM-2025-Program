@@ -31,7 +31,7 @@ def parse_session_time(session_time: str) -> tuple[str, str, str, str]:
     except Exception:
         session_period = ""
         
-    session_time_fmt = f"{day_of_week}, {date_str}, 2024 -- {session_period}"
+    session_time_fmt = f"{day_of_week}, {date_str}, 2025 -- {session_period}"
     return session_time_fmt, session_period, start_time, end_time
 
 def format_session_header(session_time_fmt: str, start_time: str, end_time: str, room: str) -> list[str]:

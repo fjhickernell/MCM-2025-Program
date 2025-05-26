@@ -1,17 +1,17 @@
 SessionTime,SessionTitle,join_key
-"Tue, July 29 08:30–17:30",Registration Desk Open,
-"Tue, July 29 09:00–10:00",Plenary Talk by Peter Glynn,peter glynn
-"Tue, July 29 10:00–10:30",Coffee Break,
-"Tue, July 29 10:30–12:30 Track A","Stochastic Computation and Complexity, Part III","stochastic computation and complexity, part iii"
-"Tue, July 29 10:30–12:30 Track B","Next-generation optimal experimental design: theory, scalability, and real world impact: Part I","next generation optimal experimental design: theory, scalability, and real world impact: part i"
-"Tue, July 29 10:30–12:30 Track C",Heavy-tailed Sampling,heavy tailed sampling
-"Tue, July 29 10:30–12:30 Track D","Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I","frontiers in (quasi )monte carlo and markov chain monte carlo methods, part i"
-"Tue, July 29 10:30-12:30 Track E",Technical Session 2 - Bayesian Methods,technical session 2
-"Tue, July 29 12:30–14:00",Lunch Break,
-"Tue, July 29 14:00–15:00",Plenary Talk by Roshan Joseph,roshan joseph
-"Tue, July 29 15:00–15:30",Coffee Break,
-"Tue, July 29 15:30–17:30 Track F","Stochastic Computation and Complexity, Part IV","stochastic computation and complexity, part iv"
-"Tue, July 29 15:30–17:30 Track G","Next-generation optimal experimental design: theory, scalability, and real world impact: Part II","next generation optimal experimental design: theory, scalability, and real world impact: part ii"
-"Tue, July 29 15:30–17:30 Track H",Advances in Rare Events Simulation,advances in rare events simulation
-"Tue, July 29 15:30–17:30 Track I","Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II","frontiers in (quasi )monte carlo and markov chain monte carlo methods, part ii"
-"Tue, July 29 15:30-17:30 Track J","Technical Session 5 - Quasi-Monte Carlo, Part 2",technical session 5
+"Tue, Jul 29 08:30–17:30",Registration Desk Open,
+"Tue, Jul 29 09:00–10:00","Plenary Talk by Peter Glynn, Stanford U, Combining Simulation and Linear Algebra: COSIMLA",peter glynn
+"Tue, Jul 29 10:00–10:30",Coffee Break,
+"Tue, Jul 29 10:30–12:30","Track A: Stochastic Computation and Complexity, Part III","stochastic computation and complexity, part iii"
+"Tue, Jul 29 10:30–12:30","Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I","next generation optimal experimental design: theory, scalability, and real world impact: part i"
+"Tue, Jul 29 10:30–12:30",Track C: Heavy-tailed Sampling,heavy tailed sampling
+"Tue, Jul 29 10:30–12:30","Track D: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I","frontiers in (quasi )monte carlo and markov chain monte carlo methods, part i"
+"Tue, Jul 29 10:30-12:30",Track E: Technical Session 2 - Bayesian Methods,technical session 2
+"Tue, Jul 29 12:30–14:00",Lunch Break,
+"Tue, Jul 29 14:00–15:00","Plenary Talk by Roshan Joseph, Georgia Institute of Technology, Sensitivity and Screening: From Monte Carlo to Experimental Design",roshan joseph
+"Tue, Jul 29 15:00–15:30",Coffee Break,
+"Tue, Jul 29 15:30–17:30","Track F: Stochastic Computation and Complexity, Part IV","stochastic computation and complexity, part iv"
+"Tue, Jul 29 15:30–17:30","Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II","next generation optimal experimental design: theory, scalability, and real world impact: part ii"
+"Tue, Jul 29 15:30–17:30",Track H: Advances in Rare Events Simulation,advances in rare events simulation
+"Tue, Jul 29 15:30–17:30","Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II","frontiers in (quasi )monte carlo and markov chain monte carlo methods, part ii"
+"Tue, Jul 29 15:30-17:30","Track J: Technical Session 5 - Quasi-Monte Carlo, Part 2",technical session 5
