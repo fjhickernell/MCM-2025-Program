@@ -110,7 +110,7 @@ def main():
         time_str = "Morning" if is_morning else "Afternoon"
         
         # Start table environment
-        latex_content += "\\begin{sideways}\\small\\begin{tabularx}{\\textheight}{l*{\\numcols2}{|Y}}\n"
+        latex_content += "\\begin{sideways}\\small\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}\n"
         latex_content += f"\\TableHeading{{ {date}, 2025 -- {time_str} }}\n\\\\\\hline\n"
         
         # Process sessions
