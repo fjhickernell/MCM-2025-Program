@@ -104,7 +104,7 @@ def get_session_talks_dict(group, outdir):
     return session_talks_dict
 
 
-def main():
+if __name__ == '__main__':
     # Read input file
     df = pd.read_csv(f"{outdir}schedule_full.csv", dtype=str).fillna("")
     df = prepare_dataframe(df)
@@ -195,5 +195,3 @@ def main():
     
     print(f"Output: {schedule_tex}")
 
-if __name__ == '__main__':
-    main()
