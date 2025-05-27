@@ -138,7 +138,7 @@ def add_sessions_talkid(dfs):
     """
     Adds a 'TalkID' column to each DataFrame in dfs based on the session type.
     - For plenary talks (SessionID starting with 'P'), TalkID == SessionID.
-    - Otherwise, TalkID == SessionID + '_' + a 1-based counter within that SessionID.
+    - Otherwise, TalkID == SessionID + '-' + a counter within that SessionID.
     """
     for key, df in dfs.items():
         df = df.copy()
@@ -151,7 +151,7 @@ def add_sessions_talkid(dfs):
         mask = non_plenary & df['SessionID'].notna()
         seq  = df.loc[mask].groupby('SessionID').cumcount() + 1  # always ints, no NaN
 
-        # 3) Build the “_n” suffix
+        # 3) Build the “-n” suffix
         suffix = pd.Series('', index=df.index, dtype='object')
         suffix.loc[mask] = '-' + seq.astype(str)
 
@@ -250,6 +250,7 @@ if __name__ == "__main__":
  
     # Concatenate and clean schedule DataFrames
     schedule_df = pd.concat(schedules_dict.values(), ignore_index=True)
+    schedule_full_df = schedule_df.copy(deep=True)  # contains all sessions, including breaks
     schedule_df = schedule_df[schedule_df["join_key"].notna()]
     schedule_df.to_csv(os.path.join(interimdir, "schedule_joined.csv"), index=False)
 
@@ -295,6 +296,18 @@ if __name__ == "__main__":
     # assert rows is no_special_sessions + no_technical_sessions + no_plenary_sessions
     assert merged_df.shape[0] == no_sessions, \
         f"ERROR: Number of rows in SessionList.csv = {merged_df.shape[0]} and it is not equal to {no_sessions} "
+    
+    # merge schedule_full_df with merged_df and output to schedule_full.csv
+    # Only include columns from SessionListCols except for SessionTime, Organizer1, Organizer2, Organizer3, IsSpecialSession
+    exclude_cols = {"SessionTime", "Organizer1", "Organizer2", "Organizer3", "IsSpecialSession", "OrderInSchedule"}
+    merge_cols = [col for col in SessionListCols if col not in exclude_cols]
+    schedule_full_df = schedule_full_df.merge(
+        merged_df[merge_cols],
+        how="left",
+        on="SessionTitle"
+    )
+    schedule_full_df["OrderInSchedule"] = range(1, len(schedule_full_df) + 1)
+    schedule_full_df.to_csv(os.path.join(outdir, "schedule_full.csv"), index=False)
 
 
 
