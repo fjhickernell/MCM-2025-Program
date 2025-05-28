@@ -61,7 +61,7 @@ def prepare_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 def extract_time_from_session(session_time: str) -> Tuple[str, str]:
     """Extract start and end times from session time string."""
-    time_match = re.search(r'(\d{1,2}:\d{2})[–-](\d{1,2}:\d{2})', session_time)
+    time_match = re.search(r'(\d{1,2}:\d{2})\s*[-–—]{1,2}\s*(\d{1,2}:\d{2})', session_time)
     return time_match.groups() if time_match else ("", "")
 
 def generate_session_latex(row: pd.Series) -> str:
@@ -79,9 +79,14 @@ def generate_session_latex(row: pd.Series) -> str:
     if session_id.startswith("P"):
         return f"\\input{{sess{session_id}.tex}}\n"
     elif not session_id:
+        #print(f"{session_title = }, {session_time = }")
         start_time, end_time = extract_time_from_session(session_time)
         time_str = f"{start_time}--{end_time}" if start_time and end_time else ""
-        return f"\\TableEvent{{{time_str}}}{{{short_session_title}}}\\\\\n"
+        if session_title.lower().startswith("conference opening") or session_title.lower().startswith("closing"):
+            return f"\\OpeningClosingEvent{{{time_str}}}{{{short_session_title}}}\\\\\n"
+        else: 
+            return f"\\TableEvent{{{time_str}}}{{{short_session_title}}}\\\\\n"
+
     elif session_title.lower().startswith("track"):
         if session_id.startswith("S"):
             return (f"&\\tableSpecialCL{{ {room} }}\n"
@@ -166,18 +171,29 @@ def generate_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, str, str]
 
 def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
     """Generate the full LaTeX schedule."""
-    latex_content = "\\begin{center}\n\\hspace*{-1.2cm}\n"
+    latex_content = "\\begin{center}\n\n"
     grouped = df.groupby(["Date", "IsMorning"])
     grouped = sorted(grouped, key=lambda x: (pd.to_datetime(x[0][0], format="%b %d"), not x[0][1]))
+    last_date = df["Date"].iloc[-1] if not df.empty else None
 
     for (date, is_morning), group in grouped:
+        is_last_day = date == last_date
+        #print(f"{date = }, {is_last_day = }")
         time_str = "Morning" if is_morning else "Afternoon"
-        latex_content += "\\vspace{-10ex}\n"
-        latex_content += "\\begin{sideways}\\small\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}\n"
-        latex_content += f"\\TableHeading{{ {date}, 2025 -- {time_str} }}\n\\\\\\hline\n"
+        latex_content += "\\vspace{-10ex}\n" if (not (is_last_day and not is_morning)) else "" 
+        latex_content += "\\begin{sideways}\\footnotesize\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}\n" if (not (is_last_day and not is_morning)) else "" 
+        # Add table heading for each group (morning/afternoon or last day)
+        if not is_last_day:
+            latex_content += f"\\TableHeading{{ {date}, 2025 -- {time_str} }}\n\\\\\\hline\n"
+        else:
+            if  is_morning:
+                latex_content += f"\\TableHeading{{ {date}, 2025 }}\n\\\\\\hline\n"
+            else:
+                latex_content += "\\hline\n"
         talks_latex = ""
         for _, row in group.sort_values("OrderInSchedule").iterrows():
             session_title = str(row.get("SessionTitle", "")).strip()
+
             is_first_parallel_talk = session_title.lower().startswith("track") and group['SessionTitle'].str.lower().str.startswith("track").idxmax() == row.name
             if is_first_parallel_talk:
                 latex_content += r"\rowcolor{\SessionTitleColor}\cellcolor{\EmptyColor}" + "\n"
@@ -190,7 +206,7 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
                 talks_latex += generate_talks_latex(session_talks_dict, row)
                 if talks_latex:
                     latex_content += talks_latex
-        latex_content += "\n\n\\end{tabularx}\n\n\\end{sideways}\n\n"
+        latex_content += "\n\n\\end{tabularx}\n\n\\end{sideways}\n\n" if (not (is_last_day and is_morning)) else "" 
     latex_content += "\\end{center}\n\n\\clearpage"
     return latex_content
 
