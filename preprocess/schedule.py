@@ -143,7 +143,7 @@ def generate_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, str, str]
                 title, speaker, code = talks[i]
                 talks_by_index.setdefault(i, []).append((title, speaker, code))
             else:
-                talks_by_index.setdefault(i, [])
+                talks_by_index.setdefault(i, []).append((None, None, None))
 
     start_time, end_time = extract_time_from_session(row.get("SessionTime", ""))
     time_str = f"\\tableTime{{{start_time}}}{{{end_time}}}"
@@ -151,10 +151,15 @@ def generate_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, str, str]
     for i in range(max_talks):
         talks_latex += "\n\\rowcolor{\\SessionLightColor}\n"
         talks_latex += f"{time_str}\n"
+        #print(f"{talks_by_index.get(i)}")
         for title, speaker, code in talks_by_index.get(i, []):
-            # Shorten certain phrases in the title for brevity
-            short_title = shorten_titles(title)
-            talks_latex += f"&\\tableTalk{{ {speaker} }}\n{{ {short_title} }}\n{{{code}}}\n"
+            if all(isinstance(x, str) and x.strip() for x in [title, speaker, code]):
+                #print(f"title: {title}, speaker: {speaker}, code: {code}")
+                short_title = shorten_titles(title)
+                talks_latex += f"&\\tableTalk{{ {speaker} }}\n{{ {short_title} }}\n{{{code}}}\n"
+            else:
+                #if all(t == (None, None, None) for t in talks_by_index.get(i, [])):
+                talks_latex += "&\n"
         talks_latex += "\\\\\\hline\n"
     return talks_latex
 
