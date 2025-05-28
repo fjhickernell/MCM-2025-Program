@@ -86,7 +86,7 @@ def generate_session_latex(row: pd.Series) -> str:
         if session_id.startswith("S"):
             return (f"&\\tableSpecialCL{{ {room} }}\n"
                     f"{{ {short_session_title} }}\n"
-                    f"{{ {session_id} }}\n"
+                    f"{{{session_id}}}\n"
                     f"{{ {chair} }}\n")
         elif session_id.startswith("T"):
             return (f"&\\tableContributedCL{{ {room} }}\n"
