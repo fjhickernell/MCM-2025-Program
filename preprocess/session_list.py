@@ -1,51 +1,104 @@
-def add_special_sessions_talkid(sess_df, df):
-    # Generate TalkID for talks_dict["special_session_abstracts"] from dfs["special_session_submissions"]
-    ss_sub_df = sess_df.copy(deep=True)
-    presenter_map = []
-    for idx, row in ss_sub_df.iterrows():
-        session_id = row.get("SessionID", "")
-        session_title = row.get("Session Title", "")
-        for i in range(1, 5):
-            first_col = f"Presenter {i} first or given name(s)"
-            last_col = f"Presenter {i} last or family name(s)"
-            if first_col in row and last_col in row:
-                first = str(row[first_col]).strip() if pd.notna(row[first_col]) else ""
-                last = str(row[last_col]).strip() if pd.notna(row[last_col]) else ""
-                if first or last:
-                    presenter = f"{first} {last}".strip()
-                    talkid = f"{session_id}-{i}"
-                    join_key = str(session_title).strip().lower()
-                    presenter_map.append(((join_key, presenter), talkid))
-
-    # Build mapping: (join_key, Presenter) -> TalkID
-    talkid_map = dict(presenter_map)
-    talkid_map_df = pd.DataFrame(
-        [(k[0], k[1], v) for k, v in talkid_map.items()],
-        columns=["join_key", "Presenter", "TalkID"]
-    )
-    print(talkid_map_df.head(2))
-    talkid_map_df.to_csv(f"{interimdir}talkid_map_df.csv", index=False)
-
-    # Join with special_session_abstracts
-    td_df = df.copy(deep=True)
-    ssa_df = td_df.merge(talkid_map_df, how="left", on=["join_key", "Presenter"])
-    print(ssa_df.head(2))
-    empty_talkid = ssa_df[ssa_df["TalkID"].isna() | (ssa_df["TalkID"] == "")]
-    if not empty_talkid.empty:
-        print("\nRows with empty TalkID:")
-        print(empty_talkid[["join_key", "Presenter", "SessionID", "SessionTitle"]])
-    ssa_df.to_csv(f"{interimdir}ssa_df.csv", index=False)
-    
-    return ssa_df
-
-
 import pandas as pd
 import os
 import re
 import numpy as np
+from typing import List, Tuple
 
 from config import *
 from util import *
+
+
+def _create_presenter_mapping(session_df: pd.DataFrame) -> List[Tuple[Tuple[str, str], str]]:
+    """
+    Create mapping between presenters and their talk IDs.
+    
+    Args:
+        session_df: DataFrame containing session submission data
+        
+    Returns:
+        List of tuples mapping (join_key, presenter) to talk ID
+    """
+    presenter_map = []
+    
+    for _, row in session_df.iterrows():
+        session_id = str(row.get("SessionID", ""))
+        session_title = str(row.get("Session Title", ""))
+        join_key = session_title.strip().lower()
+        
+        for i in range(1, 5):
+            first_col = f"Presenter {i} first or given name(s)"
+            last_col = f"Presenter {i} last or family name(s)"
+            
+            if first_col not in row or last_col not in row:
+                continue
+                
+            first = str(row[first_col]).strip() if pd.notna(row[first_col]) else ""
+            last = str(row[last_col]).strip() if pd.notna(row[last_col]) else ""
+            
+            if first or last:
+                presenter = f"{first} {last}".strip()
+                talk_id = f"{session_id}-{i}"
+                presenter_map.append(((join_key, presenter), talk_id))
+                
+    return presenter_map
+
+def _validate_talk_ids(df: pd.DataFrame) -> None:
+    """
+    Validate that all talks have been assigned talk IDs.
+    
+    Args:
+        df: DataFrame containing talk data with TalkID column
+    """
+    empty_talk_ids = df[df["TalkID"].isna() | (df["TalkID"] == "")]
+    if not empty_talk_ids.empty:
+        print("\nWARNING: Found talks with missing TalkIDs:")
+        print(empty_talk_ids[["join_key", "Presenter", "SessionID", "SessionTitle"]])
+
+def add_special_sessions_talkid(session_df: pd.DataFrame, abstracts_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Generate and assign talk IDs for special session abstracts.
+    
+    Args:
+        session_df: DataFrame containing special session submission data
+        abstracts_df: DataFrame containing special session abstracts
+        
+    Returns:
+        DataFrame with TalkIDs assigned to abstracts
+    """
+    # Create deep copies to avoid modifying original data
+    session_df = session_df.copy(deep=True)
+    abstracts_df = abstracts_df.copy(deep=True)
+    
+    # Generate presenter to talk ID mapping
+    presenter_map = _create_presenter_mapping(session_df)
+    
+    # Create mapping DataFrame
+    talk_id_df = pd.DataFrame(
+        [(k[0], k[1], v) for k, v in dict(presenter_map).items()],
+        columns=["join_key", "Presenter", "TalkID"]
+    )
+    
+    # Save mapping for debugging
+    print("\nTalkID mapping sample:")
+    print(talk_id_df.head(2))
+    talk_id_df.to_csv(f"{interimdir}talkid_map_df.csv", index=False)
+    
+    # Merge abstracts with talk IDs
+    result_df = abstracts_df.merge(
+        talk_id_df, 
+        how="left",
+        on=["join_key", "Presenter"]
+    )
+    
+    # Save merged results for debugging
+    print("\nMerged abstracts sample:")
+    print(result_df.head(2))
+    result_df.to_csv(f"{interimdir}ssa_df.csv", index=False)
+    
+    # Validate results
+    _validate_talk_ids(result_df)
+    
+    return result_df
 
 def process_sessions(dfs):
     """Process presenter and organizer columns for all relevant sheets."""
