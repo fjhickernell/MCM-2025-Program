@@ -17,3 +17,4 @@ MCM_ProgramBook_TEX/input/*
 runinfo/*
 *.*#
 preprocess/_temp
+preprocess/MakeLatexScheduleMCM.py

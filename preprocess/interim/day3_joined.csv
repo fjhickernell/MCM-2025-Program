@@ -3,15 +3,15 @@ SessionTime,SessionTitle,join_key
 "Wed, Jul 30 09:00–10:00","Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",michaela szölgyenyi
 "Wed, Jul 30 10:00–10:30",Coffee Break,
 "Wed, Jul 30 10:30–12:30","Track A: Stochastic Computation and Complexity, Part V","stochastic computation and complexity, part v"
-"Wed, Jul 30 10:30–12:30",Track B: Statistical Design of Experiments,statistical design of experiments
-"Wed, Jul 30 10:30–12:30",Track C: Advances in Adaptive Hamiltonian Monte Carlo,advances in adaptive hamiltonian monte carlo
-"Wed, Jul 30 10:30–12:30",Track D: Technical Session 15 - Simulation,technical session 15
-"Wed, Jul 30 10:30-12:30",Track E: Technical Session 6 - Sampling,technical session 6
+"Wed, Jul 30 10:30–12:30",Track B: Stat. DOE,stat. doe
+"Wed, Jul 30 10:30–12:30",Track C: Advances in Adaptive HMC,advances in adaptive hmc
+"Wed, Jul 30 10:30–12:30",Track D: Technical Session 15 - Sim.,technical session 15
+"Wed, Jul 30 10:30-12:30",Track E: Technical Session 6 - Sampl.,technical session 6
 "Wed, Jul 30 12:30–14:00",Lunch Break,
-"Wed, Jul 30 14:00–16:00",Track F: Stochastic Optimization,stochastic optimization
-"Wed, Jul 30 14:00–16:00",Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications,recent progress on algorithmic discrepancy theory and applications
-"Wed, Jul 30 14:00–16:00","Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science","monte carlo applications in high performance computing, computer graphics, and computational science"
-"Wed, Jul 30 14:00–16:00",Track I: Technical Session 16 - Statistics,technical session 16
+"Wed, Jul 30 14:00–16:00",Track F: Stochastic Opt.,stochastic opt.
+"Wed, Jul 30 14:00–16:00",Track G: Recent Progress on Algorithmic Discr. Theory and Appl.,recent progress on algorithmic discr. theory and appl.
+"Wed, Jul 30 14:00–16:00","Track H: MC Appl. in HPC, Computer Graphics, and Computational Science","mc appl. in hpc, computer graphics, and computational science"
+"Wed, Jul 30 14:00–16:00",Track I: Technical Session 16 - Stat.,technical session 16
 "Wed, Jul 30 14:00–16:00",Track J: Technical Session 10 - Langevin,technical session 10
-"Wed, Jul 30 16-16:30",Coffee Break,
-,CONFERENCE DINNER,
+"Wed, Jul 30 16:00-16:30",Coffee Break,
+"Wed, Jul 30 18:00-20:30",Conference Dinner,

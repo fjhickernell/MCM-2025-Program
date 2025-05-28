@@ -7,14 +7,54 @@ import re
 def get_row_color(row):
     """Return LaTeX color command based on keywords in the row (case insensitive)."""
     row_str = ' '.join(str(x) for x in row).lower()
-    if "plenary" in row_str:
+    if any(kw in row_str for kw in ["plenary", "opening"]): 
         return r'\cellcolor{\PlenaryColor}'
-    elif any(kw in row_str for kw in ["break", "registration", "opening", "reception", "dinner", "closing"]):
+    elif any(kw in row_str for kw in ["break", "registration", "reception", "dinner", "closing"]):
         return r'\cellcolor{\EmptyColor}'
     elif "technical" in row_str:
         return r'\cellcolor{\SessionLightColor}'
     else:
         return r'\cellcolor{\SessionTitleColor}'
+
+def shorten_titles(title):
+    replacements = [
+        (r'\bQuasi[- ]?Monte Carlo\b', 'QMC'),
+        (r'\(Quasi-?\)?Monte Carlo', '(Q)MC'),
+        (r'\bMonte Carlo\b', 'MC'),
+        (r'\bMarkov Chain Monte Carlo\b', 'MCMC'),
+        (r'\bMarkov Chain MC\b', 'MC'),
+        (r'\bUncertainty Quantification\b', 'UQ'),
+        (r'\bNext-generation\b', 'Next-gen'),
+        (r'\bLow-discrepancy\b', 'LD'),
+        (r'\bPartial Differential Equations\b', 'PDEs'),
+        (r'\bStochastic Differential Equations\b', 'SDEs'),
+        (r'\bExperimental Design\b', 'Exp. Design'),
+        (r'\bBayesian\b', 'Bayes'),
+        (r'\bRare Event Simulation\b', 'Rare Event Sim.'),
+        (r'\bHamiltonian Monte Carlo\b', 'HMC'),
+        (r'\bRandomized QMC\b', 'RQMC'),
+        (r'\bImportance Sampling\b', 'IS'),
+        (r'\bMultilevel\b', 'ML'),
+        (r'\bSimulation\b', 'Sim.'),
+        (r'\bOptimization\b', 'Opt.'),
+        (r'\bSampling\b', 'Sampl.'),
+        (r'\bAnalysis\b', 'Anal.'),
+        (r'\bApplications\b', 'Appl.'),
+        (r'\bComputational Methods\b', 'Comp. Methods'),
+        (r'\bStatistical\b', 'Stat.'),
+        (r'\bStatistics\b', 'Stat.'),
+        (r'\bMathematical\b', 'Math.'),
+        (r'\bMathematics\b', 'Math.'),
+        (r'\bDesign of Experiments\b', 'DOE'),
+        (r'\bAdaptive Hamiltonian MC\b', 'Adaptive HMC'),
+        (r'\bDiscrepancy Theory\b', 'Discr. Theory'),
+        (r'\bHigh-performance Computing\b', 'HPC'),
+        (r'\bMachine Learning\b', 'ML')
+    ]
+    for pattern, repl in replacements:
+        title = re.sub(pattern, repl, title, flags=re.IGNORECASE)
+    
+    return title
 
 def escape_cell(x):
     """Escape special LaTeX characters."""
@@ -89,8 +129,8 @@ def df_to_latex(df, filename, is_sideway=False):
         else:
             f.write("\\begin{table}\n")
             # Add vertical space if first column header is "Wed, Jul 30"
-            if df.columns[0] == "Wed, Jul 30":
-                f.write("\\vspace{-8ex}\n")
+            #if df.columns[0] == "Wed, Jul 30":
+            f.write("\\vspace{-3ex}\n")
         # Make second column wider
         col_spec = '>{\\hsize=0.32\\hsize}X|>{\\hsize=1.7\\hsize}X'
         f.write(f"\\begin{{tabularx}}{{\\textwidth}}{{{col_spec}}}\n")
@@ -168,6 +208,8 @@ if __name__ == '__main__':
         # Shorten values like "University" as U in subdf["Session"]
         subdf["Session"] = subdf["Session"].str.replace(r"\bUniversity\b", "U", regex=True)
         subdf["Session"] = subdf["Session"].str.replace(r"\bENSAE, \b", "", regex=True)
+        # apply shorten_titles() to subdf["Session"] values
+        subdf["Session"] = subdf["Session"].apply(shorten_titles)
         
         # create a new df with first 2 columns of subdf for 1-sheet schedule
         subdf2 = subdf.iloc[:, :2].copy(deep=True)
