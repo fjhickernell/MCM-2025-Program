@@ -74,7 +74,7 @@ def generate_session_latex(row: pd.Series) -> str:
     room = str(row.get("Room", "")).strip() or "TBD"
     chair = str(row.get("Chair", "")).strip() or "TBD"
 
-    short_session_title = shorten_titles(session_title)
+    #short_session_title = shorten_titles(session_title)
 
     if session_id.startswith("P"):
         return f"\\input{{sess{session_id}.tex}}\n"
@@ -83,21 +83,21 @@ def generate_session_latex(row: pd.Series) -> str:
         start_time, end_time = extract_time_from_session(session_time)
         time_str = f"{start_time}--{end_time}" if start_time and end_time else ""
         if session_title.lower().startswith("conference opening") or session_title.lower().startswith("closing"):
-            return f"\\OpeningClosingEvent{{{time_str}}}{{{short_session_title}}}\\\\\n"
+            return f"\\OpeningClosingEvent{{{time_str}}}{{{session_title}}}\\\\\n"
         else: 
-            return f"\\TableEvent{{{time_str}}}{{{short_session_title}}}\\\\\n"
+            return f"\\TableEvent{{{time_str}}}{{{session_title}}}\\\\\n"
 
     elif session_title.lower().startswith("track"):
         if session_id.startswith("S"):
             return (f"&\\tableSpecialCL{{ {room} }}\n"
-                    f"{{ {short_session_title} }}\n"
+                    f"{{ {session_title} }}\n"
                     f"{{{session_id}}}\n"
                     f"{{ {chair} }}\n")
         elif session_id.startswith("T"):
             return (f"&\\tableContributedCL{{ {room} }}\n"
-                    f"{{ {short_session_title} }}\n"
+                    f"{{ {session_title} }}\n"
                     f"{{ {chair} }}\n")
-    return f"{session_time} & {short_session_title} \\\\\n"
+    return f"{session_time} & {session_title} \\\\\n"
 
 def process_session_talks(sess_content: str) -> List[Tuple[str, str, str]]:
     """Extracts talks from session LaTeX content."""
@@ -160,8 +160,8 @@ def generate_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, str, str]
         for title, speaker, code in talks_by_index.get(i, []):
             if all(isinstance(x, str) and x.strip() for x in [title, speaker, code]):
                 #print(f"title: {title}, speaker: {speaker}, code: {code}")
-                short_title = shorten_titles(title)
-                talks_latex += f"&\\tableTalk{{ {speaker} }}\n{{ {short_title} }}\n{{{code}}}\n"
+                #short_title = shorten_titles(title)
+                talks_latex += f"&\\tableTalk{{ {speaker} }}\n{{ {title} }}\n{{{code}}}\n"
             else:
                 #if all(t == (None, None, None) for t in talks_by_index.get(i, [])):
                 talks_latex += "&\n"

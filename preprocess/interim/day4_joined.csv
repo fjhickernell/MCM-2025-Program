@@ -1,18 +1,18 @@
 SessionTime,SessionTitle,join_key
 "Thu, Jul 31 08:30–17:30",Registration Desk Open,
-"Thu, Jul 31 09:00–10:00","Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampl.: Methods and Opt. Strategies",uros seljak
+"Thu, Jul 31 09:00–10:00","Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampling: Methods and Optimization Strategies",uros seljak
 "Thu, Jul 31 10:00–10:30",Coffee Break,
-"Thu, Jul 31 10:30–12:30",Track A: QMC and Appl. Part I,qmc and appl. part i
-"Thu, Jul 31 10:30–12:30","Track B: Anal. of Langevin and Related Sampl. Algorithms, Part I","anal. of langevin and related sampl. algorithms, part i"
+"Thu, Jul 31 10:30–12:30",Track A: QMC and Applications Part I,qmc and applications part i
+"Thu, Jul 31 10:30–12:30","Track B: Analysis of Langevin and Related Sampling Algorithms, Part I","analysis of langevin and related sampling algorithms, part i"
 "Thu, Jul 31 10:30–12:30","Track C: Nested expectations: models and estimators, Part II","nested expectations: models and estimators, part ii"
 "Thu, Jul 31 10:30–12:30",Track D: Technical Session 8 - Finance,technical session 8
-"Thu, Jul 31 10:30-12:30",Track E: Technical Session 13 - ML \& Opt.,technical session 13
+"Thu, Jul 31 10:30-12:30",Track E: Technical Session 13 - ML \& Optimization,technical session 13
 "Thu, Jul 31 12:30–14:00",Lunch Break,
-"Thu, Jul 31 14:00–15:00","Plenary Talk by Nicolas Chopin, Institut Polytechnique de Paris, Saddlepoint MC and its application to exact ecological inference",nicolas chopin
+"Thu, Jul 31 14:00–15:00","Plenary Talk by Nicolas Chopin, Institut Polytechnique de Paris, Saddlepoint Monte Carlo and its application to exact ecological inference",nicolas chopin
 "Thu, Jul 31 15:00–15:30",Coffee Break,
-"Thu, Jul 31 15:30–17:30",Track F: QMC and Appl. Part II,qmc and appl. part ii
-"Thu, Jul 31 15:30–17:30","Track G: Anal. of Langevin and Related Sampl. Algorithms, Part II","anal. of langevin and related sampl. algorithms, part ii"
+"Thu, Jul 31 15:30–17:30",Track F: QMC and Applications Part II,qmc and applications part ii
+"Thu, Jul 31 15:30–17:30","Track G: Analysis of Langevin and Related Sampling Algorithms, Part II","analysis of langevin and related sampling algorithms, part ii"
 "Thu, Jul 31 15:30–17:30",Track H: Recent Advances in Stochastic Gradient Descent,recent advances in stochastic gradient descent
-"Thu, Jul 31 15:30–17:30",Track I: Technical Session 7 - Sampl.,technical session 7
+"Thu, Jul 31 15:30–17:30",Track I: Technical Session 7 - Sampling,technical session 7
 "Thu, Jul 31 15:30-17:30",Track J: Technical Session 11 - SDEs,technical session 11
 "Thu, Jul 31 18:00-20:30",Steering Committee Meeting (by invitation),

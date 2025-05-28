@@ -7,9 +7,9 @@ import re
 def get_row_color(row):
     """Return LaTeX color command based on keywords in the row (case insensitive)."""
     row_str = ' '.join(str(x) for x in row).lower()
-    if any(kw in row_str for kw in ["plenary", "opening"]): 
+    if any(kw in row_str for kw in ["plenary", "opening", "closing"]): 
         return r'\cellcolor{\PlenaryColor}'
-    elif any(kw in row_str for kw in ["break", "registration", "reception", "dinner", "closing"]):
+    elif any(kw in row_str for kw in ["break", "registration", "reception", "dinner"]):
         return r'\cellcolor{\EmptyColor}'
     elif "technical" in row_str:
         return r'\cellcolor{\SessionLightColor}'
@@ -128,9 +128,7 @@ def df_to_latex(df, filename, is_sideway=False):
             f.write("\\begin{sideways}\n")
         else:
             f.write("\\begin{table}\n")
-            # Add vertical space if first column header is "Wed, Jul 30"
-            #if df.columns[0] == "Wed, Jul 30":
-            f.write("\\vspace{-3ex}\n")
+        f.write("{\\footnotesize\n")
         # Make second column wider
         col_spec = '>{\\hsize=0.32\\hsize}X|>{\\hsize=1.7\\hsize}X'
         f.write(f"\\begin{{tabularx}}{{\\textwidth}}{{{col_spec}}}\n")
@@ -150,6 +148,7 @@ def df_to_latex(df, filename, is_sideway=False):
             f.write(row_str + " \\\\\n")
         f.write("\\hline\n")
         f.write("\\end{tabularx}\n")
+        f.write("}\n")
         if is_sideway:
             f.write("\\end{sideways}\n\n")
         else:
@@ -168,7 +167,7 @@ if __name__ == '__main__':
                      out_csv="session_wide.csv")
     df = clean_df(df)
 
-    # Read preprocess/interim/plenary_abstracts_talkid.csv
+    # Read preprocess/interim/plenary_abstracts_gsheet.csv
     plenary_df = pd.read_csv(f"{interimdir}plenary_abstracts_gsheet.csv", dtype=str).fillna("")
     plenary_df = clean_df(plenary_df)
     plenary_df["join_key"] = (
@@ -179,7 +178,7 @@ if __name__ == '__main__':
     schedule_tex = f"{outdir}Schedule_1sheet.tex"
     with open(schedule_tex, "w") as f:
         f.write("")  # Clear the file
-        #f.write("\\chapter{Schedule}\n")
+        f.write("\\chapter{Schedule}\n")
 
     num_cols = df.shape[1]
     j=1
@@ -208,13 +207,15 @@ if __name__ == '__main__':
         # Shorten values like "University" as U in subdf["Session"]
         subdf["Session"] = subdf["Session"].str.replace(r"\bUniversity\b", "U", regex=True)
         subdf["Session"] = subdf["Session"].str.replace(r"\bENSAE, \b", "", regex=True)
-        # apply shorten_titles() to subdf["Session"] values
-        subdf["Session"] = subdf["Session"].apply(shorten_titles)
         
         # create a new df with first 2 columns of subdf for 1-sheet schedule
         subdf2 = subdf.iloc[:, :2].copy(deep=True)
         subdf2 = df_to_latex(subdf2, schedule_tex)
         subdf2.to_csv(f"{interimdir}schedule_day{j}.csv", index=False, quoting=1)
+
+        # apply shorten_titles() to subdf["Session"] values for latex table
+        #subdf2["Session"] = subdf2["Session"].apply(shorten_titles)
+    
         
         j+=1
   

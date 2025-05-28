@@ -4,16 +4,16 @@ SessionTime,SessionTitle,join_key
 "Mon, Jul 28 09:00–10:00",Plenary Talk by Matt Pharr,matt pharr
 "Mon, Jul 28 10:00–10:30",Coffee Break,
 "Mon, Jul 28 10:30–12:30","Track A: Stochastic Computation and Complexity, Part I","stochastic computation and complexity, part i"
-"Mon, Jul 28 10:30–12:30",Track B: Domain UQ,domain uq
+"Mon, Jul 28 10:30–12:30",Track B: Domain Uncertainty Quantification,domain uncertainty quantification
 "Mon, Jul 28 10:30–12:30","Track C: Nested expectations: models and estimators, Part I","nested expectations: models and estimators, part i"
-"Mon, Jul 28 10:30–12:30","Track D: Hardware or Software for (Q)MC Algorithms, Part I","hardware or software for (q)mc algorithms, part i"
-"Mon, Jul 28 10:30-12:30",Track E: Technical Session 1 - MC,technical session 1
+"Mon, Jul 28 10:30–12:30","Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I","hardware or software for (quasi )monte carlo algorithms, part i"
+"Mon, Jul 28 10:30-12:30",Track E: Technical Session 1 - Markov Chain Monte Carlo,technical session 1
 "Mon, Jul 28 12:30–14:00",Lunch Break,
 "Mon, Jul 28 14:00–15:00","Plenary Talk by Christiane Lemieux, U of Waterloo, Golden ratio nets and sequences",christiane lemieux
 "Mon, Jul 28 15:00–15:30",Coffee Break,
 "Mon, Jul 28 15:30–17:30","Track F: Stochastic Computation and Complexity, Part II","stochastic computation and complexity, part ii"
-"Mon, Jul 28 15:30–17:30",Track G: Recent advances in Opt. under uncertainty,recent advances in opt. under uncertainty
-"Mon, Jul 28 15:30–17:30",Track H: Comp. Methods for LD Sampl. and Appl.,comp. methods for ld sampl. and appl.
-"Mon, Jul 28 15:30–17:30","Track I: Technical Session 4 - QMC, Part 1",technical session 4
+"Mon, Jul 28 15:30–17:30",Track G: Recent advances in optimization under uncertainty,recent advances in optimization under uncertainty
+"Mon, Jul 28 15:30–17:30",Track H: Computational Methods for Low-discrepancy Sampling and Applications,computational methods for low discrepancy sampling and applications
+"Mon, Jul 28 15:30–17:30","Track I: Technical Session 4 - Quasi-Monte Carlo, Part 1",technical session 4
 "Mon, Jul 28 15:30-17:30",Track J: Technical Session 12 - PDEs,technical session 12
 "Mon, Jul 28 17:30-19:30",Reception,
