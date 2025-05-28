@@ -1,3 +1,44 @@
+def add_special_sessions_talkid(sess_df, df):
+    # Generate TalkID for talks_dict["special_session_abstracts"] from dfs["special_session_submissions"]
+    ss_sub_df = sess_df.copy(deep=True)
+    presenter_map = []
+    for idx, row in ss_sub_df.iterrows():
+        session_id = row.get("SessionID", "")
+        session_title = row.get("Session Title", "")
+        for i in range(1, 5):
+            first_col = f"Presenter {i} first or given name(s)"
+            last_col = f"Presenter {i} last or family name(s)"
+            if first_col in row and last_col in row:
+                first = str(row[first_col]).strip() if pd.notna(row[first_col]) else ""
+                last = str(row[last_col]).strip() if pd.notna(row[last_col]) else ""
+                if first or last:
+                    presenter = f"{first} {last}".strip()
+                    talkid = f"{session_id}-{i}"
+                    join_key = str(session_title).strip().lower()
+                    presenter_map.append(((join_key, presenter), talkid))
+
+    # Build mapping: (join_key, Presenter) -> TalkID
+    talkid_map = dict(presenter_map)
+    talkid_map_df = pd.DataFrame(
+        [(k[0], k[1], v) for k, v in talkid_map.items()],
+        columns=["join_key", "Presenter", "TalkID"]
+    )
+    print(talkid_map_df.head(2))
+    talkid_map_df.to_csv(f"{interimdir}talkid_map_df.csv", index=False)
+
+    # Join with special_session_abstracts
+    td_df = df.copy(deep=True)
+    ssa_df = td_df.merge(talkid_map_df, how="left", on=["join_key", "Presenter"])
+    print(ssa_df.head(2))
+    empty_talkid = ssa_df[ssa_df["TalkID"].isna() | (ssa_df["TalkID"] == "")]
+    if not empty_talkid.empty:
+        print("\nRows with empty TalkID:")
+        print(empty_talkid[["join_key", "Presenter", "SessionID", "SessionTitle"]])
+    ssa_df.to_csv(f"{interimdir}ssa_df.csv", index=False)
+    
+    return ssa_df
+
+
 import pandas as pd
 import os
 import re
@@ -134,33 +175,27 @@ def add_sessions_join_keys(dfs):
     return dfs
 
 
-def add_sessions_talkid(dfs):
+def add_technical_sessions_talkid(df):
     """
-    Adds a 'TalkID' column to each DataFrame in dfs based on the session type.
-    - For plenary talks (SessionID starting with 'P'), TalkID == SessionID.
-    - Otherwise, TalkID == SessionID + '-' + a counter within that SessionID.
+    Adds a 'TalkID' column to df for technical sessions
+    TalkID == SessionID + '-' + a counter within that SessionID.
     """
-    for key, df in dfs.items():
-        df = df.copy()
 
-        # 1) Flag plenary vs non-plenary
-        plenary     = df['SessionID'].str.startswith('P', na=False)
-        non_plenary = ~plenary
+    # 1) Flag technical sessions
+    technical     = df['SessionID'].str.startswith('T', na=False)
 
-        # 2) Only number those non-plenary rows with a real SessionID
-        mask = non_plenary & df['SessionID'].notna()
-        seq  = df.loc[mask].groupby('SessionID').cumcount() + 1  # always ints, no NaN
+    # 2) Only number those non-plenary rows with a real SessionID
+    mask = technical & df['SessionID'].notna()
+    seq  = df.loc[mask].groupby('SessionID').cumcount() + 1  # always ints, no NaN
 
-        # 3) Build the “-n” suffix
-        suffix = pd.Series('', index=df.index, dtype='object')
-        suffix.loc[mask] = '-' + seq.astype(str)
+    # 3) Build the “-n” suffix
+    suffix = pd.Series('', index=df.index, dtype='object')
+    suffix.loc[mask] = '-' + seq.astype(str)
 
-        # 4) Combine
-        df['TalkID'] = df['SessionID'].fillna('') + suffix
+    # 4) Combine
+    df['TalkID'] = df['SessionID'].fillna('') + suffix
 
-        dfs[key] = df
-
-    return dfs
+    return df
 
  
 def read_schedule_days(num_days=5):
@@ -227,7 +262,6 @@ def assign_session_ids(df):
         df.loc[missing_mask, "SessionID"] = [
             f"S{i+1}" for i in range(missing_mask.sum())
         ]
-
         return df
 
 def ensure_columns(df, SessionListCols):
@@ -275,12 +309,14 @@ if __name__ == "__main__":
 
     save_dfs(dfs, interimdir, "sessionid")  # Save updated session dataframes with SessionID
 
-    # Add TalkIDs
+    ### Add TalkIDs
     talks_keys = ["special_session_abstracts",  "plenary_abstracts", "contributed_talk_submissions"]
     talks_dict = {k: dfs[k] for k in talks_keys if k in dfs.keys()}   
-    talks_dict = add_sessions_talkid(talks_dict)
+    talks_dict["contributed_talk_submissions"] = add_technical_sessions_talkid(talks_dict["contributed_talk_submissions"])
+    talks_dict["plenary_abstracts"]["TalkID"] = talks_dict["plenary_abstracts"]["SessionID"]
+    talks_dict["special_session_abstracts"] = add_special_sessions_talkid(dfs["special_session_submissions"], talks_dict["special_session_abstracts"])
     save_dfs(talks_dict, interimdir, "talkid")  # Save updated session dataframes with TalkID
-
+  
     # Step 7: Order all required columns in SessionList
     SessionListCols = [
         "SessionID", "SessionTitle", "IsSpecialSession", "Organizer1", "Organizer2",
