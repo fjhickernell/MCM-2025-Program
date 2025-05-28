@@ -253,12 +253,13 @@ def extract_contributed_talk_participants(df):
     for _, row in df.iterrows():
         if all(col in df.columns for col in name_cols):
             # Extract session ID from SESSION column
-            session_id = extract_technical_session_id(row)
+            #session_id = extract_technical_session_id(row)
+            talk_id = extract_technical_talk_id(row)
             
             participants.append({
                 "FirstName": row[name_cols[0]],
                 "LastName": row[name_cols[1]],
-                "SessionID": session_id or row.get("SessionID", "T"),
+                "SessionID": talk_id or row.get("TalkID", "T"),
                 "PageNumber": "",
                 "Organization": row.get("Institution of presenter", "")
             })
@@ -304,6 +305,14 @@ def extract_technical_session_id(row):
     """Extract technical session ID from row data."""
     if "SESSION" in row and pd.notna(row["SESSION"]):
         match = re.search(r'Technical Session (\d+)', str(row["SESSION"]), re.IGNORECASE)
+        if match:
+            return f"T{match.group(1)}"
+    return ""
+
+def extract_technical_talk_id(row):
+    """Extract technical session ID from row data."""
+    if "SESSION" in row and pd.notna(row["SESSION"]):
+        match = re.search(r'T(\d+)-{\d}', str(row["TalkID"]), re.IGNORECASE)
         if match:
             return f"T{match.group(1)}"
     return ""
@@ -357,7 +366,10 @@ if __name__ == "__main__":
     # Generate Participants.csv
     dfs = {}
     for key in ["special_session_submissions", "plenary_abstracts", "contributed_talk_submissions", "special_session_abstracts"]:
-        dfs[key] = pd.read_csv(os.path.join(interimdir, f"{key}_sessionid.csv"))
+        try:
+            dfs[key] = pd.read_csv(os.path.join(interimdir, f"{key}_talkid.csv"))
+        except:
+            dfs[key] = pd.read_csv(os.path.join(interimdir, f"{key}_sessionid.csv"))
 
     df = extract_participants(dfs)
     validate_session_participants(df)

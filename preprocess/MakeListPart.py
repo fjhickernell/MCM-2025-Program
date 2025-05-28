@@ -34,7 +34,7 @@ if __name__ == '__main__':
     print("\\begin{multicols}{2}\n",file=fpart)
     print("\\small\\raggedright\n",file=fpart)
     #with open(f"{indir}PARTICIPANTSJULY5.csv", 'r') as file:
-    with open(f"{indir}Participants.csv", 'r') as file:
+    with open(f"{outdir}Participants.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         for val in reader:
             org = "Unknown org" if len(val[4])==0 else val[4]
