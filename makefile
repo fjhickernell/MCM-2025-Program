@@ -41,7 +41,8 @@ pp: clean_pp
 	echo "\n--- Running preprocess/participants.py" && python preprocess/participants.py && \
 	echo "\n--- Running preprocess/download_abstracts.py" && python preprocess/download_abstracts.py && \
 	echo "\n--- Running preprocess/gen_talks.py" && python preprocess/gen_talks.py && \
-	echo "\n--- Running preprocess/gen_sess.py" && python preprocess/gen_sess.py
+	echo "\n--- Running preprocess/gen_sess.py" && python preprocess/gen_sess.py  && \
+	echo "\n--- Running preprocess/schedule.py" && python preprocess/schedule.py 
 
 tex: cleanpy
 	@echo "*** Compiling Python files in README_and_Scripts directory..."
@@ -58,8 +59,8 @@ pgm: cleanpdf
 		pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 && \
 		open MCM2025_Book.pdf && \
 		cd ..
-	# @cd MCM_ProgramBook_TEX && \
-	# 	pdflatex -interaction=nonstopmode -halt-on-error MCM2025_schedule1sheet.tex > /dev/null 2>&1 || tail -n 100 MCM2025_schedule1sheet.log && \
-	# 	pdflatex -interaction=nonstopmode -halt-on-error MCM2025_schedule1sheet.tex > /dev/null 2>&1 && \
-	# 	open MCM2025_schedule1sheet.pdf && \
-	# 	cd ..
+	@cd MCM_ProgramBook_TEX && \
+	 	pdflatex -interaction=nonstopmode -halt-on-error MCM2025_schedule1sheet.tex > /dev/null 2>&1 || tail -n 100 MCM2025_schedule1sheet.log && \
+	 	pdflatex -interaction=nonstopmode -halt-on-error MCM2025_schedule1sheet.tex > /dev/null 2>&1 && \
+	 	open MCM2025_schedule1sheet.pdf && \
+	 	cd ..

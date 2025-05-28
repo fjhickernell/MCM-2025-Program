@@ -125,7 +125,7 @@ def process_plenary_talks(csv_path: str) -> None:
         # Extract time from SessionTime, e.g., "09:00-10:00" from "Wed, July 30 09:00–10:00"
         m = re.search(r"(\d{1,2}:\d{2})\s*[-–—]\s*(\d{1,2}:\d{2})", session_time_str)
         if m:
-            time = f"{m.group(1)} -- {m.group(2)}"
+            time = f"{m.group(1)}--{m.group(2)}"
         else:
             time = ""
 
@@ -143,8 +143,8 @@ def process_plenary_talks(csv_path: str) -> None:
             "%\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",
             "%\t\\TableHeading{Monday, August 19, 2024 -- Afternoon }",
             "%\t\\\\\\toprule",
-            "    \\TableEvent{08:30 -- 12:30}{Registration}",
-            "    \\\\\\hline",
+            "    %\\TableEvent{08:30 -- 12:30}{Registration}",
+            "    %\\\\\\hline",
             "    %",
             format_plenary_talk(
                 time=time,

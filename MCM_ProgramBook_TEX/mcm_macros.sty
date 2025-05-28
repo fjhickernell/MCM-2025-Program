@@ -368,7 +368,7 @@
 
 % -- adding a table time, consider deleting it
 \newcommand{\tableTime}[2] % [1] from, [2] to
- {#1 -- #2}%
+ {#1--#2}%
 
 % -- adding a table event, usually a coffee break
 \newcommand{\TableEvent}[2]{
@@ -385,7 +385,7 @@
 	\multicolumn{\numcols}{Z}{
 	#2\par%
 	\textbf{Plenary Talk: }  % \vspace{1mm}\par%
-	\textbf{\textit{#4}} \par%
+	\textbf{\textit{#4}}, % \par%
 	%\textbf{#5} \quad 
 	p.~\pageref{#6} %\vspace{1mm}\par%
 	\qquad Chair: \textit{#3}}
@@ -434,8 +434,7 @@
 
 % -- adding a table talk entry
 \newcommand{\tableTalk}[3] % [1] speaker, [2] talk title, [3] talk id
- {\textit{#1} \par%
-  #2\quad p.~\pageref{#3}}%
+ {\hspace{-1ex}\textit{#1}\hspace{-1ex}, #2\hspace{-0.8ex}, p.~\pageref{#3}}%
 
  
 
@@ -444,9 +443,9 @@
 % [1] location, 
 % [2] session title, [3] session id, [4] chair
 %if it's part 1 or part 2 just put it in the title
- {#1\par%
- \textbf{Special Session} \par%
- #2\quad p.~\pageref{#3} \par%
+ {%#1\par%
+ \textbf{Special Session}, \hspace{-1ex}#1\par%
+ #2\hspace{-0.8ex}, p.~\pageref{#3} \par%
  Chair: \textit{#4}}% 
 
 % -- adding a table contributed session entry
