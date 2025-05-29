@@ -7,9 +7,9 @@
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
 \setlength{\voffset}{-1.6cm}
 \setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
-\setlength{\evensidemargin}{-0.3cm}
+\setlength{\evensidemargin}{-0.3cm} 
 \setlength{\oddsidemargin}{0.3cm}
-\setlength{\parindent}{0cm}
+\setlength{\parindent}{0cm} 
 \setlength{\parskip}{0.3cm}
 
 % -- adding a talk
@@ -40,20 +40,27 @@
 % Document begins here
 % ------------------------------------------------------------------------
 \begin{document}
-
+	
 \begin{talk}
-  {Randomized quasi-Monte Carlo methods for risk-averse stochastic optimization}% [1] talk title
-  {Johannes Milz}% [2] speaker name
-  {H. Milton Stewart School of Industrial and Systems Engineering, Georgia Institute of Technology}% [3] affiliations
-  {johannes.milz@isye.gatech.edu}% [4] email
-  {Olena Melnikov}% [5] coauthors
-  {Recent advances in optimization under uncertainty}% [6] special session. Leave this field empty for contributed talks.
+  {Efficient expected information gain estimators based on the randomized quasi-Monte Carlo method}% [1] talk title
+  {Arved Bartuska}% [2] speaker name
+  {King Abdullah University of Science and Technology/RWTH Aachen University}% [3] affiliations
+  {arved.bartuska@kaust.edu.sa}% [4] email
+  {Andr\'{e} Gustavo Carlon, Luis Espath, Sebastian Krumscheid, Ra\'{u}l Tempone}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Efficient estimation of the expected information gain (EIG) of an experiment allows for design optimization in a Bayesian setting. This task faces computational challenges, particularly when the experiment model requires numerical discretization schemes. We demonstrate various methods to make such estimations feasible, combining quasi-Monte Carlo (QMC), randomized QMC (rQMC), and multilevel methods.
 
-We establish epigraphical and uniform laws of large numbers for sample-based approximations of law invariant risk functionals. These sample-based approximation schemes include Monte Carlo (MC) and certain randomized quasi-Monte Carlo integration (RQMC) methods, such as scrambled net integration. Our results can be applied to the approximation of risk-averse stochastic programs and risk-averse stochastic variational inequalities. Our numerical simulations empirically demonstrate that RQMC approaches based on scrambled Sobol' sequences can yield smaller bias and root mean square error than MC methods for risk-averse optimization.
+Analytical error bounds are made possible by Owen's [1] and He et al.'s [2] work on singular integrands combined with a truncation scheme of the observation noise present in experiment models. Applications from Bayesian experimental design demonstrate the improved convergence behavior of the proposed methods compared to traditional Monte Carlo-based estimators.
 
+\medskip
 
-
+\begin{enumerate}
+	\item[{[1]}] Owen, Art B. (2006). {\it Halton sequences avoid the origin}. SIAM Review, 48:487–503.
+	\item[{[2]}] He, Zhijian, \& Zheng, Zhan, \& Wang, Xiaoqun. (2023).{\it On the error rate of importance sampling with randomized quasi-Monte Carlo}. SIAM Journal
+on Numerical Analysis,  61(2):10.1137/22M1510121.
+\end{enumerate}
 
 \end{talk}
 

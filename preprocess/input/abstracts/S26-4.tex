@@ -42,16 +42,21 @@
 \begin{document}
 	
 \begin{talk}
-  {Accelerated Mixing of the No-U-turn Sampler}% [1] talk title
-  {Stefan Oberd\"orster}% [2] speaker name
-  {University of Bonn}% [3] affiliations
-  {oberdoerster@uni-bonn.de}% [4] email
-  {Nawaf Bou-Rabee}% [5] coauthors
-  {Analysis of Langevin and Related Sampling Algorithms, Part II}% [6] special session. Leave this field empty for contributed talks. 
+  {Convergence of $\Phi$-Divergence and $\Phi$-Mutual Information Along Langevin Markov Chains}% [1] talk title
+  {Siddharth Mitra}% [2] speaker name
+  {Yale University}% [3] affiliations
+  {siddharth.mitra@yale.edu}% [4] email
+  {Jiaming Liang, Andre Wibisono}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-In recent years, we witnessed considerable progress on the quantitative mixing of Randomized Hamiltonian Monte Carlo via variational hypocoercivity and lifts. Under assumptions revolving around the concentration of measure phenomenon, it was shown that critically tuned Randomized Hamiltonian Monte Carlo achieves accelerated convergence to equilibrium, also known as the diffusive-to-ballistic speed-up. This acceleration is of great interest to the field of Markov chain Monte Carlo methods. To bridge the gap between theory and application, a natural question is: {\it Does the No-U-turn sampler, a widely used locally-adapted implementation of Randomized Hamiltonian Monte Carlo, achieve acceleration?} We will explore recent results towards this question based on a combination of concentration of measure and a novel framework for localized mixing via couplings.
+The mixing time of a Markov chain determines when the marginal law of the Markov chain is close to the stationary distribution and can be studied in many statistical divergences such as KL divergence and chi-squared divergence, all the way to families of divergences such as $\Phi$-divergences. However, the mixing time does not determine the dependency between samples along the Markov chain, which can be measured in terms of their mutual information, chi-squared mutual information, or more generally their $\Phi$-mutual information. In this talk we study the mixing time of Langevin Markov chains in $\Phi$-divergence and also study the $\Phi$-mutual information between the iterates. The Markov chains we focus on are the Langevin Dynamics in continuous-time, and the Unadjusted Langevin Algorithm and Proximal Sampler in discrete-time and we show that for these Markov chains, the $\Phi$-divergence and the $\Phi$-mutual information decreases exponentially fast. Our proof technique is based on showing the Strong Data Processing Inequalities (SDPIs) hold along the Markov chains. To prove fast mixing of the Markov chains, we show the SDPIs hold for the stationary distribution. In contrast, to prove the contraction of $\Phi$-mutual information, we need to show the SDPIs hold along the entire trajectories of the Markov chains; we prove this when the iterates along the Markov chains satisfy the corresponding $\Phi$-Sobolev inequality.
+
+
+\medskip
+
 
 \end{talk}
 
 \end{document}
+

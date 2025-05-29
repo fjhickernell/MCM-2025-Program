@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper,figuresright]{book}
 
 \usepackage{amsmath,amssymb}
-\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl,verbatim}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
 
 \setlength{\textheight}{25.2cm}
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
@@ -16,32 +16,25 @@
 \renewcommand{\textfraction}{0}
 \setlength{\floatsep}{12pt plus 2pt minus 2pt}
 
-\newcommand{\organizer}[3]{%
-	{\textit{#1}}\\\nopagebreak%
-	#2\\\nopagebreak%
-	\url{#3}\vspace{3mm}\\\nopagebreak%
-	}
-
-\newenvironment{session}[5] % [1] session title
-							% [2] number of organizers
-                            % [3] organizer 1 info
-                            % [4] organizer 2 info
-                            % [5] organizer 3 info
-                            % [6] session id for later
+\newenvironment{session}[7] % [1] session title
+                            % [2] organiser name, [3] affiliations, [4] email
+                            % [5] organiser name, [6] affiliations, [7] email
+                            % [8] session id
  {%\needspace{6\baselineskip}
   \vskip 0pt\nopagebreak%
-  %\label{#5}%
+  %\label{#8}%
   \textbf{#1}\vspace{3mm}\\\nopagebreak%
-  \ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
-  \vspace{2mm}\\\nopagebreak%
-  #3
-  \ifthenelse{\equal{#2}{2}}{#4}{}%
-  \ifthenelse{\equal{#2}{3}}{#4#5}{}%
+  \ifthenelse{\equal{#5}{ }}{Organizer:}{Organizers:}\vspace{2mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{ }}{}{\textit{#5}\\\nopagebreak%
+                              #6\\\nopagebreak%
+                              \url{#7}\vspace{3mm}\\\nopagebreak}%
   \quad\\\nopagebreak%
   %Session Description:\vspace{3mm}\\\nopagebreak%
  }
  {\nopagebreak}%
-
 
 \pagestyle{empty}
 
@@ -50,22 +43,27 @@
 % ------------------------------------------------------------------------
 \begin{document}
 
-%Input the relevant information below
 \begin{session}
   {Domain uncertainty quantification}% [1] session title
-  {3} %[2]  number of organizers
-  {\organizer{Andr\'e-Alexander Zepernick}% organizer one name
-    {Free University of Berlin}% orgnizer one affiliations
-    {a.zepernick@fu-berlin.de}}% organizer one email
-  {\organizer{Philipp A. Guth}% organizer two name, if needed
-	{RICAM, Austrian Academy of Sciences}% orgnizer two affiliations, if needed
-	{philipp.guth@ricam.oeaw.ac.at}}% organizer two email
-  {\organizer{Vesa Kaarnioja}% organizer one name
-	{Free University of Berlin}% orgnizer one affiliations
-	{vesa.kaarnioja@fu-berlin.de}}% organizer one email
+  {Andr\'e-Alexander Zepernick {\rm (Free University of Berlin)}\\
+  Philipp A. Guth {\rm (RICAM, Austrian Academy of Sciences)}\\ Vesa Kaarnioja {\rm (Free University of Berlin)}}% [2] organizer name
+  {{\tt a.zepernick@fu-berlin.de}\\{\tt philipp.guth@ricam.oeaw.ac.at}\\{\tt vesa.kaarnioja@fu-berlin.de}}% [3] affiliations
+  {}% [4] email
+  {}% [5] organizer name. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+  {}% [6] affiliations. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
+  {}% [7] email. Leave unchanged if there is no second organizer, otherwise fill in accordingly.
 
 Uncertainty in computational measurement models poses significant challenges in engineering and applied mathematics, where inaccuracies in material properties or geometric domains can greatly impact outcomes. Geometric errors, such as manufacturing imperfections or improper modeling in applications like electronic design and tomography, can be the dominant error contributor. Some approaches to modeling domain uncertainty include homogenization, perturbation, and reference mapping techniques, which facilitate the analysis of uncertainty propagation within computational measurement models. This session brings together leading experts to present recent theoretical and computational advancements in the study of domain uncertainty quantification.
 
+List of speakers:
+
+1. Andr\'e-Alexander Zepernick (Free University of Berlin)
+
+2. Carlos Jerez-Hanckes (Universidad Adolfo Ib\'{a}\~{n}ez)
+
+3. J\"urgen D\"olz (University of Bonn)
+
+4. Harri Hakula (Aalto University)
 
 \end{session}
 

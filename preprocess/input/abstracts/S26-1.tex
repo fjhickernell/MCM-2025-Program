@@ -2,7 +2,6 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
-\newcommand{\KSD}{\mathsf{KSD}}
 
 \setlength{\textheight}{25.2cm}
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
@@ -43,24 +42,35 @@
 \begin{document}
 	
 \begin{talk}
-  {Finite-Particle Convergence Rates for Stein Variational Gradient Descent}% [1] talk title
-  {Krishnakumar Balasubramanian}% [2] speaker name
-  {University of California, Davis}% [3] affiliations
-  {kbala@ucdavis.edu}% [4] email
-  {}% [5] coauthors
-  {}% [6] special session. Leave this field empty for contributed talks. 
+%  {Modified Overdamped Langevin Dynamics for Nonconvex Sampling with Equality and Inequality Constraints: Exponential Convergence and Hard Landing Algorithms}% [1] talk title
+{Langevin-Based Sampling under Nonconvex Constraints}
+  {Molei Tao}% [2] speaker name
+  {Georgia Tech}% [3] affiliations
+  {mtao@gatech.edu}% [4] email
+  {Kijung Jeon, Michael Muehlebach}% [5] coauthors
+  {Analysis of Langevin and Related Sampling Algorithms}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
-			
- We provide finite-particle convergence rates for the Stein Variational Gradient Descent (SVGD) algorithm in the Kernelized Stein Discrepancy ($\KSD$) and Wasserstein-2 metrics. Our key insight is that the time derivative of the relative entropy between the joint density of $N$ particle locations and the $N$-fold product target measure, starting from a regular initial distribution, splits into a dominant `negative part' proportional to $N$ times the expected $\KSD^2$ and a smaller `positive part'. This observation leads to $\KSD$ rates of order $1/\sqrt{N}$, in both continuous and discrete time, providing a near optimal (in the sense of matching the corresponding i.i.d. rates) double exponential improvement over the recent result by~[1]. Under mild assumptions on the kernel and potential, these bounds also grow polynomially in the dimension $d$. By adding a bilinear component to the kernel, the above approach is used to further obtain Wasserstein-2 convergence in continuous time. For the case of `bilinear + Mat\'ern' kernels, we derive Wasserstein-2 rates that exhibit a curse-of-dimensionality similar to the i.i.d. setting. We also obtain marginal convergence and long-time propagation of chaos results for the time-averaged particle laws. 
+
+Given an unnormalized density $\rho$ and a constraint set $\Sigma$ in $\mathbb{R}^n$, we aim at sampling from a constrained distribution $Z^{-1} \rho(x) I_{\Sigma}(x) dx$. While the case when $\Sigma$ is convex has been extensively studied, \emph{no} convexity is needed in this talk, in which case quantitative results are scarce. % The case when the density is described by first-order oracles and the constraint set is described by a collection of equalities and inequalities will be considered. 
+Our method admits multiple interpretations, but this talk will focus on a Langevin perspective, where overdamped Langevin dynamics is first modified, and then discretized so that a sampling algorithm can be constructed. The quantitative convergence of the continuous dynamics will be detailed, but if time permits, the performance of the time-discretization (i.e. the actual sampler) will also be discussed.
+
+%\textbf{[Revised version]}
+%Consider an unnormalized density $\rho$ and a constraint set $\Sigma \subset \mathbb{R}^d$ defined by finitely many equality and inequality constraints. We aim to sample from the target density $\rho_\Sigma(x) \propto \rho(x)I_{\Sigma}(x) dx$. While the case when $\Sigma$ is convex has been extensively studied, traditional approaches for nonconvex $\Sigma$ have heuristically relied on projection operators or on designing algorithms that steer trajectories along directions orthogonal to $\Sigma$ (e.g., landing algorithms or orthogonal direction samplers). However, these methods are typically limited to equality constraints, and even in that setting, rigorous analyses of convergence rates remain scarce. In contrast, we propose a new framework that can design an overdamped Langevin dynamics which accommodates both equality and inequality constraints without relying slack variable method. The modified dynamics also deterministically corrects trajectories along the normal direction of the constraint surface, thus obviating the need for explicit projections. Additionally, we introduce a heuristic hard landing algorithm to address challenges arising from discretization. Under suitable regularity conditions on $\rho$ and $\Sigma$, we prove that the continuous dynamics converge exponentially fast to $\rho_\Sigma$.
+
+
 
 \medskip
 
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
 
-\begin{enumerate}
-	\item[{[1]}] Shi, J., \& Mackey, L. (2023). A finite-particle convergence rate for stein variational gradient descent. Advances in Neural Information Processing Systems, 36, 26831-26844.
-	%\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
-\end{enumerate}
-
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
 
 \end{document}
+

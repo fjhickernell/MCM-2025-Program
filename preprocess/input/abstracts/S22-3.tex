@@ -42,20 +42,22 @@
 \begin{document}
 	
 \begin{talk}
-  {$L_2$-approximation: using randomized lattice algorithms and QMC hyperinterpolation}% [1] talk title
-  {Mou Cai}% [2] speaker name
-  {Graduate School of Engineering, The University of Tokyo}% [3] affiliations
-  {caimoumou@g.ecc.u-tokyo.ac.jp}% [4] email
-  {Congpei An, Takashi Goda, Yoshihito Kazashi}% [5] coauthors
-  {}% [6] special session. Leave this field empty for contributed talks. 
+  {High-dimensional density estimation on  unbounded domain}% [1] talk title
+  {Zhijian He}% [2] speaker name
+  {South China University of Technology}% [3] affiliations
+  {hezhijian@scut.edu.cn}% [4] email
+  {Ziyang Ye, Haoyuan Tan, Xiaoqun Wang}% [5] coauthors
+  {QMC and Applications Parts I and II}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
-Abstract
-
 			
-We propose a randomized lattice algorithm for approximating multivariate periodic functions over the $d$-dimensional unit cube from the weighted Korobov space with mixed smoothness $\alpha > 1/2$ and product weights $\gamma_1,\gamma_2,\ldots\in [0,1]$. This randomization involves drawing the number of points for function evaluations randomly, and selecting a good generating vector for rank-1 lattice points using the randomized component-by-component algorithm. We prove that our randomized algorithm achieves a worst-case root mean squared $L_2$-approximation error of order $M^{-\alpha/2 - 1/8 + \varepsilon}$ for an arbitrarily small $\varepsilon > 0$, where $M$ denotes the maximum number of function evaluations, and that the error bound is independent of the dimension $d$ if the weights satisfy $\sum_{j=1}^\infty \gamma_j^{1/\alpha} < \infty$. Our upper bound converges faster than a lower bound on the worst-case $L_2$-approximation error for deterministic rank-1 lattice-based approximation proved by Byrenheid, K\"{a}mmerer, Ullrich, and Volkmer (2017). We also show a lower error bound of order $M^{-\alpha/2-1/2}$ for our randomized algorithm. Finally, we present a generalization of hyperinterpolation over the unit cube named Quasi-Monte Carlo (QMC) hyperinterpolation. This new approximation scheme can be integrated with the Lasso technique to enhance sparsity and denoising capabilities.
-
+This talk will present a kernel-based method to approximate probability density functions of unbounded random variables taking values in high-dimensional spaces. Building upon the framework of Kazashi and Nobile [1], our estimator is a linear combination of kernel functions whose coefficients are determined a linear equation. We first transform the unbounded sample domain into a hyper cube and then use rank-1 lattice points as the interpolation nodes.
+We establish a rigorous error analysis for the mean integrated squared error (MISE) under an exponential decay conditon.  Under a suitable smoothness assumption, our method attains an MISE rate  approaching $O(N^{-1})$ for $N$ independent identically distributed observations. Numerical experiments validate our theoretical findings and demonstrate the superior performance of the proposed estimator compared to state-of-the-art alternatives.
 \medskip
 
+
+\begin{enumerate}
+	\item[{[1]}] Kazashi, Yoshihito, \& Nobile, Fabio. (2023). Density estimation in {RKHS} with application to Korobov spaces in high dimensions, SIAM Journal on Numerical Analysis, \textbf{61}(2), 1080-1102.
+\end{enumerate}
 
 \end{talk}
 

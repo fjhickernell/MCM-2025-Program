@@ -42,26 +42,18 @@
 \begin{document}
 	
 \begin{talk}
-  {Randomized Splitting Methods and Stochastic Gradient Algorithms}% [1] talk title
-  {Peter A. Whalley}% [2] speaker name
-  {ETH Z\"{u}rich, Switzerland}% [3] affiliations
-  {pwhalley@ethz.ch}% [4] email
-  {Neil K. Chada, Benedict Leimkuhler, Daniel Paulin, Luke Shaw}% [5] coauthors
-  {Analysis of Langevin and Related Sampling Algorithms, Part I}% [6] special session. Leave this field empty for contributed talks. 
+  {Convergence rates of kinetic Langevin dynamics with weakly confining potentials}% [1] talk title
+  {Lihan Wang}% [2] speaker name
+  {Carnegie Mellon University}% [3] affiliations
+  {lihanw@andrew.cmu.edu}% [4] email
+  {Giovanni Brigati, Gabriel Stoltz, Andi Q. Wang}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-We examine the use of different randomisation policies for stochastic gradient algorithms. Conventionally, algorithms are combined with a specific stochastic gradient strategy, called Robbins-Monro. In this work, we study without replacement subsampling strategies and show convincingly that it leads to improved performance via: a) a proof of improved complexity guarantees for strongly convex, gradient Lipschitz objectives;
-b) an analytical demonstration of reduced bias on quadratic model problems; and c) empirical
-demonstration of reduced bias in numerical experiments. This is especially important since without replacement subsampling strategies are typically more efficient due to memory access and cache reasons. 
+We discuss the long-time convergence behavior of kinetic Langevin dynamics, and show how the growth of the potentials in space and velocity impact the convergence rates of the dynamics, via weighted and weak Poincar\'e inequalities. The analysis is inspired by the Armstrong-Mourrat variational framework for hypocoercivity, which combines a weighted Poincaré-Lions inequality in time-augmented state space and an $L^2$ energy estimate.
 
-\medskip
-
-\begin{enumerate}
-	\item[{[1]}] Daniel Paulin$^{*}$, Peter A. Whalley$^{*}$, Neil K. Chada, \& Ben Leimkuhler (2025). {\it Sampling from Bayesian Neural Network Posteriors with Symmetric Minibatch Splitting Langevin Dynamics}. The 28th International Conference on Artificial Intelligence and Statistics.
-
-        \item[{[2]}] Luke Shaw, Peter A. Whalley (2025). {\it Random Reshuffling for Stochastic Gradient Langevin Dynamics}. ArXiv:2501.16055.
-\end{enumerate}
 
 \end{talk}
 
 \end{document}
+

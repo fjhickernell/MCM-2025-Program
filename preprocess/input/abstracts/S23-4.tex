@@ -42,27 +42,25 @@
 \begin{document}
 	
 \begin{talk}
-  {Improving Efficiency of Sampling-based Motion Planning via Message-Passing Monte Carlo}% [1] talk title
-  {Makram Chahine}% [2] speaker name
-  {CSAIL, Massachusetts Institute of Technology}% [3] affiliations
-  {chahine@mit.edu}% [4] email
-  {T. Konstantin Rusch, Zach J. Patterson, and Daniela Rus}% [5] coauthors
-  {}% [6] special session. Leave this field empty for contributed talks. 
+  {Delocalization of Bias in Unadjusted Hamiltonian Monte Carlo}% [1] talk title
+  {Xiaoou Cheng}% [2] speaker name
+  {New York University}% [3] affiliations
+  {chengxo@nyu.edu}% [4] email
+  {Yifan Chen, Jonathan Niles-Weed, Jonathan Weare}% [5] coauthors
+  {Analysis of Langevin and Related Sampling Algorithms, Part I}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-Sampling-based motion planning methods, while effective in high-dimensional spaces, often suffer from inefficiencies due to irregular sampling distributions, leading to suboptimal exploration of the configuration space. In this talk, we present an approach that enhances the efficiency of these methods by utilizing low-discrepancy distributions generated through Message-Passing Monte Carlo (MPMC). MPMC leverages Graph Neural Networks (GNNs) to generate point sets that uniformly cover the space, with uniformity assessed using the the $\cL_p$-discrepancy measure, which quantifies the irregularity of sample distributions. By improving the uniformity of the point sets, our approach significantly reduces computational overhead and the number of samples required for solving motion planning problems. Experimental results demonstrate that our method outperforms traditional sampling techniques in terms of planning efficiency.
+Hamiltonian Monte Carlo is a commonly used algorithm to sample high dimensional probability distributions. However, for strongly log-concave distributions, existing analyses of the unadjusted algorithm show that the number of iterations follows a power law in terms of the dimension $d$, to ensure convergence within a desired error in the $W_2$ metric. Also, because of the large bias, Hamiltonian Monte Carlo is often Metropolized to remove the bias effectively. [1] suggests that for unadjusted Langevin algorithm, similar power law dimension scaling of convergence and bias in the $W_2$ metric can be misleading. There, for strongly log-concave distributions with certain sparse interactions, the \emph{marginal} distribution of a small number of $K$ variables can be well-approximated in the $W_2$ metric, with a small number of iterations proportional to $K$ up to \emph{logarithmic} terms in $d$. A novel $W_{2,\ell^\infty}$ metric is used in analysis. We show that this \emph{delocalization of bias} effect also exists in unadjusted Hamiltonian Monte Carlo with the leapfrog integrator, which suggests that Metropolization may not be necessary in this situation. A key observation is that the propagator of the leapfrog integrator is closely related to Chebyshev polynomials.
 
 \medskip
 
 % If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
 % Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
 % APA reference style is recommended.
-% \begin{enumerate}
-% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
-% 	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
-% \end{enumerate}
+\begin{enumerate}
+	\item[{[1]}] Chen, Y., Cheng, X., Niles-Weed, J., \& Weare, J. (2024). Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias. \textit{arXiv preprint arxiv: 2408.13115}.
+\end{enumerate}
 
-% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
 
 \end{document}

@@ -42,26 +42,29 @@
 \begin{document}
 	
 \begin{talk}
-  {Delocalization of Bias in Unadjusted Hamiltonian Monte Carlo}% [1] talk title
-  {Xiaoou Cheng}% [2] speaker name
-  {New York University}% [3] affiliations
-  {chengxo@nyu.edu}% [4] email
-  {Yifan Chen, Jonathan Niles-Weed, Jonathan Weare}% [5] coauthors
+  {Randomized Splitting Methods and Stochastic Gradient Algorithms}% [1] talk title
+  {Peter Whalley}% [2] speaker name
+  {ETH Z\"{u}rich}% [3] affiliations
+  {peter.whalley@math.ethz.ch}% [4] email
+  {Luke Shaw}% [5] coauthors
   {Analysis of Langevin and Related Sampling Algorithms, Part I}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-Hamiltonian Monte Carlo is a commonly used algorithm to sample high dimensional probability distributions. However, for strongly log-concave distributions, existing analyses of the unadjusted algorithm show that the number of iterations follows a power law in terms of the dimension $d$, to ensure convergence within a desired error in the $W_2$ metric. Also, because of the large bias, Hamiltonian Monte Carlo is often Metropolized to remove the bias effectively. [1] suggests that for unadjusted Langevin algorithm, similar power law dimension scaling of convergence and bias in the $W_2$ metric can be misleading. There, for strongly log-concave distributions with certain sparse interactions, the \emph{marginal} distribution of a small number of $K$ variables can be well-approximated in the $W_2$ metric, with a small number of iterations proportional to $K$ up to \emph{logarithmic} terms in $d$. A novel $W_{2,\ell^\infty}$ metric is used in analysis. We show that this \emph{delocalization of bias} effect also exists in unadjusted Hamiltonian Monte Carlo with the leapfrog integrator, which suggests that Metropolization may not be necessary in this situation. A key observation is that the propagator of the leapfrog integrator is closely related to Chebyshev polynomials.
+We explore an explicit link between stochastic gradient algorithms using common batching strategies and splitting methods for ordinary and stochastic differential equations. From this perspective, we introduce a new minibatching strategy (called Symmetric Minibatching Strategy) for stochastic gradient optimisation and MCMC which shows greatly reduced stochastic gradient bias (from $\mathcal{O}(h)$ to $\mathcal{O}(h^{2})$ in the stepsize $h$) when combined with momentum-based optimisers. We justify why momentum is needed to obtain the improved performance using the theory of backward analysis for splitting integrators and provide a detailed analytic computation of the stochastic gradient bias on a simple example.
+
+ 
+
+Further, we provide improved convergence guarantees for this new minibatching strategy using Lyapunov techniques that show reduced stochastic gradient bias for a fixed stepsize (or learning rate) over the class of strongly-convex and smooth objective functions. We argue that this also leads to a faster convergence rate when considering a decreasing stepsize schedule according to the Robbins-Munro criterion. Both the reduced bias and efficacy of decreasing stepsizes are demonstrated numerically on several motivating examples in both MCMC and Optimization.
 
 \medskip
 
-% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
-% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
-% APA reference style is recommended.
 \begin{enumerate}
-	\item[{[1]}] Chen, Y., Cheng, X., Niles-Weed, J., \& Weare, J. (2024). Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias. \textit{arXiv preprint arxiv: 2408.13115}.
+	\item[{[1]}] Shaw, Luke, \& Whalley, Peter. (2025). {\it Randomised Splitting Methods and Stochastic Gradient Descent}. arXiv:2504.04274.
+	\item[{[2]}] Shaw, Luke, \& Whalley, Peter. (2025). {\it Random Reshuffling for Stochastic Gradient Langevin Dynamics}. arXiv:2501.16055.
 \end{enumerate}
 
 \end{talk}
 
 \end{document}
+
 

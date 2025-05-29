@@ -8,7 +8,7 @@ from config import *
 from util import *
 
 
-def _create_presenter_mapping(session_df: pd.DataFrame) -> List[Tuple[Tuple[str, str], str]]:
+def _create_session_talk_df(session_df: pd.DataFrame) -> List[Tuple[Tuple[str, str], str]]:
     """
     Create mapping between presenters and their talk IDs.
     
@@ -26,21 +26,41 @@ def _create_presenter_mapping(session_df: pd.DataFrame) -> List[Tuple[Tuple[str,
         join_key = session_title.strip().lower()
         
         for i in range(1, 5):
-            first_col = f"Presenter {i} first or given name(s)"
             last_col = f"Presenter {i} last or family name(s)"
             
-            if first_col not in row or last_col not in row:
+            if last_col not in row:
                 continue
-                
-            first = str(row[first_col]).strip() if pd.notna(row[first_col]) else ""
+
             last = str(row[last_col]).strip() if pd.notna(row[last_col]) else ""
             
-            if first or last:
-                presenter = f"{first} {last}".strip()
+            if last:
+                presenter = last.strip().split()[-1].split('-')[-1].strip().lower()
                 talk_id = f"{session_id}-{i}"
                 presenter_map.append(((join_key, presenter), talk_id))
-                
-    return presenter_map
+    
+    # Create mapping DataFrame
+    talk_id_df = pd.DataFrame(
+        [(k[0], k[1], v) for k, v in dict(presenter_map).items()],
+        columns=["join_key", "PresenterLast", "TalkID"]
+    )
+
+    # clean or standardize key column
+    talk_id_df["join_key"] = (
+        talk_id_df["join_key"]
+        .str.replace(r'[-():,.]', ' ', regex=True)  # Replace special chars with space
+        .str.replace(r'\s+', ' ', regex=True)      # Collapse multiple spaces
+        .str.strip()                               # Remove leading/trailing space
+    )
+    # sort frames by "join_key", "Presenter"
+    talk_id_df = talk_id_df.sort_values(by=["join_key", "PresenterLast"]).reset_index(drop=True)
+    # abstracts_df = abstracts_df.sort_values(by=["join_key", "PresenterLast"]).reset_index(drop=True)
+    
+    # Save frame for debugging
+    print("\nTalkID mapping sample:")
+    print(talk_id_df.head(2))
+    talk_id_df.to_csv(f"{interimdir}talkid_map_df.csv", index=False)
+
+    return talk_id_df
 
 def _validate_talk_ids(df: pd.DataFrame) -> None:
     """
@@ -52,7 +72,7 @@ def _validate_talk_ids(df: pd.DataFrame) -> None:
     empty_talk_ids = df[df["TalkID"].isna() | (df["TalkID"] == "")]
     if not empty_talk_ids.empty:
         print("\nWARNING: Found talks with missing TalkIDs:")
-        print(empty_talk_ids[["join_key", "Presenter", "SessionID", "SessionTitle"]])
+        print(empty_talk_ids[["join_key", "PresenterLast", "SessionID", "SessionTitle"]])
 
 def add_special_sessions_talkid(session_df: pd.DataFrame, abstracts_df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -68,31 +88,30 @@ def add_special_sessions_talkid(session_df: pd.DataFrame, abstracts_df: pd.DataF
     # Create deep copies to avoid modifying original data
     session_df = session_df.copy(deep=True)
     abstracts_df = abstracts_df.copy(deep=True)
-    
     # Generate presenter to talk ID mapping
-    presenter_map = _create_presenter_mapping(session_df)
-    
-    # Create mapping DataFrame
-    talk_id_df = pd.DataFrame(
-        [(k[0], k[1], v) for k, v in dict(presenter_map).items()],
-        columns=["join_key", "Presenter", "TalkID"]
-    )
-    
-    # Save mapping for debugging
-    print("\nTalkID mapping sample:")
-    print(talk_id_df.head(2))
-    talk_id_df.to_csv(f"{interimdir}talkid_map_df.csv", index=False)
+    talk_id_df = _create_session_talk_df(session_df)
+
+    # extract Last name of Presenter
+    abstracts_df["PresenterLast"] = abstracts_df["Presenter"].str.split(r"[ \-]").str[-1].str.lower()
+    abstracts_df[["join_key", "PresenterLast", "SessionID", 'SessionTitle']].to_csv(f"{interimdir}abstracts_df.csv", index=False)
     
     # Merge abstracts with talk IDs
-    result_df = abstracts_df.merge(
-        talk_id_df, 
+    # Merge using lower-cased join_key and Presenter, but keep original columns unchanged
+    result_df = abstracts_df.copy()
+
+    result_df = result_df.merge(
+        talk_id_df[["join_key", "PresenterLast", "TalkID"]],
         how="left",
-        on=["join_key", "Presenter"]
+        left_on=["join_key", "PresenterLast"],
+        right_on=["join_key", "PresenterLast"]
     )
+
+    # Sort result_df by TalkID
+    result_df = result_df.sort_values(by="TalkID").reset_index(drop=True)
     
     # Save merged results for debugging
-    print("\nMerged abstracts sample:")
-    print(result_df.head(2))
+    #print("\nMerged abstracts sample:")
+    #print(result_df.head(2))
     result_df.to_csv(f"{interimdir}ssa_df.csv", index=False)
     
     # Validate results
@@ -196,6 +215,7 @@ def process_contributed_talks(df):
 
 def add_sessions_join_keys(dfs):
     """Add join_key columns to each DataFrame in dfs."""
+    # Assign join_key columns
     dfs["special_session_submissions"]["join_key"] = (
         dfs["special_session_submissions"]["Session Title"].str.strip().str.lower()
     )
@@ -212,21 +232,25 @@ def add_sessions_join_keys(dfs):
                     df["Last or family name of presenter"].str.strip()).str.lower()
     dfs["plenary_abstracts"] = df.copy(deep=True)
 
-    # replace hyphen with space in join key
+    # Clean and standardize join_key column for all DataFrames
     for key in dfs.keys():
-        if "join_key" in dfs[key].columns:
-            dfs[key]["join_key"] = dfs[key]["join_key"].str.replace("-", " ", regex=False)
-            # remove any leading or trailing spaces
-            dfs[key]["join_key"] = dfs[key]["join_key"].str.strip()
+        tmp_df = dfs[key].copy(deep=True)
+        if "join_key" in tmp_df.columns:
+            tmp_df["join_key"] = (
+                tmp_df["join_key"]
+                .str.replace(r'[-():,.]', ' ', regex=True)  # Replace special chars with space
+                .str.replace(r'\s+', ' ', regex=True)      # Collapse multiple spaces
+                .str.strip()                               # Remove leading/trailing space
+            )
+            dfs[key] = tmp_df
 
-        # print ERROR if any value in the column join_key of df is empty or contains invalid values
-        if dfs[key]["join_key"].isna().any() or dfs[key]["join_key"].str.contains(r"add to shane|//", case=False, na=False).any():
-            print(f"\nERROR: join_key column in {key} contains invalid values.")
-            print(dfs[key][dfs[key]["join_key"].isna()].iloc[:, :2]) # print first two columns
-            print("\n")
+            # print ERROR if any value in the column join_key of df is empty or contains invalid values
+            if tmp_df["join_key"].isna().any() or tmp_df["join_key"].str.contains(r"add to shane|//", case=False, na=False).any():
+                print(f"\nERROR: join_key column in {key} contains invalid values.")
+                print(tmp_df[tmp_df["join_key"].isna()].iloc[:, :2]) # print first two columns
+                print("\n")
                   
     return dfs
-
 
 def add_technical_sessions_talkid(df):
     """
@@ -249,7 +273,6 @@ def add_technical_sessions_talkid(df):
     df['TalkID'] = df['SessionID'].fillna('') + suffix
 
     return df
-
  
 def read_schedule_days(num_days=5):
     """Read schedule_day1.csv ... schedule_dayN.csv into a dictionary."""
@@ -290,8 +313,13 @@ def add_schedule_join_keys(schedules):
         mask2 = df.iloc[:, 1].str.contains(r'Technical Session \d+ .+', case=False, na=False)
         df.loc[mask2, "join_key"] = df.loc[mask2].iloc[:, 1].str.extract(r'(Technical Session \d+)')[0]
         df["join_key"] = df["join_key"].str.strip().str.lower()
-        # replace hyphen with space in join key
-        df["join_key"] = df["join_key"].str.replace("-", " ", regex=False)
+        # clean and standardize key column
+        df["join_key"] = (
+            df["join_key"]
+            .str.replace(r'[-():,.]', ' ', regex=True)  # Replace special chars with space
+            .str.replace(r'\s+', ' ', regex=True)      # Collapse multiple spaces
+            .str.strip()                               # Remove leading/trailing space
+        )
         # remove any leading or trailing spaces
         df["join_key"] = df["join_key"].str.strip()
         schedules[key] = df

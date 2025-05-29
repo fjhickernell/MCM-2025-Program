@@ -42,34 +42,20 @@
 \begin{document}
 	
 \begin{talk}
-%  {Modified Overdamped Langevin Dynamics for Nonconvex Sampling with Equality and Inequality Constraints: Exponential Convergence and Hard Landing Algorithms}% [1] talk title
-{Langevin-Based Sampling under Nonconvex Constraints}
-  {Molei Tao}% [2] speaker name
-  {Georgia Tech}% [3] affiliations
-  {mtao@gatech.edu}% [4] email
-  {Kijung Jeon, Michael Muehlebach}% [5] coauthors
-  {Analysis of Langevin and Related Sampling Algorithms}% [6] special session. Leave this field empty for contributed talks. 
+  {Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias}% [1] talk title
+  {Yifan Chen}% [2] speaker name
+  {UCLA, Courant Institute}% [3] affiliations
+  {yifanc96@gmail.com}% [4] email
+  {Xiaoou Cheng, Jonathan Niles-Weed, Jonathan Weare}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+The unadjusted Langevin algorithm is commonly used to sample probability distributions in extremely high-dimensional settings. However, existing analyses of the algorithm for strongly log-concave distributions suggest that, as the dimension $d$ of the problem increases, the number of iterations required to ensure convergence within a desired error in the $W_2$ metric scales in proportion to $d$ or $\sqrt{d}$. In this work, we argue that, the behavior for a \emph{small number} of variables can be significantly better: a number of iterations proportional to $K$, up to logarithmic terms in $d$,
+often suffices for the algorithm to converge to within a desired $W_2$ error for all $K$-marginals.
+We refer to this effect as 
+\textit{delocalization of bias}. 
+We show that the delocalization effect does not hold universally and prove its validity for Gaussian distributions and strongly log-concave distributions with certain sparse/local interactions. Our analysis relies on a novel $W_{2,\ell^\infty}$ metric to measure convergence. A key technical challenge we address is the lack of a one-step contraction property in this metric. Finally, we use asymptotic arguments to explore potential generalizations of the delocalization effect beyond the Gaussian and sparse/local interactions setting.
 
-Given an unnormalized density $\rho$ and a constraint set $\Sigma$ in $\mathbb{R}^n$, we aim at sampling from a constrained distribution $Z^{-1} \rho(x) I_{\Sigma}(x) dx$. While the case when $\Sigma$ is convex has been extensively studied, \emph{no} convexity is needed in this talk, in which case quantitative results are scarce. % The case when the density is described by first-order oracles and the constraint set is described by a collection of equalities and inequalities will be considered. 
-Our method admits multiple interpretations, but this talk will focus on a Langevin perspective, where overdamped Langevin dynamics is first modified, and then discretized so that a sampling algorithm can be constructed. The quantitative convergence of the continuous dynamics will be detailed, but if time permits, the performance of the time-discretization (i.e. the actual sampler) will also be discussed.
-
-%\textbf{[Revised version]}
-%Consider an unnormalized density $\rho$ and a constraint set $\Sigma \subset \mathbb{R}^d$ defined by finitely many equality and inequality constraints. We aim to sample from the target density $\rho_\Sigma(x) \propto \rho(x)I_{\Sigma}(x) dx$. While the case when $\Sigma$ is convex has been extensively studied, traditional approaches for nonconvex $\Sigma$ have heuristically relied on projection operators or on designing algorithms that steer trajectories along directions orthogonal to $\Sigma$ (e.g., landing algorithms or orthogonal direction samplers). However, these methods are typically limited to equality constraints, and even in that setting, rigorous analyses of convergence rates remain scarce. In contrast, we propose a new framework that can design an overdamped Langevin dynamics which accommodates both equality and inequality constraints without relying slack variable method. The modified dynamics also deterministically corrects trajectories along the normal direction of the constraint surface, thus obviating the need for explicit projections. Additionally, we introduce a heuristic hard landing algorithm to address challenges arising from discretization. Under suitable regularity conditions on $\rho$ and $\Sigma$, we prove that the continuous dynamics converge exponentially fast to $\rho_\Sigma$.
-
-
-
-\medskip
-
-% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
-% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
-% APA reference style is recommended.
-% \begin{enumerate}
-% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
-% 	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
-% \end{enumerate}
-
-% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
 
 \end{document}

@@ -42,36 +42,24 @@
 \begin{document}
 	
 \begin{talk}
-  {Asymptotic robustness of  smooth functions of  rare-event estimators}% [1] talk title
-  {Bruno Tuffin}% [2] speaker name
-  {Inria}% [3] affiliations
-  {bruno.tuffin@inria.fr}% [4] email
-  {Marvin K. Nakayama}% [5] coauthors
-  {Advances in Rare Events Simulation}% [6] special session. Leave this field empty for contributed talks. 
+  {Multiple Importance Sampling for Rare Event Simulation in Communication Systems}% [1] talk title
+  {V\'ictor Elvira}% [2] speaker name
+  {University of Edinburgh}% [3] affiliations
+  {victor.elvira@ed.ac.uk}% [4] email
+  {Igancio Santamar\'ia}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-In many rare-event simulation problems, an estimand is expressed  as a smooth function of several quantities,  each
-estimated by simulation  but not necessarily all of their estimators are critically influenced by
-the rarity of the event of interest.  
-An example arises in the estimation of the mean time to failure of a regenerative system, usually expressed as the ratio of two quantities to be estimated, the denominator being the only one  entailing a rare event in a highly reliable context.
-
-In general, there has been to our knowledge no work investigating  the efficiency  of estimating $\alpha = g({\boldsymbol{\theta}})$
-for some known  smooth function $g : \mathbb{R}^d \to \mathbb{R}$ and where ${\boldsymbol{\theta}} = (\theta_1, \theta_2, \ldots, \theta_d) \in \mathbb{R}^d$ is a vector of unknown parameters, for some $d \geq 1$, each  estimated by simulation.
-
-We will provide during the talk conditions under which having efficient estimators of each individual mean leads to an efficient estimator of the function of the means. Our conditions are described for several asymptotic robustness properties: logarithmic efficiency, bounded relative error and vanishing relative error.
-We illustrate this setting through several examples, and numerical results complement the theory.
-
-
-			
-
+Estimating the symbol error rate (SER) in multiple-input multiple-output (MIMO) detectors involves computing an integral in a high-dimensional space, typically outside the Voronoi region of the transmitted symbol. Since a closed-form solution does not exist, the standard approach relies on crude Monte Carlo (MC) simulations, which become highly inefficient in rare-event regimes.  In this talk, we propose a multiple importance sampling (MIS) method that provides unbiased SER estimates with significantly reduced variance compared to naive MC. The method constructs an adaptive mixture proposal distribution, where the number of components, their parameters, and weights are selected automatically. This flexibility ensures robustness across a range of scenarios, making the method efficient, easy to implement, and theoretically sound. Our simulations demonstrate that SERs as low as $10^{-8}$ can be accurately estimated with just $10^4$ samples, achieving multiple orders of magnitude improvement over standard MC.
 \medskip
 
-
-\begin{enumerate}
-	\item[{[1]}]  Nakayama, Marvin K. and Bruno Tuffin.  Efficiency of Estimating Functions of Means in Rare-Event Contexts. In the {\it Proceedings of the 2023 Winter Simulation Conference}, San Antonio, TX, USA, December 2023.
-	% Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
-	%\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
-\end{enumerate}
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
 
 %Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}

@@ -42,15 +42,16 @@
 \begin{document}
 	
 \begin{talk}
-  {Factor Importance Ranking and Selection using Total Indices}% [1] talk title
-  {Chaofan Huang}% [2] speaker name
-  {Work done during C. Huang's Ph.D. studies at Georgia Institute of Technology}% [3] affiliations
-  {10billhuang01@gmail.com}% [4] email
-  {V. Roshan Joseph}% [5] coauthors
+  {Stacking designs: designing multifidelity computer experiments with target predictive accuracy}% [1] talk title
+  {Chih-Li Sung}% [2] speaker name
+  {Michigan State University}% [3] affiliations
+  {sungchih@msu.edu}% [4] email
+  {Yi Ji, Simon Mak, Wenjia Wang, Tao Tang}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-Factor importance measures the impact of each feature on output prediction accuracy. In this paper, we focus on the \emph{intrinsic importance} proposed by Williamson et al. (2023), which defines the importance of a factor as the reduction in predictive potential when that factor is removed. To bypass the modeling step required by the existing estimator, we present the equivalence between predictiveness potential and total Sobol' indices from global sensitivity analysis, and introduce a novel model-free consistent estimator that can be directly computed from noisy data. Integrating with forward selection and backward elimination gives rise to \texttt{FIRST}, Factor Importance Ranking and Selection using Total (Sobol') indices. Extensive simulations are provided to demonstrate the effectiveness of \texttt{FIRST} on regression and binary classification problems, and a clear advantage over the state-of-the-art methods.
+In an era where scientific experiments can be very costly, multi-fidelity emulators provide a useful tool for cost-efficient predictive scientific computing. For scientific applications, the experimenter is often limited by a tight computational budget, and thus wishes to (i) maximize predictive power of the multi-fidelity emulator via a careful design of experiments, and (ii) ensure this model achieves a desired error tolerance with some notion of confidence. Existing design methods, however, do not jointly tackle objectives (i) and (ii). We propose a novel stacking design approach that addresses both goals. A  multi-level reproducing kernel Hilbert space (RKHS) interpolator is first introduced to build the emulator, under which our stacking design provides a sequential approach for designing multi-fidelity runs such that a desired prediction error of $\epsilon > 0$ is met under regularity assumptions. We then prove a novel cost complexity theorem that, under this multi-level interpolator, establishes a bound on the computation cost (for training data simulation) needed to achieve a prediction bound of $\epsilon$. This result provides novel insights on conditions under which the proposed multi-fidelity approach improves upon a conventional RKHS interpolator which relies on a single fidelity level. Finally, we demonstrate the effectiveness of stacking designs in a suite of simulation experiments and an application to finite element analysis.
+
 \end{talk}
 
 \end{document}

@@ -42,17 +42,32 @@
 \begin{document}
 	
 \begin{talk}
-  {Quasi-uniform quasi-Monte Carlo lattice point sets}% [1] talk title
-  {Kosuke Suzuki}% [2] speaker name
-  {Yamagata University}% [3] affiliations
-  {kosuke-suzuki@sci.kj.yamagata-u.ac.jp}% [4] email
-  {Josef Dick, Takashi Goda, Gerhard Larcher, Friedrich Pillichshammer}% [5] coauthors
+  {Approximation of multivariate periodic functions}% [1] talk title
+  {Dirk Nuyens}% [2] speaker name
+  {KU Leuven, Belgium}% [3] affiliations
+  {dirk.nuyens@kuleuven.be}% [4] email
+  {Laurence Wilkes}% [5] coauthors
   {QMC and Applications}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
+  We study approximation of multivariate periodic functions using $n$
+  function values. We use generated sets as the sample points, first
+  introduced in~[1]. We prove existence and convergence of the almost
+  optimal $L_2$ error and obtain similar bounds as for the least squares
+  algorithm from~[2] which uses unstructured points.
 
-The discrepancy of a point set quantifies how well the points are distributed, with low-discrepancy point sets demonstrating exceptional uniform distribution properties. Such sets are integral to quasi-Monte Carlo methods, which approximate integrals over the unit cube for integrands of bounded variation. In contrast, quasi-uniform point sets are characterized by optimal separation and covering radii, making them well-suited for applications such as radial basis function approximation. This paper explores the quasi-uniformity properties of quasi-Monte Carlo point sets constructed from lattices. Specifically, we analyze rank-1 lattice point sets, Fibonacci lattice point sets, Frolov point sets, and $(n \boldsymbol{\alpha})$-sequences, providing insights into their potential for use in applications that require both low-discrepancy and quasi-uniform distribution. As an example, we show that the $(n \boldsymbol{\alpha})$-sequence with $\alpha_j = 2^{j/(d+1)}$ for $j \in \{1, 2, \ldots, d\}$ is quasi-uniform and has low-discrepancy.
+\medskip
 
+\begin{enumerate}
+  \item[{[1]}]
+    K{\"a}mmerer.
+    Reconstructing multivariate trigonometric polynomials by sampling along generated sets.
+    In Monte Carlo and Quasi-Monte Carlo Methods 2012 (Dick, Kuo, Peters, Sloan), pages 439--454, 2013.
+  \item[{[2]}]
+    Krieg, Ullrich.
+    Function values are enough for $L_2$ approximation.
+    \emph{Foundations of Computational Mathematics}, 21(4):1141--1151, 2021.
+\end{enumerate}
 
 \end{talk}
 

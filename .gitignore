@@ -18,3 +18,4 @@ runinfo/*
 *.*#
 preprocess/_temp
 preprocess/MakeLatexScheduleMCM.py
+/preprocess/input/abstracts copy

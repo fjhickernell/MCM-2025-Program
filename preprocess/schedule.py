@@ -109,7 +109,7 @@ def process_session_talks(sess_content: str) -> List[Tuple[str, str, str]]:
     talk_tuples = []
     for title, speaker, code in talks:
         speaker_clean = speaker.replace('\n', ' ').strip()
-        title_clean = title.replace('\n', ' ').strip()
+        title_clean = title.replace('\n', ' ').replace('Φ','$\Phi$').strip()
         code_clean = code.strip()
         talk_tuples.append((title_clean, speaker_clean, code_clean))
     return talk_tuples
@@ -200,7 +200,7 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
             session_latex = generate_session_latex(row)
             latex_content += session_latex
             is_last_parallel_talk = (session_title.lower().startswith("track") and row.name == group[group['SessionTitle'].str.lower().str.startswith("track")].index[-1])
-            if is_last_parallel_talk:
+            if is_last_parallel_talk:  # create talks in latex
                 latex_content += "\\\\\\hline\n"
                 session_talks_dict = get_session_talks_dict(group, outdir)
                 talks_latex += generate_talks_latex(session_talks_dict, row)

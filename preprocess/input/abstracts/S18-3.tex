@@ -42,18 +42,36 @@
 \begin{document}
 	
 \begin{talk}
-  {AutoStep: Locally adaptive involutive MCMC}% [1] talk title
-  {Trevor Campbell}% [2] speaker name
-  {University of British Columbia}% [3] affiliations
-  {trevor@stat.ubc.ca}% [4] email
-  {Tiange Liu, Nikola Surjanovic, Miguel Biron-Lattes, Alexandre Bouchard-C\^ot\'e}% [5] coauthors
-  {Advances in Adaptive Hamiltonian Monte Carlo}% [6] special session. Leave this field empty for contributed talks. 
+  {ATLAS: Adapting Trajectory Lengths and Step-Size for Hamiltonian Monte Carlo}% [1] talk title
+  {Chirag Modi}% [2] speaker name
+  {New York University}% [3] affiliations
+  {modichirag@nyu.edu}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 
-\medskip
+Hamiltonian Monte-Carlo (HMC) and its auto-tuned variant, the No U-Turn Sampler (NUTS)
 
-Many common Markov chain Monte Carlo (MCMC) kernels can be formulated using a deterministic involutive proposal with a step size parameter.  Selecting an appropriate step size is often a challenging task in practice; and for complex multiscale targets, there may not be one choice of step size that works well globally.  In this talk I'll address this problem with a novel class of involutive MCMC methods---AutoStep MCMC---that selects an appropriate step size at each iteration adapted to the local geometry of the target distribution.  I'll present theoretical results guaranteeing that under mild conditions AutoStep MCMC is $\pi$-invariant, irreducible, and aperiodic, and provides bounds on expected energy jump distance and cost per iteration. The talk will conclude with empirical results examining the robustness and efficacy of the proposed step size selection procedure.
+can struggle to accurately sample distributions with complex geometries, e.g., varying cur-
+vature, due to their constant step size for leapfrog integration and fixed mass matrix. In this
+
+talk, I will present a strategy to locally adapt the step size parameter of HMC at every iter-
+ation by evaluating a low-rank approximation of the local Hessian and estimating its largest
+
+eigenvalue. I will then combine it with a strategy to similarly adapt the trajectory length
+by monitoring the no U-turn condition, resulting in an adaptive sampler, ATLAS: adapting
+trajectory length and step-size. I will further use a delayed rejection framework for making
+multiple proposals that improves the computational efficiency of ATLAS, and develop an
+
+approach for automatically tuning its hyperparameters during warmup. Finally, I will com-
+pare ATLAS with NUTS on a suite of synthetic and real world examples, and show that
+
+i) unlike NUTS, ATLAS is able to accurately sample difficult distributions with complex
+geometries, ii) it is computationally competitive to NUTS for simpler distributions, and iii)
+it is more robust to the tuning of hyperparamters.
+\medskip
 
 \end{talk}
 
 \end{document}
+

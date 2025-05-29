@@ -42,26 +42,27 @@
 \begin{document}
 	
 \begin{talk}
-  {Fixed-budget simulation method for growing cell populations}% [1] talk title
-  {Zhou Fang}% [2] speaker name
-  {Academy of Mathematics and Systems Science, Chinese Academy of Sciences}% [3] affiliations
-  {zhfang@amss.ac.cn}% [4] email
-  {Shaoqing Chen, Zheng Hu, Da Zhou}% [5] coauthors
+  {Dimensionality Reduction for Efficient Rare Event Estimation 
+}% [1] talk title
+  {Sophia Münker}% [2] speaker name
+  {RWTH Aachen University}% [3] affiliations
+  {muenker@uq.rwth-aachen.de}% [4] email
+  {Chiheb Ben Hammouda, Nadhir Ben Rached, Raúl Tempone}% [5] coauthors
   {Forward and Inverse Problems for Stochastic Reaction Networks}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-Investigating the dynamics of growing cell populations is crucial for unraveling key biological mechanisms in living organisms, with many important applications in therapeutics and biochemical engineering. Classical agent-based simulation algorithms are often inefficient for these systems because
-they track each individual cell, making them impractical for fast (or even exponentially) growing
-cell populations. To address this challenge, we introduce a novel stochastic simulation approach
-based on a Feynman-Kac-like representation of the population dynamics. This method, named the
-Feynman-Kac-inspired Gillespie’s Stochastic Simulation Algorithm (FKG-SSA), always employs a
-fixed number of independently simulated cells for Monte Carlo computation of the system, resulting in a constant computational complexity regardless of the population size. Furthermore, we
-theoretically show the statistical consistency of the proposed method, indicating its accuracy and
-reliability. Finally, a couple of biologically relevant numerical examples are presented to illustrate the
-approach. Overall, the proposed FKG-SSA effectively addresses the challenge of simulating growing
-cell populations, providing a solid foundation for better analysis of these systems.
+A Stochastic Reaction Network (SRN) is a continuous-time, discrete-space Markov chain that models the random interaction of $d$ species through reactions, commonly applied in bio-chemical systems. We are interested in efficiently estimating rare event probabilities, where we consider path-dependent observables. Therefore, we present an importance sampling (IS) method based on the discrete Tau-Leap (TL) scheme to enhance the performance of Monte Carlo (MC) estimators. The primary challenge in IS is selecting an appropriate change of probability measure to significantly reduce variance, which often requires deep insights into the underlying problem. To address this, we propose a generic approach to obtain an efficient path-dependent measure change, based on an original connection between finding optimal IS parameters and solving a variance minimization problem using a stochastic optimal control (SOC) formulation [1]. The optimal IS parameters can be derived by solving a Hamilton-Jacobi-Bellman equation.
+
+To address the curse of dimensionality, we propose the Markovian Projection (MP) technique to reduce the SRN to a lower-dimensional SRN (called MP-SRN) while preserving the marginal distribution of the original high-dimensional system. When solving the resulting SOC problem numerically to derive the variance reducing IS parameters, we derive the parameter for a reduced-dimensional model. These IS parameters can be applied to the full-dimensional SRN in the forward run. Analysis and numerical experiments demonstrate that our IS strategies substantially reduce the variance of the MC estimator, leading to lower computational complexity in the rare event regime compared to standard MC methods. 
+
+At the end of the talk, we give a small outlook on a multilevel-IS scheme to further improve the efficiency of the estimator.
 
 
+\begin{enumerate}
+   \item[{[1]}] Ben Hammouda, C., Ben Rached, N., Tempone, R., \& Wiechert, S. (2024). Automated importance sampling via optimal control for stochastic reaction networks: A Markovian projection-based approach. Journal of Computational and Applied Mathematics, 446, 115853.
+\end{enumerate}
+
+\medskip
 \end{talk}
 
 \end{document}

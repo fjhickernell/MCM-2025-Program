@@ -42,31 +42,28 @@
 \begin{document}
 	
 \begin{talk}
-  {A hit and run approach for sampling and analyzing ranking models}% [1] talk title
-  {Chenyang Zhong}% [2] speaker name
-  {Department of Statistics, Columbia University}% [3] affiliations
-  {cz2755@columbia.edu}% [4] email
-  {}% [5] coauthors
+  {Boosting the inference for generative models by (Quasi-)Monte Carlo resampling}% [1] talk title
+  {Ziang Niu}% [2] speaker name
+  {University of Pennsylvania}% [3] affiliations
+  {ziangniu@wharton.upenn.edu}% [4] email
+  {Bhaswar B. Bhattacharya, François-Xavier Briol, Anirban Chatterjee, Johanna Meier.}% [5] coauthors
   {Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-%Your abstract goes here. Please do not use your own commands or macros.
-The analysis of ranking data has gained much recent interest across various applications, including recommender systems, market research, and electoral studies. This talk focuses on the Mallows permutation model, a probabilistic model for ranking data introduced by C. L. Mallows. The Mallows model specifies a family of non-uniform probability distributions on permutations and is characterized by a distance metric on permutations. We focus on two popular choices: the $L^1$ (Spearman’s footrule) and $L^2$ (Spearman’s rank correlation) distances. Despite their widespread use in statistics and machine learning, Mallows models with these metrics present significant computational challenges due to the intractability of their normalizing constants.
+In the era of generative models, statistical inference based on classical likelihood for such models has faced a challenge. This is due to highly nontrivial model structures and thus computing the likelihood functions is almost impossible. Often time, information on these generative models can only be obtained by sampling from the models but the necessity of sampling can further pose a tradeoff between computational burden and statistical accuracy. In this talk, we propose a framework for statistical inference for generative models leveraging the techniques from (Quasi-)Monte Carlo. Despite the unavoidable balance of statistical accuracy and computation, both computational and statistical performances can be boosted by employing (Quasi-)Monte Carlo techniques. The presentation will be based on two papers.
 
-Hit and run algorithms form a broad class of MCMC algorithms, including Swendsen-Wang and data augmentation. In this talk, I will first explain how to sample from Mallows models using hit and run algorithms. For both models, we establish $O(\log n)$ mixing time upper bounds, which provide the first theoretical guarantees for efficient sampling and enable computationally feasible Monte Carlo maximum likelihood estimation. Then, I will also discuss how the hit and run algorithms can be utilized to prove theorems about probabilistic properties of the Mallows models.
+\begin{enumerate}
+	\item[{[1]}] A. Chatterjee, Z. Niu \& B. Bhattacharya (2024). {\it A kernel-based conditional two-sample test using nearest neighbors (with applications to calibration, regression curves, and simulation-based inference)}. Preprint.
+	\item[{[2]}] Z. Niu, J. Meier \& F-X. Briol (2023). \it{Discrepancy-based inference for
+  intractable generative models using
+  Quasi-Monte Carlo.} Electronic Journal of Statistics.
+\end{enumerate}
 
 \medskip
 
-%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
-%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
-%APA reference style is recommended.
-%\begin{enumerate}
-%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
-%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
-%\end{enumerate}
-
-%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
+
+
 
 \end{document}
 
