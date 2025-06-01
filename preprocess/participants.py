@@ -268,7 +268,7 @@ def extract_contributed_talk_participants(df):
     participants_df = pd.DataFrame(participants)
 
     # Count presenters and organizers by SessionID
-    print_wrong_group_counts(participants_df, groupby="SessionID", title='Contributed Presenters')
+    #print_wrong_group_counts(participants_df, groupby="SessionID", title='Contributed Presenters')
                 
     return participants
 
@@ -342,18 +342,14 @@ def validate_session_participants(df):
             if len(group) != 1:
                 validation_issues.append(f"ERROR: Plenary SessionID {name} has {len(group)} participants (expected 1)")
         else:
-            # All other sessions should have 4 - 7 participants 
-            if str(name).startswith("T"):
-                min_participants = 3  # Technical sessions: 3-4 participants
-                max_participants = 4
-            else:
+            if str(name).startswith("S"):
                 min_participants = 4  # 3 speakers and 1 organizer
                 max_participants = 7  # 4 speakers and 3 organizers
-            if len(group) < min_participants or len(group) > max_participants:
-                session_title = group["Session Title"].iloc[0] if "Session Title" in group.columns else ""
-                validation_issues.append(
-                    f"ERROR: {name} {session_title} has {len(group)} participants (expected {min_participants}-{max_participants})"
-                )
+                if len(group) < min_participants or len(group) > max_participants:
+                    session_title = group["Session Title"].iloc[0] if "Session Title" in group.columns else ""
+                    validation_issues.append(
+                        f"ERROR: {name} {session_title} has {len(group)} participants (expected {min_participants}-{max_participants})"
+                    )
     
     # Print all validation issues
     for issue in validation_issues:

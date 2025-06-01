@@ -7,32 +7,32 @@
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
 \setlength{\voffset}{-1.6cm}
 \setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
-\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\evensidemargin}{-0.3cm}
 \setlength{\oddsidemargin}{0.3cm}
-\setlength{\parindent}{0cm} 
+\setlength{\parindent}{0cm}
 \setlength{\parskip}{0.3cm}
 
 % -- adding a talk
 \newenvironment{talk}[6]% [1] talk title
-                         % [2] speaker name, [3] affiliations, [4] email,
-                         % [5] coauthors, [6] special session
-                         % [7] time slot
-                         % [8] talk id, [9] session id or photo
- {%\needspace{6\baselineskip}%
-  \vskip 0pt\nopagebreak%
+% [2] speaker name, [3] affiliations, [4] email,
+% [5] coauthors, [6] special session
+% [7] time slot
+% [8] talk id, [9] session id or photo
+{%\needspace{6\baselineskip}%
+    \vskip 0pt\nopagebreak%
 %   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
 %   \ifthenelse{\equal{#9}{photo}}{%
 %                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
- \vskip 0pt\nopagebreak%
+    \vskip 0pt\nopagebreak%
 %  \label{#8}%
-  \textbf{#1}\vspace{3mm}\\\nopagebreak%
-  \textit{#2}\\\nopagebreak%
-  #3\\\nopagebreak%
-  \url{#4}\vspace{3mm}\\\nopagebreak%
-  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
-  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
- }
- {\vspace{1cm}\nopagebreak}%
+    \textbf{#1}\vspace{3mm}\\\nopagebreak%
+    \textit{#2}\\\nopagebreak%
+    #3\\\nopagebreak%
+    \url{#4}\vspace{3mm}\\\nopagebreak%
+    \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+    \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+    }
+    {\vspace{1cm}\nopagebreak}%
 
 \pagestyle{empty}
 
@@ -40,23 +40,34 @@
 % Document begins here
 % ------------------------------------------------------------------------
 \begin{document}
-	
-\begin{talk}
-  {Quasi-Monte Carlo Generators, Randomization Routines, and Fast Kernel Methods}% [1] talk title
-  {Aleksei G Sorokin}% [2] speaker name
-  {Illinois Institute of Technology, Department of Applied Mathematics. \\ Sandia National Laboratories.}% [3] affiliations
-  {asorokin@hawk.iit.edu}% [4] email
-  {}% [5] coauthors
-  {}% [6] special session. Leave this field empty for contributed talks. 
-				% Insert the title of the special session if you were invited to give a talk in a special session.
-			
-        This talk will highlight recent improvements to the QMCPy Python package: a unified library for Quasi-Monte Carlo methods and computations related to low discrepancy sequences. We will describe routines for low discrepancy point set generation, randomization, and application to fast kernel methods. Specifically, we will discuss generators for lattices, digital nets, and Halton point sets with randomizations including random permutations / shifts, linear matrix scrambling, and nested uniform scrambling. Routines for working with higher-order digital nets and scramblings will also be detailed. For kernel methods, we provide implementations of special shift-invariant and digitally-shift invariant kernels along with fast Gram matrix operations facilitated by the bit-reversed Fast Fourier Transform (FFT), the bit-reversed inverse FFT (IFFT), and the Fast Walsh Hadamard Transform (FWHT). We will also describe methods to quickly update the matrix-vector product or linear system solution after doubling the number of points in a lattice or digital net in natural order. Generalizations to fast Gaussian process regression with derivative information will be discussed if time permits. 
-\medskip
 
-\begin{enumerate}
-	\item[{[1]}] Sorokin, A. (2025). A Unified Implementation of Quasi-Monte Carlo Generators, Randomization Routines, and Fast Kernel Methods. arXiv preprint arXiv:2502.14256.
-\end{enumerate}
+    \begin{talk}
+    {A High-performance Multi-level Monte Carlo Software for Full Field Estimates and Applications in Optimal Control}% [1] talk title
+    {Niklas Baumgarten}% [2] speaker name
+    {Heidelberg University}% [3] affiliations
+    {niklas.baumgarten@uni-heidelberg.de}% [4] email
+    {Robert Scheichl, Robert Kutri, David Schneiderhan, Sebastian Krumscheid, Christian Wieners, Daniele Corallo}% [5] coauthors
+    {Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II}% [6] special session. Leave this field empty for contributed talks.
+        % Insert the title of the special session if you were invited to give a talk in a special session.
 
-\end{talk}
+        We introduce a high-performance software framework for multi-level Monte Carlo (MLMC)
+        and multi-level stochastic gradient descent (MLSGD) methods,
+        designed for efficient uncertainty quantification and optimal control in high-dimensional PDE applications.
+        The software operates under strict memory and CPU-time constraints,
+        requiring no prior knowledge of problem regularity or memory demands.
+
+        Built on the budgeted MLMC method with a sparse multi-index update algorithm,
+        it enables full spatial-domain estimates at the same computational cost as single-point
+        evaluations while maintaining memory usage comparable to the deterministic problem.
+        Additionally, the framework integrates an MLSGD method for optimal control,
+        achieving faster convergence at reduced computational costs compared to standard
+        stochastic gradient descent methods.
+
+        We validate the software on applications such as stochastic PDE-based sampling, subsurface flow,
+        mass transport, acoustic wave equations, and high-dimensional control problems.
+
+
+    \end{talk}
 
 \end{document}
+

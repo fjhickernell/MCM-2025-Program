@@ -1,21 +1,47 @@
-*.log
+# Python environment
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+
+# Conda environment
+/envs/
+.conda/
+
+# IDE settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# LaTeX build files
 *.aux
+*.log
 *.out
 *.toc
-*.gz
-*.fls
-*.fdb_latexmk
-*.pdf
-*.zip
-*.js
-*.css
-*.woff
-__pycache__
-.DS_Store
-.idea
+*.synctex.gz
+*.bbl
+*.blg
 MCM_ProgramBook_TEX/input/*
-runinfo/*
-*.*#
+*.fdb*
+*.fls
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Generated output files
+#*.pdf
+#/preprocess/out/
 preprocess/_temp
 preprocess/MakeLatexScheduleMCM.py
-/preprocess/input/abstracts copy
+preprocess/input/abstracts copy
+preprocess/README_files/*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Others
+runinfo/*
+*.*#
+

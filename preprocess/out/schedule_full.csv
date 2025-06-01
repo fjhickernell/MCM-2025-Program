@@ -16,62 +16,69 @@ SessionTime,SessionTitle,join_key,SessionID,Chair,Room,OrderInSchedule
 "Mon, Jul 28 15:30–17:30",Track H: Computational Methods for Low-discrepancy Sampling and Applications,computational methods for low discrepancy sampling and applications,S7,,,15
 "Mon, Jul 28 15:30–17:30","Track I: Technical Session 4 - Quasi-Monte Carlo, Part 1",technical session 4,T4,,,16
 "Mon, Jul 28 15:30-17:30",Track J: Technical Session 12 - PDEs,technical session 12,T12,,,17
-"Mon, Jul 28 17:30-19:30",Reception,,,,,18
-"Tue, Jul 29 08:30–17:30",Registration Desk Open,,,,,19
-"Tue, Jul 29 09:00–10:00","Plenary Talk by Peter Glynn, Stanford U, Combining Simulation and Linear Algebra: COSIMLA",peter glynn,P3,,,20
-"Tue, Jul 29 10:00–10:30",Coffee Break,,,,,21
-"Tue, Jul 29 10:30–12:30","Track A: Stochastic Computation and Complexity, Part III",stochastic computation and complexity part iii,S8,,,22
-"Tue, Jul 29 10:30–12:30","Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I",next generation optimal experimental design theory scalability and real world impact part i,S9,,,23
-"Tue, Jul 29 10:30–12:30",Track C: Heavy-tailed Sampling,heavy tailed sampling,S10,,,24
-"Tue, Jul 29 10:30–12:30","Track D: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I",frontiers in quasi monte carlo and markov chain monte carlo methods part i,S11,,,25
-"Tue, Jul 29 10:30-12:30",Track E: Technical Session 2 - Bayesian Methods,technical session 2,T2,,,26
-"Tue, Jul 29 12:30–14:00",Lunch Break,,,,,27
-"Tue, Jul 29 14:00–15:00","Plenary Talk by Roshan Joseph, Georgia Institute of Technology, Sensitivity and Screening: From Monte Carlo to Experimental Design",roshan joseph,P4,,,28
-"Tue, Jul 29 15:00–15:30",Coffee Break,,,,,29
-"Tue, Jul 29 15:30–17:30","Track F: Stochastic Computation and Complexity, Part IV",stochastic computation and complexity part iv,S12,,,30
-"Tue, Jul 29 15:30–17:30","Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II",next generation optimal experimental design theory scalability and real world impact part ii,S13,,,31
-"Tue, Jul 29 15:30–17:30",Track H: Advances in Rare Events Simulation,advances in rare events simulation,S14,,,32
-"Tue, Jul 29 15:30–17:30","Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II",frontiers in quasi monte carlo and markov chain monte carlo methods part ii,S15,,,33
-"Tue, Jul 29 15:30-17:30","Track J: Technical Session 5 - Quasi-Monte Carlo, Part 2",technical session 5,T5,,,34
-"Wed, Jul 30 08:30–16:30",Registration Desk Open,,,,,35
-"Wed, Jul 30 09:00–10:00","Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",michaela szölgyenyi,P5,,,36
-"Wed, Jul 30 10:00–10:30",Coffee Break,,,,,37
-"Wed, Jul 30 10:30–12:30","Track A: Stochastic Computation and Complexity, Part V",stochastic computation and complexity part v,S16,,,38
-"Wed, Jul 30 10:30–12:30",Track B: Statistical Design of Experiments,statistical design of experiments,S17,,,39
-"Wed, Jul 30 10:30–12:30",Track C: Advances in Adaptive Hamiltonian Monte Carlo,advances in adaptive hamiltonian monte carlo,S18,,,40
-"Wed, Jul 30 10:30–12:30",Track D: Technical Session 15 - Simulation,technical session 15,T15,,,41
-"Wed, Jul 30 10:30-12:30",Track E: Technical Session 6 - Sampling,technical session 6,T6,,,42
-"Wed, Jul 30 12:30–14:00",Lunch Break,,,,,43
-"Wed, Jul 30 14:00–16:00",Track F: Stochastic Optimization,stochastic optimization,S19,,,44
-"Wed, Jul 30 14:00–16:00",Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications,recent progress on algorithmic discrepancy theory and applications,S20,,,45
-"Wed, Jul 30 14:00–16:00","Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",monte carlo applications in high performance computing computer graphics and computational science,S21,,,46
-"Wed, Jul 30 14:00–16:00",Track I: Technical Session 16 - Statistics,technical session 16,T16,,,47
-"Wed, Jul 30 14:00–16:00",Track J: Technical Session 10 - Langevin,technical session 10,T10,,,48
-"Wed, Jul 30 16:00-16:30",Coffee Break,,,,,49
-"Wed, Jul 30 18:00-20:30",Conference Dinner,,,,,50
-"Thu, Jul 31 08:30–17:30",Registration Desk Open,,,,,51
-"Thu, Jul 31 09:00–10:00","Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampling: Methods and Optimization Strategies",uros seljak,P6,,,52
-"Thu, Jul 31 10:00–10:30",Coffee Break,,,,,53
-"Thu, Jul 31 10:30–12:30",Track A: QMC and Applications Part I,qmc and applications part i,S22,,,54
-"Thu, Jul 31 10:30–12:30","Track B: Analysis of Langevin and Related Sampling Algorithms, Part I",analysis of langevin and related sampling algorithms part i,S23,,,55
-"Thu, Jul 31 10:30–12:30","Track C: Nested expectations: models and estimators, Part II",nested expectations models and estimators part ii,S24,,,56
-"Thu, Jul 31 10:30–12:30",Track D: Technical Session 8 - Finance,technical session 8,T8,,,57
-"Thu, Jul 31 10:30-12:30",Track E: Technical Session 13 - ML \& Optimization,technical session 13,T13,,,58
-"Thu, Jul 31 12:30–14:00",Lunch Break,,,,,59
-"Thu, Jul 31 14:00–15:00","Plenary Talk by Nicolas Chopin, Institut Polytechnique de Paris, Saddlepoint Monte Carlo and its application to exact ecological inference",nicolas chopin,P7,,,60
-"Thu, Jul 31 15:00–15:30",Coffee Break,,,,,61
-"Thu, Jul 31 15:30–17:30",Track F: QMC and Applications Part II,qmc and applications part ii,S25,,,62
-"Thu, Jul 31 15:30–17:30","Track G: Analysis of Langevin and Related Sampling Algorithms, Part II",analysis of langevin and related sampling algorithms part ii,S26,,,63
-"Thu, Jul 31 15:30–17:30",Track H: Recent Advances in Stochastic Gradient Descent,recent advances in stochastic gradient descent,S27,,,64
-"Thu, Jul 31 15:30–17:30",Track I: Technical Session 7 - Sampling,technical session 7,T7,,,65
-"Thu, Jul 31 15:30-17:30",Track J: Technical Session 11 - SDEs,technical session 11,T11,,,66
-"Thu, Jul 31 18:00-20:30",Steering Committee Meeting (by invitation),,,,,67
-"Fri, Aug 1 08:30–12:15",Registration Desk Open,,,,,68
-"Fri, Aug 1 09:00–10:30",Track A: Forward and Inverse Problems for Stochastic Reaction Networks,forward and inverse problems for stochastic reaction networks,S28,,,69
-"Fri, Aug 1 09:00–10:30","Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",hardware or software for quasi monte carlo algorithms part ii,S29,,,70
-"Fri, Aug 1 09:00–10:30",Track C: Technical Session 3 - Simulation,technical session 3,T3,,,71
-"Fri, Aug 1 09:00–10:30",Track D: Technical Session 9 - Sampling,technical session 9,T9,,,72
-"Fri, Aug 1 09:00–10:30",Track E: Technical Session 14 - Markov Chain Monte Carlo,technical session 14,T14,,,73
-"Fri, Aug 1 10:30-11",Coffee Break,,,,,74
-"Fri, Aug 1 11:00-12:00",Plenary Talk by Veronika Rockova,veronika rockova,P8,,,75
-"Fri, Aug 1 12:00-12:15",Closing Remarks,,,,,76
+"Mon, Jul 28 17:30-19:30",Welcome Reception,,,,,18
+"Mon, Jul 28 Room A",HH Auditorium,,,,,19
+"Mon, Jul 28 Room B",HH Ballroom,,,,,20
+"Mon, Jul 28 Room C",HH Alumni Lounge,,,,,21
+"Mon, Jul 28 Room D",PH Auditorium,,,,,22
+"Mon, Jul 28 Room E",WH Auditorium,,,,,23
+"Mon, Jul 28 HH Lobby",HH Lobby,,,,,24
+,Commons,,,,,25
+"Tue, Jul 29 08:30–17:30",Registration Desk Open,,,,,26
+"Tue, Jul 29 09:00–10:00","Plenary Talk by Peter Glynn, Stanford U, Combining Simulation and Linear Algebra: COSIMLA",peter glynn,P3,,,27
+"Tue, Jul 29 10:00–10:30",Coffee Break,,,,,28
+"Tue, Jul 29 10:30–12:30","Track A: Stochastic Computation and Complexity, Part III",stochastic computation and complexity part iii,S8,,,29
+"Tue, Jul 29 10:30–12:30","Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I",next generation optimal experimental design theory scalability and real world impact part i,S9,,,30
+"Tue, Jul 29 10:30–12:30",Track C: Heavy-tailed Sampling,heavy tailed sampling,S10,,,31
+"Tue, Jul 29 10:30–12:30","Track D: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I",frontiers in quasi monte carlo and markov chain monte carlo methods part i,S11,,,32
+"Tue, Jul 29 10:30-12:30",Track E: Technical Session 2 - Bayesian Methods,technical session 2,T2,,,33
+"Tue, Jul 29 12:30–14:00",Lunch Break,,,,,34
+"Tue, Jul 29 14:00–15:00","Plenary Talk by Roshan Joseph, Georgia Institute of Technology, Sensitivity and Screening: From Monte Carlo to Experimental Design",roshan joseph,P4,,,35
+"Tue, Jul 29 15:00–15:30",Coffee Break,,,,,36
+"Tue, Jul 29 15:30–17:30","Track F: Stochastic Computation and Complexity, Part IV",stochastic computation and complexity part iv,S12,,,37
+"Tue, Jul 29 15:30–17:30","Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II",next generation optimal experimental design theory scalability and real world impact part ii,S13,,,38
+"Tue, Jul 29 15:30–17:30",Track H: Advances in Rare Events Simulation,advances in rare events simulation,S14,,,39
+"Tue, Jul 29 15:30–17:30","Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II",frontiers in quasi monte carlo and markov chain monte carlo methods part ii,S15,,,40
+"Tue, Jul 29 15:30-17:30","Track J: Technical Session 5 - Quasi-Monte Carlo, Part 2",technical session 5,T5,,,41
+"Wed, Jul 30 08:30–16:30",Registration Desk Open,,,,,42
+"Wed, Jul 30 09:00–10:00","Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",michaela szölgyenyi,P5,,,43
+"Wed, Jul 30 10:00–10:30",Coffee Break,,,,,44
+"Wed, Jul 30 10:30–12:30","Track A: Stochastic Computation and Complexity, Part V",stochastic computation and complexity part v,S16,,,45
+"Wed, Jul 30 10:30–12:30",Track B: Statistical Design of Experiments,statistical design of experiments,S17,,,46
+"Wed, Jul 30 10:30–12:30",Track C: Advances in Adaptive Hamiltonian Monte Carlo,advances in adaptive hamiltonian monte carlo,S18,,,47
+"Wed, Jul 30 10:30–12:30",Track D: Technical Session 15 - Simulation,technical session 15,T15,,,48
+"Wed, Jul 30 10:30-12:30",Track E: Technical Session 6 - Sampling,technical session 6,T6,,,49
+"Wed, Jul 30 12:30–14:00",Lunch Break,,,,,50
+"Wed, Jul 30 14:00–16:00",Track F: Stochastic Optimization,stochastic optimization,S19,,,51
+"Wed, Jul 30 14:00–16:00",Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications,recent progress on algorithmic discrepancy theory and applications,S20,,,52
+"Wed, Jul 30 14:00–16:00","Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",monte carlo applications in high performance computing computer graphics and computational science,S21,,,53
+"Wed, Jul 30 14:00–16:00",Track I: Technical Session 16 - Statistics,technical session 16,T16,,,54
+"Wed, Jul 30 14:00–16:00",Track J: Technical Session 10 - Langevin,technical session 10,T10,,,55
+"Wed, Jul 30 16:00-16:30",Coffee Break,,,,,56
+"Wed, Jul 30 18:00-20:30",Conference Dinner,,,,,57
+"Thu, Jul 31 08:30–17:30",Registration Desk Open,,,,,58
+"Thu, Jul 31 09:00–10:00","Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampling: Methods and Optimization Strategies",uros seljak,P6,,,59
+"Thu, Jul 31 10:00–10:30",Coffee Break,,,,,60
+"Thu, Jul 31 10:30–12:30",Track A: QMC and Applications Part I,qmc and applications part i,S22,,,61
+"Thu, Jul 31 10:30–12:30","Track B: Analysis of Langevin and Related Sampling Algorithms, Part I",analysis of langevin and related sampling algorithms part i,S23,,,62
+"Thu, Jul 31 10:30–12:30","Track C: Nested expectations: models and estimators, Part II",nested expectations models and estimators part ii,S24,,,63
+"Thu, Jul 31 10:30–12:30",Track D: Technical Session 8 - Finance,technical session 8,T8,,,64
+"Thu, Jul 31 10:30-12:30",Track E: Technical Session 13 - ML \& Optimization,technical session 13,T13,,,65
+"Thu, Jul 31 12:30–14:00",Lunch Break,,,,,66
+"Thu, Jul 31 14:00–15:00","Plenary Talk by Nicolas Chopin, Institut Polytechnique de Paris, Saddlepoint Monte Carlo and its application to exact ecological inference",nicolas chopin,P7,,,67
+"Thu, Jul 31 15:00–15:30",Coffee Break,,,,,68
+"Thu, Jul 31 15:30–17:30",Track F: QMC and Applications Part II,qmc and applications part ii,S25,,,69
+"Thu, Jul 31 15:30–17:30","Track G: Analysis of Langevin and Related Sampling Algorithms, Part II",analysis of langevin and related sampling algorithms part ii,S26,,,70
+"Thu, Jul 31 15:30–17:30",Track H: Recent Advances in Stochastic Gradient Descent,recent advances in stochastic gradient descent,S27,,,71
+"Thu, Jul 31 15:30–17:30",Track I: Technical Session 7 - Sampling,technical session 7,T7,,,72
+"Thu, Jul 31 15:30-17:30",Track J: Technical Session 11 - SDEs,technical session 11,T11,,,73
+"Thu, Jul 31 18:00-20:30",Steering Committee Meeting (by invitation),,,,,74
+"Fri, Aug 1 08:30–12:15",Registration Desk Open,,,,,75
+"Fri, Aug 1 09:00–10:30",Track A: Forward and Inverse Problems for Stochastic Reaction Networks,forward and inverse problems for stochastic reaction networks,S28,,,76
+"Fri, Aug 1 09:00–10:30","Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",hardware or software for quasi monte carlo algorithms part ii,S29,,,77
+"Fri, Aug 1 09:00–10:30",Track C: Technical Session 3 - Simulation,technical session 3,T3,,,78
+"Fri, Aug 1 09:00–10:30",Track D: Technical Session 9 - Sampling,technical session 9,T9,,,79
+"Fri, Aug 1 09:00–10:30",Track E: Technical Session 14 - Markov Chain Monte Carlo,technical session 14,T14,,,80
+"Fri, Aug 1 10:30-11",Coffee Break,,,,,81
+"Fri, Aug 1 11:00-12:00",Plenary Talk by Veronika Rockova,veronika rockova,P8,,,82
+"Fri, Aug 1 12:00-12:15",Closing Remarks,,,,,83

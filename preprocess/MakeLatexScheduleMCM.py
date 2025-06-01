@@ -11,12 +11,13 @@ if __name__ == '__main__':
     #a slot is a spot in the schedule where we have parallel sessions
     #we have 8 slots in the schedule, so this vector would have 8 components
     ##INPUT NEEDED HERE
-    NbParallel = [4,4,4,4,4,4,4,4]
+    N = 8 # number of talks
+    NbParallel = [4]*N
     #order of the plenary talks: need to have for each a file Plxx.tex
     PrintPlenary = True #set to true when ready with files
     ##INPUT NEEDED HERE
     #PlSched = ["Kr","Fo","Ow","Ol","Oa","Ku","Go","La","30"]
-    PlSched = [str(i) for i in range(1, 9)]
+    PlSched = [str(i) for i in range(1, N+1)]
     rows = []
     SessionNumber = 0
     SlotNumber = 0
@@ -33,9 +34,15 @@ if __name__ == '__main__':
     #time ordered by "room number", e.g., columns in the schedule
     ##################IMPORTANT
     #open MCM2025Data on the sheet ChronTalkList.csv
-    with open(f"{indir}SessionList.csv", 'r') as file:
+    with open(f"{outdir}SessionList.csv", 'r') as file:
         reader= csv.reader(file, delimiter=',')
         NbSession = NbParallel[SlotNumber]
+        # skip first line (header)
+        next(reader, None)
+
+        # write \chapter{Schedule} to output tex file
+        print("\\chapter{Schedule}\n",file=fsched)
+        print("\\begin{center}", file=fsched)
         
         #loop reads line by line, where val represents current line
         #each line represents a session
@@ -44,7 +51,7 @@ if __name__ == '__main__':
             if(NewSlot):
                 if(NbTalkListed>0):
                     print("\\\\\\hline\n",file=fsched)
-                    if(SlotNumber%2==1 and SlotNumber<9):
+                    if(SlotNumber%2==1 and SlotNumber<N):
                         print("\\TableEvent{12:30 -- 14:00}{Lunch}\\\\\n",file=fsched)
                     if(SlotNumber==2):   
                         print("\\TableEvent{18:00 -- 19:30}{Reception}\\\\\n",file=fsched)
@@ -53,9 +60,7 @@ if __name__ == '__main__':
                         print("\\TableEvent{18:30 -- 21:00}{Banquet (Engineering 7 (E7) Building); Doors open at 18:00}\\\\\n",file=fsched)
                     print("\\end{tabularx}\n",file=fsched)
                     print("\\end{sideways}\n",file=fsched)
-                
-                    #if PrintPlenary:
-                    #    print(
+
                 try:
                     myplen="\\input{P"+PlSched[SlotNumber]+".tex}"   
                 except Exception as e:
@@ -64,12 +69,13 @@ if __name__ == '__main__':
                 if(SlotNumber%2==0):
                     print("\\hspace*{-1.2cm}",file=fsched)
                 print("\\begin{sideways}\\small\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",file=fsched)
+               
                 print("\\TableHeading{",val[7],"}",file=fsched)
                 print("\\\\\\hline\n",myplen,file=fsched)
                 if(SlotNumber%2==0):
-                    print("\\TableEvent{10:00 -- 10:30}{Coffee break -- STC lower level atrium}\\\\",file=fsched)
+                    print("\\TableEvent{10:00 -- 10:30}{Coffee break }\\\\",file=fsched)
                 else:
-                    print("\\TableEvent{15:00 -- 15:30}{Coffee break -- STC lower level atrium}\\\\",file=fsched)
+                    print("\\TableEvent{15:00 -- 15:30}{Coffee break }\\\\",file=fsched)
                 print("\\rowcolor{\\SessionTitleColor}\\cellcolor{\EmptyColor}",file=fsched)
 
             #val[2] is 1 if special session and 0 otherwise

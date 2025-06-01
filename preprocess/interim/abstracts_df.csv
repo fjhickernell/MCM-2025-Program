@@ -56,7 +56,6 @@ stochastic computation and complexity part iv,steinicke,S12,"Track F: Stochastic
 nested expectations models and estimators part ii,guth,S24,"Track C: Nested expectations: models and estimators, Part II"
 domain uncertainty quantification,hakula,S2,Track B: Domain Uncertainty Quantification
 stochastic computation and complexity part ii,gnewuch,S5,"Track F: Stochastic Computation and Complexity, Part II"
-stochastic computation and complexity part ii,plaskota,S5,"Track F: Stochastic Computation and Complexity, Part II"
 nested expectations models and estimators part i,hoang,S3,"Track C: Nested expectations: models and estimators, Part I"
 next generation optimal experimental design theory scalability and real world impact part i,corenflos,S9,"Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I"
 analysis of langevin and related sampling algorithms part i,cheng,S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I"
@@ -87,4 +86,8 @@ heavy tailed sampling,milinanni,S10,Track C: Heavy-tailed Sampling
 analysis of langevin and related sampling algorithms part i,whalley,S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I"
 stochastic computation and complexity,pozharska,,
 monte carlo applications in high performance computing computer graphics and computational science,song,S21,"Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science"
+heavy tailed sampling,wang,S10,Track C: Heavy-tailed Sampling
+advances in rare events simulation,amar,S14,Track H: Advances in Rare Events Simulation
+stochastic computation and complexity,plaskota,,
+statistical design of experiments,xiao,S17,Track B: Statistical Design of Experiments
 recent advances in stochastic gradient descent,dong,S27,Track H: Recent Advances in Stochastic Gradient Descent

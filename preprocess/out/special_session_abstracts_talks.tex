@@ -402,24 +402,6 @@ The talk is based on the preprint [1] and the master thesis of my student Yannic
 \end{talk}
 
 \begin{talk}
-  {Complexity of approximating piecewise smooth functions in the presence of deterministic or random noise}% [1] talk title
-  {Leszek Plaskota}% [2] speaker name
-  {University of Warsaw}% [3] affiliations
-  {L.Plaskota@mimuw.edu.pl}% [4] email
-  {Stochastic Computation and Complexity}% [5] coauthors
-  {}% [6] special session
-  {Mon, Jul 28 15:30–17:30}% [7] time slot
-  {S5-4}% [8] talk id
-  {S5}% [9] session id or photo
-				
-			
-Consider the smoothness class of $1$-periodic functions $f:\mathbb R\to\mathbb R$ for which 
-$$|f^{(r)}(x)-f^{(r)}(y)|\le |x-y|^\rho,\quad x,y\in\mathbb R,$$ 
-where $r\in\{0,1,2,\ldots\}$ and $0<\rho\le 1.$ It is well known that the optimal worst case error of $L^p$-approximation ($1\le p\le\infty$) of such functions that can be achieved from $n$ exact evaluations of $f$ is proportional to $e_n=n^{-(r+\rho)}.$ Less obvious is what happens when the functions are piecewise smooth only with unknown break points. Even less obvious is the situation when the function values are additionally corrupted by some noise, i.e., when evaluating the value of $f$ at $x$ we obtain $y=f(x)+\xi$ where $|\xi|\le\delta$ (determnistic noise) or $\xi$ is a zero-mean random variable of variance $\sigma^2$ (random noise). In this talk we construct an algorithm which despite the presence of noise and break points achieves the worst case $L^p$-error still proportional to $e_n$ provided the noise level $\delta$ or $\sigma$ is of the same order $e_n$ (exept the case of $p=\infty$ and random noise where we have an additional logarithmic factor in the error). The algorithm uses divided differences and special adaptive extrapolation technique to locate the break points and approximate in their neighborhoods. 
-
-\end{talk}
-
-\begin{talk}
   {Stability of Expected Utility in Bayesian Optimal Experimental Design}% [1] talk title
   {Tapio Helin}% [2] speaker name
   {LUT University}% [3] affiliations
@@ -784,6 +766,33 @@ In this talk we will consider Markov chains generated via MCMC methods of Metrop
 \end{talk}
 
 \begin{talk}
+  {Sharp Characterization and Control of Global Dynamics of SGDs with Heavy Tails}% [1] talk title
+  {Xingyu Wang}% [2] speaker name
+  {University of Amsterdam}% [3] affiliations
+  {x.wang4@uva.nl}% [4] email
+  {Chang-Han Rhee, Sewoong Oh}% [5] coauthors
+  {Heavy tailed sampling}% [6] special session
+  {Tue, Jul 29 10:30–12:30}% [7] time slot
+  {S10-4}% [8] talk id
+  {S10}% [9] session id or photo
+				
+			
+The empirical success of deep learning is often attributed to the mysterious ability of stochastic gradient descents (SGDs) to avoid sharp local minima in the loss landscape, as sharp minima are believed to lead to poor generalization. To unravel this mystery and potentially further enhance such capability of SGDs, it is imperative to go beyond the traditional local convergence analysis and obtain a comprehensive understanding of SGDs' global dynamics within complex non-convex loss landscapes. In this talk, we characterize the global dynamics of SGDs through the heavy-tailed large deviations and local stability framework. This framework systematically characterizes the rare events in heavy-tailed dynamical systems; building on this, we characterize intricate phase transitions in the first exit times, which leads to the heavy-tailed counterparts of the classical Freidlin-Wentzell and Eyring-Kramers theories. Moreover, applying this framework to SGD, we reveal a fascinating phenomenon in deep learning: by injecting and then truncating heavy-tailed noises during the training phase, SGD can almost completely avoid sharp minima and hence achieve better generalization performance for the test data.
+
+% \medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
   {Enhancing Gaussian Process Surrogates for Optimization and Posterior Approximation via Random Exploration}% [1] talk title
   {Hwanwoo Kim}% [2] speaker name
   {Duke University}% [3] affiliations
@@ -1010,6 +1019,23 @@ We illustrate this setting through several examples, and numerical results compl
 \end{talk}
 
 \begin{talk}
+  {Importance Sampling Methods with Stochastic Differential Equations for the Estimation of the Right Tail of the CCDF of the Fade Duration}% [1] talk title
+  {Eya Ben Amar}% [2] speaker name
+  {King Abdullah University of Science and Technology}% [3] affiliations
+  {eya.benamar@kaust.edu.sa}% [4] email
+  {Nadhir Ben Rached, Ra\'ul Tempone, and Mohamed-Slim Alouini}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 15:30–17:30}% [7] time slot
+  {S14-3}% [8] talk id
+  {S14}% [9] session id or photo
+  
+				
+In this work, we explore using stochastic differential equations (SDEs) to study the performance of wireless communication systems. Particularly, we investigate the fade duration metric, representing the time during which the signal remains below a specified threshold within a fixed time interval. We estimate the complementary cumulative distribution function (CCDF) of the fade duration using Monte Carlo simulations. We propose an optimal importance sampling (IS) estimator that provides accurate estimates of the CCDF tail, corresponding to rare event probabilities, at a significantly reduced computational cost. Additionally, we introduce a novel multilevel Monte Carlo method combined with IS and discuss its efficiency in further reducing the computational cost of the IS estimator.
+\medskip
+
+\end{talk}
+
+\begin{talk}
   {Estimating rare event probabilities associated with McKean--Vlasov SDEs}% [1] talk title
   {Shyam Mohan Subbiah Pillai}% [2] speaker name
   {RWTH Aachen University, Germany}% [3] affiliations
@@ -1194,6 +1220,23 @@ Gaussian process (GP) surrogate models are widely used for emulating expensive c
 				
 			
 In an era where scientific experiments can be very costly, multi-fidelity emulators provide a useful tool for cost-efficient predictive scientific computing. For scientific applications, the experimenter is often limited by a tight computational budget, and thus wishes to (i) maximize predictive power of the multi-fidelity emulator via a careful design of experiments, and (ii) ensure this model achieves a desired error tolerance with some notion of confidence. Existing design methods, however, do not jointly tackle objectives (i) and (ii). We propose a novel stacking design approach that addresses both goals. A  multi-level reproducing kernel Hilbert space (RKHS) interpolator is first introduced to build the emulator, under which our stacking design provides a sequential approach for designing multi-fidelity runs such that a desired prediction error of $\epsilon > 0$ is met under regularity assumptions. We then prove a novel cost complexity theorem that, under this multi-level interpolator, establishes a bound on the computation cost (for training data simulation) needed to achieve a prediction bound of $\epsilon$. This result provides novel insights on conditions under which the proposed multi-fidelity approach improves upon a conventional RKHS interpolator which relies on a single fidelity level. Finally, we demonstrate the effectiveness of stacking designs in a suite of simulation experiments and an application to finite element analysis.
+
+\end{talk}
+
+\begin{talk}
+  {Optimal design of experiments with quantitative-sequence factors}% [1] talk title
+  {Qian Xiao}% [2] speaker name
+  {Shanghai Jiao Tong University}% [3] affiliations
+  {qian.xiao@sjtu.edu.cn}% [4] email
+  {Yaping Wang, Sixu Liu}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 10:30–12:30}% [7] time slot
+  {S17-3}% [8] talk id
+  {S17}% [9] session id or photo
+  
+				
+			
+A new type of experiments with joint considerations of quantitative and sequence factors are recently drawing much attention in medical science, bio-engineering and many other disciplines. The input spaces of such experiments are semi-discrete and often very large. Thus, efficient and economic experimental designs are required. Based on the transformations and aggregations of good lattice point sets, we construct a new class of optimal quantitative-sequence (QS) designs which are marginally coupled, pair-balanced, space-filling and asymptotically orthogonal. The proposed QS designs have certain flexibility in run and factor sizes, and are especially appealing for high-dimensional cases.
 
 \end{talk}
 
@@ -2065,29 +2108,6 @@ Volume 515, 15 October 2024, 113265.
 \end{enumerate}
 
 %Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
-\end{talk}
-
-\begin{talk}
-  {Quasi-Monte Carlo Generators, Randomization Routines, and Fast Kernel Methods}% [1] talk title
-  {Aleksei G Sorokin}% [2] speaker name
-  {Illinois Institute of Technology, Department of Applied Mathematics. \\ Sandia National Laboratories.}% [3] affiliations
-  {asorokin@hawk.iit.edu}% [4] email
-  {}% [5] coauthors
-  {}% [6] special session
-  {Fri, Aug 1 09:00–10:30}% [7] time slot
-  {S29-1}% [8] talk id
-  {S29}% [9] session id or photo
-  {}% [5] coauthors
-  
-				
-			
-        This talk will highlight recent improvements to the QMCPy Python package: a unified library for Quasi-Monte Carlo methods and computations related to low discrepancy sequences. We will describe routines for low discrepancy point set generation, randomization, and application to fast kernel methods. Specifically, we will discuss generators for lattices, digital nets, and Halton point sets with randomizations including random permutations / shifts, linear matrix scrambling, and nested uniform scrambling. Routines for working with higher-order digital nets and scramblings will also be detailed. For kernel methods, we provide implementations of special shift-invariant and digitally-shift invariant kernels along with fast Gram matrix operations facilitated by the bit-reversed Fast Fourier Transform (FFT), the bit-reversed inverse FFT (IFFT), and the Fast Walsh Hadamard Transform (FWHT). We will also describe methods to quickly update the matrix-vector product or linear system solution after doubling the number of points in a lattice or digital net in natural order. Generalizations to fast Gaussian process regression with derivative information will be discussed if time permits. 
-\medskip
-
-\begin{enumerate}
-	\item[{[1]}] Sorokin, A. (2025). A Unified Implementation of Quasi-Monte Carlo Generators, Randomization Routines, and Fast Kernel Methods. arXiv preprint arXiv:2502.14256.
-\end{enumerate}
-
 \end{talk}
 
 \begin{talk}
