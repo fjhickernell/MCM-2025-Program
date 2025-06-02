@@ -176,6 +176,44 @@ The new results on the associated Steklov eigenvalue problem are also covered.
 \end{talk}
 
 \begin{talk}
+  {An Adaptive Sampling Algorithm for Level-set Approximation}% [1] talk title
+  {Abdul-Latefe Haji-Ali}% [2] speaker name
+  {Heriot-Watt University}% [3] affiliations
+  {a.hajiali@hw.ac.uk}% [4] email
+  {Matteo Croci and Ian CJ Powell}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 10:30–12:30}% [7] time slot
+  {S3-1}% [8] talk id
+  {S3}% [9] session id or photo
+  {}% [6] special session. Leave this field empty for contributed talks.
+				
+
+  Let $D\subset\joinrel\subset\rm{I\!R}$$^d$ be a $d$-dimensional domain with compact
+closure. We consider the approximation of the $d-1$ dimensional zero level-set
+$\mathcal{L}_0 := \{x \in \overline{D} : f(x) = 0\}$ where the Lipschitz function $f$ is either
+accessible directly or when $f(x) = \mathbb{E}$$\left[\tilde{f}(x)\right]$ for
+all $x \in \overline{D}$. Given an approximation scheme with a priori error bounds
+and $L^p$ bounds on the $\tilde{f}$-approximation error, we propose a
+grid-based adaptive sampling scheme which produces an approximation to $\mathcal{L}_0$
+with expected cost-complexity reduction of $\varepsilon^{\left(\frac{p+1}{\alpha p}\right)}$
+compared to a non-adaptive scheme, where $\alpha$ is the known convergence rate of
+an interpolation scheme. We provide the numerical analysis and experiments to
+show that these rates hold in practice.
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
   {Double-loop randomized quasi-Monte Carlo estimator for nested integration}% [1] talk title
   {Sebastian Krumscheid}% [2] speaker name
   {Karlsruhe Institute of Technology}% [3] affiliations
@@ -398,6 +436,24 @@ The talk is based on the preprint [1] and the master thesis of my student Yannic
 	\item[{[1]}] M. Gnewuch, J. Dick, L. Markhasin, W. Sickel, QMC integration based on arbitrary $(t,m,s)$-nets yields optimal convergence rates on several scales of function spaces, preprint 2024, arXiv:2409.12879. 
         \item[{[2]}] S. Heinrich, F. J. Hickernell and R. X. Yue, Optimal quadrature for Haar wavelet spaces, Math. Comput., 73 (2004), 259–277.
 	\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Complexity of approximating piecewise smooth functions in the presence of deterministic or random noise}% [1] talk title
+  {Leszek Plaskota}% [2] speaker name
+  {University of Warsaw}% [3] affiliations
+  {L.Plaskota@mimuw.edu.pl}% [4] email
+  {Stochastic Computation and Complexity}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 15:30–17:30}% [7] time slot
+  {S5-4}% [8] talk id
+  {S5}% [9] session id or photo
+				
+			
+Consider the smoothness class of $1$-periodic functions $f:\mathbb R\to\mathbb R$ for which 
+$$|f^{(r)}(x)-f^{(r)}(y)|\le |x-y|^\rho,\quad x,y\in\mathbb R,$$ 
+where $r\in\{0,1,2,\ldots\}$ and $0<\rho\le 1.$ It is well known that the optimal worst case error of $L^p$-approximation ($1\le p\le\infty$) of such functions that can be achieved from $n$ exact evaluations of $f$ is proportional to $e_n=n^{-(r+\rho)}.$ Less obvious is what happens when the functions are piecewise smooth only with unknown break points. Even less obvious is the situation when the function values are additionally corrupted by some noise, i.e., when evaluating the value of $f$ at $x$ we obtain $y=f(x)+\xi$ where $|\xi|\le\delta$ (determnistic noise) or $\xi$ is a zero-mean random variable of variance $\sigma^2$ (random noise). In this talk we construct an algorithm which despite the presence of noise and break points achieves the worst case $L^p$-error still proportional to $e_n$ provided the noise level $\delta$ or $\sigma$ is of the same order $e_n$ (exept the case of $p=\infty$ and random noise where we have an additional logarithmic factor in the error). The algorithm uses divided differences and special adaptive extrapolation technique to locate the break points and approximate in their neighborhoods. 
 
 \end{talk}
 
@@ -662,6 +718,50 @@ Super-polynomial accuracy of multidimensional randomized nets using
 	\item[{[1]}] Bruno, Stefano \& Sabanis, Sotirios (2025). {\it Wasserstein Convergence of Score-based Generative Models under Semiconvexity and Discontinuous Gradients}. ArXiv.
 \end{enumerate}
 
+
+\end{talk}
+
+\begin{talk}
+  {Optimal Pilot Sampling for Multi-fidelity Monte Carlo Methods}% [1] talk title
+  {Xun Huan}% [2] speaker name
+  {University of Michigan, Department of Mechanical Engineering}% [3] affiliations
+  {xhuan@umich.edu}% [4] email
+  {Thomas Coons, Aniket Jivani}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 10:30–12:30}% [7] time slot
+  {S9-1}% [8] talk id
+  {S9}% [9] session id or photo
+  
+				
+
+Bayesian optimal experimental design (OED) aims to maximize an expected utility, often chosen to be the expected information gain (EIG), over a given design space. Estimating EIG typically relies on Monte Carlo methods, which requires repeated evaluations of a computational model simulating the experimental process. 
+However, when the model is expensive to evaluate, standard Monte Carlo becomes impractical.
+%When performing forward uncertainty quantification (UQ) of a computationally intensive mathematical model, traditional sampling methods such as Monte Carlo can be prohibitively expensive. 
+
+Multi-fidelity variants of Monte Carlo, such as Approximate Control Variate (ACV) estimators, can significantly expedite such estimations by leveraging an ensemble of low-fidelity models that approximate the high-fidelity model with varying degrees of accuracy and cost. 
+To apply these techniques in an error-optimal manner, the covariance matrix across model outputs must be estimated from independent pilot model evaluations. This step incurs a significant but often overlooked computational cost. 
+Furthermore, the optimal allocation of computational resources between 
+%the model evaluations needed for 
+covariance estimation and 
+%the model evaluations needed for 
+ACV estimation remains an open problem.  Existing approaches fail to accommodate optimal estimators and may not be accurate with small pilot sample sizes.
+
+In this work, we introduce a novel framework for dynamically allocating resources between these two tasks.
+%prescribing the budget allocation between covariance estimation and ACV evaluation that 
+Our method employs Bayesian inference
+to quantify uncertainty in the covariance matrix and derives an adaptive expected loss metric
+%that is adaptively estimated and minimized as pilot samples are drawn, informing the user when 
+to determine when to terminate pilot sampling. 
+We demonstrate and analyze our framework through a benchmark nonlinear OED problem. 
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files. APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+%\end{enumerate}
 
 \end{talk}
 
@@ -1177,6 +1277,33 @@ Journal of Complexity 18, 1--50.
 the role of adaption  II. Sobolev spaces. Journal of Complexity 82, 101823.
 \end{enumerate}
 
+\end{talk}
+
+\begin{talk}
+  {Quantum Integration in Tensor Product  Besov Spaces}% [1] talk title
+  {Bernd Käßemodel}% [2] speaker name
+  {Faculty of Mathematics, Technische Universität Chemnitz}% [3] affiliations
+  {bernd.kaessemodel@mathematik.tu-chemnitz.de}% [4] email
+  {Tino Ullrich}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session
+  {Wed, Jul 30 10:30–12:30}% [7] time slot
+  {S16-2}% [8] talk id
+  {S16}% [9] session id or photo
+				
+
+We begin with a brief introduction to the basic concepts of quantum computing and quantum information-based complexity for multivariate integration and approximation problems in various smoothness classes. We then discuss characterizations of functions in tensor product Besov spaces (mixed smoothness) using the tensorized Faber-Cieselski basis with coefficients based on mixed iterated differences. Relying on such a decomposition we develop a quantum algorithm to establish bounds for the worst case quantum integration error for this function class. 
+
+\medskip
+%
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+%
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
 
 \begin{talk}
