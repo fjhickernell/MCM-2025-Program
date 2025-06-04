@@ -1,5 +1,5 @@
 SessionID,SessionTitle,IsSpecialSession,Organizer1,Organizer2,Organizer3,Chair,SessionTime,Room,OrderInSchedule
-P1,Plenary Talk by Matt Pharr,0,,,,,"Mon, Jul 28 09:00–10:00",,1
+P1,Plenary Talk by TBD,0,,,,,"Mon, Jul 28 09:00–10:00",,1
 S1,"Track A: Stochastic Computation and Complexity, Part I",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,,"Mon, Jul 28 10:30–12:30",,2
 S2,Track B: Domain Uncertainty Quantification,1,André-Alexander Zepernick,Philipp Guth,Vesa Kaarnioja,,"Mon, Jul 28 10:30–12:30",,3
 S3,"Track C: Nested expectations: models and estimators, Part I",1,Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,,"Mon, Jul 28 10:30–12:30",,4

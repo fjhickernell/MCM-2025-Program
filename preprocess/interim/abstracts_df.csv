@@ -44,7 +44,6 @@ domain uncertainty quantification,hanckes,S2,Track B: Domain Uncertainty Quantif
 recent progress on algorithmic discrepancy theory and applications,jiang,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
 nested expectations models and estimators part i,kaarnioja,S3,"Track C: Nested expectations: models and estimators, Part I"
 stochastic computation and complexity part v,käßemodel,S16,"Track A: Stochastic Computation and Complexity, Part V"
-frontiers in quasi monte carlo and markov chain monte carlo methods part i,kim,S11,"Track D: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I"
 computational methods for low discrepancy sampling and applications,kirk,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
 recent advances in optimization under uncertainty,koval,S6,Track G: Recent advances in optimization under uncertainty
 hardware or software for quasi monte carlo algorithms part ii,krotz,S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
@@ -93,3 +92,4 @@ domain uncertainty quantification,zepernick,S2,Track B: Domain Uncertainty Quant
 recent progress on algorithmic discrepancy theory and applications,zhang,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
 frontiers in quasi monte carlo and markov chain monte carlo methods part ii,zhong,S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
 analysis of langevin and related sampling algorithms part ii,zhou,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
+frontiers in quasi monte carlo and markov chain monte carlo methods,kim,,
