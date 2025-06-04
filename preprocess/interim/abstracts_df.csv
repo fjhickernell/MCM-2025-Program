@@ -64,10 +64,10 @@ recent progress on algorithmic discrepancy theory and applications,nikolov,S20,T
 frontiers in quasi monte carlo and markov chain monte carlo methods part ii,niu,S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
 qmc and applications part ii,nuyens,S25,Track F: QMC and Applications Part II
 analysis of langevin and related sampling algorithms part ii,oberdörster,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
-qmc and applications,owen,,
+qmc and applications part ii,owen,S25,Track F: QMC and Applications Part II
 qmc and applications part ii,pan,S25,Track F: QMC and Applications Part II
 stochastic computation and complexity part ii,plaskota,S5,"Track F: Stochastic Computation and Complexity, Part II"
-stochastic computation and complexity,pozharska,,
+stochastic computation and complexity part ii,pozharska,S5,"Track F: Stochastic Computation and Complexity, Part II"
 forward and inverse problems for stochastic reaction networks,rathinam,S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks
 stochastic computation and complexity part i,rauhögger,S1,"Track A: Stochastic Computation and Complexity, Part I"
 nested expectations models and estimators part ii,raviola,S24,"Track C: Nested expectations: models and estimators, Part II"
@@ -77,7 +77,7 @@ stochastic computation and complexity part i,schwarz,S1,"Track A: Stochastic Com
 computational methods for low discrepancy sampling and applications,seljak,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
 monte carlo applications in high performance computing computer graphics and computational science,song,S21,"Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science"
 hardware or software for quasi monte carlo algorithms part ii,sorokin,S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
-stochastic computation and complexity,steinicke,,
+stochastic computation and complexity part iv,steinicke,S12,"Track F: Stochastic Computation and Complexity, Part IV"
 advances in rare events simulation,pillai,S14,Track H: Advances in Rare Events Simulation
 statistical design of experiments,sung,S17,Track B: Statistical Design of Experiments
 qmc and applications part ii,suzuki,S25,Track F: QMC and Applications Part II
@@ -92,3 +92,4 @@ stochastic computation and complexity part iv,yaroslavtseva,S12,"Track F: Stocha
 domain uncertainty quantification,zepernick,S2,Track B: Domain Uncertainty Quantification
 recent progress on algorithmic discrepancy theory and applications,zhang,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
 frontiers in quasi monte carlo and markov chain monte carlo methods part ii,zhong,S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
+analysis of langevin and related sampling algorithms part ii,zhou,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
