@@ -67,4 +67,6 @@ pgm: cleanpdf    # brew install pdftk-java
 	/opt/homebrew/bin/pdftk MCM2025_book.pdf cat 10-11 output MCM2025_schedule1sheet.pdf && \
 	/opt/homebrew/bin/pdftk MCM2025_book.pdf cat 10-20 output MCM2025_schedule.pdf && \
 	open MCM2025_Book.pdf && \
+	open MCM2025_schedule1sheet.pdf && \
+	open MCM2025_schedule.pdf && \
 	cd ..
