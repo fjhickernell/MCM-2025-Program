@@ -146,12 +146,14 @@ def process_special_session_abstracts(df):
     # Check for duplicates
     dupes = df[df.duplicated(subset=presenter_cols, keep=False)]
     if not dupes.empty:
-        print(f"\nWARNING: {dupes.shape[0]} duplicated records in special session abstracts --- will be deduplicated by keeping last records:\n")
+        print(f"\nWARNING: {dupes.shape[0]} duplicated records in special session abstracts --- will be deduplicated by keeping last records.\n")
         #print(dupes[presenter_cols])
     
-    print("\nWARN: Special talks that are not accepted:\n")
-    not_accepted = df.loc[df["Include"].str.lower() != "yes", [*presenter_cols, "Include"]]
-    if not_accepted.shape[0]>0: print(not_accepted)
+    not_accepted = df.loc[df["Include"].str.lower() != "yes", [presenter_cols[-1], "Include"]]
+    
+    if not_accepted.shape[0]>0:  
+        print(f"\nWARN: {not_accepted.shape[0]} special talks are not accepted (Include = No)\n")
+    #   print(not_accepted)
 
     # Deduplicate by presenter name
     df = df.drop_duplicates(subset=presenter_cols, keep="last")
@@ -198,7 +200,7 @@ def process_contributed_talks(df):
     
     presenter_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
     print("\nWARN: Contributed talks that are not accepted:\n")
-    not_accepted = df.loc[df["Acceptance"].str.lower() != "yes", [*presenter_cols, "Acceptance"]]
+    not_accepted = df.loc[df["Acceptance"].str.lower() != "yes", [presenter_cols[-1], "Acceptance"]].sort_values("Acceptance")
     if not_accepted.shape[0]>0: print(not_accepted)
     
     # Filter by acceptance status
@@ -243,13 +245,13 @@ def add_sessions_join_keys(dfs):
             tmp_df["join_key"] = (
                 tmp_df["join_key"]
                 .str.replace(r'[-():,.]', ' ', regex=True)  # Replace special chars with space
-                .str.replace(r'\s+', ' ', regex=True)      # Collapse multiple spaces
-                .str.strip()                               # Remove leading/trailing space
+                .str.replace(r'\s+', ' ', regex=True)       # Collapse multiple spaces
+                .str.strip()                                # Remove leading/trailing space
             )
             dfs[key] = tmp_df
 
             # print ERROR if any value in the column join_key of df is empty or contains invalid values in column `SESSION`
-            invalid_mask = tmp_df["join_key"].isna() | tmp_df["join_key"].str.contains(r"add to shane|//", case=False, na=False)
+            invalid_mask = tmp_df["join_key"].isna() | tmp_df["join_key"].str.contains(r"add to shane|//", case=False, na=False) | (tmp_df["join_key"] == "")
             invalid_rows = tmp_df[invalid_mask]
             if not invalid_rows.empty:
                 print(f"\nERROR: SESSION or join_key column in {key} contains invalid values like 'add to shane', '//'")
