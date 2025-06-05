@@ -1,0 +1,104 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl,verbatim}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newcommand{\organizer}[3]{%
+	{\textit{#1}}\\\nopagebreak%
+	#2\\\nopagebreak%
+	\url{#3}\vspace{3mm}\\\nopagebreak%
+	}
+
+\newenvironment{session}[5] % [1] session title
+							% [2] number of organizers
+                            % [3] organizer 1 info
+                            % [4] organizer 2 info
+                            % [5] organizer 3 info
+                            % [6] session id for later
+ {%\needspace{6\baselineskip}
+  \vskip 0pt\nopagebreak%
+  %\label{#5}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
+  \vspace{2mm}\\\nopagebreak%
+  #3
+  \ifthenelse{\equal{#2}{2}}{#4}{}%
+  \ifthenelse{\equal{#2}{3}}{#4#5}{}%
+  \quad\\\nopagebreak%
+  %Session Description:\vspace{3mm}\\\nopagebreak%
+ }
+ {\nopagebreak}%
+
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+%Input the relevant information below
+\begin{session}
+  {Advances in Adaptive Hamiltonian Monte Carlo}% [1] session title
+  {1} %[2]  number of organizers
+  {\organizer{Art B. Owen}% organizer one name
+    {Stanford University}% organizer one affiliations
+    {owen@stanford.edu}}% organizer one email
+  {\organizer{}% organizer two name, if needed
+	{}% organizer two affiliations, if needed
+	{}}% organizer two email
+  {\organizer{}% organizer three name
+	{}% organizer three affiliations
+	{}}% organizer three email
+
+
+Hamiltonian Monte Carlo (HMC) is one of the most effective tools for high-dimensional Markov chain Monte Carlo. It is the default algorithm used in probabilistic programming languages for Bayesian computation, including \texttt{Stan} [2], \texttt{PyMC} and \texttt{NumPyro} (Python), and \texttt{Turing.jl} (Julia).  While HMC handles some of the most difficult MCMC problems, it does so through the use of several tuning parameters, which can be challenging to set. 
+
+Significant progress came from the no-U-turn sampler (NUTS) [3] and apogee-to-apogee path sampler [7], both of which dynamically adapt path lengths. More recent progress includes delayed rejection HMC [5], which locally adapts step sizes, and 
+Gibbs self tuning (GIST) [1], which treats tuning parameters as random variables to maintain detailed balance.  Chirag Modi's ATLAS [5] leverages local Hessians, delayed rejection, and GIST.  AutoStep MCMC [4] adapts step sizes locally to match the variable geometry of target distributions.
+
+The speakers, in tentative order, will be: \\[-5ex]
+\begin{itemize}
+    \item Bob Carpenter, Center for Computational Mathematics, Flatiron Institute. \\[-4ex]
+    \item Nawaf Bou-Rabee, Department of Mathematical Sciences, Rutgers University. \\[-4ex]
+    \item Chirag Modi, Center for Cosmology and Particle Physics, Department of Physics, New York University. \\[-4ex]
+    \item Trevor Campbell, University of British Columbia.\\[-4ex]
+\end{itemize}
+
+Bob Carpenter will provide an introduction to HMC, NUTS, and GIST for non-specialists. Nawaf Bou-Rabee will elaborate on GIST. Chirag Modi will discuss delayed rejection and ATLAS. Trevor Campbell will present AutoStep and related methods.
+
+
+\medskip
+{\bf\large References}\\[-5ex]
+\begin{description}
+\item{[1]} Bou-Rabee, B. Carpenter, and M. Marsden. GIST: Gibbs self-tuning for locally adaptive HMC. arXiv:2404.15253, 2024.
+
+\item{[2]} Carpenter, B. et al. 2017. Stan: A probabilistic programming language. \textit{J. Stat. Soft.},~76
+
+\item{[3]} Hoffman, M.~D.\ and Gelman, A. 2014. The no-U-turn sampler: Adaptively setting path lengths in HMC. \textit{J. Mach. Learn. Res.}, 15(1).
+  
+\item{[4]} Liu, T., Campbell, T., et al. 2024. AutoStep: Locally adaptive involutive MCMC. arXiv:2410.18929, 2024.
+
+\item{[5]} Modi, C. 2024. ATLAS: Adapting trajectory lengths and step-size for HMC. arXiv:2410.21587
+
+\item{[6]} Modi, C., Barnett, A. and Carpenter, B. 2024. Delayed rejection Hamiltonian Monte Carlo for sampling multiscale distributions. \textit{Bayesian Analysis}, 19(3), 2024.
+
+\item{[7]} Sherlock, C., Urbas, S. and Ludkin, M. 2023. The apogee to apogee path sampler. \textit{JCGS}, 32(4).
+\end{description}
+
+\end{session}
+
+\end{document}

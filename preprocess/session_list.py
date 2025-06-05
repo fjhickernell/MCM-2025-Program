@@ -48,8 +48,8 @@ def _create_session_talk_df(session_df: pd.DataFrame) -> List[Tuple[Tuple[str, s
     talk_id_df["join_key"] = (
         talk_id_df["join_key"]
         .str.replace(r'[-():,.]', ' ', regex=True)  # Replace special chars with space
-        .str.replace(r'\s+', ' ', regex=True)      # Collapse multiple spaces
-        .str.strip()                               # Remove leading/trailing space
+        .str.replace(r'\s+', ' ', regex=True)       # Collapse multiple spaces
+        .str.strip()                                # Remove leading/trailing space
     )
     # sort frames by "join_key", "Presenter"
     talk_id_df = talk_id_df.sort_values(by=["join_key", "PresenterLast"]).reset_index(drop=True)

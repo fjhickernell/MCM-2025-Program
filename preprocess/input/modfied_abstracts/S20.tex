@@ -1,0 +1,101 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newcommand{\organizer}[3]{%
+	{\textit{#1}}\\\nopagebreak%
+	#2\\\nopagebreak%
+	\url{#3}\vspace{3mm}\\\nopagebreak%
+	}
+
+\newenvironment{session}[5] % [1] session title
+							% [2] number of organizers
+                            % [3] organizer 1 info
+                            % [4] organizer 2 info
+                            % [5] organizer 3 info
+                            % [6] session id for later
+ {%\needspace{6\baselineskip}
+  \vskip 0pt\nopagebreak%
+  %\label{#5}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
+  \vspace{2mm}\\\nopagebreak%
+  #3
+  \ifthenelse{\equal{#2}{2}}{#4}{}%
+  \ifthenelse{\equal{#2}{3}}{#4#5}{}%
+  \quad\\\nopagebreak%
+  %Session Description:\vspace{3mm}\\\nopagebreak%
+ }
+ {\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+%Input the relevant information below
+\begin{session}
+  {Recent Progress on Algorithmic Discrepancy Theory and Applications}% [1] session title
+  {1} %[2]  number of organizers
+  {\organizer{Haotian Jiang}% organizer one name
+    {University of Chicago}% orgnizer one affiliations
+    {jhtdavid@uchicago.edu}}% organizer one email
+ %  {\organizer{Name two}% organizer two name, if needed
+	% {Affiliation(s) two}% orgnizer two affiliations, if needed
+	% {organizer-two-email-goes@here}}% organizer two email
+ %  {\organizer{Name three}% organizer one name
+	% {Affiliation(s) three}% orgnizer one affiliations
+	% {organizer-three-email-goes@here}}% organizer one email
+
+%Your special session abstract goes here, including the list of speakers and their affiliations. Please do not use your own commands or macros.
+
+Discrepancy theory studies the irregularities of distributions. Typical questions studied in discrepancy theory include: ``What is the most uniform way of distributing n points in the unit square, and how big must the irregularity be?", ``What is the best way to divide a set of $n$ objects into two groups that are as 'similar' as possible?" These questions have been studied since the 1930s and progress on them have found extensive applications to many areas of mathematics, computer science, statistics, finance, etc. 
+
+The past decade has seen tremendous progress in designing efficient algorithms for discrepancy questions. These developments have led to many surprising applications in areas such as differential privacy, graph sparsification, approximation algorithms and rounding, kernel density estimation, randomized controlled trials, and quasi-Monte Carlo methods. 
+
+The goal of this special session is to present several exciting recent progress in this direction, and to facilitate cross-fertilization across different areas. Tentative list of speakers:  
+\begin{enumerate}
+    \item Haotian Jiang. University of Chicago, USA. \texttt{jhtdavid@uchicago.edu}. 
+    \item Peng Zhang. Rutgers University, USA. \texttt{pz149@rutgers.edu}. 
+    \item Aleksandar Nikolov. University of Toronto. \texttt{anikolov@cs.toronto.edu}.
+\end{enumerate}
+
+\medskip
+
+
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+
+A few related recent papers in this direction are listed below. 
+
+\begin{enumerate}
+\item [{[1]}] Harshaw, Christopher, Fredrik Sävje, Daniel A. Spielman, and Peng Zhang (2024). {\it Balancing covariates in randomized experiments with the gram–schmidt walk design.} Journal of the American Statistical Association 119, no. 548 (2024): 2934-2946.
+\item[{[2]}] Bansal, Nikhil, and Haotian Jiang (2025). {\it Quasi-Monte Carlo Beyond Hardy-Krause.} In Proceedings of the 2025 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA), pp. 2051-2075. Society for Industrial and Applied Mathematics, 2025. 
+\item [{[3]}] Aistleitner, Christoph, Dmitriy Bilyk, and Aleksandar Nikolov (2016). {\it Tusnády’s problem, the transference principle, and non-uniform QMC sampling.} In Monte Carlo and Quasi-Monte Carlo Methods: MCQMC 2016, Stanford, CA, August 14-19 12, pp. 169-180. Springer International Publishing, 2018.
+	% \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+	% \item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+\end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+  
+\end{session}
+
+\end{document}
+

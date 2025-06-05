@@ -1,0 +1,95 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newcommand{\organizer}[3]{%
+	{\textit{#1}}\\\nopagebreak%
+	#2\\\nopagebreak%
+	\url{#3}\vspace{3mm}\\\nopagebreak%
+	}
+
+\newenvironment{session}[5] % [1] session title
+							% [2] number of organizers
+                            % [3] organizer 1 info
+                            % [4] organizer 2 info
+                            % [5] organizer 3 info
+                            % [6] session id for later
+ {%\needspace{6\baselineskip}
+  \vskip 0pt\nopagebreak%
+  %\label{#5}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
+  \vspace{2mm}\\\nopagebreak%
+  #3
+  \ifthenelse{\equal{#2}{2}}{#4}{}%
+  \ifthenelse{\equal{#2}{3}}{#4#5}{}%
+  \quad\\\nopagebreak%
+  %Session Description:\vspace{3mm}\\\nopagebreak%
+ }
+ {\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+%Input the relevant information below
+\begin{session}
+  {QMC and Applications Part II}% [1] session title
+  {3} %[2]  number of organizers
+  {\organizer{Michael Gnewuch}% organizer one name
+    {University of Osnabrück}% orgnizer one affiliations
+    {michael.gnewuch@uni-osnabrueck.de}}% organizer one email
+  {\organizer{Takashi Goda}% organizer two name, if needed
+	{The University of Tokyo}% orgnizer two affiliations, if needed
+	{goda@frcer.t.u-tokyo.ac.jp}}% organizer two email
+  {\organizer{Peter Kritzer}% organizer three name
+	{Austrian Academy of Sciences}% orgnizer three affiliations
+	{peter.kritzer@oeaw.ac.at}}% organizer three email
+
+%Your special session abstract goes here, including the list of speakers and their affiliations. Please do not use your own commands or macros.
+Quasi-Monte Carlo (QMC) methods have been widely studied as an effective tool for high-dimensional integration and have found applications in various fields, including computational finance, computer graphics, data compression, partial differential equations with random coefficients, and %recently also 
+optimization.
+Despite their success, ongoing theoretical developments and the expansion of application areas continue to drive this research field forward. This special session is devoted to showcasing recent advances in the theory of QMC methods and their applications.
+
+The confirmed speakers (in alphabetical order) are
+\begin{itemize}
+\item Dirk Nuyens (KU Leuven, Belgium) 
+\item Art Owen (Stanford University, USA)
+\item Zexin Pan (Austrian Academy of Sciences, Austria)
+\item Kosuke Suzuki (Yamagata University, Japan)
+\end{itemize}
+
+
+\iffalse
+If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+
+\begin{enumerate}
+	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+\end{enumerate}
+
+Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\fi 
+
+\end{session}
+
+\end{document}
+

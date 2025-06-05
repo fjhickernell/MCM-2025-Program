@@ -1,0 +1,58 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Subspace accelerated measure transport methods for fast and scalable sequential
+experimental design}% [1] talk title
+  {Karina Koval}% [2] speaker name
+  {Heidelberg University}% [3] affiliations
+  {karina.koval@iwr.uni-heidelberg.de}% [4] email
+  {Tiangang Cui, Roland Herzog, Robert Scheichl}% [5] coauthors
+  {Recent advances in optimization under uncertainty}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In this talk, we present a novel approach for sequential optimal experimental design (sOED) for Bayesian inverse problems governed by expensive forward models with large-dimensional unknown parameters. Our goal is to design experiments that maximize the expected information gain (EIG) from prior to posterior, a task that is computationally challenging. This task becomes more complex in sOED, where we must approximate the incremental expected information gain (iEIG) multiple times in distinct stages, often dealing with intractable prior and posterior distributions. To address this, we propose a derivative-based upper bound for iEIG that guides experimental design and enables parameter dimension reduction through likelihood-informed subspaces. By combining this approach with transport map surrogates for the sequence of posteriors, we develop a unified framework for parameter dimension-reduced sOED. We demonstrate the effectiveness of our approach with numerical examples inspired by groundwater flow and photoacoustic imaging.
+\end{talk}
+
+\end{document}
+

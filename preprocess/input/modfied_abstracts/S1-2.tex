@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+
+	\begin{talk}
+  {Quantitative Approximation of Stochastic Kinetic Equations: From Discrete to Continuum}% [1] talk title
+  {Chengcheng Ling}% [2] speaker name
+  {University of Augsburg}% [3] affiliations
+  {chengcheng.ling@uni-a.de}% [4] email
+  {}% [5] coauthors
+  {Stochastic Computation and Complexity, Part I}% [6] special session
+
+We study the strong convergence of a generic tamed Euler-Maruyama (EM) scheme for the kinetic type stochastic differential equation (SDE) (also known as second order SDE) driven by $\alpha$-stable type noise with $\alpha\in(1,2]$. We show that when the drift exhibits a relatively low regularity: anisotropic $\beta$-H\"older continuity with $\beta >1 - \frac{\alpha}{2}$, the corresponding tamed EM converges with a convergence rate $(\frac{1}{2} + \frac{\beta}{\alpha(1+\alpha)} \wedge \frac{1}{2})$, which aligns with the results of  first-order SDEs.
+
+
+This talk is based on the work arXiv:2409.05706 (joint with Zimo Hao and Khoa L\^e)  and the work arXiv:2412.05142.
+
+\medskip
+
+
+\end{talk}
+
+
+%\title{Exist
+\end{document} 

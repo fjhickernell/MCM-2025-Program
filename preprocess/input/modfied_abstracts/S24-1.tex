@@ -1,0 +1,60 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Multilevel randomized quasi-Monte Carlo estimator for nested expectations}% [1] talk title
+  {Ra\'{u}l Tempone}% [2] speaker name
+  {King Abdullah University of Science and Technology/RWTH Aachen University}% [3] affiliations
+  {raul.tempone@kaust.edu.sa}% [4] email
+  {Arved Bartuska, Andr\'{e} Gustavo Carlon, Luis Espath, Sebastian Krumscheid}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+Estimation methods for nested integrals face several challenges, including nonlinearities separating the integrals, boundary singularities, and the need for numerical discretization of the integrand. In this talk, we present an advanced multilevel randomized double-loop quasi-Monte Carlo estimator that addresses these challenges by combining hierarchical approximations with deterministic and randomized quasi-Monte Carlo (rQMC) methods. This estimator is tailored towards scenarios where the inner integrand requires discretization via the finite element method and the outer integrand exhibits singularities at the boundaries of the integration domain. 
+
+Applications from Bayesian experimental design, in particular, the expected information gain (EIG) of an experiment, necessitate a truncation scheme for observation noise to rigorously bound the estimation error. This truncation affects the computational cost only by a logarithmic factor. Numerical experiments demonstrate the predicted optimal cost of almost $\mathcal{O}(TOL^{-1-\gamma/\eta_{\text{w}}})$ where $\gamma$ and $\eta_{\text{w}}$ signify the cost and weak rate of finite element discretizations, respectively.
+
+\end{talk}
+
+\end{document}
+

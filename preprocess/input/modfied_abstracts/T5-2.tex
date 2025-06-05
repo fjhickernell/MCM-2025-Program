@@ -1,0 +1,77 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Convergence Rates of Randomized Quasi-Monte Carlo Methods under Various Regularity Conditions}% [1] talk title
+  {Yang Liu}% [2] speaker name
+  {King Abdullah University of Science and Technology}% [3] affiliations
+  {yang.liu.3@kaust.edu.sa}% [4] email
+  % {Names of coauthors go here, no affiliations of coauthors please, all affiliations will be included in an appendix of 
+  % the program book}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+        
+        In this work, we analyze the convergence rate of randomized quasi-Monte Carlo (RQMC) methods under Owen's boundary growth condition (Owen, 2006) via spectral analysis. We examine the RQMC estimator variance for two commonly studied sequences—the lattice rule and the Sobol' sequence—using the Fourier transform and Walsh–Fourier transform, respectively. Under certain regularity conditions, our results reveal that the asymptotic convergence rate of the RQMC estimator's variance closely aligns with the exponent specified in Owen's boundary growth condition for both sequence types. We also provide an analysis for certain discontinuous integrands.
+
+        In addition, we investigate the \(L^p\) integrability of weak mixed first-order derivatives of the integrand and study the convergence rates of scrambled digital nets. We demonstrate that the generalized Vitali variation with parameter \(\alpha \in \left[\frac{1}{2}, 1\right]\) from Dick and Pillichshammer (2010) is bounded above by the \(L^p\) norm of the weak mixed first-order derivative, where \(p = \frac{2}{3-2\alpha}\). Consequently, when the weak mixed first-order derivative belongs to \(L^p\) for \(1 \leq p \leq 2\), the variance of the scrambled digital nets estimator converges at a rate of
+        \(
+        \mathcal{O}\Bigl(N^{-4+\frac{2}{p}} \log^{s-1} N\Bigr).
+        \)
+        Together, these results provide a comprehensive theoretical framework for understanding the convergence behavior of RQMC methods and scrambled digital nets under various regularity assumptions.
+        
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+\begin{enumerate}
+	\item[{[1]}] Liu, Y. (2024). Randomized quasi-Monte Carlo and Owen's boundary growth condition: A spectral analysis. arXiv preprint arXiv:2405.05181.
+	\item[{[2]}] Liu, Y. (2025). Integrability of weak mixed first-order derivatives and convergence rates of scrambled digital nets. arXiv preprint arXiv:2502.02266.
+\end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\end{document}
+

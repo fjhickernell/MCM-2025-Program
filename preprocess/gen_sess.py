@@ -74,7 +74,7 @@ def process_session_talks(df: pd.DataFrame) -> None:
             if talks_processed >= 4:  # Max 4 talks per session
                 break
                 
-            title = row.get("Talk Title", "").replace('Φ','$\Phi$').strip()
+            title = row.get("Talk Title", "").replace('Φ','$\Phi$').replace("–", "---").strip()
             presenter = row.get("Presenter", "").strip()
             if presenter == "":
                 first_name = row.get("First or given name(s) of presenter", "").strip()

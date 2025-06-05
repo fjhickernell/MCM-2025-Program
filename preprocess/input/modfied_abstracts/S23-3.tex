@@ -1,0 +1,70 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Randomized Splitting Methods and Stochastic Gradient Algorithms}% [1] talk title
+  {Peter Whalley}% [2] speaker name
+  {ETH Z\"{u}rich}% [3] affiliations
+  {peter.whalley@math.ethz.ch}% [4] email
+  {Luke Shaw}% [5] coauthors
+  {Analysis of Langevin and Related Sampling Algorithms, Part I}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We explore an explicit link between stochastic gradient algorithms using common batching strategies and splitting methods for ordinary and stochastic differential equations. From this perspective, we introduce a new minibatching strategy (called Symmetric Minibatching Strategy) for stochastic gradient optimisation and MCMC which shows greatly reduced stochastic gradient bias (from $\mathcal{O}(h)$ to $\mathcal{O}(h^{2})$ in the stepsize $h$) when combined with momentum-based optimisers. We justify why momentum is needed to obtain the improved performance using the theory of backward analysis for splitting integrators and provide a detailed analytic computation of the stochastic gradient bias on a simple example.
+
+ 
+
+Further, we provide improved convergence guarantees for this new minibatching strategy using Lyapunov techniques that show reduced stochastic gradient bias for a fixed stepsize (or learning rate) over the class of strongly-convex and smooth objective functions. We argue that this also leads to a faster convergence rate when considering a decreasing stepsize schedule according to the Robbins-Munro criterion. Both the reduced bias and efficacy of decreasing stepsizes are demonstrated numerically on several motivating examples in both MCMC and Optimization.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Shaw, Luke, \& Whalley, Peter. (2025). {\it Randomised Splitting Methods and Stochastic Gradient Descent}. arXiv:2504.04274.
+	\item[{[2]}] Shaw, Luke, \& Whalley, Peter. (2025). {\it Random Reshuffling for Stochastic Gradient Langevin Dynamics}. arXiv:2501.16055.
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+
+

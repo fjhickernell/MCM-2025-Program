@@ -274,7 +274,20 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     # replace bad latex expressions with good ones
     bad_s = "{}% [6] special session. Leave this field empty for contributed talks. "
     bad_s2 ="% Insert the title of the special session if you were invited to give a talk in a special session."
-    body_lines = [line.replace(bad_s, "").replace(bad_s2, "").replace('"', "''").replace(" &", " \&").replace("the the ", "the ").replace("$\cL_p$","$\mathcal{L}_p$").replace("\KSD", "\mathsf{KSD}").replace("Ra\'{u}l", "Ra\'ul").replace('Φ','$\Phi$') for line in body_lines]
+    # Clean up body lines with a series of replacements
+    body_lines = [
+        line.replace(bad_s, "")
+            .replace(bad_s2, "")
+            .replace('"', "''")
+            .replace(" &", " \&")
+            .replace("the the ", "the ")
+            .replace("$\cL_p$", "$\mathcal{L}_p$")
+            .replace("\KSD", "\mathsf{KSD}")
+            .replace("Ra\'{u}l", "Ra\'ul")
+            .replace('Φ', '$\Phi$')
+            .replace("–", "---")
+        for line in body_lines
+    ]
 
     # parse out the slots
     raw_args = [ field_re.match(l).group(1)

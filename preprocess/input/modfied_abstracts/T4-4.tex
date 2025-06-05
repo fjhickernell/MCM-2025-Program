@@ -1,0 +1,64 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {Using Normalizing Flows for Efficient Quasi-Random Sampling for Copulas}% [1] talk title
+  {Ambrose Emmett-Iwaniw}% [2] speaker name
+  {University of Waterloo Department of Actuarial Science and Statistics}% [3] affiliations
+  {arsemmettiwaniw@uwaterloo.ca}% [4] email
+  {Christiane Lemieux}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In finance and risk management, copulas are used to model the dependence between stock prices and insurance losses to compute expectations of interest. Generally, Monte Carlo (MC) sampling is used to generate copula samples to approximate expectations. To reduce the variance of the approximation, we can use quasi-Monte Carlo (QMC) sampling to generate copula samples. This paper examines a new method to generate quasi-random samples from copulas requiring fewer training resources than previous methods such as the generative moment matching networks (GMMN) model [1]. Traditional methods that do not use generative models often rely on conditional distribution methods (CDM) to generate quasi-random samples from specific copulas [2]. CDM is limited to only a few parametric copulas (Gumbel has no efficient CDM to sample quasi-random samples) in low dimensions [2]. Here, we propose using a powerful and simple generative model called Normalizing Flows (NFs) to generate quasi-random samples for any copula, including cases where we only have data available. NFs are a type of explicit generative model that relies on transforming a simple density, such as a normal density, through efficient invertible transformations that rely on the change of variables formula into a density that models complex data that facilitates easy sampling and efficient inverting of samples from complex data to normal data and vice versa. The benefit of these NFs for copula modelling is that their training is efficient in terms of runtime, allowing for larger batch sizes compared to the GMMN model [1]. Also, it is sample-efficient; it only needs samples from the copula and not samples from the normal as the GMMN model [1] required. Once the NF model is trained, we can efficiently invert the model to take as input quasi-random samples to generate quasi-random copula samples. Through many different simulations and applications, we show our approach allows us to leverage the benefit of QMC in a variety of real-world settings involving dependent data.
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Hofert, M., Prasad, A., and Zhu, M. (2021). Quasi-random sampling for multivariate distributions via generative neural networks. Journal of Computational and Graphical Statistics,
+30(3):647–670.
+	\item[{[2]}] Cambou, M., Hofert, M., and Lemieux, C. (2017). Quasi-random numbers for copula models. Statistics and Computing, 27:1307–1329. 
+\end{enumerate}
+\end{talk}
+
+\end{document}
+

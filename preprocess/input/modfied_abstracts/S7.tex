@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newcommand{\organizer}[3]{%
+	{\textit{#1}}\\\nopagebreak%
+	#2\\\nopagebreak%
+	\url{#3}\vspace{3mm}\\\nopagebreak%
+	}
+
+\newenvironment{session}[5] % [1] session title
+							% [2] number of organizers
+                            % [3] organizer 1 info
+                            % [4] organizer 2 info
+                            % [5] organizer 3 info
+                            % [6] session id for later
+ {%\needspace{6\baselineskip}
+  \vskip 0pt\nopagebreak%
+  %\label{#5}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
+  \vspace{2mm}\\\nopagebreak%
+  #3
+  \ifthenelse{\equal{#2}{2}}{#4}{}%
+  \ifthenelse{\equal{#2}{3}}{#4#5}{}%
+  \quad\\\nopagebreak%
+  %Session Description:\vspace{3mm}\\\nopagebreak%
+ }
+ {\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+%Input the relevant information below
+\begin{session}
+  {Computational Methods for Low-discrepancy Sampling and Applications}% [1] session title
+  {2} %[2]  number of organizers
+  {\organizer{Nathan Kirk}% organizer one name
+    {Illinois Institute of Technology}% orgnizer one affiliations
+    {nkirk@iit.edu}}% organizer one email
+  {\organizer{François Clément}% organizer two name, if needed
+	{University of Washington}% orgnizer two affiliations, if needed
+	{fclement@uw.edu}}% organizer two email
+  {\organizer{Name three}% organizer one name
+	{Affiliation(s) three}% orgnizer one affiliations
+	{organizer-three-email-goes@here}}% organizer one email
+
+This session aims to showcase recent advancements in the optimization of sample point distributions [1, 2] and their applications. Some of the methods on display will range from deep learning methods to permutation optimization and greedy approaches [3], showcasing the usefulness of the $L_2$-discrepancies in optimizing the $L_{\infty}$ discrepancies. As a consequence of some of these improved low-discrepancy sets, an application will be shown in improved path planning in robotics [4]. Several other applications will be explored in the context of using the median over the mean of $r$ RQMC estimates as proposed in several recent papers including [5].
+
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}] T. K. Rusch, N. Kirk, M. Bronstein, C. Lemieux and D. Rus, \textit{Message-Passing Monte Carlo: Generating low-discrepancy point sets via graph neural networks}, PNAS \textbf{121} (40) e2409913121 (2024)
+
+	\item[{[2]}] F. Clément, C. Doerr, K. Klamroth, L. Paquete, \textit{Transforming the Challenge of Constructing Low-Discrepancy Point Sets into a Permutation Selection Problem}, \url{https://arxiv.org/abs/2407.11533}.
+    \item[{[3]}] F. Cl\'ement, \textit{Outperforming the Best {1D} Low-Discrepancy Constructions with a Greedy Algorithm}, \url{https://arxiv.org/abs/2406.18132}.
+        \item[{[4]}] M. Chahine, T. K. Rusch, Z. J. Patterson and D. Rus, \textit{Improving Efficiency of Sampling-based Motion Planning via Message-Passing Monte Carlo}, \url{https://arxiv.org/abs/2410.03909}
+        \item[{[5]}] P. L'Ecuyer, M. K. Nayakama, A. B. Owen and B. Tuffin, \textit{Confidence Intervals for Randomized Quasi-Monte Carlo Estimators}, Proceedings of the 2023 Winter Simulation Conference (2023)
+\end{enumerate}
+
+Speakers:
+\begin{enumerate}
+    \item François Clément (University of Washington)
+    \item Nathan Kirk (Illinois Tech)
+    \item Makram Chahine (MIT)
+    \item Greg de Salaberry Seljak (University of Montréal)
+\end{enumerate}
+
+  
+\end{session}
+
+\end{document}

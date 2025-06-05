@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {A recursive Monte Carlo approach to optimal Bayesian experimental design}% [1] talk title
+  {Adrien Corenflos}% [2] speaker name
+  {Department of Statistics, University of Warwick}% [3] affiliations
+  {adrien.corenflos@warwick.ac.uk}% [4] email
+  {Hany Abdulsamad, Sahel Iqbal, Sara P\'erez-Vieites, Simo Särkkä}% [5] coauthors
+  {Next-generation optimal experimental design: theory, scalability, and real world impact: Part I}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+    Bayesian experimental design is concerned with designing experiments that maximize information on a latent parameter of interest. 
+    This can be formally understood as minimizing the \emph{expected} entropy over the parameter, given the input, the expectation being taken over the data.
+    Solving this problem is intractable \emph{as is}, and several surrogate loss functions have been proposed to learn policies that, when deployed in nature, help inference by sampling more informative data.
+    A drawback of most of these, however, is that they introduce a substantial amount of bias, or otherwise exhibit a high variance.
+    In this talk, we will introduce another surrogate formulation of optimal Bayesian design as a risk-sensitive policy optimization, compatible with non-exchangeable models.
+    Under this formulation, minimizing the entropy of the posterior can be understood as sampling from a posterior distribution over the (random) designs.
+    We will then discuss two nested sequential Monte Carlo algorithms [1,2] to infer these optimal designs, and discuss how to embed them within a particle Markov chain Monte Carlo framework to perform gradient-based policy learning. 
+    We will discuss the respective advantages and drawbacks of both algorithms as well as those of alternative methods.
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}]Iqbal, S., Corenflos, A., Särkka, S., \&  Abdulsamad, H.(2024). {\it Nesting Particle Filters for Experimental Design in Dynamical Systems}. In Forty-first International Conference on Machine Learning (ICML).
+	\item[{[2]}] Iqbal, S., Abdulsamad, H., Pérez-Vieites, S., Särkka, S., \& Corenflos, A. (2024). {\it Recursive nested filtering for efficient amortized Bayesian experimental design}. In NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty.
+\end{enumerate}
+
+\end{talk}
+
+\end{document}
+
