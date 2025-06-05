@@ -89,23 +89,6 @@ driving Brownian motion.
 \end{talk}
 
 \begin{talk}
-  {Stong order 1 adaptive approximation of jump-diffusion SDEs with discontinuous drift}% [1] talk title
-  {Verena Schwarz}% [2] speaker name
-  {University of Klagenfurt}% [3] affiliations
-  {verena.schwarz@aau.at}% [4] email
-  {Stochastic Computation and Complexity}% [5] coauthors
-  {}% [6] special session
-  {Mon, Jul 28 10:30–12:30}% [7] time slot
-  {S1-4}% [8] talk id
-  {S1}% [9] session id or photo
-				
-
-In this talk we present an adaptive approximation scheme for jump-diffusion SDEs with discontinuous drift and (possibly) degenerate diffusion. The scheme is a transformation-based doubly-adaptive quasi-Milstein scheme, which 
-is doubly-adaptive in the sense that it is jump-adapted, i.e.~all jump times of the Poisson noise are grid points, and it includes an adaptive stepsize strategy to account for the discontinuities of the drift. It is proven to have strong convergence rate $1$ in $L^p$ for $p\in[1,\infty)$ with respect to the average computational cost for these SDEs. 
-To obtain our result, we prove that under slightly stronger assumptions which are still weaker than those in existing literature, a related doubly-adaptive quasi-Milstein scheme has convergence order $1$. 
-\end{talk}
-
-\begin{talk}
   {André-Alexander Zepernick}% [1] talk title
   {Free University of Berlin}% [2] speaker name
   {a.zepernick@fu-berlin.de}% [3] affiliations
@@ -516,7 +499,7 @@ This approach can as well be used for the reconstruction of functions from gener
   {Stochastic Computation and Complexity}% [5] coauthors
   {}% [6] special session
   {Mon, Jul 28 15:30–17:30}% [7] time slot
-  {S5-4}% [8] talk id
+  {S5-3}% [8] talk id
   {S5}% [9] session id or photo
 				
 			
@@ -1102,6 +1085,28 @@ We consider integration and $L_2$-approximation for functions over $\mathbb R^s$
 \end{talk}
 
 \begin{talk}
+  {Malliavin differentiation of Lipschitz SDEs and BSDEs and an Application to Quadratic Forward-Backward SDEs}% [1] talk title
+  {Alexander Steinicke}% [2] speaker name
+  {University of Leoben}% [3] affiliations
+  {alexander.steinicke@unileoben.ac.at}% [4] email
+  {Hannah Geiss, C\'eline Labart, Adrien Richou}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session
+  {Tue, Jul 29 15:30–17:30}% [7] time slot
+  {S12-3}% [8] talk id
+  {S12}% [9] session id or photo
+				
+			
+Geiss and Zhou [1] showed that SDEs and BSDEs with Lipschitz generators admit Malliavin differentiability in the Brownian setting. We extend and apply this result in the L\'evy case and present a differentiation formula for coefficients that are Lipschitz in the solution variable with respect to the Skorohod metric. The obtained formula then allows us to show the existence and uniqueness of solutions to a class of quadratic and superquadratic forward-backward SDE systems.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Geiss, S.~and Zhou, X.~(2024). {\it Coupling of Stochastic Differential Equations on the Wiener Space}. https://arxiv.org/pdf/2412.10836.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
   {Goal Oriented Sensor Placement for Infinite-Dimensional Bayesian Inverse Problems}% [1] talk title
   {Alen Alexanderian}% [2] speaker name
   {North Carolina State University}% [3] affiliations
@@ -1430,6 +1435,53 @@ We begin with a brief introduction to the basic concepts of quantum computing an
 %\end{enumerate}
 %
 %Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Taming the Interacting Particle Langevin Algorithm – The Superlinear Case}% [1] talk title
+  {Nikolaos Makras}% [2] speaker name
+  {University of Edinburgh, School of Mathematics}% [3] affiliations
+  {N.Makras@sms.ed.ac.uk}% [4] email
+  {Tim Johnston, Sotirios Sabanis}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 10:30–12:30}% [7] time slot
+  {S16-3}% [8] talk id
+  {S16}% [9] session id or photo
+  
+				
+			
+Recent advances in stochastic optimization have yielded the interacting particle Langevin algorithm (IPLA), which leverages the notion of interacting particle systems (IPS) to efficiently sample from approximate posterior densities. This becomes particularly crucial in relation to the framework of Expectation-Maximization (EM), where the E-step is computationally challenging or even intractable. Although prior research has focused on scenarios involving convex cases with gradients of log densities that grow at most linearly, our work extends this framework to include polynomial growth. Taming techniques are employed to produce an explicit discretization scheme that yields a new class of stable, under such non-linearities, algorithms which are called tamed interacting particle Langevin algorithms (tIPLA). We obtain non-asymptotic convergence error estimates in Wasserstein-2 distance for the new class under the best known rate. 
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Tim Johnston, Nikolaos Makras and Sotirios Sabanis, {\it Taming the Interacting Particle Langevin Algorithm – The Superlinear Case} (2024). Preprint: \href{https://arxiv.org/abs/2403.19587}{arxiv:2403.19587} 
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Archimedes/Athena Research Centre and National Technical University of Athens}% [1] talk title
+  {i.lytras@athenarc.gr}% [2] speaker name
+  {Tim Johnston, Nikos Makras, Sotirios Sabanis}% [3] affiliations
+  {}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 10:30–12:30}% [7] time slot
+  {S16-4}% [8] talk id
+  {S16}% [9] session id or photo
+  
+				
+			
+In this article, we study the problem of sampling from distributions whose densities are not necessarily smooth nor log-concave. We propose a simple Langevin-based algorithm that does not rely on popular but computationally challenging techniques, such as the Moreau Yosida envelope or Gaussian smoothing. We derive non-asymptotic guarantees for the convergence of the algorithm to the target distribution in Wasserstein distances. Non asymptotic bounds are also provided for the performance of the algorithm as an optimizer, specifically for the solution of associated excess risk optimization problems.\\
+Possible extensions to potentials with log-gradients that grow super-linearly may also be discussed.
+
+This is based on the joint work in [1].
+\medskip
+
+\begin{enumerate}
+    \item [{[1]}] Johnston, T., Lytras, I., Makras, N., Sabanis, S. (2025). The Performance Of The Unadjusted Langevin Algorithm Without Smoothness Assumptions. arXiv preprint arXiv:2502.03458.
+\end{enumerate}
 \end{talk}
 
 \begin{talk}
