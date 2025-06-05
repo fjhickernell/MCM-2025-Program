@@ -146,8 +146,8 @@ def process_special_session_abstracts(df):
     # Check for duplicates
     dupes = df[df.duplicated(subset=presenter_cols, keep=False)]
     if not dupes.empty:
-        print("\nWARNING: Duplicated records in special session abstracts --- will be deduplicated by keeping last records:\n")
-        print(dupes[presenter_cols])
+        print(f"\nWARNING: {dupes.shape[0]} duplicated records in special session abstracts --- will be deduplicated by keeping last records:\n")
+        #print(dupes[presenter_cols])
     
     print("\nWARN: Special talks that are not accepted:\n")
     not_accepted = df.loc[df["Include"].str.lower() != "yes", [*presenter_cols, "Include"]]
