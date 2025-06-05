@@ -71,7 +71,7 @@ def _validate_talk_ids(df: pd.DataFrame) -> None:
     """
     empty_talk_ids = df[df["TalkID"].isna() | (df["TalkID"] == "")]
     if not empty_talk_ids.empty:
-        print("\nWARNING: Found talks with missing TalkIDs:")
+        print("\ERROR: Found talks with missing TalkIDs:")
         print(empty_talk_ids[["join_key", "PresenterLast", "SessionID", "SessionTitle"]])
 
 def add_special_sessions_talkid(session_df: pd.DataFrame, abstracts_df: pd.DataFrame) -> pd.DataFrame:

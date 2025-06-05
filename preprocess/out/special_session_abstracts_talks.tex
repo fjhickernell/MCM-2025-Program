@@ -446,6 +446,37 @@ Uncertainty quantification (UQ) plays a crucial role in geoscience: Bayesian inf
 \end{talk}
 
 \begin{talk}
+  {Optimality of deterministic and randomized QMC-cubatures on several scales of function spaces}% [1] talk title
+  {Michael Gnewuch}% [2] speaker name
+  {University of Osnabrueck}% [3] affiliations
+  {mgnewuch@uos.de}% [4] email
+  {Josef Dick, Lev Markhasin, Winfried Sickel, Yannick Meiners}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session
+  {Mon, Jul 28 15:30–17:30}% [7] time slot
+  {S5-1}% [8] talk id
+  {S5}% [9] session id or photo
+				
+			
+			
+We study the integration problem over the s-dimensional unit cube on four scales of Banach spaces of integrands. First we consider Haar wavelet spaces $H_{p, q, \alpha}$, $1\le p, q \le \infty$, $\alpha > 1/p$, consisting of functions whose Haar wavelet coefficients exhibit a certain decay behavior measured by the parameters $p,q$, and, most importantly, $\alpha$.  We study the worst case error of a deterministic cubature rule over the norm unit ball 
+%(i.e., the operator norm of the difference of the integration functional and the cubature rule)
+and provide upper bounds for quasi-Monte Carlo (QMC) cubature rules based on arbitrary $(t,m,s)$-nets as well as matching lower error bounds for arbitrary cubature rules. These results show that using arbitrary $(t,m,s)$-nets as integration nodes yields the best possible rate of convergence. In the Hilbert space setting $p=2 = q$ it was earlier shown by Heinrich, Hickernell and Yue [2]  that scrambled (t,m,s)-nets yield optimal convergence rates in the randomized setting, where the randomized worst case error is considered. 
+
+We establish several suitable function space embeddings that allow to transfer the deterministic and randomized upper error bounds on Haar wavelet spaces
+to certain spaces of fractional smoothness $1/p < \alpha  \le 1$ and to Sobolev and Besov spaces of dominating mixed smoothness $1/p < a \le 1$.
+Known lower bounds for Sobolev and Besov spaces of dominating mixed smoothness show that (deterministic or suitably randomized) $(t,m,s)$-nets yield optimal convergence rates also on the corresponding scales of spaces.			
+
+The talk is based on the preprint [1] and the master thesis of my student Yannick Meiners.
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] M. Gnewuch, J. Dick, L. Markhasin, W. Sickel, QMC integration based on arbitrary $(t,m,s)$-nets yields optimal convergence rates on several scales of function spaces, preprint 2024, arXiv:2409.12879. 
+        \item[{[2]}] S. Heinrich, F. J. Hickernell and R. X. Yue, Optimal quadrature for Haar wavelet spaces, Math. Comput., 73 (2004), 259–277.
+	\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
   {Optimal designs for function discretization and construction of tight frames}% [1] talk title
   {Kateryna Pozharska}% [2] speaker name
   {pozharska.k@gmail.com}% [3] affiliations
@@ -734,6 +765,63 @@ Super-polynomial accuracy of multidimensional randomized nets using
 \end{talk}
 
 \begin{talk}
+  {Computing the stationary measure of McKean-Vlasov SDEs}% [1] talk title
+  {Jean-Fran\c{c}ois CHASSAGNEUX}% [2] speaker name
+  {ENSAE-CREST \& IP Paris}% [3] affiliations
+  {chassagneux@ensae.fr}% [4] email
+  {Gilles Pag\`es}% [5] coauthors
+  {Stochastic Computation and Complexity}% [6] special session
+  {Tue, Jul 29 10:30–12:30}% [7] time slot
+  {S8-1}% [8] talk id
+  {S8}% [9] session id or photo
+				
+			
+Under some confluence assumption, it is known that the stationary distribution of a McKean-Vlasov SDE is the limit of the empirical measure of its associated self-interacting diffusion. 
+Our numerical method consists in introducing the Euler scheme with decreasing step size of this self-interacting diffusion and seeing its empirical measure as the approximation of the stationary distribution of the original McKean-Vlasov SDEs.
+This simple approach is successful (under some raisonnable assumptions...) as we are able to prove convergence with a rate for the Wasserstein distance between the two measures both in the L2 and almost sure sense. In this talk, I will first explain the rationale behind this approach and  I will discuss the various convergence results we have obtained so far.
+
+
+
+% \medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {On the convergence of the Euler-Maruyama scheme for McKean-Vlasov SDEs}% [1] talk title
+  {Noufel Frikha}% [2] speaker name
+  {Universit\'e Paris 1 Panth\'eon-Sorbonne}% [3] affiliations
+  {noufel.frikha@univ-paris1.fr}% [4] email
+  {Cl\'ement Rey, Xuanye Song}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 10:30–12:30}% [7] time slot
+  {S8-3}% [8] talk id
+  {S8}% [9] session id or photo
+  
+				
+			
+Relying on the backward Kolmogorov PDE stated on the Wasserstein space, we obtain several new results concerning the approximation error of some non-linear diffusion process in the sense of McKean-Vlasov by the corresponding Euler-Maruyama discretization scheme of its system of interacting particles. We notably present explicit error estimates, at the level of the trajectories, at the level of the semigroup (stated on the Wasserstein space) and at the level of the densities. Some Gaussian density estimates of the transition density and its first order derivative for the Euler-Maruyama scheme are also established. This presentation is based on joint works with Cl\'ement Rey (Ecole Polytechnique) and Xuanye Song (Universit\'e Paris Cit\'e).
+
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}] Frikha, N.  \& Song, X. (2025). {\it On the convergence of the Euler-Maruyama scheme for McKean-Vlasov SDEs}, arXiv:2503.22226.
+	\item[{[2]}] Frikha, N. \& Rey, C. (2025).  {\it On the weak convergence of the Euler-Maruyama scheme for McKean-Vlasov SDEs: expansion of the densities}.
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
   {Wasserstein Convergence of Score-based Generative Models under Semiconvexity and Discontinuous Gradients}% [1] talk title
   {Sotirios Sabanis}% [2] speaker name
   {University of Edinburgh \& National Technical University of Athens \& Archimedes/Athena Research Centre}% [3] affiliations
@@ -928,6 +1016,23 @@ The empirical success of deep learning is often attributed to the mysterious abi
 % \end{enumerate}
 
 % Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Enhancing Gaussian Process Surrogates for Optimization and Posterior Approximation via Random Exploration}% [1] talk title
+  {Hwanwoo Kim}% [2] speaker name
+  {Duke University}% [3] affiliations
+  {hwanwoo.kim@duke.edu}% [4] email
+  {Daniel Sanz-Alonso}% [5] coauthors
+  {Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods}% [6] special session
+  {Tue, Jul 29 10:30–12:30}% [7] time slot
+  {S11-4}% [8] talk id
+  {S11}% [9] session id or photo
+				
+			
+In this talk, we propose novel noise-free Bayesian optimization strategies that rely on a random exploration step to enhance the accuracy of Gaussian process surrogate models. The new algorithms retain the ease of implementation of the classical GP-UCB algorithm, but the additional random exploration step accelerates their convergence, nearly achieving the optimal convergence rate. Furthermore, to facilitate Bayesian inference with an intractable likelihood, we propose to utilize the optimization iterates as design points to build a Gaussian process surrogate model for the unnormalized log-posterior density. We show that the Hellinger distance between the true and the approximate posterior distributions decays at a near-optimal rate. We demonstrate the effectiveness of our algorithms in benchmark non-convex test functions for optimization, and in a black-box engineering design problem. We also showcase the effectiveness of our posterior approximation approach in Bayesian inference for parameters of dynamical systems.
+
+
 \end{talk}
 
 \begin{talk}
