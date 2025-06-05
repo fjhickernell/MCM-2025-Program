@@ -1,95 +1,95 @@
 join_key,PresenterLast,SessionID,SessionTitle
-next generation optimal experimental design theory scalability and real world impact part ii,alexanderian,S13,"Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
-analysis of langevin and related sampling algorithms part ii,balasubramanian,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
-qmc and applications part i,bartel,S22,Track A: QMC and Applications Part I
-recent advances in optimization under uncertainty,bartuska,S6,Track G: Recent advances in optimization under uncertainty
-hardware or software for quasi monte carlo algorithms part ii,baumgarten,S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
-next generation optimal experimental design theory scalability and real world impact part i,belhadji,S9,"Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I"
-advances in rare events simulation,amar,S14,Track H: Advances in Rare Events Simulation
-recent advances in stochastic gradient descent,blanchet,S27,Track H: Recent Advances in Stochastic Gradient Descent
+stochastic optimization,henderson,S19,Track F: Stochastic Optimization
+advances in rare events simulation,tuffin,S14,Track H: Advances in Rare Events Simulation
 stochastic optimization,bollapragada,S19,Track F: Stochastic Optimization
-advances in adaptive hamiltonian monte carlo,rabee,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
+frontiers in quasi monte carlo and markov chain monte carlo methods part ii,goda,S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
+qmc and applications part ii,suzuki,S25,Track F: QMC and Applications Part II
+hardware or software for quasi monte carlo algorithms part i,giles,S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
+statistical design of experiments,mak,S17,Track B: Statistical Design of Experiments
+nested expectations models and estimators part i,kaarnioja,S3,"Track C: Nested expectations: models and estimators, Part I"
+hardware or software for quasi monte carlo algorithms part ii,baumgarten,S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
+statistical design of experiments,huang,S17,Track B: Statistical Design of Experiments
+hardware or software for quasi monte carlo algorithms part i,robbe,S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
+next generation optimal experimental design theory scalability and real world impact part ii,iollo,S13,"Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
+stochastic computation and complexity part i,ling,S1,"Track A: Stochastic Computation and Complexity, Part I"
+frontiers in quasi monte carlo and markov chain monte carlo methods part ii,niu,S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
+hardware or software for quasi monte carlo algorithms part ii,sorokin,S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
+stochastic computation and complexity part i,neuenkirch,S1,"Track A: Stochastic Computation and Complexity, Part I"
+forward and inverse problems for stochastic reaction networks,chupin,S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks
+recent advances in optimization under uncertainty,helin,S6,Track G: Recent advances in optimization under uncertainty
+qmc and applications part i,bartel,S22,Track A: QMC and Applications Part I
+forward and inverse problems for stochastic reaction networks,fang,S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks
+computational methods for low discrepancy sampling and applications,chahine,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
+analysis of langevin and related sampling algorithms part ii,balasubramanian,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
+forward and inverse problems for stochastic reaction networks,rathinam,S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks
+nested expectations models and estimators part i,krumscheid,S3,"Track C: Nested expectations: models and estimators, Part I"
+recent advances in optimization under uncertainty,bartuska,S6,Track G: Recent advances in optimization under uncertainty
+analysis of langevin and related sampling algorithms part i,wang,S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I"
+computational methods for low discrepancy sampling and applications,kirk,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
+nested expectations models and estimators part ii,tempone,S24,"Track C: Nested expectations: models and estimators, Part II"
+qmc and applications part ii,pan,S25,Track F: QMC and Applications Part II
+domain uncertainty quantification,zepernick,S2,Track B: Domain Uncertainty Quantification
+next generation optimal experimental design theory scalability and real world impact part i,belhadji,S9,"Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I"
+nested expectations models and estimators part ii,raviola,S24,"Track C: Nested expectations: models and estimators, Part II"
+forward and inverse problems for stochastic reaction networks,münker,S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks
+computational methods for low discrepancy sampling and applications,seljak,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
+statistical design of experiments,sung,S17,Track B: Statistical Design of Experiments
+hardware or software for quasi monte carlo algorithms part i,haas,S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
+advances in rare events simulation,pillai,S14,Track H: Advances in Rare Events Simulation
+stochastic computation and complexity part v,heinrich,S16,"Track A: Stochastic Computation and Complexity, Part V"
+hardware or software for quasi monte carlo algorithms part i,loi,S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
+analysis of langevin and related sampling algorithms part ii,chen,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
+analysis of langevin and related sampling algorithms part ii,tao,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
+qmc and applications part i,he,S22,Track A: QMC and Applications Part I
 qmc and applications part i,cai,S22,Track A: QMC and Applications Part I
-advances in adaptive hamiltonian monte carlo,campbell,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
+stochastic computation and complexity part v,käßemodel,S16,"Track A: Stochastic Computation and Complexity, Part V"
+stochastic computation and complexity part iv,yaroslavtseva,S12,"Track F: Stochastic Computation and Complexity, Part IV"
+analysis of langevin and related sampling algorithms part ii,oberdörster,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
+next generation optimal experimental design theory scalability and real world impact part ii,alexanderian,S13,"Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
+recent advances in optimization under uncertainty,koval,S6,Track G: Recent advances in optimization under uncertainty
+recent advances in optimization under uncertainty,milz,S6,Track G: Recent advances in optimization under uncertainty
+computational methods for low discrepancy sampling and applications,clément,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
+stochastic computation and complexity part i,rauhögger,S1,"Track A: Stochastic Computation and Complexity, Part I"
+domain uncertainty quantification,dölz,S2,Track B: Domain Uncertainty Quantification
+nested expectations models and estimators part ii,guth,S24,"Track C: Nested expectations: models and estimators, Part II"
+domain uncertainty quantification,hakula,S2,Track B: Domain Uncertainty Quantification
+nested expectations models and estimators part i,hoang,S3,"Track C: Nested expectations: models and estimators, Part I"
+next generation optimal experimental design theory scalability and real world impact part i,corenflos,S9,"Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I"
+analysis of langevin and related sampling algorithms part i,cheng,S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I"
 advances in adaptive hamiltonian monte carlo,carpenter,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
 next generation optimal experimental design theory scalability and real world impact part ii,catanach,S13,"Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
-computational methods for low discrepancy sampling and applications,chahine,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
-analysis of langevin and related sampling algorithms part ii,chen,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
-analysis of langevin and related sampling algorithms part i,cheng,S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I"
-forward and inverse problems for stochastic reaction networks,chupin,S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks
-computational methods for low discrepancy sampling and applications,clément,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
-next generation optimal experimental design theory scalability and real world impact part i,corenflos,S9,"Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I"
-domain uncertainty quantification,dölz,S2,Track B: Domain Uncertainty Quantification
-recent advances in stochastic gradient descent,dong,S27,Track H: Recent Advances in Stochastic Gradient Descent
 advances in rare events simulation,elvira,S14,Track H: Advances in Rare Events Simulation
-monte carlo applications in high performance computing computer graphics and computational science,fahim,S21,"Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science"
-forward and inverse problems for stochastic reaction networks,fang,S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks
-hardware or software for quasi monte carlo algorithms part i,giles,S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
-stochastic computation and complexity part ii,gnewuch,S5,"Track F: Stochastic Computation and Complexity, Part II"
-frontiers in quasi monte carlo and markov chain monte carlo methods part ii,goda,S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
-heavy tailed sampling,grazzi,S10,Track C: Heavy-tailed Sampling
-nested expectations models and estimators part ii,guth,S24,"Track C: Nested expectations: models and estimators, Part II"
-hardware or software for quasi monte carlo algorithms part i,haas,S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
-nested expectations models and estimators part i,ali,S3,"Track C: Nested expectations: models and estimators, Part I"
-domain uncertainty quantification,hakula,S2,Track B: Domain Uncertainty Quantification
-qmc and applications part i,he,S22,Track A: QMC and Applications Part I
-stochastic computation and complexity part v,heinrich,S16,"Track A: Stochastic Computation and Complexity, Part V"
-recent advances in optimization under uncertainty,helin,S6,Track G: Recent advances in optimization under uncertainty
-stochastic optimization,henderson,S19,Track F: Stochastic Optimization
-nested expectations models and estimators part i,hoang,S3,"Track C: Nested expectations: models and estimators, Part I"
-next generation optimal experimental design theory scalability and real world impact part i,huan,S9,"Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I"
-statistical design of experiments,huang,S17,Track B: Statistical Design of Experiments
-next generation optimal experimental design theory scalability and real world impact part ii,iollo,S13,"Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II"
-domain uncertainty quantification,hanckes,S2,Track B: Domain Uncertainty Quantification
-recent progress on algorithmic discrepancy theory and applications,jiang,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
-nested expectations models and estimators part i,kaarnioja,S3,"Track C: Nested expectations: models and estimators, Part I"
-stochastic computation and complexity part v,käßemodel,S16,"Track A: Stochastic Computation and Complexity, Part V"
-computational methods for low discrepancy sampling and applications,kirk,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
-recent advances in optimization under uncertainty,koval,S6,Track G: Recent advances in optimization under uncertainty
-hardware or software for quasi monte carlo algorithms part ii,krotz,S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
-nested expectations models and estimators part i,krumscheid,S3,"Track C: Nested expectations: models and estimators, Part I"
-qmc and applications part i,kuo,S22,Track A: QMC and Applications Part I
-stochastic computation and complexity part iv,leobacher,S12,"Track F: Stochastic Computation and Complexity, Part IV"
-stochastic computation and complexity part i,ling,S1,"Track A: Stochastic Computation and Complexity, Part I"
-hardware or software for quasi monte carlo algorithms part i,loi,S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
-statistical design of experiments,mak,S17,Track B: Statistical Design of Experiments
-heavy tailed sampling,milinanni,S10,Track C: Heavy-tailed Sampling
-recent advances in optimization under uncertainty,milz,S6,Track G: Recent advances in optimization under uncertainty
 analysis of langevin and related sampling algorithms part ii,mitra,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
-advances in adaptive hamiltonian monte carlo,modi,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
-forward and inverse problems for stochastic reaction networks,münker,S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks
-stochastic computation and complexity part i,neuenkirch,S1,"Track A: Stochastic Computation and Complexity, Part I"
-recent progress on algorithmic discrepancy theory and applications,nikolov,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
-frontiers in quasi monte carlo and markov chain monte carlo methods part ii,niu,S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
-qmc and applications part ii,nuyens,S25,Track F: QMC and Applications Part II
-analysis of langevin and related sampling algorithms part ii,oberdörster,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
+advances in adaptive hamiltonian monte carlo,rabee,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
+advances in adaptive hamiltonian monte carlo,campbell,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
+next generation optimal experimental design theory scalability and real world impact part i,huan,S9,"Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I"
 qmc and applications part ii,owen,S25,Track F: QMC and Applications Part II
-qmc and applications part ii,pan,S25,Track F: QMC and Applications Part II
-stochastic computation and complexity part ii,plaskota,S5,"Track F: Stochastic Computation and Complexity, Part II"
-stochastic computation and complexity part ii,pozharska,S5,"Track F: Stochastic Computation and Complexity, Part II"
-forward and inverse problems for stochastic reaction networks,rathinam,S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks
-stochastic computation and complexity part i,rauhögger,S1,"Track A: Stochastic Computation and Complexity, Part I"
-nested expectations models and estimators part ii,raviola,S24,"Track C: Nested expectations: models and estimators, Part II"
-hardware or software for quasi monte carlo algorithms part i,robbe,S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
-stochastic computation and complexity part iii,sabanis,S8,"Track A: Stochastic Computation and Complexity, Part III"
 stochastic computation and complexity part i,schwarz,S1,"Track A: Stochastic Computation and Complexity, Part I"
-computational methods for low discrepancy sampling and applications,seljak,S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications
-monte carlo applications in high performance computing computer graphics and computational science,song,S21,"Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science"
-hardware or software for quasi monte carlo algorithms part ii,sorokin,S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
-stochastic computation and complexity part iv,steinicke,S12,"Track F: Stochastic Computation and Complexity, Part IV"
-advances in rare events simulation,pillai,S14,Track H: Advances in Rare Events Simulation
-statistical design of experiments,sung,S17,Track B: Statistical Design of Experiments
-qmc and applications part ii,suzuki,S25,Track F: QMC and Applications Part II
-analysis of langevin and related sampling algorithms part ii,tao,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
-nested expectations models and estimators part ii,tempone,S24,"Track C: Nested expectations: models and estimators, Part II"
-advances in rare events simulation,tuffin,S14,Track H: Advances in Rare Events Simulation
-analysis of langevin and related sampling algorithms part i,wang,S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I"
-heavy tailed sampling,wang,S10,Track C: Heavy-tailed Sampling
-analysis of langevin and related sampling algorithms part i,whalley,S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I"
-statistical design of experiments,xiao,S17,Track B: Statistical Design of Experiments
-stochastic computation and complexity part iv,yaroslavtseva,S12,"Track F: Stochastic Computation and Complexity, Part IV"
-domain uncertainty quantification,zepernick,S2,Track B: Domain Uncertainty Quantification
-recent progress on algorithmic discrepancy theory and applications,zhang,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
+qmc and applications part i,kuo,S22,Track A: QMC and Applications Part I
+qmc and applications part ii,nuyens,S25,Track F: QMC and Applications Part II
+advances in adaptive hamiltonian monte carlo,modi,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
 frontiers in quasi monte carlo and markov chain monte carlo methods part ii,zhong,S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
+hardware or software for quasi monte carlo algorithms part ii,krotz,S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
+stochastic computation and complexity part iv,leobacher,S12,"Track F: Stochastic Computation and Complexity, Part IV"
+recent progress on algorithmic discrepancy theory and applications,jiang,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
+recent progress on algorithmic discrepancy theory and applications,zhang,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
+recent progress on algorithmic discrepancy theory and applications,nikolov,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
+stochastic computation and complexity part iii,sabanis,S8,"Track A: Stochastic Computation and Complexity, Part III"
+heavy tailed sampling,grazzi,S10,Track C: Heavy-tailed Sampling
+nested expectations models and estimators part i,ali,S3,"Track C: Nested expectations: models and estimators, Part I"
+recent advances in stochastic gradient descent,dong,S27,Track H: Recent Advances in Stochastic Gradient Descent
+recent advances in stochastic gradient descent,blanchet,S27,Track H: Recent Advances in Stochastic Gradient Descent
+domain uncertainty quantification,hanckes,S2,Track B: Domain Uncertainty Quantification
+monte carlo applications in high performance computing computer graphics and computational science,fahim,S21,"Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science"
+heavy tailed sampling,milinanni,S10,Track C: Heavy-tailed Sampling
+analysis of langevin and related sampling algorithms part i,whalley,S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I"
+stochastic computation and complexity part ii,pozharska,S5,"Track F: Stochastic Computation and Complexity, Part II"
+monte carlo applications in high performance computing computer graphics and computational science,song,S21,"Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science"
+heavy tailed sampling,wang,S10,Track C: Heavy-tailed Sampling
+advances in rare events simulation,amar,S14,Track H: Advances in Rare Events Simulation
+stochastic computation and complexity part ii,plaskota,S5,"Track F: Stochastic Computation and Complexity, Part II"
+statistical design of experiments,xiao,S17,Track B: Statistical Design of Experiments
+stochastic computation and complexity part iv,steinicke,S12,"Track F: Stochastic Computation and Complexity, Part IV"
 analysis of langevin and related sampling algorithms part ii,zhou,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
 frontiers in quasi monte carlo and markov chain monte carlo methods,kim,,
+stochastic computation and complexity,gnewuch,,

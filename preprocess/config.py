@@ -62,7 +62,8 @@ gsheets = {
             "Institution of presenter", #"Email of presenter", 
             "Talk Title",
             "FirstNameLastNameAbstract.tex file with Talk Title and Abstract", 
-            "Special Session Title"
+            "Special Session Title",
+            "Include"
         ]
     },
     "contributed_talk_submissions": {

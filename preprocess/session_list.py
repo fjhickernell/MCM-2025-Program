@@ -56,8 +56,8 @@ def _create_session_talk_df(session_df: pd.DataFrame) -> List[Tuple[Tuple[str, s
     # abstracts_df = abstracts_df.sort_values(by=["join_key", "PresenterLast"]).reset_index(drop=True)
     
     # Save frame for debugging
-    print("\nTalkID mapping sample:")
-    print(talk_id_df.head(2))
+    #print("\nTalkID mapping sample:")
+    #print(talk_id_df.head(2))
     talk_id_df.to_csv(f"{interimdir}talkid_map_df.csv", index=False)
 
     return talk_id_df
@@ -146,9 +146,13 @@ def process_special_session_abstracts(df):
     # Check for duplicates
     dupes = df[df.duplicated(subset=presenter_cols, keep=False)]
     if not dupes.empty:
-        print("\nWARNING: Duplicated records in special session abstracts:")
+        print("\nWARNING: Duplicated records in special session abstracts --- will be deduplicated by keeping last records:\n")
         print(dupes[presenter_cols])
     
+    print("\nWARN: Special talks that are not accepted:\n")
+    not_accepted = df.loc[df["Include"].str.lower() != "yes", [*presenter_cols, "Include"]]
+    if not_accepted.shape[0]>0: print(not_accepted)
+
     # Deduplicate by presenter name
     df = df.drop_duplicates(subset=presenter_cols, keep="last")
     
@@ -193,7 +197,7 @@ def process_contributed_talks(df):
     df = df.copy()
     
     presenter_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
-    print("\nWARN: Contributed talks that are not accepted:")
+    print("\nWARN: Contributed talks that are not accepted:\n")
     not_accepted = df.loc[df["Acceptance"].str.lower() != "yes", [*presenter_cols, "Acceptance"]]
     if not_accepted.shape[0]>0: print(not_accepted)
     
@@ -244,10 +248,12 @@ def add_sessions_join_keys(dfs):
             )
             dfs[key] = tmp_df
 
-            # print ERROR if any value in the column join_key of df is empty or contains invalid values
-            if tmp_df["join_key"].isna().any() or tmp_df["join_key"].str.contains(r"add to shane|//", case=False, na=False).any():
-                print(f"\nERROR: join_key column in {key} contains invalid values.")
-                print(tmp_df[tmp_df["join_key"].isna()].iloc[:, :2]) # print first two columns
+            # print ERROR if any value in the column join_key of df is empty or contains invalid values in column `SESSION`
+            invalid_mask = tmp_df["join_key"].isna() | tmp_df["join_key"].str.contains(r"add to shane|//", case=False, na=False)
+            invalid_rows = tmp_df[invalid_mask]
+            if not invalid_rows.empty:
+                print(f"\nERROR: SESSION or join_key column in {key} contains invalid values like 'add to shane', '//'")
+                print(invalid_rows.iloc[:, :2])  # Print first two columns
                 print("\n")
                   
     return dfs
@@ -278,12 +284,12 @@ def read_schedule_days(num_days=5):
     """Read schedule_day1.csv ... schedule_dayN.csv into a dictionary."""
     schedules = {}
     for i in range(1, num_days + 1):
-        day_df = pd.read_csv(os.path.join(interimdir, f"schedule_day{i}.csv"))
-        day_df = clean_df(day_df)
+        day_df = pd.read_csv(os.path.join(interimdir, f"schedule_day{i}.csv")) # _room_chair
+        #day_df = clean_df(day_df)
         date = day_df.columns[0]
-        day_df.columns = ["SessionTime", "SessionTitle"]
+        day_df.columns = ["SessionTime", "SessionTitle"] # "Room", "Chair"
         day_df["SessionTime"] = date + " " + day_df["SessionTime"]
-        day_df = day_df[["SessionTime", "SessionTitle"]]
+        day_df = day_df[["SessionTime", "SessionTitle"]]#, "Room", "Chair"]]
         schedules[f"day{i}"] = day_df
     return schedules
 
@@ -317,8 +323,8 @@ def add_schedule_join_keys(schedules):
         df["join_key"] = (
             df["join_key"]
             .str.replace(r'[-():,.]', ' ', regex=True)  # Replace special chars with space
-            .str.replace(r'\s+', ' ', regex=True)      # Collapse multiple spaces
-            .str.strip()                               # Remove leading/trailing space
+            .str.replace(r'\s+', ' ', regex=True)       # Collapse multiple spaces
+            .str.strip()                                # Remove leading/trailing space
         )
         # remove any leading or trailing spaces
         df["join_key"] = df["join_key"].str.strip()
@@ -362,11 +368,12 @@ if __name__ == "__main__":
     schedules_dict = read_schedule_days(num_days=5)
     schedules_dict = add_schedule_join_keys(schedules_dict)
     save_dfs(schedules_dict, interimdir, "joined")
- 
+
     # Concatenate and clean schedule DataFrames
     schedule_df = pd.concat(schedules_dict.values(), ignore_index=True)
     schedule_full_df = schedule_df.copy(deep=True)  # contains all sessions, including breaks
-    schedule_df = schedule_df[schedule_df["join_key"].notna()]
+
+    schedule_df = schedule_df[schedule_df["join_key"].notna()].copy(deep=True) # contains all sessions but NOT breaks
     schedule_df.to_csv(os.path.join(interimdir, "schedule_joined.csv"), index=False)
 
     # --- Read in session data
@@ -410,10 +417,6 @@ if __name__ == "__main__":
     merged_df.to_csv(output_file, index=False)
     print("Output:", output_file)
 
-    # assert rows is no_special_sessions + no_technical_sessions + no_plenary_sessions
-    assert merged_df.shape[0] == no_sessions, \
-        f"ERROR: Number of rows in SessionList.csv = {merged_df.shape[0]} and it is not equal to {no_sessions} "
-    
     # merge schedule_full_df with merged_df and output to schedule_full.csv
     # Only include columns from SessionListCols except for SessionTime, Organizer1, Organizer2, Organizer3, IsSpecialSession
     exclude_cols = {"SessionTime", "Organizer1", "Organizer2", "Organizer3", "IsSpecialSession", "OrderInSchedule"}
@@ -425,6 +428,10 @@ if __name__ == "__main__":
     )
     schedule_full_df["OrderInSchedule"] = range(1, len(schedule_full_df) + 1)
     schedule_full_df.to_csv(os.path.join(outdir, "schedule_full.csv"), index=False)
+
+    # assert rows is no_special_sessions + no_technical_sessions + no_plenary_sessions
+    assert merged_df.shape[0] == no_sessions, \
+        f"ERROR: Number of rows in SessionList.csv = {merged_df.shape[0]} and it is not equal to {no_sessions} "
 
 
 
