@@ -421,13 +421,9 @@ if __name__ == "__main__":
 
     # merge schedule_full_df with merged_df and output to schedule_full.csv
     # Only include columns from SessionListCols except for SessionTime, Organizer1, Organizer2, Organizer3, IsSpecialSession
-    exclude_cols = {"SessionTime", "Organizer1", "Organizer2", "Organizer3", "IsSpecialSession", "OrderInSchedule"}
+    exclude_cols = {"SessionTime", "Organizer1", "Organizer2", "Organizer3", "IsSpecialSession", "OrderInSchedule", "Chair", "Room"}
     merge_cols = [col for col in SessionListCols if col not in exclude_cols]
-    schedule_full_df = schedule_full_df.merge(
-        merged_df[merge_cols],
-        how="left",
-        on="SessionTitle"
-    )
+    schedule_full_df = schedule_full_df.merge(merged_df[merge_cols],how="left", on="SessionTitle")
     schedule_full_df["OrderInSchedule"] = range(1, len(schedule_full_df) + 1)
     schedule_full_df.to_csv(os.path.join(outdir, "schedule_full.csv"), index=False)
 
