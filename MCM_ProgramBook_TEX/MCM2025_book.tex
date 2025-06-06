@@ -12,15 +12,16 @@
 
 \usepackage{mcm_macros}
 
-% Put date and time stamp in footer
+% Put date and time stamp, page number in footer
+\usepackage{datetime}
 \usepackage{fancyhdr}
-\usepackage{datetime}  % for current date and time
-
+\fancyhf{}
+\fancyfoot[L]{\twodigit{\day}/\twodigit{\month}/\the\year\ \currenttime}
+\fancyfoot[R]{\thepage}
 \pagestyle{fancy}
-\fancyhf{}  % clear all header and footer fields
-\fancyfoot[C]{\today\ at \currenttime}  % center footer with date and time
-\renewcommand{\headrulewidth}{0pt}  % no header line
-\renewcommand{\footrulewidth}{0.4pt}  % footer line
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\dateseparator}{/}
 
 % ------------------------------------------------------------------------
 % Document begins here
