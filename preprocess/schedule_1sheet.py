@@ -130,62 +130,71 @@ def clean_column_names(df):
     
     return df
 
-def df_to_latex(df, filename, is_sideway=False):
-    """Write a two-column DataFrame as a LaTeX tabularx table."""
-    df = df[~df.apply(lambda x: x.str.contains('//', na=False)).any(axis=1)]   # remove rows with '//'
+def preprocess_dataframe(df):
+    """Clean and preprocess the DataFrame."""
+    df = df[~df.apply(lambda x: x.str.contains('//', na=False)).any(axis=1)]  # Remove rows with '//'
     df = clean_column_names(df)
     df = df.map(escape_cell).map(shorten_cell)
-    df = move_plenary_to_second_column(df)  
+    df = move_plenary_to_second_column(df)
     df = move_track_to_second_column(df)
-
-    # Add room information if available
-    if 'Room' in df.columns:
-        # Only add room if second column is not empty and has no special events
-        df.iloc[:, 1] = df.apply(lambda row: 
-            f"{row.iloc[1]} ({row['Room']})" if (
-                pd.notna(row.iloc[1]) and 
-                pd.notna(row['Room']) 
-            ) else row.iloc[1], 
-            axis=1
-        )
-    
-    # Keep only the first two columns
-    df = df.iloc[:, :2]
-
-    with open(filename, 'a') as f:
-        if is_sideway: 
-            f.write("\\begin{sideways}\n")
-        else:
-            f.write("\\begin{table}\n")
-        f.write("{\\footnotesize\n")
-        # Make second column wider
-        col_spec = '>{\\hsize=0.32\\hsize}X|>{\\hsize=1.7\\hsize}X'
-        f.write(f"\\begin{{tabularx}}{{\\textwidth}}{{{col_spec}}}\n")
-        f.write("\\hline\n")
-        # Write header (merge two columns, large bold font)
-        f.write(' & '.join([f'\\textbf{{{col}}}' for col in df.columns]) + ' \\\\\n')
-        f.write("\\hline\n")
-        # Write rows
-        for _, row in df.iterrows():
-            # Skip row if both cells are empty
-            if all(str(cell).strip() == "" for cell in row.values):
-                continue
-            color = get_row_color(row.values)
-            row_str = ' & '.join([f'{color}{cell}' for cell in row.values])
-            # Replace "Part " with "Part~" in LaTeX
-            row_str = row_str.replace("Part ", "Part~")
-            f.write(row_str + " \\\\\n")
-        f.write("\\hline\n")
-        f.write("\\end{tabularx}\n")
-        f.write("}\n")
-        if is_sideway:
-            f.write("\\end{sideways}\n\n")
-        else:
-            f.write("\\end{table}\n\n")
- 
     return df
 
+def add_room_information(df):
+    """Add room information to the second column if available."""
+    if 'Room' in df.columns:
+        df.iloc[:, 1] = df.apply(
+            lambda row: f"{row.iloc[1]} ({row['Room']})" if pd.notna(row.iloc[1]) and pd.notna(row['Room']) else row.iloc[1],
+            axis=1
+        )
+    return df
 
+def write_latex_table_header(f, df, is_sideway):
+    """Write the LaTeX table header."""
+    if is_sideway:
+        f.write("\\begin{sideways}\n")
+    else:
+        f.write("\\begin{table}\n")
+    f.write("{\\footnotesize\n")
+    col_spec = '>{\\hsize=0.32\\hsize}X|>{\\hsize=1.7\\hsize}X'
+    f.write(f"\\begin{{tabularx}}{{\\textwidth}}{{{col_spec}}}\n")
+    f.write("\\hline\n")
+    f.write(' & '.join([f'\\textbf{{{col}}}' for col in df.columns]) + ' \\\\\n')
+    f.write("\\hline\n")
+
+def write_latex_table_rows(f, df):
+    """Write the rows of the LaTeX table."""
+    for _, row in df.iterrows():
+        if all(str(cell).strip() == "" for cell in row.values):  # Skip empty rows
+            continue
+        color = get_row_color(row.values)
+        row_str = ' & '.join([f'{color}{cell}' for cell in row.values])
+        row_str = row_str.replace("Part ", "Part~")  # Replace "Part " with "Part~" in LaTeX
+        f.write(row_str + " \\\\\n")
+
+def write_latex_table_footer(f, is_sideway):
+    """Write the LaTeX table footer."""
+    f.write("\\hline\n")
+    f.write("\\end{tabularx}\n")
+    f.write("}\n")
+    if is_sideway:
+        f.write("\\end{sideways}\n\n")
+    else:
+        f.write("\\end{table}\n\n")
+
+
+def df_to_latex(df, filename, is_sideway=False):
+    """Write a two-column DataFrame as a LaTeX tabularx table."""
+
+    df = add_room_information(df)
+    df = df.iloc[:, :2]  # Keep only the first two columns
+
+    # Write the LaTeX table to the file
+    with open(filename, 'a') as f:
+        write_latex_table_header(f, df, is_sideway)
+        write_latex_table_rows(f, df)
+        write_latex_table_footer(f, is_sideway)
+    return df
+ 
 if __name__ == '__main__':
 
     # Read the google sheet Schedule, 
@@ -252,9 +261,12 @@ if __name__ == '__main__':
         #subdf = shorten_room_names(subdf)
 
         # create a new df with first 2 columns of subdf for 1-sheet schedule
-        subdf2 = subdf.iloc[:, :3].copy(deep=True)
-        subdf2 = df_to_latex(subdf2, schedule_tex)
+        subdf2 = subdf.iloc[:, :4].copy(deep=True)
+        subdf2 = preprocess_dataframe(subdf2)
         subdf2.to_csv(f"{interimdir}schedule_day{j}.csv", index=False, quoting=1)
+
+        # Preprocess the DataFrame
+        df_to_latex(subdf2, schedule_tex)
 
         # apply shorten_titles() to subdf["Session"] values for latex table
         #subdf2["Session"] = subdf2["Session"].apply(shorten_titles)

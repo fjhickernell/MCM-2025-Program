@@ -48,8 +48,8 @@ def _create_session_talk_df(session_df: pd.DataFrame) -> List[Tuple[Tuple[str, s
     talk_id_df["join_key"] = (
         talk_id_df["join_key"]
         .str.replace(r'[-():,.]', ' ', regex=True)  # Replace special chars with space
-        .str.replace(r'\s+', ' ', regex=True)       # Collapse multiple spaces
-        .str.strip()                                # Remove leading/trailing space
+        .str.replace(r'\s+', ' ', regex=True)      # Collapse multiple spaces
+        .str.strip()                               # Remove leading/trailing space
     )
     # sort frames by "join_key", "Presenter"
     talk_id_df = talk_id_df.sort_values(by=["join_key", "PresenterLast"]).reset_index(drop=True)
@@ -286,12 +286,12 @@ def read_schedule_days(num_days=5):
     """Read schedule_day1.csv ... schedule_dayN.csv into a dictionary."""
     schedules = {}
     for i in range(1, num_days + 1):
-        day_df = pd.read_csv(os.path.join(interimdir, f"schedule_day{i}.csv")) # _room_chair
+        day_df = pd.read_csv(os.path.join(interimdir, f"schedule_day{i}.csv"))
         #day_df = clean_df(day_df)
         date = day_df.columns[0]
-        day_df.columns = ["SessionTime", "SessionTitle"] # "Room", "Chair"
+        day_df.columns = ["SessionTime", "SessionTitle", "Room", "Chair"]
         day_df["SessionTime"] = date + " " + day_df["SessionTime"]
-        day_df = day_df[["SessionTime", "SessionTitle"]]#, "Room", "Chair"]]
+        day_df = day_df[["SessionTime", "SessionTitle", "Room", "Chair"]]
         schedules[f"day{i}"] = day_df
     return schedules
 
@@ -434,6 +434,3 @@ if __name__ == "__main__":
     # assert rows is no_special_sessions + no_technical_sessions + no_plenary_sessions
     assert merged_df.shape[0] == no_sessions, \
         f"ERROR: Number of rows in SessionList.csv = {merged_df.shape[0]} and it is not equal to {no_sessions} "
-
-
-
