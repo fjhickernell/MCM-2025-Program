@@ -49,10 +49,21 @@
 % Document begins here 
 % ------------------------------------------------------------------------
 \begin{document}
-{\Large\bfseries Advances in Adaptive Hamiltonian Monte Carlo}
-\\[4pt]
-\textit{Organizer}: Art B. Owen, Stanford University, \texttt{owen@stanford.edu}
-\\[12pt]
+
+%Input the relevant information below
+\begin{session}
+  {Advances in Adaptive Hamiltonian Monte Carlo}% [1] session title
+  {1} %[2]  number of organizers
+  {\organizer{Art B. Owen}% organizer one name
+    {Stanford University}% organizer one affiliations
+    {owen@stanford.edu}}% organizer one email
+  {\organizer{}% organizer two name, if needed
+	{}% organizer two affiliations, if needed
+	{}}% organizer two email
+  {\organizer{}% organizer three name
+	{}% organizer three affiliations
+	{}}% organizer three email
+	
 Hamiltonian Monte Carlo (HMC) is one of the most effective tools for high-dimensional Markov chain Monte Carlo. It is the default algorithm used in probabilistic programming languages for Bayesian computation, including \texttt{Stan} [2], \texttt{PyMC} and \texttt{NumPyro} (Python), and \texttt{Turing.jl} (Julia).  While HMC handles some of the most difficult MCMC problems, it does so through the use of several tuning parameters, which can be challenging to set. 
 
 Significant progress came from the no-U-turn sampler (NUTS) [3] and apogee-to-apogee path sampler [7], both of which dynamically adapt path lengths. More recent progress includes delayed rejection HMC [5], which locally adapts step sizes, and 
