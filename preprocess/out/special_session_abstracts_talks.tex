@@ -31,27 +31,6 @@ Our general convergence results  are  applied to various SDEs from applications,
 \end{talk}
 
 \begin{talk}
-  {Quantitative Approximation of Stochastic Kinetic Equations: From Discrete to Continuum}% [1] talk title
-  {Chengcheng Ling}% [2] speaker name
-  {University of Augsburg}% [3] affiliations
-  {chengcheng.ling@uni-a.de}% [4] email
-  {Stochastic Computation and Complexity, Part I}% [5] coauthors
-  {}% [6] special session
-  {Mon, Jul 28 10:30–12:30}% [7] time slot
-  {S1-2}% [8] talk id
-  {S1}% [9] session id or photo
-
-We study the strong convergence of a generic tamed Euler-Maruyama (EM) scheme for the kinetic type stochastic differential equation (SDE) (also known as second order SDE) driven by $\alpha$-stable type noise with $\alpha\in(1,2]$. We show that when the drift exhibits a relatively low regularity: anisotropic $\beta$-H\''older continuity with $\beta >1 - \frac{\alpha}{2}$, the corresponding tamed EM converges with a convergence rate $(\frac{1}{2} + \frac{\beta}{\alpha(1+\alpha)} \wedge \frac{1}{2})$, which aligns with the results of  first-order SDEs.
-
-
-This talk is based on the work arXiv:2409.05706 (joint with Zimo Hao and Khoa L\^e)  and the work arXiv:2412.05142.
-
-\medskip
-
-
-\end{talk}
-
-\begin{talk}
   {Christopher Rauh\"ogger}% [1] talk title
   {University of Passau}% [2] speaker name
   {christopher.rauhoegger@uni-passau.de}% [3] affiliations
@@ -59,7 +38,7 @@ This talk is based on the work arXiv:2409.05706 (joint with Zimo Hao and Khoa L\
   {}% [5] coauthors
   {}% [6] special session
   {Mon, Jul 28 10:30–12:30}% [7] time slot
-  {S1-3}% [8] talk id
+  {S1-2}% [8] talk id
   {S1}% [9] session id or photo
 				
 			
@@ -86,6 +65,23 @@ driving Brownian motion.
 		discontinuous drift coefficient}. Journal of Mathematical Analysis and Applications. 513. 2. Paper Number 126180, 29
 \end{enumerate}
 
+\end{talk}
+
+\begin{talk}
+  {Stong order 1 adaptive approximation of jump-diffusion SDEs with discontinuous drift}% [1] talk title
+  {Verena Schwarz}% [2] speaker name
+  {University of Klagenfurt}% [3] affiliations
+  {verena.schwarz@aau.at}% [4] email
+  {Stochastic Computation and Complexity}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 10:30–12:30}% [7] time slot
+  {S1-3}% [8] talk id
+  {S1}% [9] session id or photo
+				
+
+In this talk we present an adaptive approximation scheme for jump-diffusion SDEs with discontinuous drift and (possibly) degenerate diffusion. The scheme is a transformation-based doubly-adaptive quasi-Milstein scheme, which 
+is doubly-adaptive in the sense that it is jump-adapted, i.e.~all jump times of the Poisson noise are grid points, and it includes an adaptive stepsize strategy to account for the discontinuities of the drift. It is proven to have strong convergence rate $1$ in $L^p$ for $p\in[1,\infty)$ with respect to the average computational cost for these SDEs. 
+To obtain our result, we prove that under slightly stronger assumptions which are still weaker than those in existing literature, a related doubly-adaptive quasi-Milstein scheme has convergence order $1$. 
 \end{talk}
 
 \begin{talk}
@@ -456,7 +452,6 @@ The talk is based on the preprint [1] and the master thesis of my student Yannic
 	\item[{[1]}] M. Gnewuch, J. Dick, L. Markhasin, W. Sickel, QMC integration based on arbitrary $(t,m,s)$-nets yields optimal convergence rates on several scales of function spaces, preprint 2024, arXiv:2409.12879. 
         \item[{[2]}] S. Heinrich, F. J. Hickernell and R. X. Yue, Optimal quadrature for Haar wavelet spaces, Math. Comput., 73 (2004), 259---277.
 	\end{enumerate}
-
 \end{talk}
 
 \begin{talk}
@@ -2293,32 +2288,6 @@ Our method admits multiple interpretations, but this talk will focus on a Langev
 \end{talk}
 
 \begin{talk}
-  {Finite-Particle Convergence Rates for Stein Variational Gradient Descent}% [1] talk title
-  {Krishnakumar Balasubramanian}% [2] speaker name
-  {University of California, Davis}% [3] affiliations
-  {kbala@ucdavis.edu}% [4] email
-  {}% [5] coauthors
-  {}% [6] special session
-  {Thu, Jul 31 15:30–17:30}% [7] time slot
-  {S26-2}% [8] talk id
-  {S26}% [9] session id or photo
-  {}% [5] coauthors
-  
-				
-			
- We provide finite-particle convergence rates for the Stein Variational Gradient Descent (SVGD) algorithm in the Kernelized Stein Discrepancy ($\mathsf{KSD}$) and Wasserstein-2 metrics. Our key insight is that the time derivative of the relative entropy between the joint density of $N$ particle locations and the $N$-fold product target measure, starting from a regular initial distribution, splits into a dominant `negative part' proportional to $N$ times the expected $\mathsf{KSD}^2$ and a smaller `positive part'. This observation leads to $\mathsf{KSD}$ rates of order $1/\sqrt{N}$, in both continuous and discrete time, providing a near optimal (in the sense of matching the corresponding i.i.d. rates) double exponential improvement over the recent result by~[1]. Under mild assumptions on the kernel and potential, these bounds also grow polynomially in the dimension $d$. By adding a bilinear component to the kernel, the above approach is used to further obtain Wasserstein-2 convergence in continuous time. For the case of `bilinear + Mat\'ern' kernels, we derive Wasserstein-2 rates that exhibit a curse-of-dimensionality similar to the i.i.d. setting. We also obtain marginal convergence and long-time propagation of chaos results for the time-averaged particle laws. 
-
-\medskip
-
-
-\begin{enumerate}
-	\item[{[1]}] Shi, J., \& Mackey, L. (2023). A finite-particle convergence rate for stein variational gradient descent. Advances in Neural Information Processing Systems, 36, 26831-26844.
-	%\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
-\end{enumerate}
-
-\end{talk}
-
-\begin{talk}
   {Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias}% [1] talk title
   {Yifan Chen}% [2] speaker name
   {UCLA, Courant Institute}% [3] affiliations
@@ -2326,7 +2295,7 @@ Our method admits multiple interpretations, but this talk will focus on a Langev
   {Xiaoou Cheng, Jonathan Niles-Weed, Jonathan Weare}% [5] coauthors
   {}% [6] special session
   {Thu, Jul 31 15:30–17:30}% [7] time slot
-  {S26-3}% [8] talk id
+  {S26-2}% [8] talk id
   {S26}% [9] session id or photo
   
 				
@@ -2336,6 +2305,35 @@ often suffices for the algorithm to converge to within a desired $W_2$ error for
 We refer to this effect as 
 \textit{delocalization of bias}. 
 We show that the delocalization effect does not hold universally and prove its validity for Gaussian distributions and strongly log-concave distributions with certain sparse/local interactions. Our analysis relies on a novel $W_{2,\ell^\infty}$ metric to measure convergence. A key technical challenge we address is the lack of a one-step contraction property in this metric. Finally, we use asymptotic arguments to explore potential generalizations of the delocalization effect beyond the Gaussian and sparse/local interactions setting.
+
+\end{talk}
+
+\begin{talk}
+  {Entropy methods for the delocalization of bias in Langevin Monte Carlo}% [1] talk title
+  {Fuzhong Zhou}% [2] speaker name
+  {Columbia University, IEOR department}% [3] affiliations
+  {fz2329@columbia.edu}% [4] email
+  {Daniel Lacker}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 15:30–17:30}% [7] time slot
+  {S26-3}% [8] talk id
+  {S26}% [9] session id or photo
+  {Analysis of
+  	Langevin and Related Sampling Algorithms, Part II.}% [6] special session. Leave this field empty for contributed talks. 
+				
+			
+The unadjusted Langevin algorithm is widely used for sampling from complex high-dimensional distributions. It is well known to be biased, with the bias as measured in squared Wasserstein-2 distance scaling linearly with the dimension. However, the remarkable recent work [1] has revealed a \textit{delocalization of bias} effect: For a class of distributions with \textit{sparse interactions}, the bias between lower-dimensional marginals scales only with the lower dimension, not the full dimension. In this work, we strengthen the results of [1] in the sparse interaction regime by removing a logarithmic factor, measuring distance in KL-divergence, and relaxing the strong log-concavity assumption. In addition, we expand the scope of the delocalization phenomenon by showing that it holds for a different class of distributions, with \textit{weak interactions}. Our proofs are based on a hierarchical analysis of the KL-divergence between marginals.
+
+
+
+\medskip
+
+
+
+\begin{enumerate}
+	\item[{[1]}] Y. Chen, X. Cheng, J. Niles-Weed, and J. Weare (2024). {\it Convergence of unadjusted langevin in high dimensions: Delocalization of bias}. arXiv preprint arXiv:2408.13115.
+\end{enumerate}
+
 
 \end{talk}
 
@@ -2469,35 +2467,6 @@ At the end of the talk, we give a small outlook on a multilevel-IS scheme to fur
 \end{enumerate}
 
 \medskip
-\end{talk}
-
-\begin{talk}
-  {Filtered Markovian Projection: Dimensionality Reduction in Filtering for Stochastic Reaction Networks}% [1] talk title
-  {Maksim Chupin}% [2] speaker name
-  {King Abdullah University of Science and Technology (KAUST)}% [3] affiliations
-  {maksim.chupin@kaust.edu.sa}% [4] email
-  {Chiheb Ben Hammouda, Sophia M\"{u}nker, Ra\'{u}l Tempone}% [5] coauthors
-  {Forward and Inverse Problems for Stochastic Reaction Networks}% [6] special session
-  {Fri, Aug 1 09:00–10:30}% [7] time slot
-  {S28-3}% [8] talk id
-  {S28}% [9] session id or photo
-				
-			
-Stochastic reaction networks (SRNs) model stochastic effects for various applications, including intracellular chemical or biological processes and epidemiology. A key challenge in practical problems modeled by SRNs is that only a few state variables can be dynamically observed. Given the measurement trajectories, one can estimate the conditional probability distribution of unobserved (hidden) state variables by solving a system filtering equation. The current numerical methods, such as the Filtered Finite State Projection [1], are hindered by the curse of dimensionality, significantly affecting their computational performance. To overcome this, we propose to use a dimensionality reduction technique based on the Markovian projection (MP), initially introduced for forward problems [2]. In this work, we explore how to adapt the existing MP approach to the filtering problem and introduce a novel version of the MP, the Filtered MP, that guarantees the consistency of the resulting estimator [3]. The novel method employs a reduced-variance particle filter for estimating the jump intensities of the projected model and solves the filtering equations in a low-dimensional space, improving computational efficiency over existing methods.
-
-
-
-
-
-\medskip
-
-\begin{enumerate}
-	\item[{[1]}] D’Ambrosio, E., Fang, Z., Gupta, A., Kumar, S., \& Khammash, M. (2022). Filtered finite state projection method for the analysis and estimation of stochastic biochemical reaction networks. bioRxiv, 2022-10.
-	\item[{[2]}] Hammouda, C. B., Rached, N. B., Tempone, R., \& Wiechert, S. (2024). Automated importance sampling via optimal control for stochastic reaction networks: A Markovian projection---based approach. Journal of Computational and Applied Mathematics, 446, 115853.
-    \item [{[3]}] Hammouda, C. B., Chupin, M., Münker, S., \& Tempone, R. (2025). Filtered Markovian Projection: Dimensionality Reduction in Filtering for Stochastic Reaction Networks. arXiv preprint arXiv:2502.07918.
-\end{enumerate}
-
-
 \end{talk}
 
 \begin{talk}

@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper,figuresright]{book}
 
 \usepackage{amsmath,amssymb}
-\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl,verbatim}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
 
 \setlength{\textheight}{25.2cm}
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
@@ -22,19 +22,19 @@
 	\url{#3}\vspace{3mm}\\\nopagebreak%
 	}
 
-\newenvironment{session}[5] % [1] session title
-							% [2] number of organizers
-                            % [3] organizer 1 info
-                            % [4] organizer 2 info
-                            % [5] organizer 3 info
-                            % [6] session id for later
+\newenvironment{session}[5] % [1] session title 
+							% [2] number of organizers 
+                            % [3] organizer 1 info 
+                            % [4] organizer 2 info 
+                            % [5] organizer 3 info 
+                            % [6] session id for later 
  {%\needspace{6\baselineskip}
   \vskip 0pt\nopagebreak%
   %\label{#5}%
   \textbf{#1}\vspace{3mm}\\\nopagebreak%
   \ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
   \vspace{2mm}\\\nopagebreak%
-  #3
+  #3 
   \ifthenelse{\equal{#2}{2}}{#4}{}%
   \ifthenelse{\equal{#2}{3}}{#4#5}{}%
   \quad\\\nopagebreak%
@@ -46,25 +46,13 @@
 \pagestyle{empty}
 
 % ------------------------------------------------------------------------
-% Document begins here
+% Document begins here 
 % ------------------------------------------------------------------------
 \begin{document}
-
-%Input the relevant information below
-\begin{session}
-  {Advances in Adaptive Hamiltonian Monte Carlo}% [1] session title
-  {1} %[2]  number of organizers
-  {\organizer{Art B. Owen}% organizer one name
-    {Stanford University}% organizer one affiliations
-    {owen@stanford.edu}}% organizer one email
-  {\organizer{}% organizer two name, if needed
-	{}% organizer two affiliations, if needed
-	{}}% organizer two email
-  {\organizer{}% organizer three name
-	{}% organizer three affiliations
-	{}}% organizer three email
-
-
+{\Large\bfseries Advances in Adaptive Hamiltonian Monte Carlo}
+\\[4pt]
+\textit{Organizer}: Art B. Owen, Stanford University, \texttt{owen@stanford.edu}
+\\[12pt]
 Hamiltonian Monte Carlo (HMC) is one of the most effective tools for high-dimensional Markov chain Monte Carlo. It is the default algorithm used in probabilistic programming languages for Bayesian computation, including \texttt{Stan} [2], \texttt{PyMC} and \texttt{NumPyro} (Python), and \texttt{Turing.jl} (Julia).  While HMC handles some of the most difficult MCMC problems, it does so through the use of several tuning parameters, which can be challenging to set. 
 
 Significant progress came from the no-U-turn sampler (NUTS) [3] and apogee-to-apogee path sampler [7], both of which dynamically adapt path lengths. More recent progress includes delayed rejection HMC [5], which locally adapts step sizes, and 
@@ -98,7 +86,5 @@ Bob Carpenter will provide an introduction to HMC, NUTS, and GIST for non-specia
 
 \item{[7]} Sherlock, C., Urbas, S. and Ludkin, M. 2023. The apogee to apogee path sampler. \textit{JCGS}, 32(4).
 \end{description}
-
-\end{session}
 
 \end{document}

@@ -40,26 +40,41 @@
 % Document begins here
 % ------------------------------------------------------------------------
 \begin{document}
-
-
-	\begin{talk}
-  {Quantitative Approximation of Stochastic Kinetic Equations: From Discrete to Continuum}% [1] talk title
-  {Chengcheng Ling}% [2] speaker name
-  {University of Augsburg}% [3] affiliations
-  {chengcheng.ling@uni-a.de}% [4] email
+	
+\begin{talk}
+  {An adaptive Milstein-type method for strong approximation of systems of SDEs
+  	with a discontinuous drift coefficient}% [1] talk title
+  {Christopher Rauh\"ogger}% [2] speaker name
+  {University of Passau}% [3] affiliations
+  {christopher.rauhoegger@uni-passau.de}% [4] email
   {}% [5] coauthors
-  {Stochastic Computation and Complexity, Part I}% [6] special session
+  {Stochastic Computation and Complexity}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+We consider $d$-dimensional systems of SDEs with a discontinuous drift coefficient. More precisely,
+we assume that there exists a $C^{5}$-hypersurface
+$\Theta\subseteq \mathbb{R}^{d}$ such that the drift coefficient is intrinsic Lipschitz continuous on $\mathbb{R}^{d}\setminus \Theta$ and has intrinsic Lipschitz continuous derivative on $\mathbb{R}^{d}\setminus \Theta$.
+Furthermore, the diffusion coefficient is $C^{1}$ on $\mathbb{R}^{d}$ and commutative with a bounded derivative that is intrinsic Lipschitz continuous on $\mathbb{R}^{d}\setminus \Theta$.
 
-We study the strong convergence of a generic tamed Euler-Maruyama (EM) scheme for the kinetic type stochastic differential equation (SDE) (also known as second order SDE) driven by $\alpha$-stable type noise with $\alpha\in(1,2]$. We show that when the drift exhibits a relatively low regularity: anisotropic $\beta$-H\"older continuity with $\beta >1 - \frac{\alpha}{2}$, the corresponding tamed EM converges with a convergence rate $(\frac{1}{2} + \frac{\beta}{\alpha(1+\alpha)} \wedge \frac{1}{2})$, which aligns with the results of  first-order SDEs.
+It was proven in [1] for $d = 1$ and more recently in [2] for general $d \in \mathbb{N}$ that in this setting a transformed Milstein scheme achieves an $L_{p}$-error rate of order at least $3/4-$ in terms of the number of evaluations of the
+driving Brownian motion.
+Furthermore it was proven in [3] that for $d = 1$ in the same setting an adaptive Milstein-type scheme achieves an $L_{p}$-error rate of order at least $1$ in terms of the average number of evaluations of the driving Brownian motion. 
 
-
-This talk is based on the work arXiv:2409.05706 (joint with Zimo Hao and Khoa L\^e)  and the work arXiv:2412.05142.
+In this talk we present a generalisation of the result from [3] to higher dimensions. More precisely, we introduce an adaptive transformed Milstein scheme which can be used for the approximation of solutions of $d$-dimensional systems of SDEs at the final time point in this setting and
+prove that this scheme achieves an $L_{p}$-error rate of order at least $1$ in terms of the average number of evaluations of the
+driving Brownian motion.
 
 \medskip
 
+\begin{enumerate}
+	\item[{[1]}] M\"{u}ller-Gronbach, Thomas \& Yaroslavtseva, Larisa. (2022). {\it A strong order 3/4 method for {SDE}s with discontinuous drift
+		coefficient}. IMA Journal of Numerical Analysis. 42. 229-259
+	\item[{[2]}] Rauh\"ogger, Christopher. (2025+). {\it Milstein-type methods for strong approximation of systems of SDEs with a discontinuous drift coefficient}. In preparation
+	\item[{[3]}] Yaroslavtseva, Larisa. (2022). {\it An adaptive strong order 1 method for {SDE}s with
+		discontinuous drift coefficient}. Journal of Mathematical Analysis and Applications. 513. 2. Paper Number 126180, 29
+\end{enumerate}
 
 \end{talk}
 
+\end{document}
 
-%\title{Exist
-\end{document} 

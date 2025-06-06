@@ -42,19 +42,27 @@
 \begin{document}
 	
 \begin{talk}
-  {Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias}% [1] talk title
-  {Yifan Chen}% [2] speaker name
-  {UCLA, Courant Institute}% [3] affiliations
-  {yifanc96@gmail.com}% [4] email
-  {Xiaoou Cheng, Jonathan Niles-Weed, Jonathan Weare}% [5] coauthors
-  {}% [6] special session. Leave this field empty for contributed talks. 
+  {Entropy methods for the delocalization of bias in Langevin Monte Carlo}% [1] talk title
+  {Fuzhong Zhou}% [2] speaker name
+  {Columbia University, IEOR department}% [3] affiliations
+  {fz2329@columbia.edu}% [4] email
+  {Daniel Lacker}% [5] coauthors
+  {Analysis of
+  	Langevin and Related Sampling Algorithms, Part II.}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-The unadjusted Langevin algorithm is commonly used to sample probability distributions in extremely high-dimensional settings. However, existing analyses of the algorithm for strongly log-concave distributions suggest that, as the dimension $d$ of the problem increases, the number of iterations required to ensure convergence within a desired error in the $W_2$ metric scales in proportion to $d$ or $\sqrt{d}$. In this work, we argue that, the behavior for a \emph{small number} of variables can be significantly better: a number of iterations proportional to $K$, up to logarithmic terms in $d$,
-often suffices for the algorithm to converge to within a desired $W_2$ error for all $K$-marginals.
-We refer to this effect as 
-\textit{delocalization of bias}. 
-We show that the delocalization effect does not hold universally and prove its validity for Gaussian distributions and strongly log-concave distributions with certain sparse/local interactions. Our analysis relies on a novel $W_{2,\ell^\infty}$ metric to measure convergence. A key technical challenge we address is the lack of a one-step contraction property in this metric. Finally, we use asymptotic arguments to explore potential generalizations of the delocalization effect beyond the Gaussian and sparse/local interactions setting.
+The unadjusted Langevin algorithm is widely used for sampling from complex high-dimensional distributions. It is well known to be biased, with the bias as measured in squared Wasserstein-2 distance scaling linearly with the dimension. However, the remarkable recent work [1] has revealed a \textit{delocalization of bias} effect: For a class of distributions with \textit{sparse interactions}, the bias between lower-dimensional marginals scales only with the lower dimension, not the full dimension. In this work, we strengthen the results of [1] in the sparse interaction regime by removing a logarithmic factor, measuring distance in KL-divergence, and relaxing the strong log-concavity assumption. In addition, we expand the scope of the delocalization phenomenon by showing that it holds for a different class of distributions, with \textit{weak interactions}. Our proofs are based on a hierarchical analysis of the KL-divergence between marginals.
+
+
+
+\medskip
+
+
+
+\begin{enumerate}
+	\item[{[1]}] Y. Chen, X. Cheng, J. Niles-Weed, and J. Weare (2024). {\it Convergence of unadjusted langevin in high dimensions: Delocalization of bias}. arXiv preprint arXiv:2408.13115.
+\end{enumerate}
+
 
 \end{talk}
 

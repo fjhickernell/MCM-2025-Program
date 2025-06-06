@@ -2,7 +2,6 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
-\newcommand{\KSD}{\mathsf{KSD}}
 
 \setlength{\textheight}{25.2cm}
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
@@ -43,24 +42,21 @@
 \begin{document}
 	
 \begin{talk}
-  {Finite-Particle Convergence Rates for Stein Variational Gradient Descent}% [1] talk title
-  {Krishnakumar Balasubramanian}% [2] speaker name
-  {University of California, Davis}% [3] affiliations
-  {kbala@ucdavis.edu}% [4] email
-  {}% [5] coauthors
+  {Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias}% [1] talk title
+  {Yifan Chen}% [2] speaker name
+  {UCLA, Courant Institute}% [3] affiliations
+  {yifanc96@gmail.com}% [4] email
+  {Xiaoou Cheng, Jonathan Niles-Weed, Jonathan Weare}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
- We provide finite-particle convergence rates for the Stein Variational Gradient Descent (SVGD) algorithm in the Kernelized Stein Discrepancy ($\KSD$) and Wasserstein-2 metrics. Our key insight is that the time derivative of the relative entropy between the joint density of $N$ particle locations and the $N$-fold product target measure, starting from a regular initial distribution, splits into a dominant `negative part' proportional to $N$ times the expected $\KSD^2$ and a smaller `positive part'. This observation leads to $\KSD$ rates of order $1/\sqrt{N}$, in both continuous and discrete time, providing a near optimal (in the sense of matching the corresponding i.i.d. rates) double exponential improvement over the recent result by~[1]. Under mild assumptions on the kernel and potential, these bounds also grow polynomially in the dimension $d$. By adding a bilinear component to the kernel, the above approach is used to further obtain Wasserstein-2 convergence in continuous time. For the case of `bilinear + Mat\'ern' kernels, we derive Wasserstein-2 rates that exhibit a curse-of-dimensionality similar to the i.i.d. setting. We also obtain marginal convergence and long-time propagation of chaos results for the time-averaged particle laws. 
-
-\medskip
-
-
-\begin{enumerate}
-	\item[{[1]}] Shi, J., \& Mackey, L. (2023). A finite-particle convergence rate for stein variational gradient descent. Advances in Neural Information Processing Systems, 36, 26831-26844.
-	%\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
-\end{enumerate}
+The unadjusted Langevin algorithm is commonly used to sample probability distributions in extremely high-dimensional settings. However, existing analyses of the algorithm for strongly log-concave distributions suggest that, as the dimension $d$ of the problem increases, the number of iterations required to ensure convergence within a desired error in the $W_2$ metric scales in proportion to $d$ or $\sqrt{d}$. In this work, we argue that, the behavior for a \emph{small number} of variables can be significantly better: a number of iterations proportional to $K$, up to logarithmic terms in $d$,
+often suffices for the algorithm to converge to within a desired $W_2$ error for all $K$-marginals.
+We refer to this effect as 
+\textit{delocalization of bias}. 
+We show that the delocalization effect does not hold universally and prove its validity for Gaussian distributions and strongly log-concave distributions with certain sparse/local interactions. Our analysis relies on a novel $W_{2,\ell^\infty}$ metric to measure convergence. A key technical challenge we address is the lack of a one-step contraction property in this metric. Finally, we use asymptotic arguments to explore potential generalizations of the delocalization effect beyond the Gaussian and sparse/local interactions setting.
 
 \end{talk}
 
 \end{document}
+
