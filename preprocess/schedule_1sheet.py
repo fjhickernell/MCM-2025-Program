@@ -195,14 +195,25 @@ if __name__ == '__main__':
         # Join with plenary_df
         subdf["join_key"] = subdf["Session"].str.lower().str.strip()
         subdf = subdf.merge(plenary_df[["Institution of presenter", "Talk Title", "join_key"]], how='left', on="join_key")
-        
-        # if "Institution of presenter", "Talk Title" both has non-NaN values, then join them to the value in "Session",
-        # Session <- Session, Institution, Talk Title
-        subdf["Session"] = (
-            subdf["Session"].fillna("").str.strip() +
-            (", " + subdf["Institution of presenter"].fillna("").str.strip()).where(subdf["Institution of presenter"].notna() & (subdf["Institution of presenter"].str.strip() != ""), "") +
-            (", " + subdf["Talk Title"].fillna("").str.strip()).where(subdf["Talk Title"].notna() & (subdf["Talk Title"].str.strip() != ""), "")
+
+        # If both "Institution of presenter" and "Talk Title" are present, append them to "Session"
+        session = subdf["Session"].fillna("").str.strip()
+
+        institution = subdf["Institution of presenter"].fillna("").str.strip()
+        institution = institution.where(
+            subdf["Institution of presenter"].notna() & (institution != ""), ""
         )
+        institution = ", " + institution
+        institution = institution.where(institution != ", ", "")
+
+        talk_title = subdf["Talk Title"].fillna("").str.strip()
+        talk_title = talk_title.where(
+            subdf["Talk Title"].notna() & (talk_title != ""), ""
+        )
+        talk_title = ", " + talk_title
+        talk_title = talk_title.where(talk_title != ", ", "")
+
+        subdf["Session"] = session + institution + talk_title
 
         # Shorten values like "University" as U in subdf["Session"]
         subdf["Session"] = subdf["Session"].str.replace(r"\bUniversity\b", "U", regex=True)
@@ -216,7 +227,6 @@ if __name__ == '__main__':
         # apply shorten_titles() to subdf["Session"] values for latex table
         #subdf2["Session"] = subdf2["Session"].apply(shorten_titles)
     
-        
         j+=1
   
     print(f"Output: {schedule_tex}")
