@@ -11,6 +11,17 @@
 \usepackage{mathrsfs}
 
 \usepackage{mcm_macros}
+
+% Put date and time stamp in footer
+\usepackage{fancyhdr}
+\usepackage{datetime}  % for current date and time
+
+\pagestyle{fancy}
+\fancyhf{}  % clear all header and footer fields
+\fancyfoot[C]{\today\ at \currenttime}  % center footer with date and time
+\renewcommand{\headrulewidth}{0pt}  % no header line
+\renewcommand{\footrulewidth}{0.4pt}  % footer line
+
 % ------------------------------------------------------------------------
 % Document begins here
 % ------------------------------------------------------------------------
