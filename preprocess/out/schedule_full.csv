@@ -1,5 +1,5 @@
 SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
-"Mon, Jul 28 08:00–17:30",Registration Desk Open,,,,,1
+"Mon, Jul 28 08:00–17:30",Registration Desk Open,HH Lobby,,,,1
 "Mon, Jul 28 08:45–09:00",Conference Opening,HH Auditorium,Fred Hickernell,,,2
 "Mon, Jul 28 09:00–10:00",Plenary Talk by Rohan Sawhney,HH Auditorium,Michael Giles,rohan sawhney,P1,3
 "Mon, Jul 28 10:00–10:30",Coffee Break,HH Lobby,,,,4
@@ -17,7 +17,7 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Mon, Jul 28 15:30–17:30","Track I: Technical Session 4 - Quasi-Monte Carlo, Part 1",WH Auditorium,,technical session 4,T4,16
 "Mon, Jul 28 15:30-17:30",Track J: Technical Session 12 - PDEs,HH Alumni Lounge,,technical session 12,T12,17
 "Mon, Jul 28 17:30-19:30",Welcome Reception,HH Lobby,,,,18
-"Tue, Jul 29 08:30–17:30",Registration Desk Open,???,Y,,,19
+"Tue, Jul 29 08:30–17:30",Registration Desk Open,HH Lobby,,,,19
 "Tue, Jul 29 09:00–10:00","Plenary Talk by Peter Glynn, Stanford U, Combining Simulation and Linear Algebra: COSIMLA",HH Auditorium,Chang-Han Rhee,peter glynn,P3,20
 "Tue, Jul 29 10:00–10:30",Coffee Break,HH Lobby,,,,21
 "Tue, Jul 29 10:30–12:30","Track A: Stochastic Computation and Complexity, Part III",HH Auditorium,,stochastic computation and complexity part iii,S8,22
@@ -33,7 +33,7 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Tue, Jul 29 15:30–17:30",Track H: Advances in Rare Events Simulation,PH Auditorium,,advances in rare events simulation,S14,32
 "Tue, Jul 29 15:30–17:30","Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II",WH Auditorium,,frontiers in quasi monte carlo and markov chain monte carlo methods part ii,S15,33
 "Tue, Jul 29 15:30-17:30","Track J: Technical Session 5 - Quasi-Monte Carlo, Part 2",HH Alumni Lounge,,technical session 5,T5,34
-"Wed, Jul 30 08:30–16:30",Registration Desk Open,,,,,35
+"Wed, Jul 30 08:30–16:30",Registration Desk Open,HH Lobby,,,,35
 "Wed, Jul 30 09:00–10:00","Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",HH Auditorium,Gunther Leobacher,michaela szölgyenyi,P5,36
 "Wed, Jul 30 10:00–10:30",Coffee Break,HH Lobby,,,,37
 "Wed, Jul 30 10:30–12:30","Track A: Stochastic Computation and Complexity, Part V",HH Auditorium,,stochastic computation and complexity part v,S16,38
@@ -49,7 +49,7 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Wed, Jul 30 14:00–16:00",Track J: Technical Session 10 - Langevin,HH Alumni Lounge,,technical session 10,T10,48
 "Wed, Jul 30 16:00-16:30",Coffee Break,HH Lobby,,,,49
 "Wed, Jul 30 18:00-20:30",Conference Dinner,Bridgeport Arts Center,,,,50
-"Thu, Jul 31 08:30–17:30",Registration Desk Open,???,,,,51
+"Thu, Jul 31 08:30–17:30",Registration Desk Open,HH Lobby,,,,51
 "Thu, Jul 31 09:00–10:00","Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampling: Methods and Optimization Strategies",HH Auditorium,Tim Hobbs,uros seljak,P6,52
 "Thu, Jul 31 10:00–10:30",Coffee Break,HH Lobby,,,,53
 "Thu, Jul 31 10:30–12:30",Track A: QMC and Applications Part I,HH Auditorium,,qmc and applications part i,S22,54
@@ -66,7 +66,7 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Thu, Jul 31 15:30–17:30",Track I: Technical Session 7 - Sampling,WH Auditorium,,technical session 7,T7,65
 "Thu, Jul 31 15:30-17:30",Track J: Technical Session 11 - SDEs,HH Alumni Lounge,,technical session 11,T11,66
 "Thu, Jul 31 18:00-20:30",Steering Committee Meeting (by invitation),,,,,67
-"Fri, Aug 1 08:30–12:15",Registration Desk Open,???,Y,,,68
+"Fri, Aug 1 08:30–12:15",Registration Desk Open,HH Lobby,,,,68
 "Fri, Aug 1 09:00–10:30",Track A: Forward and Inverse Problems for Stochastic Reaction Networks,HH Auditorium,,forward and inverse problems for stochastic reaction networks,S28,69
 "Fri, Aug 1 09:00–10:30","Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",HH Ballroom,,hardware or software for quasi monte carlo algorithms part ii,S29,70
 "Fri, Aug 1 09:00–10:30",Track C: Technical Session 3 - Simulation,PH Auditorium,,technical session 3,T3,71
@@ -74,4 +74,4 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Fri, Aug 1 09:00–10:30",Track E: Technical Session 14 - Markov Chain Monte Carlo,HH Alumni Lounge,,technical session 14,T14,73
 "Fri, Aug 1 10:30-11",Coffee Break,HH Lobby,,,,74
 "Fri, Aug 1 11:00-12:00","Plenary Talk by Veronika Ročková, U of Chicago, AI-Powered Bayesian Inference",HH Auditorium,Art Owen,veronika ročková,P8,75
-"Fri, Aug 1 12:00-12:15",Closing Remarks,,,,,76
+"Fri, Aug 1 12:00-12:15",Closing Remarks,HH Auditorium,,,,76

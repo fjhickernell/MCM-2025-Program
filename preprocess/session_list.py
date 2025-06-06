@@ -395,7 +395,7 @@ if __name__ == "__main__":
 
     # Merge SessionID back into session dataframes
     for key in dfs:
-        dfs[key] = dfs[key].merge(merged_df[["join_key", "SessionTime", "SessionID", "SessionTitle"]], how="left", on="join_key")
+        dfs[key] = dfs[key].merge(merged_df[["join_key", "SessionTime", "SessionID", "SessionTitle", "Room", "Chair"]], how="left", on="join_key")
 
     save_dfs(dfs, interimdir, "sessionid")  # Save updated session dataframes with SessionID
 

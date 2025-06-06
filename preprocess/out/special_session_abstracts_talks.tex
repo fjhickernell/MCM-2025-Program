@@ -1950,6 +1950,32 @@ Tumor models largely focus on two key characteristics: infiltration of the tumor
 \end{talk}
 
 \begin{talk}
+  {Finite-Particle Convergence Rates for Stein Variational Gradient Descent}% [1] talk title
+  {Krishnakumar Balasubramanian}% [2] speaker name
+  {University of California, Davis}% [3] affiliations
+  {kbala@ucdavis.edu}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 10:30–12:30}% [7] time slot
+  {S23-1}% [8] talk id
+  {S23}% [9] session id or photo
+  {}% [5] coauthors
+  
+				
+			
+ We provide finite-particle convergence rates for the Stein Variational Gradient Descent (SVGD) algorithm in the Kernelized Stein Discrepancy ($\mathsf{KSD}$) and Wasserstein-2 metrics. Our key insight is that the time derivative of the relative entropy between the joint density of $N$ particle locations and the $N$-fold product target measure, starting from a regular initial distribution, splits into a dominant `negative part' proportional to $N$ times the expected $\mathsf{KSD}^2$ and a smaller `positive part'. This observation leads to $\mathsf{KSD}$ rates of order $1/\sqrt{N}$, in both continuous and discrete time, providing a near optimal (in the sense of matching the corresponding i.i.d. rates) double exponential improvement over the recent result by~[1]. Under mild assumptions on the kernel and potential, these bounds also grow polynomially in the dimension $d$. By adding a bilinear component to the kernel, the above approach is used to further obtain Wasserstein-2 convergence in continuous time. For the case of `bilinear + Mat\'ern' kernels, we derive Wasserstein-2 rates that exhibit a curse-of-dimensionality similar to the i.i.d. setting. We also obtain marginal convergence and long-time propagation of chaos results for the time-averaged particle laws. 
+
+\medskip
+
+
+\begin{enumerate}
+	\item[{[1]}] Shi, J., \& Mackey, L. (2023). A finite-particle convergence rate for stein variational gradient descent. Advances in Neural Information Processing Systems, 36, 26831-26844.
+	%\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
   {Convergence rates of kinetic Langevin dynamics with weakly confining potentials}% [1] talk title
   {Lihan Wang}% [2] speaker name
   {Carnegie Mellon University}% [3] affiliations

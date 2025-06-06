@@ -76,27 +76,27 @@ def generate_session_latex(row: pd.Series) -> str:
 
     #short_session_title = shorten_titles(session_title)
 
-    if session_id.startswith("P"):
+    if session_id.startswith("P"):  # Plenary sessions
         return f"\\input{{sess{session_id}.tex}}\n"
-    elif not session_id:
+    elif not session_id:  # breaks or opening/closing events
         #print(f"{session_title = }, {session_time = }")
         start_time, end_time = extract_time_from_session(session_time)
         time_str = f"{start_time}--{end_time}" if start_time and end_time else ""
         if session_title.lower().startswith("conference opening") or session_title.lower().startswith("closing"):
-            return f"\\OpeningClosingEvent{{{time_str}}}{{{session_title}}}\\\\\n"
+            event_details = f"{session_title} by {chair}, {room}"
+            return f"\\OpeningClosingEvent{{{time_str}}}{{{event_details}}}\\\\\n"
         else: 
             return f"\\TableEvent{{{time_str}}}{{{session_title}}}\\\\\n"
-
-    elif session_title.lower().startswith("track"):
+    elif session_title.lower().startswith("track"):  # Parallel special/technical sessions
         if session_id.startswith("S"):
-            return (f"&\\tableSpecialCL{{ {room} }}\n"
-                    f"{{ {session_title} }}\n"
+            return (f"&\\tableSpecialCL{{{room}}}\n"
+                    f"{{{session_title}}}\n"
                     f"{{{session_id}}}\n"
-                    f"{{ {chair} }}\n")
+                    f"{{{chair}}}\n")
         elif session_id.startswith("T"):
-            return (f"&\\tableContributedCL{{ {room} }}\n"
-                    f"{{ {session_title} }}\n"
-                    f"{{ {chair} }}\n")
+            return (f"&\\tableContributedCL{{{room}}}\n"
+                    f"{{{session_title}}}\n"
+                    f"{{{chair}}}\n")
     return f"{session_time} & {session_title} \\\\\n"
 
 def process_session_talks(sess_content: str) -> List[Tuple[str, str, str]]:
@@ -182,12 +182,14 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
         time_str = "Morning" if is_morning else "Afternoon"
         latex_content += "\\vspace{-10ex}\n" if (not (is_last_day and not is_morning)) else "" 
         latex_content += "\\begin{sideways}\\footnotesize\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}\n" if (not (is_last_day and not is_morning)) else "" 
+        # Extract day of the week from date, e.g., Mon, Tue, etc.
+        day_of_week = pd.to_datetime(date + " 2025", format="%b %d %Y").strftime("%a")
         # Add table heading for each group (morning/afternoon or last day)
         if not is_last_day:
-            latex_content += f"\\TableHeading{{ {date}, 2025 -- {time_str} }}\n\\\\\\hline\n"
+            latex_content += f"\\TableHeading{{ {day_of_week}, {date}, 2025 -- {time_str} }}\n\\\\\\hline\n"
         else:
-            if  is_morning:
-                latex_content += f"\\TableHeading{{ {date}, 2025 }}\n\\\\\\hline\n"
+            if is_morning:
+                latex_content += f"\\TableHeading{{ {day_of_week}, {date}, 2025 }}\n\\\\\\hline\n"
             else:
                 latex_content += "\\hline\n"
         talks_latex = ""
