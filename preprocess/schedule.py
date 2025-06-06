@@ -88,6 +88,8 @@ def generate_session_latex(row: pd.Series) -> str:
         else: 
             return f"\\TableEvent{{{time_str}}}{{{session_title}}}\\\\\n"
     elif session_title.lower().startswith("track"):  # Parallel special/technical sessions
+        # take out Track A, B, C, etc. from the title
+        session_title = re.sub(r'Track [A-Z]:\s*', '', session_title, flags=re.IGNORECASE).strip()
         if session_id.startswith("S"):
             return (f"&\\tableSpecialCL{{{room}}}\n"
                     f"{{{session_title}}}\n"
@@ -210,6 +212,10 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
                     latex_content += talks_latex
         latex_content += "\n\n\\end{tabularx}\n\n\\end{sideways}\n\n" if (not (is_last_day and is_morning)) else "" 
     latex_content += "\\end{center}\n\n\\clearpage"
+
+    # Remove "Track A:", "Track B:", etc. from the LaTeX content
+    latex_content = re.sub(r'Track [A-Z]:\s*', '', latex_content, flags=re.IGNORECASE)
+
     return latex_content
 
 if __name__ == '__main__':

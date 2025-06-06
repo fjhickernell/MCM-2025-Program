@@ -187,6 +187,8 @@ def df_to_latex(df, filename, is_sideway=False):
 
     df = add_room_information(df)
     df = df.iloc[:, :2]  # Keep only the first two columns
+    # remove "Track A", "Track B", etc. from the second column 
+    df.iloc[:, 1] = df.iloc[:, 1].str.replace(r"Track [A-Z]: ", "", regex=True).str.strip()
 
     # Write the LaTeX table to the file
     with open(filename, 'a') as f:
