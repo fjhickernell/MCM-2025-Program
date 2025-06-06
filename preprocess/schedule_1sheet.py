@@ -4,6 +4,8 @@ from config import *
 from util import *
 import re
 
+
+
 def get_row_color(row):
     """Return LaTeX color command based on keywords in the row (case insensitive)."""
     row_str = ' '.join(str(x) for x in row).lower()
@@ -15,6 +17,19 @@ def get_row_color(row):
         return r'\cellcolor{\SessionLightColor}'
     else:
         return r'\cellcolor{\SessionTitleColor}'
+
+
+def shorten_room_names(df):
+    """Shorten room names in the DataFrame."""
+    room_replacements = [
+        (r"\bAuditorium\b", "Aud."),
+        (r"\bBallroom\b", "Ballrm"),
+        (r"\bLobby\b", "Lby"),
+        (r"\bAlumni Lounge\b", "Alum."),
+        (r"\bArts Center\b", "Arts Ctr.")
+    ]
+    return shorten_text(df, "Room", room_replacements)
+
 
 def shorten_titles(title):
     replacements = [
@@ -123,6 +138,20 @@ def df_to_latex(df, filename, is_sideway=False):
     df = move_plenary_to_second_column(df)  
     df = move_track_to_second_column(df)
 
+    # Add room information if available
+    if 'Room' in df.columns:
+        # Only add room if second column is not empty and has no special events
+        df.iloc[:, 1] = df.apply(lambda row: 
+            f"{row.iloc[1]} ({row['Room']})" if (
+                pd.notna(row.iloc[1]) and 
+                pd.notna(row['Room']) 
+            ) else row.iloc[1], 
+            axis=1
+        )
+    
+    # Keep only the first two columns
+    df = df.iloc[:, :2]
+
     with open(filename, 'a') as f:
         if is_sideway: 
             f.write("\\begin{sideways}\n")
@@ -219,8 +248,11 @@ if __name__ == '__main__':
         subdf["Session"] = subdf["Session"].str.replace(r"\bUniversity\b", "U", regex=True)
         subdf["Session"] = subdf["Session"].str.replace(r"\bENSAE, \b", "", regex=True)
         
+        # Shorten room names
+        #subdf = shorten_room_names(subdf)
+
         # create a new df with first 2 columns of subdf for 1-sheet schedule
-        subdf2 = subdf.iloc[:, :2].copy(deep=True)
+        subdf2 = subdf.iloc[:, :3].copy(deep=True)
         subdf2 = df_to_latex(subdf2, schedule_tex)
         subdf2.to_csv(f"{interimdir}schedule_day{j}.csv", index=False, quoting=1)
 
