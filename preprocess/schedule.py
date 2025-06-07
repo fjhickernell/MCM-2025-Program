@@ -86,7 +86,7 @@ def generate_session_latex(row: pd.Series) -> str:
             event_details = f"{session_title} by {chair}, {room}"
             return f"\\OpeningClosingEvent{{{time_str}}}{{{event_details}}}\\\\\n"
         else: 
-            return f"\\TableEvent{{{time_str}}}{{{session_title}}}\\\\\n"
+            return f"\\TableEvent{{{time_str}}}{{{session_title}, {room}}}\\\\\n"
     elif session_title.lower().startswith("track"):  # Parallel special/technical sessions
         # take out Track A, B, C, etc. from the title
         session_title = re.sub(r'Track [A-Z]:\s*', '', session_title, flags=re.IGNORECASE).strip()

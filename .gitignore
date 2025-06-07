@@ -24,6 +24,7 @@ __pycache__/
 MCM_ProgramBook_TEX/input/*
 *.fdb*
 *.fls
+MCM*2025*.pdf
 
 # System files
 .DS_Store

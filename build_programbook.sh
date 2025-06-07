@@ -24,7 +24,7 @@ pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>
 pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1
 
 # Rename with timestamp
-mv MCM2025_book.pdf "MCM2025_Book_${timestamp}.pdf"
+cp MCM2025_book.pdf "MCM2025_Book_${timestamp}.pdf"
 
 # Generate schedules
 /opt/homebrew/bin/pdftk MCM2025_book_${timestamp}.pdf cat 10-11 output MCM2025_schedule1sheet_${timestamp}.pdf

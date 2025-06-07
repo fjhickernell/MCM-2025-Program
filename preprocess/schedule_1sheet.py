@@ -143,7 +143,9 @@ def add_room_information(df):
     """Add room information to the second column if available."""
     if 'Room' in df.columns:
         df.iloc[:, 1] = df.apply(
-            lambda row: f"{row.iloc[1]} ({row['Room']})" if pd.notna(row.iloc[1]) and pd.notna(row['Room']) else row.iloc[1],
+            lambda row: f"{row.iloc[1]} ({row['Room']})"
+                if pd.notna(row.iloc[1]) and pd.notna(row['Room']) and row['Room'] != ""
+                else row.iloc[1],
             axis=1
         )
     return df
