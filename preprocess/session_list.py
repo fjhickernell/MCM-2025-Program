@@ -3,7 +3,7 @@ import os
 import re
 import numpy as np
 from typing import List, Tuple
-
+import datetime
 from config import *
 from util import *
 
@@ -150,7 +150,7 @@ def process_special_session_abstracts(df):
         #print(dupes[presenter_cols])
     
     not_accepted = df.loc[df["Include"].str.lower() != "yes", [presenter_cols[-1], "Include"]]
-    
+
     if not_accepted.shape[0]>0:  
         print(f"\nWARN: {not_accepted.shape[0]} special talks are not accepted (Include = No)\n")
     #   print(not_accepted)
@@ -162,7 +162,10 @@ def process_special_session_abstracts(df):
     df["Presenter"] = df[presenter_cols[0]] + " " + df[presenter_cols[1]]
     df = df.drop(columns=presenter_cols)
     df["IsSpecialSession"] = 1
-    
+        
+    # Filter out accepted talks
+    df = df[df["Include"].str.lower() == "yes"]
+
     # Validate data
     if df["Special Session Title"].isna().any():
         raise ValueError("Special Session Title contains Null values")
@@ -201,7 +204,8 @@ def process_contributed_talks(df):
     presenter_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
     print("\nWARN: Contributed talks that are not accepted:\n")
     not_accepted = df.loc[df["Acceptance"].str.lower() != "yes", [presenter_cols[-1], "Acceptance"]].sort_values("Acceptance")
-    if not_accepted.shape[0]>0: print(not_accepted)
+    #if not_accepted.shape[0]>0: 
+    #    print(not_accepted)
     
     # Filter by acceptance status
     df = df[df["Acceptance"] == "Yes"]
@@ -254,7 +258,7 @@ def add_sessions_join_keys(dfs):
             invalid_mask = tmp_df["join_key"].isna() | tmp_df["join_key"].str.contains(r"add to shane|//", case=False, na=False) | (tmp_df["join_key"] == "")
             invalid_rows = tmp_df[invalid_mask]
             if not invalid_rows.empty:
-                print(f"\nERROR: SESSION or join_key column in {key} contains invalid values like 'add to shane', '//'")
+                print(f"\nERROR: SESSION or join_key column in {key} contains invalid values like 'add to shane', '//'\n")
                 print(invalid_rows.iloc[:, :2])  # Print first two columns
                 print("\n")
                   
@@ -267,18 +271,61 @@ def add_technical_sessions_talkid(df):
     """
 
     # 1) Flag technical sessions
-    technical     = df['SessionID'].str.startswith('T', na=False)
+    technical = df['SessionID'].str.startswith('T', na=False)
 
     # 2) Only number those non-plenary rows with a real SessionID
     mask = technical & df['SessionID'].notna()
     seq  = df.loc[mask].groupby('SessionID').cumcount() + 1  # always ints, no NaN
 
+    # output ERROR if seq is not 1, 2, 3, 4 and print the corresponding SessionID
+    invalid_seq = seq[~seq.isin([1, 2, 3, 4])]
+    if not invalid_seq.empty:
+        print("\n")
+        for session_id, values in df.loc[invalid_seq.index, 'SessionID'].value_counts().items():
+            print(f"ERROR:  Session {session_id} has > 4 talks")
+        print("\n")
+        
     # 3) Build the “-n” suffix
     suffix = pd.Series('', index=df.index, dtype='object')
     suffix.loc[mask] = '-' + seq.astype(str)
 
     # 4) Combine
     df['TalkID'] = df['SessionID'].fillna('') + suffix
+
+    return df
+
+def add_parallel_talk_eventtime(df):
+    """Create EventTime in similar format as SessionTime in df"""
+    # normalize en-dash to hyphen and parse start datetime from SessionTime
+    # replace en-dash with hyphen and fill missing values
+    clean_time = df["SessionTime"].fillna("").str.replace("–", "-", regex=False)
+    # split on hyphen (no matter spacing) and take the start segment
+    start_time_str = clean_time.str.split(r'\s*-\s*', regex=True).str[0]
+    # Convert from "Thu, Jul 31 15:30" format to "2024-07-31 15:30"
+    current_year = datetime.datetime.now().year
+    session_start_time = pd.to_datetime(f"{current_year} " + start_time_str.str.strip(), 
+                            format=f"%Y %a, %b %d %H:%M", 
+                            errors='coerce') 
+    
+    # extract the talk index j from TalkID (e.g. "T4-3" → 3), defaulting to 1 if missing
+    j = df["TalkID"].str.extract(r"-(\d+)$")[0].fillna(1).astype(int)
+    # compute start and end time 
+    event_start_time = session_start_time + pd.to_timedelta((j - 1) * 30, unit="m")
+    event_end_time = event_start_time + pd.to_timedelta(30, unit="m")
+    # format EventTime as "YYYY-MM-DD HH:MM - HH:MM"
+    df["EventTime"] = (
+        event_start_time.dt.strftime("%Y-%m-%d %H:%M")
+        + " - "
+        + event_end_time.dt.strftime("%H:%M")
+    )
+    ### Format df["EventTime"] to match the format of df["SessionTime"]
+    # Extract the date part from SessionTime (e.g., "Thu, Jul 31")
+    date_part = df["SessionTime"].str.extract(r'([^,]+, [^,]+\s+\d+)(?=\s+\d+:)')[0]
+    # Extract start and end times from EventTime (e.g., "2024-07-31 15:30 - 16:00")
+    start_time = pd.to_datetime(df["EventTime"].str.split(" - ").str[0]).dt.strftime("%H:%M")
+    end_time = df["EventTime"].str.split(" - ").str[1]
+    # Combine into the same format as SessionTime: "Thu, Jul 31 15:30--16:00"
+    df["EventTime"] = date_part + " " + start_time + "–" + end_time
 
     return df
  
@@ -394,17 +441,23 @@ if __name__ == "__main__":
     merged_df = assign_session_ids(merged_df)
 
     # Merge SessionID back into session dataframes
+    sel_cols = ["join_key", "SessionTime", "SessionID", "SessionTitle", "Room", "Chair"]
     for key in dfs:
-        dfs[key] = dfs[key].merge(merged_df[["join_key", "SessionTime", "SessionID", "SessionTitle", "Room", "Chair"]], how="left", on="join_key")
+        dfs[key] = dfs[key].merge(merged_df[sel_cols], how="left", on="join_key")
 
     save_dfs(dfs, interimdir, "sessionid")  # Save updated session dataframes with SessionID
 
-    ### Add TalkIDs
+    ### Add TalkIDs 
     talks_keys = ["special_session_abstracts",  "plenary_abstracts", "contributed_talk_submissions"]
     talks_dict = {k: dfs[k] for k in talks_keys if k in dfs.keys()}   
     talks_dict["contributed_talk_submissions"] = add_technical_sessions_talkid(talks_dict["contributed_talk_submissions"])
-    talks_dict["plenary_abstracts"]["TalkID"] = talks_dict["plenary_abstracts"]["SessionID"]
     talks_dict["special_session_abstracts"] = add_special_sessions_talkid(dfs["special_session_submissions"], talks_dict["special_session_abstracts"])
+    talks_dict["plenary_abstracts"]["TalkID"] = talks_dict["plenary_abstracts"]["SessionID"]
+    
+    # Add EventTime
+    talks_dict["plenary_abstracts"]["EventTime"] = talks_dict["plenary_abstracts"]["SessionTime"]
+    talks_dict["contributed_talk_submissions"]=  add_parallel_talk_eventtime(talks_dict["contributed_talk_submissions"])
+    talks_dict["special_session_abstracts"] =  add_parallel_talk_eventtime(talks_dict["special_session_abstracts"])
     save_dfs(talks_dict, interimdir, "talkid")  # Save updated session dataframes with TalkID
   
     # Step 7: Order all required columns in SessionList

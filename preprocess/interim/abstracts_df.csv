@@ -8,7 +8,6 @@ next generation optimal experimental design theory scalability and real world im
 advances in rare events simulation,amar,S14,Track H: Advances in Rare Events Simulation
 recent advances in stochastic gradient descent,blanchet,S27,Track H: Recent Advances in Stochastic Gradient Descent
 stochastic optimization,bollapragada,S19,Track F: Stochastic Optimization
-advances in adaptive hamiltonian monte carlo,rabee,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
 qmc and applications part i,cai,S22,Track A: QMC and Applications Part I
 advances in adaptive hamiltonian monte carlo,campbell,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
 advances in adaptive hamiltonian monte carlo,carpenter,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
@@ -53,7 +52,6 @@ hardware or software for quasi monte carlo algorithms part ii,krotz,S29,"Track B
 nested expectations models and estimators part i,krumscheid,S3,"Track C: Nested expectations: models and estimators, Part I"
 qmc and applications part i,kuo,S22,Track A: QMC and Applications Part I
 stochastic computation and complexity part iv,leobacher,S12,"Track F: Stochastic Computation and Complexity, Part IV"
-stochastic computation and complexity part i,ling,S1,"Track A: Stochastic Computation and Complexity, Part I"
 hardware or software for quasi monte carlo algorithms part i,loi,S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I"
 statistical design of experiments,mak,S17,Track B: Statistical Design of Experiments
 heavy tailed sampling,milinanni,S10,Track C: Heavy-tailed Sampling
@@ -65,7 +63,6 @@ stochastic computation and complexity part i,neuenkirch,S1,"Track A: Stochastic 
 recent progress on algorithmic discrepancy theory and applications,nikolov,S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications
 frontiers in quasi monte carlo and markov chain monte carlo methods part ii,niu,S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II"
 qmc and applications part ii,nuyens,S25,Track F: QMC and Applications Part II
-analysis of langevin and related sampling algorithms part ii,oberdörster,S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II"
 qmc and applications part ii,owen,S25,Track F: QMC and Applications Part II
 qmc and applications part ii,pan,S25,Track F: QMC and Applications Part II
 stochastic computation and complexity part ii,plaskota,S5,"Track F: Stochastic Computation and Complexity, Part II"

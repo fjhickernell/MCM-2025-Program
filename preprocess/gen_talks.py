@@ -376,10 +376,16 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
     # Read full table so we can build an ID → SessionTime lookup
     df = pd.read_csv(csv_path, dtype=str)
     id_col = "TalkID" if "TalkID" in df.columns else "SessionID"
-    time_map = dict(
+    session_time_map = dict(
         zip(
             df[id_col].astype(str).str.strip(),
             df.get("SessionTime", pd.Series()).fillna("").astype(str),
+        )
+    )
+    talk_time_map = dict(
+        zip(
+            df[id_col].astype(str).str.strip(),
+            df.get("EventTime", pd.Series()).fillna("").astype(str),
         )
     )
     id_map = dict(
@@ -397,12 +403,13 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
     missing = []
 
     for id_val in sorted_ids:
-        session_time = time_map.get(id_val, "")
+        session_time = session_time_map.get(id_val, "")
+        talk_time = talk_time_map.get(id_val, "")
         session_id = id_map.get(id_val, "")
         if prefix == "":
             block = process_session(id_val, prefix, tex_dir, session_time, session_id)
         else:
-            block = process_talk(id_val, prefix, tex_dir, session_time, session_id)
+            block = process_talk(id_val, prefix, tex_dir, talk_time, session_id)
         if block is None:
             missing.append(format_full_id(id_val, prefix))
         else:
