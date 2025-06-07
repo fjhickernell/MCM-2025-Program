@@ -58,19 +58,10 @@ tex: cleanpy
 	@echo "\n--- Running MakeListPart.py" && python README_and_Scripts/MakeListPart.py
 
 
-pgm: cleanpdf    # brew install pdftk-java, need to manually adjust pages that are taken out
-	@echo "*** Compiling LaTeX files in MCM_ProgramBook_TEX directory..."
-	@cp preprocess/out/sess*.tex MCM_ProgramBook_TEX && \
-	cd MCM_ProgramBook_TEX && \
-	pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 || tail -n 100 MCM2025_book.log && \
-	pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 && \
-	/opt/homebrew/bin/pdftk MCM2025_book.pdf cat 10-11 output MCM2025_schedule1sheet.pdf && \
-	/opt/homebrew/bin/pdftk MCM2025_book.pdf cat 10-20 output MCM2025_schedule.pdf && \
-	/opt/homebrew/bin/pdftk MCM2025_book.pdf cat 10-183 output MCM2025_schedule_abstracts.pdf && \
-	open MCM2025_Book.pdf && \
-	open MCM2025_schedule1sheet.pdf && \
-	open MCM2025_schedule.pdf && \
-	open MCM2025_schedule_abstracts.pdf && \
-	cd ..
+# Use this target to compile the MCM program book and generate PDFs.
+# If you get a "Permission denied" error, either:
+#   - Run the script with bash: bash build_programbook.sh
+#   - Or make it executable: chmod +x build_programbook.sh
 
-	
+pgm:
+	@./build_programbook.sh
