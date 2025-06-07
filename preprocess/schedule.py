@@ -139,7 +139,7 @@ def get_session_talks_dict(group: pd.DataFrame, outdir: str) -> Dict[str, List[T
         session_talks_dict[sid] = process_session_talks(sess_content)
     return session_talks_dict
 
-def generate_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, str, str]]], row: pd.Series) -> str:
+def generate_parallel_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, str, str]]], row: pd.Series) -> str:
     """Generate LaTeX for all talks in parallel sessions."""
     talks_latex = ""
     max_talks = max((len(talks) for talks in session_talks_dict.values()), default=0)
@@ -153,9 +153,15 @@ def generate_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, str, str]
                 talks_by_index.setdefault(i, []).append((None, None, None))
 
     start_time, end_time = extract_time_from_session(row.get("SessionTime", ""))
-    time_str = f"\\tableTime{{{start_time}}}{{{end_time}}}"
+    
 
     for i in range(max_talks):
+        # compute start_talk_time= start_time + i *30 mins and end_talk_time=start_talk_time + 30 mins
+        start_talk_time = pd.to_datetime(start_time, format="%H:%M") + pd.Timedelta(minutes=i * 30)
+        end_talk_time   = start_talk_time + pd.Timedelta(minutes=30)
+        start_str       = start_talk_time.strftime("%H:%M")
+        end_str         = end_talk_time.strftime("%H:%M")
+        time_str        = f"\\tableTime{{{start_str}}}{{{end_str}}}"
         talks_latex += "\n\\rowcolor{\\SessionLightColor}\n"
         talks_latex += f"{time_str}\n"
         #print(f"{talks_by_index.get(i)}")
@@ -165,7 +171,6 @@ def generate_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, str, str]
                 #short_title = shorten_titles(title)
                 talks_latex += f"&\\tableTalk{{ {speaker} }}\n{{ {title} }}\n{{{code}}}\n"
             else:
-                #if all(t == (None, None, None) for t in talks_by_index.get(i, [])):
                 talks_latex += "&\n"
         talks_latex += "\\\\\\hline\n"
     return talks_latex
@@ -207,7 +212,7 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
             if is_last_parallel_talk:  # create talks in latex
                 latex_content += "\\\\\\hline\n"
                 session_talks_dict = get_session_talks_dict(group, outdir)
-                talks_latex += generate_talks_latex(session_talks_dict, row)
+                talks_latex += generate_parallel_talks_latex(session_talks_dict, row)
                 if talks_latex:
                     latex_content += talks_latex
         latex_content += "\n\n\\end{tabularx}\n\n\\end{sideways}\n\n" if (not (is_last_day and is_morning)) else "" 
