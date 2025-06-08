@@ -256,9 +256,16 @@ def add_sessions_join_keys(dfs):
 
             # print ERROR if any value in the column join_key of df is empty or contains invalid values in column `SESSION`
             invalid_mask = tmp_df["join_key"].isna() | tmp_df["join_key"].str.contains(r"add to shane|//", case=False, na=False) | (tmp_df["join_key"] == "")
+            
+            # Add check for technical sessions that don't start with "Technical" when they should
+            if key == "contributed_talk_submissions" and "SESSION" in tmp_df.columns:
+                technical_mask = tmp_df["SESSION"].notna() & (
+                    tmp_df["SESSION"].str.lower().str.startswith("technical") == False)
+                invalid_mask = invalid_mask | technical_mask
+                
             invalid_rows = tmp_df[invalid_mask]
             if not invalid_rows.empty:
-                print(f"\nERROR: SESSION or join_key column in {key} contains invalid values like 'add to shane', '//'\n")
+                print(f"\nERROR: SESSION or join_key column in '{key}' contains invalid values like 'add to shane', '//'\n")
                 print(invalid_rows.iloc[:, :2])  # Print first two columns
                 print("\n")
                   
