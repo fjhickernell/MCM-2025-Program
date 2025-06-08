@@ -75,7 +75,7 @@ def process_session_talks(df: pd.DataFrame) -> None:
                 break
                 
             title = row.get("Talk Title", "").replace('Φ','$\Phi$').replace("–", "---").strip()
-            presenter = row.get("Presenter", "").strip()
+            presenter = row.get("Presenter", "").replace("å", "{\\aa}").strip()
             if presenter == "":
                 first_name = row.get("First or given name(s) of presenter", "").strip()
                 last_name = row.get("Last or family name of presenter", "").strip()

@@ -202,8 +202,8 @@ def process_contributed_talks(df):
     df = df.copy()
     
     presenter_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
-    print("\nWARN: Contributed talks that are not accepted:\n")
-    not_accepted = df.loc[df["Acceptance"].str.lower() != "yes", [presenter_cols[-1], "Acceptance"]].sort_values("Acceptance")
+    #print("\nWARN: Contributed talks that are not accepted:\n")
+    #not_accepted = df.loc[df["Acceptance"].str.lower() != "yes", [presenter_cols[-1], "Acceptance"]].sort_values("Acceptance")
     #if not_accepted.shape[0]>0: 
     #    print(not_accepted)
     

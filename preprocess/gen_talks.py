@@ -144,7 +144,7 @@ def process_session(
             continue
 
         # Ensure lines are properly cleaned
-        body_lines.append(stripped.replace("\t", " ").replace("\r", "").strip())
+        body_lines.append(stripped.replace("\t", " ").replace("\r", "").replace("å", "{\\aa}").replace("ô","\^o").strip())
 
     #print(f"{session_title = }, {M = }, {organizers = }, \n{session_body_clean = }")
 
@@ -286,6 +286,7 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
             .replace("Ra\'{u}l", "Ra\'ul")
             .replace('Φ', '$\Phi$')
             .replace("–", "---")
+            .replace("å", "{\\aa}")
         for line in body_lines
     ]
 
@@ -456,5 +457,3 @@ if __name__ == '__main__':
                 strict=False,
                 prefix=prefix_map[key]
             )
-
-    

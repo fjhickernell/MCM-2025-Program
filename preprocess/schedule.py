@@ -110,8 +110,8 @@ def process_session_talks(sess_content: str) -> List[Tuple[str, str, str]]:
     )
     talk_tuples = []
     for title, speaker, code in talks:
-        speaker_clean = speaker.replace('\n', ' ').strip()
-        title_clean = title.replace('\n', ' ').replace('Φ','$\Phi$').replace("–", "---").strip()
+        speaker_clean = speaker.replace('\n', ' ').replace("å", "{\\aa}").strip()
+        title_clean = title.replace('\n', ' ').replace('Φ','$\Phi$').replace("–", "---").replace("å", "{\\aa}").strip()
         code_clean = code.strip()
         talk_tuples.append((title_clean, speaker_clean, code_clean))
     return talk_tuples
@@ -153,7 +153,6 @@ def generate_parallel_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, 
                 talks_by_index.setdefault(i, []).append((None, None, None))
 
     start_time, end_time = extract_time_from_session(row.get("SessionTime", ""))
-    
 
     for i in range(max_talks):
         # compute start_talk_time= start_time + i *30 mins and end_talk_time=start_talk_time + 30 mins
