@@ -142,7 +142,7 @@ def extract_participants(dfs):
     df = cleanup_participant_data(df)
     
     # Sort by SessionID, LastName, FirstName for consistent output
-    df = df.sort_values(by=["SessionID","LastName", "FirstName"])
+    df = df.sort_values(by=["SessionID","LastName","FirstName"])
     
     return df
 

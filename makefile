@@ -9,6 +9,8 @@ cleanpdf:
 	rm -f MCM_ProgramBook_TEX/*.blg
 	rm -f MCM_ProgramBook_TEX/*.log
 	rm -f MCM_ProgramBook_TEX/*.pdf
+	rm -f MCM_ProgramBook_TEX/*.fdb_latexmk
+	rm -f MCM_ProgramBook_TEX/*.fls
 
 cleanpy:
 	@echo "Cleaning up Python outputs..."
@@ -20,6 +22,7 @@ cleanpy:
 	rm -f README_and_Scripts/TableSchedule.html
 	rm -f README_and_Scripts/Participants.tex
 	rm -f README_and_Scripts/out/*
+	
 
 clean_pp:
 	@echo "\n*** Cleaning up preprocess directories..."
@@ -39,6 +42,7 @@ pp: clean_pp
 	echo "\n--- Running preprocess/schedule_1sheet.py" && python preprocess/schedule_1sheet.py && \
 	echo "\n--- Running preprocess/session_list.py" && python preprocess/session_list.py && \
 	echo "\n--- Running preprocess/participants.py" && python preprocess/participants.py && \
+	echo "\n--- Running preprocess/MakeListPart.py" && python preprocess/MakeListPart.py && \
 	echo "\n--- Running preprocess/download_abstracts.py" && python preprocess/download_abstracts.py && \
 	echo "\n--- Running preprocess/gen_talks.py" && python preprocess/gen_talks.py && \
 	echo "\n--- Running preprocess/gen_sess.py" && python preprocess/gen_sess.py  && \
