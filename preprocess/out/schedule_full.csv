@@ -1,7 +1,7 @@
 SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Mon, Jul 28 08:00–17:30",Registration Desk Open,HH Lobby,,,,1
 "Mon, Jul 28 08:45–09:00",Conference Opening,HH Auditorium,Fred Hickernell,,,2
-"Mon, Jul 28 09:00–10:00",Plenary Talk by Rohan Sawhney,HH Auditorium,Michael Mascagni,rohan sawhney,P1,3
+"Mon, Jul 28 09:00–10:00",Plenary Talk by Rohan Sawhney,HH Auditorium,Michael Giles,rohan sawhney,P1,3
 "Mon, Jul 28 10:00–10:30",Coffee Break,HH Lobby,,,,4
 "Mon, Jul 28 10:30–12:30","Track A: Stochastic Computation and Complexity, Part I",HH Auditorium,,stochastic computation and complexity part i,S1,5
 "Mon, Jul 28 10:30–12:30",Track B: Domain Uncertainty Quantification,HH Ballroom,,domain uncertainty quantification,S2,6
