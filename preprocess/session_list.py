@@ -90,7 +90,7 @@ def add_special_sessions_talkid(session_df: pd.DataFrame, abstracts_df: pd.DataF
     abstracts_df = abstracts_df.copy(deep=True)
     # Generate presenter to talk ID mapping
     talk_id_df = _create_session_talk_df(session_df)
-
+    print(talk_id_df[talk_id_df["TalkID"].str.startswith("S8")])
     # extract Last name of Presenter
     abstracts_df["PresenterLast"] = abstracts_df["Presenter"].str.split(r"[ \-]").str[-1].str.lower()
     abstracts_df[["join_key", "PresenterLast", "SessionID", 'SessionTitle']].to_csv(f"{interimdir}abstracts_df.csv", index=False)
@@ -101,22 +101,34 @@ def add_special_sessions_talkid(session_df: pd.DataFrame, abstracts_df: pd.DataF
 
     result_df = result_df.merge(
         talk_id_df[["join_key", "PresenterLast", "TalkID"]],
-        how="left",
+        how="outer",
         left_on=["join_key", "PresenterLast"],
         right_on=["join_key", "PresenterLast"]
     )
 
     # Sort result_df by TalkID
     result_df = result_df.sort_values(by="TalkID").reset_index(drop=True)
-    
+
+    # If SessionID is missing or empty, extract it from TalkID (e.g., "S8-1" → "S8")
+    missing_mask = result_df["SessionID"].isna() | (result_df["SessionID"] == "")
+    result_df.loc[missing_mask, "SessionID"] = result_df.loc[missing_mask, "TalkID"].str.extract(r'^(S\d+|P\d+|T\d+)')[0]
+    # group by SessionID and use forward fill for missing values in SessionTime, SessionTitle, Room, Chair, Include, Special Session Title
+    fill_cols = ["SessionTime", "SessionTitle", "Room", "Chair", "Include", "Special Session Title", "IsSpecialSession"]
+    result_df[fill_cols] = result_df.groupby("SessionID")[fill_cols].ffill()
+    result_df[fill_cols] = result_df.groupby("SessionID")[fill_cols].bfill()
+    # For missing values in Talk Title, set "TBD"
+    result_df["Talk Title"] = result_df["Talk Title"].fillna("TBD")
+    result_df["Institution of presenter"] = result_df["Institution of presenter"].fillna("TBD")
+    result_df["Presenter"] = result_df["Presenter"].fillna("TBD")
+
     # Save merged results for debugging
     #print("\nMerged abstracts sample:")
     #print(result_df.head(2))
     result_df.to_csv(f"{interimdir}ssa_df.csv", index=False)
-    
+
     # Validate results
     _validate_talk_ids(result_df)
-    
+    print(result_df.loc[result_df["TalkID"].str.startswith("S8"), ["join_key", "PresenterLast", "TalkID", "SessionID"]])
     return result_df
 
 def process_sessions(dfs):

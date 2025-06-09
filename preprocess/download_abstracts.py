@@ -32,7 +32,10 @@ def download_abstracts_from_csv(key, always_download=False):
     os.makedirs(abstracts_dir, exist_ok=True)
     
     for item_id, url in abstracts_dict.items():
-        direct_url = ut.gdrive_direct_download(url) 
+        # Ensure the URL is a valid string
+        if pd.isna(url) or not isinstance(url, str) or url.strip() == "":
+            #print(f"ERROR: Invalid {url = } for {item_id}. Skipping...")
+            continue
         
         try:
             local_filename = os.path.join(abstracts_dir, f"{item_id}.tex")

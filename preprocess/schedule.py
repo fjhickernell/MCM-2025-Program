@@ -165,7 +165,7 @@ def generate_parallel_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, 
         talks_latex += f"{time_str}\n"
         #print(f"{talks_by_index.get(i)}")
         for title, speaker, code in talks_by_index.get(i, []):
-            if all(isinstance(x, str) and x.strip() for x in [title, speaker, code]):
+            if any(isinstance(x, str) and x.strip() for x in [title, speaker, code]):
                 #print(f"title: {title}, speaker: {speaker}, code: {code}")
                 #short_title = shorten_titles(title)
                 talks_latex += f"&\\tableTalk{{ {speaker} }}\n{{ {title} }}\n{{{code}}}\n"
