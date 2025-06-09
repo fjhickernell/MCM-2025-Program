@@ -1,0 +1,84 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,multirow,graphicx,url,wrapfig,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.3cm}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\textfraction}{0}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+\newcommand{\organizer}[3]{%
+	{\textit{#1}}\\\nopagebreak%
+	#2\\\nopagebreak%
+	\url{#3}\vspace{3mm}\\\nopagebreak%
+}
+
+\newenvironment{session}[5] % [1] session title
+% [2] number of organizers
+% [3] organizer 1 info
+% [4] organizer 2 info
+% [5] organizer 3 info
+% [6] session id for later
+{%\needspace{6\baselineskip}
+	\vskip 0pt\nopagebreak%
+	%\label{#5}%
+	\textbf{#1}\vspace{3mm}\\\nopagebreak%
+	\ifthenelse{\equal{#2}{1}}{Organizer:}{Organizers:}%
+	\vspace{2mm}\\\nopagebreak%
+	#3
+	\ifthenelse{\equal{#2}{2}}{#4}{}%
+	\ifthenelse{\equal{#2}{3}}{#4#5}{}%
+	\quad\\\nopagebreak%
+	%Session Description:\vspace{3mm}\\\nopagebreak%
+}
+{\nopagebreak}%
+
+
+\pagestyle{empty}
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+
+\begin{session}
+  {Domain uncertainty quantification}% [1] session title
+  {3} %[2] number of organizers
+  {\organizer{Andr\'e-Alexander Zepernick}% organizer one name
+    {Free University of Berlin}% organizer one affiliations
+    {a.zepernick@fu-berlin.de}}% organizer one email
+  {\organizer{Philipp A. Guth}% organizer two name
+    {RICAM, Austrian Academy of Sciences}% organizer two affiliations
+    {philipp.guth@ricam.oeaw.ac.at}}% organizer two email
+  {\organizer{Vesa Kaarnioja}% organizer three name
+    {Free University of Berlin}% organizer three affiliations
+    {vesa.kaarnioja@fu-berlin.de}}% organizer three email
+
+Uncertainty in computational measurement models poses significant challenges in engineering and applied mathematics, where inaccuracies in material properties or geometric domains can greatly impact outcomes. Geometric errors, such as manufacturing imperfections or improper modeling in applications like electronic design and tomography, can be the dominant error contributor. Some approaches to modeling domain uncertainty include homogenization, perturbation, and reference mapping techniques, which facilitate the analysis of uncertainty propagation within computational measurement models. This session brings together leading experts to present recent theoretical and computational advancements in the study of domain uncertainty quantification.
+\end{session}
+
+
+
+List of speakers:
+\begin{enumerate}
+
+\item Andr\'e-Alexander Zepernick (Free University of Berlin)
+
+\item  Carlos Jerez-Hanckes (Universidad Adolfo Ib\'{a}\~{n}ez)
+
+\item  J\"urgen D\"olz (University of Bonn)
+
+\item  Harri Hakula (Aalto University)
+\end{enumerate}
+
+
+\end{document}
+

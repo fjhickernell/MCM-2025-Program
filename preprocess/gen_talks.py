@@ -46,7 +46,7 @@ def process_session(
     full_id = f"{prefix}{id_val}"
     tex_path = os.path.join(tex_dir, f"{full_id}.tex")
     if not os.path.isfile(tex_path):
-        print(f"WARN: File not found: {tex_path}")
+        #print(f"WARN: File not found: {tex_path}")
         return None
 
     # Read with fallback encoding
@@ -228,7 +228,7 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     full_id = format_full_id(id_val, prefix)
     tex_path = os.path.join(tex_dir, f"{full_id}.tex")
     if not os.path.isfile(tex_path):
-        print(f"WARN: File not found: {tex_path}")
+        #print(f"WARN: File not found: {tex_path}")
         return None
 
     # Read file with fallback encoding
@@ -430,7 +430,7 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
 
     # Warn if any were missing
     if missing:
-        print(f"WARN: Missing talks for IDs: {missing}")
+        print(f"WARN: Missing talk abstracts for IDs: {missing}")
 
 
 if __name__ == '__main__':

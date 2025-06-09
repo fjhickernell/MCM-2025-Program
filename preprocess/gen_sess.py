@@ -57,8 +57,6 @@ def process_session_talks(df: pd.DataFrame) -> None:
         if not session_id:
             continue
 
-        if session_id == "S8":
-            print("session S8")
         # Get session info from first row
         first_row = session_group.iloc[0]
         session_time = first_row.get("SessionTime", "")

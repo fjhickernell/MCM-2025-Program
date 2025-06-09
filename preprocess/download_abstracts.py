@@ -36,6 +36,8 @@ def download_abstracts_from_csv(key, always_download=False):
         if pd.isna(url) or not isinstance(url, str) or url.strip() == "":
             #print(f"ERROR: Invalid {url = } for {item_id}. Skipping...")
             continue
+
+        direct_url = ut.gdrive_direct_download(url) 
         
         try:
             local_filename = os.path.join(abstracts_dir, f"{item_id}.tex")
@@ -48,7 +50,7 @@ def download_abstracts_from_csv(key, always_download=False):
             if pd.isna(item_id):
                 print(f"ERROR: {key} {suffix} is missing,  {url = } ")
         except Exception as e:
-            print(f"ERROR: {item_id = }, {url = } - {e}")
+            print(f"ERROR: {item_id = }, {direct_url = }, {url = } - {e}")
 
 
 if __name__ == "__main__":
