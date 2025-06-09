@@ -997,6 +997,41 @@ The empirical success of deep learning is often attributed to the mysterious abi
 \end{talk}
 
 \begin{talk}
+  {Randomized QMC Methods via Combinatorial Discrepancy}% [1] talk title
+  {Nikhil Bansal}% [2] speaker name
+  {University of Michigan}% [3] affiliations
+  {bansaln@umich.edu}% [4] email
+  {Haotian Jiang}% [5] coauthors
+  {Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods}% [6] special session
+  {Tue, Jul 29 11:00–11:30}% [7] time slot
+  {S11-2}% [8] talk id
+  {S11}% [9] session id or photo
+				
+
+A folklore result in geometric discrepancy theory, called the Transference Principle, allows one to use methods from combinatorial discrepancy to show the existence of good QMC point sets with low star discrepancy.
+Unfortunately, this connection was not of much use until recently, as most results in combinatorial discrepancy were non-algorithmic. Recently however, there has been a major revolution in algorithmic combinatorial discrepancy [1]. 
+
+In this talk I will explain how recent innovations in combinatorial discrepancy can be used to give an algorithm to produce randomized QMC point sets that  achieve substantially better error than given by the classical Koksma-Hlawka inequality. Moreover, the algorithm only requires random samples, as opposed to carefully chosen points, and also optimally combines the best features of both MC and QMC methods.  
+% In particular, the error is $\widetilde{O}(\sigma_{\mathsf{SO}}(f)/n)$, where $\sigma_{\mathsf{SO}}(f)$ is a new measure of variation that we introduce, which is substantially smaller than the Hardy-Krause variation.     
+    % \item The algorithm only requires random samples, as opposed to carefully chosen points in QMC constructions. It also it automatically combines the best features of both Monte-Carlo and Quasi-Monte-Carlo methods in an optimal way.  
+
+ 
+% In particular, we will see how one can leverage subgaussianity and other structural properties of the discrepancy problem arising from the transference principle to obtain certain careful cancellations in the Hlawka-Zaremba formula for integration error. In contrast, these cancellations are completely lost in the Koksma-Hlawka inequalities.
+
+The talk does not require any background on combinatorial discrepancy and will be a gentle introduction to the area. 
+These results appear in the paper [2].
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Bansal, Nikhil (2022). {\it Discrepancy and Related Algorithms}. Survey article accompanying an invited talk at 
+     International Congress of Mathematicians (ICM) 2022.
+     
+	\item[{[2]}]  Bansal, Nikhil and Jiang, Haotian (2025). {\em Quasi-Monte Carlo Beyond Hardy-Krause.} Proceedings of Symposium on Discrete Algorithms (SODA). Invited to Journal of the ACM (JACM). 
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
   {The Walk on Spheres Monte Carlo Algorithm for Solving Partial Differential Equations}% [1] talk title
   {Michael Mascagni}% [2] speaker name
   {Florida State University and NIST, USA}% [3] affiliations
