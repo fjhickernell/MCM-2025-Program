@@ -1,19 +1,19 @@
-SessionTime,SessionTitle,join_key
-"Mon, Jul 28 08:00–17:30",Registration Desk Open,
-"Mon, Jul 28 08:45–09:00",Conference Opening,
-"Mon, Jul 28 09:00–10:00",Plenary Talk by Rohan Sawhney,rohan sawhney
-"Mon, Jul 28 10:00–10:30",Coffee Break,
-"Mon, Jul 28 10:30–12:30","Track A: Stochastic Computation and Complexity, Part I",stochastic computation and complexity part i
-"Mon, Jul 28 10:30–12:30",Track B: Domain Uncertainty Quantification,domain uncertainty quantification
-"Mon, Jul 28 10:30–12:30","Track C: Nested expectations: models and estimators, Part I",nested expectations models and estimators part i
-"Mon, Jul 28 10:30–12:30","Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I",hardware or software for quasi monte carlo algorithms part i
-"Mon, Jul 28 10:30-12:30",Track E: Technical Session 1 - Markov Chain Monte Carlo,technical session 1
-"Mon, Jul 28 12:30–14:00",Lunch Break,
-"Mon, Jul 28 14:00–15:00","Plenary Talk by Christiane Lemieux, U of Waterloo, Golden ratio nets and sequences",christiane lemieux
-"Mon, Jul 28 15:00–15:30",Coffee Break,
-"Mon, Jul 28 15:30–17:30","Track F: Stochastic Computation and Complexity, Part II",stochastic computation and complexity part ii
-"Mon, Jul 28 15:30–17:30",Track G: Recent advances in optimization under uncertainty,recent advances in optimization under uncertainty
-"Mon, Jul 28 15:30–17:30",Track H: Computational Methods for Low-discrepancy Sampling and Applications,computational methods for low discrepancy sampling and applications
-"Mon, Jul 28 15:30–17:30","Track I: Technical Session 4 - Quasi-Monte Carlo, Part 1",technical session 4
-"Mon, Jul 28 15:30-17:30",Track J: Technical Session 12 - PDEs,technical session 12
-"Mon, Jul 28 17:30-19:30",Welcome Reception,
+SessionTime,SessionTitle,Room,Chair,join_key
+"Mon, Jul 28 08:00–17:30",Registration Desk Open,HH Lobby,,
+"Mon, Jul 28 08:45–09:00",Conference Opening,HH Auditorium,Fred Hickernell,
+"Mon, Jul 28 09:00–10:00",Plenary Talk by Rohan Sawhney,HH Auditorium,Michael Giles,rohan sawhney
+"Mon, Jul 28 10:00–10:30",Coffee Break,HH Lobby,,
+"Mon, Jul 28 10:30–12:30","Track A: Stochastic Computation and Complexity, Part I",HH Auditorium,,stochastic computation and complexity part i
+"Mon, Jul 28 10:30–12:30",Track B: Domain Uncertainty Quantification,HH Ballroom,,domain uncertainty quantification
+"Mon, Jul 28 10:30–12:30","Track C: Nested expectations: models and estimators, Part I",PH Auditorium,,nested expectations models and estimators part i
+"Mon, Jul 28 10:30–12:30","Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I",WH Auditorium,,hardware or software for quasi monte carlo algorithms part i
+"Mon, Jul 28 10:30-12:30",Track E: Technical Session 1 - Markov Chain Monte Carlo,HH Alumni Lounge,,technical session 1
+"Mon, Jul 28 12:30–14:00",Lunch Break,,,
+"Mon, Jul 28 14:00–15:00","Plenary Talk by Christiane Lemieux, U of Waterloo, Golden ratio nets and sequences",HH Auditorium,Nathan Kirk,christiane lemieux
+"Mon, Jul 28 15:00–15:30",Coffee Break,HH Lobby,,
+"Mon, Jul 28 15:30–17:30","Track F: Stochastic Computation and Complexity, Part II",HH Auditorium,,stochastic computation and complexity part ii
+"Mon, Jul 28 15:30–17:30",Track G: Recent advances in optimization under uncertainty,HH Ballroom,,recent advances in optimization under uncertainty
+"Mon, Jul 28 15:30–17:30",Track H: Computational Methods for Low-discrepancy Sampling and Applications,PH Auditorium,,computational methods for low discrepancy sampling and applications
+"Mon, Jul 28 15:30–17:30","Track I: Technical Session 4 - Quasi-Monte Carlo, Part 1",WH Auditorium,,technical session 4
+"Mon, Jul 28 15:30-17:30",Track J: Technical Session 12 - PDEs,HH Alumni Lounge,,technical session 12
+"Mon, Jul 28 17:30-19:30",Welcome Reception,HH Lobby,,
