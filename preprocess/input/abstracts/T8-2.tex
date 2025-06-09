@@ -42,34 +42,15 @@
 \begin{document}
 	
 \begin{talk}
-  {Characterizing Efficacy of Geometric Brownian Motion Expectation-based Simulations on Low-Volatility American Common Stocks}% [1] talk title
-  {Vincent X Zhang}% [2] speaker name
-  {University of Southern California}% [3] affiliations
-  {vxzhang@usc.edu}% [4] email
-  {Heather Choi}% [5] coauthors
+  {Forward Propagation of Low Discrepancy Through McKean--Vlasov Dynamics: From QMC to MLQMC}% [1] talk title
+  {Leon Wilkosz}% [2] speaker name
+  {King Abdullah University of Science and Technology (KAUST)}% [3] affiliations
+  {leon.wilkosz@kaust.edu.sa}% [4] email
+  {Nadhir Ben Rached, Abdul-Lateef Haji-Ali, Raul Tempone}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-In this manuscript, daily, monthly, and annual geometric Brownian motion forecasts are obtained and tested for reliability upon 21 stock symbols within NASDAQ of varying volatilities and drifts. Biweekly, monthly, biannual, and annual rolling windows were used as a preliminary filtering scheme to remove unreliable stock symbols, and then accuracy was further evaluated on stocks with higher accuracies in the first screening. Annual and 10-year windows were used to estimate the drift and diffusion component and then applied to obtain one-period-ahead geometric Brownian motion stock values and associated probabilities. Further building off of these one-period-ahead values, expected values for 1-252 periods were estimated. Expected values of each stock were estimated by totaling up the product of the stock value and its associated probabilities, and tested over multiple rolling-windows for reliability. The results indicate that geometric Brownian-simulated expected index values estimated using one thousand simulations can be slightly reliable if catered and re-optimized to specific stock characterizations, but only for a daily window, and even then only slightly preferable to flipping a coin. Expected values estimated with less than 100 simulations were thrown out, seen as unreliable.
-
-
-\medskip
-
-\begin{enumerate}
-	\item[{[1]}] Sinha, A. (2024). Daily and Weekly Geometric Brownian Motion Stock Index Forecasts. Journal of Risk and Financial Management, 17(10), 434. https://doi.org/10.3390/jrfm17100434
-	\item[{[2]}] Abbas, Anas, and Mohammed Alhagyan. 2023. Forecasting exchange rate of sar/cny by incorporating memory and stochastic volatility into gbm model. Advances and Applications in Statistics 86: 65–78
-    \item[{[3]}] Demirel, Ugur, Handan Cam, and Ramazan Unlu. 2021. Predicting Stock Prices Using Machine Learning Methods and Deep Learning Algorithms: The Sample of the Istanbul Stock Exchange. Gazi University Journal of Science 34: 63–82
-    \item[{[4]}]] Tie, Jingzhi, Hanqin Zhang, and Qing Zhang. 2018. An Optimal Strategy for Pairs Trading Under Geometric Brownian Motions. Journal of Optimization Theory and Applications 179: 654–75
-    \item[{[5]}] Ramos, André Lubene, Douglas Batista Mazzinghy, Viviane da Silva Borges Barbosa, Michel Melo Oliveira, and Gilberto Rodrigues da Silva. 2019. Evaluation of an Iron Ore Price Forecast Using a Geometric Brownian Motion Model. Revista Escola de Minas 72: 9–15
-    \item[{[6]}] Nordin, Norazman, Norizarina Ishak, Nurfadhlina Abdul Halim, Siti Raihana Hamzah, and Ahmad Fadly Nurullah Rasadee. 2024. A Geometric Brownian Motion of ASEAN-5 Stock Indexes. In AI and Business, and Innovation Research: Understanding the Potential and Risks of AI for Modern Enterprises. Edited by Bahaaeddin Alareeni and Islam Elgedawy. New York: Springer, pp. 779–86
-    \item[{[7]}]W Farida Agustini et al 2018 J. Phys.: Conf. Ser. 974 012047
-    \item[{[8]}] Liang, W., Li, Z., Chen, W. (2025). Enhancing Financial Market Predictions: Causality-Driven Feature Selection. In: Sheng, Q.Z., et al. Advanced Data Mining and Applications. ADMA 2024. Lecture Notes in Computer Science(), vol 15387. Springer, Singapore. https://doi.org/10.1007/978-981-96-0811-9\textunderscore11
-    \item[{[9]}] Prasad, Krishna, Bhuvana Prabhu, Lionel Pereira, Nandan Prabhu, and Pavithra S. 2022. Effectiveness of geometric brownian motion method in predicting stock prices: Evidence from india. Asian Journal of Accounting and Governance 18: 121–34
-    \item[{[10]}] Shafii, Nor Hayati, Nur Ezzati, Dayana Mohd, Rohana Alias, Nur Fatihah Fauzi, and Mathematical Sciences. 2019. Fuzzy Time Series and Geometric Brownian Motion in Forecasting Stock Prices in Bursa Malaysia. Jurnal Intelek 14: 240–50
-    \item[{[11]}] Zhu, Song-Ping, and Xin-Jiang He. 2018. A New Closed-Form Formula for Pricing European Options under a Skew Brownian Motion. The European Journal of Finance 24: 1063–74
-\end{enumerate}
-
+This work develops a particle system addressing the approximation of \linebreak McKean--Vlasov stochastic differential equations (SDEs). The novelty of the approach lies in involving low discrepancy sequences nontrivially in the construction of a particle system with coupled noise and initial conditions. Weak convergence for SDEs with additive noise is proven. A numerical study demonstrates that the novel approach presented here doubles the respective convergence rates for weak and strong approximation of the mean-field limit, compared with the standard particle system. These rates are proven in the simplified setting of a mean-field ordinary differential equation in terms of appropriate bounds involving the star discrepancy for low discrepancy sequences with a group structure, such as Rank-1 lattice points. This construction nontrivially provides an antithetic multilevel quasi-Monte Carlo estimator. An asymptotic error analysis reveals that the proposed approach outperforms methods based on the classic particle system with independent initial conditions and noise.
 \end{talk}
 
 \end{document}
-

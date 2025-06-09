@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\usepackage{xspace}
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
+\begin{talk}
+  {A Unified Treatment of Tractability for Approximation Problems Defined on Hilbert Spaces}% [1] talk title
+  {Fred J. Hickernell}% [2] speaker name
+  {Illinois Institute of Technology}% [3] affiliations
+  {hickernell@iit.edu}% [4] email
+  {Onyekachi Emenike and Peter Kritzer}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+The presenter and co-authors showed in [2] how to unify many of the equivalent conditions for various notions of tractability for approximation problems defined on Hilbert spaces.  This talk describes those results.
+
+Let $\{\mathcal{F}_d\}_{d \in \mathbb{N}}$ and $\{\mathcal{G}_d\}_{d \in \mathbb{N}}$ be sequences of Hilbert spaces, and let $\{\textup{SOL}_d : \mathcal{F}_d \to \mathcal{G}_d\}_{d \in \mathbb{N}}$ be a sequence of linear solution operators  with positive singular values $\lambda_{1,d} \ge \lambda_{2,d} \ge \cdots$.  For input functions lying in $\mathcal{B}_d$, the \emph{unit ball} in $\mathcal{F}_d$, and when arbitrary linear functionals are available, the information complexity of this problem is known to be s$\textup{comp}(\varepsilon, d) = \min \{n \in \mathbb{N}_0 : \lambda_{n+1, d} \le \varepsilon\}$ (see [3]).  Different notions of tractability are defined in terms of how quickly $\textup{comp}(\varepsilon, d)$  increases as $\varepsilon^{-1}$ and/or $d$ tend to infinity.
+
+Equivalence results on tractability replace a condition on ordered singular values by a more accessible condition in terms of weighted sums of powers of singular values.  The theorems in [2] unify these arguments by providing proofs that cover a variety of special cases.
+
+The work in [1] presents a setting where the input functions lie not in the unit ball, but in a cone, $\mathcal{C}_d$, of tame functions.  We speculate on what the conditions on the  singular values might be equivalent to various notions of tractability for such classes of input functions.
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{[\arabic{enumi}]}
+    \item
+Y.~Ding, F.~J. Hickernell, P.~Kritzer, and S.~Mak, \emph{Adaptive approximation for multivariate linear problems with inputs lying in a cone}, Multivariate Algorithms and Information-Based Complexity (F.~J. Hickernell and P.~Kritzer, eds.), DeGruyter, Berlin/Boston, 2020, pp.~109--145.
+
+ \item
+O.~Emenike, F.~J. Hickernell, and P.~Kritzer, \emph{A unified treatment of tractability for approximation problems defined on {H}ilbert spaces}, J. Complexity \textbf{84} (2024), 101856.
+
+\item 
+E.~Novak and H.~Wo{\'{z}}niakowski, \emph{Tractability of multivariate problems {V}olume {I}: {L}inear information}, EMS Tracts in Mathematics, no.~6, European Mathematical Society, Z\"urich, 2008.
+
+\end{enumerate}
+
+
+\end{talk}
+
+\end{document}
+
+\providecommand{\HickernellFJ}{Hickernell\xspace}
+\bibliographystyle{amsplain}
+\bibliography{FJHown25,FJH25}

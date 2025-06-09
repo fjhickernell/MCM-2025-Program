@@ -67,11 +67,11 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Thu, Jul 31 15:30-17:30",Track J: Technical Session 11 - SDEs,HH Alumni Lounge,,technical session 11,T11,66
 "Thu, Jul 31 18:00-20:30",Steering Committee Meeting (by invitation),,,,,67
 "Fri, Aug 1 08:30–12:15",Registration Desk Open,HH Lobby,,,,68
-"Fri, Aug 1 09:00–10:30",Track A: Forward and Inverse Problems for Stochastic Reaction Networks,HH Auditorium,,forward and inverse problems for stochastic reaction networks,S28,69
-"Fri, Aug 1 09:00–10:30","Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",HH Ballroom,,hardware or software for quasi monte carlo algorithms part ii,S29,70
-"Fri, Aug 1 09:00–10:30",Track C: Technical Session 3 - Simulation,PH Auditorium,,technical session 3,T3,71
-"Fri, Aug 1 09:00–10:30",Track D: Technical Session 9 - Sampling,WH Auditorium,,technical session 9,T9,72
-"Fri, Aug 1 09:00–10:30",Track E: Technical Session 14 - Markov Chain Monte Carlo,HH Alumni Lounge,,technical session 14,T14,73
-"Fri, Aug 1 10:30-11",Coffee Break,HH Lobby,,,,74
-"Fri, Aug 1 11:00-12:00","Plenary Talk by Veronika Ročková, U of Chicago, AI-Powered Bayesian Inference",HH Auditorium,Art Owen,veronika ročková,P8,75
-"Fri, Aug 1 12:00-12:15",Closing Remarks,HH Auditorium,,,,76
+"Fri, Aug 1 09:00–11:00",Track A: Forward and Inverse Problems for Stochastic Reaction Networks,HH Auditorium,,forward and inverse problems for stochastic reaction networks,S28,69
+"Fri, Aug 1 09:00–11:00","Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",HH Ballroom,,hardware or software for quasi monte carlo algorithms part ii,S29,70
+"Fri, Aug 1 09:00–11:00—",Track C: Technical Session 3 - Simulation,PH Auditorium,,technical session 3,T3,71
+"Fri, Aug 1 09:00–11:00—",Track D: Technical Session 9 - Sampling,WH Auditorium,,technical session 9,T9,72
+"Fri, Aug 1 09:00–11:00",Track E: Technical Session 14 - Markov Chain Monte Carlo,HH Alumni Lounge,,technical session 14,T14,73
+"Fri, Aug 1 11:00-11:30",Coffee Break,HH Lobby,,,,74
+"Fri, Aug 1 11:30-12:30—","Plenary Talk by Veronika Ročková, U of Chicago, AI-Powered Bayesian Inference",HH Auditorium,Art Owen,veronika ročková,P8,75
+"Fri, Aug 1 12:30-12:45",Closing Remarks,HH Auditorium,,,,76

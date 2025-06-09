@@ -505,6 +505,40 @@ where $r\in\{0,1,2,\ldots\}$ and $0<\rho\le 1.$ It is well known that the optima
 \end{talk}
 
 \begin{talk}
+  {The Quality of Lattice Sequences}% [1] talk title
+  {Larysa Matiukha}% [2] speaker name
+  {Illinois Institute of Technology}% [3] affiliations
+  {lmatiukha@hawk.iit.edu}% [4] email
+  {Yuhan Ding, Fred J. Hickernell}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 17:00–17:30}% [7] time slot
+  {S5-4}% [8] talk id
+  {S5}% [9] session id or photo
+  
+				
+
+Lattices are a popular choice of nodes for approximating multidimensional integrals by a sample mean, typically using sample sizes of the form $n = b^m$ for some prime base $b$ and non-negative integer $m$. However, a computational time budget or hardware failure may prevent us from choosing the preferred number of samples. In this talk, we present an upper bound on the figure of merit $P_\alpha$ for extensible lattice sequences with arbitrary $n$, derived in Banach space setting. We show that while the error decays relatively slowly for general $n$, it improves significantly when $n$ is a small integer multiple of a power of the base, reaching the optimal decay of $\mathcal{O}(n^{-\alpha})$. % maybe not ''optimal'' 
+Additionally, we investigated a related figure of merit $P_{\alpha,2}$ in a Hilbert space, allowing easier computation for arbitrary $n$. Numerical results for $P_{1,2}$ using both equal and optimally chosen sample weights show a decay of $\mathcal{O}(n^{-1})$ in both cases, while optimal weights lead to a generally smaller and non-increasing error. 
+
+
+% Motivated by a scenario where, due to computational time constraint or computer failure, we cannot choose the preferred sample size $n = b^m$, we derive an upper bound on the figure of merit $P_\alpha$ for lattice sequences with an arbitrary number of points $n$. 
+% Our derivation demonstrates that the error decays relatively slowly for  general $n$, but when $n$ is a small multiple of a power of the base $b$, the decay is close to that of the preferred values of $n$.
+%Your abstract goes here. Please do not use your own commands or macros.
+
+% \medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
   {Stability of Expected Utility in Bayesian Optimal Experimental Design}% [1] talk title
   {Tapio Helin}% [2] speaker name
   {LUT University}% [3] affiliations
@@ -927,6 +961,36 @@ Our numerical experiments demonstrate that MSIP and the WFR ODEs outperform othe
 \end{talk}
 
 \begin{talk}
+  {On energy, discrepancy, group  invariant measures, alignment of neural data and Whitney extensions}% [1] talk title
+  {Steven Damelin}% [2] speaker name
+  {zbMATH Open, European Mathematical Society}% [3] affiliations
+  {steve.damelin@gmail.com}% [4] email
+  {D. Ragozin, F. Hickernell, X. Zeng, J. Levesley, X. Sun, C. Fefferman}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 12:00–12:30}% [7] time slot
+  {S9-4}% [8] talk id
+  {S9}% [9] session id or photo
+  
+				
+			
+Given $X$, some measurable subset of Euclidean space, one sometimes wants to construct a design, $P\subset X$ with a small energy or discrepancy. It is known that these two measures of design quality are equivalent when they are defined via positive definite kernels $K:X^2\to \mathbb R$. Our talk studies discrepancy and energy in the case when $X$ is the orbit of a compact, possibly non-Abelian group, $G$, acting as measurable transformations of $X$ and the kernel $K$ is invariant under the group action. For example, our results apply to the sphere, flat torus and Riesz kernel. It is shown that the minimizer measure for the energy is the normalized measure on $X$ induced by Haar measure on $G$. This allows us to calculate upper bounds on discrepancy. We will explain how this problem relates to interactions of neural data in the subject of Neural Science, Whitney extensions and manifold learning alignment . 
+
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+\begin{enumerate}
+	\item[{[1]}] Damelin, Steven (2024). {\it Near extensions and Alignment of Data in $R^n$: Whitney extensions of smooth near isometries, shortest paths, equidistribution, clustering and non-rigid alignment of data in Euclidean space}. John Wiley \& Sons.
+        \item[{[2]}] Damelin, Steven, \& Ragozin, David, \& Levesley, Jeremy, \& Sun, Xinping (2009). {\it Energies, Group Invariant Kernels and Numerical Integration on Compact Manifolds}. Journal of Complexity. \textbf{25}, 152-162.
+        \item[{[3]}] Damelin, Steven, \& Ragozin, David, \& Hickernell, Fred, \& Zeng, X (2010). {\it  On energy, discrepancy and G invariant measures on measurable subsets of Euclidean space}. Journal of Fourier Analysis and its Applications. \textbf{16}, 813-839.
+\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final %program book.
+\end{talk}
+
+\begin{talk}
   {Parallel computations for Metropolis Markov chains Based on Picard maps}% [1] talk title
   {Sebastiano Grazzi}% [2] speaker name
   {Department of Decision Sciences and BIDSA, Bocconi University, Via Roentgen, 1, 20136, Milan, Italy}% [3] affiliations
@@ -1148,6 +1212,43 @@ Geiss and Zhou [1] showed that SDEs and BSDEs with Lipschitz generators admit Ma
 \begin{enumerate}
 	\item[{[1]}] Geiss, S.~and Zhou, X.~(2024). {\it Coupling of Stochastic Differential Equations on the Wiener Space}. https://arxiv.org/pdf/2412.10836.
 \end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {A Unified Treatment of Tractability for Approximation Problems Defined on Hilbert Spaces}% [1] talk title
+  {Fred J. Hickernell}% [2] speaker name
+  {Illinois Institute of Technology}% [3] affiliations
+  {hickernell@iit.edu}% [4] email
+  {Onyekachi Emenike and Peter Kritzer}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 17:00–17:30}% [7] time slot
+  {S12-4}% [8] talk id
+  {S12}% [9] session id or photo
+  
+				
+			
+The presenter and co-authors showed in [2] how to unify many of the equivalent conditions for various notions of tractability for approximation problems defined on Hilbert spaces.  This talk describes those results.
+
+Let $\{\mathcal{F}_d\}_{d \in \mathbb{N}}$ and $\{\mathcal{G}_d\}_{d \in \mathbb{N}}$ be sequences of Hilbert spaces, and let $\{\textup{SOL}_d : \mathcal{F}_d \to \mathcal{G}_d\}_{d \in \mathbb{N}}$ be a sequence of linear solution operators  with positive singular values $\lambda_{1,d} \ge \lambda_{2,d} \ge \cdots$.  For input functions lying in $\mathcal{B}_d$, the \emph{unit ball} in $\mathcal{F}_d$, and when arbitrary linear functionals are available, the information complexity of this problem is known to be s$\textup{comp}(\varepsilon, d) = \min \{n \in \mathbb{N}_0 : \lambda_{n+1, d} \le \varepsilon\}$ (see [3]).  Different notions of tractability are defined in terms of how quickly $\textup{comp}(\varepsilon, d)$  increases as $\varepsilon^{-1}$ and/or $d$ tend to infinity.
+
+Equivalence results on tractability replace a condition on ordered singular values by a more accessible condition in terms of weighted sums of powers of singular values.  The theorems in [2] unify these arguments by providing proofs that cover a variety of special cases.
+
+The work in [1] presents a setting where the input functions lie not in the unit ball, but in a cone, $\mathcal{C}_d$, of tame functions.  We speculate on what the conditions on the  singular values might be equivalent to various notions of tractability for such classes of input functions.
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{[\arabic{enumi}]}
+    \item
+Y.~Ding, F.~J. Hickernell, P.~Kritzer, and S.~Mak, \emph{Adaptive approximation for multivariate linear problems with inputs lying in a cone}, Multivariate Algorithms and Information-Based Complexity (F.~J. Hickernell and P.~Kritzer, eds.), DeGruyter, Berlin/Boston, 2020, pp.~109--145.
+
+ \item
+O.~Emenike, F.~J. Hickernell, and P.~Kritzer, \emph{A unified treatment of tractability for approximation problems defined on {H}ilbert spaces}, J. Complexity \textbf{84} (2024), 101856.
+
+\item 
+E.~Novak and H.~Wo{\'{z}}niakowski, \emph{Tractability of multivariate problems {V}olume {I}: {L}inear information}, EMS Tracts in Mathematics, no.~6, European Mathematical Society, Z\''urich, 2008.
+
+\end{enumerate}
+
 
 \end{talk}
 
@@ -2052,25 +2153,6 @@ Hamiltonian Monte Carlo is a commonly used algorithm to sample high dimensional 
 \begin{enumerate}
 	\item[{[1]}] Chen, Y., Cheng, X., Niles-Weed, J., \& Weare, J. (2024). Convergence of Unadjusted Langevin in High Dimensions: Delocalization of Bias. \textit{arXiv preprint arxiv: 2408.13115}.
 \end{enumerate}
-
-\end{talk}
-
-\begin{talk}
-  {Multilevel randomized quasi-Monte Carlo estimator for nested expectations}% [1] talk title
-  {Ra\'{u}l Tempone}% [2] speaker name
-  {King Abdullah University of Science and Technology/RWTH Aachen University}% [3] affiliations
-  {raul.tempone@kaust.edu.sa}% [4] email
-  {Arved Bartuska, Andr\'{e} Gustavo Carlon, Luis Espath, Sebastian Krumscheid}% [5] coauthors
-  {}% [6] special session
-  {Thu, Jul 31 10:30–11:00}% [7] time slot
-  {S24-1}% [8] talk id
-  {S24}% [9] session id or photo
-  
-				
-			
-Estimation methods for nested integrals face several challenges, including nonlinearities separating the integrals, boundary singularities, and the need for numerical discretization of the integrand. In this talk, we present an advanced multilevel randomized double-loop quasi-Monte Carlo estimator that addresses these challenges by combining hierarchical approximations with deterministic and randomized quasi-Monte Carlo (rQMC) methods. This estimator is tailored towards scenarios where the inner integrand requires discretization via the finite element method and the outer integrand exhibits singularities at the boundaries of the integration domain. 
-
-Applications from Bayesian experimental design, in particular, the expected information gain (EIG) of an experiment, necessitate a truncation scheme for observation noise to rigorously bound the estimation error. This truncation affects the computational cost only by a logarithmic factor. Numerical experiments demonstrate the predicted optimal cost of almost $\mathcal{O}(TOL^{-1-\gamma/\eta_{\text{w}}})$ where $\gamma$ and $\eta_{\text{w}}$ signify the cost and weak rate of finite element discretizations, respectively.
 
 \end{talk}
 

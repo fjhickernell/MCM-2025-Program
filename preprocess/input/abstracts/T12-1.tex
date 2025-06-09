@@ -42,25 +42,30 @@
 \begin{document}
 	
 \begin{talk}
-  {A probabilistic Numerical method for semi-linear elliptic Partial Differential Equations}% [1] talk title
-  {Adrien Richou}% [2] speaker name
-  {Université de Bordeaux, Institut de Mathématiques de Bordeaux, UMR CNRS 5251,
-  351 Cours de la Libération, 33405 Talence cedex, France.}% [3] affiliations
-  {adrien.richou@math.u-bordeaux.fr}% [4] email
-  {Emmanuel Gobet, Charu Shardul, Lukasz Szpruch}% [5] coauthors
-  {}% [6] special session. Leave this field empty for contributed talks. 
+  {Monte Carlo method for the Spatially Homogenous Boltzmann equation}
+  {Abdujabar Rasulov}% [2] speaker name
+  {University of world economy and diplomacy}% [3] affiliations
+  {E mail: asrasulov@gmail.com}% [4] email
+ {}% [5] coauthors
+{}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-In this presentation, we study the numerical approximation of a class of Backward Stochastic Differential Equations (BSDEs) in an infinite horizon setting that provide a probabilistic representation for semi-linear elliptic Partial Differential Equations. In particular, we are also able to treat some ergodic BSDEs that are related to elliptic PDEs or ergodic type. In order to build our numerical scheme, we put forward a new representation of the PDE solution by using a classical probabilistic representation of the gradient. Then, based on this representation, we propose a fully implementable numerical scheme using a Picard iteration procedure, a grid space discretization and a Monte-Carlo approximation. We obtain an upper bound for the numerical error and we also provide some numerical experiments that show the
-efficiency of this approach for small dimensions. Some numerical experiments also show that it is possible to efficiently handle larger dimensions by replacing grid-based spatial discretization with neural networks. This presentation is based on [1] for the non ergodic framework and [2] for results concerning the ergodic case.
+As is known, the nonlinear Boltzmann equation describes the behavior of rareﬁed gas much better than the linear Kac’s [1] model. That is why we can expect that application of the nonlinear spatially homogenous Boltzmann equation to the Harlow’s “particles-in-cell” model [2] allows us to do a computation, which gives a more exact approximation of the solution. 
+Among the statistical methods [3], which use Monte Carlo directly for modeling the ﬂow of rareﬁed gas, the most efﬁcient one is the statistical method of direct modeling the nonstationary ﬂow. 
+In the known “particle-in-cell” method, the simulations divide into two steps. Monte Carlo method is used both for the numerical simulation of collisions of the particles in cells (the ﬁrst step), as well as for the collision-free moving of particles (the second step). 
+In this work we propose another computational scheme, which directly uses the non- linear spatially homogenous Boltzmann equation for the numerical realization of the ﬁrst step in the “particles-in-cell” model of Belotserkovski-Yanitskii [3]. Proposed a new approach of constructing unbiased estimators will give relatively small variance.
+ For this aim we construct a branching Markov process [4] and on its trajectory we propose various” conjugated” computational schemes for calculating an unbiased estimator of the given functional. It should be noted nowadays in this area became popular adjoint direct simulation Monte Carlo method to a general collision kernel [5].  
+The results of our computations show that they are similar with known Belotserkovski-Yanitskii solutions of the Boltzmann equation. We note that in the interval, where the Boltzmann equations” work” (intermediate interval), the “particle-in-cell” statistical model approximates the spatially heterogeneous Boltzmann equation better. 
 
 \medskip
 
+Refenences
 \begin{enumerate}
-	\item[{[1]}] Gobet, Emmanuel, \& Richou, Adrien, \& Shardul, Charu (2025). Numerical approximation of Markovian BSDEs in infinite
-  horizon and elliptic PDEs. Draft.
-	\item[{[2]}] Gobet, Emmanuel, \& Richou, Adrien, \& Szpruch, Lukasz (2025).  Numerical approximation of ergodic BSDEs using non
-  linear Feynman-Kac formulas, Preprint arXiv:2407.09034 .
+	\item[{[1]}] Kac, Mark (1959). {\it Probability and Related Topics in Physical Science}.American Mathematical Society (AMS).
+	\item[{[2]}] Harlow,Harvey F.  (1964).   The Particle-in-Cell Computing Method for Fluid Dynamics. Methods in Computational Physics \textbf{3}, 319--343
+\item[{[3]}] Belotserkovskii, Oleg M.,\& Yanitskii, Vitaliy .E.,   (1975).  The Statistical Method of Particles in Cells in Rarefied Gas Dynamics”, USSR Computational Mathematics and Mathematical Physics,  \textbf{15}(5), 101-114
+\item[{[4]}] Ermakov, Sergey M.,Nekrutkin, Vladimir V.,\& Sipin, Aleksandr S.  (1989). {\it Random Processes for Classical Equations of Mathematical Physics, Kluwer Academic Publishers.}
+\item[{[5]} ] Yang, Yunan, Silantyev, Denis, \&   Caflisch, Russel (2023).   The Particle-in-Cell Computing Method for Fluid Dynamics. Methods in Computational Physics \textbf{448}, 112247
 \end{enumerate}
 
 \end{talk}

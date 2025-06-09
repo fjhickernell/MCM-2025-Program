@@ -40,26 +40,19 @@
 % Document begins here
 % ------------------------------------------------------------------------
 \begin{document}
-
+	
 \begin{talk}
-  {Parallel Affine Transformation Tuning: Drastically Improving the Effectiveness of Slice Sampling}% [1] talk title
-  {Philip Schär}% [2] speaker name
-  {Friedrich Schiller University Jena, Germany}% [3] affiliations
-  {philip.schaer@uni-jena.de}% [4] email
-  {Michael Habeck, Daniel Rudolf}% [5] coauthors
+  {Low-Rank Thinning}% [1] talk title
+  {Annabelle Michael Carrell}% [2] speaker name
+  {University of Cambridge}% [3] affiliations
+  {ac2411@cam.ac.uk}% [4] email
+  {Albert Gong, Abhishek Shetty, Raaz Dwivedi, Lester Mackey}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
-
-The performance of MCMC samplers tends to depend on various properties of the target distribution, such as its covariance structure, the location of its probability mass, and its tail behavior. We propose \textit{parallel affine transformation tuning} (PATT) [1], a methodological framework that relies on bijective affine transformations, a latent space construction, the adaptive MCMC principle, and interacting parallel chains, and acts as an intermediate layer between the target distribution and an MCMC method applied to it. By transforming a challenging target into a simpler one, PATT can harness the full potential of the underlying MCMC method.
-
-According to our numerical experiments, PATT is particularly effective in its combinations with \textit{elliptical slice sampling} (ESS) [2] and \textit{Gibbsian polar slice sampling} (GPSS) [3]. For targets that are sufficiently well-behaved (e.g.~posteriors in Bayesian logistic regression), these combinations produce samples of (empirically) dimension-independent quality at remarkably low computational cost, with PATT-ESS performing best for light-tailed targets and PATT-GPSS being the superior choice for heavy-tailed ones.
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+The goal in thinning is to summarize a dataset using a small set of representative points. Remarkably, sub-Gaussian thinning algorithms like Kernel Halving and Compress can match the quality of uniform subsampling while substantially reducing the number of summary points. However, existing guarantees cover only a restricted range of distributions and kernel-based quality measures and suffer from pessimistic dimension dependence. To address these deficiencies, we introduce a new low-rank analysis of sub-Gaussian thinning that applies to any distribution and any kernel, guaranteeing high-quality compression whenever the kernel or data matrix is approximately low-rank. To demonstrate the broad applicability of the techniques, we design practical sub-Gaussian thinning approaches that improve upon the best known guarantees for approximating attention in transformers, accelerating stochastic gradient training through reordering, and distinguishing distributions in near-linear time. 
 
 \medskip
-
-\begin{enumerate}
-	\item[{[1]}] Schär, P., Habeck, M., Rudolf, D. (2024). Parallel affine transformation tuning of Markov chain Monte Carlo. \textit{Proceedings of the 41st International Conference on Machine Learning (ICML)}, PMLR 235, pp.~43571-43607.
-	\item[{[2]}] Murray, I., Adams, R.P., MacKay, D. (2010). Elliptical slice sampling. \textit{Proceedings of the 13th International Conference on Artificial Intelligence and Statistics}, PMLR 9, pp.~541--548.
-	\item[{[3]}] Schär, P., Habeck, M., Rudolf, D. (2023). Gibbsian polar slice sampling. \textit{Proceedings of the 40th International Conference on Machine Learning (ICML)}, PMLR 202, pp.~30204-30223.
-\end{enumerate}
 
 \end{talk}
 

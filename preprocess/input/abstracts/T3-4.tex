@@ -2,14 +2,15 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+\usepackage{graphics}
 
 \setlength{\textheight}{25.2cm}
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
 \setlength{\voffset}{-1.6cm}
 \setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
-\setlength{\evensidemargin}{-0.3cm}
+\setlength{\evensidemargin}{-0.3cm} 
 \setlength{\oddsidemargin}{0.3cm}
-\setlength{\parindent}{0cm}
+\setlength{\parindent}{0cm} 
 \setlength{\parskip}{0.3cm}
 
 % -- adding a talk
@@ -42,27 +43,39 @@
 \begin{document}
 	
 \begin{talk}
-  {Adaptive Max-EWMA Control Chart with SVR: Monte Carlo Simulation for Run Length Analysis}% [1] talk title
-  {Muhammad Noor ul Amin}% [2] speaker name
-  {COMSATS University Islamabad-Lahore}% [3] affiliations
-  {}% [4] email
-  {}% [5] coauthors
-  {}% [6] special session. Leave this field empty for contributed talks.
+  {First-passage-based Last-passage Algorithm 
+  	for Charge Density on a Conducting Surface}% [1] talk title
+  {Chi-Ok Hwang}% [2] speaker name
+  {Gwangju Institute of Science and Technology, Gwangju 61005, Republic of Korea }% [3] affiliations
+  {chwang@gist.ac.kr}% [4] email
+  {Jinseong Son, Maximiliano Islas Solis, Tsoggerel Tsogbadrakh}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-In industrial quality control, monitoring process variations is crucial for ensuring product
-reliability, particularly when dealing with non-normal data distributions. This study proposes an
-adaptive Max-EWMA control chart integrated with Support Vector Regression (SVR) for the
-simultaneous monitoring of process mean and variance. The approach utilizes a dynamic
-smoothing constant predicted by SVR to enhance sensitivity to real-time process shifts. To
-address non-normality, Weibull-distributed data is transformed into a standard normal form
-before analysis. The performance of the proposed method is extensively evaluated through
-Monte Carlo simulations to assess the run length profile under different process shift scenarios.
-Results demonstrate the effectiveness of the approach in detecting small to moderate shifts, with
-the linear kernel exhibiting superior balance between sensitivity and stability, making it an
-optimal choice for industrial applications. The findings highlight the robustness of the proposed
-control chart and its adaptability in real-time process monitoring.
+According to probabilistic potential theory, first- and last-passage algorithms have been devel-
+oped. Usually the first-passage algorithms with an enclosing sphere are used for overall charge
+distribution on a closed conducting object and last-passage algorithms for charge density at a
+specific point on the conducting object. The first- and last-passage algorithms are inherently con-
+nected. In this paper, we combine the first- and last-passage algorithms. We develop an algorithm
+for computing charge density at a specific point on the conducting object via the overall charge
+density distribution on a conducting object which is the simulation result of the first-passage al-
+gorithm with an enclosing sphere. We demonstrate the algorithm for charge density on a sphere
+and on the unit cube held at unit potential. The results show good agreements with theoretical or
+other simulation ones.
+
+
 \medskip
+
+Acknowledgments: This work was supported by the GIST Research Institute (GRI) in 2024.
+\begin{enumerate}
+	\item[{[1]}] J. Son, J. Im, and C.-O. Hwang, Appl. Math. Comput. submitted (2021).
+	\item[{[2]}] H. Jang, U. Yu, Y. Chung, and C.-O. Hwang, Adv. Theory Simul. 3(8) (2020).
+	\item[{[3]}] H. Jang, J. Given, U. Yu, and C.-O. Hwang, Adv. Theory Simul.
+	https://onlinelibrary.wiley.com/doi/full/10.1002/adts.202000268 (2021).
+	\item[{[4]}] C.-O. Hwang and T. Won, J. Korean Phys. Soc. 47, S464 (2005).
+	\item[{[5]}] J. A. Given, C.-O. Hwang, and M. Mascagni, Phys. Rev. E 66, 056704 (2002).
+\end{enumerate}
+
 
 \end{talk}
 

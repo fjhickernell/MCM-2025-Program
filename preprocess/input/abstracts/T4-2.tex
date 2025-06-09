@@ -42,24 +42,29 @@
 \begin{document}
 	
 \begin{talk}
-  {Star discrepancy and uniform approximation under weighted simple and stratified random sampling}% [1] talk title
-  {Xiaoda Xu}% [2] speaker name
-  {Suqian University}% [3] affiliations
-  {23195@squ.edu.cn}% [4] email
-  {Jun Xian}% [5] coauthors
+  {Transport Quasi-Monte Carlo}% [1] talk title
+  {Sifan Liu}% [2] speaker name
+  {Center for Computational Mathematics, Flatiron Institute}% [3] affiliations
+  {sliu@flatironinstitute.org}% [4] email
+  {}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-We mainly consider two problems in this talk. First, We consider random discrepancy under weighted importance sampling of a class of stratified input. We give the expected $L_p-$discrepancy($2\leq p<\infty$) upper bound in weighted form under a class of stratified sampling. This result contributes to the error estimate of the upper bound of the integral approximation under weighted importance sampling, and and our sampling pattern is a stratified input. Second, we discuss the probabilistic star discrepancy for a random double infinite matrix and propose an improvement to the coefficient of an existing result, we mainly use the optimal refined $\delta-$bracketing number so far.
+Quasi-Monte Carlo (QMC) is a powerful method for evaluating high-dimensional integrals. However, its use is typically limited to distributions where direct sampling is straightforward, such as the uniform distribution on the unit hypercube or the Gaussian distribution. For general target distributions with potentially unnormalized densities, leveraging the low-discrepancy property of QMC to improve accuracy remains challenging. We propose training a transport map to push forward the uniform distribution on the unit hypercube to approximate the target distribution. Inspired by normalizing flows, the transport map is constructed as a composition of simple, invertible transformations. To ensure that RQMC achieves its superior error rate, the transport map must satisfy specific regularity conditions. We introduce a flexible parametrization for the transport map that not only meets these conditions but is also expressive enough to model complex distributions. Our theoretical analysis establishes that the proposed transport QMC estimator achieves faster convergence rates than standard Monte Carlo, under mild and easily verifiable growth conditions on the integrand. Numerical experiments confirm the theoretical results, demonstrating the effectiveness of the proposed method in Bayesian inference tasks.
+
+
 \medskip
 
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+% \end{enumerate}
 
-\begin{enumerate}
-	\item[{[1]}] J. Dick, D. Rudolf and H. Zhu. (2019). A weighted discrepancy bound of quasi-Monte Carlo importance sampling. Statist. Probab. Lett., 100-106.
-	\item[{[2]}] M. Gnewuch. (2024). Improved bounds for the bracketing number of orthants or revisiting an algorithm of Thiémard to compute bounds for the star discrepancy. J. Complexity.
-\end{enumerate}
-
-
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
 
 \end{document}
+

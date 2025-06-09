@@ -42,22 +42,18 @@
 \begin{document}
 	
 \begin{talk}
-  {Serial ensemble filtering with marginal coupling}% [1] talk title
-  {Amit N Subrahmanya}% [2] speaker name
-  {Virginia Tech}% [3] affiliations
-  {amitns@vt.edu}% [4] email
-  {Julie Bessac, Andrey A Popov, Adrian Sandu}% [5] coauthors
+  {Multilevel simulation of ensemble Kalman methods: interactions across levels}% [1] talk title
+  {Toon Ingelaere}% [2] speaker name
+  {KU Leuven}% [3] affiliations
+  {toon.ingelaere@kuleuven.be}% [4] email
+  {Giovanni Samaey}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
-			
- Serial filtering refers to a univariate, state by state Bayesian inference problem. 
- %
- Extant methods for serial filtering result in suboptimal posterior samples for severely non-Gaussian, multimodal inference settings. 
- %
- We fix this problem by rigorously coupling the state marginal densities with information about their joint density.
- %
- This formulation allows for accurately sampling the Bayesian posterior across a variety of challenging text problems.
- 
+
+        To solve problems in domains such as filtering, optimization, and posterior sampling,
+        ensemble Kalman methods have recently received much attention. These parallelizable and often gradient-free algorithms use an ensemble of particles that evolve in time, based on a combination of well-chosen dynamics and interaction between the particles. For computationally expensive dynamics, the cost of attaining a high accuracy quickly becomes prohibitive. To improve the asymptotic cost-to-error relation, different multilevel Monte Carlo techniques have been proposed. These methods simulate multiple differently sized ensembles at different resolutions, corresponding to different accuracies and costs. While particles within one of these ensembles do interact with each other, a key question is whether and how particles should interact across ensembles and levels.
+        In this talk, we will outline and compare the most common approaches to such multilevel ensemble interactions.
+
 \medskip
 
 \end{talk}

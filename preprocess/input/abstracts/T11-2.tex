@@ -42,22 +42,28 @@
 \begin{document}
 	
 \begin{talk}
-  {A Chen-Fliess series for stochastic differential equations driven
-by L{\'e}vy processes}% [1] talk title
-  {Anke Wiese}% [2] speaker name
-  {Heriot-Watt University, UK}% [3] affiliations
-  {A.Wiese@hw.ac.uk}% [4] email
-  {Kurusch Ebrahimi--Fard, Fr{\'e}d{\'e}ric Patras}% [5] coauthors
+  {A probabilistic Numerical method for semi-linear elliptic Partial Differential Equations}% [1] talk title
+  {Adrien Richou}% [2] speaker name
+  {Université de Bordeaux, Institut de Mathématiques de Bordeaux, UMR CNRS 5251,
+  351 Cours de la Libération, 33405 Talence cedex, France.}% [3] affiliations
+  {adrien.richou@math.u-bordeaux.fr}% [4] email
+  {Emmanuel Gobet, Charu Shardul, Lukasz Szpruch}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+In this presentation, we study the numerical approximation of a class of Backward Stochastic Differential Equations (BSDEs) in an infinite horizon setting that provide a probabilistic representation for semi-linear elliptic Partial Differential Equations. In particular, we are also able to treat some ergodic BSDEs that are related to elliptic PDEs or ergodic type. In order to build our numerical scheme, we put forward a new representation of the PDE solution by using a classical probabilistic representation of the gradient. Then, based on this representation, we propose a fully implementable numerical scheme using a Picard iteration procedure, a grid space discretization and a Monte-Carlo approximation. We obtain an upper bound for the numerical error and we also provide some numerical experiments that show the
+efficiency of this approach for small dimensions. Some numerical experiments also show that it is possible to efficiently handle larger dimensions by replacing grid-based spatial discretization with neural networks. This presentation is based on [1] for the non ergodic framework and [2] for results concerning the ergodic case.
 
-Stochastic differential equations driven by L{\'e}vy processes have become established as models to describe the evolution of random variables such as financial and economic variables and more recently of climate variables, when the stochastic system shows jump discontinuities. In this talk, we derive a novel series representation of the flowmap of such stochastic 
-differential equations 
-in terms of commutators of vector fields with stochastic 
-coefficients, in other words a Chen--Strichartz formula. We provide an explicit expression for the components in this series. 
-Our results extend previous results
-for deterministic and continuous stochastic differential equations.		
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] Gobet, Emmanuel, \& Richou, Adrien, \& Shardul, Charu (2025). Numerical approximation of Markovian BSDEs in infinite
+  horizon and elliptic PDEs. Draft.
+	\item[{[2]}] Gobet, Emmanuel, \& Richou, Adrien, \& Szpruch, Lukasz (2025).  Numerical approximation of ergodic BSDEs using non
+  linear Feynman-Kac formulas, Preprint arXiv:2407.09034 .
+\end{enumerate}
+
 \end{talk}
 
-\end{document}	
+\end{document}
 
