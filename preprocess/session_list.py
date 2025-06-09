@@ -90,7 +90,7 @@ def add_special_sessions_talkid(session_df: pd.DataFrame, abstracts_df: pd.DataF
     abstracts_df = abstracts_df.copy(deep=True)
     # Generate presenter to talk ID mapping
     talk_id_df = _create_session_talk_df(session_df)
-    print(talk_id_df[talk_id_df["TalkID"].str.startswith("S8")])
+    #print(talk_id_df[talk_id_df["TalkID"].str.startswith("S8")])
     # extract Last name of Presenter
     abstracts_df["PresenterLast"] = abstracts_df["Presenter"].str.split(r"[ \-]").str[-1].str.lower()
     abstracts_df[["join_key", "PresenterLast", "SessionID", 'SessionTitle']].to_csv(f"{interimdir}abstracts_df.csv", index=False)
@@ -119,7 +119,7 @@ def add_special_sessions_talkid(session_df: pd.DataFrame, abstracts_df: pd.DataF
     # For missing values in Talk Title, set "TBD"
     result_df["Talk Title"] = result_df["Talk Title"].fillna("TBD")
     result_df["Institution of presenter"] = result_df["Institution of presenter"].fillna("TBD")
-    result_df["Presenter"] = result_df["Presenter"].fillna("TBD")
+    result_df["Presenter"] = result_df["Presenter"].fillna(result_df["PresenterLast"]).fillna("TBD")
 
     # Save merged results for debugging
     #print("\nMerged abstracts sample:")
@@ -128,7 +128,7 @@ def add_special_sessions_talkid(session_df: pd.DataFrame, abstracts_df: pd.DataF
 
     # Validate results
     _validate_talk_ids(result_df)
-    print(result_df.loc[result_df["TalkID"].str.startswith("S8"), ["join_key", "PresenterLast", "TalkID", "SessionID"]])
+    #print(result_df.loc[result_df["TalkID"].str.startswith("S8"), ["join_key", "PresenterLast", "TalkID", "SessionID"]])
     return result_df
 
 def process_sessions(dfs):
