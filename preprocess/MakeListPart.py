@@ -46,10 +46,9 @@ if __name__ == '__main__':
     for (first, last, org), vals in participants.items():
         # Collect all session IDs for this participant
         session_ids = [v[2] for v in vals if v[2]]
-        # Use the first session as the main one, up to 4 more as extra braces
+        # Use the first session as the main one, up to 6 more as extra braces
         main_session = session_ids[0] if session_ids else ''
         extra_sessions = session_ids[1:5] if len(session_ids) > 1 else []
-        # Pad to 6 extra braces
         extra_sessions += [''] * (6 - len(extra_sessions))
         org_str = "Unknown org" if not org else org
         partstrng = f"\\participantne{{{first} {last}}}\n{{{org_str}}}\n"
