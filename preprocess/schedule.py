@@ -102,16 +102,17 @@ def generate_session_latex(row: pd.Series) -> str:
     return f"{session_time} & {session_title} \\\\\n"
 
 def process_session_talks(sess_content: str) -> List[Tuple[str, str, str]]:
-    """Extracts talks from session LaTeX content."""
+    """Extracts talks from session LaTeX content, robust to nested braces."""
+    # Use a non-greedy match for arguments, which is more robust to nested braces
     talks = re.findall(
-        r'\\sessionTalk\{([^\}]*)\}\s*\{([^\}]*)\}\s*\{([^\}]*)\}',
-        sess_content, 
+        r'\\sessionTalk\{(.*?)\}\s*\{(.*?)\}\s*\{(.*?)\}',
+        sess_content,
         re.DOTALL
     )
     talk_tuples = []
     for title, speaker, code in talks:
         speaker_clean = speaker.replace('\n', ' ').replace("å", "{\\aa}").strip()
-        title_clean = title.replace('\n', ' ').replace('Φ','$\Phi$').replace("–", "---").replace("å", "{\\aa}").strip()
+        title_clean = title.replace('\n', ' ').replace('Φ','$\\Phi$').replace("–", "---").replace("å", "{\\aa}").strip()
         code_clean = code.strip()
         talk_tuples.append((title_clean, speaker_clean, code_clean))
     return talk_tuples

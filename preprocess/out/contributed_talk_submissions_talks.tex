@@ -885,28 +885,6 @@ where \( E[V(\varphi)] \) denotes the expected present value of VA benefits unde
 \end{talk}
 
 \begin{talk}
-  {Efficient Pricing for Variable Annuity via Simulation}% [1] talk title
-  {Hao Quan}% [2] speaker name
-  {University of Waterloo}% [3] affiliations
-  {h5quan@uwaterloo.ca}% [4] email
-  {Ben (Mingbin) Feng}% [5] coauthors
-  {}% [6] special session
-  {Thu, Jul 31 12:00–12:30}% [7] time slot
-  {T8-4}% [8] talk id
-  {T8}% [9] session id or photo
-  
-				
-
-Variable Annuities (VAs) are insurance products that offer policyholders exposure to financial market upside potential while safeguarding against downside risk through optional riders, such as Guaranteed Minimum Death Benefits (GMDBs), Guaranteed Minimum Accumulation Benefits (GMABs), and Guaranteed Minimum Withdrawal Benefits (GMWBs). These riders, tailored to policyholders’ needs, introduce a complex risk profile combining mortality and financial uncertainties, rendering VA pricing and fee determination computationally challenging. Due to this complexity, Monte Carlo simulation is often the only practical approach for valuing these contracts.
-
-In this study, we address the problem of setting fair management fees for VA rider combinations using the equivalence principle, which balances the expected present value of premiums and benefits. We formulate fee determination as a stochastic root-finding problem, expressed as
-\[
-E[V(\varphi)] - P = 0,
-\]
-where \( E[V(\varphi)] \) denotes the expected present value of VA benefits under fee structure \( \varphi \), and \( P \) represents the premium. The VA benefit \( V(\varphi) \) reflects the evolution of the contract’s shadow account value and various benefit guarantees over the contract’s lifetime. As a result, estimating its expected value is computationally challenging. Moreover, solving the root-finding problem requires estimating the gradient of this expectation. To solve this, we employ stochastic gradient estimation techniques, such as finite differences and infinitesimal perturbation analysis (IPA). We analyze the theoretical properties and computational performance of the proposed root-finding algorithms, offering insights into their efficacy for VA pricing. Our results show that gradient estimation techniques have a significant impact on the efficiency and accuracy of estimating fair fees for various rider combinations.
-\end{talk}
-
-\begin{talk}
   {Revisiting self-normalized importance sampling: new methods and diagnostics}% [1] talk title
   {Nicola Branchini}% [2] speaker name
   {University of Edinburgh}% [3] affiliations
@@ -987,31 +965,6 @@ Finally, we propose new Monte Carlo diagnostics specifically for SNIS. They exte
         ensemble Kalman methods have recently received much attention. These parallelizable and often gradient-free algorithms use an ensemble of particles that evolve in time, based on a combination of well-chosen dynamics and interaction between the particles. For computationally expensive dynamics, the cost of attaining a high accuracy quickly becomes prohibitive. To improve the asymptotic cost-to-error relation, different multilevel Monte Carlo techniques have been proposed. These methods simulate multiple differently sized ensembles at different resolutions, corresponding to different accuracies and costs. While particles within one of these ensembles do interact with each other, a key question is whether and how particles should interact across ensembles and levels.
         In this talk, we will outline and compare the most common approaches to such multilevel ensemble interactions.
 
-\medskip
-
-\end{talk}
-
-\begin{talk}
-  {Serial ensemble filtering with marginal coupling}% [1] talk title
-  {Amit N Subrahmanya}% [2] speaker name
-  {Virginia Tech}% [3] affiliations
-  {amitns@vt.edu}% [4] email
-  {Julie Bessac, Andrey A Popov, Adrian Sandu}% [5] coauthors
-  {}% [6] special session
-  {Fri, Aug 1 10:30–11:00}% [7] time slot
-  {T9-4}% [8] talk id
-  {T9}% [9] session id or photo
-  
-				
-			
- Serial filtering refers to a univariate, state by state Bayesian inference problem. 
- %
- Extant methods for serial filtering result in suboptimal posterior samples for severely non-Gaussian, multimodal inference settings. 
- %
- We fix this problem by rigorously coupling the state marginal densities with information about their joint density.
- %
- This formulation allows for accurately sampling the Bayesian posterior across a variety of challenging text problems.
- 
 \medskip
 
 \end{talk}
@@ -1161,11 +1114,11 @@ efficiency of this approach for small dimensions. Some numerical experiments als
 \end{talk}
 
 \begin{talk}
-  {Anke Wiese}% [1] talk title
-  {Heriot-Watt University, UK}% [2] speaker name
-  {A.Wiese@hw.ac.uk}% [3] affiliations
-  {Kurusch Ebrahimi--Fard, Fr{\'e}d{\'e}ric Patras}% [4] email
-  {}% [5] coauthors
+  {A Chen-Fliess series for stochastic differential equations driven by L{\'e}vy processes}% [1] talk title
+  {Anke Wiese}% [2] speaker name
+  {Heriot-Watt University, UK}% [3] affiliations
+  {A.Wiese@hw.ac.uk}% [4] email
+  {Kurusch Ebrahimi-Fard, Fr{\'e}d{\'e}ric Patras}% [5] coauthors
   {}% [6] special session
   {Thu, Jul 31 16:30–17:00}% [7] time slot
   {T11-3}% [8] talk id
