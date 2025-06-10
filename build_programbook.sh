@@ -13,8 +13,15 @@
 
 echo "*** Compiling LaTeX files in MCM_ProgramBook_TEX directory..."
 
-timestamp=$(date +%Y_%m_%d_%H_%M_%S)
-echo "Current timestamp: $timestamp"
+USE_TIMESTAMP=$1
+if [ "$USE_TIMESTAMP" = "true" ]; then
+    timestamp=$(date +%Y_%m_%d_%H_%M_%S)
+    suffix="_${timestamp}"
+else
+    suffix=""
+fi
+
+echo "Using filename suffix: $suffix"
 
 cp preprocess/out/sess*.tex MCM_ProgramBook_TEX || exit 1
 cd MCM_ProgramBook_TEX || exit 1

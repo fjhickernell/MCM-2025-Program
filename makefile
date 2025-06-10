@@ -73,5 +73,8 @@ pg: cleanpdf    # brew install pdftk-java
 #   - Run the script with bash: bash build_programbook.sh
 #   - Or make it executable: chmod +x build_programbook.sh
 
-pgm:  # with time stamp
+pgm:  # without time stamp
 	@./build_programbook.sh
+
+pgm-ts: #with time stamp
+	@./build_programbook.sh true
