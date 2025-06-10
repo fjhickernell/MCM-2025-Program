@@ -69,7 +69,7 @@ def extract_participants(dfs):
     if df.empty: return df
     df = df.drop_duplicates(["FirstName", "LastName", "SessionID"]).loc[~((df["FirstName"].str.contains("-")) & (df["LastName"].str.contains("-")))]
     df = cleanup_participant_data(df)
-    return df.sort_values(["SessionID", "LastName", "FirstName"])
+    return df.sort_values(["LastName", "FirstName"])
 
 def extract_plenary_participants(df):
     if df.empty: return []

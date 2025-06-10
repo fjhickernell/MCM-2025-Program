@@ -34,14 +34,30 @@ if __name__ == '__main__':
     print("\\begin{multicols}{2}\n",file=fpart)
     print("\\small\\raggedright\n",file=fpart)
     #with open(f"{indir}PARTICIPANTSJULY5.csv", 'r') as file:
+    # Read all participants and group by name
+    from collections import defaultdict
+    participants = defaultdict(list)
     with open(f"{outdir}Participants.csv", 'r') as file:
-        reader= csv.reader(file, delimiter=',')
+        reader = csv.reader(file, delimiter=',')
         for val in reader:
-            org = "Unknown org" if len(val[4])==0 else val[4]
-            partstrng = "\\participantne{"+val[0]+" "+val[1]+"}\n{"+org+"}"
-            print(partstrng,file=fpart)
-            print("{"+val[2]+"}\n{}",file=fpart)
-            
-    print("\\end{multicols}\n",file=fpart) 
+            key = (val[0].strip(), val[1].strip(), val[4].strip())  # (FirstName, LastName, Organization)
+            participants[key].append(val)
+
+    for (first, last, org), vals in participants.items():
+        # Collect all session IDs for this participant
+        session_ids = [v[2] for v in vals if v[2]]
+        # Use the first session as the main one, up to 4 more as extra braces
+        main_session = session_ids[0] if session_ids else ''
+        extra_sessions = session_ids[1:5] if len(session_ids) > 1 else []
+        # Pad to 6 extra braces
+        extra_sessions += [''] * (6 - len(extra_sessions))
+        org_str = "Unknown org" if not org else org
+        partstrng = f"\\participantne{{{first} {last}}}\n{{{org_str}}}\n"
+        partstrng += f"{{{main_session}}}"
+        for s in extra_sessions:
+            partstrng += f"\n{{{s}}}"
+        print(partstrng, file=fpart)
+
+    print("\\end{multicols}\n", file=fpart)
     fpart.close()
     print(f"Output: {outdir}Participants.tex")

@@ -325,18 +325,20 @@
 }%
 
 % -- adding a participant no email
-\newcommand{\participantne}[4]{% [1] name, [2] address, , [3-7] page refs
+\newcommand{\participantne}[9]{% [1] name, [2] address, [3-9] page refs
  \begin{minipage}{0.45\textwidth} \raggedright%
  \vskip 0pt\nopagebreak%
  \textbf{#1}\\\nopagebreak%
- #2\\ \nopagebreak%
+ #2\\\nopagebreak%
  %\ifthenelse{\equal{#2}{}}{}{#2\\ \nopagebreak}%
  %\url{#3}\\\nopagebreak%
  \ifthenelse{\equal{#3}{}}{}{p.~\pageref{#3}}%
  \ifthenelse{\equal{#4}{}}{}{, p.~\pageref{#4}}%
- %\ifthenelse{\equal{#6}{}}{}{, p.~\pageref{#6}}%
-% \ifthenelse{\equal{#7}{}}{}{, p.~\pageref{#7}}%
-% \ifthenelse{\equal{#8}{}}{}{, p.~\pageref{#8}}%
+ \ifthenelse{\equal{#5}{}}{}{, p.~\pageref{#5}}%
+ \ifthenelse{\equal{#6}{}}{}{, p.~\pageref{#6}}%
+ \ifthenelse{\equal{#7}{}}{}{, p.~\pageref{#7}}%
+ \ifthenelse{\equal{#8}{}}{}{, p.~\pageref{#8}}%
+ \ifthenelse{\equal{#9}{}}{}{, p.~\pageref{#9}}%
  \end{minipage}%
  \vskip 0.5cm%
 }%
