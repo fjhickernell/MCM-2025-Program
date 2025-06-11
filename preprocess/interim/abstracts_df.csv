@@ -8,6 +8,7 @@ next generation optimal experimental design theory scalability and real world im
 advances in rare events simulation,amar,S14,Track H: Advances in Rare Events Simulation
 recent advances in stochastic gradient descent,blanchet,S27,Track H: Recent Advances in Stochastic Gradient Descent
 stochastic optimization,bollapragada,S19,Track F: Stochastic Optimization
+advances in adaptive hamiltonian monte carlo,rabee,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
 qmc and applications part i,cai,S22,Track A: QMC and Applications Part I
 advances in adaptive hamiltonian monte carlo,campbell,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
 advances in adaptive hamiltonian monte carlo,carpenter,S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo
@@ -100,3 +101,6 @@ stochastic computation and complexity part iv,hickernell,S12,"Track F: Stochasti
 recent advances in stochastic gradient descent,lovas,S27,Track H: Recent Advances in Stochastic Gradient Descent
 frontiers in quasi monte carlo and markov chain monte carlo methods part i,bansal,S11,"Track D: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I"
 hardware or software for quasi monte carlo algorithms part ii,farmer,S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II"
+nested expectations models and estimators part ii,vieites,S24,"Track C: Nested expectations: models and estimators, Part II"
+statistical design of experiments,boahen,S17,Track B: Statistical Design of Experiments
+monte carlo applications in high performance computing computer graphics and computational science,jayaraman,S21,"Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science"

@@ -1658,11 +1658,11 @@ Gaussian process (GP) surrogate models are widely used for emulating expensive c
 \end{talk}
 
 \begin{talk}
-  {Stacking designs: designing multifidelity computer experiments with target predictive accuracy}% [1] talk title
-  {Chih-Li Sung}% [2] speaker name
-  {Michigan State University}% [3] affiliations
-  {sungchih@msu.edu}% [4] email
-  {Yi Ji, Simon Mak, Wenjia Wang, Tao Tang}% [5] coauthors
+  {Active Learning for Nonlinear Calibration}% [1] talk title
+  {Andrews Boahen}% [2] speaker name
+  {Department of Statistics and Probability, Michigan State University (USA)}% [3] affiliations
+  {boahenan@msu.edu}% [4] email
+  {Junoh Heo, Chih-Li Sung}% [5] coauthors
   {}% [6] special session
   {Wed, Jul 30 11:00–11:30}% [7] time slot
   {S17-2}% [8] talk id
@@ -1670,8 +1670,18 @@ Gaussian process (GP) surrogate models are widely used for emulating expensive c
   
 				
 			
-In an era where scientific experiments can be very costly, multi-fidelity emulators provide a useful tool for cost-efficient predictive scientific computing. For scientific applications, the experimenter is often limited by a tight computational budget, and thus wishes to (i) maximize predictive power of the multi-fidelity emulator via a careful design of experiments, and (ii) ensure this model achieves a desired error tolerance with some notion of confidence. Existing design methods, however, do not jointly tackle objectives (i) and (ii). We propose a novel stacking design approach that addresses both goals. A  multi-level reproducing kernel Hilbert space (RKHS) interpolator is first introduced to build the emulator, under which our stacking design provides a sequential approach for designing multi-fidelity runs such that a desired prediction error of $\epsilon > 0$ is met under regularity assumptions. We then prove a novel cost complexity theorem that, under this multi-level interpolator, establishes a bound on the computation cost (for training data simulation) needed to achieve a prediction bound of $\epsilon$. This result provides novel insights on conditions under which the proposed multi-fidelity approach improves upon a conventional RKHS interpolator which relies on a single fidelity level. Finally, we demonstrate the effectiveness of stacking designs in a suite of simulation experiments and an application to finite element analysis.
+Combining computer models with real observations is a valuable way to analyze complex systems. One of the key challenges in model calibration for complex physical systems is accounting for uncertainty around the model's form. The Kennedy O'Hagan's (KOH) framework provides a way to account for model form uncertainty when the computer model outputs are linearly related to the real observations. In this paper, We extend the KOH model by proposing a nonlinear wrapping function of the design inputs and the computer model outputs. We develop the statistical inference related to our model and propose active learning approaches to simultaneous collect both physical and computer model data by taking advantage of the closed-forms of the posterior mean and variance of our model under some specified kernel matrices. We show that under some regularity conditions, when $n\rightarrow\infty,$ the estimate of the calibration parameter $\hat{\theta}_n$ converges  to  the true calibration parameter $\theta^*$ and derive uncertainty quantification results for $\hat{\theta}_n.$
+\medskip
 
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
 
 \begin{talk}
@@ -1727,6 +1737,41 @@ I will demonstrate how randomized Hamiltonian Monte Carlo (HMC), multinomial HMC
 
 I will sketch an approach to local mass matrix adaptation, demonstrate how it works for log concave distributions, then outline the problems remaining for efficiency and generalizability to other distributions.
 
+\end{talk}
+
+\begin{talk}
+  {Acceleration of the No-U-Turn Sampler}% [1] talk title
+  {Nawaf Bou-Rabee}% [2] speaker name
+  {Rutgers University}% [3] affiliations
+  {nawaf.bourabee@rutgers.edu}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 11:00–11:30}% [7] time slot
+  {S18-2}% [8] talk id
+  {S18}% [9] session id or photo
+  {}% [5] coauthors
+  
+				
+			
+
+\medskip
+
+The No-U-Turn Sampler (NUTS) is a state-of-the-art Markov chain Monte Carlo method widely used in Bayesian computation [7,8], yet its theoretical properties remain poorly understood. In this talk, I will present the first rigorous mixing time bounds for NUTS on a class of high-dimensional Gaussian targets with both high- and low-variance directions. Our analysis uncovers a striking phase transition: when initialized from the region of concentration, NUTS exhibits ballistic mixing in regimes dominated by high-variance directions, and diffusive mixing otherwise [1]. These results provide the first theoretical evidence that the U-turn mechanism can recover the acceleration of critically damped randomized Hamiltonian Monte Carlo [4,5,6].  Our analysis combines a sharp concentration result for the U-turn condition [1,2] with a recent coupling framework for localized mixing [3]. 
+
+\begin{enumerate}
+	\item[{[1]}] Bou-Rabee, Nawaf, \& Oberd\''{o}rster, Stefan (2025). {\it Acceleration of the No-U-turn Sampler}. Forthcoming.
+	\item[{[2]}] Bou-Rabee, Nawaf, \& Oberd\''{o}rster, Stefan (2024). {\it Mixing of the No-U-Turn Sampler and the Geometry of Gaussian Concentration}. arXiv:2410.06978 [math.PR]
+	\item[{[3]}] Bou-Rabee, Nawaf, \& Oberd\''{o}rster, Stefan (2024). {\it Mixing of Metropolis-Adjusted Markov Chains via Couplings: The High Acceptance Regime}. Electronic Journal of Probability. Vol.~29,  No.~89, pages 1-27.  
+	\item[{[4]}]  Lu, Jianfeng \& Wang, Lihan (2022). {\it On explicit L$^2$-convergence rate estimate for piecewise deterministic Markov processes in MCMC algorithms.} Annals of Applied Probability, Vol.~32, No.~2, pages 1333-1361.
+	\item[{[5]}] Eberle, Andreas \& L\''{o}rler, Francis (2024). {\it Non-reversible lifts of reversible diffusion processes and relaxation times.} Probability Theory and Related Fields.
+	\item[{[6]}] Durmus, Alain;  Gruffaz, Samuel;  Kailas, Miika;  Saksman, Eero, \&  Vihola, Matti (2023). {\it On the convergence of
+dynamic implementations of Hamiltonian Monte Carlo and no U-turn samplers.} arXiv:2307.03460  [stat.CO] 
+\item[{[7]}]  Hoffman, Matthew  \& Gelman, Andrew  (2014). {\it The no-U-turn sampler: Adaptively setting path lengths in
+Hamiltonian Monte Carlo.} Journal of Machine Learning Research. Vol.~15, No.~1, pages~1593-1623.
+\item[{[8]}]   Carpenter, Bob; Gelman, Andrew;  Hoffman, Matthew; Lee, Daniel;  Goodrich, Ben; Betancourt, Michael; Brubaker, Marcus;
+Guo, Jiqiang; Li, Peter, and  Riddell, Allen  (2016). {\em Stan: A Probabilistic Programming Language.} Journal of
+Statistical Software, Vol.~76, No.~1, pages 1-32.
+\end{enumerate}
 \end{talk}
 
 \begin{talk}
@@ -1953,6 +1998,29 @@ In this paper, we propose an efficient implementation of a deep policy gradient 
 \end{talk}
 
 \begin{talk}
+  {Examining the Fault Tolerance of High-Performance Monte Carlo Applications through Simulation}% [1] talk title
+  {Sharanya Jayaraman}% [2] speaker name
+  {Department of Computer Science, Florida State University}% [3] affiliations
+  {sjayaraman@fsu.edu}% [4] email
+  {Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 14:30–15:00}% [7] time slot
+  {S21-2}% [8] talk id
+  {S21}% [9] session id or photo
+			
+Monte Carlo methods are naturally fault-tolerant due to their stochastic nature and are highly scalable, making them well-suited for high-performance computing environments$^{[1]}$. In this work, we use a custom-built, cloud-based exascale simulator to investigate the resilience of Monte Carlo and multi-level Monte Carlo methods under various hardware and software fault scenarios. We examine the behavior of the calculations and the propagation of inaccuracies in the presence and absence of common mitigation strategies, such as checkpointing$^{[2]}$. Our simulations offer insights into how faults propagate through computations, enabling us to evaluate techniques for constraining and mitigating the impact of unpredictable failures. The results may be used as guidance for deploying Monte Carlo-based applications on exascale systems, thereby enhancing their reliability.
+
+\medskip
+
+References
+\begin{enumerate}
+	\item[{[1]}] Pauli, Stefan, Arbenz, Peter, \&  Schwab, Christoph, (2015). {\it Intrinsic fault tolerance of multilevel Monte Carlo methods}, Journal of Parallel and Distributed Computing \textbf{84}, 24-36.
+	\item[{[2]}] Chang, C., Deringer, V.L., Katti, K.S. et al. (2023) {\it Simulations in the era of exascale computing}, Nat Rev Mater \textbf{8}, 309---313 
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
   {WoS-NN: Collaborating Walk-on-Spheres with Machine Learning to Solve Elliptic PDEs}% [1] talk title
   {Silei Song}% [2] speaker name
   {Department of Computer Science, Florida State University}% [3] affiliations
@@ -2163,8 +2231,8 @@ Hamiltonian Monte Carlo is a commonly used algorithm to sample high dimensional 
   {matteo.raviola@epfl.ch}% [4] email
   {Fabio Nobile, Nathan Schaeffer}% [5] coauthors
   {}% [6] special session
-  {Thu, Jul 31 11:30–12:00}% [7] time slot
-  {S24-3}% [8] talk id
+  {Thu, Jul 31 10:30–11:00}% [7] time slot
+  {S24-1}% [8] talk id
   {S24}% [9] session id or photo
   
   
@@ -2190,8 +2258,8 @@ Hamiltonian Monte Carlo is a commonly used algorithm to sample high dimensional 
   {philipp.guth@ricam.oeaw.ac.at}% [4] email
   {Robert Gruhlke, Claudia Schillings}% [5] coauthors
   {Nested expectations: models and estimators, Part II}% [6] special session
-  {Thu, Jul 31 12:00–12:30}% [7] time slot
-  {S24-4}% [8] talk id
+  {Thu, Jul 31 11:00–11:30}% [7] time slot
+  {S24-2}% [8] talk id
   {S24}% [9] session id or photo
 				
 		
@@ -2209,6 +2277,40 @@ Bayesian optimal experimental design (BOED) problems often involve nested integr
 %	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
 %\end{enumerate}
 %
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Langevin-based strategies for nested particle filters}% [1] talk title
+  {Sara Pérez-Vieites}% [2] speaker name
+  {Aalto University}% [3] affiliations
+  {sara.perezvieites@aalto.fi}% [4] email
+  {Nicola Branchini, Víctor Elvira and Joaquín Míguez}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 11:30–12:00}% [7] time slot
+  {S24-3}% [8] talk id
+  {S24}% [9] session id or photo
+  
+				
+			
+Many problems in some of the most active fields of science require to estimate parameters and predict the evolution of complex dynamical systems using sequentially collected data. The nested particle filter (NPF) framework stands out since it is the only fully recursive probabilistic method for Bayesian inference. That is, it computes the joint posterior distribution of the parameters and states while maintaining a computational complexity of $\mathcal{O}(T)$, which makes it particularly suitable for long observation sequences. 
+
+A key strategy to keep particle diversity in the parameter space, given the static nature of the parameters, is jittering. The parameter space is explored by perturbing a subset of particles with arbitrary variance or applying a controlled variance to all particles. As the perturbations are controlled, it ensures convergence to the true posterior distribution while keeping the full framework recursive. However, this is not an efficient exploration strategy, particularly for problems with a higher dimension in the parameter space.
+
+To address this limitation, we propose a Langevin-based methodology within the NPF framework. A challenge is that the required score function is intractable. We propose to approximate the score with an accurate method that is provably stable over time, and to explore strategies to reduce its computational cost while retaining accuracy.
+This approach significantly improves the scalability of NPF in the parameter dimension, while still ensuring asymptotic convergence to the true posterior, as well as maintaining computational feasibility.
+
+\medskip
+
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+
 %Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
 
