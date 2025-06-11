@@ -14,7 +14,7 @@
 echo "*** Compiling LaTeX files in MCM_ProgramBook_TEX directory..."
 
 USE_TIMESTAMP=$1
-if [ "$USE_TIMESTAMP" = "true" ]; then
+if [ "$USE_TIMESTAMP" = "dated" ]; then
     timestamp=$(date +%Y_%m_%d_%H_%M_%S)
     suffix="_${timestamp}"
 else
