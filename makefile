@@ -78,4 +78,4 @@ pgm:  # without time stamp
 	@./build_programbook.sh
 
 pgm-ts: #with time stamp
-	@./build_programbook.sh true
+	@./build_programbook.sh dated
