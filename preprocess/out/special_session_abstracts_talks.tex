@@ -2515,6 +2515,43 @@ we demonstrate this for queueing and inventory management problems. We also show
 \end{talk}
 
 \begin{talk}
+  {Stochastic gradient Langevin dynamics with non-stationary data}% [1] talk title
+  {Attila Lovas\footnote{The author was supported by the National Research, Development and Innovation Office within the framework of the Thematic Excellence Program 2021; National Research subprogram “Artificial intelligence, large networks, data security: mathematical foundation and applications” and also by the grant K 143529.}}% [2] speaker name
+  {attila.lovas@gmail.com}% [3] affiliations
+  {Lionel Truquet}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 17:00–17:30}% [7] time slot
+  {S27-4}% [8] talk id
+  {S27}% [9] session id or photo
+  
+				
+		
+We investigate the mixing properties of the stochastic gradient Langevin dynamics (SGLD) algorithm with a fixed step size. While most existing studies on SGLD assume an i.i.d. data stream, this assumption is often unrealistic in practical applications, such as financial time series analysis, natural language processing, and sensor data processing. In such settings, the sequence of iterates no longer forms a Markov chain, significantly complicating the mathematical analysis [1, 2].
+
+To address this challenge, we model the iterates as a Markov chain in a random environment (see [4, 5], and [6]). Under standard dissipativity and Lipschitz conditions, we establish the transfer of $\alpha$-mixing properties from the data stream to the sequence of iterates [3]. This enables us to derive key theoretical results, including the law of large numbers, the central limit theorem, and concentration inequalities for SGLD in the non-convex setting. Our findings provide theoretical guarantees for SGLD in a more realistic scenario where the data merely weakly dependent.
+		
+\medskip
+
+\begin{enumerate}
+	
+	\item[{[1]}] Barkhagen, M., Chau, N. H., Moulines, \'E., R\'asonyi, M., Sabanis, S., \& Zhang, Y. (2021). On stochastic gradient Langevin dynamics with dependent data streams in the logconcave case.
+	
+	\item[{[2]}] Chau, N. H., Moulines, \'E., R\'asonyi, M., Sabanis, S., \& Zhang, Y. (2021). On stochastic gradient langevin dynamics with dependent data streams: The fully nonconvex case. {\it SIAM Journal on Mathematics of Data Science}, \textbf{3}(3), 959-986.
+	
+	\item[{[3]}] Lovas, A. (2024). Transition of $\alpha $-mixing in Random Iterations with Applications in Queuing Theory. arXiv preprint arXiv:2410.05056.
+	
+	\item[{[4]}] Lovas, A., \& R\'asonyi, M. (2023). Functional Central Limit Theorem and Strong Law of Large Numbers for Stochastic Gradient Langevin Dynamics. {\it Applied Mathematics \& Optimization}, \textbf{88}(3), 78.
+	
+	\item[{[5]}] Lovas, A., \& R\'asonyi, M. (2021). Markov chains in random environment with applications in queuing theory and machine learning. {\it Stochastic Processes and their Applications}, 137, 294-326.
+	
+	\item[{[6]}] R\'asonyi, M., \& Tikosi, K. (2022). On the stability of the stochastic gradient Langevin algorithm with dependent data stream. {\it Statistics \& Probability Letters}, 182, 109321.
+	
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
   {Fixed-budget simulation method for growing cell populations}% [1] talk title
   {Zhou Fang}% [2] speaker name
   {Academy of Mathematics and Systems Science, Chinese Academy of Sciences}% [3] affiliations
@@ -2715,5 +2752,33 @@ mass transport, acoustic wave equations, and high-dimensional control problems.
 			
 
 We present a hybrid method for time-dependent particle transport problems that combines Monte Carlo (MC) estimation with deterministic solutions based on discrete ordinates. For spatial discretizations, the MC algorithm computes a piecewise constant solution and the discrete ordinates use bilinear discontinuous finite elements. From the hybridization of the problem, the resulting problem solved by Monte Carlo is scattering free, resulting in a simple, efficient solution procedure. Between time steps, we use a projection approach to “relabel” collided particles as uncollided particles. From a series of standard 2-D Cartesian test problems we observe that our hybrid method has improved accuracy and reduction in computational complexity of approximately an order of magnitude relative to standard discrete ordinates solutions.
+
+\end{talk}
+
+\begin{talk}
+  {Joey Farmer}% [1] talk title
+  {University of Notre Dame}% [2] speaker name
+  {**jfarmer@nd.edu**}% [3] affiliations
+  {Prof. Ryan McClarren, Aidan Murray, Johannes Krotz}% [4] email
+  {Hardware or Software for Quasi-Monte Carlo Methods}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 10:30–11:00}% [7] time slot
+  {S29-4}% [8] talk id
+  {S29}% [9] session id or photo
+
+Monte Carlo (MC) particle transport methods are the gold standard for high-fidelity simulations but can be computationally prohibitive, especially in optically thick media or problems requiring a large number of particle histories. The performance bottleneck often lies in the sequential, stochastic random walk, where each particle undergoes numerous collision events that are difficult to vectorize and lead to control flow divergence on parallel architectures like GPUs.
+
+Our approach replaces the intra-cell random walk with a surrogate model trained via statistical learning. This surrogate effectively learns the transport kernel, providing a direct map from a particle's input state to its output state. This is accomplished by training a neural network to model the velocity field of a continuous probability path that transforms a simple noise distribution into the complex, multi-modal distribution of particle output states observed in MC simulations. This hybrid approach retains the Monte Carlo foundation of stochastic particle sampling and history tracking within the transport computation, but replaces the collision-by-collision simulation with a single forward pass through the neural network that samples from the learned distributions.
+
+We demonstrate the efficacy of this approach by embedding our learned model into a multi-cell transport solver and validating it against canonical benchmarks, including the heterogeneous Reed's problem [2]. The results show that our method accurately reproduces the scalar flux profiles of both high-fidelity MC simulations and known analytic solutions, with comparable statistical error characteristics (Figure 1). This accuracy is achieved with  computational speed-ups, particularly in optically thick regions where the cost of traditional MC is highest. The performance gains stem from decoupling the simulation cost from the material cross-sections, offering a scalable path for accelerating transport in challenging regimes. 
+
+The presentation will cover the mathematical formulation of the transport kernel learning problem, the architecture which captures the output distributions, the once-and-for-all training strategy, and computational  results in both 1D and 2D geometries.
+
+
+\medskip
+\begin{enumerate} 
+\item[{[1]}] Y. Lipman, R. T. Q. Chen, et al. (2022). Flow Matching for Generative Modeling. {\it arXiv preprint arXiv:2210.02747}. 
+\item[{[2]}] W. H. Reed. (1971). New Difference Schemes for the Neutron Transport Equation. {\it Nuclear Science and Engineering}, 46(2):309-314. 
+\end{enumerate}
 
 \end{talk}

@@ -1,0 +1,76 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+\usepackage{subcaption} % Added for subfigures
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+ {
+  \vskip 0pt\nopagebreak
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+
+\begin{document}
+\begin{talk} {Flow-Based Monte Carlo Transport Simulation}% [1] talk title 
+{Joey Farmer}% [2] speaker name 
+{University of Notre Dame}% [3] affiliations 
+{**jfarmer@nd.edu**}% [4] email (placeholder) 
+{Prof. Ryan McClarren, Aidan Murray, Johannes Krotz}% [5] coauthors 
+{Hardware or Software for Quasi-Monte Carlo Methods}% [6] special session. Leave empty for contributed.
+
+Monte Carlo (MC) particle transport methods are the gold standard for high-fidelity simulations but can be computationally prohibitive, especially in optically thick media or problems requiring a large number of particle histories. The performance bottleneck often lies in the sequential, stochastic random walk, where each particle undergoes numerous collision events that are difficult to vectorize and lead to control flow divergence on parallel architectures like GPUs.
+
+Our approach replaces the intra-cell random walk with a surrogate model trained via statistical learning. This surrogate effectively learns the transport kernel, providing a direct map from a particle's input state to its output state. This is accomplished by training a neural network to model the velocity field of a continuous probability path that transforms a simple noise distribution into the complex, multi-modal distribution of particle output states observed in MC simulations. This hybrid approach retains the Monte Carlo foundation of stochastic particle sampling and history tracking within the transport computation, but replaces the collision-by-collision simulation with a single forward pass through the neural network that samples from the learned distributions.
+
+We demonstrate the efficacy of this approach by embedding our learned model into a multi-cell transport solver and validating it against canonical benchmarks, including the heterogeneous Reed's problem [2]. The results show that our method accurately reproduces the scalar flux profiles of both high-fidelity MC simulations and known analytic solutions, with comparable statistical error characteristics (Figure 1). This accuracy is achieved with  computational speed-ups, particularly in optically thick regions where the cost of traditional MC is highest. The performance gains stem from decoupling the simulation cost from the material cross-sections, offering a scalable path for accelerating transport in challenging regimes. 
+
+The presentation will cover the mathematical formulation of the transport kernel learning problem, the architecture which captures the output distributions, the once-and-for-all training strategy, and computational  results in both 1D and 2D geometries.
+
+\begin{figure}[h!] 
+\centering 
+\begin{subfigure}[b]{0.48\textwidth} 
+\centering 
+\includegraphics[width=\textwidth]{reeds_flux_comparison.png} % User needs to create this image 
+\caption{Scalar flux comparison} 
+\end{subfigure} 
+\hfill 
+\begin{subfigure}[b]{0.48\textwidth} 
+\centering 
+\includegraphics[width=\textwidth]{reeds_flux_absolute_error.png} % User needs to create this image 
+\caption{Absolute error vs. analytic} 
+\end{subfigure} 
+\caption{Results for the Reed's problem benchmark demonstrating Monte Carlo convergence. (a) The new method scalar flux (orange) shows agreement with the analytic solution (black) and reference MC simulation. (b) The absolute error exhibits the characteristic stochastic fluctuations of Monte Carlo methods, with magnitude comparable to traditional MC.} 
+\label{fig:reeds_problem} 
+\end{figure}
+
+\medskip
+\begin{enumerate} 
+\item[{[1]}] Y. Lipman, R. T. Q. Chen, et al. (2022). Flow Matching for Generative Modeling. {\it arXiv preprint arXiv:2210.02747}. 
+\item[{[2]}] W. H. Reed. (1971). New Difference Schemes for the Neutron Transport Equation. {\it Nuclear Science and Engineering}, 46(2):309-314. 
+\end{enumerate}
+
+\end{talk}
+\end{document}
