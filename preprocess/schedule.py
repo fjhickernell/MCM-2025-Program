@@ -172,6 +172,8 @@ def generate_parallel_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, 
                 talks_latex += f"&\\tableTalk{{ {speaker} }}\n{{ {title} }}\n{{{code}}}\n"
             else:
                 talks_latex += "&\n"
+        if len(session_talks_dict) < 5: # less than 5 parallel sessions
+            talks_latex += "&"
         talks_latex += "\\\\\\hline\n"
     return talks_latex
 
@@ -208,10 +210,13 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
                 latex_content += r"\rowcolor{\SessionTitleColor}\cellcolor{\EmptyColor}" + "\n"
             session_latex = generate_session_latex(row)
             latex_content += session_latex
+            
             is_last_parallel_talk = (session_title.lower().startswith("track") and row.name == group[group['SessionTitle'].str.lower().str.startswith("track")].index[-1])
-            if is_last_parallel_talk:  # create talks in latex
-                latex_content += "\\\\\\hline\n"
+            if is_last_parallel_talk: 
                 session_talks_dict = get_session_talks_dict(group, outdir)
+                if len(session_talks_dict) < 5:
+                    latex_content += "&"
+                latex_content += "\\\\\\hline\n"
                 talks_latex += generate_parallel_talks_latex(session_talks_dict, row)
                 if talks_latex:
                     latex_content += talks_latex
