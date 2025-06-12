@@ -11,6 +11,7 @@ cleanpdf:
 	rm -f MCM_ProgramBook_TEX/*.pdf
 	rm -f MCM_ProgramBook_TEX/*.fdb_latexmk
 	rm -f MCM_ProgramBook_TEX/*.fls
+	rm -f MCM_ProgramBook_TEX/sess*.tex
 
 cleanpy:
 	@echo "Cleaning up Python outputs..."
@@ -22,7 +23,7 @@ cleanpy:
 	rm -f README_and_Scripts/TableSchedule.html
 	rm -f README_and_Scripts/Participants.tex
 	rm -f README_and_Scripts/out/*
-	
+
 
 clean_pp:
 	@echo "\n*** Cleaning up preprocess directories..."

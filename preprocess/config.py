@@ -7,7 +7,7 @@ interimdir = f"{cwd}interim{os.sep}"
 
 no_plenary_sessions = 8
 no_special_sessions = 29
-no_technical_sessions = 16
+no_technical_sessions = 15
 no_sessions = no_plenary_sessions + no_special_sessions + no_technical_sessions
 
 min_talks = no_plenary_sessions+ no_special_sessions*3 + no_technical_sessions*3
