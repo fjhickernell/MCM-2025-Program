@@ -30,18 +30,18 @@ cd MCM_ProgramBook_TEX || exit 1
 pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 || tail -n 100 MCM2025_book.log
 pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1
 
-# Rename with timestamp
-cp MCM2025_book.pdf "MCM2025_Book_${timestamp}.pdf"
+# Rename with suffix
+mv MCM2025_book.pdf "MCM2025_Book${suffix}.pdf"
 
 # Generate schedules
-/opt/homebrew/bin/pdftk MCM2025_book_${timestamp}.pdf cat 10-11 output MCM2025_schedule1sheet_${timestamp}.pdf
-/opt/homebrew/bin/pdftk MCM2025_book_${timestamp}.pdf cat 10-11 12-20east output MCM2025_schedule_${timestamp}.pdf
-/opt/homebrew/bin/pdftk MCM2025_book_${timestamp}.pdf cat 10-183 output MCM2025_schedule_abstracts_${timestamp}.pdf
+/opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 10-11 output MCM2025_schedule1sheet${suffix}.pdf
+/opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 10-11 12-20east output MCM2025_schedule${suffix}.pdf
+/opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 10-183 output MCM2025_schedule_abstracts${suffix}.pdf
 
 # Open PDFs
-open "MCM2025_Book_${timestamp}.pdf"
-open MCM2025_schedule1sheet_${timestamp}.pdf
-open MCM2025_schedule_${timestamp}.pdf
-open MCM2025_schedule_abstracts_${timestamp}.pdf
+open "MCM2025_Book${suffix}.pdf"
+open MCM2025_schedule1sheet${suffix}.pdf
+open MCM2025_schedule${suffix}.pdf
+open MCM2025_schedule_abstracts${suffix}.pdf
 
 cd ..
