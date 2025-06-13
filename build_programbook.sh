@@ -38,6 +38,10 @@ mv MCM2025_book.pdf "MCM2025_Book${suffix}.pdf"
 /opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 10-11 12-20east output MCM2025_schedule${suffix}.pdf
 /opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 10-183 output MCM2025_schedule_abstracts${suffix}.pdf
 
+# Rotate pages 12-20 clockwise 90 degrees
+/opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat 1-11 12-20east 21-end output "MCM2025_Book${suffix}_rotated.pdf"
+mv "MCM2025_Book${suffix}_rotated.pdf" "MCM2025_Book${suffix}.pdf"
+
 # Open PDFs
 open "MCM2025_Book${suffix}.pdf"
 open MCM2025_schedule1sheet${suffix}.pdf
