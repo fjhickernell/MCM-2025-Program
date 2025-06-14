@@ -61,9 +61,8 @@ pg: cleanpdf    # brew install pdftk-java
 	@echo "*** Compiling LaTeX files in MCM_ProgramBook_TEX directory..."
 	@cp preprocess/out/sess*.tex MCM_ProgramBook_TEX && \
 	cd MCM_ProgramBook_TEX && \
-	PDFLATEX = /usr/local/texlive/2024/bin/universal-darwin/pdflatex
-	$(PDFLATEX)  -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 || tail -n 100 MCM2025_book.log && \
-	$(PDFLATEX)  -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 && \
+	pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 || tail -n 100 MCM2025_book.log && \
+	pdflatex -interaction=nonstopmode -halt-on-error MCM2025_book.tex > /dev/null 2>&1 && \
 	/opt/homebrew/bin/pdftk MCM2025_book.pdf cat 10-11 output MCM2025_schedule1sheet.pdf && \
 	/opt/homebrew/bin/pdftk MCM2025_book.pdf cat 10-20 output MCM2025_schedule.pdf && \
 	open MCM2025_Book.pdf && \
@@ -82,7 +81,7 @@ pgm:  # without timestamp, default version (2025)
 pgm-ts: # with timestamp, default version (2025)
 	@./build_programbook.sh dated
 
-pgm-2024: # without timestamp, force TeX Live 2024 because there are some incompatibilites with latest 2025
+pgm-2024: # without timestamp, force TeX Live 2024 because there are some incompatibilites with latest 2024
 	@./build_programbook.sh "" 2024
 
 pgm-ts-2024: # with timestamp, force TeX Live 2024
