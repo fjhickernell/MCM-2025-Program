@@ -413,6 +413,33 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
             block = process_talk(id_val, prefix, tex_dir, talk_time, session_id)
         if block is None:
             missing.append(format_full_id(id_val, prefix))
+            # Create dummy abstract .tex files in abstracts directory
+            dummy_tex_path = os.path.join(tex_dir, f"{format_full_id(id_val, prefix)}.tex")
+            with open(dummy_tex_path, 'w', encoding='utf-8') as f:
+                # Try to get as much info as possible from the CSV
+                speaker = df.loc[df[id_col] == id_val, "Speaker"].values[0] if "Speaker" in df.columns and any(df[id_col] == id_val) else "TBD"
+                title = df.loc[df[id_col] == id_val, "Title"].values[0] if "Title" in df.columns and any(df[id_col] == id_val) else "TBD"
+                affiliations = df.loc[df[id_col] == id_val, "Affiliations"].values[0] if "Affiliations" in df.columns and any(df[id_col] == id_val) else ""
+                email = df.loc[df[id_col] == id_val, "Email"].values[0] if "Email" in df.columns and any(df[id_col] == id_val) else ""
+                coauthors = df.loc[df[id_col] == id_val, "Coauthors"].values[0] if "Coauthors" in df.columns and any(df[id_col] == id_val) else ""
+                special_session = df.loc[df[id_col] == id_val, "SpecialSession"].values[0] if "SpecialSession" in df.columns and any(df[id_col] == id_val) else ""
+                time_slot = talk_time if talk_time else session_time
+                session_id_val = session_id if session_id else ""
+                photo_or_session = session_id_val
+                f.write(
+                    "\\begin{talk}\n"
+                    f"  {{{title}}}% [1] talk title\n"
+                    f"  {{{speaker}}}% [2] speaker name\n"
+                    f"  {{{affiliations}}}% [3] affiliations\n"
+                    f"  {{{email}}}% [4] email\n"
+                    f"  {{{coauthors}}}% [5] coauthors\n"
+                    f"  {{{special_session}}}% [6] special session. Leave this field empty for contributed talks. \n"
+                    "                % Insert the title of the special session if you were invited to give a talk in a special session.\n"
+                    f"  {{{time_slot}}}% [7] time slot\n"
+                    f"  {{{format_full_id(id_val, prefix)}}}% [8] talk id\n"
+                    f"  {{{photo_or_session}}}% [9] session id or photo\n"
+                    "\\end{talk}\n"
+                )
         else:
             blocks.append(block)
 

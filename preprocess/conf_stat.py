@@ -110,7 +110,7 @@ if __name__ == '__main__':
     print_session_summary(session_counts)
     print_talk_summary(talk_counts)
     
-    print_special_session_breakdown(talk_dfs['special'])
-    print_contributed_session_breakdown(talk_dfs['contributed'])
+    #print_special_session_breakdown(talk_dfs['special'])
+    #print_contributed_session_breakdown(talk_dfs['contributed'])
 
 
