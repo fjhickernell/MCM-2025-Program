@@ -5,6 +5,15 @@ import re
 from typing import Tuple, List, Dict
 
 def shorten_titles(title):
+    # First fix spelling and grammar issues
+    title = (title.replace("Stong order", "Strong order")
+                  .replace("monte carlo", "Monte Carlo")
+                  .replace("quasi-monte carlo", "quasi-Monte Carlo")
+                  .replace("hamiltonian monte carlo", "Hamiltonian Monte Carlo")
+                  .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
+                  .replace("  ", " ")  # Fix double spaces
+            )
+    
     replacements = [
         (r'\bQuasi[- ]?Monte Carlo\b', 'QMC'),
         (r'\(Quasi-?\)?Monte Carlo', '(Q)MC'),

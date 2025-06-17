@@ -47,7 +47,16 @@ def process_session_talks(df: pd.DataFrame, max_talks: int = 4) -> None:
         lines = format_session_header(session_time_fmt, start_time, end_time, room)
 
         for _, row in session_group.head(max_talks).iterrows():
-            title = row.get("Talk Title", "").replace('Φ', '$\Phi$').replace("–", "---").strip()
+            title = (row.get("Talk Title", "")
+                     .replace('Φ', '$\Phi$')
+                     .replace("–", "---")
+                     .replace("Stong order", "Strong order")
+                     .replace("monte carlo", "Monte Carlo")
+                     .replace("quasi-monte carlo", "quasi-Monte Carlo")
+                     .replace("hamiltonian monte carlo", "Hamiltonian Monte Carlo")
+                     .replace("hamiltonian", "Hamiltonian")
+                     .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
+                     .strip())
             presenter = row.get("Presenter", "").replace("å", "{\\aa}").strip()
             if not presenter:
                 presenter = f"{row.get('First or given name(s) of presenter', '').strip()} {row.get('Last or family name of presenter', '').strip()}".strip()
@@ -91,7 +100,14 @@ def process_plenary_talks(csv_path: str) -> None:
             room=row.get("Room", "").strip(),
             chair=row.get("Chair", "").strip(),
             speaker=row.get("SessionTitle", "").replace("Plenary Talk by ", "").strip(),
-            title=row.get("Talk Title", "").strip(),
+            title=(row.get("Talk Title", "")
+                   .replace("Stong order", "Strong order")
+                   .replace("monte carlo", "Monte Carlo")
+                   .replace("quasi-monte carlo", "quasi-Monte Carlo")
+                   .replace("hamiltonian monte carlo", "Hamiltonian Monte Carlo")
+                   .replace("hamiltonian", "Hamiltonian")
+                   .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
+                   .strip()),
             talk_id=talk_id
         )
 

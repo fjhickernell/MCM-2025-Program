@@ -1,12 +1,72 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
 \begin{talk}
-  {TBD}% [1] talk title
-  {TBD}% [2] speaker name
-  {}% [3] affiliations
-  {}% [4] email
-  {}% [5] coauthors
+  {Exit-Time Analysis for Kesten's Recursion in Stochastic Gradient Descent}% [1] talk title
+  {Chang-Han Rhee}% [2] speaker name
+  {Northwestern University}% [3] affiliations
+  {chang-han.rhee@northwestern.edu}% [4] email
+  {Jeeho Ryu, Insuk Seo}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
-                % Insert the title of the special session if you were invited to give a talk in a special session.
-  {Thu, Jul 31 16:00–16:30}% [7] time slot
-  {S27-2}% [8] talk id
-  {S27}% [9] session id or photo
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+
+Stochastic gradient descent has been a classical subject in operations research and stochastic simulation literature.
+On the other hand, Kesten's recursion has been studied extensively in probability theory and related fields. 
+Recently, Kesten's recursion has garnered renewed interest as a model for stochastic
+gradient descent (SGD) with a quadratic objective function and the emergence of heavy-tailed dynamics in machine learning. 
+In particular, due to the connection between the heavy-tailed behaviors of SGD and the generalization performance of the neural network it trains, the emergence and characterization of heavy tails in SGD have been revisited. 
+Unlike the classical contexts, these developments call for analysis of its asymptotic behavior under both negative and positive Lyapunov exponents. In this talk, I'll discuss the exit times of Kesten's stochastic recurrence equation in both cases. Depending on the sign of the Lyapunov exponent, the exit time scales either polynomially or logarithmically as the radius of the exit boundary increases.
+
+\medskip
+
+\begin{enumerate}
+	\item[{[1]}] 
+    Rhee, Chang-Han, Jeeho Ryu, \& Insuk Seo (2025+). Exit time analysis for Kesten's stochastic recurrence equations. arXiv:2503.05219.
+    
+
+\end{enumerate}
+
 \end{talk}
+
+\end{document}

@@ -453,6 +453,22 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
         else "Special Session Talks" if prefix == "S"
         else "Special Sessions"
     )
+
+    # Final clean up of blocks:
+    blocks = [
+        block.replace("Fri, Aug 1 11:30-12:30—", "Fri, Aug 1 11:30-12:30")
+             .replace("(KAUST) King Abdullah University of Science and Technology", "King Abdullah University of Science and Technology")
+             .replace("Stong order", "Strong order")
+             .replace("monte carlo", "Monte Carlo")
+             .replace("quasi-monte carlo", "quasi-Monte Carlo")
+             .replace("hamiltonian monte carlo", "Hamiltonian Monte Carlo")
+             .replace("hamiltonian", "Hamiltonian")
+             .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
+             .replace("Sou-Cheng T.  Choi", "Sou-Cheng T. Choi")
+        for block in blocks
+    ]
+
+
     write_output(blocks, output_path, chapter)
 
     # Warn if any were missing
