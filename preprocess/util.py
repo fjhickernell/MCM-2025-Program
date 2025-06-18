@@ -99,4 +99,62 @@ def read_google_sheets(sheets, indir):
     
     return dfs
 
+def clean_tex_content(text):
+    """
+    Clean and fix common spelling, grammar, and formatting issues in LaTeX content.
+    
+    Args:
+        text (str): Input LaTeX text to clean
+        
+    Returns:
+        str: Cleaned LaTeX text with fixes applied
+    """
+    if not isinstance(text, str):
+        return text
+    
+    # Define problematic LaTeX expressions to remove
+    bad_s = "{}% [6] special session. Leave this field empty for contributed talks. "
+    bad_s2 = "% Insert the title of the special session if you were invited to give a talk in a special session."
+    
+    # Apply text cleanup fixes
+    cleaned_text = (text
+        .replace("Fri, Aug 1 11:30-12:30—", "Fri, Aug 1 11:30-12:30")
+        .replace("(KAUST) King Abdullah University of Science and Technology", "King Abdullah University of Science and Technology")
+        .replace("Stong order", "Strong order")
+        .replace("monte carlo", "Monte Carlo")
+        .replace("quasi-monte carlo", "quasi-Monte Carlo")
+        .replace("hamiltonian", "Hamiltonian")
+        .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
+        .replace("Sou-Cheng T.  Choi", "Sou-Cheng T. Choi")
+        .replace('Φ', '$\Phi$')
+        .replace("–", "---") # first input is not a hyphen, but a special unicode character
+        .replace("å", "{\\aa}")
+        .replace(bad_s, "")
+        .replace(bad_s2, "")
+        .replace(" &", " \\&")
+        .replace("the the ", "the ")
+        .replace("$\\cL_p$", "$\\mathcal{L}_p$")
+        .replace("\\KSD", "\\mathsf{KSD}")
+        .replace("Ra\\'{u}l", "Ra\\'ul")
+        .replace("\t", " ")  # replace tabs with spaces
+        .replace("\r", "")
+        .replace("ô", "\\^o")
+        .replace("é", "\\'e")
+        .replace("è", "\\`e")
+        .replace("ê", "\\^e")
+        .replace("ç", "\\c{c}")
+        .replace("à", "\\`a")
+        .replace("â", "\\^a")
+        .replace("å", "{\\aa}")
+        .replace("ä", "\\\"a")
+        .replace("ß", "{\\ss}")  # changed to correct LaTeX command for ß
+        .replace("ä", "\\\"a")   # ensure ä is replaced with \"a
+        .replace("ö", "\\\"o")
+        .replace("ü", "\\\"u")
+        .replace("Ö", "\\\"O")
+        .replace("Ü", "\\\"U")
 
+        
+    )
+    
+    return cleaned_text

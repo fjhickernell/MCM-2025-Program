@@ -3,6 +3,7 @@ import re
 import pandas as pd
 from config import *
 import datetime
+import util as ut
 
 
 def parse_session_time(session_time: str) -> tuple[str, str, str, str]:
@@ -50,13 +51,8 @@ def process_session_talks(df: pd.DataFrame, max_talks: int = 4) -> None:
             title = (row.get("Talk Title", "")
                      .replace('Φ', '$\Phi$')
                      .replace("–", "---")
-                     .replace("Stong order", "Strong order")
-                     .replace("monte carlo", "Monte Carlo")
-                     .replace("quasi-monte carlo", "quasi-Monte Carlo")
-                     .replace("hamiltonian monte carlo", "Hamiltonian Monte Carlo")
-                     .replace("hamiltonian", "Hamiltonian")
-                     .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
                      .strip())
+            title = ut.clean_tex_content(title)  # Apply common text fixes
             presenter = row.get("Presenter", "").replace("å", "{\\aa}").strip()
             if not presenter:
                 presenter = f"{row.get('First or given name(s) of presenter', '').strip()} {row.get('Last or family name of presenter', '').strip()}".strip()
@@ -100,14 +96,7 @@ def process_plenary_talks(csv_path: str) -> None:
             room=row.get("Room", "").strip(),
             chair=row.get("Chair", "").strip(),
             speaker=row.get("SessionTitle", "").replace("Plenary Talk by ", "").strip(),
-            title=(row.get("Talk Title", "")
-                   .replace("Stong order", "Strong order")
-                   .replace("monte carlo", "Monte Carlo")
-                   .replace("quasi-monte carlo", "quasi-Monte Carlo")
-                   .replace("hamiltonian monte carlo", "Hamiltonian Monte Carlo")
-                   .replace("hamiltonian", "Hamiltonian")
-                   .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
-                   .strip()),
+            title=ut.clean_tex_content(row.get("Talk Title", "").strip()),
             talk_id=talk_id
         )
 

@@ -4,6 +4,7 @@ import pandas as pd
 from config import *
 import csv
 import datetime
+import util as ut
 
 def extract_talk_environment(tex_content: str) -> str:
     """
@@ -144,7 +145,7 @@ def process_session(
             continue
 
         # Ensure lines are properly cleaned
-        body_lines.append(stripped.replace("\t", " ").replace("\r", "").replace("å", "{\\aa}").replace("ô","\^o").strip())
+        body_lines.append(stripped.strip())
 
     #print(f"{session_title = }, {M = }, {organizers = }, \n{session_body_clean = }")
 
@@ -271,24 +272,6 @@ def process_talk(id_val: str, prefix: str, tex_dir: str, session_time:str, sessi
     # extract body
     body_lines = raw_lines[last_field_idx+1 : end_idx]
     
-    # replace bad latex expressions with good ones
-    bad_s = "{}% [6] special session. Leave this field empty for contributed talks. "
-    bad_s2 ="% Insert the title of the special session if you were invited to give a talk in a special session."
-    # Clean up body lines with a series of replacements
-    body_lines = [
-        line.replace(bad_s, "")
-            .replace(bad_s2, "")
-            .replace('"', "''")
-            .replace(" &", " \&")
-            .replace("the the ", "the ")
-            .replace("$\cL_p$", "$\mathcal{L}_p$")
-            .replace("\KSD", "\mathsf{KSD}")
-            .replace("Ra\'{u}l", "Ra\'ul")
-            .replace('Φ', '$\Phi$')
-            .replace("–", "---")
-            .replace("å", "{\\aa}")
-        for line in body_lines
-    ]
 
     # parse out the slots
     raw_args = [ field_re.match(l).group(1)
@@ -454,20 +437,8 @@ def generate_tex_talks(csv_path: str = "plenary_abstracts_talkid.csv",
         else "Special Sessions"
     )
 
-    # Final clean up of blocks:
-    blocks = [
-        block.replace("Fri, Aug 1 11:30-12:30—", "Fri, Aug 1 11:30-12:30")
-             .replace("(KAUST) King Abdullah University of Science and Technology", "King Abdullah University of Science and Technology")
-             .replace("Stong order", "Strong order")
-             .replace("monte carlo", "Monte Carlo")
-             .replace("quasi-monte carlo", "quasi-Monte Carlo")
-             .replace("hamiltonian monte carlo", "Hamiltonian Monte Carlo")
-             .replace("hamiltonian", "Hamiltonian")
-             .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
-             .replace("Sou-Cheng T.  Choi", "Sou-Cheng T. Choi")
-        for block in blocks
-    ]
-
+    # Final clean up of blocks using util function:
+    blocks = [ut.clean_tex_content(block) for block in blocks]
 
     write_output(blocks, output_path, chapter)
 
