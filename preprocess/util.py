@@ -118,43 +118,124 @@ def clean_tex_content(text):
     
     # Apply text cleanup fixes
     cleaned_text = (text
-        .replace("Fri, Aug 1 11:30-12:30—", "Fri, Aug 1 11:30-12:30")
-        .replace("(KAUST) King Abdullah University of Science and Technology", "King Abdullah University of Science and Technology")
+        # Spelling and grammar corrections
         .replace("Stong order", "Strong order")
+        .replace("Lebesque", "Lebesgue")
+        .replace("Sou-Cheng T.  Choi", "Sou-Cheng T. Choi")
+        
+        # Capitalization fixes for technical terms
         .replace("monte carlo", "Monte Carlo")
         .replace("quasi-monte carlo", "quasi-Monte Carlo")
         .replace("hamiltonian", "Hamiltonian")
         .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
-        .replace("Sou-Cheng T.  Choi", "Sou-Cheng T. Choi")
-        .replace('Φ', '$\Phi$')
-        .replace("–", "---") # first input is not a hyphen, but a special unicode character
-        .replace("å", "{\\aa}")
-        .replace(bad_s, "")
-        .replace(bad_s2, "")
-        .replace(" &", " \\&")
+        .replace("Acta numerica", "Acta Numerica")
+        
+        # Grammar fixes (duplicated words)
         .replace("the the ", "the ")
+        .replace("that that ", "that ")
+        .replace("approach approach ", "approach ")
+        
+        # Institution name cleanup
+        .replace("(KAUST) King Abdullah University of Science and Technology", "King Abdullah University of Science and Technology")
+        
+        # Date/time formatting
+        .replace("Fri, Aug 1 11:30-12:30—", "Fri, Aug 1 11:30-12:30")
+        
+        # LaTeX math notation fixes
         .replace("$\\cL_p$", "$\\mathcal{L}_p$")
         .replace("\\KSD", "\\mathsf{KSD}")
-        .replace("Ra\\'{u}l", "Ra\\'ul")
+        .replace('Φ', '$\Phi$')
+        
+        # Special character and symbol fixes
+        .replace("–", "---")  # unicode dash to LaTeX dash
+        .replace(" &", " \\&")  # escape ampersand
+        
+        # Remove problematic LaTeX comments
+        .replace(bad_s, "")
+        .replace(bad_s2, "")
+        
+        # Whitespace cleanup
         .replace("\t", " ")  # replace tabs with spaces
-        .replace("\r", "")
-        .replace("ô", "\\^o")
+        .replace("\r", "")   # remove carriage returns
+        
+        # Vowels with accents
+        .replace("á", "\\'a")
+        .replace("à", "\\`a")
+        .replace("â", "\\^a")
+        .replace("ä", "\\\"a")
+        .replace("å", "{\\aa}")
+        .replace("ã", "\\~a")
+        .replace("Á", "\\'A")
+        .replace("À", "\\`A")
+        .replace("Â", "\\^A")
+        .replace("Ä", "\\\"A")
+        .replace("Å", "{\\AA}")
+        .replace("Ã", "\\~A")
         .replace("é", "\\'e")
         .replace("è", "\\`e")
         .replace("ê", "\\^e")
-        .replace("ç", "\\c{c}")
-        .replace("à", "\\`a")
-        .replace("â", "\\^a")
-        .replace("å", "{\\aa}")
-        .replace("ä", "\\\"a")
-        .replace("ß", "{\\ss}")  # changed to correct LaTeX command for ß
-        .replace("ä", "\\\"a")   # ensure ä is replaced with \"a
+        .replace("ë", "\\\"e")
+        .replace("É", "\\'E")
+        .replace("È", "\\`E")
+        .replace("Ê", "\\^E")
+        .replace("Ë", "\\\"E")
+        .replace("í", "\\'i")
+        .replace("ì", "\\`i")
+        .replace("î", "\\^i")
+        .replace("ï", "\\\"i")
+        .replace("Í", "\\'I")
+        .replace("Ì", "\\`I")
+        .replace("Î", "\\^I")
+        .replace("Ï", "\\\"I")
+        .replace("ó", "\\'o")
+        .replace("ò", "\\`o")
+        .replace("ô", "\\^o")
         .replace("ö", "\\\"o")
-        .replace("ü", "\\\"u")
+        .replace("õ", "\\~o")
+        .replace("ø", "{\\o}")
+        .replace("Ó", "\\'O")
+        .replace("Ò", "\\`O")
+        .replace("Ô", "\\^O")
         .replace("Ö", "\\\"O")
+        .replace("Õ", "\\~O")
+        .replace("Ø", "{\\O}")
+        .replace("ú", "\\'u")
+        .replace("ù", "\\`u")
+        .replace("û", "\\^u")
+        .replace("ü", "\\\"u")
+        .replace("Ú", "\\'U")
+        .replace("Ù", "\\`U")
+        .replace("Û", "\\^U")
         .replace("Ü", "\\\"U")
-
-        
+        .replace("ý", "\\'y")
+        .replace("ÿ", "\\\"y")
+        .replace("Ý", "\\'Y")
+        .replace("Ÿ", "\\\"Y")
+        # Special characters
+        .replace("ç", "\\c{c}")
+        .replace("Ç", "\\c{C}")
+        .replace("ñ", "\\~n")
+        .replace("Ñ", "\\~N")
+        .replace("ß", "{\\ss}")
+        # Eastern European characters
+        .replace("č", "\\v{c}")
+        .replace("Č", "\\v{C}")
+        .replace("ć", "\\'c")
+        .replace("Ć", "\\'C")
+        .replace("š", "\\v{s}")
+        .replace("Š", "\\v{S}")
+        .replace("ž", "\\v{z}")
+        .replace("Ž", "\\v{Z}")
+        .replace("ř", "\\v{r}")
+        .replace("Ř", "\\v{R}")
+        .replace("ě", "\\v{e}")
+        .replace("Ě", "\\v{E}")
+        .replace("ů", "\\r{u}")
+        .replace("Ů", "\\r{U}")
+        .replace("đ", "\\dj{}")
+        .replace("Đ", "\\DJ{}")
+        .replace("ł", "{\\l}")
+        .replace("Ł", "{\\L}")
     )
     
     return cleaned_text
