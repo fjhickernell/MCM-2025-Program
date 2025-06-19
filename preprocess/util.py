@@ -120,6 +120,9 @@ def clean_tex_content(text):
     cleaned_text = (text
         # Spelling and grammar corrections
         .replace("Stong order", "Strong order")
+        .replace("Inverstigating", "Investigating")
+        .replace("Ellip- tic", "Elliptic")
+        .replace("constrast", "contrast")
         .replace("Lebesque", "Lebesgue")
         .replace("Sou-Cheng T.  Choi", "Sou-Cheng T. Choi")
         
@@ -140,6 +143,7 @@ def clean_tex_content(text):
         
         # Date/time formatting
         .replace("Fri, Aug 1 11:30-12:30—", "Fri, Aug 1 11:30-12:30")
+        .replace("09:00---11:00— ", "09:00--11:00")
         
         # LaTeX math notation fixes
         .replace("$\\cL_p$", "$\\mathcal{L}_p$")
@@ -158,6 +162,17 @@ def clean_tex_content(text):
         .replace("\t", " ")  # replace tabs with spaces
         .replace("\r", "")   # remove carriage returns
         
+        # Standardize British to American spelling for technical terms
+        #.replace("behaviour", "behavior")
+        #.replace("optimisation", "optimization")
+        #.replace("modelling", "modeling")
+        #.replace("endeavour", "endeavor")
+        #.replace("analyse", "analyze")
+        #.replace("analysed", "analyzed")
+        #.replace("analysing", "analyzing")
+        #.replace("minimise", "minimize")
+        #.replace("colour", "color")
+     
         # Vowels with accents
         .replace("á", "\\'a")
         .replace("à", "\\`a")

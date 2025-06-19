@@ -236,7 +236,8 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
     latex_content = re.sub(r'Track [A-Z]:\s*', '', latex_content, flags=re.IGNORECASE)
     # Remove number from "Technical Session 1", "Technical Session 2", etc.
     latex_content = re.sub(r'Technical Session \d+', 'Technical Session', latex_content, flags=re.IGNORECASE)
-  
+    # clean text
+    latex_content = clean_tex_content(latex_content)
     return latex_content
 
 if __name__ == '__main__':
