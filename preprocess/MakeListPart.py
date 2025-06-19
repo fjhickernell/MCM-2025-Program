@@ -3,6 +3,7 @@
 
 import csv
 from config import *
+from util import clean_tex_content
 
 if __name__ == '__main__':
 
@@ -23,17 +24,18 @@ if __name__ == '__main__':
     NbTalkListed = 0
     StartListTalk = False
     
-    fpart = open(f"{outdir}Participants.tex",'w')
+    # Initialize latex_content instead of opening file
+    latex_content = ""
   #  print("\\begin{sideways}\n\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}",file=fsched)
     
     #we assume SessionList contains the list of sessions in order of time, with sessions happening at the same
     #time ordered by "room number", e.g., columns in the schedule
     ##################IMPORTANT
-    print("\\chapter{List of Participants}\n",file=fpart)
-    print("\\setlength{\columnsep}{1cm}\n",file=fpart)
-    print("\\begin{multicols}{2}\n",file=fpart)
-    print("\\small\\raggedright\n",file=fpart)
-    #with open(f"{indir}PARTICIPANTSJULY5.csv", 'r') as file:
+    latex_content += "\\chapter{List of Participants}\n"
+    latex_content += "\\setlength{\\columnsep}{1cm}\n"
+    latex_content += "\\begin{multicols}{2}\n"
+    latex_content += "\\small\\raggedright\n"
+    
     # Read all participants and group by name
     from collections import defaultdict
     participants = defaultdict(list)
@@ -55,8 +57,13 @@ if __name__ == '__main__':
         partstrng += f"{{{main_session}}}"
         for s in extra_sessions:
             partstrng += f"\n{{{s}}}"
-        print(partstrng, file=fpart)
+        latex_content += partstrng + "\n"
 
-    print("\\end{multicols}\n", file=fpart)
-    fpart.close()
+    latex_content += "\\end{multicols}\n"
+    latex_content= clean_tex_content(latex_content)  # Apply common text fixes
+    
+    # Write all LaTeX content to file once
+    with open(f"{outdir}Participants.tex", 'w') as fpart:
+        fpart.write(latex_content)
+    
     print(f"Output: {outdir}Participants.tex")
