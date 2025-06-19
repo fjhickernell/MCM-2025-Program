@@ -125,6 +125,7 @@ def clean_tex_content(text):
         .replace("constrast", "contrast")
         .replace("Lebesque", "Lebesgue")
         .replace("Sou-Cheng T.  Choi", "Sou-Cheng T. Choi")
+        .replace("et al ", "et al. ")
         
         # Capitalization fixes for technical terms
         .replace("monte carlo", "Monte Carlo")
@@ -152,7 +153,7 @@ def clean_tex_content(text):
         
         # Special character and symbol fixes
         .replace("–", "---")  # unicode dash to LaTeX dash
-        .replace(" &", " \\&")  # escape ampersand
+        #.replace(" &", " \\&")  # escape ampersand
         
         # Remove problematic LaTeX comments
         .replace(bad_s, "")
@@ -161,7 +162,15 @@ def clean_tex_content(text):
         # Whitespace cleanup
         .replace("\t", " ")  # replace tabs with spaces
         .replace("\r", "")   # remove carriage returns
-        
+    )
+    
+    # Fix malformed href commands using regex
+    import re
+    # Fix incomplete \href{url} without display text - add the URL as display text
+    cleaned_text = re.sub(r'\\href\{([^}]+)\}(?!\{)', r'\\href{\1}{\1}', cleaned_text)
+    
+    # Continue with remaining replacements
+    cleaned_text = (cleaned_text
         # Standardize British to American spelling for technical terms
         #.replace("behaviour", "behavior")
         #.replace("optimisation", "optimization")
