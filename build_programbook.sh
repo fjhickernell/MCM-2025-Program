@@ -38,9 +38,9 @@ PATH="$TEXBIN:$PATH" pdflatex -interaction=nonstopmode -halt-on-error MCM2025_bo
 mv MCM2025_book.pdf "MCM2025_Book${suffix}.pdf"
 
 # Generate schedules
-/opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 25-27 output MCM2025_schedule1sheet${suffix}.pdf
-/opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 25-27 28-36east output MCM2025_schedule${suffix}.pdf
-/opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 25-27 28-36east 37-227 output MCM2025_schedule_abstracts${suffix}.pdf
+/opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 24-27 output MCM2025_schedule1sheet${suffix}.pdf
+/opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 24-27 28-36east output MCM2025_schedule${suffix}.pdf
+/opt/homebrew/bin/pdftk MCM2025_book${suffix}.pdf cat 24-27 28-36east 37-227 output MCM2025_schedule_abstracts${suffix}.pdf
 
 # Rotate pages 12-20 clockwise 90 degrees
 /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat 1-27 28-36east 37-end output "MCM2025_Book${suffix}_rotated.pdf"
