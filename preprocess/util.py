@@ -152,7 +152,7 @@ def clean_tex_content(text):
         
         # Special character and symbol fixes
         .replace("–", "---")  # unicode dash to LaTeX dash
-        .replace(" &", " \\&")  # escape ampersand
+        #.replace(" &", " \\&")  # escape ampersand
         
         # Remove problematic LaTeX comments
         .replace(bad_s, "")

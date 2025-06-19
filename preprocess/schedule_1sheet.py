@@ -150,55 +150,63 @@ def add_room_information(df):
         )
     return df
 
-def write_latex_table_header(f, df, is_sideway):
-    """Write the LaTeX table header."""
+def get_latex_table_header(df, is_sideway):
+    """Generate the LaTeX table header."""
+    header = ""
     if is_sideway:
-        f.write("\\begin{sideways}\n")
+        header += "\\begin{sideways}\n"
     else:
-        f.write("\\begin{table}\n")
-    f.write("{\\footnotesize\n")
+        header += "\\begin{table}\n"
+    header += "{\\footnotesize\n"
     col_spec = '>{\\hsize=0.32\\hsize}X|>{\\hsize=1.7\\hsize}X'
-    f.write(f"\\begin{{tabularx}}{{\\textwidth}}{{{col_spec}}}\n")
-    f.write("\\hline\n")
-    f.write(' & '.join([f'\\textbf{{{col}}}' for col in df.columns]) + ' \\\\\n')
-    f.write("\\hline\n")
+    header += f"\\begin{{tabularx}}{{\\textwidth}}{{{col_spec}}}\n"
+    header += "\\hline\n"
+    header += ' & '.join([f'\\textbf{{{col}}}' for col in df.columns]) + ' \\\\\n'
+    header += "\\hline\n"
+    return header
 
-def write_latex_table_rows(f, df):
-    """Write the rows of the LaTeX table."""
+def get_latex_table_rows(df):
+    """Generate the rows of the LaTeX table."""
+    rows = ""
     for _, row in df.iterrows():
         if all(str(cell).strip() == "" for cell in row.values):  # Skip empty rows
             continue
         color = get_row_color(row.values)
         row_str = ' & '.join([f'{color}{cell}' for cell in row.values])
         row_str = row_str.replace("Part ", "Part~")  # Replace "Part " with "Part~" in LaTeX
-        f.write(row_str + " \\\\\n")
+        rows += row_str + " \\\\\n"
+    return rows
 
-def write_latex_table_footer(f, is_sideway):
-    """Write the LaTeX table footer."""
-    f.write("\\hline\n")
-    f.write("\\end{tabularx}\n")
-    f.write("}\n")
+def get_latex_table_footer(is_sideway):
+    """Generate the LaTeX table footer."""
+    footer = ""
+    footer += "\\hline\n"
+    footer += "\\end{tabularx}\n"
+    footer += "}\n"
     if is_sideway:
-        f.write("\\end{sideways}\n\n")
+        footer += "\\end{sideways}\n\n"
     else:
-        f.write("\\end{table}\n\n")
+        footer += "\\end{table}\n\n"
+    return footer
 
 
-def df_to_latex(df, filename, is_sideway=False):
-    """Write a two-column DataFrame as a LaTeX tabularx table."""
-
+def df_to_latex(df, is_sideway=False):
+    """Convert a two-column DataFrame to LaTeX tabularx table content."""
     df = add_room_information(df)
     df = df.iloc[:, :2]  # Keep only the first two columns
     # remove "Track A", "Track B", etc. from the second column 
     df.iloc[:, 1] = df.iloc[:, 1].str.replace(r"Track [A-Z]: ", "", regex=True).str.strip()
     # remove number from "Technical Session 1", "Technical Session 2", etc.
     df.iloc[:, 1] = df.iloc[:, 1].str.replace(r"Technical Session \d+", "Technical Session", regex=True).str.strip()
-    # Write the LaTeX table to the file
-    with open(filename, 'a') as f:
-        write_latex_table_header(f, df, is_sideway)
-        write_latex_table_rows(f, df)
-        write_latex_table_footer(f, is_sideway)
-    return df
+    
+    # Generate LaTeX content
+    latex_content = ""
+    latex_content += get_latex_table_header(df, is_sideway)
+    latex_content += get_latex_table_rows(df)
+    latex_content += get_latex_table_footer(is_sideway)
+    # Clean up LaTeX content
+    latex_content = clean_tex_content(latex_content)
+    return latex_content
  
 if __name__ == '__main__':
 
@@ -219,9 +227,9 @@ if __name__ == '__main__':
     ).str.strip()
     
     schedule_tex = f"{outdir}Schedule_1sheet.tex"
-    with open(schedule_tex, "w") as f:
-        f.write("")  # Clear the file
-        f.write("\\chapter{Schedule}\n")
+    
+    # Initialize latex_content with chapter header
+    latex_content = "\\chapter{Schedule}\n"
 
     num_cols = df.shape[1]
     j=1
@@ -270,12 +278,16 @@ if __name__ == '__main__':
         subdf2 = preprocess_dataframe(subdf2)
         subdf2.to_csv(f"{interimdir}schedule_day{j}.csv", index=False, quoting=1)
 
-        # Preprocess the DataFrame
-        df_to_latex(subdf2, schedule_tex)
+        # Generate LaTeX content and add to latex_content
+        latex_content += df_to_latex(subdf2)
 
         # apply shorten_titles() to subdf["Session"] values for latex table
         #subdf2["Session"] = subdf2["Session"].apply(shorten_titles)
     
         j+=1
+    
+    # Write all LaTeX content to file once
+    with open(schedule_tex, "w") as f:
+        f.write(latex_content)
   
     print(f"Output: {schedule_tex}")

@@ -780,8 +780,8 @@ The Heston model is a widely used stochastic volatility model for option pricing
 The Heston model introduces a stochastic process for volatility, improving the accuracy of derivative pricing. 
 The dynamics of the asset price $S_t$ and its variance $v_t$ under the Heston model are given by[1]:
 \begin{align}
-    dS_t \&= \mu S_t dt + \sqrt{v_t} S_t dW_t^S, \\
-    dv_t \&= \kappa(\theta - v_t) dt + \sigma \sqrt{v_t} dW_t^v,
+    dS_t &= \mu S_t dt + \sqrt{v_t} S_t dW_t^S, \\
+    dv_t &= \kappa(\theta - v_t) dt + \sigma \sqrt{v_t} dW_t^v,
 \end{align}
 where:
 \begin{itemize}
@@ -1330,10 +1330,9 @@ We propose a general purpose approach to the gradient-based high dimensional reg
 % \item[{[6]}] Minary, P., Martyna, G. J., \& Tuckerman, M. E. (2003). Algorithms and novel applications based on the isokinetic ensemble. I. Biophysical and path integral molecular dynamics. The Journal of chemical physics, 118(6), 2510-2526.
 % \item[{[7]}] Robnik, J., De Luca, G. B., Silverstein, E., \& Seljak, U. (2023). Microcanonical Hamiltonian Monte Carlo. Journal of Machine Learning Research, 24(311), 1-34.
 \item[{[8]}] Takaishi, T., \& De Forcrand, P. (2006). Testing and tuning symplectic integrators for the hybrid Monte Carlo algorithm in lattice QCD. Physical Review E—Statistical, Nonlinear, and Soft Matter Physics, 73(3), 036706.
-\end{enumerate}
 %  \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
 %  \item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
-% \end{enumerate}
+\end{enumerate}
 
 % Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
