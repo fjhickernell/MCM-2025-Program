@@ -43,7 +43,6 @@ pp: clean_pp
 	echo "\n--- Running preprocess/schedule_1sheet.py" && python preprocess/schedule_1sheet.py && \
 	echo "\n--- Running preprocess/session_list.py" && python preprocess/session_list.py && \
 	echo "\n--- Running preprocess/participants.py" && python preprocess/participants.py && \
-	echo "\n--- Running preprocess/MakeListPart.py" && python preprocess/MakeListPart.py && \
 	echo "\n--- Running preprocess/download_abstracts.py" && python preprocess/download_abstracts.py && \
 	echo "\n--- Running preprocess/gen_talks.py" && python preprocess/gen_talks.py && \
 	echo "\n--- Running preprocess/gen_sess.py" && python preprocess/gen_sess.py  && \

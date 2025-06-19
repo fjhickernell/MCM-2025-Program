@@ -196,7 +196,45 @@ def validate_session_participants(df):
     for issue in issues: print(issue)
     return not issues
 
+def generate_participants_latex(participants_csv_file):
+    """Generate LaTeX content for the participants list from the CSV file."""
+    from collections import defaultdict
+    
+    latex_content = ""
+    latex_content += "\\chapter{List of Participants}\n"
+    latex_content += "\\setlength{\\columnsep}{1cm}\n"
+    latex_content += "\\begin{multicols}{2}\n"
+    latex_content += "\\small\\raggedright\n"
+    
+    # Read all participants and group by name
+    participants = defaultdict(list)
+    with open(participants_csv_file, 'r') as file:
+        reader = csv.reader(file, delimiter=',')
+        for val in reader:
+            key = (val[0].strip(), val[1].strip(), val[4].strip())  # (FirstName, LastName, Organization)
+            participants[key].append(val)
+
+    for (first, last, org), vals in participants.items():
+        # Collect all session IDs for this participant
+        session_ids = [v[2] for v in vals if v[2]]
+        # Use the first session as the main one, up to 6 more as extra braces
+        main_session = session_ids[0] if session_ids else ''
+        extra_sessions = session_ids[1:5] if len(session_ids) > 1 else []
+        extra_sessions += [''] * (6 - len(extra_sessions))
+        org_str = "Unknown org" if not org else org
+        partstrng = f"\\participantne{{{first} {last}}}\n{{{org_str}}}\n"
+        partstrng += f"{{{main_session}}}"
+        for s in extra_sessions:
+            partstrng += f"\n{{{s}}}"
+        latex_content += partstrng + "\n"
+
+    latex_content += "\\end{multicols}\n"
+    latex_content = clean_tex_content(latex_content)  # Apply common text fixes
+    
+    return latex_content
+
 if __name__ == "__main__":
+    # Generate participants CSV file
     dfs = {}
     for key in ["special_session_submissions", "plenary_abstracts", "contributed_talk_submissions", "special_session_abstracts"]:
         try:
@@ -211,6 +249,15 @@ if __name__ == "__main__":
         writer.writerow(['Full Organization', 'Short Name'])
         for k, v in short_org_dict.items():
             writer.writerow([k, v])
-    output_file = os.path.join(outdir, "Participants.csv")
-    df.to_csv(output_file, index=False, header=False, quoting=csv.QUOTE_NONNUMERIC)
-    print("Output:", output_file)
+    
+    # Save participants CSV
+    participants_csv_file = os.path.join(outdir, "Participants.csv")
+    df.to_csv(participants_csv_file, index=False, header=False, quoting=csv.QUOTE_NONNUMERIC)
+    print("Output:", participants_csv_file)
+    
+    # Generate participants LaTeX file
+    latex_content = generate_participants_latex(participants_csv_file)
+    participants_tex_file = f"{outdir}Participants.tex"
+    with open(participants_tex_file, 'w') as fpart:
+        fpart.write(latex_content)
+    print(f"Output: {participants_tex_file}")
