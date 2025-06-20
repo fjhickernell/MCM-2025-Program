@@ -2,7 +2,6 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
-\usepackage{hyperref}
 
 \setlength{\textheight}{25.2cm}
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
@@ -43,30 +42,23 @@
 \begin{document}
 	
 \begin{talk}
-  {Posterior-Free A-Optimal Bayesian Design of Experiments via Conditional Expectation}% [1] talk title
-  {Vinh Hoang}% [2] speaker name
-  {RWTH-Aachen University}% [3] affiliations
-  {hoang@uq.rwth-aachen.de}% [4] email
-  {Luis Espath, Sebastian Krumscheid, Ra\'ul Tempone}% [5] coauthors
-  {}% [6] special session. Leave this field empty for contributed talks. 
+  {QMC for Bayesian optimal experimental design with application to inverse problems governed by PDEs}% [1] talk title
+  {Vesa Kaarnioja}% [2] speaker name
+  {Free University of Berlin}% [3] affiliations
+  {vesa.kaarnioja@fu-berlin.de}% [4] email
+  {Claudia Schillings}% [5] coauthors
+  {Nested expectations: models and estimators, Part I}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-
-\medskip
-
-We propose a novel approach for solving the A-optimal Bayesian design of experiments that does not require sampling or approximating the posterior distribution. In this setting, the objective function is the expected conditional variance (ECV).
-Our method estimates the ECV by leveraging conditional expectation, which we approximate using its orthogonal projection property. We derive an asymptotic error bound for this estimator and validate it through numerical experiments.
-The method is particularly efficient when the design parameter space is continuous. In such scenarios, the conditional expectation can be approximated non-locally using tools such as neural networks. To reduce the number of evaluations of the measurement model, we incorporate transfer learning and data augmentation.
-Numerical results show that our method significantly reduces model evaluations compared to standard importance sampling-based techniques.
-Code available at: \href{https://github.com/vinh-tr-hoang/DOEviaPACE}{https://github.com/vinh-tr-hoang/DOEviaPACE}.
-
+The goal in Bayesian optimal experimental design (OED) is to maximize the expected information gain for the reconstruction of unknown quantities in an experiment by optimizing the placement of measurements. The objective function in the resulting optimization problem involves a multivariate double integral over the high-dimensional parameter and data domains. For the efficient approximation of these integrals, we consider a sparse tensor product combination of quasi-Monte Carlo (QMC) cubature rules over the parameter and data domains. For the parameterization of the unknown quantitites, we consider a model recently studied by Chernov and L\^{e} [1,2] as well as Harbrecht, Schmidlin, and Schwab [3] in which the input random field is assumed to belong to a Gevrey class. The Gevrey class contains functions that are infinitely many times continuously differentiable with a growth condition on the higher-order partial derivatives, but which are not analytic in general. Using the techniques developed in [4], we investigate efficient Bayesian OED for inverse problems governed by partial differential equations (PDEs).
 \begin{enumerate}
-    \item [{[1]}] Hoang, V., Espath, L., Krumscheid, S., \& Tempone, R. (2025).  
-    Scalable method for Bayesian experimental design without integrating over posterior distribution. {\it SIAM ASA Journal on Uncertainty Quantification, 13}(1), 114-139. \\
-    \href{https://doi.org/10.1137/23M1603364}{https://doi.org/10.1137/23M1603364}
+	\item[{[1]}] Chernov, Alexey, \& L\^{e}, T\`{u}ng (2024). Analytic and Gevrey class regularity for parametric elliptic eigenvalue problems and applications. \emph{SIAM Journal on Numerical Analysis}, \textbf{62}(4), 1874--1900.
+	\item[{[2]}] Chernov, Alexey, \& L\^{e}, T\`{u}ng (2024). Analytic and Gevrey class regularity for parametric semilinear reaction-diffusion problems and applications in uncertainty quantification. \emph{Computers \& Mathematics with Applications}, \textbf{164}, 116--130.
+	\item[{[3]}] Harbrecht, Helmut, Schmidlin, Marc, \& Schwab, Christoph (2024). The Gevrey class implicit mapping theorem with applications to UQ of semilinear elliptic PDEs. \emph{Mathematical Models and Methods in Applied Sciences}, \textbf{34}(5), 881--917.
+	\item[{[4]}] Kaarnioja, Vesa, \& Schillings, Claudia (2024). Quasi-Monte Carlo for Bayesian design of experiment problems governed by parametric PDEs. Preprint, \emph{arXiv:2405.03529 [math.NA]}.
 \end{enumerate}
-
 
 \end{talk}
 
 \end{document}
+

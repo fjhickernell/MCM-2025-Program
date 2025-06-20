@@ -1,12 +1,72 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+\usepackage{hyperref}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[6]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#9}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#8}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#8}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak%
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#5}{}}{}{Coauthor(s): #5\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#6}{}}{}{Special session: #6\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
 \begin{talk}
-  {TBD}% [1] talk title
-  {TBD}% [2] speaker name
-  {}% [3] affiliations
-  {}% [4] email
-  {}% [5] coauthors
+  {Posterior-Free A-Optimal Bayesian Design of Experiments via Conditional Expectation}% [1] talk title
+  {Vinh Hoang}% [2] speaker name
+  {RWTH-Aachen University}% [3] affiliations
+  {hoang@uq.rwth-aachen.de}% [4] email
+  {Luis Espath, Sebastian Krumscheid, Ra\'ul Tempone}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
-                % Insert the title of the special session if you were invited to give a talk in a special session.
-  {Mon, Jul 28 11:00–11:30}% [7] time slot
-  {S3-2}% [8] talk id
-  {S3}% [9] session id or photo
+				% Insert the title of the special session if you were invited to give a talk in a special session.
+			
+
+\medskip
+
+We propose a novel approach for solving the A-optimal Bayesian design of experiments that does not require sampling or approximating the posterior distribution. In this setting, the objective function is the expected conditional variance (ECV).
+Our method estimates the ECV by leveraging conditional expectation, which we approximate using its orthogonal projection property. We derive an asymptotic error bound for this estimator and validate it through numerical experiments.
+The method is particularly efficient when the design parameter space is continuous. In such scenarios, the conditional expectation can be approximated non-locally using tools such as neural networks. To reduce the number of evaluations of the measurement model, we incorporate transfer learning and data augmentation.
+Numerical results show that our method significantly reduces model evaluations compared to standard importance sampling-based techniques.
+Code available at: \href{https://github.com/vinh-tr-hoang/DOEviaPACE}{https://github.com/vinh-tr-hoang/DOEviaPACE}.
+
+\begin{enumerate}
+    \item [{[1]}] Hoang, V., Espath, L., Krumscheid, S., \& Tempone, R. (2025).  
+    Scalable method for Bayesian experimental design without integrating over posterior distribution. {\it SIAM ASA Journal on Uncertainty Quantification, 13}(1), 114-139. \\
+    \href{https://doi.org/10.1137/23M1603364}{https://doi.org/10.1137/23M1603364}
+\end{enumerate}
+
+
 \end{talk}
+
+\end{document}
