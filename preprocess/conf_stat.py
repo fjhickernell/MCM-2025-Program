@@ -99,6 +99,42 @@ def print_contributed_session_breakdown(df: pd.DataFrame):
         session_talks = len(df[df['SessionID'] == session])
         print(f"  {session}: {session_talks} talks")
 
+def count_participants() -> int:
+    """Count total number of participants from Participants.csv."""
+    try:
+        participants_df = pd.read_csv(f"{outdir}Participants.csv", header=None)
+        # Group by first name, last name, and organization to get unique participants
+        unique_participants = participants_df.groupby([0, 1, 4]).size()
+        return len(unique_participants)
+    except FileNotFoundError:
+        print(f"WARN: Participants.csv not found in {outdir}")
+        return 0
+
+def generate_latex_statistics_table(session_counts: Dict[str, int], talk_counts: Dict[str, int], num_participants: int) -> str:
+    """Generate LaTeX tabular output for conference statistics."""
+    total_talks = sum(talk_counts.values())
+    
+    latex_content = """\\begin{table}[h]
+\\centering
+\\begin{tabular}{|l|r|}
+\\hline
+\\textbf{Conference Statistics} & \\textbf{Count} \\\\
+\\hline
+Number of participants & """ + str(num_participants) + """ \\\\
+\\hline
+Number of plenary lectures & """ + str(talk_counts['plenary']) + """ \\\\
+\\hline
+Number of talks & """ + str(total_talks) + """ \\\\
+\\hline
+Number of special sessions & """ + str(session_counts['special']) + """ \\\\
+\\hline
+Number of technical sessions & """ + str(session_counts['contributed']) + """ \\\\
+\\hline
+\\end{tabular}
+\\end{table}
+"""
+    return latex_content
+
 if __name__ == '__main__':
 
     session_df = load_session_data()
@@ -106,9 +142,20 @@ if __name__ == '__main__':
     talk_dfs = load_talk_data()
     session_counts = count_sessions_by_type(session_df)
     talk_counts = get_talk_counts(talk_dfs)
+    num_participants = count_participants()
     
     print_session_summary(session_counts)
     print_talk_summary(talk_counts)
+    
+    # Generate and save LaTeX statistics table
+    latex_content = generate_latex_statistics_table(session_counts, talk_counts, num_participants)
+    
+    # Write LaTeX content to file
+    latex_output_file = f"{outdir}conference_statistics.tex"
+    with open(latex_output_file, 'w') as f:
+        f.write(latex_content)
+    
+
     
     #print_special_session_breakdown(talk_dfs['special'])
     #print_contributed_session_breakdown(talk_dfs['contributed'])
