@@ -1,0 +1,1637 @@
+\section{Contributed Talks}
+
+\begin{talk}
+  {Stereographic Multi-Try Metropolis Algorithms for Heavy-tailed Sampling}% [1] talk title
+  {Zhihao Wang}% [2] speaker name
+  {University of Copenhagen}% [3] affiliations
+  {zw@math.ku.dk}% [4] email
+  {Jun Yang}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 10:30---11:00}% [7] time slot
+  {T1-1}% [8] talk id
+  {T1}% [9] session id or photo
+  
+    
+   
+We introduce a novel family of gradient-free Markov chain Monte Carlo (MCMC) algorithms that integrate the principles of multi-try Metropolis (MTM) and stereographic MCMC, designed specifically for efficient sampling of heavy-tailed distributions. Through scaling analysis and extensive simulations, we demonstrate that the proposed stereographic multi-try Metropolis (SMTM) algorithm outperforms both traditional Euclidean MTM and existing stereographic random-walk Metropolis. Furthermore, the SMTM algorithm has the potential to benefit from modern hardware, such as GPUs, allowing for improved performance through parallel implementation.
+\end{talk}
+
+\begin{talk}
+  {Creating rejection-free samplers by rebalancing skew-balanced jump processes}% [1] talk title
+  {Ruben Seyer}% [2] speaker name
+  {Chalmers University of Technology and University of Gothenburg}% [3] affiliations
+  {rubense@chalmers.se}% [4] email
+  {Erik Jansson, Moritz Schauer, Akash Sharma}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 11:00---11:30}% [7] time slot
+  {T1-2}% [8] talk id
+  {T1}% [9] session id or photo
+  
+    
+   
+Markov chain sampling methods form the backbone of modern computational statistics.
+However, many popular methods are prone to random walk behaviour, i.e.\@{} diffusion-like exploration of the sample space, leading to slow mixing that requires intricate tuning to alleviate.
+Non-reversible samplers can resolve some of these issues.
+We introduce a device that turns jump processes that satisfy a skew-detailed balance condition for a reference measure into a process that samples a target measure that is absolutely continuous with respect to the reference measure.
+This sampler is rejection-free, non-reversible and time-continuous.
+As an example, we apply the device to Hamiltonian dynamics discretized by the leapfrog integrator, resulting in a rejection-free non-reversible time-continuous version of Hamiltonian Monte Carlo (HMC).
+We prove the geometric ergodicity of the resulting sampler, and demonstrate its increased robustness to hyperparameter tuning compared to HMC through numerical examples.
+This comes at a computational cost at worst double that of HMC, in practice lower than other popular non-reversible samplers such as the Bouncy Particle Sampler.
+\end{talk}
+
+\begin{talk}
+  {Theoretical guarantees for lifted samplers}% [1] talk title
+  {Philippe Gagnon}% [2] speaker name
+  {Universit\'e de Montr\'eal}% [3] affiliations
+  {philippe.gagnon.3@umontreal.ca}% [4] email
+  {Florian Maire}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 11:30---12:00}% [7] time slot
+  {T1-3}% [8] talk id
+  {T1}% [9] session id or photo
+  {}% [6] special session. Leave this field empty for contributed talks.
+    
+   
+The work I would like to present is about a particular class of Markov chain Monte Carlo (MCMC) methods which use non-reversible Markov chains commonly referred to as \textit{lifted Markov chains}; the methods are commonly referred to as \textit{lifted samplers}. The methods are not particularly new (they date back at least to Horowitz [1]), but they have recently been the subject of significant research work motivated by a general belief that, in statistical applications, they lead to more efficient estimators than their reversible counterparts which correspond to Metropolis--Hastings (MH) algorithms (see, e.g., Andrieu and Livingstone [2]). It was thus somewhat surprising to observe that it is not always the case in some recent work (see, e.g., Gagnon and Maire [3]). One can thus wonder what degree of inefficiency these chains may exhibit in worst-case scenarios. This is an important question given that lifted samplers are popular in practice, a consequence of the fact that they are often as easy to implement on a computer as their MH counterparts and often have the same computational complexity.
+
+The main contribution of our work is to provide an answer to this question under arguably the most general framework. We proceed by leveraging the seminal work of Tierney [4] to define a lifted version of a generalized MH algorithm. Virtually any (reversible) MCMC method can be seen as a special case of this generalized MH algorithm, ranging from the traditional MH algorithm of Hastings [5] to the reversible jump algorithm of Green [6]. Our main theoretical result allows for a comparison between the generalized MH algorithm and its lifted version in terms of the variance of produced estimators. It essentially guarantees that the variance of estimators produced by the lifted version cannot be more than twice that of estimators produced by the generalized MH algorithm. This result indicates that, while there is potentially a lot to gain from lifting a Markov chain, there is not much to lose. We also show that our result is optimal, in the sense that it is not possible to improve on the factor 2 without additional assumptions. The definition of the lifted version of the generalized MH algorithm allows to understand how a lifted sampler can be constructed under such a general framework, which adds a methodological contribution to our theoretical contribution.
+
+The efficiency of Markov chains is traditionally assessed by studying the characteristics of their Markov transition operators. To establish our theoretical result, we needed to connect the efficiency of two significantly different operators (those of the MH and lifted algorithms): in addition to not be defined on the same domain, one is self-adjoint while the other is not, which further complicates the analysis. One of our main achievements was to identify a specific auxiliary operator which acts a bridge and allows to connect the efficiency of the two aforementioned operators. This auxiliary operator is compared to the MH one through a Peskun ordering [7] established via a careful analysis of the Markov kernels, yielding sharp bounds. The connections between the MH and lifted algorithms is completed by comparing the auxiliary operator with the lifted one using a result in Andrieu and Livingstone [2].
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Horowitz, A.\ M.\ (1991) A generalized guided Monte Carlo algorithm. Phys.\ Lett.\ B, \textbf{268}, 247--252.
+ \item[{[2]}] Andrieu, C.\ and Livingstone, S.\ (2021) Peskun--Tierney ordering for Markovian Monte Carlo: Beyond the reversible scenario. Ann.\ Statist., \textbf{49}, 1958--1981.
+    \item[{[3]}] Gagnon, P.\ and Maire, F.\ (2024) An asymptotic Peskun ordering and its application to lifted samplers. Bernoulli, \textbf{30}, 2301--2325.
+    \item[{[4]}] Tierney, L.\ (1998) A note on Metropolis--Hastings kernels for general state spaces. Ann.\ Appl.\ Probab., \textbf{8}, 1--9.
+    \item[{[5]}] Hastings, W.\ K.\ (1970) Monte Carlo sampling methods using Markov chains and their applications. Biometrika, \textbf{57}, 97--109.
+    \item[{[6]}] Green, P.\ J.\ (1995) Reversible jump Markov chain Monte Carlo computation and Bayesian model determination. Biometrika, \textbf{82}, 711--732.
+    \item[{[7]}] Peskun, P.\ (1973) Optimum Monte-Carlo sampling using Markov chains. Biometrika, \textbf{60}, 607--612
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Optimizing Generalized Hamiltonian Monte Carlo for Bayesian Inference applications}% [1] talk title
+  {Lorenzo Nagar}% [2] speaker name
+  {BCAM - Basque Center for Applied Mathematics, Bilbao, Spain}% [3] affiliations
+  {lnagar@bcamath.org}% [4] email
+  {Leonardo Gavira Balmacz, Hristo Inouzhe Valdes, Mart\'in Parga Pazos, Mar\'ia Xos\'e Rodr\'iguez-\'Alvarez, Jes\'us Mar\'ia Sanz-Serna, and Elena Akhmatskaya}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 10:30---11:00}% [7] time slot
+  {T2-1}% [8] talk id
+  {T2}% [9] session id or photo
+  
+    
+   
+In contrast to the widely adopted Hamiltonian/Hybrid Monte Carlo (HMC) [1], the Generalized Hamiltonian Monte Carlo (GHMC) algorithm [2, 3] leverages the irreversibility of its generated Markov chains, resulting in faster convergence to equilibrium and reduced asymptotic variance [4, 5]. 
+
+Despite its theoretically predicted advantages, GHMC can be highly sensitive to the choice of a numerical integrator for the Hamiltonian equations and requires careful tuning of simulation parameters, such as the integration step size, the trajectory length, and the amount of random noise in momentum refreshment.
+
+In this talk, we present a novel approach for finding optimal (in terms of sampling performance and accuracy) settings for a GHMC simulation. For an arbitrary simulated system, our methodology identifies a system-specific integration scheme that maximizes a conservation of energy for harmonic forces, along with appropriate randomization intervals for the simulation parameters, without incurring additional computational cost.
+
+Numerical experiments on well-established statistical models exhibit, with the help of the state-of-the-art performance metrics, significant gains in GHMC sampling efficiency when optimally tuned hyperparameters are chosen instead of heuristic or recommended ones. Comparative performance of GHMC and HMC with optimal settings is also discussed. 
+
+Additionally, we apply our methodology to three real-world case studies:
+\begin{itemize}
+\item Patient resistance to endocrine therapy in breast cancer;
+\item Influenza A (H1N1) epidemics outbreak;
+\item Modeling of cell-cell adhesion dynamics.
+\end{itemize}
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Neal, Radford M. (2011). {\it MCMC Using Hamiltonian Dynamics}. Handbook of Markov Chain Monte Carlo (Eds: Brooks, S., Gelman, A., Jones, G., Meng, X.), Vol. 2 pp. 113--162. Chapman and Hall/CRC, New York.
+ \item[{[2]}] Horowitz, Alan M. (1991). {\it A generalized guided Monte Carlo algorithm}. Physics Letters B 268.2: 247--252. 
+ \item[{[3]}] Kennedy, Anthony D. \& Pendleton, Brian J. (2001). {\it Cost of the generalised hybrid Monte Carlo algorithm for free field theory}. Nuclear Physics B 607.3: 456--510.
+ \item[{[4]}] Ottobre, Michela (2016). {\it Markov Chain Monte Carlo and Irreversibility}. Reports on Mathematical Physics 77: 267--292.
+ \item[{[5]}] Duncan, Andrew B., Leli\`evre, Tony \& Pavliotis, Grigorios A. (2016). {\it Variance Reduction Using Nonreversible Langevin Samplers}. Journal of Statistical Physics 163: 457--491. 
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Bayesian Anomaly Detection in Variable-Order and Variable-Diffusivity Fractional Mediums}% [1] talk title
+  {Hamza Ruzayqat}% [2] speaker name
+  {King Abdullah University of Science and Technology}% [3] affiliations
+  {Hamza.Ruzayqat@kaust.edu.sa}% [4] email
+  {Omar Knio and George Turkiyyah}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 11:00---11:30}% [7] time slot
+  {T2-2}% [8] talk id
+  {T2}% [9] session id or photo
+  
+    
+   
+Fractional diffusion equations (FDEs) are powerful tools for modeling anomalous diffusion in complex systems, such as fractured media and biological processes, where nonlocal dynamics and spatial heterogeneity are prominent. These equations provide a more accurate representation of such systems compared to classical models but pose significant computational challenges, particularly for spatially varying diffusivity and fractional orders. In this talk I will present a Bayesian inverse problem for FDEs in a 2-dimensional bounded domain with an anomaly of unknown geometric and physical properties, where the latter are the diffusivity and fractional order fields. To tackle the computational burden of solving dense and ill-conditioned systems, we employ an advanced finite-element scheme incorporating low-rank matrix representations and hierarchical matrices. For parameter estimation, we implement two surrogate-based approaches using polynomial chaos expansions: one constructs a 7-dimensional surrogate for simultaneous inference of geometrical and physical parameters, while the other leverages solution singularities to separately infer geometric features, then constructing a 2-dimensional surrogate to learn the physical parameters and hence reducing the computational cost immensely. These surrogates are used inside a Markov chain Monte Carlo algorithm to infer the unknown parameters.
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Theoretical Guarantees of Mean Field Variational Inference for Bayesian Principal Component Analysis}% [1] talk title
+  {Arghya Datta}% [2] speaker name
+  {Universit\'e de Montr\'eal}% [3] affiliations
+  {arghyadatta8@gmail.com}% [4] email
+  {Philippe Gagnon, Florian Maire}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 11:30---12:00}% [7] time slot
+  {T2-3}% [8] talk id
+  {T2}% [9] session id or photo
+  
+    
+   
+In this talk, we will investigate mean field variational inference for Bayesian principal component analysis (BPCA). Despite the wide usage of mean field variational inference for the BPCA model, there exists remarkably little theoretical justification. I will talk about new results on the convergence guarantees of the iterative coordinate ascent variational inference (CAVI) algorithm for the BPCA model. In particular, we will show that under reasonable technical assumptions on the initialization, CAVI converges exponentially fast to a local optimum. An interesting connection between the CAVI algorithm for the BPCA model and power iteration, which is a popular iterative numerical algorithm for finding singular vectors of a given matrix, will also be discussed.
+
+
+\end{talk}
+
+\begin{talk}
+  {Bayesian Analysis of Latent Underdispersion Using Discrete Order Statistics}% [1] talk title
+  {Jimmy Lederman}% [2] speaker name
+  {Department of Statistics, University of Chicago}% [3] affiliations
+  {jlederman@uchicago.edu}% [4] email
+  {Aaron Schein}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 12:00---12:30}% [7] time slot
+  {T2-4}% [8] talk id
+  {T2}% [9] session id or photo
+  
+    
+
+
+Researchers routinely analyze count data using models based on a Poisson likelihood, for which there exist many analytically convenient and computationally efficient strategies for posterior inference. A limitation of such models however is the equidsipersion constraint of the Poisson distribution. This restriction prevents the model's likelihood, and by extension its posterior predictive distribution, from concentrating around its mode. As a result, these models are parametrically bound to produce probabilistic predictions with high uncertainty, even in cases where low uncertainty is supported by the data. While count data often exhibits overdispersion \textit{marginally}, such data may nevertheless be consistent with a likelihood that is underdispersed \textit{conditionally}, given parameters and latent variables. Detecting conditional underdispersion, however, requires one to fit the ``right" model and thus the ability to build, fit, and critique a variety of different models with underdispersed likelihoods. Towards this end, we introduce a novel family of models for conditionally underdispersed count data whose likelihoods are based on order statistics of Poisson random variables. More specifically, we assume that each observed count coincides with the $j^{\textrm{th}}$ order-statistic of $D$ latent i.i.d.~Poisson random variables, where $j$ and $D$ are user-defined hyperparameters. To perform efficient MCMC-based posterior inference in this family of models, we derive a data-augmentation strategy which samples the other $D{-}1$ latent variables from their exact conditional, given the observed $(j,D)$-order statistic. By relying on the explicit construction of a Poisson order statistic, this data augmentation strategy can be modularly combined with the many existing inference strategies for Poisson-based models. We generalize this approach beyond the Poisson to any non-negative discrete parent distribution and, in particular, show that models based on negative binomial order statistics can flexibly capture both conditional under and overdispersion.  To illustrate our approach empirically, we build and fit models to three real count data sets of flight times, COVID-19 cases counts, and RNA-sequence data, and we demonstrate how models with underdispersed likelihoods can leverage latent structure to make more precise probabilistic predictions. Although the possibility of conditional underdispersion is often overlooked in practice, we argue that this is at least in part due to the lack of tools for modeling underdispersion in settings where complex latent structure is present.
+
+ 
+
+% \medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+%  \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%  \item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Monte Carlo simulation approach to solve distributed order fractional mathematical model}% [1] talk title
+  {Yashveer Kumar}% [2] speaker name
+  {INESC-ID, Rua Alves Redol 9, Lisbon, Portugal 1000-029}% [3] affiliations
+  {yashveerkumar.rs.mat18@inesc-id.pt}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 09:00---09:30}% [7] time slot
+  {T3-1}% [8] talk id
+  {T3}% [9] session id or photo
+  {Juan A. Acebron, INESC-ID,  Department of Mathematics, Carlos III University of Madrid, Spain.\\
+   Jose Monteiro, INESC-ID, IST, Universidade de Lisboa, Portugal.}% [5] coauthors
+  %
+    
+   
+   
+This work presents a novel approach to solving time-distributed order fractional nonhomogeneous differential equations using the Monte Carlo simulation method. Fractional differential equations with distributed orders are critical for modeling complex systems with memory and hereditary effects, such as viscoelastic materials, anomalous diffusion, and biological processes. The inclusion of time-distributed orders introduces additional challenges in analytical and numerical solutions, especially in the presence of nonhomogeneous terms.
+
+The proposed Monte Carlo method reformulates the distributed order fractional equation into an equivalent integral representation. By simulating random processes and utilizing probabilistic interpretations of fractional operators, the solution is computed as a average over numerous realizations. The flexibility of Monte Carlo simulations makes them particularly well-suited for addressing the inherent complexity of distributed order systems.
+
+Numerical experiments validate the efficiency and effectiveness of the Monte Carlo approach, illustrating its capability to handle various distributed order kernels and nonhomogeneous terms. This method offers a robust, scalable, and versatile framework for solving fractional differential equations, paving the way for broader applications in science and engineering.
+
+\medskip
+\begin{enumerate}
+ \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+ \item[{[2]}] Guidotti, Nicolas L. \& Acebron, Juan A.  \&  Monterio, Jose (2024). {\it A stochastic method for solving time-fractional differential equations}. Computers and Mathematics with Applications, 159, 240-253.
+ \item[{[3]}] Kumar, Yashveer \& Singh, Vineet Kumar (2021). {\it Compuational approach based on wavelets for financial mathematical model governed by distributed order time-fractional partial differential equation}. Mathematics and Computers in Simulation, 190, 531-569.
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
+  {Benchmarking the Geant4-DNA 'UHDR' Example for Monte Carlo Simulation of pH Effects on Radiolytic Species Yields Using a Mesoscopic Approach}% [1] talk title
+  {Serena Fattori}% [2] speaker name
+  {Istituto Nazionale di Fisica Nucleare (INFN), Laboratori Nazionali del Sud (LNS), Catania, Italy}% [3] affiliations
+  {serena.fattori@lns.infn.it}% [4] email
+  {Hoang Ngoc Tran, Anh Le Tuan, Fateme Farokhi, Giuseppe Antonio Pablo Cirrone, Sebastien Incerti}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 09:30---10:00}% [7] time slot
+  {T3-2}% [8] talk id
+  {T3}% [9] session id or photo
+  
+    
+   
+\textbf{Background and Aims}\\
+FLASH radiotherapy is an innovative cancer treatment technique that delivers high radiation doses in an extremely short time ($\geq$ 40 Gy/s), inducing the so-called FLASH effect—characterized by the sparing of healthy tissue while maintaining effective tumor control. However, the mechanisms underlying the FLASH effect remain unclear, and ongoing research aims to elucidate them. One approach to investigating this phenomenon is through Monte Carlo simulations of particle transport and the resulting radiolysis in aqueous media, enabling comparisons between FLASH and conventional irradiation.
+
+\textbf{Methods}\\
+To provide a useful tool for investigating the effects of FLASH irradiation, the Geant4-DNA example "UHDR" was introduced in the beta release 11.2.0 of Geant4 (June 2023). This example incorporates a newly developed radiolysis chemical stage based on the diffusion-reaction master equation (RDME), a mesoscopic method that bridges microscopic particle-level interactions and macroscopic chemical kinetics. This approach allows the extension of the simulation time to minutes post-irradiation, enabling the validation of equilibrium processes that may play a crucial role on long time scales. In this context, the impact of pH on radiolytic species yields towards equilibrium is particularly important. For the first time in Geant4-DNA, the UHDR example allows taking into account the effect of different pH values on water radiolysis.
+
+\textbf{Results}\\
+This study aims to benchmark the capability of the UHDR example to accurately reproduce the effect of pH on radiolytic species yields. Preliminary results are currently under analysis for 1 MeV electron and 300 MeV proton irradiation in the conventional modality, with comparisons against literature data.
+
+\textbf{Conclusions}\\
+The ability to simulate the impact of pH on water radiolysis represents a significant advancement in studying the evolution of radiolytic species toward equilibrium. This improvement could provide valuable insights into potential differences in chemical evolution under FLASH irradiation compared to conventional irradiation.
+
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%\begin{enumerate}
+% \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% \item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+%\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Adaptive Max-EWMA Control Chart with SVR: Monte Carlo Simulation for Run Length Analysis}% [1] talk title
+  {Muhammad Noor ul Amin}% [2] speaker name
+  {COMSATS University Islamabad-Lahore}% [3] affiliations
+  {}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 10:00---10:30}% [7] time slot
+  {T3-3}% [8] talk id
+  {T3}% [9] session id or photo
+  {}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session. Leave this field empty for contributed talks.
+    
+   
+In industrial quality control, monitoring process variations is crucial for ensuring product
+reliability, particularly when dealing with non-normal data distributions. This study proposes an
+adaptive Max-EWMA control chart integrated with Support Vector Regression (SVR) for the
+simultaneous monitoring of process mean and variance. The approach utilizes a dynamic
+smoothing constant predicted by SVR to enhance sensitivity to real-time process shifts. To
+address non-normality, Weibull-distributed data is transformed into a standard normal form
+before analysis. The performance of the proposed method is extensively evaluated through
+Monte Carlo simulations to assess the run length profile under different process shift scenarios.
+Results demonstrate the effectiveness of the approach in detecting small to moderate shifts, with
+the linear kernel exhibiting superior balance between sensitivity and stability, making it an
+optimal choice for industrial applications. The findings highlight the robustness of the proposed
+control chart and its adaptability in real-time process monitoring.
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Chi-Ok Hwang}% [1] talk title
+  {Gwangju Institute of Science and Technology, Gwangju 61005, Republic of Korea}% [2] speaker name
+  {chwang@gist.ac.kr}% [3] affiliations
+  {Jinseong Son, Maximiliano Islas Solis, Tsoggerel Tsogbadrakh}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 10:30---11:00}% [7] time slot
+  {T3-4}% [8] talk id
+  {T3}% [9] session id or photo
+  
+    
+   
+According to probabilistic potential theory, first- and last-passage algorithms have been devel-
+oped. Usually the first-passage algorithms with an enclosing sphere are used for overall charge
+distribution on a closed conducting object and last-passage algorithms for charge density at a
+specific point on the conducting object. The first- and last-passage algorithms are inherently con-
+nected. In this paper, we combine the first- and last-passage algorithms. We develop an algorithm
+for computing charge density at a specific point on the conducting object via the overall charge
+density distribution on a conducting object which is the simulation result of the first-passage al-
+gorithm with an enclosing sphere. We demonstrate the algorithm for charge density on a sphere
+and on the unit cube held at unit potential. The results show good agreements with theoretical or
+other simulation ones.
+
+
+\medskip
+
+Acknowledgments: This work was supported by the GIST Research Institute (GRI) in 2024.
+\begin{enumerate}
+ \item[{[1]}] J. Son, J. Im, and C.-O. Hwang, Appl. Math. Comput. submitted (2021).
+ \item[{[2]}] H. Jang, U. Yu, Y. Chung, and C.-O. Hwang, Adv. Theory Simul. 3(8) (2020).
+ \item[{[3]}] H. Jang, J. Given, U. Yu, and C.-O. Hwang, Adv. Theory Simul.
+ https://onlinelibrary.wiley.com/doi/full/10.1002/adts.202000268 (2021).
+ \item[{[4]}] C.-O. Hwang and T. Won, J. Korean Phys. Soc. 47, S464 (2005).
+ \item[{[5]}] J. A. Given, C.-O. Hwang, and M. Mascagni, Phys. Rev. E 66, 056704 (2002).
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Halton Sequences, Scrambling and the Inverse Star-Discrepancy}% [1] talk title
+  {Christian Wei\ss{}}% [2] speaker name
+  {Ruhr West University of Applied Sciences}% [3] affiliations
+  {christian.weiss@hs-ruhrwest.de}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 15:30---16:00}% [7] time slot
+  {T4-1}% [8] talk id
+  {T4}% [9] session id or photo
+  {}% [5] coauthors
+  
+    
+   
+Halton sequences are classical examples of multi-dimensional low-discrepancy sequences. Braaten and Weller discovered that scrambling strongly reduces their empirical star-discre-pancy. A similar approach may be applied to certain multi-parameter subsequences of Halton sequences. Indeed, results from p-adic analysis guarantee that these subsequences still have the theoretical low-discrepancy property while scrambling has strong effects on the empirical star-discrepancy. By optimizing the parameters of these subsequences known empiric bounds for the inverse star-discrepancy can be improved.
+
+\medskip
+
+
+\begin{enumerate}
+ \item[{[1]}] E. Braaten, and G. Weller. (1979). An improved low-discrepancy sequence for multidimensional quasi-Monte Carlo integration. Journal of Computational Physics, 33(2): 249---258.
+ \item[{[2]}] C. Wei\ss{}. (2024). Scrambled Halton Subsequences and Inverse Star-Discrepancy, arXiv: 2411.10363. 
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Transport Quasi-Monte Carlo}% [1] talk title
+  {Sifan Liu}% [2] speaker name
+  {Center for Computational Mathematics, Flatiron Institute}% [3] affiliations
+  {sliu@flatironinstitute.org}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 16:00---16:30}% [7] time slot
+  {T4-2}% [8] talk id
+  {T4}% [9] session id or photo
+  {}% [5] coauthors
+  
+    
+   
+Quasi-Monte Carlo (QMC) is a powerful method for evaluating high-dimensional integrals. However, its use is typically limited to distributions where direct sampling is straightforward, such as the uniform distribution on the unit hypercube or the Gaussian distribution. For general target distributions with potentially unnormalized densities, leveraging the low-discrepancy property of QMC to improve accuracy remains challenging. We propose training a transport map to push forward the uniform distribution on the unit hypercube to approximate the target distribution. Inspired by normalizing flows, the transport map is constructed as a composition of simple, invertible transformations. To ensure that RQMC achieves its superior error rate, the transport map must satisfy specific regularity conditions. We introduce a flexible parametrization for the transport map that not only meets these conditions but is also expressive enough to model complex distributions. Our theoretical analysis establishes that the proposed transport QMC estimator achieves faster convergence rates than standard Monte Carlo, under mild and easily verifiable growth conditions on the integrand. Numerical experiments confirm the theoretical results, demonstrating the effectiveness of the proposed method in Bayesian inference tasks.
+
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+%  \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%  \item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Using Normalizing Flows for Efficient Quasi-Random Sampling for Copulas}% [1] talk title
+  {Ambrose Emmett-Iwaniw}% [2] speaker name
+  {University of Waterloo Department of Actuarial Science and Statistics}% [3] affiliations
+  {arsemmettiwaniw@uwaterloo.ca}% [4] email
+  {Christiane Lemieux}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 16:30---17:00}% [7] time slot
+  {T4-3}% [8] talk id
+  {T4}% [9] session id or photo
+  
+    
+   
+In finance and risk management, copulas are used to model the dependence between stock prices and insurance losses to compute expectations of interest. Generally, Monte Carlo (MC) sampling is used to generate copula samples to approximate expectations. To reduce the variance of the approximation, we can use quasi-Monte Carlo (QMC) sampling to generate copula samples. This paper examines a new method to generate quasi-random samples from copulas requiring fewer training resources than previous methods such as the generative moment matching networks (GMMN) model [1]. Traditional methods that do not use generative models often rely on conditional distribution methods (CDM) to generate quasi-random samples from specific copulas [2]. CDM is limited to only a few parametric copulas (Gumbel has no efficient CDM to sample quasi-random samples) in low dimensions [2]. Here, we propose using a powerful and simple generative model called Normalizing Flows (NFs) to generate quasi-random samples for any copula, including cases where we only have data available. NFs are a type of explicit generative model that relies on transforming a simple density, such as a normal density, through efficient invertible transformations that rely on the change of variables formula into a density that models complex data that facilitates easy sampling and efficient inverting of samples from complex data to normal data and vice versa. The benefit of these NFs for copula modelling is that their training is efficient in terms of runtime, allowing for larger batch sizes compared to the GMMN model [1]. Also, it is sample-efficient; it only needs samples from the copula and not samples from the normal as the GMMN model [1] required. Once the NF model is trained, we can efficiently invert the model to take as input quasi-random samples to generate quasi-random copula samples. Through many different simulations and applications, we show our approach allows us to leverage the benefit of QMC in a variety of real-world settings involving dependent data.
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Hofert, M., Prasad, A., and Zhu, M. (2021). Quasi-random sampling for multivariate distributions via generative neural networks. Journal of Computational and Graphical Statistics,
+30(3):647---670.
+ \item[{[2]}] Cambou, M., Hofert, M., and Lemieux, C. (2017). Quasi-random numbers for copula models. Statistics and Computing, 27:1307---1329. 
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
+  {Optimization of Kronecker Sequences}% [1] talk title
+  {Claude D. Hall Jr.}% [2] speaker name
+  {Illinois Institute of Technology}% [3] affiliations
+  {cdhjr2000@gmail.com, chall14@iit.edu}% [4] email
+  {Dr. Fred Hickernell, Dr. Nathan Kirk}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 17:00---17:30}% [7] time slot
+  {T4-4}% [8] talk id
+  {T4}% [9] session id or photo
+  
+    
+
+Our goal is to optimize Kronecker sequences [1,2] for Quasi-Monte Carlo integration. A shifted Kronecker sequence can be defined as $\{ x_i = i \boldsymbol{\alpha} + \boldsymbol{\Delta} \mod 1: i = 0, 1, 2, 3, ... \} \subset [0,1]^d $, where  $\boldsymbol{\alpha} \in [0,1)^d$ is our generating vector and $\boldsymbol{\Delta} \in [0,1)^d$ is the shift. There is no preferred sample size for Kronecker sequences, whereas the similarly defined lattice sequences do have preferred sample sizes. 
+
+For discrepancies defined in terms of certain families of periodic reproducing kernels, when you replace any one of the elements $\alpha_j$ by $1 - \alpha_j$, the discrepancy stays unchanged. This allows one to shrink the search space for good generating vectors.  Performing a component by component search for $\boldsymbol{\alpha}$, we find that discrepancy for the Kronecker sequence converges nearly like $O(n^{-1})$, especially for smaller dimensions.  This talk presents the results of our component-by-component search algorithm and the performance of Kronecker sequences as measured by discrepancy and test cases.
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] G.~Larcher, \emph{On the distribution of $s$-dimensional {K}ronecker-sequences}, Acta Arith. (1988), 335--347.
+ \item[{[2]}] H.~Niederreiter, \emph{Quasi-Monte Carlo methods and pseudo-random numbers}, Bull. Amer. Math. Soc. 84 (1978), 957---1041.
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
+  {Approximation using median lattice algorithms}% [1] talk title
+  {Peter Kritzer}% [2] speaker name
+  {Austrian Academy of Sciences}% [3] affiliations
+  {peter.kritzer@oeaw.ac.at}% [4] email
+  {Takashi Goda, Zexin Pan}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 15:30---16:00}% [7] time slot
+  {T5-1}% [8] talk id
+  {T5}% [9] session id or photo
+  
+    
+   
+We consider $L_2$-approximation of functions in a weighted Korobov space. We present a median algorithm, which is related to median integration rules, that have recently gained a lot of interest in the theory of quasi-Monte Carlo methods. Indeed, we use lattice rules as the underlying integration rules to approximate Fourier coefficients. As we will show, we can obtain a convergence rate that is arbitrarily close to optimal in terms of the number of evaluations needed of the function to be approximated.
+\end{talk}
+
+\begin{talk}
+  {Convergence Rates of Randomized Quasi-Monte Carlo Methods under Various Regularity Conditions}% [1] talk title
+  {Yang Liu}% [2] speaker name
+  {King Abdullah University of Science and Technology}% [3] affiliations
+  {yang.liu.3@kaust.edu.sa}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 16:00---16:30}% [7] time slot
+  {T5-2}% [8] talk id
+  {T5}% [9] session id or photo
+  % {Names of coauthors go here, no affiliations of coauthors please, all affiliations will be included in an appendix of 
+  % the program book}% [5] coauthors
+  
+    
+        
+        In this work, we analyze the convergence rate of randomized quasi-Monte Carlo (RQMC) methods under Owen's boundary growth condition (Owen, 2006) via spectral analysis. We examine the RQMC estimator variance for two commonly studied sequences—the lattice rule and the Sobol' sequence—using the Fourier transform and Walsh---Fourier transform, respectively. Under certain regularity conditions, our results reveal that the asymptotic convergence rate of the RQMC estimator's variance closely aligns with the exponent specified in Owen's boundary growth condition for both sequence types. We also provide an analysis for certain discontinuous integrands.
+
+        In addition, we investigate the \(L^p\) integrability of weak mixed first-order derivatives of the integrand and study the convergence rates of scrambled digital nets. We demonstrate that the generalized Vitali variation with parameter \(\alpha \in \left[\frac{1}{2}, 1\right]\) from Dick and Pillichshammer (2010) is bounded above by the \(L^p\) norm of the weak mixed first-order derivative, where \(p = \frac{2}{3-2\alpha}\). Consequently, when the weak mixed first-order derivative belongs to \(L^p\) for \(1 \leq p \leq 2\), the variance of the scrambled digital nets estimator converges at a rate of
+        \(
+        \mathcal{O}\Bigl(N^{-4+\frac{2}{p}} \log^{s-1} N\Bigr).
+        \)
+        Together, these results provide a comprehensive theoretical framework for understanding the convergence behavior of RQMC methods and scrambled digital nets under various regularity assumptions.
+        
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+\begin{enumerate}
+ \item[{[1]}] Liu, Y. (2024). Randomized quasi-Monte Carlo and Owen's boundary growth condition: A spectral analysis. arXiv preprint arXiv:2405.05181.
+ \item[{[2]}] Liu, Y. (2025). Integrability of weak mixed first-order derivatives and convergence rates of scrambled digital nets. arXiv preprint arXiv:2502.02266.
+\end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Use of rank-1 lattices in the Fourier neural operator}% [1] talk title
+  {Jakob Dilen}% [2] speaker name
+  {Department of Computer Science, KU Leuven}% [3] affiliations
+  {jakob.dilen@student.kuleuven.be}% [4] email
+  {Frances Y. Kuo, Dirk Nuyens}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 16:30---17:00}% [7] time slot
+  {T5-3}% [8] talk id
+  {T5}% [9] session id or photo
+  
+    
+
+The ``Fourier neural operator'' [2] is a variant of the ``neural operator''.
+Its defining characteristic, compared to the regular neural operator, is that it transforms the input to the Fourier domain at the start of each layer. This transformation uses the $d$-dimensional FFT on a regular grid in $d$ dimensions. We describe how to do this more efficiently using rank-$1$ lattice points, which allow for a one-dimensional FFT algorithm, see, e.g., [1]. 
+
+\medskip
+\begin{enumerate}
+        \item[{[1]}] F. Y. Kuo, G. Migliorati, F. Nobile, and D. Nuyens. \textit{Function integration,
+reconstruction and approximation using rank-1 lattices}. Math. Comp., 90, April
+2021.   
+        \item[{[2]}] Z. Li, N. B. Kovachki, K. Azizzadenesheli, B. liu, K. Bhattacharya, A. Stuart,
+and A. Anandkumar. \textit{Fourier neural operator for parametric partial differential
+equations}. International Conference on Learning Representations, 2021.
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
+  {Investigating the Optimum RQMC Batch Size for Betting and Empirical Bernstein Confidence Intervals}% [1] talk title
+  {Aadit Jain}% [2] speaker name
+  {Rancho Bernardo High School}% [3] affiliations
+  {aaditdjain@gmail.com}% [4] email
+  {Fred J.\ Hickernell, Art B.\ Owen, Aleksei G.\ Sorokin}% [5] coauthors
+  {}% [6] special session
+  {Tue, Jul 29 17:00---17:30}% [7] time slot
+  {T5-4}% [8] talk id
+  {T5}% [9] session id or photo
+  
+    
+   
+
+The Betting [1] and Empirical Bernstein (EB) [1,2] confidence intervals (CIs) are finite sample (non-asymptotic) and require IID samples. Since both are non-asymptotic, they are much wider than confidence intervals based on the Central Limit Theorem (CLT) due to the stronger coverage property they provide. To apply these finite sample CIs to randomized quasi-Monte Carlo (RQMC), we take $R$ independent replications of $n$ RQMC points, averaging the $n$ function evaluations within each replication. Given a fixed budget $N = nR$, we investigate the optimal $n$ that minimizes the CI widths for both methods.  
+%\medskip  
+
+Using the code from [1], we ran simulations on various integrands (smooth, rough, one-dimensional, multi-dimensional) and ridge functions. Interestingly, the optimal $n$ was quite small compared to $N$, often just 1 (plain IID), 2, or 4 when $N = 2^{10}$. Moreover, the optimal $n$ appeared to grow quite slowly as $N$ increased. Notably, both CI methods applied to RQMC outperformed plain IID when the optimal $n$ is greater than $1$.  
+%\medskip  
+
+This experimental trend aligns with our analysis of Bennett’s inequality for EB [2], which suggests that the optimum $n$ is $O(N^{1/(2\theta + 1)})$ for $\theta > 1/2$. 
+Specifically, for $\theta = 3/2$, which occurs for smoother integrands, we obtain $n = O(N^{1/4})$. For $\theta = 1$, which corresponds to a typical Koksma-Hlawka rate, we get $n = O(N^{1/3})$. The ratio of RQMC EB CI widths to plain IID EB CI widths is $\Theta( N^{(1-2\theta)/(4\theta+2)})$. For $\theta=1$,
+we get a ratio of $\Theta(N^{-1/6})$,
+while for $\theta=3/2$,
+we get a more favorable width ratio of $\Theta(N^{-1/4})$. 
+%\medskip  
+
+
+On the other hand, CLT based CIs using RQMC  are only asymptotically valid. The value of $R$ could be any reasonable number that isn't too small, and remains constant as the total sample size, $N$, increases.  This means that $n = \Theta(N)$, which takes full advantage of the power of QMC.  It is also important to note that both Betting and EB require the random variables to be bounded between $0$ and $1$, unlike CLT based CIs. 
+
+
+\begin{enumerate}
+ \item[{[1]}] I. Waubdy-Smith and A. Ramdas. Estimating means of bounded random
+variables by betting. J.\ Roy.\ Statist.\ Soc.\ B, 86:1---27, 2024.
+ \item[{[2]}] A. Maurer and M. Pontil. Empirical Bernstein bounds and sample variance penalization. In Proceedings of the 22nd Annual Conference
+on Learning Theory (COLT), pages 1---9, 2009.
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Sampling with constraints}% [1] talk title
+  {Akash Sharma}% [2] speaker name
+  {Chalmers University of Technology, Sweden}% [3] affiliations
+  {akashs@chalmers.se}% [4] email
+  {Benedict Leimkuhler, Michael Tretyakov}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 10:30---11:00}% [7] time slot
+  {T6-1}% [8] talk id
+  {T6}% [9] session id or photo
+  
+    
+   
+ We will present first order and second order numerical integrators for reflected (overdamped) Langevin dynamics [1] and confined (underdamped) Langevin dynamics [2], respectively. We show how these SDEs can be used for sampling from a desired measure with compact support. We will also discuss sampling on hyper-surfaces. We will showcase numerical examples to verify the presented results.  
+
+\medskip  
+
+\begin{enumerate}
+ \item[{[1]}] B. Leimkuhler, A. Sharma, and M. V. Tretyakov. Simplest random walk for approximating Robin boundary
+value problems and ergodic limits of reflected diffusions. Ann. Appl. Probab., 33(3):1904 --- 1960, 2023.
+ \item[{[2]}] B. Leimkuhler, A. Sharma, and M. V. Tretyakov. Numerical integrators for confined Langevin dynamics.  
+arXiv:2404.16584, 2024.
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Joonha Park}% [1] talk title
+  {University of Kansas, Department of Mathematics}% [2] speaker name
+  {j.park@ku.edu}% [3] affiliations
+  {}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 11:00---11:30}% [7] time slot
+  {T6-2}% [8] talk id
+  {T6}% [9] session id or photo
+  {}% [5] coauthors
+  
+    
+
+Hamiltonian Monte Carlo (HMC) is widely used for sampling from high-dimensional target distributions with probability density known up to proportionality. While HMC possesses favorable dimension scaling properties, it encounters challenges when applied to strongly multimodal distributions. Traditional tempering methods, commonly used to address multimodality, can be diﬃcult to tune, particularly in high dimensions. In this study, we propose a method that combines a tempering strategy with Hamiltonian Monte Carlo, enabling eﬃcient sampling from high-dimensional, strongly multimodal distributions. Our approach involves proposing candidate states for the constructed Markov chain by simulating Hamiltonian dynamics with time-varying mass, thereby searching for isolated modes at unknown locations. Moreover, we develop an automatic tuning strategy for our method, resulting in an automatically-tuned, tempered Hamiltonian Monte Carlo (ATHMC). Unlike simulated tempering or parallel tempering methods, ATHMC provides a distinctive advantage in scenarios where the target distribution changes at each iteration, such as in the Gibbs sampler. We numerically show that our method scales better with increasing dimensions than an adaptive parallel tempering method and demonstrate its eﬃcacy for a variety of target distributions, including mixtures of log-polynomial densities and Bayesian posterior distributions for a sensor network self-localization problem.
+   
+\end{talk}
+
+\begin{talk}
+  {Localized consensus-based sampling for non-Gaussian distributions}% [1] talk title
+  {Arne Bouillon}% [2] speaker name
+  {KU Leuven, Leuven, Belgium}% [3] affiliations
+  {arne.bouillon@kuleuven.be}% [4] email
+  {Alexander Bodard, Panagiotis Patrinos, Dirk Nuyens, and Giovanni Samaey}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 11:30---12:00}% [7] time slot
+  {T6-3}% [8] talk id
+  {T6}% [9] session id or photo
+  
+    
+
+  Drawing samples distributed according to a given unnormalized probability density function is a common task in Bayesian inverse problems. Algorithms based on an ensemble of interacting \emph{particles}, moving in parameter space, are gaining in popularity for these problems since they are often parallelizable, derivative-free, and affine-invariant. However, most are only accurate for near-Gaussian target distributions; an example is the consensus-based sampling (CBS) method [1]. We propose a novel way to derive CBS from ensemble-preconditioned Langevin diffusions by first approximating the target potential by its anisotropic Moreau envelope, then approximating the proximal operator by a weighted mean, and finally assuming that the initial and target distributions are Gaussian. We adapt these approximations with non-Gaussian distributions in mind and arrive at a new interacting-particle method for sampling, which we call \emph{localized consensus-based sampling}. Numerical tests illustrate that localized CBS compares favorably to alternative methods in terms of affine-invariance and performance on non-Gaussian distributions.
+\medskip
+
+\begin{enumerate}
+  \item[{[1]}] Carrillo, J. A., Hoffmann, F., Stuart, A. M., \& Vaes, U. (2022). Consensus-based sampling. Studies in Applied Mathematics, \textbf{148}(3), 1069--1140.
+\end{enumerate}
+\end{talk}
+
+\begin{talk}
+  {Importance Sampling for Hawkes Processes}% [1] talk title
+  {Alex Shkolnik}% [2] speaker name
+  {University of California, Santa Barbara}% [3] affiliations
+  {shkolnik@ucsb.edu}% [4] email
+  {Baeho Kim}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 12:00---12:30}% [7] time slot
+  {T6-4}% [8] talk id
+  {T6}% [9] session id or photo
+  
+    
+   
+In 1971, Alan Hawkes [1] introduced a highly influential point
+process $N$ for which, given a constant $\mu > 0$ and a
+$[0,\infty)$-valued function $g$, the intensity process $X$
+takes the form,
+\begin{align} \label{HawkesIntensity} 
+ \quad X_t = \mu + \int_0^t g(t-s) \, \mathrm{d} N_s \, ,
+ \quad (t \ge 0) \, .
+\end{align}
+By now, Hawkes processes have found a wide array of application
+in the sciences, engineering, statistics, operations research,
+mathematical finance and machine learning. We develop importance
+sampling estimators for rare-event probabilities of the form
+$\mathbb{P}(N_t \ge c \, t)$ and general functions $g$ in
+$(\ref{HawkesIntensity})$. This problem has received little 
+attention to
+date, as for most $g$, the process $(N,X)$ is
+non-Markovian and lends to little mathematical tractability.
+Our approach is based on a Girsanov change of intensity coupled
+with a conditioning on the rare-event.  We prove asymptotic
+optimality of the resulting importance sampling estimators in
+the limit $t \to \infty$. Related large deviations results and
+an extension to fully nonlinear models of $N$ with intensity
+$\phi(X)$ are presented.  Numerical simulations illustrate the
+performance of our importance sampling estimators relative to
+Monte Carlo for various functions $g$ as well as to exponential
+tilting in the case of an exponential $g$ (the sole tractable
+model).
+
+
+%Please do not use your own commands or macros.
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files. APA reference style is recommended.
+\begin{enumerate}
+ \item[{[1]}] Hawkes, A. G. (1971). {\it Spectra of some 
+self-exciting and mutually exciting point processes}. 
+Biometrika 58(1), 83---90.
+\end{enumerate}
+
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Revisiting the Gibbs Sampler: A Conditional Modeling Perspective}% [1] talk title
+  {Kun-Lin Kuo}% [2] speaker name
+  {Institute of Statistics, National University of Kaohsiung, Kaohsiung, Taiwan}% [3] affiliations
+  {klkuo@nuk.edu.tw}% [4] email
+  {Yuchung J. Wang}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 15:30---16:00}% [7] time slot
+  {T7-1}% [8] talk id
+  {T7}% [9] session id or photo
+  {}% [6] special session. Leave this field empty for contributed talks.
+    
+   
+The Gibbs sampler (GS) is a fundamental algorithm for approximating analytically intractable distributions.
+Two major generalizations of GS are the partially collapsed Gibbs sampler (PCGS) and the pseudo-Gibbs sampler (PGS). For PCGS, the associated Markov chain is heterogeneous with varying state spaces, making traditional convergence analysis challenging. To address this, we introduce the iterative conditional replacement (ICR) algorithm and prove its convergence. Furthermore, ICR provides a systematic approach for approximating multiple stationary distributions arising in PGS.
+Our approach emphasizes the advantage of treating each conditional density with its own operator, rather than aggregating all conditionals into a single operator.
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Concatenation of Markov processes for Monte Carlo Integration}% [1] talk title
+  {Sascha Holl}% [2] speaker name
+  {Max Planck Institute for Informatics}% [3] affiliations
+  {sholl@mpi-inf.mpg.de}% [4] email
+  {Hans-Peter Seidel}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 16:00---16:30}% [7] time slot
+  {T7-2}% [8] talk id
+  {T7}% [9] session id or photo
+  
+    
+
+Markov Chain Monte Carlo (MCMC) is a sophisticated sampling technique used to sample from a probability distribution when conventional methods are impractical. Widely applied in statistics, machine learning, physics, and finance, MCMC generates samples from a probability distribution through an invariant Markov process. However, controlling and fine-tuning the process pose challenges, particularly in achieving both rapid local exploration and global distribution discovery. The Metropolis-Hastings algorithm, the most popular MCMC technique, while practical, struggles to excel in these objectives due to its inherent reversibility, leading to diffusive exploration and the need for large-scale perturbations for global discovery.
+
+Wang et al. [2] introduced a novel MCMC approach, which is based on the concatenation of Markov processes [1]. It allows the usage of an essentially arbitrary Markov process for local exploration. That way, the process can be chosen to satisfy a desired exploration behavior suitable for the state space at hand without worrying about invariance at this point. The process is executed up to a certain finite lifetime. After this time has elapsed, the process is \textit{killed} and started afresh at a spawn location drawn from a \textit{regeneration} distribution. The lifetime is chosen in a way ensuring that the overall process is invariant with respect to a given target distribution.
+
+We generalize this idea and introduce it with appropriate rigor. We show how the validity of the method can be established for a more general class of Markov processes. We also allow the usage of a whole family of Markov processes for local exploration with possibly varying exploration characteristic. We establish a transfer mechanism between consecutive processes, which allows the user to specify the initial state of the newly spawned process to depend on the exit point of the previous one. Not least, we derive a Rao-Blackwellization technique which guarantees variance reduction in practice.
+We showcase the potential of the framework in a practical rendering experiment. We compare the method proposed in [2] with existing methods based on Metropolis-Hastings algorithms with Random-Walk, Langevin and Hamiltonian proposals, respectively.
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Sharpe, Michael (1998). {\it General Theory of Markov Processes}. Pure and Applied Mathematics. Academic Press.
+ \item[{[2]}] Wang, Andi Q. and Pollock, Murray and Roberts, Gareth O. and Steinsaltz, David. Regeneration-enriched Markov processes with application to Monte Carlo. The Annals of Applied Probability. Institute of Mathematical Statistics.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Polynomial approximation for efficient transport-based sampling}% [1] talk title
+  {Josephine Westermann}% [2] speaker name
+  {Heidelberg University}% [3] affiliations
+  {josephine.westermann@uni-heidelberg.de}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 16:30---17:00}% [7] time slot
+  {T7-3}% [8] talk id
+  {T7}% [9] session id or photo
+  {}% [5] coauthors
+  {}
+
+Sampling from non-trivial probability distributions is a fundamental challenge in uncertainty quantification and inverse problems, particularly when dealing with high-dimensional domains, costly-to-evaluate or unnormalized density functions, and non-trivial support structures. Measure transport via polynomial density surrogates [1] provides a systematic and constructive solution to this problem by reformulating it as a convex optimization task with deterministic error bounds. This approach is particularly efficient for smooth problems but can become computationally demanding when dealing with highly concentrated posterior distributions, as constructing the density surrogate requires many evaluations in regions where the density is nearly zero—leading to an inefficient allocation of computational resources. In this talk, we explore how the computational cost in such cases can be further reduced by first approximating the potential function with a polynomial. This additional approximation step shifts the focus of expensive evaluations toward capturing the underlying system more effectively. The surrogate-based posterior can then be evaluated cheaply and approximated with high accuracy, enabling efficient transport-based sampling. We discuss the implications of this strategy and examine its potential to enhance performance in demanding inference problems.
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Westermann, J., \& Zech, J. (2025). \textit{Measure transport via polynomial density surrogates}. \textit{Foundations of Data Science}. \url{https://doi.org/10.3934/fods.2025001}
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Fast Approximate Matrix Inversion via MCMC for Linear System Solvers}% [1] talk title
+  {Soumyadip Ghosh}% [2] speaker name
+  {IBM Research}% [3] affiliations
+  {ghoshs@us.ibm.com}% [4] email
+  {Vassil Alexandrov, Lior Horesh, Vasilieos Kalantzis, Anton Lebedev,  WonKyung Lee, Yingdong Lu, Tomasz Nowicki, Shashanka Ubaru, Olha Yaman}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 17:00---17:30}% [7] time slot
+  {T7-4}% [8] talk id
+  {T7}% [9] session id or photo
+  
+    
+   
+%Your abstract goes here. Please do not use your own commands or macros.
+A key prerequisite of modern iterative solvers of linear algebraic equations $Ax=b$ is the fast computation of a pre-conditioner matrix $P$ that gives a good approximation to the (generalized) inverse of $A$ such that the set of equations obtained by pre-multiplying with $P$, $PAx=Pb$, is solved quickly. 
+We study the classical Ulan-von Neumann MCMC algorithm that was designed based on the Neumann infinite series representation of the inverse of a non-singular matrix. The parameters of the MCMC algorithm determine the overall time to solve $Ax=b$, which is a metric that 
+reflects both the time to compute the MCMC preconditioner $P$ and its quality as a preconditioner to solve the linear equations. Our main focus is on how the MCMC parameters should be tuned to speed up computations in applications that require repeated calls to the solver with varying matrices $A$, a common scenario for instance in numerical approximations of physical phenomena. 
+We present a model that relates key features of matrices $A$ with good choices of MCMC algorithm parameters that lead to a fast overall time to find a solution to $Ax=b$. A computationally efficient approach based on Bayesian experimental design is described to learn and update this model while minimizing the number of runs of the expensive solver in application settings that solve of linear system over well defined sets of $A$ matrices. We present numerical experiments to illustrate the efficacy of this approach.
+In another contribution, we present a new MCMC algorithm which we term as \emph{regenerative Ulam-von Neumann} algorithm. It exploits a regenerative structure present in the Neumann series that underlies the original algorithm and improves on it by producing an unbiased estimator of the matrix inverse. A rigorous analysis of performance of the algorithm is provided. This includes the variance of the estimator, which allows one to estimate the time taken to obtain solutions of a desired quality. Finally, numerical experiments verify the qualitative effectiveness of the proposed scheme. 
+
+\end{talk}
+
+\begin{talk}
+  {The Stochastic Differential Equations of the Heston Model for Option Pricing}% [1] talk title
+  {Abdujabar Rasulov}% [2] speaker name
+  {Professor of the University of World Economy and Diplomacy}% [3] affiliations
+  {asrasulov@gmail.com}% [4] email
+  {Matyokub Bakoev}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 10:30---11:00}% [7] time slot
+  {T8-1}% [8] talk id
+  {T8}% [9] session id or photo
+  
+       
+The Heston model is a widely used stochastic volatility model for option pricing, addressing the limitations of the Black-Scholes model by incorporating a stochastic variance process. This talk will cover the stochastic differential equations (SDEs) governing the Heston model, demonstrating their application in option pricing. 
+
+The Heston model introduces a stochastic process for volatility, improving the accuracy of derivative pricing. 
+The dynamics of the asset price $S_t$ and its variance $v_t$ under the Heston model are given by[1]:
+\begin{align}
+    dS_t &= \mu S_t dt + \sqrt{v_t} S_t dW_t^S, \\
+    dv_t &= \kappa(\theta - v_t) dt + \sigma \sqrt{v_t} dW_t^v,
+\end{align}
+where:
+\begin{itemize}
+    \item $\mu$ is the drift of the asset price.
+    \item $\kappa$ is the rate of mean reversion of variance $v_t$ towards long-term mean $\theta$.
+    \item $\sigma$ represents the volatility of volatility.
+    \item $dW_t^S$ and $dW_t^v$ are Wiener processes with correlation $\rho$.
+\end{itemize}
+
+We will explore Monte Carlo methods as a numerical approach to simulate price paths and compute option prices for European and American derivatives [2],[3]. Furthermore, an interactive Shiny web application will be presented, showcasing real-time simulations and visualizations of option pricing under the Heston framework.
+
+An interactive web-based application is implemented using Shiny in R, enabling users to:
+\begin{itemize}
+    \item Adjust input parameters ($S_0, K, r, T, \mu, \theta, \kappa, \sigma, \rho$).
+    \item Perform Monte Carlo simulations to compute option prices.
+    \item Visualize option price distributions and convergence results.
+\end{itemize}
+
+The Shiny application offers an interactive tool for financial analysis. Future work may explore enhancements such as incorporating jump-diffusion models and GPU-accelerated simulations.
+\medskip
+
+\begin{enumerate}
+ \item Hull, J. C. (2020). \textit{Options, Futures, and Other Derivatives}. Pearson.
+ \item Glasserman, P. (2004). \textit{Monte Carlo Methods in Financial Engineering}. Springer.
+ \item M.T.Bakoev (2020) Numerical simulation of solusions of diffusion equations in problems of finance and management(In russian) . Uwed Press.Tashkent 2020. p.224.
+ 
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Forward Propagation of Low Discrepancy Through McKean--Vlasov Dynamics: From QMC to MLQMC}% [1] talk title
+  {Leon Wilkosz}% [2] speaker name
+  {King Abdullah University of Science and Technology (KAUST)}% [3] affiliations
+  {leon.wilkosz@kaust.edu.sa}% [4] email
+  {Nadhir Ben Rached, Abdul-Lateef Haji-Ali, Raul Tempone}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 11:00---11:30}% [7] time slot
+  {T8-2}% [8] talk id
+  {T8}% [9] session id or photo
+  
+    
+   
+This work develops a particle system addressing the approximation of \linebreak McKean--Vlasov stochastic differential equations (SDEs). The novelty of the approach lies in involving low discrepancy sequences nontrivially in the construction of a particle system with coupled noise and initial conditions. Weak convergence for SDEs with additive noise is proven. A numerical study demonstrates that the novel approach presented here doubles the respective convergence rates for weak and strong approximation of the mean-field limit, compared with the standard particle system. These rates are proven in the simplified setting of a mean-field ordinary differential equation in terms of appropriate bounds involving the star discrepancy for low discrepancy sequences with a group structure, such as Rank-1 lattice points. This construction nontrivially provides an antithetic multilevel quasi-Monte Carlo estimator. An asymptotic error analysis reveals that the proposed approach outperforms methods based on the classic particle system with independent initial conditions and noise.
+\end{talk}
+
+\begin{talk}
+  {Characterizing Efficacy of Geometric Brownian Motion Expectation-based Simulations on Low-Volatility American Common Stocks}% [1] talk title
+  {Vincent X Zhang}% [2] speaker name
+  {University of Southern California}% [3] affiliations
+  {vxzhang@usc.edu}% [4] email
+  {Heather Choi}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 11:30---12:00}% [7] time slot
+  {T8-3}% [8] talk id
+  {T8}% [9] session id or photo
+  
+    
+   
+In this manuscript, daily, monthly, and annual geometric Brownian motion forecasts are obtained and tested for reliability upon 21 stock symbols within NASDAQ of varying volatilities and drifts. Biweekly, monthly, biannual, and annual rolling windows were used as a preliminary filtering scheme to remove unreliable stock symbols, and then accuracy was further evaluated on stocks with higher accuracies in the first screening. Annual and 10-year windows were used to estimate the drift and diffusion component and then applied to obtain one-period-ahead geometric Brownian motion stock values and associated probabilities. Further building off of these one-period-ahead values, expected values for 1-252 periods were estimated. Expected values of each stock were estimated by totaling up the product of the stock value and its associated probabilities, and tested over multiple rolling-windows for reliability. The results indicate that geometric Brownian-simulated expected index values estimated using one thousand simulations can be slightly reliable if catered and re-optimized to specific stock characterizations, but only for a daily window, and even then only slightly preferable to flipping a coin. Expected values estimated with less than 100 simulations were thrown out, seen as unreliable.
+
+
+\medskip
+
+\begin{enumerate}
+    \item[{[1]}] Sinha, A. (2024). Daily and Weekly Geometric Brownian Motion Stock Index Forecasts. Journal of Risk and Financial Management, 17(10), 434. \\ \href{https://doi.org/10.3390/jrfm17100434}{https://doi.org/10.3390/jrfm17100434}
+    \item[{[2]}] Abbas, Anas, and Mohammed Alhagyan. 2023. Forecasting exchange rate of SAR/CNY by incorporating memory and stochastic volatility into GBM model. Advances and Applications in Statistics 86: 65---78
+    \item[{[3]}] Demirel, Ugur, Handan Cam, and Ramazan Unlu. 2021. Predicting Stock Prices Using Machine Learning Methods and Deep Learning Algorithms: The Sample of the Istanbul Stock Exchange. Gazi University Journal of Science 34: 63---82
+    \item[{[4]}]] Tie, Jingzhi, Hanqin Zhang, and Qing Zhang. 2018. An Optimal Strategy for Pairs Trading Under Geometric Brownian Motions. Journal of Optimization Theory and Applications 179: 654---75
+    \item[{[5]}] Ramos, Andr\'e Lubene, Douglas Batista Mazzinghy, Viviane da Silva Borges Barbosa, Michel Melo Oliveira, and Gilberto Rodrigues da Silva. 2019. Evaluation of an Iron Ore Price Forecast Using a Geometric Brownian Motion Model. Revista Escola de Minas 72: 9---15
+    \item[{[6]}] Nordin, Norazman, Norizarina Ishak, Nurfadhlina Abdul Halim, Siti Raihana Hamzah, and Ahmad Fadly Nurullah Rasadee. 2024. A Geometric Brownian Motion of ASEAN-5 Stock Indexes. In AI and Business, and Innovation Research: Understanding the Potential and Risks of AI for Modern Enterprises. Edited by Bahaaeddin Alareeni and Islam Elgedawy. New York: Springer, pp. 779---86
+    \item[{[7]}] W Farida Agustini et al. 2018 J. Phys.: Conf. Ser. 974 012047
+    \item[{[8]}] Liang, W., Li, Z., Chen, W. (2025). Enhancing Financial Market Predictions: Causality-Driven Feature Selection. In: Sheng, Q.Z., et al. Advanced Data Mining and Applications. ADMA 2024. Lecture Notes in Computer Science(), vol 15387. Springer, Singapore. https://doi.org/10.1007/978-981-96-0811-9\textunderscore11
+    \item[{[9]}] Prasad, Krishna, Bhuvana Prabhu, Lionel Pereira, Nandan Prabhu, and Pavithra S. 2022. Effectiveness of geometric brownian motion method in predicting stock prices: Evidence from india. Asian Journal of Accounting and Governance 18: 121---34
+    \item[{[10]}] Shafii, Nor Hayati, Nur Ezzati, Dayana Mohd, Rohana Alias, Nur Fatihah Fauzi, and Mathematical Sciences. 2019. Fuzzy Time Series and Geometric Brownian Motion in Forecasting Stock Prices in Bursa Malaysia. Jurnal Intelek 14: 240---50
+    \item[{[11]}] Zhu, Song-Ping, and Xin-Jiang He. 2018. A New Closed-Form Formula for Pricing European Options under a Skew Brownian Motion. The European Journal of Finance 24: 1063---74
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Efficient Pricing for Variable Annuity via Simulation}% [1] talk title
+  {Hao Quan}% [2] speaker name
+  {University of Waterloo}% [3] affiliations
+  {h5quan@uwaterloo.ca}% [4] email
+  {Ben (Mingbin) Feng}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 12:00---12:30}% [7] time slot
+  {T8-4}% [8] talk id
+  {T8}% [9] session id or photo
+  
+    
+
+Variable Annuities (VAs) are insurance products that offer policyholders exposure to financial market upside potential while safeguarding against downside risk through optional riders, such as Guaranteed Minimum Death Benefits (GMDBs), Guaranteed Minimum Accumulation Benefits (GMABs), and Guaranteed Minimum Withdrawal Benefits (GMWBs). These riders, tailored to policyholders’ needs, introduce a complex risk profile combining mortality and financial uncertainties, rendering VA pricing and fee determination computationally challenging. Due to this complexity, Monte Carlo simulation is often the only practical approach for valuing these contracts.
+
+In this study, we address the problem of setting fair management fees for VA rider combinations using the equivalence principle, which balances the expected present value of premiums and benefits. We formulate fee determination as a stochastic root-finding problem, expressed as
+\[
+E[V(\varphi)] - P = 0,
+\]
+where \( E[V(\varphi)] \) denotes the expected present value of VA benefits under fee structure \( \varphi \), and \( P \) represents the premium. The VA benefit \( V(\varphi) \) reflects the evolution of the contract’s shadow account value and various benefit guarantees over the contract’s lifetime. As a result, estimating its expected value is computationally challenging. Moreover, solving the root-finding problem requires estimating the gradient of this expectation. To solve this, we employ stochastic gradient estimation techniques, such as finite differences and infinitesimal perturbation analysis (IPA). We analyze the theoretical properties and computational performance of the proposed root-finding algorithms, offering insights into their efficacy for VA pricing. Our results show that gradient estimation techniques have a significant impact on the efficiency and accuracy of estimating fair fees for various rider combinations.
+\end{talk}
+
+\begin{talk}
+  {Revisiting self-normalized importance sampling: new methods and diagnostics}% [1] talk title
+  {Nicola Branchini}% [2] speaker name
+  {University of Edinburgh}% [3] affiliations
+  {n.branchini@sms.ed.ac.uk}% [4] email
+  {V\'ictor Elvira}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 09:00---09:30}% [7] time slot
+  {T9-1}% [8] talk id
+  {T9}% [9] session id or photo
+  
+    
+   
+Importance sampling (IS) can often be implemented only with normalized weights, yielding the popular self-normalized IS (SNIS) estimator. However, proposal distributions are often learned and evaluated using criteria designed for the unnormalized IS (UIS) estimator.
+
+In this talk, we aim to present a unified perspective on recent methodological advances in understanding and improving SNIS.
+We propose and compare two new frameworks for adaptive importance sampling (AIS) methods tailored to SNIS. Our first framework exploits the view of SNIS as a ratio of two UIS estimators, coupling two separate AIS samplers in a joint distribution selected to minimize asymptotic variance. Our second framework instead proposes the first MCMC-driven AIS sampler directly targeting the (often overlooked) optimal SNIS proposal.
+
+We also establish a close connection between the optimal SNIS proposal and so-called subtractive mixture models (SMMs), where negative coefficients are possible - motivating the study of the properties of the first IS estimators using SMMs.
+
+Finally, we propose new Monte Carlo diagnostics specifically for SNIS. They extend existing diagnostics for numerator and denominator by incorporating their statistical dependence, drawing on different notions of tail dependence from multivariate extreme value theory.
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Branchini, N., \& Elvira, V. (2024). Generalizing self-normalized importance sampling with couplings. arXiv preprint arXiv:2406.19974.
+ \item[{[2]}] Branchini, N., \& Elvira, V. (2025). Towards adaptive self-normalized importance samplers. In submission at Statistical Signal Processing Workshop (SSP), 2025.
+    \item[{[3]}] \textbf{Zellinger, L. \& Branchini, N. (equal contribution)}, Elvira, V., \& Vergari, A. Scalable expectation estimation with subtractive mixture models. In submission at Frontiers in Probabilistic Inference: Learning meets Sampling (workshop at ICLR 2025).
+    \item[{[4]}] Branchini, N., \& Elvira, V. The role of tail dependence in estimating posterior expectations. In NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty.
+
+
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Quantitative results on sampling from quasi-stationary distributions}% [1] talk title
+  {Daniel Yukimura}% [2] speaker name
+  {IMPA, Rio de Janeiro, Brazil}% [3] affiliations
+  {yukimura@impa.br}% [4] email
+  {Roberto I. Oliveira}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 09:30---10:00}% [7] time slot
+  {T9-2}% [8] talk id
+  {T9}% [9] session id or photo
+  
+    
+   
+    We study the rate of convergence of Sequential Monte Carlo (SMC) methods for approximating the quasi-stationary ditribution (QSD) of Markov processes. 
+    For processes with killing or absorption, the QSD appears as a stable behavior observed before extinction, or as the limiting distribution of the process conditioned on not being absorbed. 
+    We give quantitative lower and upper bounds for the particle filter approximation of these distributions.
+    For the lower bound, we show that fast mixing is not enough to guarantee that simulation methods can converge in few steps.
+    In the upper bound, we show that SMC with adaptive resampling has a rate depending on the number of steps, the mixing time, and in how fast the processed gets killed.
+    Our seems to be the first result to have a quantitative dependency of this form that is valid for discrete time Markov chains in general state spaces.
+    Our techniques and concentration results for bounding the approximations of SMC with adaptive resampling are also novel, and we believe might be applicable in other scenarios that can benefit from the lower variance obtained due to an adaptive approach.
+    % Finally, as an example, we apply these results to get quantitative estimates for a large class of killed processes in $\mathbb{Z}^d$, where we obtain the first bounds with the ``natural" time scale.
+    
+    
+
+\medskip
+
+
+\end{talk}
+
+\begin{talk}
+  {Multilevel simulation of ensemble Kalman methods: interactions across levels}% [1] talk title
+  {Toon Ingelaere}% [2] speaker name
+  {KU Leuven}% [3] affiliations
+  {toon.ingelaere@kuleuven.be}% [4] email
+  {Giovanni Samaey}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 10:00---10:30}% [7] time slot
+  {T9-3}% [8] talk id
+  {T9}% [9] session id or photo
+  
+    
+
+        To solve problems in domains such as filtering, optimization, and posterior sampling,
+        ensemble Kalman methods have recently received much attention. These parallelizable and often gradient-free algorithms use an ensemble of particles that evolve in time, based on a combination of well-chosen dynamics and interaction between the particles. For computationally expensive dynamics, the cost of attaining a high accuracy quickly becomes prohibitive. To improve the asymptotic cost-to-error relation, different multilevel Monte Carlo techniques have been proposed. These methods simulate multiple differently sized ensembles at different resolutions, corresponding to different accuracies and costs. While particles within one of these ensembles do interact with each other, a key question is whether and how particles should interact across ensembles and levels.
+        In this talk, we will outline and compare the most common approaches to such multilevel ensemble interactions.
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Serial ensemble filtering with marginal coupling}% [1] talk title
+  {Amit N Subrahmanya}% [2] speaker name
+  {Virginia Tech}% [3] affiliations
+  {amitns@vt.edu}% [4] email
+  {Julie Bessac, Andrey A Popov, Adrian Sandu}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 10:30---11:00}% [7] time slot
+  {T9-4}% [8] talk id
+  {T9}% [9] session id or photo
+  
+    
+   
+ Serial filtering refers to a univariate, state by state Bayesian inference problem. 
+ %
+ Extant methods for serial filtering result in suboptimal posterior samples for severely non-Gaussian, multimodal inference settings. 
+ %
+ We fix this problem by rigorously coupling the state marginal densities with information about their joint density.
+ %
+ This formulation allows for accurately sampling the Bayesian posterior across a variety of challenging text problems.
+ 
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Dynamical Low-Rank Approximation for SDEs: an interacting particle-system ROM}% [1] talk title
+  {Fabio Zoccolan}% [2] speaker name
+  {\'Ecole Polytechnique F\'ed\'erale de Lausanne}% [3] affiliations
+  {fabio.zoccolan@epfl.ch}% [4] email
+  {Dr. Yoshihito Kazashi, Prof. Fabio Nobile}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 15:30---16:00}% [7] time slot
+  {T11-1}% [8] talk id
+  {T11}% [9] session id or photo
+  
+The Dynamical Low-Rank Approximation (DLRA) technique is a time-dependent reduced-order model (ROM) known for its significant advantages in terms of computational time and accuracy. Its appeal in uncertainty quantification is due to the fact that its solution is composed of time-dependent deterministic and stochastic bases, allowing the approximation to better track the dynamics of the studied system. In the context of stochastic differential equations (SDEs) a rigorous mathematical setting was presented in [1], using the so-called Dynamically Orthogonal (DO) framework. The well-posedness of this setting is nontrivial due to the coupled nature of the DO system: for instance, the deterministic basis depends on all stochastic basis paths, and the equations involve the inversion of a Gramian matrix. When coming to stochastic discretization through a Monte-Carlo procedure, these features imply to deal with a interacting noisy particle dynamics. We proposed two fully discretized schemes based on the Monte-Carlo method, investigating their errors and analyzing possible issues arisen by the discretization of the Gramian inverse [2]. Theoretical results will be supported by numerical simulations.
+
+\medskip
+\begin{enumerate}
+ \item[{[1]}] Yoshihito Kazashi, Fabio Nobile, and Fabio Zoccolan. {\it Dynamical low-rank approximation for stochastic differential equations}. Mathematics of Computation (2024).
+ \item[{[2]}] Yoshihito Kazashi, Fabio Nobile, and Fabio Zoccolan. {\it Numerical Methods for Dynamical low-rank approximation of stochastic differential equations, Part I \& II}, in preparation (2025).
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {A probabilistic Numerical method for semi-linear elliptic Partial Differential Equations}% [1] talk title
+  {Adrien Richou}% [2] speaker name
+  {adrien.richou@math.u-bordeaux.fr}% [3] affiliations
+  {Emmanuel Gobet, Charu Shardul, Lukasz Szpruch}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 16:00---16:30}% [7] time slot
+  {T11-2}% [8] talk id
+  {T11}% [9] session id or photo
+  
+    
+   
+In this presentation, we study the numerical approximation of a class of Backward Stochastic Differential Equations (BSDEs) in an infinite horizon setting that provide a probabilistic representation for semi-linear elliptic Partial Differential Equations. In particular, we are also able to treat some ergodic BSDEs that are related to elliptic PDEs or ergodic type. In order to build our numerical scheme, we put forward a new representation of the PDE solution by using a classical probabilistic representation of the gradient. Then, based on this representation, we propose a fully implementable numerical scheme using a Picard iteration procedure, a grid space discretization and a Monte-Carlo approximation. We obtain an upper bound for the numerical error and we also provide some numerical experiments that show the
+efficiency of this approach for small dimensions. Some numerical experiments also show that it is possible to efficiently handle larger dimensions by replacing grid-based spatial discretization with neural networks. This presentation is based on [1] for the non ergodic framework and [2] for results concerning the ergodic case.
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Gobet, Emmanuel, \& Richou, Adrien, \& Shardul, Charu (2025). Numerical approximation of Markovian BSDEs in infinite
+  horizon and elliptic PDEs. Draft.
+ \item[{[2]}] Gobet, Emmanuel, \& Richou, Adrien, \& Szpruch, Lukasz (2025).  Numerical approximation of ergodic BSDEs using non
+  linear Feynman-Kac formulas, Preprint arXiv:2407.09034 .
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {A Chen-Fliess series for stochastic differential equations driven by L{\'e}vy processes}% [1] talk title
+  {Anke Wiese}% [2] speaker name
+  {Heriot-Watt University, UK}% [3] affiliations
+  {A.Wiese@hw.ac.uk}% [4] email
+  {Kurusch Ebrahimi-Fard, Fr{\'e}d{\'e}ric Patras}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 16:30---17:00}% [7] time slot
+  {T11-3}% [8] talk id
+  {T11}% [9] session id or photo
+  
+    
+
+Stochastic differential equations driven by L{\'e}vy processes have become established as models to describe the evolution of random variables such as financial and economic variables and more recently of climate variables, when the stochastic system shows jump discontinuities. In this talk, we derive a novel series representation of the flowmap of such stochastic 
+differential equations 
+in terms of commutators of vector fields with stochastic 
+coefficients, in other words a Chen--Strichartz formula. We provide an explicit expression for the components in this series. 
+Our results extend previous results
+for deterministic and continuous stochastic differential equations.  
+\end{talk}
+
+\begin{talk}
+  {Comparing Probabilistic Load Forecasters: Stochastic Differential Equations and Deep Learning}% [1] talk title
+  {Riccardo Saporiti}% [2] speaker name
+  {EPFL, Lausanne, Switzerland}% [3] affiliations
+  {riccardo.saporiti@epfl.ch}% [4] email
+  {Fabio Nobile, Celia Garc\'ia-Pareja}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 17:00---17:30}% [7] time slot
+  {T11-4}% [8] talk id
+  {T11}% [9] session id or photo
+  
+    
+
+Generating probabilistic predictions for the electricity-load profile is the foundation of efficient use of renewable energy and diminishing carbon footprint.
+
+In this talk, we consider the problem of creating probabilistic forecasts of the day-ahead electricity consumption profile of an agglomerate of buildings in the city of Lausanne (Switzerland) in the absence of an externally provided prediction function. 
+ 
+We propose a nonparametric, data-driven, approach based on It\^o' Stochastic Differential Equations (SDEs) [1]. Our work is novel in that the mean function of the SDE is expanded on a Fourier periodic basis, capturing intra-day and intra-week periodic features. 
+Using a derivative tracking term, we impose the trajectories of the process to revert toward the mean. To model high-volatility levels associated with more uncertain electricity consumption regimes, we employ a square-root type diffusion coefficients. 
+
+Maximum-Likelihood estimation is used to infer the parameters of the model coherently with the available observations of the time history. We show that the maximization problem is well posed and that it admits at least one solution over the feasible domain. 
+
+We compare the probabilistic predictions generated by the SDE with Deep Learning based probabilistic forecaster. 
+On the one hand, we introduce a Deep Learning forecaster based on Long short-term memory (LSTM) recurrent neural networks trained by minimizing the quantile loss function. This approach allows the generation of confidence intervals by sampling from the one-step-ahead univariate cumulative density function (CDF) associated with the electricity consumption of the future time instant. 
+On the other hand, inspired by [2], we consider Multivariate Quantile Function Forecasters that, based on Normalizing Flows, learn the multivariate cumulative density function of the day-ahead electricity consumption.
+
+Metrics such as Continuous ranked probability score and Prediction interval coverage percentage are used to assess the quality of the forecasts. 
+
+We show that SDEs generate reliable and interpretable predictions while presenting the most parsimonious and computationally efficient structure among the three models.
+
+
+\medskip
+
+ 
+
+\begin{enumerate}
+    \item[{[1]}] Riccardo Saporiti, Fabio Nobile, Celia Garc\'ia-Pareja. {\it Probabilistic Forecast of the Day-Ahead electricity consumption profile with Stochastic Differential Equations: a comparison with Deep Learning models}. In preparation.
+
+ \item[{[2]}] Kelvin Kan, Francois-Xavier Aubet, Tim Januschowski, Youngsuk Park, Konstantinos Benidis, Lars Ruthotto, and Jan Gasthaus (2022). {\it Multivariate Quantile Function Forecaster}. Proceedings of The 25th International Conference on Artificial Intelligence and Statistics, PMLR 151:10603-10621, 2022.
+ 
+\end{enumerate}
+ 
+\end{talk}
+
+\begin{talk}
+  {Abdujabar Rasulov}% [1] talk title
+  {University of world economy and diplomacy}% [2] speaker name
+  {E mail: asrasulov@gmail.com}% [3] affiliations
+  {}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 15:30---16:00}% [7] time slot
+  {T12-1}% [8] talk id
+  {T12}% [9] session id or photo
+ {}% [5] coauthors
+
+    
+   
+As is known, the nonlinear Boltzmann equation describes the behavior of rareﬁed gas much better than the linear Kac’s [1] model. That is why we can expect that application of the nonlinear spatially homogenous Boltzmann equation to the Harlow’s “particles-in-cell” model [2] allows us to do a computation, which gives a more exact approximation of the solution. 
+Among the statistical methods [3], which use Monte Carlo directly for modeling the ﬂow of rareﬁed gas, the most efﬁcient one is the statistical method of direct modeling the nonstationary ﬂow. 
+In the known “particle-in-cell” method, the simulations divide into two steps. Monte Carlo method is used both for the numerical simulation of collisions of the particles in cells (the ﬁrst step), as well as for the collision-free moving of particles (the second step). 
+In this work we propose another computational scheme, which directly uses the non- linear spatially homogenous Boltzmann equation for the numerical realization of the ﬁrst step in the “particles-in-cell” model of Belotserkovski-Yanitskii [3]. Proposed a new approach of constructing unbiased estimators will give relatively small variance.
+ For this aim we construct a branching Markov process [4] and on its trajectory we propose various” conjugated” computational schemes for calculating an unbiased estimator of the given functional. It should be noted nowadays in this area became popular adjoint direct simulation Monte Carlo method to a general collision kernel [5].  
+The results of our computations show that they are similar with known Belotserkovski-Yanitskii solutions of the Boltzmann equation. We note that in the interval, where the Boltzmann equations” work” (intermediate interval), the “particle-in-cell” statistical model approximates the spatially heterogeneous Boltzmann equation better. 
+
+\medskip
+
+Refenences
+\begin{enumerate}
+ \item[{[1]}] Kac, Mark (1959). {\it Probability and Related Topics in Physical Science}.American Mathematical Society (AMS).
+ \item[{[2]}] Harlow,Harvey F.  (1964).   The Particle-in-Cell Computing Method for Fluid Dynamics. Methods in Computational Physics \textbf{3}, 319--343
+\item[{[3]}] Belotserkovskii, Oleg M.,\& Yanitskii, Vitaliy .E.,   (1975).  The Statistical Method of Particles in Cells in Rarefied Gas Dynamics”, USSR Computational Mathematics and Mathematical Physics,  \textbf{15}(5), 101-114
+\item[{[4]}] Ermakov, Sergey M.,Nekrutkin, Vladimir V.,\& Sipin, Aleksandr S.  (1989). {\it Random Processes for Classical Equations of Mathematical Physics, Kluwer Academic Publishers.}
+\item[{[5]} ] Yang, Yunan, Silantyev, Denis, \&   Caflisch, Russel (2023).   The Particle-in-Cell Computing Method for Fluid Dynamics. Methods in Computational Physics \textbf{448}, 112247
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {A New Approach for Unbiased Estimation of Parameters of Partially Observed Diffusions}% [1] talk title
+  {Miguel Alvarez}% [2] speaker name
+  {King Abdullah University of Science and Technology (KAUST)}% [3] affiliations
+  {miguelangel.alvarezballesteros@kaust.edu.sa}% [4] email
+  {Ajay Jasra}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 16:00---16:30}% [7] time slot
+  {T12-2}% [8] talk id
+  {T12}% [9] session id or photo
+  
+    
+   
+In this talk, we consider the estimation of static parameters for a partially observed diffusion process with discrete-time observations over a fixed time interval. We develop particle filtering methods using time-discretization schemes, and we employ particle Markov chain Monte Carlo methods to estimate the smoothing distribution. In particular, we use backward sampling to address the issue of sample degeneracy. We use the score function and stochastic gradient ascent methods to maximize the likelihood of the observations. Parameter estimation in the diffusion term is possible by introducing bridge processes and the corresponding bridge-guiding proposals. To achieve an unbiasedness, we adopt the Rhee and Glynn approach [1], in which the sources of bias are the number of stochastic gradient ascent steps and the time-discretization. Finally, we display numerically the method applying it to two systems. 
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Rhee, C. H, \& Glynn, H. (2015).  Unbiased estimation with square root convergence for SDE models, \emph{Op. Res.},~{\bf 63}, 1026--1043. 
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {High-order adaptive methods for exit times of diffusion processes and reflected diffusions}% [1] talk title
+  {H{\aa}kon Hoel}% [2] speaker name
+  {University of Oslo}% [3] affiliations
+  {haakonah@math.uio.no}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 16:30---17:00}% [7] time slot
+  {T12-3}% [8] talk id
+  {T12}% [9] session id or photo
+  {}% [5] coauthors
+  
+    
+   
+\medskip
+The Feynman--Kac formula connects domain-exit and boundary-reflection properties of stochastic differential equations (SDEs) and parabolic partial differential equations. The SDE viewpoint is particularly interesting for numerical methods, as it can be used with Monte Carlo methods to overcome the curse of dimensionality when solving high-dimensional PDE. This however hinges on having an efficient numerical method for simulating the exit times of SDEs. Since exit times of diffusion processes are very sensitive to perturbations in initial conditions, it is challenging to construct such numerical methods.
+
+This talk presents a high-order method with adaptive time-stepping for strong approximations of exit times. The method employs a high-order It\^o--Taylor scheme for simulating SDE paths and carefully decreases the step size in the numerical integration as the diffusion process approaches the domain's boundary. These techniques complement each other well: adaptive time-stepping improves the accuracy of the exit time by reducing the overshoot out of the domain, and high-order schemes improve the state approximation of the diffusion process, which is useful feedback to control the step size. We will also consider an ongoing extension of the numerical method to reflected diffusions.
+
+\end{talk}
+
+\begin{talk}
+  {On the convergence of the Euler-Maruyama scheme for McKean-Vlasov SDEs}% [1] talk title
+  {Noufel Frikha}% [2] speaker name
+  {Universit\'e Paris 1 Panth\'eon-Sorbonne}% [3] affiliations
+  {noufel.frikha@univ-paris1.fr}% [4] email
+  {Cl\'ement Rey, Xuanye Song}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 17:00---17:30}% [7] time slot
+  {T12-4}% [8] talk id
+  {T12}% [9] session id or photo
+  
+    
+   
+Relying on the backward Kolmogorov PDE stated on the Wasserstein space, we obtain several new results concerning the approximation error of some non-linear diffusion process in the sense of McKean-Vlasov by the corresponding Euler-Maruyama discretization scheme of its system of interacting particles. We notably present explicit error estimates, at the level of the trajectories, at the level of the semigroup (stated on the Wasserstein space) and at the level of the densities. Some Gaussian density estimates of the transition density and its first order derivative for the Euler-Maruyama scheme are also established. This presentation is based on joint works with Cl\'ement Rey (Ecole Polytechnique) and Xuanye Song (Universit\'e Paris Cit\'e).
+
+\medskip
+
+
+\begin{enumerate}
+ \item[{[1]}] Frikha, N.  \& Song, X. (2025). {\it On the convergence of the Euler-Maruyama scheme for McKean-Vlasov SDEs}, arXiv:2503.22226.
+ \item[{[2]}] Frikha, N. \& Rey, C. (2025).  {\it On the weak convergence of the Euler-Maruyama scheme for McKean-Vlasov SDEs: expansion of the densities}.
+\end{enumerate}
+
+
+\end{talk}
+
+\begin{talk}
+  {Learning cooling strategies in simulated annealing through binary interactions}% [1] talk title
+  {Fr\'ed\'eric Blondeel}% [2] speaker name
+  {KULeuven \& UniFe}% [3] affiliations
+  {frederic.blondeel@kuleuven.be}% [4] email
+  {Lorenzo Pareschi, Giovanni Samaey}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 10:30---11:00}% [7] time slot
+  {T13-1}% [8] talk id
+  {T13}% [9] session id or photo
+  
+    
+   
+Global optimization is amongst the hardest to solve problems. This is because finding the global minimum can usually only be guaranteed to be found in infinite time. Therefore one usually relies on meta-heuristic algorithms to guide the search and improve chances of successfully identifying the minimum. One particular family of algorithms is simulated annealing (SA). This family of algorithms is inspired by real-world metallurgy and is based on the Metropolis-Hastings algorithm. It works by randomly sampling $N$ particles on the search space, each with a given temperature $T$. The movement of these particles is analogous to a Brownian random walk with step size proportional to temperature. The temperature is gradually cooled down over the course of the simulation according to some predefined schedule. Due to the Metropolis-Hastings-like acceptance-rejection rule, these particles can jump out of local minima and are expected to move towards the lowest energy state, i.e., the global minimum. It is the design of these cooling schedules for SA that we wish to improve. This is because they directly impact the efficiency of the optimization tool. Typically cooling schedules are inverse logarithmic or geometric decays in time. Here, we consider a collective SA dynamic where particles \textit{interact} to learn the optimal temperature cooling strategy. This is inspired by the well-known particle-swapping technique known as parallel tempering (PT). To this aim we introduce a Boltzmann-type description where particles (partially) exchange their temperatures, therefore slowly cooling down the overall mean temperature. In order to simulate the dynamic we use a direct simulation Monte Carlo (DSMC) algorithm known as Nanbu-Babovsky. We show on various test functions (Ackley, Rastrigin, etc.) that this novel approach outperforms the standard SA with logarithmic and geometric annealing schedules.
+
+\end{talk}
+
+\begin{talk}
+  {Accuracy of Discretely Sampled Stochastic Policies in Continuous-Time Reinforcement Learning}% [1] talk title
+  {Du Ouyang}% [2] speaker name
+  {Department of Mathematical Sciences, Tsinghua University}% [3] affiliations
+  {oyd21@mails.tsinghua.edu.cn}% [4] email
+  {Yanwei Jia, Yufei Zhang}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 11:00---11:30}% [7] time slot
+  {T13-2}% [8] talk id
+  {T13}% [9] session id or photo
+  
+    
+   
+
+
+\medskip
+
+How to execute a stochastic policy in continuous-time environments is crucial for real-time operations and decision making. We show that, by sampling actions from a stochastic policy at a fixed time grid and then executing a piecewise constant control process, the controlled state process converges to the corresponding aggregated dynamics in the weak sense as the grid size shrinks to zero and obtain the convergence rate. Specifically, under sufficiently regular conditions on the coefficients, the optimal convergence rate of $O(|\mathscr{G}|)$ is achieved with respect to the time grid $\mathscr{G}$. For less regular coefficients, a convergence rate is established that varies according to the degree of regularity of the coefficients. Additionally, we also derive large deviation bounds for the weak error. Beyond weak error convergence, strong convergence results are proved with a convergence order of $O(|\mathscr{G}|^{1/2})$ in cases where volatility is uncontrolled. Furthermore, we provide a counterexample to demonstrate that no strong convergence occurs when volatility is controlled. Based on these results, we analyze the bias and variance of the policy evaluation and policy gradient estimators in various algorithms for continuous-time reinforcement learning caused by discrete sampling.
+
+
+\end{talk}
+
+\begin{talk}
+  {Martingale deep neural networks for quasi-linear PDEs and stochastic optimal controls in 10,000 dimensions}% [1] talk title
+  {Wei Cai}% [2] speaker name
+  {Department of Mathematics, Southern Methodist University}% [3] affiliations
+  {cai@smu.edu}% [4] email
+  {Shuixing Fang, Wenzhong Zhang, Tao Zhou}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 11:30---12:00}% [7] time slot
+  {T13-3}% [8] talk id
+  {T13}% [9] session id or photo
+  
+    
+   
+Abstract: In this talk, we will present a highly parallel and derivative-free martingale neural network method, based on the probability theory of Varadhan’s martingale formulation of PDEs, to solve Hamilton-Jacobi-Bellman (HJB) equations arising from stochastic optimal control problems (SOCPs), as well as general quasilinear parabolic partial differential equations (PDEs). In both cases, the PDEs are reformulated into a martingale problem such that loss functions will not require the computation of the gradient or Hessian matrix of the PDE solution, and can be computed in parallel in both time and spatial domains. Moreover, the martingale conditions for the PDEs are enforced using a Galerkin method realized with adversarial learning techniques, eliminating the need for direct computation of the conditional expectations associated with the martingale property. For SOCPs, a derivative-free implementation of the maximum principle for optimal controls is also introduced. The numerical results demonstrate the effectiveness and efficiency of the proposed method, which is capable of solving HJB and quasilinear parabolic PDEs accurately and fast in dimensions as high as 10,000.
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+\begin{enumerate}
+ \item[{[1]}] Cai,  Wei, Shuixin Fang, Wenzhong Zhang, Tao Zhou, Martingale deep learning for very high dimensional quasi-linear partial differential equations and stochastic optimal controls,  arXiv:2408.14395, August, 2024. 
+ % \item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+\end{enumerate}
+
+ 
+\end{talk}
+
+\begin{talk}
+  {Yiqing Zhou}% [1] talk title
+  {KU Leuven}% [2] speaker name
+  {yiqing.zhou@kuleuven.be}% [3] affiliations
+  {Karsten Naert, Dirk Nuyens}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Thu, Jul 31 12:00---12:30}% [7] time slot
+  {T13-4}% [8] talk id
+  {T13}% [9] session id or photo
+  
+    
+   
+Minimizing a function with limited sample points is challenging when function evaluations are costly. We propose a fast interpolation-based approach using the Fast Fourier Transform (FFT) to estimate the minimum more efficiently. By interpolating from a sparse set of samples, our method achieves high accuracy with significantly fewer function evaluations. Preliminary results demonstrate its effectiveness for smooth periodic functions.
+\end{talk}
+
+\begin{talk}
+  {Gradient-based MCMC in high dimensions}% [1] talk title
+  {Reuben Cohn-Gordon}% [2] speaker name
+  {University of California, Berkeley}% [3] affiliations
+  {reubenharry@gmail.com}% [4] email
+  {Jakob Robnik, Uro\v{s} Seljak}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 09:00---09:30}% [7] time slot
+  {T14-1}% [8] talk id
+  {T14}% [9] session id or photo
+  
+    
+   
+Sampling from distributions over $\mathbb{R}^d$ for $d$ larger than $10^4$ arises as a computational challenge in many of the physical sciences, including particle physics [1], condensed matter physics [2], cosmology [3] and chemistry [4], as well as in Bayesian statistics and machine learning [5]. Commonly used gradient-based variants of Markov Chain Monte Carlo such as Hamiltonian Monte Carlo (HMC) [6] and in particular the No U-Turn Sampler [7], are designed for differentiable multivariate densities, but struggle in very high dimensions. 
+% The absence of a standard general purpose solution means that different fields use domain-specific approaches, despite the underlying similarity of the inference problem at hand. 
+We propose a general purpose approach to the gradient-based high dimensional regime, based on two insights. First, in high dimensional cases where limited asymptotic bias is acceptable, Markov Chain algorithms without Metropolis-Hastings (MH) adjustment are more statistically efficient; we provide theoretical and numerical evidence for this claim and show how to choose a step size to limit the incurred bias to an acceptable level. Second, in the case that MH adjustment is required, we show that a particular 4th order integrator [8] drastically improves the statistical efficiency of HMC and related algorithms in high dimensions.
+
+% (3) that Langevin noise on momenta in the dynamics can be chosen as a function of autocorrelation length and
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+\begin{enumerate}
+\item[{[1]}] Duane, S., Kennedy, A. D., Pendleton, B. J., \& Roweth, D. (1987). Hybrid Monte Carlo. Physics letters B, 195(2), 216-222.
+\item[{[2]}] Lunts, P., Albergo, M. S., \& Lindsey, M. (2023). Non-Hertz-Millis scaling of the antiferromagnetic quantum critical metal via scalable Hybrid Monte Carlo. Nature communications, 14(1), 2547.
+\item[{[3]}] Lewis, A., \& Bridle, S. (2002). Cosmological parameters from CMB and other data: A Monte Carlo approach. Physical Review D, 66(10), 103511.
+\item[{[4]}] Tuckerman, M. E. (2023). Statistical mechanics: theory and molecular simulation. Oxford university press.
+% \item[{[5]}] Betancourt, M., \& Girolami, M. (2015). Hamiltonian Monte Carlo for hierarchical models. Current trends in Bayesian methodology with applications, 79(30), 2-4.
+\item[{[5]}] Cobb, A. D., \& Jalaian, B. (2021, December). Scaling Hamiltonian Monte Carlo inference for Bayesian neural networks with symmetric splitting. In Uncertainty in Artificial Intelligence (pp. 675-685). PMLR.
+\item[{[6]}] Betancourt, M. (2017). A conceptual introduction to Hamiltonian Monte Carlo. arXiv preprint arXiv:1701.02434.
+\item[{[7]}] Hoffman, M. D., \& Gelman, A. (2014). The No-U-Turn sampler: adaptively setting path lengths in Hamiltonian Monte Carlo. J. Mach. Learn. Res., 15(1), 1593-1623.
+% \item[{[6]}] Minary, P., Martyna, G. J., \& Tuckerman, M. E. (2003). Algorithms and novel applications based on the isokinetic ensemble. I. Biophysical and path integral molecular dynamics. The Journal of chemical physics, 118(6), 2510-2526.
+% \item[{[7]}] Robnik, J., De Luca, G. B., Silverstein, E., \& Seljak, U. (2023). Microcanonical Hamiltonian Monte Carlo. Journal of Machine Learning Research, 24(311), 1-34.
+\item[{[8]}] Takaishi, T., \& De Forcrand, P. (2006). Testing and tuning symplectic integrators for the hybrid Monte Carlo algorithm in lattice QCD. Physical Review E—Statistical, Nonlinear, and Soft Matter Physics, 73(3), 036706.
+%  \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%  \item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+\end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Parallel Affine Transformation Tuning: Drastically Improving the Effectiveness of Slice Sampling}% [1] talk title
+  {Philip Sch\"ar}% [2] speaker name
+  {Friedrich Schiller University Jena, Germany}% [3] affiliations
+  {philip.schaer@uni-jena.de}% [4] email
+  {Michael Habeck, Daniel Rudolf}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 09:30---10:00}% [7] time slot
+  {T14-2}% [8] talk id
+  {T14}% [9] session id or photo
+  
+
+The performance of MCMC samplers tends to depend on various properties of the target distribution, such as its covariance structure, the location of its probability mass, and its tail behavior. We propose \textit{parallel affine transformation tuning} (PATT) [1], a methodological framework that relies on bijective affine transformations, a latent space construction, the adaptive MCMC principle, and interacting parallel chains, and acts as an intermediate layer between the target distribution and an MCMC method applied to it. By transforming a challenging target into a simpler one, PATT can harness the full potential of the underlying MCMC method.
+
+According to our numerical experiments, PATT is particularly effective in its combinations with \textit{elliptical slice sampling} (ESS) [2] and \textit{Gibbsian polar slice sampling} (GPSS) [3]. For targets that are sufficiently well-behaved (e.g.~posteriors in Bayesian logistic regression), these combinations produce samples of (empirically) dimension-independent quality at remarkably low computational cost, with PATT-ESS performing best for light-tailed targets and PATT-GPSS being the superior choice for heavy-tailed ones.
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Sch\"ar, P., Habeck, M., Rudolf, D. (2024). Parallel affine transformation tuning of Markov chain Monte Carlo. \textit{Proceedings of the 41st International Conference on Machine Learning (ICML)}, PMLR 235, pp.~43571-43607.
+ \item[{[2]}] Murray, I., Adams, R.P., MacKay, D. (2010). Elliptical slice sampling. \textit{Proceedings of the 13th International Conference on Artificial Intelligence and Statistics}, PMLR 9, pp.~541--548.
+ \item[{[3]}] Sch\"ar, P., Habeck, M., Rudolf, D. (2023). Gibbsian polar slice sampling. \textit{Proceedings of the 40th International Conference on Machine Learning (ICML)}, PMLR 202, pp.~30204-30223.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Low-Rank Thinning}% [1] talk title
+  {Annabelle Michael Carrell}% [2] speaker name
+  {University of Cambridge}% [3] affiliations
+  {ac2411@cam.ac.uk}% [4] email
+  {Albert Gong, Abhishek Shetty, Raaz Dwivedi, Lester Mackey}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 10:00---10:30}% [7] time slot
+  {T14-3}% [8] talk id
+  {T14}% [9] session id or photo
+  
+    
+   
+The goal in thinning is to summarize a dataset using a small set of representative points. Remarkably, sub-Gaussian thinning algorithms like Kernel Halving and Compress can match the quality of uniform subsampling while substantially reducing the number of summary points. However, existing guarantees cover only a restricted range of distributions and kernel-based quality measures and suffer from pessimistic dimension dependence. To address these deficiencies, we introduce a new low-rank analysis of sub-Gaussian thinning that applies to any distribution and any kernel, guaranteeing high-quality compression whenever the kernel or data matrix is approximately low-rank. To demonstrate the broad applicability of the techniques, we design practical sub-Gaussian thinning approaches that improve upon the best known guarantees for approximating attention in transformers, accelerating stochastic gradient training through reordering, and distinguishing distributions in near-linear time. 
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {Randomness in the quantum age: A Comparative Study of Classical and Quantum Random Number Generators}% [1] talk title
+  {Hongmei Chi}% [2] speaker name
+  {Florida A\&M University}% [3] affiliations
+  {Hongmei.chi@famu.edu}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Fri, Aug 1 10:30---11:00}% [7] time slot
+  {T14-4}% [8] talk id
+  {T14}% [9] session id or photo
+ % {Names of coauthors go here, no affiliations of coauthors please, all affiliations will be included in an appendix of the program book}% [5] coauthors
+ 
+     
+The advent of quantum computing marks a pivotal transformation in the domain of computational sciences, particularly in the generation and utilization of randomness. This paper provides a critical examination of Random Number Generators (RNGs) within the context of the quantum computing era, with a specific focus on the emerging class of Quantum Random Number Generators (QRNGs), which leverage the inherent unpredictability of quantum mechanical processes to produce true random numbers, offering significant advantages over classical pseudorandom number generators. 
+In this paper, we present a comprehensive analysis of QRNG principles, architectures, and implementations, focusing on key quantum phenomena such as photon path selection, quantum vacuum fluctuations, and quantum phase noise. We examine the theoretical foundations that guarantee randomness, explore entropy extraction techniques, and evaluate the performance metrics critical for cryptographic and high-security applications [1]. A comparative assessment of existing commercial and laboratory-scale QRNG systems is provided, highlighting trade-offs between speed, complexity, and certifiability of randomness [2].  We address the challenges in device-independent randomness certification and integration into modern communication and computing infrastructures. Our findings underscore QRNGs as essential components in advancing secure quantum technologies, with potential for wide-scale deployment in future quantum networks and cryptographic protocols [3].
+
+ %We investigate the theoretical underpinnings of QRNGs, grounded in fundamental quantum phenomena such as superposition and entanglement, which guarantee true randomness as prescribed by quantum indeterminacy. This work contrasts classical and quantum approaches, evaluates current QRNG implementations, and addresses the practical challenges in achieving scalable, secure, and certifiable quantum randomness. 
+ Finally, we explore the implications of QRNGs for post-quantum cryptographic protocols and assess the broader impact of quantum randomness on algorithmic design and security frameworks. This study underscores the necessity of integrating quantum-enhanced randomness into next-generation computational systems to ensure robustness in the face of quantum adversaries [4].
+
+\medskip
+
+\begin{enumerate}
+\item[{[1]}] Cirauqui, D., Garc\'ia-March, M. \'A., Guig\'o Corominas, G., Gra{\ss}, T., Grzybowski, P. R., Mu\~noz-Gil, G., ... \& Lewenstein, M. (2024). Comparing pseudo-and quantum-random number generators with Monte Carlo simulations. APL Quantum,  \textbf{1}(3).
+
+\item[{[2]}]  Lin, H., Lu, H., Wong, M. S., Almogbel, A., Alyamani, A., Ng, T. K., ... \& Ooi, B. S. (2025). Micro-LED-based quantum random number generators. Optics Express, \textbf{33}(11), 22154-22164.
+
+\item[{[3]}]  Yang, Y., Lin, Y., Xiao, J., \& Zhong, Z. (2025). Feasibility discussion of quantum cryptography for Internet of Things security: a literature review. Optical and Quantum Electronics, \textbf{57}(5), 264.
+
+\item [{[4]}]  Jacak, M. M., J\'oźwiak, P., Niemczuk, J., \& Jacak, J. E. (2021). Quantum generators of random numbers. Scientific Reports, \textbf{11}(1), 16108.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Combining quasi-Monte Carlo with Stochastic Optimal Control for Trajectory Optimization of Autonomous Vehicles in Mine Counter Measure Simulations}% [1] talk title
+  {Philippe Blondeel}% [2] speaker name
+  {Belgian Royal Military Academy}% [3] affiliations
+  {Philippe.blondeel@mil.be}% [4] email
+  {Filip Van Utterbeeck, Ben Lauwens}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 10:30---11:00}% [7] time slot
+  {T15-1}% [8] talk id
+  {T15}% [9] session id or photo
+  
+    
+   
+Modelling and simulating mine countermeasures (MCM) search missions performed by autonomous vehicles is a challenging endeavour. The goal of these simulations typically consists of calculating trajectories for autonomous vehicles in a designated zone such that the coverage (residual risk) of the zone is below a certain user defined threshold. We have chosen to model and implement the MCM problem as a stochastic optimal control problem, see [1]. Mathematically, the MCM problem is defined as minimizing the total mission time needed to survey a designated zone $\Omega$ for a given residual risk of not detecting sea mines in the  user-chosen square  domain, i.e., 
+\begin{equation}
+\text{min}\, T_f,
+\label{eq:min}
+\end{equation}
+subjected to
+\begin{equation}
+ \mathbb{E}[q\left(T_F\right)] :=  \int_\Omega \text{e}^{-\int_0^{T_F} \gamma\left(\bm{x}\left(\tau\right),\bm{\omega}\right)\, d\,\tau}\phi\left(\bm{\omega}\right) d\,\bm{\omega} \leq \text{Residual Risk}.
+\label{eq:exp}
+\end{equation}
+The output of our stochastic optimal control implementation consists of an optimal trajectory in the square domain for the autonomous vehicle.  As shown in Eq.\,\eqref{eq:exp}, the residual risk is mathematically represented as an expected value integral. In [2], we presented a novel relaxation strategy for the computation of the residual MCM risk, used in our stochastic optimal control formulation. This novel relaxation strategy ensures that the  residual risk obtained at the end of the optimisation run is below the maximally allowed user requested residual risk. This was however not the case  with our initial `naive' implementation of the MCM problem. Our proposed relaxation strategy ensures that the user requested risk is satisfied by sequentially solving the stochastic optimal control problem with an ever increasing size of the domain. We combine this strategy with  a quasi-Monte Carlo  sampling scheme based on a Rank-1 Lattice rule for the computation of the expected value integral. We observe a speedup up to a factor two in terms of total computational cost in favour of quasi-Monte Carlo when compared to standard Monte Carlo.
+
+
+%In order to compute a solution for this expected value integral, we use on the one hand   , and on the other hand we use  the traditional Monte Carlo (MC) sampling scheme. However,  In order to remedy to this issue, we developed a multi-domain relaxation strategy. The main idea of our multi-domain relaxation strategy consists of sequentially solving the stochastic optimal control problem with an ever increasing size of the domain until the requested risk is satisfied. The qMC or MC points we use are generated once at the start of the simulation on the unit cube domain, after which they are mapped to the desired domains.   
+\medskip
+\begin{enumerate}
+ \item[{[1]}] Blondeel, P., Van Utterbeeck, F., Lauwens, B. (2024). Modeling sand ripples in mine countermeasure simulations by means of stochastic optimal control. In: The 19th European Congress on Computational Methods in Applied Sciences and Engineering, ECCOMAS, Lisbon, Portugal (2024).
+ \item[{[2]}] Blondeel, P., Van Utterbeeck, F., Lauwens, B. (2025).  Application of quasi-Monte Carlo in Mine Countermeasure Simulations with a Stochastic Optimal Control Framework, \textit{arXiv preprint}
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {A Monte Carlo Approach to Designing a Novel Sample Holder for Enhanced UV-Vis Spectroscopy}% [1] talk title
+  {R. Persiani}% [2] speaker name
+  {INFN Section of Catania, Via S. Sofia 64, Catania, 95123, Italy}% [3] affiliations
+  {rino.persiani@ct.infn.it}% [4] email
+  {A. Agugliaro, S. Albergo, R. De Angelis, I. Di Bari, A. Sciuto, A. Tricomi}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 11:00---11:30}% [7] time slot
+  {T15-2}% [8] talk id
+  {T15}% [9] session id or photo
+  
+    
+   
+UV-Vis spectroscopy is one of the most widely used techniques for identifying and quantifying substances in water and other solvents due to its speed and reliability. Its applications span diverse scientific fields, including chemistry, biochemistry, and medicine, as well as industrial sectors such as the pharmaceutical and food industries. Moreover, it plays a crucial role in environmental monitoring, particularly in assessing water quality. While alternative methods such as Raman and Ring Down spectroscopy have emerged, the core design of UV-Vis spectrometers has remained largely unchanged since their inception. Typically, these instruments employ a light source, a monochromator, a standard 1 cm cuvette as the sample holder, and one or more photosensors.
+
+In this work, we present a novel approach that leverages Monte Carlo simulation to optimize the design of the sample holder for enhanced UV-Vis spectroscopy. In particular, our setup adopts a pulsed light source and a Silicon Photomultiplier (SiPM) with single-photon counting capability. Using the optical transport package available in the Geant4 toolkit, we characterized and optimized the new design. The innovative holder, crafted in PTFE for its high UV reflectivity, resembles an integrating sphere, which increases the photon path length in the solution and thereby enhances absorbance in the presence of absorbing substances. We also present a comparison between experimental data and Monte Carlo predictions for validation. With this new sample holder, the spectrophotometer exhibits enhanced detection sensitivity, especially at low concentrations.
+
+\medskip
+
+\end{talk}
+
+\begin{talk}
+  {ARCANE Reweighting: A technique to tackle the sign problem in the simulation of collider events in high energy physics}% [1] talk title
+  {Prasanth Shyamsundar}% [2] speaker name
+  {Fermi National Accelerator Laboratory}% [3] affiliations
+  {prasanth@fnal.gov}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 11:30---12:00}% [7] time slot
+  {T15-3}% [8] talk id
+  {T15}% [9] session id or photo
+  % {Names of coauthors go here, no affiliations of coauthors please, all affiliations will be included in an appendix of 
+  % the program book}% [5] coauthors
+  {}%[5] coauthors
+  
+    
+   
+% Your abstract goes here. Please do not use your own commands or macros.
+
+Negatively weighted events, which appear in the Monte Carlo (MC) simulation of particle collisions, significantly increase the computational resource requirements of current and future collider experiments in high energy physics. This work introduces an MC technique called ARCANE reweighting for reducing or eliminating negatively weighted events. The technique works by redistributing (via an additive reweighting) the contributions of different pathways within the simulator that lead to the same final event. The technique is exact and does not introduce any biases in the distributions of physical observables. ARCANE reweighting can be thought of as a variant of the parametrized control variates technique, with the added nuance that redistribution is performed using a deferred additive reweighting. The technique is demonstrated for the simulation of a specific collision process, namely $e^+ e^- \longrightarrow q \bar{q} + 1\,jet$. The technique can be extended to several other collision processes of interest as well. This talk is based on the Refs~[1] and [2].
+
+\medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+\begin{enumerate}
+ % \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+ % \item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+    \item[{[1]}] Shyamsundar, Prasanth (2025). {\it ARCANE Reweighting: A Monte Carlo Technique to Tackle the Negative Weights Problem in Collider Event Generation}. arXiv:2502.08052 [hep-ph].
+    \item[{[2]}] Shyamsundar, Prasanth (2025). {\it A Demonstration of ARCANE Reweighting: Reducing the Sign Problem in the MC@NLO Generation of $e^+ e^- \longrightarrow q\bar{q} + 1\,jet$ Events}. arXiv:2502.08052 [hep-ph].
+\end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Multifidelity and Surrogate Modeling Approaches for Uncertainty Quantification in Ice Sheet Simulations}% [1] talk title
+  {Nicole Aretz}% [2] speaker name
+  {Oden Institute for Computational Engineering and Sciencess, University of Texas at Austin}% [3] affiliations
+  {nicole.aretz@austin.utexas.edu}% [4] email
+  {Max Gunzburger, Mathieu Morlighem, Karen Willcox}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 12:00---12:30}% [7] time slot
+  {T15-4}% [8] talk id
+  {T15}% [9] session id or photo
+  
+    
+   
+Our work [1] uses multifidelity and surrogate modeling to achieve computationally tractable uncertainty quantification (UQ) for large-scale ice sheet simulations. UQ is of utmost importance to enable judicious policy decisions combating climate change. However, high-fidelity ice sheet models are typically too expensive computationally to permit Monte Carlo sampling. To reduce the computational cost while achieving the same target accuracy, we use multifidelity estimators to shift the computational burden onto less expensive surrogate models derived from coarser discretizations and approximated physics. In this talk, we compare three estimators — Multifidelity [2] and Multilevel [3] Monte Carlo, and the Best Linear Unbiased Estimator [4] — and present results for the expected ice mass loss of the Greenland ice sheet.
+
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Aretz, N., Gunzburger, M., Morlighem, M., \& Willcox, K. (2025). Multifidelity uncertainty quantification for ice sheet simulations. Computational Geosciences, 29(1), 1-22.
+ \item[{[2]}] Peherstorfer, B., Willcox, K., \& Gunzburger, M. (2016). Optimal model management for multifidelity Monte Carlo estimation. SIAM Journal on Scientific Computing, 38(5), A3163-A3194.
+    \item[{[3]}] Giles, M. B. (2015). Multilevel Monte Carlo methods. Acta Numerica, 24, 259-328.
+    \item[{[4]}] Schaden, D., \& Ullmann, E. (2020). On multilevel best linear unbiased estimators. SIAM/ASA Journal on Uncertainty Quantification, 8(2), 601-635.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Empirical Statistical Comparative Analysis of SNP Heritability Estimators and Gradient Boosting Machines (GBM) Using Genetic Data from the UK Biobank}% [1] talk title
+  {Kazeem Adeleke$^{*1}$}% [2] speaker name
+  {University of the West of England, UK}% [3] affiliations
+  {adedayo.adeleke@uwe.ac.uk}% [4] email
+  {Peter Ogunyinka$^{2}$, Emmanuel Ologunleko$^{3}$ and Dawud Agunbiade$^{4}$}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 14:00---14:30}% [7] time slot
+  {T16-1}% [8] talk id
+  {T16}% [9] session id or photo
+  
+    
+   
+This study addresses the methodological challenges in estimating genetic heritability by comparing traditional statistical approaches with advanced machine learning techniques. We evaluated three distinct methods: sibling regression, LD-score regression, and Gradient Boosting Machines (GBMs), using both simulated datasets and real-world data from the UK Biobank. Our methodology involved generating simulated genotypes following Mendelian inheritance patterns and creating corresponding phenotypes incorporating family-specific genetic effect sizes. We conducted Genome-Wide Association Studies (GWAS) on firstborn children from each family and performed comprehensive heritability analyses using all three methods. Results demonstrated that while sibling regression effectively captured within-family genetic similarities and LD-score regression accounted for population-wide linkage disequilibrium patterns, GBMs showed superior capability in predicting phenotypes by capturing complex genetic interactions. The integration of GBMs with traditional methods revealed enhanced predictive power and provided new insights into the genetic architecture of complex traits. Our findings emphasize the value of combining conventional statistical approaches with machine learning techniques for more robust heritability estimation in large-scale UK Biobank studies.
+
+\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+% \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% \item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+%\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Cheap permutation testing}% [1] talk title
+  {Carles Domingo-Enrich}% [2] speaker name
+  {Microsoft Research New England}% [3] affiliations
+  {carlesd@microsoft.com}% [4] email
+  {Raaz Dwivedi, Lester Mackey}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 14:30---15:00}% [7] time slot
+  {T16-2}% [8] talk id
+  {T16}% [9] session id or photo
+  
+    
+   
+Permutation tests are a popular choice for distinguishing distributions and testing independence, due to their exact, finite-sample control of false positives and their minimax optimality when paired with U-statistics. However, standard permutation tests are also expensive, requiring a test statistic to be computed hundreds or thousands of times to detect a separation between distributions. In this work, we offer a simple approach to accelerate testing: group your datapoints into bins and permute only those bins. For U and V-statistics, we prove that these cheap permutation tests have two remarkable properties. First, by storing appropriate sufficient statistics, a cheap test can be run in time comparable to evaluating a single test statistic. Second, cheap permutation power closely approximates standard permutation power. As a result, cheap tests inherit the exact false positive control and minimax optimality of standard permutation tests while running in a fraction of the time. We complement these findings with improved power guarantees for standard permutation testing and experiments demonstrating the benefits of cheap permutations over standard maximum mean discrepancy (MMD), Hilbert-Schmidt independence criterion (HSIC), random Fourier feature, Wilcoxon-Mann-Whitney, cross-MMD, and cross-HSIC tests.
+
+% \medskip
+
+% If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+% Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+% APA reference style is recommended.
+% \begin{enumerate}
+%  \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%  \item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+% \end{enumerate}
+
+% Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\begin{talk}
+  {Moving PCG beyond LCGs}% [1] talk title
+  {Christopher Draper}% [2] speaker name
+  {Florida State University}% [3] affiliations
+  {chd16@fsu.edu}% [4] email
+  {Michael Mascagni}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 15:00---15:30}% [7] time slot
+  {T16-3}% [8] talk id
+  {T16}% [9] session id or photo
+  
+    
+   
+PCG is a set of generators released by Melissa E. O’Neill in 2014 [1]. The original technical report outlined a number of lightweight
+scrambling techniques. Each scrambling technique offered some improvement to the quality of the linear congruential generators
+they were designed for. However the real strength of the scrambling techniques was that they could easily be combined in different
+combinations to offer much stronger improvements. The PCG technical report concludes with the creation of the PCG library, a
+popular PRNG library that implements a number of generators described in the technical report. Starting from the observation that the
+PCG work was narrowly focused on implementing their scrambling techniques for specific linear congruential generators, we explore
+the PCG scrambling techniques and their potential application for being applied to other PRNGs. We show the steps taken to generalize the PCG
+scrambling techniques to work with any arbitrary amount of bits and parameter values. Then test the PCG scrambling techniques
+across different linear congruential generators and then test the PCG scrambling techniques across a number of different PRNGs.
+\medskip
+
+\begin{enumerate}
+ \item[{[1]}] Melissa E. O’Neill. 2014. PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation. Technical Report HMC-CS-2014-0905. Harvey Mudd College, Claremont, CA.
+\end{enumerate}
+
+\end{talk}
+
+\begin{talk}
+  {Hybrid least squares for learning functions from highly noisy data}% [1] talk title
+  {Yiming Xu}% [2] speaker name
+  {University of Kentucky}% [3] affiliations
+  {yiming.xu@uky.edu}% [4] email
+  {Ben Adcock, Bernhard Hientzsch, Akil Narayan}% [5] coauthors
+  {}% [6] special session
+  {Wed, Jul 30 15:30---16:00}% [7] time slot
+  {T16-4}% [8] talk id
+  {T16}% [9] session id or photo
+  
+    
+   
+Motivated by the request for efficient estimation of conditional expectations, we consider a least-squares function approximation problem with heavily polluted data. In such scenarios, existing methods based on the small noise assumption become suboptimal. We propose a hybrid approach that combines Christoffel sampling with optimal experimental design to address this issue. The proposed algorithm adheres to appropriate optimality criteria for both sample points generation and function evaluation, leading to improved computational efficiency and sample complexity. We also extend the algorithm to convex-constrained settings with similar theoretical guarantees. Moreover, when the target function is defined as the expectation of a random field, we introduce adaptive random subspaces to approximate the target function and establish results concerning its approximation capacity. Our findings are corroborated through numerical studies on synthetic data and a more challenging stochastic simulation problem in computational finance.
+\medskip
+
+\end{talk}

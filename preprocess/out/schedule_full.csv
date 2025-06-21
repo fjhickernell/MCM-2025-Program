@@ -33,44 +33,45 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Tue, Jul 29 15:30–17:30",Track H: Advances in Rare Events Simulation,PH Auditorium,,advances in rare events simulation,S14,32
 "Tue, Jul 29 15:30–17:30","Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II",WH Auditorium,,frontiers in quasi monte carlo and markov chain monte carlo methods part ii,S15,33
 "Tue, Jul 29 15:30-17:30","Track J: Technical Session 5 - Quasi-Monte Carlo, Part 2",HH Alumni Lounge,,technical session 5,T5,34
-"Wed, Jul 30 08:30–16:30",Registration Desk Open,HH Lobby,,,,35
-"Wed, Jul 30 09:00–10:00","Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",HH Auditorium,Gunther Leobacher,michaela szölgyenyi,P5,36
-"Wed, Jul 30 10:00–10:30",Coffee Break,HH Lobby,,,,37
-"Wed, Jul 30 10:30–12:30","Track A: Stochastic Computation and Complexity, Part V",HH Auditorium,,stochastic computation and complexity part v,S16,38
-"Wed, Jul 30 10:30–12:30",Track B: Statistical Design of Experiments,HH Ballroom,,statistical design of experiments,S17,39
-"Wed, Jul 30 10:30–12:30",Track C: Advances in Adaptive Hamiltonian Monte Carlo,PH Auditorium,,advances in adaptive hamiltonian monte carlo,S18,40
-"Wed, Jul 30 10:30–12:30",Track D: Technical Session 15 - Simulation,WH Auditorium,,technical session 15,T15,41
-"Wed, Jul 30 10:30-12:30",Track E: Technical Session 6 - Sampling,HH Alumni Lounge,,technical session 6,T6,42
-"Wed, Jul 30 12:30–14:00",Lunch Break,,,,,43
-"Wed, Jul 30 14:00–16:00",Track F: Stochastic Optimization,HH Auditorium,,stochastic optimization,S19,44
-"Wed, Jul 30 14:00–16:00",Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications,HH Ballroom,,recent progress on algorithmic discrepancy theory and applications,S20,45
-"Wed, Jul 30 14:00–16:00","Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",PH Auditorium,,monte carlo applications in high performance computing computer graphics and computational science,S21,46
-"Wed, Jul 30 14:00–16:00",Track I: Technical Session 16 - Statistics,WH Auditorium,,technical session 16,T16,47
-"Wed, Jul 30 16:00-16:30",Coffee Break,HH Lobby,,,,48
-"Wed, Jul 30 18:00-20:30",Conference Dinner,Bridgeport Arts Center,,,,49
-"Thu, Jul 31 08:30–17:30",Registration Desk Open,HH Lobby,,,,50
-"Thu, Jul 31 09:00–10:00","Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampling: Methods and Optimization Strategies",HH Auditorium,Tim Hobbs,uros seljak,P6,51
-"Thu, Jul 31 10:00–10:30",Coffee Break,HH Lobby,,,,52
-"Thu, Jul 31 10:30–12:30",Track A: QMC and Applications Part I,HH Auditorium,,qmc and applications part i,S22,53
-"Thu, Jul 31 10:30–12:30","Track B: Analysis of Langevin and Related Sampling Algorithms, Part I",HH Ballroom,,analysis of langevin and related sampling algorithms part i,S23,54
-"Thu, Jul 31 10:30–12:30","Track C: Nested expectations: models and estimators, Part II",PH Auditorium,,nested expectations models and estimators part ii,S24,55
-"Thu, Jul 31 10:30–12:30",Track D: Technical Session 8 - Finance,WH Auditorium,,technical session 8,T8,56
-"Thu, Jul 31 10:30-12:30",Track E: Technical Session 13 - ML \& Optimization,HH Alumni Lounge,,technical session 13,T13,57
-"Thu, Jul 31 12:30–14:00",Lunch Break,,,,,58
-"Thu, Jul 31 14:00–15:00","Plenary Talk by Nicolas Chopin, Institut Polytechnique de Paris, Saddlepoint Monte Carlo and its application to exact ecological inference",HH Auditorium,Bruno Tuffin,nicolas chopin,P7,59
-"Thu, Jul 31 15:00–15:30",Coffee Break,HH Lobby,,,,60
-"Thu, Jul 31 15:30–17:30",Track F: QMC and Applications Part II,HH Auditorium,,qmc and applications part ii,S25,61
-"Thu, Jul 31 15:30–17:30","Track G: Analysis of Langevin and Related Sampling Algorithms, Part II",HH Ballroom,,analysis of langevin and related sampling algorithms part ii,S26,62
-"Thu, Jul 31 15:30–17:30",Track H: Recent Advances in Stochastic Gradient Descent,PH Auditorium,,recent advances in stochastic gradient descent,S27,63
-"Thu, Jul 31 15:30–17:30",Track I: Technical Session 7 - Sampling,WH Auditorium,,technical session 7,T7,64
-"Thu, Jul 31 15:30-17:30",Track J: Technical Session 11 - SDEs,HH Alumni Lounge,,technical session 11,T11,65
-"Thu, Jul 31 18:00-20:30",Steering Committee Meeting (by invitation),,,,,66
-"Fri, Aug 1 08:30–12:15",Registration Desk Open,HH Lobby,,,,67
-"Fri, Aug 1 09:00–11:00",Track A: Forward and Inverse Problems for Stochastic Reaction Networks,HH Auditorium,,forward and inverse problems for stochastic reaction networks,S28,68
-"Fri, Aug 1 09:00–11:00","Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",HH Ballroom,,hardware or software for quasi monte carlo algorithms part ii,S29,69
-"Fri, Aug 1 09:00–11:00—",Track C: Technical Session 3 - Simulation,PH Auditorium,,technical session 3,T3,70
-"Fri, Aug 1 09:00–11:00—",Track D: Technical Session 9 - Sampling,WH Auditorium,,technical session 9,T9,71
-"Fri, Aug 1 09:00–11:00",Track E: Technical Session 14 - Markov Chain Monte Carlo,HH Alumni Lounge,,technical session 14,T14,72
-"Fri, Aug 1 11:00-11:30",Coffee Break,HH Lobby,,,,73
-"Fri, Aug 1 11:30-12:30—","Plenary Talk by Veronika Ročková, U of Chicago, AI-Powered Bayesian Inference",HH Auditorium,Art Owen,veronika ročková,P8,74
-"Fri, Aug 1 12:30-12:45",Closing Remarks,HH Auditorium,Fred Hickernell,,,75
+"Tue, Jul 29 19:00-20:00",Chicago White Sox vs. Philadelphia Phillies (must purchase tickets beforehand),Meet in HH Lobby,,,,35
+"Wed, Jul 30 08:30–16:30",Registration Desk Open,HH Lobby,,,,36
+"Wed, Jul 30 09:00–10:00","Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",HH Auditorium,Gunther Leobacher,michaela szölgyenyi,P5,37
+"Wed, Jul 30 10:00–10:30",Coffee Break,HH Lobby,,,,38
+"Wed, Jul 30 10:30–12:30","Track A: Stochastic Computation and Complexity, Part V",HH Auditorium,,stochastic computation and complexity part v,S16,39
+"Wed, Jul 30 10:30–12:30",Track B: Statistical Design of Experiments,HH Ballroom,,statistical design of experiments,S17,40
+"Wed, Jul 30 10:30–12:30",Track C: Advances in Adaptive Hamiltonian Monte Carlo,PH Auditorium,,advances in adaptive hamiltonian monte carlo,S18,41
+"Wed, Jul 30 10:30–12:30",Track D: Technical Session 15 - Simulation,WH Auditorium,,technical session 15,T15,42
+"Wed, Jul 30 10:30-12:30",Track E: Technical Session 6 - Sampling,HH Alumni Lounge,,technical session 6,T6,43
+"Wed, Jul 30 12:30–14:00",Lunch Break,,,,,44
+"Wed, Jul 30 14:00–16:00",Track F: Stochastic Optimization,HH Auditorium,,stochastic optimization,S19,45
+"Wed, Jul 30 14:00–16:00",Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications,HH Ballroom,,recent progress on algorithmic discrepancy theory and applications,S20,46
+"Wed, Jul 30 14:00–16:00","Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",PH Auditorium,,monte carlo applications in high performance computing computer graphics and computational science,S21,47
+"Wed, Jul 30 14:00–16:00",Track I: Technical Session 16 - Statistics,WH Auditorium,,technical session 16,T16,48
+"Wed, Jul 30 16:00-16:30",Coffee Break,HH Lobby,,,,49
+"Wed, Jul 30 18:00-20:30",Conference Dinner,"Bridgeport Art Center, 1200 W. 35th Street",,,,50
+"Thu, Jul 31 08:30–17:30",Registration Desk Open,HH Lobby,,,,51
+"Thu, Jul 31 09:00–10:00","Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampling: Methods and Optimization Strategies",HH Auditorium,Tim Hobbs,uros seljak,P6,52
+"Thu, Jul 31 10:00–10:30",Coffee Break,HH Lobby,,,,53
+"Thu, Jul 31 10:30–12:30",Track A: QMC and Applications Part I,HH Auditorium,,qmc and applications part i,S22,54
+"Thu, Jul 31 10:30–12:30","Track B: Analysis of Langevin and Related Sampling Algorithms, Part I",HH Ballroom,,analysis of langevin and related sampling algorithms part i,S23,55
+"Thu, Jul 31 10:30–12:30","Track C: Nested expectations: models and estimators, Part II",PH Auditorium,,nested expectations models and estimators part ii,S24,56
+"Thu, Jul 31 10:30–12:30",Track D: Technical Session 8 - Finance,WH Auditorium,,technical session 8,T8,57
+"Thu, Jul 31 10:30-12:30",Track E: Technical Session 13 - ML \& Optimization,HH Alumni Lounge,,technical session 13,T13,58
+"Thu, Jul 31 12:30–14:00",Lunch Break,,,,,59
+"Thu, Jul 31 14:00–15:00","Plenary Talk by Nicolas Chopin, Institut Polytechnique de Paris, Saddlepoint Monte Carlo and its application to exact ecological inference",HH Auditorium,Bruno Tuffin,nicolas chopin,P7,60
+"Thu, Jul 31 15:00–15:30",Coffee Break,HH Lobby,,,,61
+"Thu, Jul 31 15:30–17:30",Track F: QMC and Applications Part II,HH Auditorium,,qmc and applications part ii,S25,62
+"Thu, Jul 31 15:30–17:30","Track G: Analysis of Langevin and Related Sampling Algorithms, Part II",HH Ballroom,,analysis of langevin and related sampling algorithms part ii,S26,63
+"Thu, Jul 31 15:30–17:30",Track H: Recent Advances in Stochastic Gradient Descent,PH Auditorium,,recent advances in stochastic gradient descent,S27,64
+"Thu, Jul 31 15:30–17:30",Track I: Technical Session 7 - Sampling,WH Auditorium,,technical session 7,T7,65
+"Thu, Jul 31 15:30-17:30",Track J: Technical Session 11 - SDEs,HH Alumni Lounge,,technical session 11,T11,66
+"Thu, Jul 31 18:00-20:30",Steering Committee Meeting (by invitation),,,,,67
+"Fri, Aug 1 08:30–12:15",Registration Desk Open,HH Lobby,,,,68
+"Fri, Aug 1 09:00–11:00",Track A: Forward and Inverse Problems for Stochastic Reaction Networks,HH Auditorium,,forward and inverse problems for stochastic reaction networks,S28,69
+"Fri, Aug 1 09:00–11:00","Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",HH Ballroom,,hardware or software for quasi monte carlo algorithms part ii,S29,70
+"Fri, Aug 1 09:00–11:00—",Track C: Technical Session 3 - Simulation,PH Auditorium,,technical session 3,T3,71
+"Fri, Aug 1 09:00–11:00—",Track D: Technical Session 9 - Sampling,WH Auditorium,,technical session 9,T9,72
+"Fri, Aug 1 09:00–11:00",Track E: Technical Session 14 - Markov Chain Monte Carlo,HH Alumni Lounge,,technical session 14,T14,73
+"Fri, Aug 1 11:00-11:30",Coffee Break,HH Lobby,,,,74
+"Fri, Aug 1 11:30-12:30—","Plenary Talk by Veronika Ročková, U of Chicago, AI-Powered Bayesian Inference",HH Auditorium,Art Owen,veronika ročková,P8,75
+"Fri, Aug 1 12:30-12:45",Closing Remarks,HH Auditorium,Fred Hickernell,,,76

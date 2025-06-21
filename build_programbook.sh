@@ -27,7 +27,7 @@ TEXBIN=/usr/local/texlive/${TEXYEAR}/bin/universal-darwin
 
 echo "Using filename suffix: $suffix"
 
-cp preprocess/out/sess*.tex MCM_ProgramBook_TEX || exit 1
+cp preprocess/out/*.tex MCM_ProgramBook_TEX || exit 1
 cd MCM_ProgramBook_TEX || exit 1
 
 # Compile LaTeX with specified pdflatex

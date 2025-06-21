@@ -155,8 +155,6 @@ if __name__ == '__main__':
     with open(latex_output_file, 'w') as f:
         f.write(latex_content)
     
-
-    
     #print_special_session_breakdown(talk_dfs['special'])
     #print_contributed_session_breakdown(talk_dfs['contributed'])
 
