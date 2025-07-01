@@ -1,0 +1,83 @@
+name: Build MCM 2025 Program Book
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        environment-file: environment.yml
+        activate-environment: mcm2025
+        python-version: 3.10
+        channels: conda-forge,defaults
+        channel-priority: flexible
+        auto-activate-base: false
+        
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          texlive-full \
+          pdftk \
+          ghostscript \
+          build-essential
+          
+    - name: Verify conda environment
+      shell: bash -l {0}
+      run: |
+        conda activate mcm2025
+        python --version
+        pip list
+        
+    - name: Run preprocessing
+      shell: bash -l {0}
+      run: |
+        conda activate mcm2025
+        make pp
+        
+    - name: Run program generation
+      shell: bash -l {0}
+      run: |
+        conda activate mcm2025
+        make pgm
+        
+    - name: List generated files
+      run: |
+        echo "Generated PDF files:"
+        find . -name "*.pdf" -type f | head -20
+        echo "Generated TEX files:"
+        find . -name "*.tex" -type f | head -20
+        
+    - name: Upload program book artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: mcm-2025-program-book
+        path: |
+          MCM_ProgramBook_TEX/*.pdf
+          MCM_ProgramBook_TEX/*.tex
+          preprocess/out/*.tex
+          preprocess/out/*.csv
+        retention-days: 30
+        
+    - name: Upload build logs
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: build-logs
+        path: |
+          MCM_ProgramBook_TEX/*.log
+          daily_build.log
+          build_programbook.log
+        retention-days: 7
