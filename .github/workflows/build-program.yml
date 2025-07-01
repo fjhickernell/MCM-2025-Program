@@ -27,16 +27,15 @@ jobs:
         sudo rm -rf "$AGENT_TOOLSDIRECTORY"
         
     - name: Setup Miniconda
-      uses: conda-incubator/setup-miniconda@v2
+      uses: conda-incubator/setup-miniconda@v3
       with:
         environment-file: environment.yml
         activate-environment: mcm2025
-        python-version: 3.10
+        python-version: '3.10'
         channels: conda-forge,defaults
         channel-priority: flexible
         auto-activate-base: false
-        miniforge-variant: Mambaforge
-        use-mamba: true
+        miniforge-version: latest
         
     - name: Install system dependencies
       run: |
@@ -118,10 +117,9 @@ jobs:
       with:
         name: mcm-2025-program-book-${{ github.run_number }}
         path: |
-          MCM_ProgramBook_TEX/*.pdf
-          MCM_ProgramBook_TEX/MCM2025_*.pdf
-          preprocess/out/*.tex
-          preprocess/out/*.csv
+          MCM_ProgramBook_TEX/MCM2025_Book.pdf
+          MCM_ProgramBook_TEX/MCM2025_schedule.pdf
+          MCM_ProgramBook_TEX/MCM2025_schedule1sheet.pdf
         retention-days: 30
         
     - name: Upload intermediate files for debugging
