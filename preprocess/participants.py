@@ -69,6 +69,13 @@ def extract_participants(dfs):
     if df.empty: return df
     df = df.drop_duplicates(["FirstName", "LastName", "SessionID"]).loc[~((df["FirstName"].str.contains("-")) & (df["LastName"].str.contains("-")))]
     df = cleanup_participant_data(df)
+    # Print potential duplicated names defined as same first and last name but different organizations
+    dupes = df.groupby(["FirstName", "LastName"])["Organization"].nunique()
+    dupes = dupes[dupes > 1]
+    if not dupes.empty:
+        print("\nWARNING: Potential duplicated names with different organizations:")
+        print(df[df.set_index(["FirstName", "LastName"]).index.isin(dupes.index)][["FirstName", "LastName", "Organization"]])
+
     return df.sort_values(["LastName", "FirstName"])
 
 def extract_plenary_participants(df):

@@ -27,7 +27,7 @@ The following are input Google Sheets for MCM 2025. We need to convert them into
 	- Choi has two sessions, each with two parts. Currently, there is only one part, and the part number "Part I" is missing. Two Part II sessions are added. 
 	- Jing Dong's session is added. 
 	- Missing time for RECEPTION and BANQUET — DONE.
-	- <mark>Parallel talks on Friday in the schedule has only 1.5 hours as opposed to 2 hours for 4 talks. May need to move sessions with 4 talks.<mark>
+	- <mark>Parallel talks on Friday in the schedule has only 1.5 hours as opposed to 2 hours for 4 talks. May need to move sessions with 4 talks.</mark>
 * [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
 	- So far, there are 7 plenary talk abstracts. <mark>***Fred has reminded remind them***</mark>
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
@@ -38,31 +38,32 @@ The following are input Google Sheets for MCM 2025. We need to convert them into
 	- **NOTE**: S9, S13, S27, S19, S20 has only 3 speakers in each session.
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
 	- Some values are empty in the last column, `Special Session Title`. Zexin's SS title was filled in manually by Fred. SC added the values for Chih-Li,Sung and Mao,Cai. Mao has a duplicate talk.  It is deduplicated programmatically. 
-	-  Some special sessions has only two speakers who have sent abstracts:  — <mark>Fred and Mikhail will send them reminders </mark>
-      	* Stochastic Optimization 
-      	* Recent Progress on Algorithmic Discrepancy Theory and Applications
-      	* Recent Advances in Stochastic Gradient Descent 
+	- Some special sessions has only two speakers who have sent abstracts: — <mark>Fred and Mikhail will send them reminders</mark>
+		* Stochastic Optimization 
+		* Recent Progress on Algorithmic Discrepancy Theory and Applications
+		* Recent Advances in Stochastic Gradient Descent 
     - <mark>The special talk abstract of Shyam Mohan Subbiah Pillai has been overwritten by a session proposal. It seems to be a mistake.</mark>
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
 	- <mark>Six talks are not assigned to a Technical Session</mark> in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  `//` — <mark>Fred has asked Mikhail to handle these and also fill in column `Paid`</mark>. 
 	- **NOTE**: T1, T8, and T9 has only 3 speakers in each session.
 	- SC programmatically filtered out rows with `Acceptance` == `Yes`.
-	- <mark>Sessions T12 and T3 have > 4 talks<mark>
+	- <mark>Sessions T12 and T3 have > 4 talks</mark>
 
   
 ### Missing Output Data
 
 - SessionList.csv
-  * Session IDs are created programmatically
-  * Chair names are missing — <mark>TODO fill in column `Chair` in Schedule by Chang-Han or program committee</mark>
-  * Room numbers are missing — DONE
+	* Session IDs are created programmatically
+	* Chair names are missing — <mark>TODO fill in column `Chair` in Schedule by Chang-Han or program committee</mark>
+	* Room numbers are missing — DONE
 - Participants.csv
-  * Missing organizing committee members and scientific committee members — <mark>TODO </mark>
-  * Not sure how to get `PageNumber` — DONE.
-  * Student helpers — <mark>TODO </mark>
-  * Paid registered participants who are not presenters/organizers — <mark>Fred will extract from Mail Chimp</mark>
+	* Missing organizing committee members and scientific committee members — <mark>TODO</mark>
+	* Not sure how to get `PageNumber` — DONE.
+	* Student helpers — <mark>TODO</mark>
+	* Paid registered participants who are not presenters/organizers — <mark>Fred will extract from Mail Chimp</mark>
 
 # Workflow
+
 
 ```mermaid
 flowchart TD

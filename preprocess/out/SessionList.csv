@@ -4,50 +4,50 @@ S1,"Track A: Stochastic Computation and Complexity, Part I",1,Stefan Heinrich,Th
 S2,Track B: Domain Uncertainty Quantification,1,André-Alexander Zepernick,Philipp Guth,Vesa Kaarnioja,André-Alexander Zepernick,"Mon, Jul 28 10:30–12:30",HH Ballroom,3
 S3,"Track C: Nested expectations: models and estimators, Part I",1,Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,Arved Bartuska,"Mon, Jul 28 10:30–12:30",PH Auditorium,4
 S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I",1,Sou-Cheng Choi,Pieterjan Robbe,Mike Giles,Sou-Cheng Choi,"Mon, Jul 28 10:30–12:30",WH Auditorium,5
-T1,Track E: Technical Session 1 - Markov Chain Monte Carlo,0,,,,,"Mon, Jul 28 10:30-12:30",HH Alumni Lounge,6
+T1,Track E: Technical Session 1 - Markov Chain Monte Carlo,0,,,,Philip Gagnon,"Mon, Jul 28 10:30-12:30",HH Alumni Lounge,6
 P2,"Plenary Talk by Christiane Lemieux, U of Waterloo, Golden ratio nets and sequences",0,,,,Nathan Kirk,"Mon, Jul 28 14:00–15:00",HH Auditorium,7
 S5,"Track F: Stochastic Computation and Complexity, Part II",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,Larisa Yaroslavtseva,"Mon, Jul 28 15:30–17:30",HH Auditorium,8
 S6,Track G: Recent advances in optimization under uncertainty,1,Philipp A. Guth,Vesa Kaarnioja,- -,Phillip A. Guth,"Mon, Jul 28 15:30–17:30",HH Ballroom,9
 S7,Track H: Computational Methods for Low-discrepancy Sampling and Applications,1,Nathan Kirk,François Clément,,Nathan Kirk,"Mon, Jul 28 15:30–17:30",PH Auditorium,10
-T4,"Track I: Technical Session 4 - Quasi-Monte Carlo, Part 1",0,,,,,"Mon, Jul 28 15:30–17:30",WH Auditorium,11
-T12,Track J: Technical Session 12 - PDEs,0,,,,,"Mon, Jul 28 15:30-17:30",HH Alumni Lounge,12
+T4,"Track I: Technical Session 4 - Quasi-Monte Carlo, Part 1",0,,,,Peter Kritzer,"Mon, Jul 28 15:30–17:30",WH Auditorium,11
+T12,Track J: Technical Session 12 - PDEs,0,,,,Håkon Hoel,"Mon, Jul 28 15:30-17:30",HH Alumni Lounge,12
 P3,"Plenary Talk by Peter Glynn, Stanford U, Combining Simulation and Linear Algebra: COSIMLA",0,,,,Chang-Han Rhee,"Tue, Jul 29 09:00–10:00",HH Auditorium,13
 S8,"Track A: Stochastic Computation and Complexity, Part III",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,Leszek Plaskota,"Tue, Jul 29 10:30–12:30",HH Auditorium,14
 S9,"Track B: Next-generation optimal experimental design: theory, scalability, and real world impact: Part I",1,Florence Forbes,Xun Huan,Youssef Marzouk,Alen Alexanderian,"Tue, Jul 29 10:30–12:30",HH Ballroom,15
 S10,Track C: Heavy-tailed Sampling,1,Alex Shestopaloff,Jun Yang,,Sebastiano Grazzi,"Tue, Jul 29 10:30–12:30",PH Auditorium,16
 S11,"Track D: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part I",1,Sou-Cheng Choi,Yuhan Ding,,Sou-Cheng Choi,"Tue, Jul 29 10:30–12:30",WH Auditorium,17
-T2,Track E: Technical Session 2 - Bayesian Methods,0,,,,,"Tue, Jul 29 10:30-12:30",HH Alumni Lounge,18
+T2,Track E: Technical Session 2 - Bayesian Methods,0,,,,Hamza Ruzayqat,"Tue, Jul 29 10:30-12:30",HH Alumni Lounge,18
 P4,"Plenary Talk by Roshan Joseph, Georgia Institute of Technology, Sensitivity and Screening: From Monte Carlo to Experimental Design",0,,,,Simon Mak,"Tue, Jul 29 14:00–15:00",HH Auditorium,19
 S12,"Track F: Stochastic Computation and Complexity, Part IV",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,Thomas Muller-Gronbach,"Tue, Jul 29 15:30–17:30",HH Auditorium,20
 S13,"Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II",1,Florence Forbes,Xun Huan,Youssef Marzouk,Xun Huan,"Tue, Jul 29 15:30–17:30",HH Ballroom,21
 S14,Track H: Advances in Rare Events Simulation,1,Nadhir Ben Rached,Shyam Mohan Subbiah Pillai,Raúl Tempone,Shyam Mohan Subbiah Pillai,"Tue, Jul 29 15:30–17:30",PH Auditorium,22
 S15,"Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II",1,Sou-Cheng Choi,Yuhan Ding,,Sou-Cheng Choi,"Tue, Jul 29 15:30–17:30",WH Auditorium,23
-T5,"Track J: Technical Session 5 - Quasi-Monte Carlo, Part 2",0,,,,,"Tue, Jul 29 15:30-17:30",HH Alumni Lounge,24
+T5,"Track J: Technical Session 5 - Quasi-Monte Carlo, Part 2",0,,,,Christian Weiss,"Tue, Jul 29 15:30-17:30",HH Alumni Lounge,24
 P5,"Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",0,,,,Gunther Leobacher,"Wed, Jul 30 09:00–10:00",HH Auditorium,25
 S16,"Track A: Stochastic Computation and Complexity, Part V",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,Andreas Neuenkirch,"Wed, Jul 30 10:30–12:30",HH Auditorium,26
 S17,Track B: Statistical Design of Experiments,1,Lulu Kang,Chunfang Lin,,Simon Mak,"Wed, Jul 30 10:30–12:30",HH Ballroom,27
 S18,Track C: Advances in Adaptive Hamiltonian Monte Carlo,1,Art Owen,,,Art Owen,"Wed, Jul 30 10:30–12:30",PH Auditorium,28
-T15,Track D: Technical Session 15 - Simulation,0,,,,,"Wed, Jul 30 10:30–12:30",WH Auditorium,29
-T6,Track E: Technical Session 6 - Sampling,0,,,,,"Wed, Jul 30 10:30-12:30",HH Alumni Lounge,30
-S19,Track F: Stochastic Optimization,1,Shane Henderson,,,,"Wed, Jul 30 14:00–16:00",HH Auditorium,31
-S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications,1,Haotian Jiang,,,,"Wed, Jul 30 14:00–16:00",HH Ballroom,32
+T15,Track D: Technical Session 15 - Simulation,0,,,,Toon Ingelaere,"Wed, Jul 30 10:30–12:30",WH Auditorium,29
+T6,Track E: Technical Session 6 - Sampling,0,,,,Nicola Branchini,"Wed, Jul 30 10:30-12:30",HH Alumni Lounge,30
+S19,Track F: Stochastic Optimization,1,Shane Henderson,,,Shane Henderson,"Wed, Jul 30 14:00–16:00",HH Auditorium,31
+S20,Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications,1,Haotian Jiang,,,Haotian Jiang,"Wed, Jul 30 14:00–16:00",HH Ballroom,32
 S21,"Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",1,Michael Mascagni,,,Michael Mascagni,"Wed, Jul 30 14:00–16:00",PH Auditorium,33
-T16,Track I: Technical Session 16 - Statistics,0,,,,,"Wed, Jul 30 14:00–16:00",WH Auditorium,34
+T16,Track I: Technical Session 16 - Statistics,0,,,,Yiming Xu,"Wed, Jul 30 14:00–16:00",WH Auditorium,34
 P6,"Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampling: Methods and Optimization Strategies",0,,,,Tim Hobbs,"Thu, Jul 31 09:00–10:00",HH Auditorium,35
 S22,Track A: QMC and Applications Part I,1,Michael Gnewuch,Takashi Goda,Peter Kritzer,Michael Gnewuch,"Thu, Jul 31 10:30–12:30",HH Auditorium,36
-S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I",1,Yifan Chen,Xiaoou Cheng,Jonathan Weare,Yifan Chen,"Thu, Jul 31 10:30–12:30",HH Ballroom,37
+S23,"Track B: Analysis of Langevin and Related Sampling Algorithms, Part I",1,Yifan Chen,Xiaoou Cheng,Jonathan Weare,Xiaooou Chdng,"Thu, Jul 31 10:30–12:30",HH Ballroom,37
 S24,"Track C: Nested expectations: models and estimators, Part II",1,Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,Abdul-Lateef Haji-Ali,"Thu, Jul 31 10:30–12:30",PH Auditorium,38
-T8,Track D: Technical Session 8 - Finance,0,,,,,"Thu, Jul 31 10:30–12:30",WH Auditorium,39
-T13,Track E: Technical Session 13 - ML \& Optimization,0,,,,,"Thu, Jul 31 10:30-12:30",HH Alumni Lounge,40
+T8,Track D: Technical Session 8 - Finance,0,,,,TBD,"Thu, Jul 31 10:30–12:30",WH Auditorium,39
+T13,Track E: Technical Session 13 - ML \& Optimization,0,,,,Frédéric Blondeel,"Thu, Jul 31 10:30-12:30",HH Alumni Lounge,40
 P7,"Plenary Talk by Nicolas Chopin, Institut Polytechnique de Paris, Saddlepoint Monte Carlo and its application to exact ecological inference",0,,,,Bruno Tuffin,"Thu, Jul 31 14:00–15:00",HH Auditorium,41
 S25,Track F: QMC and Applications Part II,1,Michael Gnewuch,Takashi Goda,Peter Kritzer,Takashi Goda,"Thu, Jul 31 15:30–17:30",HH Auditorium,42
-S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II",1,Yifan Chen,Xiaoou Cheng,Jonathan Weare,Xiaoou Cheng,"Thu, Jul 31 15:30–17:30",HH Ballroom,43
-S27,Track H: Recent Advances in Stochastic Gradient Descent,1,Jing Dong,,,,"Thu, Jul 31 15:30–17:30",PH Auditorium,44
-T7,Track I: Technical Session 7 - Sampling,0,,,,,"Thu, Jul 31 15:30–17:30",WH Auditorium,45
-T11,Track J: Technical Session 11 - SDEs,0,,,,,"Thu, Jul 31 15:30-17:30",HH Alumni Lounge,46
+S26,"Track G: Analysis of Langevin and Related Sampling Algorithms, Part II",1,Yifan Chen,Xiaoou Cheng,Jonathan Weare,Yifan Chen,"Thu, Jul 31 15:30–17:30",HH Ballroom,43
+S27,Track H: Recent Advances in Stochastic Gradient Descent,1,Jing Dong,,,Jing Dong,"Thu, Jul 31 15:30–17:30",PH Auditorium,44
+T7,Track I: Technical Session 7 - Sampling,0,,,,Joonha Park,"Thu, Jul 31 15:30–17:30",WH Auditorium,45
+T11,Track J: Technical Session 11 - SDEs,0,,,,Fabio Zoccolan,"Thu, Jul 31 15:30-17:30",HH Alumni Lounge,46
 S28,Track A: Forward and Inverse Problems for Stochastic Reaction Networks,1,Sophia Münker,Chiheb Ben Hammouda,Raul Tempone,Sophia Münker,"Fri, Aug 1 09:00–11:00",HH Auditorium,47
 S29,"Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",1,Sou-Cheng Choi,Pieterjan Robbe,Mike Giles,Sou-Cheng Choi,"Fri, Aug 1 09:00–11:00",HH Ballroom,48
-T3,Track C: Technical Session 3 - Simulation,0,,,,,"Fri, Aug 1 09:00–11:00—",PH Auditorium,49
-T9,Track D: Technical Session 9 - Sampling,0,,,,,"Fri, Aug 1 09:00–11:00—",WH Auditorium,50
-T14,Track E: Technical Session 14 - Markov Chain Monte Carlo,0,,,,,"Fri, Aug 1 09:00–11:00",HH Alumni Lounge,51
+T3,Track C: Technical Session 3 - Simulation,0,,,,Nicole Aretz,"Fri, Aug 1 09:00–11:00—",PH Auditorium,49
+T9,Track D: Technical Session 9 - Sampling,0,,,,Soumyadip Ghosh,"Fri, Aug 1 09:00–11:00—",WH Auditorium,50
+T14,Track E: Technical Session 14 - Markov Chain Monte Carlo,0,,,,TBD,"Fri, Aug 1 09:00–11:00",HH Alumni Lounge,51
 P8,"Plenary Talk by Veronika Ročková, U of Chicago, AI-Powered Bayesian Inference",0,,,,Art Owen,"Fri, Aug 1 11:30-12:30—",HH Auditorium,52
