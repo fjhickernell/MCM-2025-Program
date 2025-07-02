@@ -198,7 +198,9 @@ def df_to_latex(df, is_sideway=False):
     df.iloc[:, 1] = df.iloc[:, 1].str.replace(r"Track [A-Z]: ", "", regex=True).str.strip()
     # remove number from "Technical Session 1", "Technical Session 2", etc.
     df.iloc[:, 1] = df.iloc[:, 1].str.replace(r"Technical Session \d+", "Technical Session", regex=True).str.strip()
-    
+    # replace – in first column with --
+    df.iloc[:, 0] = df.iloc[:, 0].str.replace(r"–", "--", regex=True).str.strip()
+
     # Generate LaTeX content
     latex_content = ""
     latex_content += get_latex_table_header(df, is_sideway)
