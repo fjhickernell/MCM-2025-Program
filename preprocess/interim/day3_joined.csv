@@ -6,11 +6,20 @@ SessionTime,SessionTitle,Room,Chair,join_key
 "Wed, Jul 30 10:30–12:30",Track B: Statistical Design of Experiments,HH Ballroom,Simon Mak,statistical design of experiments
 "Wed, Jul 30 10:30–12:30",Track C: Advances in Adaptive Hamiltonian Monte Carlo,PH Auditorium,Art Owen,advances in adaptive hamiltonian monte carlo
 "Wed, Jul 30 10:30–12:30",Track D: Technical Session 15 - Simulation,WH Auditorium,Toon Ingelaere,technical session 15
+<<<<<<< Updated upstream
 "Wed, Jul 30 10:30–12:30",Track E: Technical Session 6 - Sampling,HH Alumni Lounge,Nicola Branchini,technical session 6
+=======
+"Wed, Jul 30 10:30-12:30",Track E: Technical Session 6 - Sampling,HH Alumni Lounge,Nicola Branchini,technical session 6
+>>>>>>> Stashed changes
 "Wed, Jul 30 12:30–14:00",Lunch Break,On your own,,
 "Wed, Jul 30 14:00–16:00",Track F: Stochastic Optimization,HH Auditorium,Shane Henderson,stochastic optimization
 "Wed, Jul 30 14:00–16:00",Track G: Recent Progress on Algorithmic Discrepancy Theory and Applications,HH Ballroom,Haotian Jiang,recent progress on algorithmic discrepancy theory and applications
 "Wed, Jul 30 14:00–16:00","Track H: Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science",PH Auditorium,Michael Mascagni,monte carlo applications in high performance computing computer graphics and computational science
 "Wed, Jul 30 14:00–16:00",Track I: Technical Session 16 - Statistics,WH Auditorium,Yiming Xu,technical session 16
+<<<<<<< Updated upstream
 "Wed, Jul 30 16:00–16:30",Coffee Break,HH Lobby,,
 "Wed, Jul 30 18:00–20:30",Conference Banquet,"Bridgeport Art Center, 1200 W. 35th Street",,
+=======
+"Wed, Jul 30 16:00-16:30",Coffee Break,HH Lobby,,
+"Wed, Jul 30 18:00-20:30",Conference Banquet,"Bridgeport Art Center, 1200 W. 35th Street",,
+>>>>>>> Stashed changes
