@@ -4,14 +4,10 @@
 "09:00–10:00 — Morning Plenary Lecture","Uros Seljak","HH Auditorium","Tim Hobbs"
 "10:00–10:30 — Coffee Break","Coffee Break","HH Lobby",""
 "10:30–12:30 — Morning Parallel Sessions Track A","QMC and Applications Part I","HH Auditorium","Michael Gnewuch"
-"10:30–12:30 — Morning Parallel Sessions Track B","Analysis of Langevin and Related Sampling Algorithms, Part I","HH Ballroom","Xiaooou Chdng"
+"10:30–12:30 — Morning Parallel Sessions Track B","Analysis of Langevin and Related Sampling Algorithms, Part I","HH Ballroom","Xiaoou Cheng"
 "10:30–12:30 — Morning Parallel Sessions Track C","Nested expectations: models and estimators, Part II","PH Auditorium","Abdul-Lateef Haji-Ali"
 "10:30–12:30 — Morning Parallel Sessions Track D","Technical Session 8 - Finance","WH Auditorium","TBD"
-<<<<<<< Updated upstream
 "10:30–12:30 — Morning Parallel Sessions Track E","Technical Session 13 - ML & Optimization","HH Alumni Lounge","Frédéric Blondeel"
-=======
-"10:30-12:30 — Morning Parallel Sessions Track E","Technical Session 13 - ML & Optimization","HH Alumni Lounge","Frédéric Blondeel"
->>>>>>> Stashed changes
 "12:30–14:00 — Lunch Break","Lunch Break","On your own",""
 "14:00–15:00 — Afternoon Plenary Lecture","Nicolas Chopin","HH Auditorium","Bruno Tuffin"
 "15:00–15:30 — Coffee Break","Coffee Break","HH Lobby",""
@@ -19,10 +15,5 @@
 "15:30–17:30 — Afternoon Parallel Sessions Track G","Analysis of Langevin and Related Sampling Algorithms, Part II","HH Ballroom","Yifan Chen"
 "15:30–17:30 — Afternoon Parallel Sessions Track H","Recent Advances in Stochastic Gradient Descent","PH Auditorium","Jing Dong"
 "15:30–17:30 — Afternoon Parallel Sessions Track I","Technical Session 7 - Sampling","WH Auditorium","Joonha Park"
-<<<<<<< Updated upstream
 "15:30–17:30 — Afternoon Parallel Sessions Track J","Technical Session 11 - SDEs","HH Alumni Lounge","Fabio Zoccolan"
 "18:00–20:30","Steering Committee Meeting (by invitation)","TBD",""
-=======
-"15:30-17:30 — Afternoon Parallel Sessions Track J","Technical Session 11 - SDEs","HH Alumni Lounge","Fabio Zoccolan"
-"18:00-20:30","Steering Committee Meeting (by invitation)","TBD",""
->>>>>>> Stashed changes
