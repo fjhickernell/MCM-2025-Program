@@ -26,7 +26,7 @@ an {\em interlaced Halton sequence} that makes use of integer \textit{and} irrat
 %Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
 %APA reference style is recommended.
 \begin{enumerate}
- \item[{[1]}] N. Kirk, C. Lemieux and J. Wiart. Golden ratio nets and sequences. To appear in {\em Functiones and Approximatio}, 2025.
+ \item[{[1]}] N. Kirk, C. Lemieux and J. Wiart. Golden ratio nets and sequences. To appear in {\em Functiones et Approximatio}, 2025.
  \item[{[2]}] N. Kirk, C. Lemieux. An improved Halton sequence for implementation in quasi-Monte Carlo methods. {\em Proceedings of the 2024 Winter Simulation Conference}, 431--442, IEEE Press, Piscataway, NJ, 2024. 
     \item[{[3]}] C. Lemieux and J. Wiart. On the distribution of scrambled $(0, m, s)$-nets over unanchored
 boxes. In: {\em Monte Carlo and Quasi-Monte Carlo Methods 2020}, A. Keller (ed), 
@@ -50,7 +50,7 @@ Springer, 187-230, 2022.
   
     
    
-In numerical computation for Markov chains and jump processes, matrix-based linear algebraic methods leverage fully the special structure of such models, allowing one to efficiently compute highly accurate solutions quickly. When the number of states is large or infinite, Monte Carlo simulation is an appealing alternative, typically allowing low accuracy solutions to be computed efficiently. In this talk, we describe COSIMLA, COmbined SIMulations and Linear Algebra. This new class of algorithms combines the best of the two numerical approaches, using matrix methods to compute expectations and probabilities in the truncated core of the state space, while one uses Monte Carlo to simulate path excursions outside the truncation. As a result, one can now compute high accuracy solutions for models with a very large state space. We show how the method applies to computing equilibrium quantities and various transient characteristics of Markov chains. These algorithms can typically be viewed as an application of conditional Monte Carlo. We also discuss how stratification can be conveniently applied in this setting to provide further variance reductions.  
+In numerical computation for Markov chains and jump processes, matrix-based linear algebraic methods leverage fully the special structure of such models, allowing one to efficiently compute highly accurate solutions quickly. When the number of states is large or infinite, Monte Carlo simulation is an appealing alternative, typically allowing low-accuracy solutions to be computed efficiently. In this talk, we describe COSIMLA, COmbined SIMulations and Linear Algebra. This new class of algorithms combines the best of the two numerical approaches, using matrix methods to compute expectations and probabilities in the truncated core of the state space, while one uses Monte Carlo to simulate path excursions outside the truncation. As a result, one can now compute high-accuracy solutions for models with a very large state space. We show how the method applies to computing equilibrium quantities and various transient characteristics of Markov chains. These algorithms can typically be viewed as an application of conditional Monte Carlo. We also discuss how stratification can be conveniently applied in this setting to provide further variance reductions.  
 
 \end{talk}
 
@@ -95,7 +95,7 @@ Identifying the most important factors affecting the output of a system from a s
   
     
    
-A fundamental question in stochastic modelling is that of quantifying the effects of model uncertainty. In this context it is of interest to compute a distance between different stochastic models. A  reasonable choice of distance is a modification of the Wasserstein distance on the space of probability measures called adapted Wasserstein distance, as it appears in bicausal optimal transport.
+A fundamental question in stochastic modelling is that of quantifying the effects of model uncertainty. In this context it is of interest to compute a distance between different stochastic models. A  reasonable choice of distance is a modification of the Wasserstein distance on the space of probability measures called the adapted Wasserstein distance, as it appears in bicausal optimal transport.
 
  We solve constrained optimal transport problems in which the marginal laws are given by the laws of solutions of stochastic differential equations (SDEs). We consider SDEs with irregular coefficients, making only minimal regularity assumptions. Numerical methods are employed as a theoretical tool to bound the adapted Wasserstein distance. This opens the door for computing the adapted Wasserstein distance in a simple way. We show that this method can be applied to quantifying model uncertainty in stochastic optimisation problems.  
  
@@ -131,7 +131,7 @@ practitioners face numerous algorithmic choices that can significantly impact pe
 4) Parallelization Strategy: parallel sampling on a GPU or CPU cluster enables dramatically reduced wall clock time to reach the required target accuracy. 
 5) Numerical Integration: Higher-order integrators can improve accuracy at the cost of additional gradient evaluations per step.
 
-This goal of this talk is to provide
+The goal of this talk is to provide
 guidance to 
 the optimal choice among these methods, which depends on specific application requirements including computational budget, accuracy demands, and problem dimensionality. Understanding the theoretical trade-offs enables practitioners to select and configure samplers that best match their particular constraints and objectives.
 
@@ -155,7 +155,7 @@ the optimal choice among these methods, which depends on specific application re
 
 In ecological inference, one wishes to model individual items, but perform
 inference based only on aggregate data.  For instance, in two-round elections,
-we are interested the behaviour of individual voters, but only have access to
+we are interested in the behaviour of individual voters, but only have access to
 aggregate vote numbers at each precinct.  We develop an exact method for a
 large class of Ecological Inference Bayesian models, which scales  to the large
 data setting.  Our approach solves a more general problem:  assuming $X$ is a
@@ -211,7 +211,7 @@ with inference with empirical quantiles for continuous data.
   
     
    
-The advent of Generative Artificial Intelligence (GAI) has heralded an inflection point that changed how society thinks about knowledge acquisition. While GAI cannot be fully trusted for decision-making, it may still provide valuable information that can be integrated into a decision pipeline. Rather than seeing the lack of certitude and inherent randomness of GAI as a problem, we view it as an opportunity. Indeed, variable answers to given prompts can be leveraged to construct a prior distribution which reflects assuredness of AI predictions. This prior distribution may be combined with tailored datasets for a fully Bayesian analysis with an AI-driven prior. In this paper, we explore such a possibility within a non-parametric Bayesian framework. The basic idea consists of assigning a Dirichlet process prior distribution on the data-generating distribution with AI generative model as its baseline. Hyper-parameters of the prior can be tuned out-of-sample to assess the informativeness of the AI prior. Posterior simulation is achieved by computing a suitably randomized functional on an augmented data that consists of observed (labeled) data as well as fake data whose labels have been imputed using AI. This strategy can be parallelized and rapidly produces iid samples from the posterior by optimization as opposed to sampling from conditionals. Our method enables (predictive) inference and uncertainty quantification leveraging AI predictions in a coherent probabilistic manner.
+The advent of Generative Artificial Intelligence (GAI) has heralded an inflection point that changed how society thinks about knowledge acquisition. While GAI cannot be fully trusted for decision-making, it may still provide valuable information that can be integrated into a decision pipeline. Rather than seeing the lack of certitude and inherent randomness of GAI as a problem, we view it as an opportunity. Indeed, variable answers to given prompts can be leveraged to construct a prior distribution which reflects assuredness of AI predictions. This prior distribution may be combined with tailored datasets for a fully Bayesian analysis with an AI-driven prior. In this paper, we explore such a possibility within a non-parametric Bayesian framework. The basic idea consists of assigning a Dirichlet process prior distribution on the data-generating distribution with AI generative model as its baseline. Hyperparameters of the prior can be tuned out-of-sample to assess the informativeness of the AI prior. Posterior simulation is achieved by computing a suitably randomized functional on an augmented data that consists of observed (labeled) data as well as fake data whose labels have been imputed using AI. This strategy can be parallelized and rapidly produces iid samples from the posterior by optimization as opposed to sampling from conditionals. Our method enables (predictive) inference and uncertainty quantification leveraging AI predictions in a coherent probabilistic manner.
 
 \medskip
 

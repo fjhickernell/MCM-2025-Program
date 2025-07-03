@@ -126,6 +126,12 @@ def clean_tex_content(text):
         .replace("Lebesque", "Lebesgue")
         .replace("Sou-Cheng T.  Choi", "Sou-Cheng T. Choi")
         .replace("et al ", "et al. ")
+        .replace("This goal of this talk", "The goal of this talk")  
+        .replace("we are interested the behaviour", "we are interested in the behaviour")
+        .replace("Hyper-parameters", "Hyperparameters")
+        .replace("called adapted Wasserstein distance", "called the adapted Wasserstein distance")
+        .replace("high accuracy solutions", "high-accuracy solutions") 
+        .replace("low accuracy solutions", "low-accuracy solutions") 
         
         # Capitalization fixes for technical terms
         .replace("monte carlo", "Monte Carlo")
@@ -133,6 +139,7 @@ def clean_tex_content(text):
         .replace("hamiltonian", "Hamiltonian")
         .replace("markov chain monte carlo", "Markov Chain Monte Carlo")
         .replace("Acta numerica", "Acta Numerica")
+        .replace("Functiones and Approximatio", "Functiones et Approximatio")
         
         # Grammar fixes (duplicated words)
         .replace("the the ", "the ")
