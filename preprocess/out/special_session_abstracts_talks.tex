@@ -1,7 +1,7 @@
 \chapter{Abstracts}\newpage\section{Special Session Talks}
 
 \begin{talk}
-  {A strong order $1.5$ boundary preserving discretization scheme for scalar SDEs defined in a domain}% [1] talk title
+  {A strong order $1.5$ boundary-preserving discretization scheme for scalar SDEs defined in a domain}% [1] talk title
   {Andreas Neuenkirch}% [2] speaker name
   {University of Mannheim}% [3] affiliations
   {neuenkirch@uni-mannheim.de}% [4] email
@@ -16,7 +16,7 @@ We study the strong approximation of scalar SDEs, which take values in a domain 
 By combining a Lamperti-type transformation with a semi-implicit discretization approach and a taming 
 strategy,  we construct a domain-preserving scheme that strongly converges under weak assumptions. 
 Moreover,
-we show that this scheme has strong convergence order $1.5$ under additional assumptions on the coefficients of the SDE. In our scheme, the domain preservation is a consequence of the semi-implicit discretization approach, while the taming strategy allows controlling terms of the scheme that admit singularities but are required to obtain the desired order.
+we show that this scheme has a strong convergence order $1.5$ under additional assumptions on the coefficients of the SDE. In our scheme, the domain preservation is a consequence of the semi-implicit discretization approach, while the taming strategy allows controlling terms of the scheme that admit singularities but are required to obtain the desired order.
 
 Our general convergence results  are  applied to various SDEs from applications, with sub-linearly or super-linearly growing and non-globally Lipschitz coefficients.
 
@@ -25,7 +25,7 @@ Our general convergence results  are  applied to various SDEs from applications,
 
 \begin{enumerate}
  \item[{[1]}]  Ruishu Liu, Andreas Neuenkirch and Xiaojie Wang (2024+). A strong order $1.5$
- boundary preserving discretization scheme for scalar SDEs defined in a domain. {\it Mathematics of Computation.} doi:10.1090/mcom/4014 (to appear, online first)
+ boundary-preserving discretization scheme for scalar SDEs defined in a domain. {\it Mathematics of Computation.} doi:10.1090/mcom/4014 (to appear, online first)
 \end{enumerate}
 
 \end{talk}
@@ -49,9 +49,9 @@ Furthermore, the diffusion coefficient is $C^{1}$ on $\mathbb{R}^{d}$ and commut
 
 It was proven in [1] for $d = 1$ and more recently in [2] for general $d \in \mathbb{N}$ that in this setting a transformed Milstein scheme achieves an $L_{p}$-error rate of order at least $3/4-$ in terms of the number of evaluations of the
 driving Brownian motion.
-Furthermore it was proven in [3] that for $d = 1$ in the same setting an adaptive Milstein-type scheme achieves an $L_{p}$-error rate of order at least $1$ in terms of the average number of evaluations of the driving Brownian motion. 
+Furthermore, it was proven in [3] that for $d = 1$ in the same setting an adaptive Milstein-type scheme achieves an $L_{p}$-error rate of order at least $1$ in terms of the average number of evaluations of the driving Brownian motion. 
 
-In this talk we present a generalisation of the result from [3] to higher dimensions. More precisely, we introduce an adaptive transformed Milstein scheme which can be used for the approximation of solutions of $d$-dimensional systems of SDEs at the final time point in this setting and
+In this talk, we present a generalisation of the result from [3] to higher dimensions. More precisely, we introduce an adaptive transformed Milstein scheme which can be used for the approximation of solutions of $d$-dimensional systems of SDEs at the final time point in this setting and
 prove that this scheme achieves an $L_{p}$-error rate of order at least $1$ in terms of the average number of evaluations of the
 driving Brownian motion.
 
@@ -79,9 +79,9 @@ driving Brownian motion.
   {S1}% [9] session id or photo
     
 
-In this talk we present an adaptive approximation scheme for jump-diffusion SDEs with discontinuous drift and (possibly) degenerate diffusion. The scheme is a transformation-based doubly-adaptive quasi-Milstein scheme, which 
+In this talk, we present an adaptive approximation scheme for jump-diffusion SDEs with discontinuous drift and (possibly) degenerate diffusion. The scheme is a transformation-based doubly-adaptive quasi-Milstein scheme, which 
 is doubly-adaptive in the sense that it is jump-adapted, i.e.~all jump times of the Poisson noise are grid points, and it includes an adaptive stepsize strategy to account for the discontinuities of the drift. It is proven to have strong convergence rate $1$ in $L^p$ for $p\in[1,\infty)$ with respect to the average computational cost for these SDEs. 
-To obtain our result, we prove that under slightly stronger assumptions which are still weaker than those in existing literature, a related doubly-adaptive quasi-Milstein scheme has convergence order $1$. 
+To obtain our result, we prove that under slightly stronger assumptions which are still weaker than those in existing literature, a related doubly-adaptive quasi-Milstein scheme has a convergence order $1$. 
 \end{talk}
 
 \begin{talk}
@@ -173,7 +173,7 @@ Quantifying the effects on electromagnetic waves scattered by objects of uncerta
   {S2}% [9] session id or photo
     
    
-Spectral clustering is a popular unsupervised learning technique which partitions a set of unlabelled data into disjoint clusters. However, the data under consideration are often experimental data, implying that the data is subject to measurement errors and measurements may even be lost or invalid. These uncertainties in the input data induce corresponding uncertainties in the resulting clusters. In this talk we model the uncertainties as random, implying that the clusters need to be considered random as well. We further discuss a mathematical framework based on random set theory for the computational approximation of statistically expected clusterings.
+Spectral clustering is a popular unsupervised learning technique which partitions a set of unlabelled data into disjoint clusters. However, the data under consideration are often experimental data, implying that the data is subject to measurement errors and measurements may even be lost or invalid. These uncertainties in the input data induce corresponding uncertainties in the resulting clusters. In this talk, we model the uncertainties as random, implying that the clusters need to be considered random as well. We further discuss a mathematical framework based on random set theory for the computational approximation of statistically expected clusterings.
 \end{talk}
 
 \begin{talk}
@@ -196,7 +196,7 @@ Remarkably, computational function theory provides a rich set of invariants
 and identities that
 can be applied in designing model problems where the domain is random or uncertain. 
 In this talk the focus is on conformal capacity in a simple, 
-yet general case where the sides of a quadrilateral are assumed be random 
+yet general case where the sides of a quadrilateral are assumed to be random 
 and parameterised with a suitable Karhunen-Lo\`eve expansion [1].
 Lattice quasi-Monte Carlo (QMC) cubature rules are used for computing the expected value of the solution to the resulting Poisson problem subject to domain uncertainty. 
 
@@ -297,7 +297,7 @@ Code available at: \href{https://github.com/vinh-tr-hoang/DOEviaPACE}{https://gi
   {S3}% [9] session id or photo
     
    
-The goal in Bayesian optimal experimental design (OED) is to maximize the expected information gain for the reconstruction of unknown quantities in an experiment by optimizing the placement of measurements. The objective function in the resulting optimization problem involves a multivariate double integral over the high-dimensional parameter and data domains. For the efficient approximation of these integrals, we consider a sparse tensor product combination of quasi-Monte Carlo (QMC) cubature rules over the parameter and data domains. For the parameterization of the unknown quantitites, we consider a model recently studied by Chernov and L\^{e} [1,2] as well as Harbrecht, Schmidlin, and Schwab [3] in which the input random field is assumed to belong to a Gevrey class. The Gevrey class contains functions that are infinitely many times continuously differentiable with a growth condition on the higher-order partial derivatives, but which are not analytic in general. Using the techniques developed in [4], we investigate efficient Bayesian OED for inverse problems governed by partial differential equations (PDEs).
+The goal in Bayesian optimal experimental design (OED) is to maximize the expected information gain for the reconstruction of unknown quantities in an experiment by optimizing the placement of measurements. The objective function in the resulting optimization problem involves a multivariate double integral over the high-dimensional parameter and data domains. For the efficient approximation of these integrals, we consider a sparse tensor product combination of quasi-Monte Carlo (QMC) cubature rules over the parameter and data domains. For the parameterization of the unknown quantities, we consider a model recently studied by Chernov and L\^{e} [1,2] as well as Harbrecht, Schmidlin, and Schwab [3] in which the input random field is assumed to belong to a Gevrey class. The Gevrey class contains functions that are infinitely many times continuously differentiable with a growth condition on the higher-order partial derivatives, but which are not analytic in general. Using the techniques developed in [4], we investigate efficient Bayesian OED for inverse problems governed by partial differential equations (PDEs).
 \begin{enumerate}
  \item[{[1]}] Chernov, Alexey, \& L\^{e}, T\`{u}ng (2024). Analytic and Gevrey class regularity for parametric elliptic eigenvalue problems and applications. \emph{SIAM Journal on Numerical Analysis}, \textbf{62}(4), 1874--1900.
  \item[{[2]}] Chernov, Alexey, \& L\^{e}, T\`{u}ng (2024). Analytic and Gevrey class regularity for parametric semilinear reaction-diffusion problems and applications in uncertainty quantification. \emph{Computers \& Mathematics with Applications}, \textbf{164}, 116--130.
@@ -342,7 +342,7 @@ In this talk, we explore a novel approach to multilevel quasi-Monte Carlo (MLQMC
     
    
 
-Multilevel Monte Carlo (MLMC) is a computational method that reduces the cost of Monte Carlo simulations by combining SDE approximations with multiple resolutions. A further avenue for significantly reducing cost and improving power efficiency of MLMC, notably for financial option pricing, is the use of low precision calculations on configurable hardware devices such as Field-Programmable Gate Arrays (FPGAs). With this goal in mind, in this talk we propose a new MLMC framework that exploits approximate random variables and fixed-point operations with optimised precision to compute most SDE paths with a lower cost.
+Multilevel Monte Carlo (MLMC) is a computational method that reduces the cost of Monte Carlo simulations by combining SDE approximations with multiple resolutions. A further avenue for significantly reducing cost and improving power efficiency of MLMC, notably for financial option pricing, is the use of low-precision calculations on configurable hardware devices such as Field-Programmable Gate Arrays (FPGAs). With this goal in mind, in this talk, we propose a new MLMC framework that exploits approximate random variables and fixed-point operations with optimised precision to compute most SDE paths with a lower cost.
 
 For the generation of random Normal increments, we discuss several methods based on the approximation of the inverse normal CDF (see e.g. [3]), and we argue that these methods could be implemented on FPGAs using small Look-Up-Tables to generate random numbers more efficiently than on CPUs or GPUs. 
 
@@ -386,7 +386,7 @@ savings than the existing mixed-precision MLMC framework [1].
 This talk will discuss the implementation of Multilevel Monte Carlo
 on NVIDIA GPUs.  It will focus on some of the tricks needed for best
 performance, such as on-the-fly generation of random numbers within
-CUDA kernels, and latency-hiding through GPU computations in antipication
+CUDA kernels, and latency-hiding through GPU computations in anticipation
 of requests from the CPU host process which manages the MLMC optimisation.
 It will also discuss the opportunities and challenges in exploiting
 mixed-precision computing, using nested MLMC to perform most calculations
@@ -437,9 +437,9 @@ Uncertainty quantification (UQ) plays a crucial role in geoscience: Bayesian inf
     
    
    
-We study the integration problem over the s-dimensional unit cube on four scales of Banach spaces of integrands. First we consider Haar wavelet spaces $H_{p, q, \alpha}$, $1\le p, q \le \infty$, $\alpha > 1/p$, consisting of functions whose Haar wavelet coefficients exhibit a certain decay behavior measured by the parameters $p,q$, and, most importantly, $\alpha$.  We study the worst case error of a deterministic cubature rule over the norm unit ball 
+We study the integration problem over the s-dimensional unit cube on four scales of Banach spaces of integrands. First, we consider Haar wavelet spaces $H_{p, q, \alpha}$, $1\le p, q \le \infty$, $\alpha > 1/p$, consisting of functions whose Haar wavelet coefficients exhibit a certain decay behavior measured by the parameters $p,q$, and, most importantly, $\alpha$.  We study the worst-case error of a deterministic cubature rule over the norm unit ball 
 %(i.e., the operator norm of the difference of the integration functional and the cubature rule)
-and provide upper bounds for quasi-Monte Carlo (QMC) cubature rules based on arbitrary $(t,m,s)$-nets as well as matching lower error bounds for arbitrary cubature rules. These results show that using arbitrary $(t,m,s)$-nets as integration nodes yields the best possible rate of convergence. In the Hilbert space setting $p=2 = q$ it was earlier shown by Heinrich, Hickernell and Yue [2]  that scrambled (t,m,s)-nets yield optimal convergence rates in the randomized setting, where the randomized worst case error is considered. 
+and provide upper bounds for quasi-Monte Carlo (QMC) cubature rules based on arbitrary $(t,m,s)$-nets as well as matching lower error bounds for arbitrary cubature rules. These results show that using arbitrary $(t,m,s)$-nets as integration nodes yields the best possible rate of convergence. In the Hilbert space setting $p=2 = q$ it was earlier shown by Heinrich, Hickernell and Yue [2]  that scrambled (t,m,s)-nets yield optimal convergence rates in the randomized setting, where the randomized worst-case error is considered. 
 
 We establish several suitable function space embeddings that allow to transfer the deterministic and randomized upper error bounds on Haar wavelet spaces
 to certain spaces of fractional smoothness $1/p < \alpha  \le 1$ and to Sobolev and Besov spaces of dominating mixed smoothness $1/p < a \le 1$.
@@ -497,7 +497,7 @@ This approach can as well be used for the reconstruction of functions from gener
    
 Consider the smoothness class of $1$-periodic functions $f:\mathbb R\to\mathbb R$ for which 
 $$|f^{(r)}(x)-f^{(r)}(y)|\le |x-y|^\rho,\quad x,y\in\mathbb R,$$ 
-where $r\in\{0,1,2,\ldots\}$ and $0<\rho\le 1.$ It is well known that the optimal worst case error of $L^p$-approximation ($1\le p\le\infty$) of such functions that can be achieved from $n$ exact evaluations of $f$ is proportional to $e_n=n^{-(r+\rho)}.$ Less obvious is what happens when the functions are piecewise smooth only with unknown break points. Even less obvious is the situation when the function values are additionally corrupted by some noise, i.e., when evaluating the value of $f$ at $x$ we obtain $y=f(x)+\xi$ where $|\xi|\le\delta$ (determnistic noise) or $\xi$ is a zero-mean random variable of variance $\sigma^2$ (random noise). In this talk we construct an algorithm which despite the presence of noise and break points achieves the worst case $L^p$-error still proportional to $e_n$ provided the noise level $\delta$ or $\sigma$ is of the same order $e_n$ (exept the case of $p=\infty$ and random noise where we have an additional logarithmic factor in the error). The algorithm uses divided differences and special adaptive extrapolation technique to locate the break points and approximate in their neighborhoods. 
+where $r\in\{0,1,2,\ldots\}$ and $0<\rho\le 1.$ It is well known that the optimal worst-case error of $L^p$-approximation ($1\le p\le\infty$) of such functions that can be achieved from $n$ exact evaluations of $f$ is proportional to $e_n=n^{-(r+\rho)}.$ Less obvious is what happens when the functions are piecewise smooth only with unknown break points. Even less obvious is the situation when the function values are additionally corrupted by some noise, i.e., when evaluating the value of $f$ at $x$ we obtain $y=f(x)+\xi$ where $|\xi|\le\delta$ (determnistic noise) or $\xi$ is a zero-mean random variable of variance $\sigma^2$ (random noise). In this talk, we construct an algorithm which despite the presence of noise and break points achieves the worst case $L^p$-error still proportional to $e_n$ provided the noise level $\delta$ or $\sigma$ is of the same order $e_n$ (exept the case of $p=\infty$ and random noise where we have an additional logarithmic factor in the error). The algorithm uses divided differences and special adaptive extrapolation technique to locate the break points and approximate in their neighborhoods. 
 
 \end{talk}
 
@@ -547,7 +547,7 @@ Additionally, we investigated a related figure of merit $P_{\alpha,2}$ in a Hilb
   {S6}% [9] session id or photo
     
    
-We explore the stability properties of utility functions in Bayesian optimal experimental design, introducing novel utilities inspired by the analysis . We establish a general framework to study the behavior of expected utility under perturbations in infinite-dimensional setting and prove its convergence properties. Our results provide theoretical guarantees for the robustness of Bayesian design criteria and offer insights into their practical applicability in complex experimental settings.
+We explore the stability properties of utility functions in Bayesian optimal experimental design, introducing novel utilities inspired by the analysis. We establish a general framework to study the behavior of expected utility under perturbations in infinite-dimensional setting and prove its convergence properties. Our results provide theoretical guarantees for the robustness of Bayesian design criteria and offer insights into their practical applicability in complex experimental settings.
 
 \medskip
 
@@ -786,8 +786,8 @@ Super-polynomial accuracy of multidimensional randomized nets using
     
    
 Under some confluence assumption, it is known that the stationary distribution of a McKean-Vlasov SDE is the limit of the empirical measure of its associated self-interacting diffusion. 
-Our numerical method consists in introducing the Euler scheme with decreasing step size of this self-interacting diffusion and seeing its empirical measure as the approximation of the stationary distribution of the original McKean-Vlasov SDEs.
-This simple approach is successful (under some raisonnable assumptions...) as we are able to prove convergence with a rate for the Wasserstein distance between the two measures both in the L2 and almost sure sense. In this talk, I will first explain the rationale behind this approach and  I will discuss the various convergence results we have obtained so far.
+Our numerical method consists of introducing the Euler scheme with decreasing step size of this self-interacting diffusion and seeing its empirical measure as the approximation of the stationary distribution of the original McKean-Vlasov SDEs.
+This simple approach is successful (under some reasonable assumptions) as we are able to prove convergence with a rate for the Wasserstein distance between the two measures both in the L2 and almost sure sense. In this talk, I will first explain the rationale behind this approach and  I will discuss the various convergence results we have obtained so far.
 
 
 
@@ -829,7 +829,7 @@ This simple approach is successful (under some raisonnable assumptions...) as we
   
     
    
-Relying on the backward Kolmogorov PDE stated on the Wasserstein space, we obtain several new results concerning the approximation error of some non-linear diffusion process in the sense of McKean-Vlasov by the corresponding Euler-Maruyama discretization scheme of its system of interacting particles. We notably present explicit error estimates, at the level of the trajectories, at the level of the semigroup (stated on the Wasserstein space) and at the level of the densities. Some Gaussian density estimates of the transition density and its first order derivative for the Euler-Maruyama scheme are also established. This presentation is based on joint works with Cl\'ement Rey (Ecole Polytechnique) and Xuanye Song (Universit\'e Paris Cit\'e).
+Relying on the backward Kolmogorov PDE stated on the Wasserstein space, we obtain several new results concerning the approximation error of some non-linear diffusion process in the sense of McKean-Vlasov by the corresponding Euler-Maruyama discretization scheme of its system of interacting particles. We notably present explicit error estimates, at the level of the trajectories, at the level of the semigroup (stated on the Wasserstein space) and at the level of the densities. Some Gaussian density estimates of the transition density and its first-order derivative for the Euler-Maruyama scheme are also established. This presentation is based on joint works with Cl\'ement Rey (Ecole Polytechnique) and Xuanye Song (Universit\'e Paris Cit\'e).
 
 \medskip
 
@@ -854,7 +854,7 @@ Relying on the backward Kolmogorov PDE stated on the Wasserstein space, we obtai
   {S8}% [9] session id or photo
     
    
-\noindent Score-based Generative Models (SGMs) approximate a data distribution by perturbing it with Gaussian noise and subsequently denoising it via a learned reverse diffusion process. These models excel at modeling complex data distributions and generating diverse samples, achieving state-of-the-art performance across domains such as computer vision, audio generation, reinforcement learning, and computational biology. Despite their empirical success, existing Wasserstein-2 convergence analysis typically assume strong regularity conditions—such as smoothness or strict log-concavity of the data distribution—that are rarely satisfied in practice.
+\noindent Score-based Generative Models (SGMs) approximate a data distribution by perturbing it with Gaussian noise and subsequently denoising it via a learned reverse diffusion process. These models excel at modeling complex data distributions and generating diverse samples, achieving state-of-the-art performance across domains such as computer vision, audio generation, reinforcement learning, and computational biology. Despite their empirical success, existing Wasserstein-2 convergence analysis typically assumes strong regularity conditions—such as smoothness or strict log-concavity of the data distribution—that are rarely satisfied in practice.
   
  \noindent In this work, we establish the first non-asymptotic Wasserstein-2 convergence guarantees for SGMs targeting semiconvex distributions with potentially discontinuous gradients. Our upper bounds are explicit and sharp in key parameters, achieving optimal dependence of $O(\sqrt{d})$ on the data dimension $d$ and convergence rate of order one. The framework accommodates a wide class of practically relevant distributions, including symmetric modified half-normal distributions, Gaussian mixtures, double-well potentials, and elastic net potentials. By leveraging semiconvexity without requiring smoothness assumptions on the potential such as differentiability, our results substantially broaden the theoretical foundations of SGMs, bridging the gap between empirical success and rigorous guarantees in non-smooth, complex data regimes.
 
@@ -881,7 +881,7 @@ Relying on the backward Kolmogorov PDE stated on the Wasserstein space, we obtai
   
     
 
-Bayesian optimal experimental design (OED) aims to maximize an expected utility, often chosen to be the expected information gain (EIG), over a given design space. Estimating EIG typically relies on Monte Carlo methods, which requires repeated evaluations of a computational model simulating the experimental process. 
+Bayesian optimal experimental design (OED) aims to maximize an expected utility, often chosen to be the expected information gain (EIG), over a given design space. Estimating EIG typically relies on Monte Carlo methods that require repeated evaluations of a computational model simulating the experimental process. 
 However, when the model is expensive to evaluate, standard Monte Carlo becomes impractical.
 %When performing forward uncertainty quantification (UQ) of a computationally intensive mathematical model, traditional sampling methods such as Monte Carlo can be prohibitively expensive. 
 
@@ -982,7 +982,7 @@ Our numerical experiments demonstrate that MSIP and the WFR ODEs outperform othe
 \end{talk}
 
 \begin{talk}
-  {Parallel computations for Metropolis Markov chains Based on Picard maps}% [1] talk title
+  {Parallel computations for Metropolis Markov chains based on Picard maps}% [1] talk title
   {Sebastiano Grazzi}% [2] speaker name
   {Department of Decision Sciences and BIDSA, Bocconi University, Via Roentgen, 1, 20136, Milan, Italy}% [3] affiliations
   {sebastiano.grazzi@unibocconi.it}% [4] email
@@ -1000,7 +1000,7 @@ For Random Walk Metropolis Markov chains targeting log-concave distributions $\p
 generates samples %from a measure 
 close to $\pi$ %in Chi-squared distance 
 in $\mathcal{O}(\sqrt{d})$ iterations with $\mathcal{O}(\sqrt{d})$ parallel processors, 
-therefore speeding-up the convergence of the corresponding sequential implementation by a factor $\sqrt{d}$. Furthermore, a modification of our algorithm generates samples from an approximate measure $\tilde \pi_\epsilon$ in $\mathcal{O}(1)$ iterations and $\mathcal{O}(d)$ parallel processors. In this talk I will present the methodology, the analysis and numerical simulations. Our algorithms are straightforward to implement and may constitute a useful tool for practitioners seeking to sample from a prescribed distribution $\pi$ using only point-wise evaluations proportional to $\pi$.
+therefore speeding-up the convergence of the corresponding sequential implementation by a factor $\sqrt{d}$. Furthermore, a modification of our algorithm generates samples from an approximate measure $\tilde \pi_\epsilon$ in $\mathcal{O}(1)$ iterations and $\mathcal{O}(d)$ parallel processors. In this talk, I will present the methodology, the analysis and numerical simulations. Our algorithms are straightforward to implement and may constitute a useful tool for practitioners seeking to sample from a prescribed distribution $\pi$ using only point-wise evaluations proportional to $\pi$.
 \end{talk}
 
 \begin{talk}
@@ -1016,9 +1016,9 @@ therefore speeding-up the convergence of the corresponding sequential implementa
     
    
    
-Sampling algorithms from the class of Markov chain Monte Carlo (MCMC) methods are widely used across scientific disciplines. Good performance measures are essential to analyse these methods, to compare different MCMC algorithms, and to tune parameters within a given method. Common tools that are used for analysing convergence properties of MCMC algorithms are, e.g., mixing times, spectral gap and functional inequalities (e.g., Poincar\'e, log-Sobolev). A further, rather novel, approach consists in the use of large deviations theory to study the convergence of empirical measures of MCMC chains. At the heart of large deviations theory is the large deviation principle, which allows us to describe the rate of convergence of the empirical measures through a so-called rate function.
+Sampling algorithms from the class of Markov chain Monte Carlo (MCMC) methods are widely used across scientific disciplines. Good performance measures are essential to analyse these methods, to compare different MCMC algorithms, and to tune parameters within a given method. Common tools that are used for analysing convergence properties of MCMC algorithms are, e.g., mixing times, spectral gap and functional inequalities (e.g., Poincar\'e, log-Sobolev). A further, rather novel, approach consists of the use of large deviations theory to study the convergence of empirical measures of MCMC chains. At the heart of large deviations theory is the large deviation principle, which allows us to describe the rate of convergence of the empirical measures through a so-called rate function.
 
-In this talk we will consider Markov chains generated via MCMC methods of Metropolis-Hastings type for sampling from a target distribution on a Polish space. We will state a large deviation principle for the corresponding empirical measure, show examples of algorithms from this class for which the theorem applies, and illustrate how the result can be used to tune algorithms' parameters.
+In this talk, we will consider Markov chains generated via MCMC methods of Metropolis-Hastings type for sampling from a target distribution on a Polish space. We will state a large deviation principle for the corresponding empirical measure, show examples of algorithms from this class for which the theorem applies, and illustrate how the result can be used to tune algorithms' parameters.
 
 \medskip
 
@@ -1052,7 +1052,7 @@ The empirical success of deep learning is often attributed to the mysterious abi
 \end{talk}
 
 \begin{talk}
-  {Functional estimation of the marginal liklihood}% [1] talk title
+  {Functional estimation of the marginal likelihood}% [1] talk title
   {Jonathan Weare}% [2] speaker name
   {Courant Institute of Mathematical Sciences, New York University}% [3] affiliations
   {weare@nyu.edu}% [4] email
@@ -1092,7 +1092,7 @@ dense in the domain. We showcase the approach on Gaussian process regression and
 A folklore result in geometric discrepancy theory, called the Transference Principle, allows one to use methods from combinatorial discrepancy to show the existence of good QMC point sets with low star discrepancy.
 Unfortunately, this connection was not of much use until recently, as most results in combinatorial discrepancy were non-algorithmic. Recently however, there has been a major revolution in algorithmic combinatorial discrepancy [1]. 
 
-In this talk I will explain how recent innovations in combinatorial discrepancy can be used to give an algorithm to produce randomized QMC point sets that  achieve substantially better error than given by the classical Koksma-Hlawka inequality. Moreover, the algorithm only requires random samples, as opposed to carefully chosen points, and also optimally combines the best features of both MC and QMC methods.  
+In this talk, I will explain how recent innovations in combinatorial discrepancy can be used to give an algorithm to produce randomized QMC point sets that  achieve substantially better error than given by the classical Koksma-Hlawka inequality. Moreover, the algorithm only requires random samples, as opposed to carefully chosen points, and also optimally combines the best features of both MC and QMC methods.  
 % In particular, the error is $\widetilde{O}(\sigma_{\mathsf{SO}}(f)/n)$, where $\sigma_{\mathsf{SO}}(f)$ is a new measure of variation that we introduce, which is substantially smaller than the Hardy-Krause variation.     
     % \item The algorithm only requires random samples, as opposed to carefully chosen points in QMC constructions. It also it automatically combines the best features of both Monte-Carlo and Quasi-Monte-Carlo methods in an optimal way.  
 
@@ -1124,7 +1124,7 @@ These results appear in the paper [2].
   {S11}% [9] session id or photo
     
    
-The stochastic representation to the solutions of partial differential equations (PDEs) and integral equations (IEs) has been known for decades.  These representations have lead to a variety of Monte Carlo methods for the numerical solution of both PDEs and IEs, among them is a method called the Walk on Spheres (WoS) algorithm.  WoS has been quite successful in solving linear elliptic and parabolic PDEs with Dirichlet boundary conditions in a very cost effective way.  This numerical analysis work was taken up by the computer graphics community, who are experts in Monte Carlo through their use of it in image rendering via ray tracing.  Their interest stems from the fact that WoS and ray tracing both permit the representation of the geometry of the problem in a very compact and computational efficient way via Bounding Volume Hierarchy.  This has lead to the expansion of the scope and efficiency of WoS in a wide variety of ways which will be presented here.
+The stochastic representation of the solutions of partial differential equations (PDEs) and integral equations (IEs) has been known for decades.  These representations have led to a variety of Monte Carlo methods for the numerical solution of both PDEs and IEs, among them is a method called the Walk on Spheres (WoS) algorithm.  WoS has been quite successful in solving linear elliptic and parabolic PDEs with Dirichlet boundary conditions in a very cost-effective way.  This numerical analysis work was taken up by the computer graphics community, who are experts in Monte Carlo through their use of it in image rendering via ray tracing.  Their interest stems from the fact that WoS and ray tracing both permit the representation of the geometry of the problem in a very compact and computational efficient way via Bounding Volume Hierarchy.  This has lead to the expansion of the scope and efficiency of WoS in a wide variety of ways which will be presented here.
 \end{talk}
 
 \begin{talk}
@@ -1139,7 +1139,7 @@ The stochastic representation to the solutions of partial differential equations
   {S11}% [9] session id or photo
     
    
-In this talk, we propose novel noise-free Bayesian optimization strategies that rely on a random exploration step to enhance the accuracy of Gaussian process surrogate models. The new algorithms retain the ease of implementation of the classical GP-UCB algorithm, but the additional random exploration step accelerates their convergence, nearly achieving the optimal convergence rate. Furthermore, to facilitate Bayesian inference with an intractable likelihood, we propose to utilize the optimization iterates as design points to build a Gaussian process surrogate model for the unnormalized log-posterior density. We show that the Hellinger distance between the true and the approximate posterior distributions decays at a near-optimal rate. We demonstrate the effectiveness of our algorithms in benchmark non-convex test functions for optimization, and in a black-box engineering design problem. We also showcase the effectiveness of our posterior approximation approach in Bayesian inference for parameters of dynamical systems.
+In this talk, we propose novel noise-free Bayesian optimization strategies that rely on a random exploration step to enhance the accuracy of Gaussian process surrogate models. The new algorithms retain the ease of implementation of the classical GP-UCB algorithm, but the additional random exploration step accelerates their convergence, nearly achieving the optimal convergence rate. Furthermore, to facilitate Bayesian inference with an intractable likelihood, we propose to utilize the optimization iterates as design points to build a Gaussian process surrogate model for the unnormalized log-posterior density. We show that the Hellinger distance between the true and the approximate posterior distributions decays at a near-optimal rate. We demonstrate the effectiveness of our algorithms in benchmarking non-convex problems test functions for optimization, and in a black-box engineering design problem. We also showcase the effectiveness of our posterior approximation approach in Bayesian inference for parameters of dynamical systems.
 
 
 \end{talk}
@@ -1178,9 +1178,9 @@ method based on finitely many evaluations of $W$ at fixed time points. For the p
 
 
 \begin{enumerate}
- \item[{[1]}] Butkovsky, O., Dareiotis, K., \& Gerencs\'er, M. (2021). Approximation of SDEs: a stochastic sewing appproach. Probab. Theory Related Fields, \textbf{181}(4), 975--1034
+ \item[{[1]}] Butkovsky, O., Dareiotis, K., \& Gerencs\'er, M. (2021). Approximation of SDEs: a stochastic sewing approach. Probab. Theory Related Fields, \textbf{181}(4), 975--1034
  \item[{[2]}] M\"uller-Gronbach, T.  \& Yaroslavtseva, L. (2023). Sharp lower error bounds for strong approximation of
- SDEs with discontinuous drift coefficient by coupling of noise. Ann. Appl. Probab. \textbf{33}, 902----935.
+ SDEs with a discontinuous drift coefficient by coupling of noise. Ann. Appl. Probab. \textbf{33}, 902----935.
 \end{enumerate}
 
 
@@ -1270,7 +1270,7 @@ E.~Novak and H.~Wo{\'{z}}niakowski, \emph{Tractability of multivariate problems 
 \end{talk}
 
 \begin{talk}
-  {Goal Oriented Sensor Placement for Infinite-Dimensional Bayesian Inverse Problems}% [1] talk title
+  {Goal-Oriented Sensor Placement for Infinite-Dimensional Bayesian Inverse Problems}% [1] talk title
   {Alen Alexanderian}% [2] speaker name
   {North Carolina State University}% [3] affiliations
   {alexanderian@ncsu.edu}% [4] email
@@ -1319,7 +1319,7 @@ problems governed by an advection-diffusion equation.
     The resulting efficiency gain allows to extend BOED to the well-tested generative capabilities of diffusion models.
     By incorporating generative models into the BOED framework, we expand its scope and its use in scenarios that were previously impractical. Numerical experiments and comparison with state-of-the-art methods show the potential of the approach.
     As a practical application, we showcase how our method accelerates Magnetic Resonance Imaging (MRI) acquisition times while preserving image quality.
-    This presentation will also detail how Diffuse, a new modulable Python package for diffusion models facilitates composability and research in diffusion models through its simple and intuitive API, allowing researchers to easily integrate and experiment with various model components.
+    This presentation will also detail how Diffuse, a new modulable Python package for diffusion models facilitate composability and research in diffusion models through its simple and intuitive API, allowing researchers to easily integrate and experiment with various model components.
 
 \end{talk}
 
@@ -1343,7 +1343,7 @@ SNL is managed and operated by NTESS under DOE NNSA contract DE-NA0003525.
 \medskip
 
 \begin{enumerate}
- \item[{[1]}] Catanach, T. A., \& Das, N. (2023). {\it Metrics for bayesian optimal experiment design under model misspecification}. In 2023 62nd IEEE Conference on Decision and Control (CDC) (pp. 7707-7714). IEEE.
+ \item[{[1]}] Catanach, T. A., \& Das, N. (2023). {\it Metrics for Bayesian optimal experiment design under model misspecification}. In 2023 62nd IEEE Conference on Decision and Control (CDC) (pp. 7707-7714). IEEE.
 \end{enumerate}
 \end{talk}
 
@@ -1516,7 +1516,7 @@ In the era of generative models, statistical inference based on classical likeli
 \end{talk}
 
 \begin{talk}
-  {A hit and run approach for sampling and analyzing ranking models}% [1] talk title
+  {A hit-and-run approach for sampling and analyzing ranking models}% [1] talk title
   {Chenyang Zhong}% [2] speaker name
   {Department of Statistics, Columbia University}% [3] affiliations
   {cz2755@columbia.edu}% [4] email
@@ -1580,7 +1580,7 @@ We study the complexity of this problem in the quantum setting of Information-Ba
 Journal of Complexity 18, 1--50.
 \item[{[2]}] Wiegand, Carsten (2006).\ {\it Optimal Monte Carlo and Quantum Algorithms for Parametric Integration}. Shaker Verlag.
 \item[{[3]}] Heinrich, Stefan (2024).\  Randomized complexity of parametric integration and
-the role of adaption  II. Sobolev spaces. Journal of Complexity 82, 101823.
+the role of adaptation  II. Sobolev spaces. Journal of Complexity 82, 101823.
 \end{enumerate}
 
 \end{talk}
@@ -1699,7 +1699,7 @@ Gaussian process (GP) surrogate models are widely used for emulating expensive c
   
     
    
-Combining computer models with real observations is a valuable way to analyze complex systems. One of the key challenges in model calibration for complex physical systems is accounting for uncertainty around the model's form. The Kennedy O'Hagan's (KOH) framework provides a way to account for model form uncertainty when the computer model outputs are linearly related to the real observations. In this paper, We extend the KOH model by proposing a nonlinear wrapping function of the design inputs and the computer model outputs. We develop the statistical inference related to our model and propose active learning approaches to simultaneous collect both physical and computer model data by taking advantage of the closed-forms of the posterior mean and variance of our model under some specified kernel matrices. We show that under some regularity conditions, when $n\rightarrow\infty,$ the estimate of the calibration parameter $\hat{\theta}_n$ converges  to  the true calibration parameter $\theta^*$ and derive uncertainty quantification results for $\hat{\theta}_n.$
+Combining computer models with real observations is a valuable way to analyze complex systems. One of the key challenges in model calibration for complex physical systems is accounting for uncertainty around the model's form. The Kennedy O'Hagan's (KOH) framework provides a way to account for model form uncertainty when the computer model outputs are linearly related to the real observations. In this paper, we extend the KOH model by proposing a nonlinear wrapping function of the design inputs and the computer model outputs. We develop the statistical inference related to our model and propose active learning approaches to simultaneously collect both physical and computer model data by taking advantage of the closed-forms of the posterior mean and variance of our model under some specified kernel matrices. We show that under some regularity conditions, when $n\rightarrow\infty,$ the estimate of the calibration parameter $\hat{\theta}_n$ converges  to  the true calibration parameter $\theta^*$ and derive uncertainty quantification results for $\hat{\theta}_n.$
 \medskip
 
 % If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
@@ -1828,14 +1828,14 @@ ation by evaluating a low-rank approximation of the local Hessian and estimating
 eigenvalue. I will then combine it with a strategy to similarly adapt the trajectory length
 by monitoring the no U-turn condition, resulting in an adaptive sampler, ATLAS: adapting
 trajectory length and step-size. I will further use a delayed rejection framework for making
-multiple proposals that improves the computational efficiency of ATLAS, and develop an
+multiple proposals that improve the computational efficiency of ATLAS, and develop an
 
 approach for automatically tuning its hyperparameters during warmup. Finally, I will com-
 pare ATLAS with NUTS on a suite of synthetic and real world examples, and show that
 
 i) unlike NUTS, ATLAS is able to accurately sample difficult distributions with complex
 geometries, ii) it is computationally competitive to NUTS for simpler distributions, and iii)
-it is more robust to the tuning of hyperparamters.
+it is more robust to the tuning of hyperparameters.
 \medskip
 
 \end{talk}
@@ -1854,7 +1854,7 @@ it is more robust to the tuning of hyperparamters.
 
 \medskip
 
-Many common Markov chain Monte Carlo (MCMC) kernels can be formulated using a deterministic involutive proposal with a step size parameter.  Selecting an appropriate step size is often a challenging task in practice; and for complex multiscale targets, there may not be one choice of step size that works well globally.  In this talk I'll address this problem with a novel class of involutive MCMC methods---AutoStep MCMC---that selects an appropriate step size at each iteration adapted to the local geometry of the target distribution.  I'll present theoretical results guaranteeing that under mild conditions AutoStep MCMC is $\pi$-invariant, irreducible, and aperiodic, and provides bounds on expected energy jump distance and cost per iteration. The talk will conclude with empirical results examining the robustness and efficacy of the proposed step size selection procedure.
+Many common Markov chain Monte Carlo (MCMC) kernels can be formulated using a deterministic involutive proposal with a step size parameter.  Selecting an appropriate step size is often a challenging task in practice; and for complex multiscale targets, there may not be one choice of step size that works well globally.  In this talk, I'll address this problem with a novel class of involutive MCMC methods---AutoStep MCMC---that selects an appropriate step size at each iteration adapted to the local geometry of the target distribution.  I'll present theoretical results guaranteeing that under mild conditions AutoStep MCMC is $\pi$-invariant, irreducible, and aperiodic, and provides bounds on expected energy jump distance and cost per iteration. The talk will conclude with empirical results examining the robustness and efficacy of the proposed step size selection procedure.
 
 \end{talk}
 
@@ -1964,7 +1964,7 @@ A folklore stochastic gradient (SG) algorithm works as follows. Execute SG with 
    
 Combinatorial discrepancy theory studies the following question: given a universe of elements $U=\{1,\ldots, n\}$ and a collection $\mathcal{S} = \{S_1, \ldots, S_m\}$ of subsets of $U$, how well can we partition $U$ into two pieces, so that all sets in $\mathcal{S}$ are split as evenly as possible.
 %Discrepancy theory studies the irregularities of distributions. Typical questions studied in discrepancy theory include: ``What is the most uniform way of distributing $n$ points in the unit square, and how big must the irregularity be?", ``What is the best way to divide a set of $n$ objects into two groups that are as 'similar' as possible?" 
-The study of this question has found extensive applications to many areas of mathematics, computer science, statistics, finance, etc. 
+The study of this question has found extensive applications in many areas of mathematics, computer science, statistics, finance, etc. 
 
 The past decade has seen tremendous progress in designing efficient algorithms for this problem. These developments have led to many surprising applications in areas such as differential privacy, graph sparsification, approximation algorithms and rounding, kernel density estimation, randomized controlled trials, and quasi-Monte Carlo methods.
 
@@ -2175,8 +2175,8 @@ We propose a randomized lattice algorithm for approximating multivariate periodi
   {S22}% [9] session id or photo
     
    
-This talk will present a kernel-based method to approximate probability density functions of unbounded random variables taking values in high-dimensional spaces. Building upon the framework of Kazashi and Nobile [1], our estimator is a linear combination of kernel functions whose coefficients are determined a linear equation. We first transform the unbounded sample domain into a hyper cube and then use rank-1 lattice points as the interpolation nodes.
-We establish a rigorous error analysis for the mean integrated squared error (MISE) under an exponential decay conditon.  Under a suitable smoothness assumption, our method attains an MISE rate  approaching $O(N^{-1})$ for $N$ independent identically distributed observations. Numerical experiments validate our theoretical findings and demonstrate the superior performance of the proposed estimator compared to state-of-the-art alternatives.
+This talk will present a kernel-based method to approximate probability density functions of unbounded random variables taking values in high-dimensional spaces. Building upon the framework of Kazashi and Nobile [1], our estimator is a linear combination of kernel functions whose coefficients are determined a linear equation. We first transform the unbounded sample domain into a hypercube and then use rank-1 lattice points as the interpolation nodes.
+We establish a rigorous error analysis for the mean integrated squared error (MISE) under an exponential decay condition.  Under a suitable smoothness assumption, our method attains an MISE rate  approaching $O(N^{-1})$ for $N$ independent identically distributed observations. Numerical experiments validate our theoretical findings and demonstrate the superior performance of the proposed estimator compared to state-of-the-art alternatives.
 \medskip
 
 
@@ -2233,7 +2233,7 @@ Tumor models largely focus on two key characteristics: infiltration of the tumor
 
 
 \begin{enumerate}
- \item[{[1]}] Shi, J., \& Mackey, L. (2023). A finite-particle convergence rate for stein variational gradient descent. Advances in Neural Information Processing Systems, 36, 26831-26844.
+ \item[{[1]}] Shi, J., \& Mackey, L. (2023). A finite-particle convergence rate for Stein variational gradient descent. Advances in Neural Information Processing Systems, 36, 26831-26844.
  %\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
 \end{enumerate}
 
@@ -2425,7 +2425,7 @@ of values and can be considered a categorical
   variable. Such a variable introduces a discontinuity in the integrand.  It is
   an RQMC-friendly discontinuity because the discontinuity is axis parallel
   when each level of the categorical variable corresponds to a single
-  sub-interval of $[0,1]$.  A naturally occuring use case has
+  sub-interval of $[0,1]$.  A naturally occurring use case has
   the categorical variable correspond to a component in a distribution
   that is a mixture of $L$ other distributions.  Within the mixture
   setting, mixture importance sampling is a prominent example.
@@ -2524,7 +2524,7 @@ The discrepancy of a point set quantifies how well the points are distributed, w
     
 
 Given an unnormalized density $\rho$ and a constraint set $\Sigma$ in $\mathbb{R}^n$, we aim at sampling from a constrained distribution $Z^{-1} \rho(x) I_{\Sigma}(x) dx$. While the case when $\Sigma$ is convex has been extensively studied, \emph{no} convexity is needed in this talk, in which case quantitative results are scarce. % The case when the density is described by first-order oracles and the constraint set is described by a collection of equalities and inequalities will be considered. 
-Our method admits multiple interpretations, but this talk will focus on a Langevin perspective, where overdamped Langevin dynamics is first modified, and then discretized so that a sampling algorithm can be constructed. The quantitative convergence of the continuous dynamics will be detailed, but if time permits, the performance of the time-discretization (i.e. the actual sampler) will also be discussed.
+Our method admits multiple interpretations, but this talk will focus on a Langevin perspective, where overdamped Langevin dynamics is first modified, and then discretized so that a sampling algorithm can be constructed. The quantitative convergence of the continuous dynamics will be detailed, but if time permits, the performance of the time-discretization (i.e., the actual sampler) will also be discussed.
 
 %\textbf{[Revised version]}
 %Consider an unnormalized density $\rho$ and a constraint set $\Sigma \subset \mathbb{R}^d$ defined by finitely many equality and inequality constraints. We aim to sample from the target density $\rho_\Sigma(x) \propto \rho(x)I_{\Sigma}(x) dx$. While the case when $\Sigma$ is convex has been extensively studied, traditional approaches for nonconvex $\Sigma$ have heuristically relied on projection operators or on designing algorithms that steer trajectories along directions orthogonal to $\Sigma$ (e.g., landing algorithms or orthogonal direction samplers). However, these methods are typically limited to equality constraints, and even in that setting, rigorous analyses of convergence rates remain scarce. In contrast, we propose a new framework that can design an overdamped Langevin dynamics which accommodates both equality and inequality constraints without relying slack variable method. The modified dynamics also deterministically corrects trajectories along the normal direction of the constraint surface, thus obviating the need for explicit projections. Additionally, we introduce a heuristic hard landing algorithm to address challenges arising from discretization. Under suitable regularity conditions on $\rho$ and $\Sigma$, we prove that the continuous dynamics converge exponentially fast to $\rho_\Sigma$.
@@ -2588,7 +2588,7 @@ The unadjusted Langevin algorithm is widely used for sampling from complex high-
 
 
 \begin{enumerate}
- \item[{[1]}] Y. Chen, X. Cheng, J. Niles-Weed, and J. Weare (2024). {\it Convergence of unadjusted langevin in high dimensions: Delocalization of bias}. arXiv preprint arXiv:2408.13115.
+ \item[{[1]}] Y. Chen, X. Cheng, J. Niles-Weed, and J. Weare (2024). {\it Convergence of unadjusted Langevin in high dimensions: Delocalization of bias}. arXiv preprint arXiv:2408.13115.
 \end{enumerate}
 
 
@@ -2607,7 +2607,7 @@ The unadjusted Langevin algorithm is widely used for sampling from complex high-
   
     
    
-The mixing time of a Markov chain determines when the marginal law of the Markov chain is close to the stationary distribution and can be studied in many statistical divergences such as KL divergence and chi-squared divergence, all the way to families of divergences such as $\Phi$-divergences. However, the mixing time does not determine the dependency between samples along the Markov chain, which can be measured in terms of their mutual information, chi-squared mutual information, or more generally their $\Phi$-mutual information. In this talk we study the mixing time of Langevin Markov chains in $\Phi$-divergence and also study the $\Phi$-mutual information between the iterates. The Markov chains we focus on are the Langevin Dynamics in continuous-time, and the Unadjusted Langevin Algorithm and Proximal Sampler in discrete-time and we show that for these Markov chains, the $\Phi$-divergence and the $\Phi$-mutual information decreases exponentially fast. Our proof technique is based on showing the Strong Data Processing Inequalities (SDPIs) hold along the Markov chains. To prove fast mixing of the Markov chains, we show the SDPIs hold for the stationary distribution. In contrast, to prove the contraction of $\Phi$-mutual information, we need to show the SDPIs hold along the entire trajectories of the Markov chains; we prove this when the iterates along the Markov chains satisfy the corresponding $\Phi$-Sobolev inequality.
+The mixing time of a Markov chain determines when the marginal law of the Markov chain is close to the stationary distribution and can be studied in many statistical divergences such as KL divergence and chi-squared divergence, all the way to families of divergences such as $\Phi$-divergences. However, the mixing time does not determine the dependency between samples along the Markov chain, which can be measured in terms of their mutual information, chi-squared mutual information, or more generally their $\Phi$-mutual information. In this talk, we study the mixing time of Langevin Markov chains in $\Phi$-divergence and also study the $\Phi$-mutual information between the iterates. The Markov chains we focus on are the Langevin Dynamics in continuous-time, and the Unadjusted Langevin Algorithm and Proximal Sampler in discrete-time and we show that for these Markov chains, the $\Phi$-divergence and the $\Phi$-mutual information decreases exponentially fast. Our proof technique is based on showing the Strong Data Processing Inequalities (SDPIs) hold along the Markov chains. To prove fast mixing of the Markov chains, we show the SDPIs hold for the stationary distribution. In contrast, to prove the contraction of $\Phi$-mutual information, we need to show the SDPIs hold along the entire trajectories of the Markov chains; we prove this when the iterates along the Markov chains satisfy the corresponding $\Phi$-Sobolev inequality.
 
 
 \medskip
