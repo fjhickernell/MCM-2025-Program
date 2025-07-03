@@ -133,7 +133,8 @@ org_dict = {
         "MIT":"Massachusetts Institute of Technology",
         "Mgimo Tashkent Branch":"MGIMO, Tashkent",
         " - Section of Catania": " Catania",
-        "Inesc-Id, Rua Alves Redol 9, Lisbon, Portugal 1000-029":"INESC-ID"
+        "Inesc-Id, Rua Alves Redol 9, Lisbon, Portugal 1000-029":"INESC-ID",
+        "archimedes Research Centre": "Archimedes Research Centre"
     }
 
 short_org_dict = {

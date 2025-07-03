@@ -35,20 +35,24 @@ def cleanup_participant_data(df):
     df["FirstName"] = df["FirstName"].apply(clean_name)
     df["LastName"] = df["LastName"].apply(clean_name)
     df["Organization"] = df["Organization"].apply(format_organization)
-    apply_name_corrections(df)
-    apply_organization_corrections(df)
+    df = apply_name_corrections(df)
+    df = apply_organization_corrections(df)
     validate_participant_names(df)
     df["Organization"] = df["Organization"].str.replace("&", "and", regex=False)
     return df.sort_values(["LastName", "FirstName"])
 
 def apply_name_corrections(df):
-    for old, new in {"Noor Ul Amin": "Noor ul Amin"}.items():
+    name_dict = {
+        "Noor Ul Amin": "Noor ul Amin"
+    }
+    for old, new in name_dict.items():
         df.loc[df["LastName"] == old, "LastName"] = new
+    return df
 
 def apply_organization_corrections(df):
     for old, new in org_dict.items():
         df["Organization"] = df["Organization"].str.replace(old, new)
-    df.loc[df["Organization"] == "RWTH Aachen", "Organization"] = "RWTH Aachen University"
+    return df
 
 def validate_participant_names(df):
     mask = (df["FirstName"].str.len() == 1) | (df["LastName"].str.len() == 1)
