@@ -42,10 +42,9 @@ hardware or software for quasi monte carlo algorithms part ii,baumgarten,S29-1
 hardware or software for quasi monte carlo algorithms part ii,farmer,S29-4
 hardware or software for quasi monte carlo algorithms part ii,krotz,S29-3
 hardware or software for quasi monte carlo algorithms part ii,sorokin,S29-2
-heavy tailed sampling,erdogdu,S10-1
-heavy tailed sampling,grazzi,S10-2
-heavy tailed sampling,milinanni,S10-3
-heavy tailed sampling,wang,S10-4
+heavy tailed sampling,grazzi,S10-1
+heavy tailed sampling,milinanni,S10-2
+heavy tailed sampling,wang,S10-3
 monte carlo applications in high performance computing computer graphics and computational science,fahim,S21-1
 monte carlo applications in high performance computing computer graphics and computational science,jayaraman,S21-2
 monte carlo applications in high performance computing computer graphics and computational science,sawahney,S21-3
@@ -76,7 +75,6 @@ recent advances in optimization under uncertainty,koval,S6-2
 recent advances in optimization under uncertainty,milz,S6-3
 recent advances in stochastic gradient descent,blanchet,S27-1
 recent advances in stochastic gradient descent,dong,S27-3
-recent advances in stochastic gradient descent,lovas,S27-4
 recent advances in stochastic gradient descent,rhee,S27-2
 recent progress on algorithmic discrepancy theory and applications,jiang,S20-1
 recent progress on algorithmic discrepancy theory and applications,nikolov,S20-3
