@@ -131,7 +131,12 @@ def clean_tex_content(text):
         .replace("Hyper-parameters", "Hyperparameters")
         .replace("called adapted Wasserstein distance", "called the adapted Wasserstein distance")
         .replace("high accuracy solutions", "high-accuracy solutions") 
-        .replace("low accuracy solutions", "low-accuracy solutions") 
+        .replace("low accuracy solutions", "low-accuracy solutions")
+        .replace("Liklihood ", "Likelihood")
+        .replace("Goal Oriented Sensor Placement", "Goal-Oriented Sensor Placement")
+        .replace("progress on them have", "progress on them has")
+        .replace("we consider the how Monte", " we consider how Monte")
+        .replace(" stein ", " Stein ")
         
         # Capitalization fixes for technical terms
         .replace("monte carlo", "Monte Carlo")
