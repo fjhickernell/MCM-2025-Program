@@ -1,6 +1,40 @@
 \chapter{Plenary Talks}\newpage
 
 \begin{talk}
+  {Monte Carlo Methods in Computer Graphics}% [1] talk title
+  {Rohan Sawhney}% [2] speaker name
+  {NVIDIA}% [3] affiliations
+  {rsawhney@nvidia.com}% [4] email
+  {}% [5] coauthors
+  {}% [6] special session
+  {Mon, Jul 28 09:00---10:00}% [7] time slot
+  {P1}% [8] talk id
+  {photo}% [9] session id or photo
+  {}% [5] coauthors
+  
+    
+   
+Monte Carlo methods have transformed computer graphics and scientific computing alike by providing a versatile framework for solving complex integrals and simulating physical processes. In rendering, Monte Carlo techniques such as path tracing have enabled physically based image synthesis by stochastically simulating light transport across scenes with intricate geometry and materials. Sophisticated algorithms---including Metropolis light transport and ReSTIR---extend this foundation, combining Markov Chain Monte Carlo and resampled importance sampling to achieve high-quality results with manageable computational budgets.
+
+Beyond image generation, Monte Carlo approaches are increasingly applied to solve partial differential equations central to modeling the natural world. Notably, the walk on spheres (WoS) algorithm offers a grid-free alternative to conventional finite element or finite difference solvers. By reformulating PDEs like the Poisson equation as recursive integral equations, WoS leverages random sampling to estimate solutions without requiring volumetric meshing or the assembly of global linear systems. This approach exhibits several powerful advantages---trivial parallelism, the ability to evaluate the solution at arbitrary points, and favorable scaling on modern hardware such as GPUs.
+
+This talk will survey the historical development, mathematical underpinnings, and practical innovations of Monte Carlo methods across these domains, illustrating how ideas from rendering and PDE simulation increasingly cross-pollinate. We will explore how the shared challenges of high-dimensional integration, variance reduction, and efficient sampling drive advances in algorithms that bridge computer graphics and computational physics, blurring the boundary between visualization and simulation. Finally, the talk will highlight emerging frontiers, including differentiable solvers and neural denoising.
+
+%\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+% \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% \item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+%\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
+\end{talk}
+
+\clearpage
+\begin{talk}
   {Golden ratio nets and sequences}% [1] talk title
   {Christiane Lemieux}% [2] speaker name
   {University of Waterloo}% [3] affiliations
