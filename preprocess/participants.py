@@ -324,7 +324,7 @@ if __name__ == "__main__":
     committees = [
         ("organizing_com.tex", "organizing committee"),
         ("sci_com.tex", "scientific committee"), 
-        ("steer_com.tex", "steering committee")
+        ("steering_com.tex", "steering committee")
     ]
     for filename, committee_name in committees:
         committee_file = os.path.join(indir, filename)

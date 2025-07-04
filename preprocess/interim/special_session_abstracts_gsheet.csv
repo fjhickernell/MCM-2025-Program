@@ -125,5 +125,5 @@ Toni,Karvonen,LUT University,Approximation in Hilbert spaces of the Gaussian and
 Chang-Han,Rhee,Northwestern University,Exit-Time Analysis of Stochastic Gradient Descent via Kesten’s Recursion,https://drive.google.com/open?id=16CbdnbjsfgOkS7ArAyWrYQMLxtg2-mLk,Recent Advances in Stochastic Gradient Descent,Yes
 Akshita,Gupta,Purdue University,Stochastic Gradient with Testing Functionals,https://drive.google.com/open?id=1EhgdROe8Z-i4J72Gcx00MU3yvcBYOfNw,Stochastic Optimization,Yes
 Raghu,Pasupathy,Purdue University,Interior-Point Frank-Wolfe (IPFW) for Linearly Constrained Functional Optimization Over Probability Spaces,https://drive.google.com/open?id=1eDKopll2AcvQrhWklXkTEzn4UEwHV9GO,Stochastic Optimization,Yes
-Rohan,Sawhney,NVIDIA,Building Monte Carlo ”Renderers” for Physics,https://drive.google.com/open?id=1W-gPS1w6YgTBMQTFpUdBvqDpqtBeACrH,"Monte Carlo Applications in High-performance Computing, Computer Graphics,  and Computational Science",
-Rohan,Sawhney,NVIDIA,Monte Carlo Methods in Computer Graphics,https://drive.google.com/open?id=1xBJ-tsbh2aM955qP4NlFJ5FFcKXfgOqP,,
+Rohan,Sawhney,NVIDIA,Building Monte Carlo ”Renderers” for Physics,https://drive.google.com/open?id=1W-gPS1w6YgTBMQTFpUdBvqDpqtBeACrH,"Monte Carlo Applications in High-performance Computing, Computer Graphics,  and Computational Science",Yes
+Rohan,Sawhney,NVIDIA,Monte Carlo Methods in Computer Graphics,https://drive.google.com/open?id=1xBJ-tsbh2aM955qP4NlFJ5FFcKXfgOqP,,No
