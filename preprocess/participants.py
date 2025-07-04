@@ -267,8 +267,8 @@ def parse_committee(file_path):
             organizers.append({
                 "FirstName": first,
                 "LastName": last,
-                "SessionID": "OC",
-                "PageNumber": "org_com" if file_path.endswith("organizing_com.tex") else "sci_com",
+                "SessionID": "org_com" if file_path.endswith("organizing_com.tex") else "sci_com" if file_path.endswith("sci_com.tex") else "steer_com" if file_path.endswith("steering_com.tex") else "TBD",
+                "PageNumber": "",
                 "Organization": org if org else "Organizing Committee"
             })
     
@@ -320,6 +320,19 @@ if __name__ == "__main__":
         except:
             dfs[key] = pd.read_csv(os.path.join(interimdir, f"{key}_sessionid.csv"))
     df = extract_participants(dfs)
+    # Add committee members from various committee files
+    committees = [
+        ("organizing_com.tex", "organizing committee"),
+        ("sci_com.tex", "scientific committee"), 
+        ("steer_com.tex", "steering committee")
+    ]
+    for filename, committee_name in committees:
+        committee_file = os.path.join(indir, filename)
+        committee_members = parse_committee(committee_file)
+        if committee_members:
+            committee_df = pd.DataFrame(committee_members)
+            df = pd.concat([df, committee_df], ignore_index=True)
+            print(f"Added {len(committee_members)} {committee_name} members")
     validate_session_participants(df)
     pd.Series(df["Organization"].unique(), name="Organization").sort_values().to_csv(f"{outdir}orgs.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
     with open(f'{interimdir}short_org_dict.csv', 'w', newline='') as file:
@@ -328,22 +341,6 @@ if __name__ == "__main__":
         for k, v in short_org_dict.items():
             writer.writerow([k, v])
     
-    # Add organizing committee members 
-    organizing_com_file = os.path.join(indir, "organizing_com.tex")
-    organizers = parse_committee(organizing_com_file)
-    if organizers:
-        organizer_df = pd.DataFrame(organizers)
-        df = pd.concat([df, organizer_df], ignore_index=True)
-        print(f"Added {len(organizers)} organizing committee members")
-
-    # Add scientific committee members
-    sci_com_file = os.path.join(indir, "sci_com.tex")
-    sci_organizers = parse_committee(sci_com_file)
-    if sci_organizers:
-        sci_organizer_df = pd.DataFrame(sci_organizers)
-        df = pd.concat([df, sci_organizer_df], ignore_index=True)
-        print(f"Added {len(sci_organizers)} scientific committee members")
-        
     # Save participants CSV
     participants_csv_file = os.path.join(outdir, "Participants.csv")
     df.to_csv(participants_csv_file, index=False, header=False, quoting=csv.QUOTE_NONNUMERIC)
