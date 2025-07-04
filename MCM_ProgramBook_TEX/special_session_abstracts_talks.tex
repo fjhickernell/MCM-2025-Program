@@ -2082,15 +2082,34 @@ References
 \end{talk}
 
 \begin{talk}
-  {TBD}% [1] talk title
-  {TBD}% [2] speaker name
-  {Wed, Jul 30 15:00---15:30}% [3] affiliations
-  {S21-3}% [4] email
-  {S21}% [5] coauthors
+  {Building Monte Carlo "Renderers" for Physics}% [1] talk title
+  {Rohan Sawhney}% [2] speaker name
+  {NVIDIA}% [3] affiliations
+  {rsawhney@nvidia.com}% [4] email
+  {Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science}% [5] coauthors
   {}% [6] special session
   {Wed, Jul 30 15:00---15:30}% [7] time slot
   {S21-3}% [8] talk id
   {S21}% [9] session id or photo
+    
+   
+Accurately analyzing large amounts of geometric data is critical for many scientific and engineering applications. Techniques based on partial differential equations (PDEs) provide powerful tools for analyzing physical systems, but conventional solvers are not yet at a stage where they “just work” on problems of real-world complexity. A constant challenge is spatial discretization, which divides the domain into a high-quality volumetric mesh for PDE-based analysis. Unfortunately, this approach does not scale well to modern computer architectures, and as such, there remains a large divide between our ability to \emph{visualize} and \emph{analyze} the natural world.
+
+This talk provides a broad overview of grid-free Monte Carlo methods for solving PDEs based on the walk on spheres (WoS) algorithm. WoS makes a radical departure from conventional solvers by reformulating fundamental PDEs like the Poisson equation as recursive integrals that can be solved using the Monte Carlo method. Since these integrals closely resemble those in light transport, one can leverage deep knowledge from Monte Carlo rendering to build new scalable algorithms with vastly different numerical tradeoffs, such as trivial parallelism, the ability to
+evaluate the solution at any point in the domain without solving a global system
+of equations, and avoiding volumetric meshing altogether.
+
+%\medskip
+
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%Please do not use the \texttt{bibliography} environment or \texttt{bibtex} files.
+%APA reference style is recommended.
+%\begin{enumerate}
+% \item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% \item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+%\end{enumerate}
+
+%Equations may be used if they are referenced. Please note that the equation numbers may be different (but will be cross-referenced correctly) in the final program book.
 \end{talk}
 
 \begin{talk}
