@@ -207,6 +207,73 @@ def validate_session_participants(df):
     for issue in issues: print(issue)
     return not issues
 
+def parse_committee(file_path):
+    """Parse organizing committee members from a LaTeX file.
+    
+    Parses lines like "Sou-Cheng Choi, \\emph{Illinois Institute of Technology} \\\\", 
+    or "Miguel Arratia (Department of Physics and Astronomy, U California, Riverside)"
+    into structured participant data. 
+    
+    Args:
+        file_path (str): Path to the organizing committee LaTeX file
+        
+    Returns:
+        list: List of participant dictionaries with FirstName, LastName, etc.
+    """
+    if not os.path.exists(file_path):
+        return []
+    
+    organizers = []
+    with open(file_path, 'r') as f:
+        content = f.read()
+    
+    lines = content.strip().split('\n')
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith('%'):  # Skip empty lines and comments
+            continue
+            
+        # Remove trailing backslashes and clean up
+        line = re.sub(r'\\+$', '', line).strip()
+        
+        full_name = ""
+        org = ""
+        
+        # Pattern 1: "Name, \emph{Organization}"
+        match = re.match(r'^(.+?),\s*\\emph\{(.+?)\}', line)
+        if match:
+            full_name = match.group(1).strip()
+            org = match.group(2).strip()
+        else:
+            # Pattern 2: "Name (Organization)"
+            match = re.match(r'^(.+?)\s*\((.+?)\)$', line)
+            if match:
+                full_name = match.group(1).strip()
+                org = match.group(2).strip()
+            else:
+                # If no organization pattern found, treat entire line as name
+                full_name = line.strip()
+                org = ""
+        
+        if full_name:
+            # Split name into first and last
+            name_parts = full_name.rsplit(' ', 1)
+            if len(name_parts) == 2:
+                first, last = name_parts
+            else:
+                first = full_name
+                last = ""
+            
+            organizers.append({
+                "FirstName": first,
+                "LastName": last,
+                "SessionID": "OC",
+                "PageNumber": "org_com" if file_path.endswith("organizing_com.tex") else "sci_com",
+                "Organization": org if org else "Organizing Committee"
+            })
+    
+    return organizers
+
 def generate_participants_latex(participants_csv_file):
     """Generate LaTeX content for the participants list from the CSV file."""
     from collections import defaultdict
@@ -261,6 +328,22 @@ if __name__ == "__main__":
         for k, v in short_org_dict.items():
             writer.writerow([k, v])
     
+    # Add organizing committee members 
+    organizing_com_file = os.path.join(indir, "organizing_com.tex")
+    organizers = parse_committee(organizing_com_file)
+    if organizers:
+        organizer_df = pd.DataFrame(organizers)
+        df = pd.concat([df, organizer_df], ignore_index=True)
+        print(f"Added {len(organizers)} organizing committee members")
+
+    # Add scientific committee members
+    sci_com_file = os.path.join(indir, "sci_com.tex")
+    sci_organizers = parse_committee(sci_com_file)
+    if sci_organizers:
+        sci_organizer_df = pd.DataFrame(sci_organizers)
+        df = pd.concat([df, sci_organizer_df], ignore_index=True)
+        print(f"Added {len(sci_organizers)} scientific committee members")
+        
     # Save participants CSV
     participants_csv_file = os.path.join(outdir, "Participants.csv")
     df.to_csv(participants_csv_file, index=False, header=False, quoting=csv.QUOTE_NONNUMERIC)
