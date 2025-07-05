@@ -87,8 +87,8 @@ def process_plenary_talks(csv_path: str) -> None:
         if not talk_id:
             continue
 
-        session_time_str = row.get("SessionTime", "").strip()
-        m = re.search(r"(\d{1,2}:\d{2})\s*[--]\s*(\d{1,2}:\d{2})", session_time_str)
+        session_time_str = row.get("EventTime", "").strip()
+        m = re.search(r"(\d{1,2}:\d{2})\s*[–-]\s*(\d{1,2}:\d{2})", session_time_str)
         time = f"{m.group(1)}--{m.group(2)}" if m else ""
 
         content = format_plenary_talk(

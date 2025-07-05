@@ -318,6 +318,66 @@ def add_committee_members():
     
     return committee_df
 
+def add_session_chairs():
+    """Add session chairs from schedule_day{i}_room_chair.csv files.
+    """
+    chairs = []
+    
+    for day in range(1, 6):  # Days 1 to 5
+        chair_file = os.path.join(interimdir, f"schedule_day{day}_room_chair.csv")
+        if not os.path.exists(chair_file):
+            print(f"Warning: {chair_file} not found")
+            continue
+            
+        try:
+            df_day = pd.read_csv(chair_file)
+            
+            # Check if Chair column exists and has data
+            if 'Chair' not in df_day.columns:
+                print(f"Warning: 'Chair' column not found in {chair_file}")
+                continue
+                
+            # Filter out empty chairs and non-person entries
+            valid_chairs = df_day[
+                df_day['Chair'].notna() & 
+                (df_day['Chair'].str.strip() != '') &
+                ~df_day['Chair'].str.contains('Coffee Break|Registration|Lunch', case=False, na=False)
+            ]['Chair'].unique()
+            
+            # Process each chair name
+            for chair_name in valid_chairs:
+                chair_name = chair_name.strip()
+                if not chair_name:
+                    continue
+                    
+                # Split name into first and last
+                name_parts = chair_name.rsplit(' ', 1)
+                if len(name_parts) == 2:
+                    first_name, last_name = name_parts
+                else:
+                    first_name = chair_name
+                    last_name = ""
+                
+                chairs.append({
+                    "FirstName": first_name,
+                    "LastName": last_name,
+                    "SessionID": f"schedule{day}",
+                    "PageNumber": "",
+                    "Organization": ""
+                })
+                
+        except Exception as e:
+            print(f"Error reading {chair_file}: {e}")
+            continue
+    
+    chairs_df = pd.DataFrame(chairs)
+    if not chairs_df.empty:
+        # Remove duplicates (same person might chair multiple sessions)
+        chairs_df = chairs_df.drop_duplicates(subset=['FirstName', 'LastName'])
+        print(f"Found {len(chairs_df)} unique session chairs")
+    
+    return chairs_df
+
 def generate_participants_latex(participants_csv_file):
     """Generate LaTeX content for the participants list from the CSV file."""
     from collections import defaultdict
@@ -356,9 +416,19 @@ def generate_participants_latex(participants_csv_file):
     return latex_content
     
 if __name__ == "__main__":
+
     # Add committee members from various committee files
     df = add_committee_members()
+
+    # Add chairs from interim/schedule_day{i}_room_chair.csv, for i = 1 to 5
+    chairs_df = add_session_chairs()
+    if not chairs_df.empty:
+        df = pd.concat([df, chairs_df], ignore_index=True)
+        print(f"Added {len(chairs_df)} session chairs")
     
+    # Add chairs_df to df
+    df = pd.concat([df, chairs_df], ignore_index=True)
+
     # Generate participants CSV file
     dfs = {}
     for key in ["special_session_submissions", "plenary_abstracts", "contributed_talk_submissions", "special_session_abstracts"]:
@@ -372,12 +442,16 @@ if __name__ == "__main__":
     df = df.merge(df2[['FirstName', 'LastName']].drop_duplicates(), 
                   on=['FirstName', 'LastName'], 
                   how='inner')
-    print(f"Filtered to {len(df)} committee members who are also session participants")
+    print(f"Filtered to {len(df)} committee members or chairs who are also session participants")
     
     # Add all session participants to the final list
     df = pd.concat([df, df2], ignore_index=True)
 
+    # if Organization is empty (e.g., in chair_df), groupby first and last name, and fill from other non-empty rows
+    df["Organization"] = df.groupby(["FirstName", "LastName"])["Organization"].transform(lambda x: x.ffill().bfill().iloc[0] if not x.empty else "")
+
     validate_session_participants(df)
+    # output organization to a csv file
     pd.Series(df["Organization"].unique(), name="Organization").sort_values().to_csv(f"{outdir}orgs.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
     with open(f'{interimdir}short_org_dict.csv', 'w', newline='') as file:
         writer = csv.writer(file)
