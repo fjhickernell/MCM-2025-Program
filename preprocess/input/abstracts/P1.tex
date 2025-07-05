@@ -42,19 +42,19 @@
 \begin{document}
 	
 \begin{talk}
-  {Building Monte Carlo "Renderers" for Physics}% [1] talk title
+  {Monte Carlo Methods in Computer Graphics}% [1] talk title
   {Rohan Sawhney}% [2] speaker name
   {NVIDIA}% [3] affiliations
   {rsawhney@nvidia.com}% [4] email
   {}% [5] coauthors
-  {Monte Carlo Applications in High-performance Computing, Computer Graphics, and Computational Science}% [6] special session. Leave this field empty for contributed talks. 
+  {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-Accurately analyzing large amounts of geometric data is critical for many scientific and engineering applications. Techniques based on partial differential equations (PDEs) provide powerful tools for analyzing physical systems, but conventional solvers are not yet at a stage where they “just work” on problems of real-world complexity. A constant challenge is spatial discretization, which divides the domain into a high-quality volumetric mesh for PDE-based analysis. Unfortunately, this approach does not scale well to modern computer architectures, and as such, there remains a large divide between our ability to \emph{visualize} and \emph{analyze} the natural world.
+Monte Carlo methods have transformed computer graphics and scientific computing alike by providing a versatile framework for solving complex integrals and simulating physical processes. In rendering, Monte Carlo techniques such as path tracing have enabled physically based image synthesis by stochastically simulating light transport across scenes with intricate geometry and materials. Sophisticated algorithms---including Metropolis light transport and ReSTIR---extend this foundation, combining Markov Chain Monte Carlo and resampled importance sampling to achieve high-quality results with manageable computational budgets.
 
-This talk provides a broad overview of grid-free Monte Carlo methods for solving PDEs based on the walk on spheres (WoS) algorithm. WoS makes a radical departure from conventional solvers by reformulating fundamental PDEs like the Poisson equation as recursive integrals that can be solved using the Monte Carlo method. Since these integrals closely resemble those in light transport, one can leverage deep knowledge from Monte Carlo rendering to build new scalable algorithms with vastly different numerical tradeoffs, such as trivial parallelism, the ability to
-evaluate the solution at any point in the domain without solving a global system
-of equations, and avoiding volumetric meshing altogether.
+Beyond image generation, Monte Carlo approaches are increasingly applied to solve partial differential equations central to modeling the natural world. Notably, the walk on spheres (WoS) algorithm offers a grid-free alternative to conventional finite element or finite difference solvers. By reformulating PDEs like the Poisson equation as recursive integral equations, WoS leverages random sampling to estimate solutions without requiring volumetric meshing or the assembly of global linear systems. This approach exhibits several powerful advantages---trivial parallelism, the ability to evaluate the solution at arbitrary points, and favorable scaling on modern hardware such as GPUs.
+
+This talk will survey the historical development, mathematical underpinnings, and practical innovations of Monte Carlo methods across these domains, illustrating how ideas from rendering and PDE simulation increasingly cross-pollinate. We will explore how the shared challenges of high-dimensional integration, variance reduction, and efficient sampling drive advances in algorithms that bridge computer graphics and computational physics, blurring the boundary between visualization and simulation. Finally, the talk will highlight emerging frontiers, including differentiable solvers and neural denoising.
 
 %\medskip
 

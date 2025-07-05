@@ -121,7 +121,7 @@ def process_session_talks(sess_content: str) -> List[Tuple[str, str, str]]:
     talk_tuples = []
     for title, speaker, code in talks:
         speaker_clean = speaker.replace('\n', ' ').replace("å", "{\\aa}").strip()
-        title_clean = title.replace('\n', ' ').replace('Φ','$\\Phi$').replace("–", "---").replace("å", "{\\aa}").strip()
+        title_clean = title.replace('\n', ' ').replace('Φ','$\\Phi$').replace("–", "--").replace("å", "{\\aa}").strip()
         code_clean = code.strip()
         talk_tuples.append((title_clean, speaker_clean, code_clean))
     return talk_tuples

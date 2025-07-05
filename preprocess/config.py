@@ -1,9 +1,10 @@
 import os
 
-cwd = os.getcwd() + os.sep + "preprocess" + os.sep
-indir = f"{cwd}input{os.sep}"
-outdir = f"{cwd}out{os.sep}"
-interimdir = f"{cwd}interim{os.sep}"
+# Use the directory where this config file is located instead of current working directory
+script_dir = os.path.dirname(os.path.abspath(__file__)) + os.sep
+indir = f"{script_dir}input{os.sep}"
+outdir = f"{script_dir}out{os.sep}"
+interimdir = f"{script_dir}interim{os.sep}"
 
 no_plenary_sessions = 8
 no_special_sessions = 29
