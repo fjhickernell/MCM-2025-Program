@@ -9,7 +9,7 @@ import util as ut
 def parse_session_time(session_time: str) -> tuple[str, str, str, str]:
     """Parse session time string into components."""
     m = re.match(
-        r"([A-Za-z]+),\s*([A-Za-z]+\s+\d{1,2})(?:\s+(\d{1,2}:\d{2})?(?:[-–—]\s*(\d{1,2}:\d{2}))?)?\s*(.*)", 
+        r"([A-Za-z]+),\s*([A-Za-z]+\s+\d{1,2})(?:\s+(\d{1,2}:\d{2})?(?:[--]\s*(\d{1,2}:\d{2}))?)?\s*(.*)", 
         session_time
     )
     if not m:
@@ -17,7 +17,7 @@ def parse_session_time(session_time: str) -> tuple[str, str, str, str]:
 
     day_of_week, date_str, start_time, end_time = m.group(1), m.group(2), m.group(3) or "", m.group(4) or ""
     session_period = "Morning" if start_time and datetime.datetime.strptime(start_time, "%H:%M").hour < 12 else "Afternoon"
-    session_time_fmt = f"{day_of_week}, {date_str}, 2025 -- {session_period}"
+    session_time_fmt = f"{day_of_week}, {date_str}, 2025--{session_period}"
     return session_time_fmt, session_period, start_time, end_time
 
 
@@ -50,7 +50,7 @@ def process_session_talks(df: pd.DataFrame, max_talks: int = 4) -> None:
         for _, row in session_group.head(max_talks).iterrows():
             title = (row.get("Talk Title", "")
                      .replace('Φ', '$\Phi$')
-                     .replace("–", "---")
+                     .replace("–", "--")
                      .strip())
             title = ut.clean_tex_content(title)  # Apply common text fixes
             presenter = row.get("Presenter", "").replace("å", "{\\aa}").strip()
@@ -88,7 +88,7 @@ def process_plenary_talks(csv_path: str) -> None:
             continue
 
         session_time_str = row.get("SessionTime", "").strip()
-        m = re.search(r"(\d{1,2}:\d{2})\s*[-–—]\s*(\d{1,2}:\d{2})", session_time_str)
+        m = re.search(r"(\d{1,2}:\d{2})\s*[--]\s*(\d{1,2}:\d{2})", session_time_str)
         time = f"{m.group(1)}--{m.group(2)}" if m else ""
 
         content = format_plenary_talk(
