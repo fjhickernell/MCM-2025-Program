@@ -323,7 +323,7 @@ def generate_participants_latex(participants_csv_file):
     from collections import defaultdict
     
     latex_content = ""
-    latex_content += "\\chapter{List of Participants}\n"
+    latex_content += "\\chapter{List of Participants and Committee Members}\n"
     latex_content += "\\setlength{\\columnsep}{1cm}\n"
     latex_content += "\\begin{multicols}{2}\n"
     latex_content += "\\small\\raggedright\n"
@@ -361,7 +361,7 @@ if __name__ == "__main__":
     
     # Generate participants CSV file
     dfs = {}
-    for key in ["special_session_submissions", "plenary_abstracts",       "contributed_talk_submissions", "special_session_abstracts"]:
+    for key in ["special_session_submissions", "plenary_abstracts", "contributed_talk_submissions", "special_session_abstracts"]:
         try:
             dfs[key] = pd.read_csv(os.path.join(interimdir, f"{key}_talkid.csv"))
         except:
