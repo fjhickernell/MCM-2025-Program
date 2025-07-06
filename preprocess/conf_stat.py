@@ -120,7 +120,7 @@ def generate_latex_statistics_table(session_counts: Dict[str, int], talk_counts:
 \\hline
 \\textbf{Conference Statistics} & \\textbf{Count} \\\\
 \\hline
-Number of participants & """ + str(num_participants) + """ \\\\
+Number of participants and Committee Members & """ + str(num_participants) + """ \\\\
 \\hline
 Number of plenary lectures & """ + str(talk_counts['plenary']) + """ \\\\
 \\hline
@@ -146,6 +146,7 @@ if __name__ == '__main__':
     
     print_session_summary(session_counts)
     print_talk_summary(talk_counts)
+    print(f"Number of unique participants and committee members: {num_participants}\n")
     
     # Generate and save LaTeX statistics table
     latex_content = generate_latex_statistics_table(session_counts, talk_counts, num_participants)
@@ -154,6 +155,9 @@ if __name__ == '__main__':
     latex_output_file = f"{outdir}conference_statistics.tex"
     with open(latex_output_file, 'w') as f:
         f.write(latex_content)
+
+    # assert number of participants is greater than number of talks
+    assert num_participants > sum(talk_counts.values()), f"Number of participants {num_participants}}} should be greater than number of talks {sum(talk_counts.values())}"
     
     #print_special_session_breakdown(talk_dfs['special'])
     #print_contributed_session_breakdown(talk_dfs['contributed'])

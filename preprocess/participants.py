@@ -232,11 +232,13 @@ def parse_committee(file_path):
     lines = content.strip().split('\n')
     for line in lines:
         line = line.strip()
-        if not line or line.startswith('%'):  # Skip empty lines and comments
+        if not line or line.startswith('%') or line in [r"\begin{itemize}", r"\end{itemize}"]:  # Skip empty lines, comments, and itemize env
             continue
             
         # Remove trailing backslashes and clean up
         line = re.sub(r'\\+$', '', line).strip()
+        # Remove leading "\item " if present
+        line = re.sub(r'^\\item\s+', '', line)
         
         full_name = ""
         org = ""
@@ -289,7 +291,8 @@ def parse_committee(file_path):
                 "PageNumber": "",
                 "Organization": org if org else "Organizing Committee"
             })
-    
+
+
     return organizers
 
 def add_committee_members():
@@ -314,8 +317,11 @@ def add_committee_members():
         committee_members = parse_committee(committee_file)
         if committee_members:
             committee_df = pd.concat([committee_df, pd.DataFrame(committee_members)], ignore_index=True)
-            print(f"Added {len(committee_members)} {committee_name} members")
+            print(f"Added {len(committee_members):2d} {committee_name} members")
     
+    if not committee_df.empty:
+        print(f"\nTotal committee member/student assistants added: {len(committee_df)}, e.g.,\n\n{committee_df.head(2)}\n]")
+  
     return committee_df
 
 def add_session_chairs():
@@ -361,7 +367,7 @@ def add_session_chairs():
                 chairs.append({
                     "FirstName": first_name,
                     "LastName": last_name,
-                    "SessionID": f"schedule{day}",
+                    "SessionID": "",
                     "PageNumber": "",
                     "Organization": ""
                 })
@@ -371,11 +377,10 @@ def add_session_chairs():
             continue
     
     chairs_df = pd.DataFrame(chairs)
-    if not chairs_df.empty:
-        # Remove duplicates (same person might chair multiple sessions)
-        chairs_df = chairs_df.drop_duplicates(subset=['FirstName', 'LastName'])
-        print(f"Found {len(chairs_df)} unique session chairs")
     
+    if not chairs_df.empty:
+        print(f"\nAdded {len(chairs_df)} session chairs, e.g., \n\n {chairs_df.head(2)} \n")
+
     return chairs_df
 
 def generate_participants_latex(participants_csv_file):
@@ -410,6 +415,7 @@ def generate_participants_latex(participants_csv_file):
             partstrng += f"\n{{{s}}}"
         latex_content += partstrng + "\n"
 
+
     latex_content += "\\end{multicols}\n"
     latex_content = clean_tex_content(latex_content)  # Apply common text fixes
     
@@ -421,13 +427,11 @@ if __name__ == "__main__":
     df = add_committee_members()
 
     # Add chairs from interim/schedule_day{i}_room_chair.csv, for i = 1 to 5
-    chairs_df = add_session_chairs()
-    if not chairs_df.empty:
-        df = pd.concat([df, chairs_df], ignore_index=True)
-        print(f"Added {len(chairs_df)} session chairs")
-    
-    # Add chairs_df to df
-    df = pd.concat([df, chairs_df], ignore_index=True)
+    #chairs_df = add_session_chairs()
+
+    # Add com_df and chairs_df to df
+    #df = pd.concat([com_df, chairs_df], ignore_index=True)
+    #print(f"\n{df.shape[0]} committee members or chairs\n")
 
     # Generate participants CSV file
     dfs = {}
@@ -437,15 +441,18 @@ if __name__ == "__main__":
         except:
             dfs[key] = pd.read_csv(os.path.join(interimdir, f"{key}_sessionid.csv"))
     df2 = extract_participants(dfs)
+    print(f"\n{df2.shape[0]} participants")
 
     # Include only committee members in df if they are also participants in df2
     df = df.merge(df2[['FirstName', 'LastName']].drop_duplicates(), 
                   on=['FirstName', 'LastName'], 
                   how='inner')
-    print(f"Filtered to {len(df)} committee members or chairs who are also session participants")
+    print(f"{len(df)} committee members or chairs who are also session participants")
     
     # Add all session participants to the final list
     df = pd.concat([df, df2], ignore_index=True)
+    df = df.sort_values(["LastName", "FirstName"])
+    print(f"{len(df)} participants or committee chairs")
 
     # if Organization is empty (e.g., in chair_df), groupby first and last name, and fill from other non-empty rows
     df["Organization"] = df.groupby(["FirstName", "LastName"])["Organization"].transform(lambda x: x.ffill().bfill().iloc[0] if not x.empty else "")
