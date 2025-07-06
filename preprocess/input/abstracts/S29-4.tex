@@ -34,12 +34,13 @@
 % ------------------------------------------------------------------------
 
 \begin{document}
-\begin{talk} {Flow-Based Monte Carlo Transport Simulation}% [1] talk title 
-{Joey Farmer}% [2] speaker name 
-{University of Notre Dame}% [3] affiliations 
-{jfarmer@nd.edu}% [4] email (placeholder) 
-{Prof. Ryan McClarren, Aidan Murray, Johannes Krotz}% [5] coauthors 
-{Hardware or Software for Quasi-Monte Carlo Methods}% [6] special session. Leave empty for contributed.
+\begin{talk} 
+    {Flow-Based Monte Carlo Transport Simulation}% [1] talk title 
+    {Joseph Farmer}% [2] speaker name 
+    {University of Notre Dame}% [3] affiliations 
+    {jfarmer@nd.edu}% [4] email (placeholder) 
+    {Prof. Ryan McClarren, Aidan Murray, Johannes Krotz}% [5] coauthors 
+    {Hardware or Software for Quasi-Monte Carlo Methods}% [6] special session. Leave empty for contributed.
 
 Monte Carlo (MC) particle transport methods are the gold standard for high-fidelity simulations but can be computationally prohibitive, especially in optically thick media or problems requiring a large number of particle histories. The performance bottleneck often lies in the sequential, stochastic random walk, where each particle undergoes numerous collision events that are difficult to vectorize and lead to control flow divergence on parallel architectures like GPUs.
 
