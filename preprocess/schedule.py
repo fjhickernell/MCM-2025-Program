@@ -199,7 +199,7 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
         #print(f"{date = }, {is_last_day = }")
         time_str = "Morning" if is_morning else "Afternoon"
         latex_content += "\\vspace{-10ex}\n" if (not (is_last_day and not is_morning)) else "" 
-        latex_content += "\\begin{sideways}\\footnotesize\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}\n" if (not (is_last_day and not is_morning)) else "" 
+        latex_content += "\\hspace*{-0.5cm}\\begin{sideways}\\footnotesize\\begin{tabularx}{\\textheight}{l*{\\numcols}{|Y}}\n" if (not (is_last_day and not is_morning)) else "" 
         # Extract day of the week from date, e.g., Mon, Tue, etc.
         day_of_week = pd.to_datetime(date + " 2025", format="%b %d %Y").strftime("%a")
         # Add table heading for each group (morning/afternoon or last day)
