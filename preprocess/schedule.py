@@ -189,7 +189,7 @@ def generate_parallel_talks_latex(session_talks_dict: Dict[str, List[Tuple[str, 
 
 def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
     """Generate the full LaTeX schedule."""
-    latex_content = "\\begin{center}\n\n"
+    latex_content = "\\begin{center}\\newpage\n\n"
     grouped = df.groupby(["Date", "IsMorning"])
     grouped = sorted(grouped, key=lambda x: (pd.to_datetime(x[0][0], format="%b %d"), not x[0][1]))
     last_date = df["Date"].iloc[-1] if not df.empty else None
