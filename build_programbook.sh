@@ -49,6 +49,8 @@ fi
 if [ -f "MCM2025_book.pdf" ]; then
     mv MCM2025_book.pdf "MCM2025_Book${suffix}.pdf"
     echo "Successfully created MCM2025_Book${suffix}.pdf"
+    # Give the file system a moment to sync
+    sleep 1
 else
     echo "Error: MCM2025_book.pdf was not created"
     exit 1
@@ -56,8 +58,16 @@ fi
 
 # Generate schedules
 echo "Generating schedule PDFs..."
+# Verify the file exists and is readable before running pdftk
+if [ ! -f "MCM2025_Book${suffix}.pdf" ]; then
+    echo "Error: MCM2025_Book${suffix}.pdf not found"
+    exit 1
+fi
+
 if ! /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat 25-26 output "MCM2025_schedule1sheet${suffix}.pdf"; then
     echo "Failed to generate schedule1sheet PDF"
+    echo "Debug: Checking if input file is readable..."
+    ls -la "MCM2025_Book${suffix}.pdf"
     exit 1
 fi
 
