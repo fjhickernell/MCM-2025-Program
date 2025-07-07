@@ -70,6 +70,7 @@
 \newcommand{\EmptyColor}{UWGrey1}
 \newcommand{\EventColor}{UWGrey1}
 \newcommand{\PlenaryColor}{UWYellow3}
+\newcommand{\OpeningClosingColor}{UWYellow1}
 \newcommand{\TutorialColor}{UWYellow2}
 \newcommand{\SessionTitleColor}{UWPink2}
 \newcommand{\SessionLightColor}{UWPink1}
@@ -379,7 +380,7 @@
 	\multicolumn{\numcols}{Z}{#2}		% activity and note
 }
 \newcommand{\OpeningClosingEvent}[2]{
-	\rowcolor{\PlenaryColor}				% color of the row
+	\rowcolor{\OpeningClosingColor}				% color of the row
 	#1 &		 					% start time -- end time (e.g., 12:00 -- 18:00)
 	\multicolumn{\numcols}{Z}{#2}		% activity and note
 }
@@ -392,11 +393,10 @@
 	\rowcolor{\PlenaryColor} #1 &
 	\multicolumn{\numcols}{Z}{
 	#2\par%
-	\textbf{Plenary Talk: }  % \vspace{1mm}\par%
-	\textbf{\textit{#4}}, % \par%
-	%\textbf{#5} \quad 
-	p.~\pageref{#6} %\vspace{1mm}\par%
-	\qquad Chair: \textit{#3}}
+	\textbf{Plenary Talk: }  
+	\textbf{\textit{#4}}\unskip, 
+	p.~\pageref{#6}\par%
+	Chair: \textit{#3}}
 }%
 
 % -- adding a table tutorial entry
@@ -442,7 +442,7 @@
 
 % -- adding a table talk entry
 \newcommand{\tableTalk}[3] % [1] speaker, [2] talk title, [3] talk id
- {\hspace{-1ex}\textit{#1}\hspace{-1ex}, #2\hspace{-0.8ex}, p.~\pageref{#3}}%
+ {\hspace{-1ex}\textit{#1}\unskip, #2\unskip, p.~\pageref{#3}}%
 
  
 
@@ -451,17 +451,17 @@
 % [1] location, 
 % [2] session title, [3] session id, [4] chair
 %if it's part 1 or part 2 just put it in the title
- {%#1\par%
+ {
  #1\par%
  \textbf{Special Session}
- #2\hspace{-0.8ex}, p.~\pageref{#3} \par%
+ #2\unskip, p.~\pageref{#3}\par%
  Chair: \textit{#4}}% 
 
 % -- adding a table contributed session entry
 \newcommand{\tableContributedCL}[3] % [1] location, [3] chair
  % [2] description, 
  {#1\par%
- #2\quad  \par%
+ #2\par%
  Chair: \textit{#3}}%
 
 % -- adding a table contributed session entry
