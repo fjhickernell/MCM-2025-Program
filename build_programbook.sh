@@ -23,7 +23,11 @@ fi
 
 TEXYEAR=${2:-2025}  # Default to 2025 if not provided
 TEXBIN=/usr/local/texlive/${TEXYEAR}/bin/universal-darwin
-
+# page numbers for important sections
+SCHED_START=26
+OUTLINE_END=28
+SCHED_END=37
+ABSTRACT_END=228
 
 echo "Using filename suffix: $suffix"
 
@@ -64,26 +68,26 @@ if [ ! -f "MCM2025_Book${suffix}.pdf" ]; then
     exit 1
 fi
 
-if ! /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat 25-26 output "MCM2025_schedule1sheet${suffix}.pdf"; then
+if ! /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat $((${SCHED_START}+1))-${OUTLINE_END} output "MCM2025_schedule1sheet${suffix}.pdf"; then
     echo "Failed to generate schedule1sheet PDF"
     echo "Debug: Checking if input file is readable..."
     ls -la "MCM2025_Book${suffix}.pdf"
     exit 1
 fi
 
-if ! /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat 24-26 27-35east output "MCM2025_schedule${suffix}.pdf"; then
+if ! /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat ${SCHED_START}-${OUTLINE_END} $((${OUTLINE_END}+1))-${SCHED_END}east output "MCM2025_schedule${suffix}.pdf"; then
     echo "Failed to generate schedule PDF"
     exit 1
 fi
 
-if ! /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat 24-26 27-35east 36-227 output "MCM2025_schedule_abstracts${suffix}.pdf"; then
+if ! /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat ${SCHED_START}-${OUTLINE_END} $((${OUTLINE_END}+1))-${SCHED_END}east $((${SCHED_END}+1))-${ABSTRACT_END} output "MCM2025_schedule_abstracts${suffix}.pdf"; then
     echo "Failed to generate schedule_abstracts PDF"
     exit 1
 fi
 
 # Rotate pages 27-35 clockwise 90 degrees (east)
 echo "Rotating schedule pages..."
-if ! /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat 1-26 27-35east 36-end output "MCM2025_Book${suffix}_rotated.pdf"; then
+if ! /opt/homebrew/bin/pdftk "MCM2025_Book${suffix}.pdf" cat 1-${OUTLINE_END} $((${OUTLINE_END}+1))-${SCHED_END}east $((${SCHED_END}+1))-end output "MCM2025_Book${suffix}_rotated.pdf"; then
     echo "Failed to rotate pages"
     exit 1
 fi

@@ -1,6 +1,6 @@
 SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Mon, Jul 28 08:00–17:30",Registration Desk Open,HH Lobby,,,,1
-"Mon, Jul 28 08:45–09:00",Conference Opening,HH Auditorium,Fred Hickernell,,,2
+"Mon, Jul 28 08:45–09:00",Opening Ceremony,HH Auditorium,Fred Hickernell,,,2
 "Mon, Jul 28 09:00–10:00","Plenary Talk by Rohan Sawhney, Nvidia Corporation, Monte Carlo Methods in Computer Graphics",HH Auditorium,Michael Mascagni,rohan sawhney,P1,3
 "Mon, Jul 28 10:00–10:30",Coffee Break,HH Lobby,,,,4
 "Mon, Jul 28 10:30–12:30","Track A: Stochastic Computation and Complexity, Part I",HH Auditorium,Stefan Heinrich,stochastic computation and complexity part i,S1,5
@@ -74,4 +74,4 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Fri, Aug 1 09:00–11:00",Track E: Technical Session 14 - Markov Chain Monte Carlo,HH Alumni Lounge,TBD,technical session 14,T14,73
 "Fri, Aug 1 11:00–11:30",Coffee Break,HH Lobby,,,,74
 "Fri, Aug 1 11:30–12:30","Plenary Talk by Veronika Ročková, U of Chicago, AI-Powered Bayesian Inference",HH Auditorium,Art Owen,veronika ročková,P8,75
-"Fri, Aug 1 12:30–12:45",Closing Remarks,HH Auditorium,Fred Hickernell,,,76
+"Fri, Aug 1 12:30–12:40",Closing Ceremony,HH Auditorium,Fred Hickernell,,,76
