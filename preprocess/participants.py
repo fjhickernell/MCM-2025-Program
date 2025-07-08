@@ -320,7 +320,7 @@ def add_committee_members():
             print(f"Added {len(committee_members):2d} {committee_name} members")
     
     if not committee_df.empty:
-        print(f"\nTotal committee member/student assistants added: {len(committee_df)}, e.g.,\n\n{committee_df.head(2)}\n]")
+        print(f"\nTotal committee member/student assistants added: {len(committee_df)}, e.g.,\n\n{committee_df.head(2)}\n")
   
     return committee_df
 
