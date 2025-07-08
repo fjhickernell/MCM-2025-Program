@@ -23,11 +23,13 @@ fi
 
 TEXYEAR=${2:-2025}  # Default to 2025 if not provided
 TEXBIN=/usr/local/texlive/${TEXYEAR}/bin/universal-darwin
-# page numbers for important sections
-SCHED_START=26
-OUTLINE_END=28
-SCHED_END=37
-ABSTRACT_END=228
+# page numbers for important sections, these need to be updated manually if the document changes
+# These numbers are based on the current structure of the MCM program book.
+# If you add or remove pages, you will need to adjust these numbers accordingly.
+SCHED_START=26 #where the schedule cover page starts
+OUTLINE_END=28  #where the outline schedule ends
+SCHED_END=37  #where the schedule ends
+ABSTRACT_END=228  #where the abstracts end
 
 echo "Using filename suffix: $suffix"
 
