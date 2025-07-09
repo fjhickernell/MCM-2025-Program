@@ -91,7 +91,7 @@ def generate_session_latex(row: pd.Series) -> str:
         #print(f"{session_title = }, {session_time = }")
         start_time, end_time = extract_time_from_session(session_time)
         time_str = f"{start_time}--{end_time}" if start_time and end_time else ""
-        if session_title.lower().startswith("conference opening") or session_title.lower().startswith("closing"):
+        if session_title.lower().startswith("opening") or session_title.lower().startswith("closing"):
             event_details = f"{session_title} by {chair}, {room}"
             return f"\\OpeningClosingEvent{{{time_str}}}{{{event_details}}}\\\\\n"
         else: 

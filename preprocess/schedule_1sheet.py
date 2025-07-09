@@ -9,7 +9,9 @@ import re
 def get_row_color(row):
     """Return LaTeX color command based on keywords in the row (case insensitive)."""
     row_str = ' '.join(str(x) for x in row).lower()
-    if any(kw in row_str for kw in ["plenary", "opening", "closing"]): 
+    if any(kw in row_str for kw in ["opening", "closing"]): 
+        return r'\cellcolor{\OpeningClosingColor}'
+    elif any(kw in row_str for kw in ["plenary"]):
         return r'\cellcolor{\PlenaryColor}'
     elif any(kw in row_str for kw in ["break", "registration", "reception", "dinner"]):
         return r'\cellcolor{\EmptyColor}'
