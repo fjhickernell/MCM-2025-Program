@@ -154,22 +154,22 @@ def process_special_session_abstracts(df):
     """Process special session abstracts data."""
     df = df.copy()
     presenter_cols = ["First or given name(s) of presenter", "Last or family name of presenter"]
-    
+
     # Check for duplicates
     dupes = df[df.duplicated(subset=presenter_cols, keep=False)]
     if not dupes.empty:
         print(f"\nWARNING: {dupes.shape[0]} duplicated records in special session abstracts --- will be deduplicated by keeping last records.\n")
         #print(dupes[presenter_cols])
-    
     not_accepted = df.loc[df["Include"].str.lower() != "yes", [presenter_cols[-1], "Include"]]
-
     if not_accepted.shape[0]>0:  
         print(f"\nWARN: {not_accepted.shape[0]} special talks are not accepted (Include = No)\n")
-    #   print(not_accepted)
+        #print(not_accepted)
+
+    # Filter out only accepted talks
+    df = df[df["Include"].str.lower() == "yes"]
 
     # Deduplicate by presenter name
     df = df.drop_duplicates(subset=presenter_cols, keep="last")
-    
     # Create combined presenter column and clean up
     df["Presenter"] = df[presenter_cols[0]] + " " + df[presenter_cols[1]]
     df = df.drop(columns=presenter_cols)
