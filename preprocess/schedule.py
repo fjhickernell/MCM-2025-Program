@@ -216,7 +216,7 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
 
             is_first_parallel_talk = session_title.lower().startswith("track") and group['SessionTitle'].str.lower().str.startswith("track").idxmax() == row.name
             if is_first_parallel_talk:
-                latex_content += r"\rowcolor{\SessionTitleColor}\cellcolor{\EmptyColor}" + "\n"
+                latex_content += r"\rowcolor{\SessionTitleColor}" + "\n"
             session_latex = generate_session_latex(row)
             latex_content += session_latex
             
