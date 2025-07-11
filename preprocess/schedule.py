@@ -204,10 +204,14 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
         day_of_week = pd.to_datetime(date + " 2025", format="%b %d %Y").strftime("%a")
         # Add table heading for each group (morning/afternoon or last day)
         if not is_last_day:
-            latex_content += f"\\TableHeading{{ {day_of_week}, {date}, 2025 -- {time_str} }}\n\\\\\\hline\n"
+            # Generate label like MonMorning, TueAfternoon, etc.
+            label = f"{day_of_week}{time_str}"
+            latex_content += f"\\TableHeading{{ {day_of_week}, {date}, 2025 -- {time_str} }}\n\\label{{{label}}}\n\\\\\\hline\n"
         else:
             if is_morning:
-                latex_content += f"\\TableHeading{{ {day_of_week}, {date}, 2025 }}\n\\\\\\hline\n"
+                # Generate label for last day morning
+                label = f"{day_of_week}{time_str}"
+                latex_content += f"\\TableHeading{{ {day_of_week}, {date}, 2025 }}\n\\label{{{label}}}\n\\\\\\hline\n"
             else:
                 latex_content += "\\hline\n"
         talks_latex = ""
