@@ -42,27 +42,19 @@
 \begin{document}
 	
 \begin{talk}
-  {Quantitative results on sampling from quasi-stationary distributions}% [1] talk title
-  {Daniel Yukimura}% [2] speaker name
-  {IMPA, Rio de Janeiro, Brazil}% [3] affiliations
-  {yukimura@impa.br}% [4] email
-  {Roberto I. Oliveira}% [5] coauthors
+  {Multilevel simulation of ensemble Kalman methods: interactions across levels}% [1] talk title
+  {Toon Ingelaere}% [2] speaker name
+  {KU Leuven}% [3] affiliations
+  {toon.ingelaere@kuleuven.be}% [4] email
+  {Giovanni Samaey}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
-			
-    We study the rate of convergence of Sequential Monte Carlo (SMC) methods for approximating the quasi-stationary ditribution (QSD) of Markov processes. 
-    For processes with killing or absorption, the QSD appears as a stable behavior observed before extinction, or as the limiting distribution of the process conditioned on not being absorbed. 
-    We give quantitative lower and upper bounds for the particle filter approximation of these distributions.
-    For the lower bound, we show that fast mixing is not enough to guarantee that simulation methods can converge in few steps.
-    In the upper bound, we show that SMC with adaptive resampling has a rate depending on the number of steps, the mixing time, and in how fast the processed gets killed.
-    Our seems to be the first result to have a quantitative dependency of this form that is valid for discrete time Markov chains in general state spaces.
-    Our techniques and concentration results for bounding the approximations of SMC with adaptive resampling are also novel, and we believe might be applicable in other scenarios that can benefit from the lower variance obtained due to an adaptive approach.
-    % Finally, as an example, we apply these results to get quantitative estimates for a large class of killed processes in $\mathbb{Z}^d$, where we obtain the first bounds with the ``natural" time scale.
-    
-    
+
+        To solve problems in domains such as filtering, optimization, and posterior sampling,
+        ensemble Kalman methods have recently received much attention. These parallelizable and often gradient-free algorithms use an ensemble of particles that evolve in time, based on a combination of well-chosen dynamics and interaction between the particles. For computationally expensive dynamics, the cost of attaining a high accuracy quickly becomes prohibitive. To improve the asymptotic cost-to-error relation, different multilevel Monte Carlo techniques have been proposed. These methods simulate multiple differently sized ensembles at different resolutions, corresponding to different accuracies and costs. While particles within one of these ensembles do interact with each other, a key question is whether and how particles should interact across ensembles and levels.
+        In this talk, we will outline and compare the most common approaches to such multilevel ensemble interactions.
 
 \medskip
-
 
 \end{talk}
 

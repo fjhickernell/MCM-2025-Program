@@ -42,33 +42,27 @@
 \begin{document}
 	
 \begin{talk}
-  {Revisiting self-normalized importance sampling: new methods and diagnostics}% [1] talk title
-  {Nicola Branchini}% [2] speaker name
-  {University of Edinburgh}% [3] affiliations
-  {n.branchini@sms.ed.ac.uk}% [4] email
-  {Víctor Elvira}% [5] coauthors
+  {Quantitative results on sampling from quasi-stationary distributions}% [1] talk title
+  {Daniel Yukimura}% [2] speaker name
+  {IMPA, Rio de Janeiro, Brazil}% [3] affiliations
+  {yukimura@impa.br}% [4] email
+  {Roberto I. Oliveira}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-Importance sampling (IS) can often be implemented only with normalized weights, yielding the popular self-normalized IS (SNIS) estimator. However, proposal distributions are often learned and evaluated using criteria designed for the unnormalized IS (UIS) estimator.
-
-In this talk, we aim to present a unified perspective on recent methodological advances in understanding and improving SNIS.
-We propose and compare two new frameworks for adaptive importance sampling (AIS) methods tailored to SNIS. Our first framework exploits the view of SNIS as a ratio of two UIS estimators, coupling two separate AIS samplers in a joint distribution selected to minimize asymptotic variance. Our second framework instead proposes the first MCMC-driven AIS sampler directly targeting the (often overlooked) optimal SNIS proposal.
-
-We also establish a close connection between the optimal SNIS proposal and so-called subtractive mixture models (SMMs), where negative coefficients are possible - motivating the study of the properties of the first IS estimators using SMMs.
-
-Finally, we propose new Monte Carlo diagnostics specifically for SNIS. They extend existing diagnostics for numerator and denominator by incorporating their statistical dependence, drawing on different notions of tail dependence from multivariate extreme value theory.
+    We study the rate of convergence of Sequential Monte Carlo (SMC) methods for approximating the quasi-stationary ditribution (QSD) of Markov processes. 
+    For processes with killing or absorption, the QSD appears as a stable behavior observed before extinction, or as the limiting distribution of the process conditioned on not being absorbed. 
+    We give quantitative lower and upper bounds for the particle filter approximation of these distributions.
+    For the lower bound, we show that fast mixing is not enough to guarantee that simulation methods can converge in few steps.
+    In the upper bound, we show that SMC with adaptive resampling has a rate depending on the number of steps, the mixing time, and in how fast the processed gets killed.
+    Our seems to be the first result to have a quantitative dependency of this form that is valid for discrete time Markov chains in general state spaces.
+    Our techniques and concentration results for bounding the approximations of SMC with adaptive resampling are also novel, and we believe might be applicable in other scenarios that can benefit from the lower variance obtained due to an adaptive approach.
+    % Finally, as an example, we apply these results to get quantitative estimates for a large class of killed processes in $\mathbb{Z}^d$, where we obtain the first bounds with the ``natural" time scale.
+    
+    
 
 \medskip
 
-\begin{enumerate}
-	\item[{[1]}] Branchini, N., \& Elvira, V. (2024). Generalizing self-normalized importance sampling with couplings. arXiv preprint arXiv:2406.19974.
-	\item[{[2]}] Branchini, N., \& Elvira, V. (2025). Towards adaptive self-normalized importance samplers. In submission at Statistical Signal Processing Workshop (SSP), 2025.
-    \item[{[3]}] \textbf{Zellinger, L. \& Branchini, N. (equal contribution)}, Elvira, V., \& Vergari, A. Scalable expectation estimation with subtractive mixture models. In submission at Frontiers in Probabilistic Inference: Learning meets Sampling (workshop at ICLR 2025).
-    \item[{[4]}] Branchini, N., \& Elvira, V. The role of tail dependence in estimating posterior expectations. In NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty.
-
-
-\end{enumerate}
 
 \end{talk}
 
