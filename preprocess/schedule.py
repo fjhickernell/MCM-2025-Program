@@ -206,12 +206,12 @@ def generate_schedule_latex(df: pd.DataFrame, outdir: str) -> str:
         if not is_last_day:
             # Generate label like MonMorning, TueAfternoon, etc.
             label = f"{day_of_week}{time_str}"
-            latex_content += f"\\TableHeading{{ {day_of_week}, {date}, 2025 -- {time_str} }}\n\\label{{{label}}}\n\\\\\\hline\n"
+            latex_content += f"\\TableHeading{{ \\hspace*{{-2.5cm}}{day_of_week}, {date}, 2025 -- {time_str} }}\n\\label{{{label}}}\n\\\\\\hline\n"
         else:
             if is_morning:
                 # Generate label for last day morning
                 label = f"{day_of_week}{time_str}"
-                latex_content += f"\\TableHeading{{ {day_of_week}, {date}, 2025 }}\n\\label{{{label}}}\n\\\\\\hline\n"
+                latex_content += f"\\TableHeading{{ \\hspace*{{-2.5cm}}{day_of_week}, {date}, 2025 }}\n\\label{{{label}}}\n\\\\\\hline\n"
             else:
                 latex_content += "\\hline\n"
         talks_latex = ""
