@@ -443,6 +443,22 @@ if __name__ == "__main__":
     df2 = extract_participants(dfs)
     print(f"\n{df2.shape[0]} participants")
 
+    # Add input/attendees.csv to df2
+    attendees_file = os.path.join(indir, "attendees.csv")
+    if os.path.exists(attendees_file):
+        try:
+            attendees_df = pd.read_csv(attendees_file)
+            # Handle alternate column names
+            if 'First Name' in attendees_df.columns and 'Last Name' in attendees_df.columns:
+                attendees_df = attendees_df.rename(columns={'First Name': 'FirstName', 'Last Name': 'LastName', 'Company': 'Organization'})
+                attendees_df = attendees_df[['FirstName', 'LastName', 'Organization']].drop_duplicates()
+                df2 = pd.concat([df2, attendees_df], ignore_index=True)
+                print(f"Added {attendees_df.shape[0]} attendees from {attendees_file}")
+            else:
+                print(f"Warning: Expected columns not found in {attendees_file}")
+        except Exception as e:
+            print(f"Error reading {attendees_file}: {e}")
+
     # Include only committee members in df if they are also participants in df2
     df = df.merge(df2[['FirstName', 'LastName']].drop_duplicates(), 
                   on=['FirstName', 'LastName'], 
