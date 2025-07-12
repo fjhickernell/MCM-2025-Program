@@ -47,6 +47,20 @@ def apply_name_corrections(df):
     }
     for old, new in name_dict.items():
         df.loc[df["LastName"] == old, "LastName"] = new
+    
+    # Change first names, e.g., if last name is Owen and first name is Art, then change first name to "Art B."
+    df.loc[(df["LastName"] == "Owen") & (df["FirstName"] == "Art"), "FirstName"] = "Art B."
+    df.loc[(df["LastName"] == "Hickernell") & (df["FirstName"] == "Fred"), "FirstName"] = "Fred J." 
+    df.loc[(df["LastName"] == "Tempone") & (df["FirstName"].isin(["Raul","Raúl"])), "FirstName"] = "Ra\\'ul"
+    df.loc[(df["LastName"] == "Shestopaloff") & (df["FirstName"].isin(["Alex"])), "FirstName"] = "Alexander"
+    df.loc[(df["LastName"] == "Guth") & (df["FirstName"].isin(["Philipp"])), "FirstName"] = "Philipp A."
+
+    # Change last names
+    df.loc[(df["LastName"].isin(["Muller-Gronbach", "Müller-Gronbach"])) & (df["FirstName"].isin(["Thomas"])), "LastName"] = 'M\\"uller-Gronbach'
+
+    # Change both first and last names
+    df.loc[(df["LastName"].isin(["Pillai"])) & (df["FirstName"].isin(["Shyam Mohan Subbiah"])), "FirstName"] = 'Shyam Mohan'
+    df.loc[(df["LastName"].isin(["Pillai"])) & (df["FirstName"].isin(["Shyam Mohan"])), "LastName"] = 'Subbiah Pillai'
     return df
 
 def apply_organization_corrections(df):
@@ -425,6 +439,7 @@ if __name__ == "__main__":
 
     # Add committee members from various committee files
     df = add_committee_members()
+    df = cleanup_participant_data(df)
 
     # Add chairs from interim/schedule_day{i}_room_chair.csv, for i = 1 to 5
     #chairs_df = add_session_chairs()
@@ -452,6 +467,8 @@ if __name__ == "__main__":
             if 'First Name' in attendees_df.columns and 'Last Name' in attendees_df.columns:
                 attendees_df = attendees_df.rename(columns={'First Name': 'FirstName', 'Last Name': 'LastName', 'Company': 'Organization'})
                 attendees_df = attendees_df[['FirstName', 'LastName', 'Organization']].drop_duplicates()
+                attendees_df = cleanup_participant_data(attendees_df)
+
                 df2 = pd.concat([df2, attendees_df], ignore_index=True)
                 print(f"Added {attendees_df.shape[0]} attendees from {attendees_file}")
             else:
@@ -473,7 +490,12 @@ if __name__ == "__main__":
     # if Organization is empty (e.g., in chair_df), groupby first and last name, and fill from other non-empty rows
     df["Organization"] = df.groupby(["FirstName", "LastName"])["Organization"].transform(lambda x: x.ffill().bfill().iloc[0] if not x.empty else "")
 
+    # drop duplicates based on FirstName, LastName, Organization and SessionID
+    df = df.sort_values(["LastName", "FirstName"])
+    df = df.drop_duplicates(subset=["FirstName", "LastName", "Organization",  "SessionID"])
+    
     validate_session_participants(df)
+
     # output organization to a csv file
     pd.Series(df["Organization"].unique(), name="Organization").sort_values().to_csv(f"{outdir}orgs.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
     with open(f'{interimdir}short_org_dict.csv', 'w', newline='') as file:

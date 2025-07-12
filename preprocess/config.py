@@ -82,6 +82,8 @@ gsheets = {
  
 # Map for organizations:
 org_dict = {
+        "University Passau": "University of Passau",
+        'Inria Rennes Bretagne-Atlantique':'INRIA Rennes Bretagne-Atlantique',
         "Ensae":"ENSAE",
         "Academy of Mathematics and Systems Science, Chinese Academy of Sciences": "Chinese Academy of Sciences",
         "Work done during C. Huang's Ph.D. studies at Georgia Institute of Technology": "Georgia Institute of Technology",
