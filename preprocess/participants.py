@@ -381,6 +381,11 @@ def add_session_chairs():
             
         hour = int(time_match.group(1))
         
+        # Friday only has morning sessions
+        if day == 'friday':
+            return f"{day_abbrev}Morning"
+        
+        # For other days, split at 12 noon
         if hour < 12:  # Before 12 noon is morning
             return f"{day_abbrev}Morning"
         else: 

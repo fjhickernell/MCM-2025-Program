@@ -330,14 +330,29 @@
 \usepackage{xparse}
 \makeatletter
 \def\ParticipantList#1{%
-  \ParticipantList@i#1,\@nil
+  % Check if argument is empty
+  \if\relax\detokenize{#1}\relax
+    % Empty argument, do nothing
+  \else
+    \ParticipantList@i#1,\@nil
+  \fi
 }
 \def\ParticipantList@i#1,#2\@nil{%
-  p.~\pageref{#1}%
-  \ifx\relax#2\relax
-    % nothing more
+  % Check if first argument is empty
+  \if\relax\detokenize{#1}\relax
+    % Skip empty first argument, continue with rest
+    \ifx\relax#2\relax
+      % nothing more
+    \else
+      \ParticipantList@i#2\@nil
+    \fi
   \else
-    ,~\ParticipantList@i#2\@nil
+    p.~\pageref{#1}%
+    \ifx\relax#2\relax
+      % nothing more
+    \else
+      ,~\ParticipantList@i#2\@nil
+    \fi
   \fi
 }
 \makeatother
