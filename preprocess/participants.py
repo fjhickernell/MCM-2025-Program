@@ -54,9 +54,11 @@ def apply_name_corrections(df):
     df.loc[(df["LastName"] == "Tempone") & (df["FirstName"].isin(["Raul","Raúl"])), "FirstName"] = "Ra\\'ul"
     df.loc[(df["LastName"] == "Shestopaloff") & (df["FirstName"].isin(["Alex"])), "FirstName"] = "Alexander"
     df.loc[(df["LastName"] == "Guth") & (df["FirstName"].isin(["Philipp"])), "FirstName"] = "Philipp A."
-
+    df.loc[(df["LastName"] == "Glynn") & (df["FirstName"] == "Peter"), "FirstName"] = "Peter W." 
+    
     # Change last names
     df.loc[(df["LastName"].isin(["Muller-Gronbach", "Müller-Gronbach"])) & (df["FirstName"].isin(["Thomas"])), "LastName"] = 'M\\"uller-Gronbach'
+    df.loc[(df["LastName"].isin(["Rockova", "Ročková"])) & (df["FirstName"] == "Veronika"), "LastName"] = "Ro\\v{c}kov\\'a"
 
     # Change both first and last names
     df.loc[(df["LastName"].isin(["Pillai"])) & (df["FirstName"].isin(["Shyam Mohan Subbiah"])), "FirstName"] = 'Shyam Mohan'
@@ -75,6 +77,11 @@ def apply_organization_corrections(df):
     df.loc[df["Organization"] == 'Florida State University and National Institute of Standards and Technology', "Organization"] = "Florida State University"
     df.loc[df["Organization"] == 'Sandia National Labs', "Organization"] = "Sandia National Laboratories"
     df.loc[df["Organization"] == 'INRIA Rennes Bretagne-Atlantique', "Organization"] = "Inria"
+    df.loc[df["Organization"] == 'Nvidia', "Organization"] = "Nvidia Corporation"
+    df.loc[df["Organization"] == 'ENSAE, Institut Polytechnique de Paris', "Organization"] = "Institut Polytechnique de Paris"
+    df.loc[df["Organization"] == 'Berkeley', "Organization"] = "University of California, Berkeley"
+    df.loc[df["Organization"] == 'University of Klagenfurt (AAU)', "Organization"] = "University of Klagenfurt"
+    df.loc[df["Organization"] == 'University Chicago', "Organization"] = "University of Chicago"
     return df
 
 def validate_participant_names(df):
@@ -310,7 +317,7 @@ def parse_committee(file_path):
             organizers.append({
                 "FirstName": first,
                 "LastName": last,
-                "SessionID": "org_com" if file_path.endswith("organizing_com.tex") else "sci_com" if file_path.endswith("sci_com.tex") else "steer_com" if file_path.endswith("steering_com.tex") else "students" if file_path.endswith("students.tex") else "",
+                "SessionID": "org_com" if file_path.endswith("organizing_com.tex") else "sci_com" if file_path.endswith("sci_com.tex") else "steer_com" if file_path.endswith("steering_com.tex") else "students" if file_path.endswith("students.tex") else "plenary_speakers" if file_path.endswith("plenary_speakers.tex") else "",
                 "PageNumber": "",
                 "Organization": org if org else ""
             })
@@ -332,6 +339,7 @@ def add_committee_members():
         ("organizing_com.tex", "organizing committee"),
         ("sci_com.tex", "scientific committee"), 
         ("steering_com.tex", "steering committee"),
+        ("plenary_speakers.tex", "plenary speakers"),
         ("students.tex", "student assistants")
     ]
     
@@ -479,24 +487,25 @@ def generate_participants_latex(participants_csv_file):
             order = {
                 'org_com': 0,
                 'steer_com': 1,
-                'sci_com': 2,
-                'students': 3,
-                'MonMorning': 4,
-                'MonAfternoon': 5,
-                'TueMorning': 6,
-                'TueAfternoon': 7,
-                'WedMorning': 8,
-                'WedAfternoon': 9,
-                'ThuMorning': 10,
-                'ThuAfternoon': 11,
-                'FriMorning': 12,
-                'FriAfternoon': 13
+                'plenary_speakers': 2,
+                'sci_com': 3,
+                'students': 4,
+                'MonMorning': 5,
+                'MonAfternoon': 6,
+                'TueMorning': 7,
+                'TueAfternoon': 8,
+                'WedMorning': 9,
+                'WedAfternoon': 10,
+                'ThuMorning': 11,
+                'ThuAfternoon': 12,
+                'FriMorning': 13,
+                'FriAfternoon': 14
             }
             if s in order:
                 return (order[s], s, 0)
             prefix = s[0]
-            group_order = {'P': 14, 'S': 15, 'T': 16}
-            group = group_order.get(prefix, 17)
+            group_order = {'P': 15, 'S': 16, 'T': 17}
+            group = group_order.get(prefix, 18)
             m = re.search(r'(\d+)', s)
             num = int(m.group(1)) if m else 0
             return (group, prefix, num, s)
