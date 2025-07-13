@@ -417,7 +417,30 @@ def generate_participants_latex(participants_csv_file):
 
     for (first, last, org), vals in participants.items():
         # Collect all session IDs for this participant
-        session_ids = [v[2] for v in vals if v[2]]
+        # sort so that S11 comes before S21, values like org_com and sci_com comes before P*, S*, T* 
+        def session_sort_key(s):
+            if not s:
+                return (5, '', 0)
+            order = {
+                'org_com': 0,
+                'sci_com': 1,
+                'steer_com': 2,
+                'students': 3,
+                'MonMorning': 4
+            }
+            if s in order:
+                return (order[s], s, 0)
+            prefix = s[0]
+            group_order = {'P': 6, 'S': 7, 'T': 8}
+            group = group_order.get(prefix, 9)
+            m = re.search(r'(\d+)', s)
+            num = int(m.group(1)) if m else 0
+            return (group, prefix, num, s)
+        session_ids = sorted({v[2] for v in vals if v[2]}, key=session_sort_key)
+        # Ensure "org_com" appears first in the sorted list
+        if "org_com" in session_ids:
+            session_ids.remove("org_com")
+            session_ids.insert(0, "org_com")
         num_session_args = len(session_ids)  
         org_str = "Unknown org" if not org else org
         # Join all non-empty session IDs with commas for the optional argument
