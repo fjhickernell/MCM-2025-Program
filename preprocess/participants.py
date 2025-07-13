@@ -426,7 +426,15 @@ def generate_participants_latex(participants_csv_file):
                 'sci_com': 1,
                 'steer_com': 2,
                 'students': 3,
-                'MonMorning': 4
+                'MonMorning': 4,
+                'MonAfternoon': 4,
+                'TueMorning': 4,
+                'TueAfternoon': 4,
+                'WedMorning': 4,
+                'WedAfternoon': 4,
+                'ThuMorning': 4,
+                'ThuAfternoon': 4,
+                'FriMorning': 4
             }
             if s in order:
                 return (order[s], s, 0)
