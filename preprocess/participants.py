@@ -66,6 +66,15 @@ def apply_name_corrections(df):
 def apply_organization_corrections(df):
     for old, new in org_dict.items():
         df["Organization"] = df["Organization"].str.replace(old, new)
+
+    df.loc[df["Organization"] == "Columbia", "Organization"] = "Columbia University"
+    df.loc[df["Organization"] == "Oxford University", "Organization"] = "University of Oxford"
+    df.loc[df["Organization"] == "University Waterloo", "Organization"] = "University of Waterloo"
+    df.loc[df["Organization"] == "University Graz", "Organization"] = "University of Graz"
+    df.loc[df["Organization"] == 'Universität Passau', "Organization"] = "University of Passau"
+    df.loc[df["Organization"] == 'Florida State University and National Institute of Standards and Technology', "Organization"] = "Florida State University"
+    df.loc[df["Organization"] == 'Sandia National Labs', "Organization"] = "Sandia National Laboratories"
+    df.loc[df["Organization"] == 'INRIA Rennes Bretagne-Atlantique', "Organization"] = "Inria"
     return df
 
 def validate_participant_names(df):
@@ -303,7 +312,7 @@ def parse_committee(file_path):
                 "LastName": last,
                 "SessionID": "org_com" if file_path.endswith("organizing_com.tex") else "sci_com" if file_path.endswith("sci_com.tex") else "steer_com" if file_path.endswith("steering_com.tex") else "students" if file_path.endswith("students.tex") else "",
                 "PageNumber": "",
-                "Organization": org if org else "Organizing Committee"
+                "Organization": org if org else ""
             })
 
 
@@ -450,7 +459,7 @@ def generate_participants_latex(participants_csv_file):
             session_ids.remove("org_com")
             session_ids.insert(0, "org_com")
         num_session_args = len(session_ids)  
-        org_str = "Unknown org" if not org else org
+        org_str = org or ""
         # Join all non-empty session IDs with commas for the optional argument
         session_list = [s for s in session_ids if s]
         session_str = ",".join(session_list)
@@ -468,11 +477,11 @@ if __name__ == "__main__":
     df = cleanup_participant_data(df)
 
     # Add chairs from interim/schedule_day{i}_room_chair.csv, for i = 1 to 5
-    #chairs_df = add_session_chairs()
+    chairs_df = add_session_chairs()
 
-    # Add com_df and chairs_df to df
-    #df = pd.concat([com_df, chairs_df], ignore_index=True)
-    #print(f"\n{df.shape[0]} committee members or chairs\n")
+    # Add committee members and chairs to df
+    df = pd.concat([df, chairs_df], ignore_index=True)
+    print(f"\n{df.shape[0]} committee members or chairs\n")
 
     # Generate participants CSV file
     dfs = {}
@@ -514,7 +523,7 @@ if __name__ == "__main__":
     print(f"{len(df)} participants or committee chairs")
 
     # if Organization is empty (e.g., in chair_df), groupby first and last name, and fill from other non-empty rows
-    df["Organization"] = df.groupby(["FirstName", "LastName"])["Organization"].transform(lambda x: x.ffill().bfill().iloc[0] if not x.empty else "")
+    df["Organization"] = df.groupby(["FirstName", "LastName"])["Organization"].transform(lambda x: x.replace('', pd.NA).ffill().bfill().fillna(''))
 
     # drop duplicates based on FirstName, LastName, Organization and SessionID
     df = df.sort_values(["LastName", "FirstName"])
