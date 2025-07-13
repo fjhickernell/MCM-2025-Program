@@ -473,8 +473,8 @@ def generate_participants_latex(participants_csv_file):
                 return (5, '', 0)
             order = {
                 'org_com': 0,
-                'sci_com': 1,
-                'steer_com': 2,
+                'steer_com': 1,
+                'sci_com': 2,
                 'students': 3,
                 'MonMorning': 4,
                 'MonAfternoon': 5,
@@ -496,10 +496,6 @@ def generate_participants_latex(participants_csv_file):
             num = int(m.group(1)) if m else 0
             return (group, prefix, num, s)
         session_ids = sorted({v[2] for v in vals if v[2]}, key=session_sort_key)
-        # Ensure "org_com" appears first in the sorted list
-        if "org_com" in session_ids:
-            session_ids.remove("org_com")
-            session_ids.insert(0, "org_com")
         num_session_args = len(session_ids)  
         org_str = org or ""
         # Join all non-empty session IDs with commas for the optional argument
