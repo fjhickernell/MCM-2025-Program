@@ -352,6 +352,40 @@ def add_session_chairs():
     """
     chairs = []
     
+    def determine_session_id(time_slot, header):
+        """Determine SessionID based on time slot and day header."""
+        if not time_slot or not header:
+            return ""
+            
+        # Extract day from header (e.g., "Thursday,\n July 31" -> "Thursday")
+        day_match = re.search(r'(Monday|Tuesday|Wednesday|Thursday|Friday)', header, re.IGNORECASE)
+        if not day_match:
+            return ""
+        
+        day = day_match.group(1).lower()
+        day_abbrev = {
+            'monday': 'Mon',
+            'tuesday': 'Tue', 
+            'wednesday': 'Wed',
+            'thursday': 'Thu',
+            'friday': 'Fri'
+        }.get(day, '')
+        
+        if not day_abbrev:
+            return ""
+            
+        # Determine morning vs afternoon based on time slot
+        time_match = re.search(r'(\d{1,2}):(\d{2})', time_slot)
+        if not time_match:
+            return ""
+            
+        hour = int(time_match.group(1))
+        
+        if hour < 12:  # Before 12 noon is morning
+            return f"{day_abbrev}Morning"
+        else: 
+            return f"{day_abbrev}Afternoon"
+    
     for day in range(1, 6):  # Days 1 to 5
         chair_file = os.path.join(interimdir, f"schedule_day{day}_room_chair.csv")
         if not os.path.exists(chair_file):
@@ -365,19 +399,26 @@ def add_session_chairs():
             if 'Chair' not in df_day.columns:
                 print(f"Warning: 'Chair' column not found in {chair_file}")
                 continue
+            
+            # Get the header (day information) from the first column name
+            day_header = df_day.columns[0] if len(df_day.columns) > 0 else ""
                 
             # Filter out empty chairs and non-person entries
-            valid_chairs = df_day[
+            valid_chairs_mask = (
                 df_day['Chair'].notna() & 
                 (df_day['Chair'].str.strip() != '') &
                 ~df_day['Chair'].str.contains('Coffee Break|Registration|Lunch', case=False, na=False)
-            ]['Chair'].unique()
+            )
             
-            # Process each chair name
-            for chair_name in valid_chairs:
-                chair_name = chair_name.strip()
+            # Process each row with valid chairs
+            for _, row in df_day[valid_chairs_mask].iterrows():
+                chair_name = row['Chair'].strip()
                 if not chair_name:
                     continue
+                    
+                # Get time slot from first column
+                time_slot = str(row.iloc[0]) if len(row) > 0 else ""
+                session_id = determine_session_id(time_slot, day_header)
                     
                 # Split name into first and last
                 name_parts = chair_name.rsplit(' ', 1)
@@ -390,7 +431,7 @@ def add_session_chairs():
                 chairs.append({
                     "FirstName": first_name,
                     "LastName": last_name,
-                    "SessionID": "",
+                    "SessionID": session_id,
                     "PageNumber": "",
                     "Organization": ""
                 })
@@ -436,20 +477,21 @@ def generate_participants_latex(participants_csv_file):
                 'steer_com': 2,
                 'students': 3,
                 'MonMorning': 4,
-                'MonAfternoon': 4,
-                'TueMorning': 4,
-                'TueAfternoon': 4,
-                'WedMorning': 4,
-                'WedAfternoon': 4,
-                'ThuMorning': 4,
-                'ThuAfternoon': 4,
-                'FriMorning': 4
+                'MonAfternoon': 5,
+                'TueMorning': 6,
+                'TueAfternoon': 7,
+                'WedMorning': 8,
+                'WedAfternoon': 9,
+                'ThuMorning': 10,
+                'ThuAfternoon': 11,
+                'FriMorning': 12,
+                'FriAfternoon': 13
             }
             if s in order:
                 return (order[s], s, 0)
             prefix = s[0]
-            group_order = {'P': 6, 'S': 7, 'T': 8}
-            group = group_order.get(prefix, 9)
+            group_order = {'P': 14, 'S': 15, 'T': 16}
+            group = group_order.get(prefix, 17)
             m = re.search(r'(\d+)', s)
             num = int(m.group(1)) if m else 0
             return (group, prefix, num, s)
@@ -478,6 +520,7 @@ if __name__ == "__main__":
 
     # Add chairs from interim/schedule_day{i}_room_chair.csv, for i = 1 to 5
     chairs_df = add_session_chairs()
+    chairs_df = cleanup_participant_data(chairs_df)
 
     # Add committee members and chairs to df
     df = pd.concat([df, chairs_df], ignore_index=True)
