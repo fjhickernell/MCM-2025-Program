@@ -418,14 +418,12 @@ def generate_participants_latex(participants_csv_file):
     for (first, last, org), vals in participants.items():
         # Collect all session IDs for this participant
         session_ids = [v[2] for v in vals if v[2]]
-        NUM_SESSION_ARGS = 7  # max sessions/hyperlinks
-        session_args = session_ids[:NUM_SESSION_ARGS]  
-        session_args += [''] * (NUM_SESSION_ARGS - len(session_args))  
+        num_session_args = len(session_ids)  
         org_str = "Unknown org" if not org else org
-        partstrng = f"\\participantne{{{first} {last}}}\n{{{org_str}}}\n"
-        for s in session_args:          # Add all session arguments
-            partstrng += f"{{{s}}}\n"
-        latex_content += partstrng
+        # Join all non-empty session IDs with commas for the optional argument
+        session_list = [s for s in session_ids if s]
+        session_str = ",".join(session_list)
+        latex_content += f"\\participantne\n  {{{first} {last}}}\n  {{{org_str}}}\n  [{session_str}]\n"
 
     latex_content += "\\end{multicols}\n"
     latex_content = clean_tex_content(latex_content)  # Apply common text fixes
