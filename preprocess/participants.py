@@ -65,8 +65,8 @@ def apply_name_corrections(df):
     df.loc[(df["LastName"].isin(["Szolgyenyi", "Szölgyenyi", 'Sz\\"Olgyenyi', 'Sz\\""olgyenyi'])) & (df["FirstName"] == "Michaela"), "LastName"] = 'Sz\\"olgyenyi'
 
     # Change both first and last names
-    df.loc[(df["LastName"].isin(["Pillai"])) & (df["FirstName"].isin(["Shyam Mohan Subbiah"])), "FirstName"] = 'Shyam Mohan'
-    df.loc[(df["LastName"].isin(["Pillai"])) & (df["FirstName"].isin(["Shyam Mohan"])), "LastName"] = 'Subbiah Pillai'
+    df.loc[(df["LastName"] == "Pillai") & (df["FirstName"] == "Shyam Mohan Subbiah"), ["FirstName", "LastName"]] = ["Shyam Mohan", "Subbiah Pillai"]
+    df.loc[ (df["LastName"].isin(["Hall", "Jr."])) & (df["FirstName"].isin(["Claude", "Claude Hall"])),["FirstName", "LastName"]] = ["Claude", "Hall Jr."]
 
     return df
 
@@ -471,6 +471,10 @@ def add_session_chairs():
                     first_name = chair_name
                     last_name = ""
                 
+                # Skip entries where first name is "TBD" or "Tbd"
+                if first_name.lower() in ["tbd"]:
+                    continue
+                
                 chairs.append({
                     "FirstName": first_name,
                     "LastName": last_name,
@@ -485,6 +489,7 @@ def add_session_chairs():
             continue
     
     chairs_df = pd.DataFrame(chairs)
+
     
     if not chairs_df.empty:
         print(f"\nAdded {len(chairs_df)} session chairs, e.g., \n\n {chairs_df.head(2)} \n")

@@ -42,26 +42,18 @@
 \begin{document}
 	
 \begin{talk}
-  {Sampling with constraints}% [1] talk title
-  {Akash Sharma}% [2] speaker name
-  {Chalmers University of Technology, Sweden}% [3] affiliations
-  {akashs@chalmers.se}% [4] email
-  {Benedict Leimkuhler, Michael Tretyakov}% [5] coauthors
+  {Sampling from high-dimensional, multimodal distributions
+using automatically tuned, tempered Hamiltonian Monte Carlo}% [1] talk title
+  {Joonha Park}% [2] speaker name
+  {University of Kansas, Department of Mathematics}% [3] affiliations
+  {j.park@ku.edu}% [4] email
+  {}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
+
+Hamiltonian Monte Carlo (HMC) is widely used for sampling from high-dimensional target distributions with probability density known up to proportionality. While HMC possesses favorable dimension scaling properties, it encounters challenges when applied to strongly multimodal distributions. Traditional tempering methods, commonly used to address multimodality, can be diﬃcult to tune, particularly in high dimensions. In this study, we propose a method that combines a tempering strategy with Hamiltonian Monte Carlo, enabling eﬃcient sampling from high-dimensional, strongly multimodal distributions. Our approach involves proposing candidate states for the constructed Markov chain by simulating Hamiltonian dynamics with time-varying mass, thereby searching for isolated modes at unknown locations. Moreover, we develop an automatic tuning strategy for our method, resulting in an automatically-tuned, tempered Hamiltonian Monte Carlo (ATHMC). Unlike simulated tempering or parallel tempering methods, ATHMC provides a distinctive advantage in scenarios where the target distribution changes at each iteration, such as in the Gibbs sampler. We numerically show that our method scales better with increasing dimensions than an adaptive parallel tempering method and demonstrate its eﬃcacy for a variety of target distributions, including mixtures of log-polynomial densities and Bayesian posterior distributions for a sensor network self-localization problem.
 			
- We will present first order and second order numerical integrators for reflected (overdamped) Langevin dynamics [1] and confined (underdamped) Langevin dynamics [2], respectively. We show how these SDEs can be used for sampling from a desired measure with compact support. We will also discuss sampling on hyper-surfaces. We will showcase numerical examples to verify the presented results.  
-
-\medskip  
-
-\begin{enumerate}
-	\item[{[1]}] B. Leimkuhler, A. Sharma, and M. V. Tretyakov. Simplest random walk for approximating Robin boundary
-value problems and ergodic limits of reflected diffusions. Ann. Appl. Probab., 33(3):1904 – 1960, 2023.
-	\item[{[2]}] B. Leimkuhler, A. Sharma, and M. V. Tretyakov. Numerical integrators for confined Langevin dynamics.  
-arXiv:2404.16584, 2024.
-\end{enumerate}
-
-
 \end{talk}
 
 \end{document}
+
