@@ -8,10 +8,8 @@ import util as ut
 
 def parse_session_time(session_time: str) -> tuple[str, str, str, str]:
     """Parse session time string into components."""
-    m = re.match(
-        r"([A-Za-z]+),\s*([A-Za-z]+\s+\d{1,2})(?:\s+(\d{1,2}:\d{2})?(?:[--]\s*(\d{1,2}:\d{2}))?)?\s*(.*)", 
-        session_time
-    )
+    m = re.match(r"([A-Za-z]+),\s*([A-Za-z]+\s+\d{1,2})(?:\s+(\d{1,2}:\d{2})?(?:\s*[-–—]+\s*(\d{1,2}:\d{2}))?)?\s*(.*)", 
+        session_time)
     if not m:
         return session_time, "", "", ""
 
