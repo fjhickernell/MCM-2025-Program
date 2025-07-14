@@ -62,7 +62,7 @@ def apply_name_corrections(df):
     # Change last names
     df.loc[(df["LastName"].isin(["Muller-Gronbach", "Müller-Gronbach"])) & (df["FirstName"].isin(["Thomas"])), "LastName"] = 'M\\"uller-Gronbach'
     df.loc[(df["LastName"].isin(["Rockova", "Ročková", "Ro\\V{C}Kov\\'A", "Ro\\v{c}kov\\'a"])) & (df["FirstName"] == "Veronika"), "LastName"] = r"Ro\v{c}kov\'a"
-    df.loc[(df["LastName"].isin(["Szolgyenyi", 'Sz\"olgyenyi', 'Sz\\"olgyenyi','Sz\\"Olgyenyi'])) & (df["FirstName"] == "Michaela"), "LastName"] = 'Sz\\"olgyenyi'
+    df.loc[(df["LastName"].isin(["Szolgyenyi", "Szölgyenyi", 'Sz\\"Olgyenyi', 'Sz\\""olgyenyi'])) & (df["FirstName"] == "Michaela"), "LastName"] = 'Sz\\"olgyenyi'
 
     # Change both first and last names
     df.loc[(df["LastName"].isin(["Pillai"])) & (df["FirstName"].isin(["Shyam Mohan Subbiah"])), "FirstName"] = 'Shyam Mohan'
