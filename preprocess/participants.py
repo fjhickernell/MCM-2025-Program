@@ -90,6 +90,8 @@ def apply_organization_corrections(df):
 
     # name dependent changes
     df.loc[(df["LastName"] == "Haji-Ali") & (df["FirstName"] == "Abdul-Lateef"), "Organization"] = "Heriot-Watt University"
+    df.loc[(df["LastName"] == "Herman") & (df["FirstName"] == "Joshua"), "Organization"] = ""
+
     return df
 
 def validate_participant_names(df):
@@ -629,7 +631,9 @@ if __name__ == "__main__":
     validate_session_participants(df)
 
     # output organization to a csv file
-    pd.Series(df["Organization"].unique(), name="Organization").sort_values().to_csv(f"{outdir}orgs.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
+    unique_orgs = pd.Series(df["Organization"].unique(), name="Organization")
+    unique_orgs = unique_orgs[unique_orgs != ""]  # exclude empty strings
+    unique_orgs.sort_values().to_csv(f"{outdir}orgs.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
     with open(f'{interimdir}short_org_dict.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['Full Organization', 'Short Name'])

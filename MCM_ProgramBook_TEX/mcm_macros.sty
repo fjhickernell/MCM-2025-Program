@@ -361,7 +361,7 @@
 \NewDocumentCommand{\participantne}{ m m O{} }{%
   \begin{minipage}{0.45\textwidth}\raggedright
     \textbf{#1}\\
-    #2\\
+    \ifthenelse{\equal{#2}{}}{}{#2\\}%
     \IfNoValueF{#3}{%
       \ParticipantList{#3}%
     }%
