@@ -55,14 +55,19 @@ def apply_name_corrections(df):
     df.loc[(df["LastName"] == "Shestopaloff") & (df["FirstName"].isin(["Alex"])), "FirstName"] = "Alexander"
     df.loc[(df["LastName"] == "Guth") & (df["FirstName"].isin(["Philipp"])), "FirstName"] = "Philipp A."
     df.loc[(df["LastName"] == "Glynn") & (df["FirstName"] == "Peter"), "FirstName"] = "Peter W." 
+    df.loc[(df["LastName"] == "Gagnon") & (df["FirstName"] == "Philip"), "FirstName"] = "Philippe" 
+    df.loc[(df["LastName"] == "Guth") & (df["FirstName"] == "Phillip A."), "FirstName"] = "Philipp A."
+    df.loc[(df["LastName"].isin(["Sorokin"])) & (df["FirstName"] == "Aleksei"), "FirstName"] = "Aleksei G."
     
     # Change last names
     df.loc[(df["LastName"].isin(["Muller-Gronbach", "Müller-Gronbach"])) & (df["FirstName"].isin(["Thomas"])), "LastName"] = 'M\\"uller-Gronbach'
-    df.loc[(df["LastName"].isin(["Rockova", "Ročková"])) & (df["FirstName"] == "Veronika"), "LastName"] = "Ro\\v{c}kov\\'a"
+    df.loc[(df["LastName"].isin(["Rockova", "Ročková", "Ro\\V{C}Kov\\'A", "Ro\\v{c}kov\\'a"])) & (df["FirstName"] == "Veronika"), "LastName"] = r"Ro\v{c}kov\'a"
+    df.loc[(df["LastName"].isin(["Szolgyenyi", 'Sz\"olgyenyi', 'Sz\\"olgyenyi','Sz\\"Olgyenyi'])) & (df["FirstName"] == "Michaela"), "LastName"] = 'Sz\\"olgyenyi'
 
     # Change both first and last names
     df.loc[(df["LastName"].isin(["Pillai"])) & (df["FirstName"].isin(["Shyam Mohan Subbiah"])), "FirstName"] = 'Shyam Mohan'
     df.loc[(df["LastName"].isin(["Pillai"])) & (df["FirstName"].isin(["Shyam Mohan"])), "LastName"] = 'Subbiah Pillai'
+
     return df
 
 def apply_organization_corrections(df):
@@ -82,6 +87,9 @@ def apply_organization_corrections(df):
     df.loc[df["Organization"] == 'Berkeley', "Organization"] = "University of California, Berkeley"
     df.loc[df["Organization"] == 'University of Klagenfurt (AAU)', "Organization"] = "University of Klagenfurt"
     df.loc[df["Organization"] == 'University Chicago', "Organization"] = "University of Chicago"
+
+    # name dependent changes
+    df.loc[(df["LastName"] == "Haji-Ali") & (df["FirstName"] == "Abdul-Lateef"), "Organization"] = "Heriot-Watt University"
     return df
 
 def validate_participant_names(df):
@@ -121,7 +129,8 @@ def extract_plenary_participants(df):
         "LastName": df[cols[1]],
         "SessionID": df.get("SessionID", pd.Series("P", index=df.index)),
         "PageNumber": "",
-        "Organization": df.get("Institution of presenter", pd.Series("", index=df.index))
+        "Organization": df.get("Institution of presenter", pd.Series("", index=df.index)),
+        "always_add": 0
     }).to_dict('records')
 
 def extract_special_session_participants(df, dfs):
@@ -139,6 +148,7 @@ def extract_special_session_participants(df, dfs):
     org_df["FirstName"] = name_split[0]
     org_df["LastName"] = name_split[1] if name_split.shape[1] > 1 else ""
     org_df["PageNumber"] = ""
+    org_df["always_add"] = 0
     org_participants = org_df.to_dict("records")
     presenter_participants = []
     for i in range(1, 5):
@@ -153,7 +163,8 @@ def extract_special_session_participants(df, dfs):
                     "LastName": subset[pcols[1]],
                     "SessionID": subset.get("SessionID", pd.Series([f"S{j+1}" for j in range(len(subset))], index=subset.index)),
                     "PageNumber": "",
-                    "Organization": subset.get(org_col, pd.Series("", index=subset.index))
+                    "Organization": subset.get(org_col, pd.Series("", index=subset.index)),
+                    "always_add": 0
                 }).to_dict("records")
     presenter_df = pd.DataFrame(presenter_participants)
     print_wrong_group_counts(presenter_df, groupby="SessionID", title='Special Presenters')
@@ -173,7 +184,8 @@ def extract_contributed_talk_participants(df):
                 "LastName": row[cols[1]],
                 "SessionID": talk_id or row.get("TalkID", "T"),
                 "PageNumber": "",
-                "Organization": row.get("Institution of presenter", "")
+                "Organization": row.get("Institution of presenter", ""),
+                "always_add": 0
             })
     return participants
 
@@ -185,7 +197,8 @@ def extract_special_abstracts_participants(df, dfs):
         "LastName": df[cols[1]],
         "SessionID": "",
         "PageNumber": "",
-        "Organization": df.get("Institution of presenter", pd.Series("", index=df.index))
+        "Organization": df.get("Institution of presenter", pd.Series("", index=df.index)),
+        "always_add": 0
     })
     if "Special Session Title" in df.columns and "special_session_submissions" in dfs:
         ss_titles = df["Special Session Title"].str.lower().str.strip()
@@ -311,15 +324,32 @@ def parse_committee(file_path):
                 if len(org_parts) >= 2:
                     # Take the last part as the university name
                     org = org_parts[-1]
-        
-            # if first name contains middle initial, remove middle
+
+            # Determine SessionID and whether to always add
+            session_id = ""
+            always_add = 0
+            if file_path.endswith("organizing_com.tex"):
+                session_id = "org_com"
+                always_add = 1
+            elif file_path.endswith("sci_com.tex"):
+                session_id = "sci_com"
+            elif file_path.endswith("steering_com.tex"):
+                session_id = "steer_com"
+            elif file_path.endswith("students.tex"):
+                session_id = "students"
+                always_add = 1
+                org = "Illinois Institute of Technology"  # Default org for students
+            elif file_path.endswith("plenary_speakers.tex"):
+                session_id = "plenary_speakers"
+                always_add = 1
             
             organizers.append({
                 "FirstName": first,
                 "LastName": last,
-                "SessionID": "org_com" if file_path.endswith("organizing_com.tex") else "sci_com" if file_path.endswith("sci_com.tex") else "steer_com" if file_path.endswith("steering_com.tex") else "students" if file_path.endswith("students.tex") else "plenary_speakers" if file_path.endswith("plenary_speakers.tex") else "",
+                "SessionID": session_id,
                 "PageNumber": "",
-                "Organization": org if org else ""
+                "Organization": org if org else "",
+                "always_add": always_add
             })
 
 
@@ -345,7 +375,7 @@ def add_committee_members():
     
     for filename, committee_name in committees:
         committee_file = os.path.join(indir, filename)
-        committee_members = parse_committee(committee_file)
+        committee_members = parse_committee(committee_file)  # main function
         if committee_members:
             committee_df = pd.concat([committee_df, pd.DataFrame(committee_members)], ignore_index=True)
             print(f"Added {len(committee_members):2d} {committee_name} members")
@@ -446,7 +476,8 @@ def add_session_chairs():
                     "LastName": last_name,
                     "SessionID": session_id,
                     "PageNumber": "",
-                    "Organization": ""
+                    "Organization": "",
+                    "always_add": 1
                 })
                 
         except Exception as e:
@@ -555,6 +586,7 @@ if __name__ == "__main__":
             if 'First Name' in attendees_df.columns and 'Last Name' in attendees_df.columns:
                 attendees_df = attendees_df.rename(columns={'First Name': 'FirstName', 'Last Name': 'LastName', 'Company': 'Organization'})
                 attendees_df = attendees_df[['FirstName', 'LastName', 'Organization']].drop_duplicates()
+                attendees_df['always_add'] = 1  # Add always_add column with default value 0
                 attendees_df = cleanup_participant_data(attendees_df)
 
                 df2 = pd.concat([df2, attendees_df], ignore_index=True)
@@ -564,14 +596,21 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error reading {attendees_file}: {e}")
 
-    # Include only committee members in df if they are also participants in df2
-    df = df.merge(df2[['FirstName', 'LastName']].drop_duplicates(), 
-                  on=['FirstName', 'LastName'], 
-                  how='inner')
-    print(f"{len(df)} committee members or chairs who are also session participants")
+    # If df["always_add"]==0, always add to df2. Otherwise include only committee members in df if they are also participants in df2
+    df_always_add = df[df["always_add"] == 1]
+    df_conditional = df[df["always_add"] != 1]
     
-    # Add all session participants to the final list
-    df = pd.concat([df, df2], ignore_index=True)
+    # Always add entries with always_add == 0 to df2
+    df2 = pd.concat([df2, df_always_add], ignore_index=True)
+    
+    # For conditional entries, only include if they are also participants in df2
+    df_conditional = df_conditional.merge(df2[['FirstName', 'LastName']].drop_duplicates(), 
+                                         on=['FirstName', 'LastName'], 
+                                         how='inner')
+    print(f"{len(df_conditional)} committee members or chairs who are also session participants")
+    
+    # Combine all entries for final list
+    df = pd.concat([df_conditional, df2], ignore_index=True)
     df = df.sort_values(["LastName", "FirstName"])
     print(f"{len(df)} participants or committee chairs")
 
