@@ -335,10 +335,10 @@ def parse_committee(file_path):
                 session_id = "sci_com"
             elif file_path.endswith("steering_com.tex"):
                 session_id = "steer_com"
-            elif file_path.endswith("students.tex"):
-                session_id = "students"
+            elif file_path.endswith("assistants.tex"):
+                session_id = "assistants"
                 always_add = 1
-                org = "Illinois Institute of Technology"  # Default org for students
+                org = "Illinois Institute of Technology"  # Default org for assistants
             elif file_path.endswith("plenary_speakers.tex"):
                 session_id = "plenary_speakers"
                 always_add = 1
@@ -370,7 +370,7 @@ def add_committee_members():
         ("sci_com.tex", "scientific committee"), 
         ("steering_com.tex", "steering committee"),
         ("plenary_speakers.tex", "plenary speakers"),
-        ("students.tex", "student assistants")
+        ("assistants.tex", "assistants")
     ]
     
     for filename, committee_name in committees:
@@ -525,7 +525,7 @@ def generate_participants_latex(participants_csv_file):
                 'steer_com': 1,
                 'plenary_speakers': 2,
                 'sci_com': 3,
-                'students': 4,
+                'assistants': 4,
                 'MonMorning': 5,
                 'MonAfternoon': 6,
                 'TueMorning': 7,
