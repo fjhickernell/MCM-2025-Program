@@ -54,6 +54,17 @@ jobs:
           curl \
           wget
           
+    - name: Setup pdftk symlink for compatibility
+      run: |
+        # Create directory structure and symlink so the script can find pdftk at the expected macOS path
+        sudo mkdir -p /opt/homebrew/bin
+        sudo ln -sf /usr/bin/pdftk /opt/homebrew/bin/pdftk
+        # Verify pdftk is available
+        echo "pdftk location:"
+        which pdftk
+        echo "pdftk version:"
+        pdftk --version
+          
     - name: Configure TeXLive
       run: |
         sudo tlmgr update --self --all || true
