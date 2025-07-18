@@ -656,97 +656,14 @@ In another contribution, we present a new MCMC algorithm which we term as \emph{
 \end{talk}
 
 \begin{talk}
-  {Abdujabar Rasulov}% [1] talk title
-  {University of world economy and diplomacy}% [2] speaker name
-  {E mail: asrasulov@gmail.com}% [3] affiliations
-  {}% [4] email
-  {}% [5] coauthors
-  {}% [6] special session
-  {Thu, Jul 31 10:30--11:00}% [7] time slot
-  {T8-1}% [8] talk id
-  {T8}% [9] session id or photo
- {}% [5] coauthors
-
-    
-   
-As is known, the nonlinear Boltzmann equation describes the behavior of rareﬁed gas much better than the linear Kac’s [1] model. That is why we can expect that application of the nonlinear spatially homogenous Boltzmann equation to the Harlow’s “particles-in-cell” model [2] allows us to do a computation, which gives a more exact approximation of the solution. 
-Among the statistical methods [3], which use Monte Carlo directly for modeling the ﬂow of rareﬁed gas, the most efﬁcient one is the statistical method of direct modeling the nonstationary ﬂow. 
-In the known ``particle-in-cell'' method, the simulations are divided into two steps. Monte Carlo method is used both for the numerical simulation of collisions of the particles in cells (the ﬁrst step), as well as for the collision-free moving of particles (the second step). 
-In this work, we propose another computational scheme, which directly uses the nonlinear spatially homogenous Boltzmann equation for the numerical realization of the ﬁrst step in the “particles-in-cell” model of Belotserkovski-Yanitskii [3]. Proposed a new approach of constructing unbiased estimators will give relatively small variance.
- For this aim we construct a branching Markov process [4] and on its trajectory we propose various” conjugated” computational schemes for calculating an unbiased estimator of the given functional. It should be noted nowadays in this area became popular adjoint direct simulation Monte Carlo method to a general collision kernel [5].  
-The results of our computations show that they are similar with known Belotserkovski-Yanitskii solutions of the Boltzmann equation. We note that in the interval, where the Boltzmann equations ``work'' (intermediate interval), the ``particle-in-cell'' statistical model approximates the spatially heterogeneous Boltzmann equation better. 
-
-\medskip
-
-Refenences
-\begin{enumerate}
- \item[{[1]}] Kac, Mark (1959). {\it Probability and Related Topics in Physical Science}.American Mathematical Society (AMS).
- \item[{[2]}] Harlow,Harvey F.  (1964).   The Particle-in-Cell Computing Method for Fluid Dynamics. Methods in Computational Physics \textbf{3}, 319--343
-\item[{[3]}] Belotserkovskii, Oleg M.,\& Yanitskii, Vitaliy .E.,   (1975).  The Statistical Method of Particles in Cells in Rarefied Gas Dynamics”, USSR Computational Mathematics and Mathematical Physics,  \textbf{15}(5), 101-114
-\item[{[4]}] Ermakov, Sergey M.,Nekrutkin, Vladimir V.,\& Sipin, Aleksandr S.  (1989). {\it Random Processes for Classical Equations of Mathematical Physics, Kluwer Academic Publishers.}
-\item[{[5]} ] Yang, Yunan, Silantyev, Denis, \&   Caflisch, Russel (2023).   The Particle-in-Cell Computing Method for Fluid Dynamics. Methods in Computational Physics \textbf{448}, 112247
-\end{enumerate}
-
-\end{talk}
-
-\begin{talk}
-  {The Stochastic Differential Equations of the Heston Model for Option Pricing}% [1] talk title
-  {Abdujabar Rasulov}% [2] speaker name
-  {Professor of the University of World Economy and Diplomacy}% [3] affiliations
-  {asrasulov@gmail.com}% [4] email
-  {Matyokub Bakoev}% [5] coauthors
-  {}% [6] special session
-  {Thu, Jul 31 11:00--11:30}% [7] time slot
-  {T8-2}% [8] talk id
-  {T8}% [9] session id or photo
-  
-       
-The Heston model is a widely used stochastic volatility model for option pricing, addressing the limitations of the Black-Scholes model by incorporating a stochastic variance process. This talk will cover the stochastic differential equations (SDEs) governing the Heston model, demonstrating their application in option pricing. 
-
-The Heston model introduces a stochastic process for volatility, improving the accuracy of derivative pricing. 
-The dynamics of the asset price $S_t$ and its variance $v_t$ under the Heston model are given by[1]:
-\begin{align}
-    dS_t &= \mu S_t dt + \sqrt{v_t} S_t dW_t^S, \\
-    dv_t &= \kappa(\theta - v_t) dt + \sigma \sqrt{v_t} dW_t^v,
-\end{align}
-where:
-\begin{itemize}
-    \item $\mu$ is the drift of the asset price.
-    \item $\kappa$ is the rate of mean reversion of variance $v_t$ towards long-term mean $\theta$.
-    \item $\sigma$ represents the volatility of volatility.
-    \item $dW_t^S$ and $dW_t^v$ are Wiener processes with correlation $\rho$.
-\end{itemize}
-
-We will explore Monte Carlo methods as a numerical approach to simulate price paths and compute option prices for European and American derivatives [2],[3]. Furthermore, an interactive Shiny web application will be presented, showcasing real-time simulations and visualizations of option pricing under the Heston framework.
-
-An interactive web-based application is implemented using Shiny in R, enabling users to:
-\begin{itemize}
-    \item Adjust input parameters ($S_0, K, r, T, \mu, \theta, \kappa, \sigma, \rho$).
-    \item Perform Monte Carlo simulations to compute option prices.
-    \item Visualize option price distributions and convergence results.
-\end{itemize}
-
-The Shiny application offers an interactive tool for financial analysis. Future work may explore enhancements such as incorporating jump-diffusion models and GPU-accelerated simulations.
-\medskip
-
-\begin{enumerate}
- \item Hull, J. C. (2020). \textit{Options, Futures, and Other Derivatives}. Pearson.
- \item Glasserman, P. (2004). \textit{Monte Carlo Methods in Financial Engineering}. Springer.
- \item M.T.Bakoev (2020) Numerical simulation of solutions of diffusion equations in problems of finance and management (in Russian). Uwed Press.Tashkent 2020. p.224.
- 
-\end{enumerate}
-
-\end{talk}
-
-\begin{talk}
   {Characterizing Efficacy of Geometric Brownian Motion Expectation-based Simulations on Low-Volatility American Common Stocks}% [1] talk title
   {Vincent X Zhang}% [2] speaker name
   {University of Southern California}% [3] affiliations
   {vxzhang@usc.edu}% [4] email
   {Heather Choi}% [5] coauthors
   {}% [6] special session
-  {Thu, Jul 31 11:30--12:00}% [7] time slot
-  {T8-3}% [8] talk id
+  {Thu, Jul 31 10:30--11:00}% [7] time slot
+  {T8-1}% [8] talk id
   {T8}% [9] session id or photo
   
     
@@ -779,8 +696,8 @@ In this manuscript, daily, monthly, and annual geometric Brownian motion forecas
   {h5quan@uwaterloo.ca}% [4] email
   {Ben (Mingbin) Feng}% [5] coauthors
   {}% [6] special session
-  {Thu, Jul 31 12:00--12:30}% [7] time slot
-  {T8-4}% [8] talk id
+  {Thu, Jul 31 11:00--11:30}% [7] time slot
+  {T8-2}% [8] talk id
   {T8}% [9] session id or photo
   
     

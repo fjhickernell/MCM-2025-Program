@@ -42,48 +42,21 @@
 \begin{document}
 	
 \begin{talk}
-  {The Stochastic Differential Equations of the Heston Model for Option Pricing}% [1] talk title
-  {Abdujabar Rasulov}% [2] speaker name
-  {Professor of the University of World Economy and Diplomacy}% [3] affiliations
-  {asrasulov@gmail.com}% [4] email
-  {Matyokub Bakoev}% [5] coauthors
+  {Efficient Pricing for Variable Annuity via Simulation}% [1] talk title
+  {Hao Quan}% [2] speaker name
+  {University of Waterloo}% [3] affiliations
+  {h5quan@uwaterloo.ca}% [4] email
+  {Ben (Mingbin) Feng}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
-				% Insert the title of the special session if you were invited to give a talk in a special session.			
-The Heston model is a widely used stochastic volatility model for option pricing, addressing the limitations of the Black-Scholes model by incorporating a stochastic variance process. This talk will cover the stochastic differential equations (SDEs) governing the Heston model, demonstrating their application in option pricing. 
+				% Insert the title of the special session if you were invited to give a talk in a special session.
 
-The Heston model introduces a stochastic process for volatility, improving the accuracy of derivative pricing. 
-The dynamics of the asset price $S_t$ and its variance $v_t$ under the Heston model are given by[1]:
-\begin{align}
-    dS_t &= \mu S_t dt + \sqrt{v_t} S_t dW_t^S, \\
-    dv_t &= \kappa(\theta - v_t) dt + \sigma \sqrt{v_t} dW_t^v,
-\end{align}
-where:
-\begin{itemize}
-    \item $\mu$ is the drift of the asset price.
-    \item $\kappa$ is the rate of mean reversion of variance $v_t$ towards long-term mean $\theta$.
-    \item $\sigma$ represents the volatility of volatility.
-    \item $dW_t^S$ and $dW_t^v$ are Wiener processes with correlation $\rho$.
-\end{itemize}
+Variable Annuities (VAs) are insurance products that offer policyholders exposure to financial market upside potential while safeguarding against downside risk through optional riders, such as Guaranteed Minimum Death Benefits (GMDBs), Guaranteed Minimum Accumulation Benefits (GMABs), and Guaranteed Minimum Withdrawal Benefits (GMWBs). These riders, tailored to policyholders’ needs, introduce a complex risk profile combining mortality and financial uncertainties, rendering VA pricing and fee determination computationally challenging. Due to this complexity, Monte Carlo simulation is often the only practical approach for valuing these contracts.
 
-We will explore Monte Carlo methods as a numerical approach to simulate price paths and compute option prices for European and American derivatives [2],[3]. Furthermore, an interactive Shiny web application will be presented, showcasing real-time simulations and visualizations of option pricing under the Heston framework.
-
-An interactive web-based application is implemented using Shiny in R, enabling users to:
-\begin{itemize}
-    \item Adjust input parameters ($S_0, K, r, T, \mu, \theta, \kappa, \sigma, \rho$).
-    \item Perform Monte Carlo simulations to compute option prices.
-    \item Visualize option price distributions and convergence results.
-\end{itemize}
-
-The Shiny application offers an interactive tool for financial analysis. Future work may explore enhancements such as incorporating jump-diffusion models and GPU-accelerated simulations.
-\medskip
-
-\begin{enumerate}
-	\item Hull, J. C. (2020). \textit{Options, Futures, and Other Derivatives}. Pearson.
-	\item Glasserman, P. (2004). \textit{Monte Carlo Methods in Financial Engineering}. Springer.
-	\item M.T.Bakoev (2020) Numerical simulation of solusions of diffusion equations in problems of finance and management(In russian) . Uwed Press.Tashkent 2020. p.224.
-	
-\end{enumerate}
-
+In this study, we address the problem of setting fair management fees for VA rider combinations using the equivalence principle, which balances the expected present value of premiums and benefits. We formulate fee determination as a stochastic root-finding problem, expressed as
+\[
+E[V(\varphi)] - P = 0,
+\]
+where \( E[V(\varphi)] \) denotes the expected present value of VA benefits under fee structure \( \varphi \), and \( P \) represents the premium. The VA benefit \( V(\varphi) \) reflects the evolution of the contract’s shadow account value and various benefit guarantees over the contract’s lifetime. As a result, estimating its expected value is computationally challenging. Moreover, solving the root-finding problem requires estimating the gradient of this expectation. To solve this, we employ stochastic gradient estimation techniques, such as finite differences and infinitesimal perturbation analysis (IPA). We analyze the theoretical properties and computational performance of the proposed root-finding algorithms, offering insights into their efficacy for VA pricing. Our results show that gradient estimation techniques have a significant impact on the efficiency and accuracy of estimating fair fees for various rider combinations.
 \end{talk}
 
 \end{document}

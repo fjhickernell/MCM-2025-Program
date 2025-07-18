@@ -59,6 +59,26 @@ def apply_name_corrections(df):
     df.loc[(df["LastName"] == "Guth") & (df["FirstName"] == "Phillip A."), "FirstName"] = "Philipp A."
     df.loc[(df["LastName"].isin(["Sorokin"])) & (df["FirstName"] == "Aleksei"), "FirstName"] = "Aleksei G."
     
+    # Handle names with "And" that should be split into separate entries
+    # if first name is "Ally Kwan And Lijia Lin", then it should become two separate entries: "Ally Kwan" and "Lijia Lin"
+    and_rows = df[df["FirstName"].str.contains(" And ", case=False, na=False)]
+    new_rows = []
+    for idx, row in and_rows.iterrows():
+        names = re.split(r'\s+[Aa]nd\s+', row["FirstName"])
+        if len(names) == 2:
+            # First person: "Ally Kwan"
+            row1 = row.copy()
+            row1["FirstName"] = names[0].strip()
+            new_rows.append(row1)
+            # Second person: "Lijia Lin" 
+            row2 = row.copy()
+            row2["FirstName"] = names[1].strip()
+            new_rows.append(row2)
+    
+    if new_rows:
+        df = df[~df["FirstName"].str.contains(" And ", case=False, na=False)]  # Remove original rows
+        df = pd.concat([df, pd.DataFrame(new_rows)], ignore_index=True)
+    
     # Change last names
     df.loc[(df["LastName"].isin(["Muller-Gronbach", "Müller-Gronbach"])) & (df["FirstName"].isin(["Thomas"])), "LastName"] = 'M\\"uller-Gronbach'
     df.loc[(df["LastName"].isin(["Rockova", "Ročková", "Ro\\V{C}Kov\\'A", "Ro\\v{c}kov\\'a"])) & (df["FirstName"] == "Veronika"), "LastName"] = r"Ro\v{c}kov\'a"
@@ -91,6 +111,10 @@ def apply_organization_corrections(df):
     # name dependent changes
     df.loc[(df["LastName"] == "Haji-Ali") & (df["FirstName"] == "Abdul-Lateef"), "Organization"] = "Heriot-Watt University"
     df.loc[(df["LastName"] == "Herman") & (df["FirstName"] == "Joshua"), "Organization"] = ""
+    df.loc[(df["LastName"] == "Kwan") & (df["FirstName"] == "Ally"), "Organization"] = "Illinois Institute of Technology and Foothill College"
+    df.loc[(df["LastName"] == "Lin") & (df["FirstName"] == "Lijia"), "Organization"] = "Illinois Institute of Technology and Johns Hopkins University"
+    df.loc[(df["LastName"] == "Nguyen") & (df["FirstName"] == "Jimmy"), "Organization"] = "Illinois Institute of Technology and University of California, Irvine"
+    df.loc[(df["LastName"] == "Pride") & (df["FirstName"] == "Anders"), "Organization"] = "Illinois Institute of Technology "
 
     return df
 
