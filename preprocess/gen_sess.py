@@ -53,13 +53,21 @@ def process_session_talks(df: pd.DataFrame, max_talks: int = 4) -> None:
             title = ut.clean_tex_content(title)  # Apply common text fixes
             presenter = row.get("Presenter", "").replace("å", "{\\aa}").strip()
             if not presenter:
-                presenter = f"{row.get('First or given name(s) of presenter', '').strip()} {row.get('Last or family name of presenter', '').strip()}".strip()
-                # if presenter is, e.g., "Ally, Lijia Kwan, Lin", then change it to "Ally Kwan and Lijia Lin"
-                if "," in presenter:
-                    parts = [p.strip() for p in presenter.split(",") if p.strip()]
-                    if len(parts) % 2 == 0:
-                        names = [f"{parts[i]} {parts[i+1]}" for i in range(0, len(parts), 2)]
+                first_names = row.get('First or given name(s) of presenter', '').strip()
+                last_names = row.get('Last or family name of presenter', '').strip()
+                
+                # Handle case where first names and last names are comma-separated
+                # e.g., "Ally, Lijia" and "Kwan, Lin" -> "Ally Kwan and Lijia Lin"
+                if "," in first_names and "," in last_names:
+                    first_parts = [p.strip() for p in first_names.split(",") if p.strip()]
+                    last_parts = [p.strip() for p in last_names.split(",") if p.strip()]
+                    if len(first_parts) == len(last_parts):
+                        names = [f"{first_parts[i]} {last_parts[i]}" for i in range(len(first_parts))]
                         presenter = " and ".join(names)
+                    else:
+                        presenter = f"{first_names} {last_names}".strip()
+                else:
+                    presenter = f"{first_names} {last_names}".strip()
 
             talk_id = row.get("TalkID", "").strip()
             if title and presenter and talk_id:
