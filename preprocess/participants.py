@@ -59,21 +59,22 @@ def apply_name_corrections(df):
     df.loc[(df["LastName"] == "Guth") & (df["FirstName"] == "Phillip A."), "FirstName"] = "Philipp A."
     df.loc[(df["LastName"].isin(["Sorokin"])) & (df["FirstName"] == "Aleksei"), "FirstName"] = "Aleksei G."
     
-    # Handle names with "And" that should be split into separate entries
-    # if first name is "Ally Kwan And Lijia Lin", then it should become two separate entries: "Ally Kwan" and "Lijia Lin"
-    and_rows = df[df["FirstName"].str.contains(" And ", case=False, na=False)]
+    # Handle names with "And" that should be split into separate entries, e.g.,
+    # if first name is "Ally, Lijia" and last name is "Kwan, Lin", then it should become two separate entries: "Ally Kwan" and "Lijia Lin"
+    and_rows = df[
+        df["FirstName"].str.contains(",", na=False) &
+        df["LastName"].str.contains(",", na=False)
+    ]
     new_rows = []
     for idx, row in and_rows.iterrows():
-        names = re.split(r'\s+[Aa]nd\s+', row["FirstName"])
-        if len(names) == 2:
-            # First person: "Ally Kwan"
-            row1 = row.copy()
-            row1["FirstName"] = names[0].strip()
-            new_rows.append(row1)
-            # Second person: "Lijia Lin" 
-            row2 = row.copy()
-            row2["FirstName"] = names[1].strip()
-            new_rows.append(row2)
+        first_names = [n.strip() for n in row["FirstName"].split(",")]
+        last_names = [n.strip() for n in row["LastName"].split(",")]
+        if len(first_names) == len(last_names):
+            for fn, ln in zip(first_names, last_names):
+                row_new = row.copy()
+                row_new["FirstName"] = fn
+                row_new["LastName"] = ln
+                new_rows.append(row_new)
     
     if new_rows:
         df = df[~df["FirstName"].str.contains(" And ", case=False, na=False)]  # Remove original rows
