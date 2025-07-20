@@ -272,7 +272,7 @@ def validate_session_participants(df):
             minp, maxp = 4, 7
             if not (minp <= len(group) <= maxp):
                 title = group["Session Title"].iloc[0] if "Session Title" in group.columns else ""
-                issues.append(f"ERROR: {name} {title} has {len(group)} participants (expected {minp}-{maxp})")
+                issues.append(f"WARNING: {name} {title} has {len(group)} participants (expected {minp}-{maxp})")
     for issue in issues: print(issue)
     return not issues
 
@@ -407,7 +407,7 @@ def add_committee_members():
             print(f"Added {len(committee_members):2d} {committee_name} members")
     
     if not committee_df.empty:
-        print(f"\nTotal committee member/student assistants added: {len(committee_df)}, e.g.,\n\n{committee_df.head(2)}\n")
+        print(f"\nAdded {{len(committee_df)}} committee members/assistants, e.g.,\n\n{committee_df.head(2)}\n")
   
     return committee_df
 
