@@ -1,12 +1,71 @@
+\documentclass[12pt,a4paper,figuresright]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
+
+\setlength{\textheight}{25.2cm}
+\setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
+\setlength{\voffset}{-1.6cm}
+\setlength{\hoffset}{-0.3cm} %\setlength{\hoffset}{-1.2cm}
+\setlength{\evensidemargin}{-0.3cm} 
+\setlength{\oddsidemargin}{0.3cm}
+\setlength{\parindent}{0cm} 
+\setlength{\parskip}{0.3cm}
+
+% -- adding a talk
+\newenvironment{talk}[9]% [1] talk title
+                         % [2] speaker name, [3] affiliations, [4] email,
+                         % [5] coauthors, [6] special session
+                         % [7] time slot
+                         % [8] talk id, [9] session id or photo
+ {%\needspace{6\baselineskip}%
+  \vskip 0pt\nopagebreak%
+%   \colorbox{gray!20!white}{\makebox[0.99\textwidth][r]{}}\nopagebreak%
+%   \ifthenelse{\equal{#11}{photo}}{%
+%                     \\\\\colorbox{gray!20!white}{\makebox{\includegraphics[width=3cm]{#10}}}\nopagebreak}{}%
+ \vskip 0pt\nopagebreak%
+%  \label{#10}%
+  \textbf{#1}\vspace{3mm}\\\nopagebreak% 
+  \textit{#2}\\\nopagebreak%
+  #3\\\nopagebreak%
+  \url{#4}\vspace{3mm}\\\nopagebreak%
+  \textit{#5}\\\nopagebreak%
+  #6\\\nopagebreak%
+  \url{#7}\vspace{3mm}\\\nopagebreak%
+  \ifthenelse{\equal{#8}{}}{}{Coauthor(s): #8\vspace{3mm}\\\nopagebreak}%
+  \ifthenelse{\equal{#9}{}}{}{Special session: #9\quad \vspace{3mm}\\\nopagebreak}%
+ }
+ {\vspace{1cm}\nopagebreak}%
+ 
+\pagestyle{empty}
+
+% ------------------------------------------------------------------------
+% Document begins here
+% ------------------------------------------------------------------------
+\begin{document}
+	
 \begin{talk}
-  {TBD}% [1] talk title
-  {TBD}% [2] speaker name
-  {}% [3] affiliations
-  {}% [4] email
-  {}% [5] coauthors
-  {}% [6] special session. Leave this field empty for contributed talks. 
-                % Insert the title of the special session if you were invited to give a talk in a special session.
-  {Thu, Jul 31 17:00–17:30}% [7] time slot
-  {T7-4}% [8] talk id
-  {T7}% [9] session id or photo
+  {Discrepancy calculation and generating vector searches for Kronecker and extensible lattice sequences}% [1] talk title
+  {Jimmy Nguyen}% [2] speaker name
+  {University of California, Irvine}% [3] affiliations
+  {jimmyhn7@uci.edu}% [4] email
+  {Anders Pride}% [5] speaker name 2
+  {Illinois Institute of Technology}% [6] affiliation 2
+  {apride@hawk.illinoistech.edu}% [7] email 2
+  {}% [8] coauthors
+  {}% [9] special session. Leave this field empty for contributed talks. 
+
+We investigate extensible lattice sequences and Kronecker sequences for arbitrary sample sizes $n$, which are used for Quasi-Monte Carlo sampling. We give methods for efficiently computing the discrepancy and the weighted sum of squared discrepancy of these points, where the discrepancy is defined in terms of a symmetric, positive definite, periodic kernel of product form. We use these measures to perform component-by-component searches for generating vectors and compare these to popular choices. Additionally, we implement various stopping criteria for Quasi-Monte Carlo cubature and are adding our contributions to the Python QMCPy open source library.
+
+\medskip
+
+% APA reference style is recommended.
+% \begin{enumerate}
+% 	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+% 	\item[{[2]}] Roberts, Gareth O, \& Rosenthal, Jeffrey S. (2002).  Optimal scaling for various Metropolis-Hastings algorithms, \textbf{16}(4), 351--367.
+% \end{enumerate}
+
 \end{talk}
+
+\end{document}
+

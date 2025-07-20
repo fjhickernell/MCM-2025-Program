@@ -54,6 +54,13 @@ def process_session_talks(df: pd.DataFrame, max_talks: int = 4) -> None:
             presenter = row.get("Presenter", "").replace("å", "{\\aa}").strip()
             if not presenter:
                 presenter = f"{row.get('First or given name(s) of presenter', '').strip()} {row.get('Last or family name of presenter', '').strip()}".strip()
+                # if presenter is, e.g., "Ally, Lijia Kwan, Lin", then change it to "Ally Kwan and Lijia Lin"
+                if "," in presenter:
+                    parts = [p.strip() for p in presenter.split(",") if p.strip()]
+                    if len(parts) % 2 == 0:
+                        names = [f"{parts[i]} {parts[i+1]}" for i in range(0, len(parts), 2)]
+                        presenter = " and ".join(names)
+
             talk_id = row.get("TalkID", "").strip()
             if title and presenter and talk_id:
                 lines.extend(format_session_talk(title, presenter, talk_id))

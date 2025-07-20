@@ -35,6 +35,10 @@ def cleanup_participant_data(df):
     df["FirstName"] = df["FirstName"].apply(clean_name)
     df["LastName"] = df["LastName"].apply(clean_name)
     df["Organization"] = df["Organization"].apply(format_organization)
+    # strip whitespaces in columns
+    df["FirstName"] = df["FirstName"].str.strip()
+    df["LastName"] = df["LastName"].str.strip()
+    df["Organization"] = df["Organization"].str.strip()
     df = apply_name_corrections(df)
     df = apply_organization_corrections(df)
     validate_participant_names(df)
@@ -87,8 +91,9 @@ def apply_name_corrections(df):
 
     # Change both first and last names
     df.loc[(df["LastName"] == "Pillai") & (df["FirstName"] == "Shyam Mohan Subbiah"), ["FirstName", "LastName"]] = ["Shyam Mohan", "Subbiah Pillai"]
-    df.loc[ (df["LastName"].isin(["Hall", "Jr."])) & (df["FirstName"].isin(["Claude", "Claude Hall"])),["FirstName", "LastName"]] = ["Claude", "Hall Jr."]
-
+    df.loc[(df["LastName"].isin(["Hall", "Jr."])) & (df["FirstName"].isin(["Claude", "Claude Hall"])),["FirstName", "LastName"]] = ["Claude", "Hall Jr."]
+    df.loc[(df["LastName"] == "Nguyen, Pride") & (df["FirstName"] == "Jimmy, Anders"), ["FirstName", "LastName"]] = ["Anders", "Pride"]
+    df.loc[(df["LastName"] == "Kwan, Lin") & (df["FirstName"] == "Ally, Lijia"), ["FirstName", "LastName"]] = ["Lijia", "Lin"]
     return df
 
 def apply_organization_corrections(df):
@@ -115,7 +120,7 @@ def apply_organization_corrections(df):
     df.loc[(df["LastName"] == "Kwan") & (df["FirstName"] == "Ally"), "Organization"] = "Illinois Institute of Technology and Foothill College"
     df.loc[(df["LastName"] == "Lin") & (df["FirstName"] == "Lijia"), "Organization"] = "Illinois Institute of Technology and Johns Hopkins University"
     df.loc[(df["LastName"] == "Nguyen") & (df["FirstName"] == "Jimmy"), "Organization"] = "Illinois Institute of Technology and University of California, Irvine"
-    df.loc[(df["LastName"] == "Pride") & (df["FirstName"] == "Anders"), "Organization"] = "Illinois Institute of Technology "
+    df.loc[(df["LastName"] == "Pride") & (df["FirstName"] == "Anders"), "Organization"] = "Illinois Institute of Technology"
 
     return df
 
@@ -408,7 +413,7 @@ def add_committee_members():
             print(f"Added {len(committee_members):2d} {committee_name} members")
     
     if not committee_df.empty:
-        print(f"\nAdded {{len(committee_df)}} committee members/assistants, e.g.,\n\n{committee_df.head(2)}\n")
+        print(f"\nAdded {len(committee_df)} committee members/assistants, e.g.,\n\n{committee_df.head(2)}\n")
   
     return committee_df
 
