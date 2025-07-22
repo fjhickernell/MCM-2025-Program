@@ -47,7 +47,7 @@ pp: clean_pp
 	echo "\n--- Running preprocess/gen_talks.py" && python preprocess/gen_talks.py && \
 	echo "\n--- Running preprocess/gen_sess.py" && python preprocess/gen_sess.py  && \
 	echo "\n--- Running preprocess/schedule.py" && python preprocess/schedule.py && \
-	echo "\n--- Running preprocess/conf_stat.py" && python preprocess/conf_stat.py \
+	echo "\n--- Running preprocess/conf_stat.py" && python preprocess/conf_stat.py &&\
 	@echo "pp process finished at: $$(date)"
 
 tex: cleanpy
