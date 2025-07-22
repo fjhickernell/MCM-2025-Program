@@ -108,4 +108,6 @@ open MCM2025_Book${suffix}.pdf
 #open MCM2025_schedule${suffix}.pdf
 #open MCM2025_schedule_abstracts${suffix}.pdf
 
+echo "Finished compiling book at: $(date '+%Y-%m-%d %H:%M:%S')"
+
 cd ..
