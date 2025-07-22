@@ -503,6 +503,10 @@ def add_session_chairs():
                     first_name = chair_name
                     last_name = ""
                 
+                if "Fred Hickernell, Nicole Beebe" in first_name:
+                    first_name = "Fred J."
+                    last_name = "Hickernell"
+                
                 # Skip entries where first name is "TBD" or "Tbd"
                 if first_name.lower() in ["tbd"]:
                     continue
