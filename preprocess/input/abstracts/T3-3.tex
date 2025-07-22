@@ -2,8 +2,6 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage{tabularx,graphicx,url,xcolor,rotating,multicol,epsfig,colortbl}
-\usepackage{graphics}
-\usepackage{hyperref}
 
 \setlength{\textheight}{25.2cm}
 \setlength{\textwidth}{16.5cm} %\setlength{\textwidth}{18.2cm}
@@ -44,38 +42,34 @@
 \begin{document}
 	
 \begin{talk}
-  {First-passage-based Last-passage Algorithm 
-  	for Charge Density on a Conducting Surface}% [1] talk title
-  {Chi-Ok Hwang}% [2] speaker name
-  {Gwangju Institute of Science and Technology, Gwangju 61005, Republic of Korea }% [3] affiliations
-  {chwang@gist.ac.kr}% [4] email
-  {Jinseong Son, Maximiliano Islas Solis, Tsoggerel Tsogbadrakh}% [5] coauthors
+  {Benchmarking the Geant4-DNA 'UHDR' Example for Monte Carlo Simulation of pH Effects on Radiolytic Species Yields Using a Mesoscopic Approach}% [1] talk title
+  {Serena Fattori}% [2] speaker name
+  {Istituto Nazionale di Fisica Nucleare (INFN), Laboratori Nazionali del Sud (LNS), Catania, Italy}% [3] affiliations
+  {serena.fattori@lns.infn.it}% [4] email
+  {Hoang Ngoc Tran, Anh Le Tuan, Fateme Farokhi, Giuseppe Antonio Pablo Cirrone, Sebastien Incerti}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-According to probabilistic potential theory, first- and last-passage algorithms have been devel-
-oped. Usually the first-passage algorithms with an enclosing sphere are used for overall charge
-distribution on a closed conducting object and last-passage algorithms for charge density at a
-specific point on the conducting object. The first- and last-passage algorithms are inherently con-
-nected. In this paper, we combine the first- and last-passage algorithms. We develop an algorithm
-for computing charge density at a specific point on the conducting object via the overall charge
-density distribution on a conducting object which is the simulation result of the first-passage al-
-gorithm with an enclosing sphere. We demonstrate the algorithm for charge density on a sphere
-and on the unit cube held at unit potential. The results show good agreements with theoretical or
-other simulation ones.
+\textbf{Background and Aims}\\
+FLASH radiotherapy is an innovative cancer treatment technique that delivers high radiation doses in an extremely short time ($\geq$ 40 Gy/s), inducing the so-called FLASH effect—characterized by the sparing of healthy tissue while maintaining effective tumor control. However, the mechanisms underlying the FLASH effect remain unclear, and ongoing research aims to elucidate them. One approach to investigating this phenomenon is through Monte Carlo simulations of particle transport and the resulting radiolysis in aqueous media, enabling comparisons between FLASH and conventional irradiation.
+
+\textbf{Methods}\\
+To provide a useful tool for investigating the effects of FLASH irradiation, the Geant4-DNA example "UHDR" was introduced in the beta release 11.2.0 of Geant4 (June 2023). This example incorporates a newly developed radiolysis chemical stage based on the diffusion-reaction master equation (RDME), a mesoscopic method that bridges microscopic particle-level interactions and macroscopic chemical kinetics. This approach allows the extension of the simulation time to minutes post-irradiation, enabling the validation of equilibrium processes that may play a crucial role on long time scales. In this context, the impact of pH on radiolytic species yields towards equilibrium is particularly important. For the first time in Geant4-DNA, the UHDR example allows taking into account the effect of different pH values on water radiolysis.
+
+\textbf{Results}\\
+This study aims to benchmark the capability of the UHDR example to accurately reproduce the effect of pH on radiolytic species yields. Preliminary results are currently under analysis for 1 MeV electron and 300 MeV proton irradiation in the conventional modality, with comparisons against literature data.
+
+\textbf{Conclusions}\\
+The ability to simulate the impact of pH on water radiolysis represents a significant advancement in studying the evolution of radiolytic species toward equilibrium. This improvement could provide valuable insights into potential differences in chemical evolution under FLASH irradiation compared to conventional irradiation.
 
 
 \medskip
 
-Acknowledgments: This work was supported by the GIST Research Institute (GRI) in 2024.
-\begin{enumerate}
-	\item[{[1]}] J. Son, J. Im, and C.-O. Hwang, Appl. Math. Comput. submitted (2021).
-	\item[{[2]}] H. Jang, U. Yu, Y. Chung, and C.-O. Hwang, Adv. Theory Simul. 3(8) (2020).
-  \item[{[3]}] H. Jang, J. Given, U. Yu, and C.-O. Hwang, Adv. Theory Simul.\hfill\break
-   \href{https://onlinelibrary.wiley.com/doi/full/10.1002/adts.202000268}{https://onlinelibrary.wiley.com/doi/full/10.1002/adts.20200026} (2021).
-	\item[{[4]}] C.-O. Hwang and T. Won, J. Korean Phys. Soc. 47, S464 (2005).
-	\item[{[5]}] J. A. Given, C.-O. Hwang, and M. Mascagni, Phys. Rev. E 66, 056704 (2002).
-\end{enumerate}
+%If you would like to include references, please do so by creating a simple list numbered by [1], [2], [3], \ldots. See example below.
+%\begin{enumerate}
+%	\item[{[1]}] Niederreiter, Harald (1992). {\it Random number generation and quasi-Monte Carlo methods}. Society for Industrial and Applied Mathematics (SIAM).
+%	\item[{[2]}] L’Ecuyer, Pierre, \& Christiane Lemieux. (2002). Recent advances in randomized quasi-Monte Carlo methods. Modeling uncertainty: An examination of stochastic theory, methods, and applications, 419-474.
+%\end{enumerate}
 
 
 \end{talk}
