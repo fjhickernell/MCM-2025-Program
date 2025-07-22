@@ -29,7 +29,7 @@ TEXBIN=/usr/local/texlive/${TEXYEAR}/bin/universal-darwin
 SCHED_START=31 #where the schedule cover page starts
 OUTLINE_END=33  #where the outline schedule ends
 SCHED_END=42  #where the schedule ends
-ABSTRACT_END=233  #where the abstracts end
+ABSTRACT_END=235  #where the abstracts end
 
 echo "Using filename suffix: $suffix"
 
