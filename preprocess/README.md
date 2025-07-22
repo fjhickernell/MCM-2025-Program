@@ -27,7 +27,7 @@ The following are input Google Sheets for MCM 2025. We need to convert them into
 	- Choi has two sessions, each with two parts. Currently, there is only one part, and the part number "Part I" is missing. Two Part II sessions are added. 
 	- Jing Dong's session is added. 
 	- Missing time for RECEPTION and BANQUET — DONE.
-	- <mark>Parallel talks on Friday in the schedule has only 1.5 hours as opposed to 2 hours for 4 talks. May need to move sessions with 4 talks.</mark>
+	- Parallel talks on Friday in the schedule has only 1.5 hours as opposed to 2 hours for 4 talks. May need to move sessions with 4 talks. — DONE.
 * [Plenary Talk Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/plenary_abstracts.csv):
 * [Special Session Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_submissions.csv):
 	- The last row contains only "SCHEDULED (by Nathan Kirk)" — this row is removed programmatically by SC.
@@ -37,13 +37,13 @@ The following are input Google Sheets for MCM 2025. We need to convert them into
 	- **NOTE**: S9, S13, S27, S19, S20 has only 3 speakers in each session.
 * [Special Session Abstracts](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/special_session_abstracts.csv):
 	- Some values are empty in the last column, `Special Session Title`. Zexin's SS title was filled in manually by Fred. SC added the values for Chih-Li,Sung and Mao,Cai. Mao has a duplicate talk.  It is deduplicated programmatically. 
-	- Some special sessions has only two speakers who have sent abstracts: — <mark>Fred and Mikhail will send them reminders</mark>
+	- Some special sessions has only two speakers who have sent abstracts: —  Fred and Mikhail will send them reminders. DONE. 
 		* Stochastic Optimization 
 		* Recent Progress on Algorithmic Discrepancy Theory and Applications
 		* Recent Advances in Stochastic Gradient Descent 
-    - <mark>The special talk abstract of Shyam Mohan Subbiah Pillai has been overwritten by a session proposal. It seems to be a mistake.</mark>
+    - The special talk abstract of Shyam Mohan Subbiah Pillai has been overwritten by a session proposal. It seems to be a mistake. — DONE.
 * [Contributed Talk Submissions](https://github.com/fjhickernell/MCM-2025-Program/blob/main/preprocess/input/contributed_talk_submissions.csv):
-	- <mark>Six talks are not assigned to a Technical Session</mark> in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  `//` — <mark>Fred has asked Mikhail to handle these and also fill in column `Paid`</mark>. 
+	- Six talks are not assigned to a Technical Session in column `SESSION` or contain missing or unusual values like `ADD TO SHANE H. SESSION` and  `//` — Fred has asked Mikhail to handle these and also fill in column `Paid`.  DONE.
 	- **NOTE**: T1, T8, and T9 has only 3 speakers in each session.
 	- SC programmatically filtered out rows with `Acceptance` == `Yes`.
 
@@ -57,8 +57,8 @@ The following are input Google Sheets for MCM 2025. We need to convert them into
 - Participants.csv
 	* Missing organizing committee members and scientific committee members — DONE
 	* Not sure how to get `PageNumber` — DONE.
-	* Student helpers — <mark>TODO</mark>
-	* Paid registered participants who are not presenters/organizers — <mark>Fred will extract from Mail Chimp</mark>
+	* Student helpers — DONE.
+	* Paid registered participants who are not presenters/organizers — Fred will extract from Mail Chimp. DONE.
 
 # Workflow
 
