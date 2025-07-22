@@ -14,7 +14,7 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Mon, Jul 28 15:30–17:30","Track F: Stochastic Computation and Complexity, Part II",HH Auditorium,Larisa Yaroslavtseva,stochastic computation and complexity part ii,S5,13
 "Mon, Jul 28 15:30–17:30",Track G: Recent advances in optimization under uncertainty,HH Ballroom,Phillip A. Guth,recent advances in optimization under uncertainty,S6,14
 "Mon, Jul 28 15:30–17:30",Track H: Computational Methods for Low-discrepancy Sampling and Applications,HH 002,Nathan Kirk,computational methods for low discrepancy sampling and applications,S7,15
-"Mon, Jul 28 15:30–17:30","Track I: Technical Session 4 - Quasi-Monte Carlo, Part 1",WH Auditorium,Peter Kritzer,technical session 4,T4,16
+"Mon, Jul 28 15:30–17:30","Track I: Technical Session 4 - Quasi-Monte Carlo, Part I",WH Auditorium,Peter Kritzer,technical session 4,T4,16
 "Mon, Jul 28 15:30–17:30",Track J: Technical Session 12 - PDEs and SDEs,WH 115,Håkon Hoel,technical session 12,T12,17
 "Mon, Jul 28 17:30–19:30",Welcome Reception,HH Lobby,,,,18
 "Tue, Jul 29 08:30–17:30",Registration Desk Open,HH Lobby,,,,19
@@ -32,7 +32,7 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Tue, Jul 29 15:30–17:30","Track G: Next-generation optimal experimental design: theory, scalability, and real world impact: Part II",HH Ballroom,Xun Huan,next generation optimal experimental design theory scalability and real world impact part ii,S13,31
 "Tue, Jul 29 15:30–17:30",Track H: Advances in Rare Events Simulation,HH 002,Shyam Mohan Subbiah Pillai,advances in rare events simulation,S14,32
 "Tue, Jul 29 15:30–17:30","Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II",WH Auditorium,Yuhan Ding,frontiers in quasi monte carlo and markov chain monte carlo methods part ii,S15,33
-"Tue, Jul 29 15:30–17:30","Track J: Technical Session 5 - Quasi-Monte Carlo, Part 2",WH 115,Christian Weiss,technical session 5,T5,34
+"Tue, Jul 29 15:30–17:30","Track J: Technical Session 5 - Quasi-Monte Carlo, Part II",WH 115,Christian Weiss,technical session 5,T5,34
 "Tue, Jul 29 18:00–20:00",Chicago White Sox vs. Philadelphia Phillies (must purchase tickets beforehand),Meet in HH Lobby,,,,35
 "Wed, Jul 30 08:30–16:30",Registration Desk Open,HH Lobby,,,,36
 "Wed, Jul 30 09:00–10:00","Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",HH Auditorium,Gunther Leobacher,michaela szölgyenyi,P5,37
