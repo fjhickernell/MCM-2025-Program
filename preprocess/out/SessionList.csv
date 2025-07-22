@@ -3,7 +3,7 @@ P1,"Plenary Talk by Rohan Sawhney, Nvidia Corporation, Monte Carlo Methods in Co
 S1,"Track A: Stochastic Computation and Complexity, Part I",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,Stefan Heinrich,"Mon, Jul 28 10:30–12:30",HH Auditorium,2
 S2,Track B: Domain Uncertainty Quantification,1,André-Alexander Zepernick,Philipp Guth,Vesa Kaarnioja,André-Alexander Zepernick,"Mon, Jul 28 10:30–12:30",HH Ballroom,3
 S3,"Track C: Nested expectations: models and estimators, Part I",1,Arved Bartuska,Abdul-Lateef Haji-Ali,Raúl Tempone,Arved Bartuska,"Mon, Jul 28 10:30–12:30",HH 002,4
-S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I",1,Sou-Cheng Choi,Pieterjan Robbe,Mike Giles,Sou-Cheng Choi,"Mon, Jul 28 10:30–12:30",WH Auditorium,5
+S4,"Track D: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part I",1,Sou-Cheng Choi,Pieterjan Robbe,Mike Giles,Mike Giles,"Mon, Jul 28 10:30–12:30",WH Auditorium,5
 T1,Track E: Technical Session 1 - Markov Chain Monte Carlo,0,,,,Philippe Gagnon,"Mon, Jul 28 10:30–12:30",WH 115,6
 P2,"Plenary Talk by Christiane Lemieux, U of Waterloo, Golden ratio nets and sequences",0,,,,Nathan Kirk,"Mon, Jul 28 14:00–15:00",HH Auditorium,7
 S5,"Track F: Stochastic Computation and Complexity, Part II",1,Stefan Heinrich,Thomas Muller-Gronbach,Larisa Yaroslavtseva,Larisa Yaroslavtseva,"Mon, Jul 28 15:30–17:30",HH Auditorium,8
