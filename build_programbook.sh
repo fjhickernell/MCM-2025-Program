@@ -29,7 +29,7 @@ TEXBIN=/usr/local/texlive/${TEXYEAR}/bin/universal-darwin
 SCHED_START=31 #where the schedule cover page starts
 OUTLINE_END=33  #where the outline schedule ends
 SCHED_END=42  #where the schedule ends
-ABSTRACT_END=235  #where the abstracts end
+ABSTRACT_END=225  #where the abstracts end
 
 echo "Using filename suffix: $suffix"
 
@@ -108,6 +108,6 @@ open MCM2025_Book${suffix}.pdf
 #open MCM2025_schedule${suffix}.pdf
 #open MCM2025_schedule_abstracts${suffix}.pdf
 
-echo "Finished compiling book at: $(date '+%Y-%m-%d %H:%M:%S')"
+printf "\n\n***Finished compiling book at: $(date '+%Y-%m-%d %H:%M:%S')\n\n"
 
 cd ..
