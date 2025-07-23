@@ -42,18 +42,19 @@
 \begin{document}
 	
 \begin{talk}
-  {AI-Powered Bayesian Inference}% [1] talk title
-  {Veronika Ročková}% [2] speaker name
-  {University of Chicago}% [3] affiliations
-  {veronika.rockova@chicagobooth.edu}% [4] email
-  {Sean O'Hagan}% [5] coauthors
+  {An optimal transport approach to quantifying model uncertainty of SDEs}% [1] talk title
+  {Michaela Sz\"olgyenyi}% [2] speaker name
+  {University of Klagenfurt}% [3] affiliations
+  {michaela.szoelgyenyi@aau.at}% [4] email
+  {Benjamin A.~Robinson}% [5] coauthors
   {}% [6] special session. Leave this field empty for contributed talks. 
 				% Insert the title of the special session if you were invited to give a talk in a special session.
 			
-The advent of Generative Artificial Intelligence (GAI) has heralded an inflection point that changed how society thinks about knowledge acquisition. While GAI cannot be fully trusted for decision-making, it may still provide valuable information that can be integrated into a decision pipeline. Rather than seeing the lack of certitude and inherent randomness of GAI as a problem, we view it as an opportunity. Indeed, variable answers to given prompts can be leveraged to construct a prior distribution which reflects assuredness of AI predictions. This prior distribution may be combined with tailored datasets for a fully Bayesian analysis with an AI-driven prior. In this paper, we explore such a possibility within a non-parametric Bayesian framework. The basic idea consists of assigning a Dirichlet process prior distribution on the data-generating distribution with AI generative model as its baseline. Hyper-parameters of the prior can be tuned out-of-sample to assess the informativeness of the AI prior. Posterior simulation is achieved by computing a suitably randomized functional on an augmented data that consists of observed (labeled) data as well as fake data whose labels have been imputed using AI. This strategy can be parallelized and rapidly produces iid samples from the posterior by optimization as opposed to sampling from conditionals. Our method enables (predictive) inference and uncertainty quantification leveraging AI predictions in a coherent probabilistic manner.
+A fundamental question in stochastic modelling is that of quantifying the effects of model uncertainty. In this context it is of interest to compute a distance between different stochastic models. A  reasonable choice of distance is a modification of the Wasserstein distance on the space of probability measures called adapted Wasserstein distance, as it appears in bicausal optimal transport.
 
-\medskip
-
+	We solve constrained optimal transport problems in which the marginal laws are given by the laws of solutions of stochastic differential equations (SDEs). We consider SDEs with irregular coefficients, making only minimal regularity assumptions. Numerical methods are employed as a theoretical tool to bound the adapted Wasserstein distance. This opens the door for computing the adapted Wasserstein distance in a simple way. We show that this method can be applied to quantifying model uncertainty in stochastic optimisation problems. 	
+	
+	Our approach successfully brings together optimal transport and numerical analysis of SDEs. 
 \end{talk}
 
 \end{document}

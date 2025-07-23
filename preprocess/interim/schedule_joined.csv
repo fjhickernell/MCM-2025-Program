@@ -23,7 +23,7 @@ SessionTime,SessionTitle,Room,Chair,join_key
 "Tue, Jul 29 15:30–17:30",Track H: Advances in Rare Events Simulation,HH 002,Shyam Mohan Subbiah Pillai,advances in rare events simulation
 "Tue, Jul 29 15:30–17:30","Track I: Frontiers in (Quasi-)Monte Carlo and Markov Chain Monte Carlo Methods, Part II",WH Auditorium,Yuhan Ding,frontiers in quasi monte carlo and markov chain monte carlo methods part ii
 "Tue, Jul 29 15:30–17:30","Track J: Technical Session 5 - Quasi-Monte Carlo, Part II",WH 115,Christian Weiss,technical session 5
-"Wed, Jul 30 09:00–10:00","Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",HH Auditorium,Gunther Leobacher,michaela szölgyenyi
+"Wed, Jul 30 09:00–10:00","Plenary Talk by Veronika Ročková, U of Chicago, AI-Powered Bayesian Inference",HH Auditorium,Art B. Owen,veronika ročková
 "Wed, Jul 30 10:30–12:30","Track A: Stochastic Computation and Complexity, Part V",HH Auditorium,Andreas Neuenkirch,stochastic computation and complexity part v
 "Wed, Jul 30 10:30–12:30",Track B: Statistical Design of Experiments,HH Ballroom,Simon Mak,statistical design of experiments
 "Wed, Jul 30 10:30–12:30",Track C: Advances in Adaptive Hamiltonian Monte Carlo,HH 002,Art Owen,advances in adaptive hamiltonian monte carlo
@@ -49,4 +49,4 @@ SessionTime,SessionTitle,Room,Chair,join_key
 "Fri, Aug 1 09:00–11:00","Track B: Hardware or Software for (Quasi-)Monte Carlo Algorithms, Part II",HH Ballroom,Pieterjan Robbe,hardware or software for quasi monte carlo algorithms part ii
 "Fri, Aug 1 09:00–11:00",Track C: Technical Session 3 - Simulation,HH 002,Nicole Aretz,technical session 3
 "Fri, Aug 1 09:00–11:00",Track D: Technical Session 9 - Sampling and Markov Chain Monte Carlo,WH Auditorium,Soumyadip Ghosh,technical session 9
-"Fri, Aug 1 11:30–12:30","Plenary Talk by Veronika Ročková, U of Chicago, AI-Powered Bayesian Inference",HH Auditorium,Art B. Owen,veronika ročková
+"Fri, Aug 1 11:30–12:30","Plenary Talk by Michaela Szölgyenyi, U of Klagenfurt, An optimal transport approach to quantifying model uncertainty of SDEs",HH Auditorium,Gunther Leobacher,michaela szölgyenyi
