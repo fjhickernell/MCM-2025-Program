@@ -49,7 +49,7 @@ def shorten_titles(title):
         (r'\bHigh-performance Computing\b', 'HPC'),
         (r'\bMachine Learning\b', 'ML'),
         (r'\bTrack [A-Z]:\s*\b', ''),
-        (r'\band\b', '\&~'),
+        (r'\band\b', '\\&~'),
     ]
     for pattern, repl in replacements:
         title = re.sub(pattern, repl, title, flags=re.IGNORECASE)
