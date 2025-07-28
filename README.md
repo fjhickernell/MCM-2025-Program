@@ -12,7 +12,7 @@ Made with ❤️ for the MCM 2025 community | [☕ Buy the lead developer a coff
 
 ```bibtex
 @misc{mcm2025_program_book,
-  author = {Sou-Cheng T. Choi and Yuhan Ding and Fred J. Hickernell and Tim Hobbs and Faith Kancauski and Lulu Kang and Nathan Kirk and Yiou Li and David Minh and Chang-Han Rhee and Daniel Sanz-Alonso},
+  author = {Sou-Cheng T. Choi and Yuhan Ding and Fred J. Hickernell and Tim Hobbs and Lulu Kang and Nathan Kirk and Yiou Li and David Minh and Chang-Han Rhee and Daniel Sanz-Alonso},
   title = {Program Book for the MCM 2025: The Fifteenth International Conference on Monte Carlo and Quasi-Monte Carlo Methods in Scientific Computing},
   howpublished = {Conference Program Book},
   year = {2025},
