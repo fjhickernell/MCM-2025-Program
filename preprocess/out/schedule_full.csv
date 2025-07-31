@@ -50,7 +50,7 @@ SessionTime,SessionTitle,Room,Chair,join_key,SessionID,OrderInSchedule
 "Wed, Jul 30 16:00–16:30",Coffee Break,HH Lobby,,,,49
 "Wed, Jul 30 18:00–20:30",Conference Banquet,"Bridgeport Art Center, 1200 W 35th Street",,,,50
 "Thu, Jul 31 08:30–17:30",Registration Desk Open,HH Lobby,,,,51
-"Thu, Jul 31 09:00–10:00","Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampling: Methods and Optimization Strategies",HH Auditorium,Tim Hobbs,uros seljak,P6,52
+"Thu, Jul 31 09:00–10:00","Plenary Talk by Uros Seljak, UC Berkeley, Gradient-Based MCMC Sampling: Methods and Optimization Strategies",HH Auditorium,Nicolas Chopin,uros seljak,P6,52
 "Thu, Jul 31 10:00–10:30",Coffee Break,HH Lobby,,,,53
 "Thu, Jul 31 10:30–12:30",Track A: QMC and Applications Part I,HH Auditorium,Michael Gnewuch,qmc and applications part i,S22,54
 "Thu, Jul 31 10:30–12:30","Track B: Analysis of Langevin and Related Sampling Algorithms, Part I",HH Ballroom,Xiaoou Cheng,analysis of langevin and related sampling algorithms part i,S23,55
