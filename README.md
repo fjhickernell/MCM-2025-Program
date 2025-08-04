@@ -15,7 +15,7 @@ This is the source repository for producing [MCM 2025](https://fjhickernell.gith
 * Use `make pgm` to generate the program book in PDF format
 
 
-The generated PDF will be located in the `MCM-2025-Program/MCM_ProgramBook_TEX` directory.
+The [generated PDF](https://github.com/fjhickernell/MCM-2025-Program/blob/main/MCM_ProgramBook_TEX/MCM2025_Book.pdf) will be located in the `MCM-2025-Program/MCM_ProgramBook_TEX` directory.
 
 ---
 Made with ❤️ for the MCM 2025 community | [☕ Buy the lead developer a coffee](https://gofund.me/ed7c87a0) or cite the program book if this conference or the program book is helpful to you!
