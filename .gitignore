@@ -29,6 +29,7 @@ MCM*2025*.pdf
 # System files
 .DS_Store
 Thumbs.db
+.synctex(busy)
 
 # Generated output files
 #*.pdf
@@ -46,4 +47,16 @@ preprocess/README_files/*
 runinfo/*
 *.*#
 
-MCM_ProgramBook_TEX/MCM2025_book.synctex(busy)
+# Choi's
+MCM2025_Personal_Schedule.md
+MCM2025_Personal_Schedule.md
+MCM2025_schedule.txt
+/preprocess/app
+MCM_ProgramBook_TEX/MCM2025_book.txt
+BATCH_SIZE_GUIDE.md
+preprocess/concat_tex.py
+PERFORMANCE_OPTIMIZATIONS.md
+MCM_ProgramBook_TEX/MCM2025_consolidated.tex
+/MCM-2025-Program-Personal
+*_sess_talks.tex
+MCM_ProgramBook_TEX/MCM2025_book_test.tex
