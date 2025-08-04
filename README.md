@@ -1,10 +1,21 @@
-This is the source repository for producing [MCM 2025](https://ccbatiit.github.io/mcm2025/) conference program book.
+This is the source repository for producing [MCM 2025](https://fjhickernell.github.io/mcm2025/) conference program book using Python.
+
+**Requirements:**
+
+- [Python 3](https://www.python.org/)
+- [conda](https://docs.conda.io/)  
+- [make](https://www.gnu.org/software/make/)  
+- LaTeX distribution (e.g., TeX Live or MiKTeX)
+  
+**Instructions:**
 
 * Install conda environment using `conda env create -f environment.yml`
 * Activate the conda environment using `conda activate mcm2025`
 * Use `make pp` to preprocess data
 * Use `make pgm` to generate the program book in PDF format, with time stamp in the filename
 * Use `make pg` to generate the program book in PDF format, with no time stamp in the filename
+
+The generated PDF will be located in the `MCM-2025-Program/MCM_ProgramBook_TEX` directory.
 
 ---
 Made with ❤️ for the MCM 2025 community | [☕ Buy the lead developer a coffee](https://gofund.me/ed7c87a0) or cite the program book if this conference or the program book is helpful to you!
