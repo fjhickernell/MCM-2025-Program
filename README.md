@@ -12,8 +12,8 @@ This is the source repository for producing [MCM 2025](https://fjhickernell.gith
 * Install conda environment using `conda env create -f environment.yml`
 * Activate the conda environment using `conda activate mcm2025`
 * Use `make pp` to preprocess data
-* Use `make pgm` to generate the program book in PDF format, with time stamp in the filename
-* Use `make pg` to generate the program book in PDF format, with no time stamp in the filename
+* Use `make pgm` to generate the program book in PDF format
+
 
 The generated PDF will be located in the `MCM-2025-Program/MCM_ProgramBook_TEX` directory.
 
